@@ -6,8 +6,8 @@ description: Github pages for alwaldend.github.io
 ## Links
 
 - Pages: https://alwaldend.github.io
-- Pages branch:
-- Source: https://github.com/alwaldend/src
+- Pages branch: https://github.com/alwaldend/alwaldend.github.io/tree/pages
+- Source: https://github.com/alwaldend/src/tree/master/projects/alwaldend.com
 
 ## Licence
 
