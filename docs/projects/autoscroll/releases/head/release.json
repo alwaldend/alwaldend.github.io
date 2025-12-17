@@ -1,0 +1,322 @@
+{
+    "items":  [
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "cb0826e25902f782a1f3cae8824a3d523b732f99c0d8f27dfc4c29efbac0f3f7"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "1a836370fe8ff0a13ee1be63761abba0"
+                    }
+                ],
+                "name":  "release_deps.dot",
+                "safeName":  "release_deps_dot",
+                "size":  "1213892"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:projects_autoscroll_release_deps_dot_head"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "673204ac19308307028f02d98b7690be56784cb205c9f35f42b67ef0d4355777"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "9792c79265ff0bc3f3653f97cef0fd32"
+                    }
+                ],
+                "name":  "autoscroll-0.0.0-py3-none-any.whl",
+                "safeName":  "autoscroll_0_0_0_py3_none_any_whl",
+                "size":  "27052"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:projects_autoscroll_autoscroll_0_0_0_py3_none_any_whl_head"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "name":  "head",
+    "project":  {
+        "subdir":  "projects/autoscroll",
+        "safeSubdir":  "projects_autoscroll"
+    },
+    "git":  {
+        "revision":  {
+            "hash":  "c535f7614334198cd71006a1c459586a32ccb20d",
+            "author":  {
+                "name":  "simeonwarren",
+                "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                "when":  "1765900062"
+            },
+            "committer":  {
+                "name":  "simeonwarren",
+                "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                "when":  "1765900820"
+            },
+            "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaUGCLQAKCRD3LMCDXvUI\negs8AQCUeb24wFNrVSyvssdQhZEHiKAngww37jTx1h9gjC38pwD/aoI+1dvt6XbM\n7W3fvWuUjddcjOTeScA8JU8+iA1oHwQ=\n=QdWA\n-----END PGP SIGNATURE-----\n",
+            "message":  "Add deploy to dockerhub, add //tools/oras\n"
+        },
+        "commits":  [
+            {
+                "hash":  "c535f7614334198cd71006a1c459586a32ccb20d",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1765900062"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1765900820"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaUGCLQAKCRD3LMCDXvUI\negs8AQCUeb24wFNrVSyvssdQhZEHiKAngww37jTx1h9gjC38pwD/aoI+1dvt6XbM\n7W3fvWuUjddcjOTeScA8JU8+iA1oHwQ=\n=QdWA\n-----END PGP SIGNATURE-----\n",
+                "message":  "Add deploy to dockerhub, add //tools/oras\n"
+            },
+            {
+                "hash":  "2b5e29940827287f7657a5671546938c17a87638",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1765736350"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1765736561"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaT8AkgAKCRD3LMCDXvUI\nejeWAP4/jq9f61sZ3gvzJ5rQbvNZYzNp16n9/FaBrtVoEqHDvAEAvrNjbYUfuZZ8\ntpzZ1bbBJHnjL67VJL1qLM2MYvoKPgk=\n=Tbdk\n-----END PGP SIGNATURE-----\n",
+                "message":  "Add missing features to the Pomodoro app, update project readmes, add github pages\n"
+            },
+            {
+                "hash":  "fae6386a5959c560d94c87cf7dbc6be547e31f97",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1765214282"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1765214282"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaTcIjwAKCRD3LMCDXvUI\nevwCAP9pfpbq/OvbzLuU/R+BZg9/+dr38QMkLAadb3HZQtH5ZAD8DM/YZ3KniZjg\nLQ+3rZ0PdNj+0kziVn+DLAKZe+REwgo=\n=3veL\n-----END PGP SIGNATURE-----\n",
+                "message":  "Move all remaining code to main\n"
+            },
+            {
+                "hash":  "a32ab0bea9298d24881223120de05f6496273c99",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1765209192"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1765209192"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaTb1PAAKCRD3LMCDXvUI\neidgAP9pgmr07qnFGEFgMjitqeiRMDgH2V5dgvPRCEJ2UxA32gEA6zszPq2mfIar\nsfcyeSxnj8SIziX/Z9WtJYd3Jw9+MgE=\n=JwQg\n-----END PGP SIGNATURE-----\n",
+                "message":  "Move a portion of tool code to main\n"
+            },
+            {
+                "hash":  "475f39e884227c1ca7deac306a2b85c0d5ddf069",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1764787072"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1764787072"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaTCDkAAKCRD3LMCDXvUI\nervPAPwPzKJzSxTWecgMtB32jUsPxRD6JHkw/SfGScxaMGASnwD8DwQ6KoTA5RfI\nfDARoZrY0fzRlUP06XnPL7HczP9fxgc=\n=JrqN\n-----END PGP SIGNATURE-----\n",
+                "message":  "Use separate lock files for each golang tool\n"
+            },
+            {
+                "hash":  "f45d9d4c30fe010caa64df05958eabd40b49f718",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1763660568"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1763660568"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaR9TVgAKCRD3LMCDXvUI\neifzAP4vRve6HtPVjjBtStqmMbHtgLP3noVNTa3BbjOBFmuHpQD/YgJFzvOUl074\n/EYTPCQnNMxr1kSQLZUuNvzC8kRi9AY=\n=BmPg\n-----END PGP SIGNATURE-----\n",
+                "message":  "Add release_page generation, remove redundant release templates\n"
+            },
+            {
+                "hash":  "c9ba7023ce630f30795de79f113a3fa774cc7b33",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1763306204"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1763306204"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRnrvQAKCRD3LMCDXvUI\neu5gAQCxmD6rSMe3P391NRO4gAZ5cw2lBWl2ZE2yvnOHmo9nRQD9FfZQlupLoKYv\nhoAT89IH36ccyu4QSfhCaNiH6ezZkg4=\n=W/Er\n-----END PGP SIGNATURE-----\n",
+                "message":  "Allow docs to put content outside of docs, refactor git to just use .git directly\n"
+            },
+            {
+                "hash":  "a1043546c796aaa42b63ae5450740eed3cc368be",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1763132677"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1763132677"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRdGHQAKCRD3LMCDXvUI\neomwAP4w7iv+z36GDWREinSGaSUhi8sXqc+PNM7n9TsrQGZmEwEAiGrvO+Aa9U1B\ncHtpZX95G+GTThOWVirUC7sqwwSIRQw=\n=kNnr\n-----END PGP SIGNATURE-----\n",
+                "message":  "Add cross-compilation, move leetcode downloader contracts out of //contracts\n"
+            },
+            {
+                "hash":  "780895df3a143515d7a7a97e7a620c861d2354d2",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1763119133"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1763119133"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRcQeAAKCRD3LMCDXvUI\nekKjAQDafiXpdtKhKiiJEOosb87l9ene5Vp1tg9o8qF2Ng3bkwD+KUED7j6sZ+JA\ngLLhITQ8AfD9iWwr7WXYVSQNY6omQAI=\n=o9gU\n-----END PGP SIGNATURE-----\n",
+                "message":  "Refactor release templates into partials, add release cards\n"
+            },
+            {
+                "hash":  "1add813333803a2025e340fff0c9b62a2780743d",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1763032942"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1763032942"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRXABgAKCRD3LMCDXvUI\nejwmAP0Sszy1vev1tQlNrqrbVh4bQIhrLxXL7C01nuBvHwqF9wD+KK9sgjTTN/oV\nzvZdJ0k0nCPjpsei/WST0Jhye/CSEgs=\n=Z4/A\n-----END PGP SIGNATURE-----\n",
+                "message":  "Write release tool in go, start adding it to projects, add py proto generation\n"
+            },
+            {
+                "hash":  "15626d112102adeaa29d20916260b2508468396f",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1763020304"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1763020304"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRWOWgAKCRD3LMCDXvUI\nehcUAQC2nNcvnoF+dPw8eGl+/1I7EVs+WmtK6cSIn4pXbf7lcQEAiPLMccMa1OGS\nRbDOtPk7ADxf3a8LEbqGCNBLSB9+QwQ=\n=5xca\n-----END PGP SIGNATURE-----\n",
+                "message":  "Add release rules, add gzip rules, add several other tools, remove autoscrool deps from the root\n"
+            },
+            {
+                "hash":  "7b32821916b8324e991795c2ac5a7c4459e3da6f",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1762795529"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1762795529"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRIgTgAKCRD3LMCDXvUI\nehSiAQC52CH4c2mV1Ojbhm45wv12THHD92yGwqA8RfP8Ge9WVwD+JnRVK2MTMM+q\nauNpz6qREsMFaNjfVHoaEUV1Z/X8iAk=\n=qRQ9\n-----END PGP SIGNATURE-----\n",
+                "message":  "Flatten third_party, split tools/bzl a bit\n"
+            },
+            {
+                "hash":  "8fcfb85385cd224081374d74377f85df4bb54e1b",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1762007228"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1762007228"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaQYZPgAKCRD3LMCDXvUI\nemnfAPwMlFn90H8CzaG/eKQ8n1xdLMa1SGwMT56VPwiPu8zFewEArSX5Y3g8dRGM\nRfApVcsDj+2rl6WbzwdNwvkpKi4AIAY=\n=cbSK\n-----END PGP SIGNATURE-----\n",
+                "message":  "Add more taxonomies, remove docs tree, move alwaldend.com to projects\n"
+            },
+            {
+                "hash":  "51e5409918272c1504f76608bf5d2372fc0e1337",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1761468196"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1761468196"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaP3fWgAKCRD3LMCDXvUI\neoW4AQCamul71V5EjPyFaobFm6ZKF1tCrblluL3woGIzRQI7AgEAqnnMm+qkPH0B\nKOO/pdOw+Bm4XqAWainAr5BCSzuwtwk=\n=3QpD\n-----END PGP SIGNATURE-----\n",
+                "message":  "Remove bazel target docs, add tools/docs, tag projects properly\n"
+            },
+            {
+                "hash":  "3117a3914a275ad6896122256ad3a9758ed9cb97",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1761411392"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1761411392"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaP0BhQAKCRD3LMCDXvUI\nejT2AQCKF39eUx1fNnJg7gAV776W51boaMEIt50eEPHzNAHuDwEAr1Bd0EkZhr/F\nniteNnnpVbIhoVLqLaOjk51cXZy4MQc=\n=xe+P\n-----END PGP SIGNATURE-----\n",
+                "message":  "Remove changelogs, ignore irrelevant directories in docs\n"
+            },
+            {
+                "hash":  "1da43653d268930eb71e7621b77b52f32c10d4ea",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1761402634"
+                },
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1761402634"
+                },
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaPzfkAAKCRD3LMCDXvUI\nevO8AP4xoISxnAZ4SYPqAHX81Mz9VOJrpvnNQlx6Ym/D2w8BhwD9FIhbH6pfc97G\no5rRhzf7rvmNZ2dv6bXBDnhSQdp8MwY=\n=ffVX\n-----END PGP SIGNATURE-----\n",
+                "message":  "Remove patch tree, remove py tree\n"
+            }
+        ]
+    }
+}

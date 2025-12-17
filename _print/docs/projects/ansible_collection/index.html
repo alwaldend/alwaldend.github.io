@@ -1,0 +1,3387 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/projects/ansible_collection/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/projects/ansible_collection/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Ansible collection | Alwaldend</title>
+<meta name="description" content="Ansible collection alwaldend.main">
+<meta property="og:url" content="https://alwaldend.com/docs/projects/ansible_collection/">
+  <meta property="og:site_name" content="Alwaldend">
+  <meta property="og:title" content="Ansible collection">
+  <meta property="og:description" content="Ansible collection alwaldend.main">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Ansible collection">
+  <meta itemprop="description" content="Ansible collection alwaldend.main">
+  <meta itemprop="dateModified" content="2000-01-01T03:00:00+03:00">
+  <meta itemprop="wordCount" content="54">
+  <meta itemprop="keywords" content="Ansible_collection">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ansible collection">
+  <meta name="twitter:description" content="Ansible collection alwaldend.main">
+<link rel="preload" href="/scss/main.min.988a146c65ef793ae6145654705b7a4aca318d43123c51df956be40671e18198.css" as="style" integrity="sha256-mIoUbGXveTrmFFZUcFt6SsoxjUMSPFHflWvkBnHhgZg=" crossorigin="anonymous">
+<link href="/scss/main.min.988a146c65ef793ae6145654705b7a4aca318d43123c51df956be40671e18198.css" rel="stylesheet" integrity="sha256-mIoUbGXveTrmFFZUcFt6SsoxjUMSPFHflWvkBnHhgZg=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Alwaldend</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Docs</span></a>
+      </li>
+      <li class="td-light-dark-menu nav-item dropdown">
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check2" viewBox="0 0 16 16">
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+  <symbol id="circle-half" viewBox="0 0 16 16">
+    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+  </symbol>
+  <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+  </symbol>
+  <symbol id="sun-fill" viewBox="0 0 16 16">
+    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+  </symbol>
+</svg>
+
+<button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        data-bs-display="static"
+        aria-label="Toggle theme (auto)">
+  <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+</button>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#sun-fill"></use></svg>
+      Light
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#moon-stars-fill"></use></svg>
+      Dark
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+      <svg class="bi me-2 opacity-50"><use href="#circle-half"></use></svg>
+      Auto
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+</ul>
+
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.a01af7848767ae5ec59071d4d461799a.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/projects/ansible_collection/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Ansible collection</h1>
+<div class="lead">Ansible collection alwaldend.main</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-f3969676911b64893c7746cd9044bb93">Playbooks</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-725ef58324763c28547a6bfecb1d6854">Roles</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1: <a href="#pg-30a89200860df610245a2902c212694c">Adguard</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.1: <a href="#pg-3efff43ac08f84b01a5d15e3d949dc8d">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.2: <a href="#pg-a3020e644ec307cbd988e41217bd1f02">Caddy</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.2.1: <a href="#pg-790b8a8ac3ffe8836c4798374a36899e">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.3: <a href="#pg-dfd3ab501fa8e0c817ea6e986d3e2748">CIFS</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.3.1: <a href="#pg-4c12f13db1cbd670c3bca9662cd2e52d">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.4: <a href="#pg-906007041565cf30f8e3b78acddd3a70">Consul</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.4.1: <a href="#pg-249b793a8050d10c6e57a9e9048df28a">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.5: <a href="#pg-3a7f180913bc358da5d918b0bbf25bee">Consul envoy</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.5.1: <a href="#pg-081e1fecbb396235f4ad3cb6a73fda71">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.6: <a href="#pg-8c210c768b2817e55830cc5a27aeec9a">DNS</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.6.1: <a href="#pg-138215aa6c7ef5186f29880fb48ba249">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.7: <a href="#pg-4d756cd75b3f4c8877626f2e348797b1">Docker</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.7.1: <a href="#pg-b776c1dd79eb644be9005f97ba55e9c7">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.8: <a href="#pg-5f4f536033ac30537465643e1056e375">Facts</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.8.1: <a href="#pg-66799841577d4b5802fda22d743c2aea">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.9: <a href="#pg-438109bcba665e99f3b3a3d035bb7657">Firewall</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.9.1: <a href="#pg-194557cb0b5c7c9fb55d52880c00c0af">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.10: <a href="#pg-e774e85ba522a5b9e3cd2f9364f59c5a">Hiddify manager</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.10.1: <a href="#pg-31439a6dfe74cbccb756a6472fbf6ad2">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.11: <a href="#pg-aab5daa82477b3920ff5ee8ec7efbbd0">Hiddify manager with host</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.11.1: <a href="#pg-5d897bd81c6f320bb7c327bac0e088df">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.12: <a href="#pg-91c65ef0b148bbccf32c7deb1a09c514">Host</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.12.1: <a href="#pg-9d6bd2cd0303d370abc4f1d98b1650c2">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.13: <a href="#pg-47fdf99e151dc4c2d11aef1552036c0a">K3s</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.13.1: <a href="#pg-edc0b3e5e84347496c4c9fae00e2aebf">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.14: <a href="#pg-ed02860b5498ad955756c1ae81bfa6e3">K3s bootstrap</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.14.1: <a href="#pg-c5427a830d474331a32ebec771196c6f">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.15: <a href="#pg-620e18e5f1e2bb0d02d255ed581516d3">K3s cluster</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.15.1: <a href="#pg-b8bbef7b6877eb0f828c8e76a4bcc802">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.16: <a href="#pg-81cd85a6a11107a59ac2700f5626df64">OS</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.16.1: <a href="#pg-d90e69704a044104228b9bd720807f68">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.17: <a href="#pg-17e405829e07a73eec1091b7b246a811">PVE cluster</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.17.1: <a href="#pg-d67bf79c871dbdfcbf94618fa898fee3">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.18: <a href="#pg-ca3da3c1ba5fb5da1f283e57dbb393b9">PVE VM</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.18.1: <a href="#pg-1038e347d9491190d1fef56cdc6469f8">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.19: <a href="#pg-64980a72cc74b50f841ad4687789acdf">PVE VM remove</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.19.1: <a href="#pg-703b55defb376903ababd3202b7a958f">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.20: <a href="#pg-b591ef4b5b69e8540a2eacfd64b7910b">Raspberry pi</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.20.1: <a href="#pg-0a950c5bb25da1b69e51de2927e9df59">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.21: <a href="#pg-30a1060fb79f9cb980286abd5f8e426c">SSH</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.21.1: <a href="#pg-29c97f0a38749962edd84ec904e3d79d">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.22: <a href="#pg-0a5e3196a671524154fb7d4dd62777e7">SSH port forwarding</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.22.1: <a href="#pg-dbc6a0cb7660b05fe7144cf801836b1f">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.23: <a href="#pg-e6c943af3ee2deb48964eba01ea05920">SSH update known hosts</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.23.1: <a href="#pg-083f8862e92b5e12065dc0ae806fb880">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.24: <a href="#pg-8c1b9c9270f159fcca7a1514b870376f">Traefik</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.24.1: <a href="#pg-64c36144da7ca469126b8b4625766582">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.25: <a href="#pg-17a4d2717c20f3b83ef3b560e84d88b2">Update all packages</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.25.1: <a href="#pg-2847c001f3a68d2b412fe1f456ef83af">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.26: <a href="#pg-223eb1fd50fcaae788edd245a26950b5">Users</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.26.1: <a href="#pg-0a03a2cb41721fbbb4cc7b575e99682b">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.27: <a href="#pg-cb528d56ecec0a9c20bb4bddddd23208">Vault</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.27.1: <a href="#pg-26a8a6b79522c1530b2b2867d0dac032">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.28: <a href="#pg-143d4797f9b8079b3ab27d7445d99320">Wireguard</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.28.1: <a href="#pg-c56e62cca984605c452317c05cdf57f6">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.29: <a href="#pg-c8e05c61db7c7cd176ffc9268956bd82">Xray</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.29.1: <a href="#pg-9b6da274af8561381ca8cbf5f469fad3">Defaults</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <h2 id="links">Links<a class="td-heading-self-link" href="#links" aria-label="Heading self-link"></a></h2>
+<ul>
+<li>Source code: <a href="https://github.com/alwaldend/src/tree/master/projects/ansible_collection">https://github.com/alwaldend/src/tree/master/projects/ansible_collection</a></li>
+<li>Docs: <a href="https://docs.ansible.com/ansible/latest/collections_guide/index.html">https://docs.ansible.com/ansible/latest/collections_guide/index.html</a></li>
+</ul>
+<h2 id="features">Features<a class="td-heading-self-link" href="#features" aria-label="Heading self-link"></a></h2>
+<ul>
+<li>Ansible collection</li>
+</ul>
+<h2 id="galaxy">Galaxy<a class="td-heading-self-link" href="#galaxy" aria-label="Heading self-link"></a></h2>
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">alwaldend</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#ae81ff">0.0.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">readme</span>: <span style="color:#ae81ff">README.md</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">authors</span>:
+</span></span><span style="display:flex;"><span>-  <span style="color:#ae81ff">&lt;example@domain.com&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">description</span>: <span style="color:#ae81ff">main alwaldend ansible collection</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">license</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">AGPL-3.0-or-later</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">license_file</span>: <span style="color:#ae81ff">LICENSE.txt</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">tags</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">dependencies</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ansible.posix</span>: <span style="color:#ae81ff">1.5.4</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">community.crypto</span>: <span style="color:#ae81ff">2.17.0</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">community.general</span>: <span style="color:#ae81ff">8.2.0</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">devsec.hardening</span>: <span style="color:#ae81ff">9.0.1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">community.docker</span>: <span style="color:#ae81ff">3.11.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">repository</span>: <span style="color:#ae81ff">https://git.alwaldend.com/src</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">documentation</span>: <span style="color:#ae81ff">https://collection-main.docs.alwaldend.com</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">homepage</span>: <span style="color:#ae81ff">https://collection-main.docs.alwaldend.com</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">issues</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">build_ignore</span>: []
+</span></span><span style="display:flex;"><span>
+</span></span></code></pre></div>
+
+
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f3969676911b64893c7746cd9044bb93">1 - Playbooks</h1>
+    <div class="lead">Ansible playbooks</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-725ef58324763c28547a6bfecb1d6854">2 - Roles</h1>
+    <div class="lead">Ansible roles</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-30a89200860df610245a2902c212694c">2.1 - Adguard</h1>
+    <div class="lead">Role to deploy adguard</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-3efff43ac08f84b01a5d15e3d949dc8d">2.1.1 - Defaults</h1>
+    <div class="lead">Defaults for adguard</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">adguard_dir</span>: <span style="color:#ae81ff">/etc/adguard</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_work_dir</span>: <span style="color:#e6db74">&#34;{{ adguard_dir }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_gpg_key_url</span>: <span style="color:#ae81ff">https://keys.openpgp.org/vks/v1/by-fingerprint/28645AC9776EC4C00BCE2AFC0FE641E7235E2EC6</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_gpg_key_src</span>: <span style="color:#ae81ff">files/key.asc</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_gpg_key_path</span>: <span style="color:#e6db74">&#34;{{ adguard_dir }}/release-key.asc&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_gpg_key_checksum</span>: <span style="color:#e6db74">&#34;22d78dbacb461667861ee7d2dd13d13240ee003d&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_source_url</span>: <span style="color:#ae81ff">https://github.com/AdguardTeam/AdGuardHome/releases/download</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_version</span>: <span style="color:#ae81ff">v0.107.48</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_checksum</span>: <span style="color:#e6db74">&#34;sha512:c0a336212e3792ae6fc6b8de976befce0038c5d6ddde919a00994c43a929349958c7bd65f7fb7fdd471962afa20855ecbf5830cc7a1d26f3037a716db638c101&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_distrib</span>: <span style="color:#ae81ff">AdGuardHome_linux_amd64.tar.gz</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_url</span>: <span style="color:#e6db74">&#34;{{ adguard_release_source_url }}/{{ adguard_release_version }}/{{ adguard_release_distrib }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_archive_dest</span>: <span style="color:#e6db74">&#34;{{ adguard_dir }}/release-{{ adguard_release_version }}-{{ adguard_release_distrib }}&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_dest</span>: <span style="color:#e6db74">&#34;{{ adguard_dir }}/release-{{ adguard_release_version }}&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_dir</span>: <span style="color:#e6db74">&#34;{{ adguard_release_dest }}/AdGuardHome&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_bin</span>: <span style="color:#e6db74">&#34;{{ adguard_release_dir }}/AdGuardHome&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_sig</span>: <span style="color:#e6db74">&#34;{{ adguard_release_bin }}.sig&#34;</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a3020e644ec307cbd988e41217bd1f02">2.2 - Caddy</h1>
+    <div class="lead">Role to deploy caddy</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-790b8a8ac3ffe8836c4798374a36899e">2.2.1 - Defaults</h1>
+    <div class="lead">Defaults for caddy</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">caddy_enabled</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">caddy_user</span>: <span style="color:#ae81ff">caddy</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">caddy_config_path</span>: <span style="color:#ae81ff">/etc/caddy/Caddyfile</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">caddy_config_dir</span>: <span style="color:#ae81ff">/etc/caddy/configs</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">caddy_config</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  import {{ caddy_config_dir }}/*</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-dfd3ab501fa8e0c817ea6e986d3e2748">2.3 - CIFS</h1>
+    <div class="lead">Setup cifs</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-4c12f13db1cbd670c3bca9662cd2e52d">2.3.1 - Defaults</h1>
+    <div class="lead">Defaults for cifs</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">cifs_enabled</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">cifs_systemd_dir</span>: <span style="color:#ae81ff">/etc/systemd/system</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">cifs_mounts</span>: []
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-906007041565cf30f8e3b78acddd3a70">2.4 - Consul</h1>
+    <div class="lead">Setup consul</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-249b793a8050d10c6e57a9e9048df28a">2.4.1 - Defaults</h1>
+    <div class="lead">Defaults for consul</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">consul_is_server</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_user_name</span>: <span style="color:#ae81ff">consul</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_user_uid</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_dir</span>: <span style="color:#e6db74">&#34;/opt/consul&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_persistence_dir</span>: <span style="color:#e6db74">&#34;{{ consul_dir }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_releases_dir</span>: <span style="color:#e6db74">&#34;{{ consul_dir }}/releases&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_config_symlink_dir</span>: <span style="color:#e6db74">&#34;{{ consul_configs_dir }}/current&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_config_symlink_data_dir</span>: <span style="color:#e6db74">&#34;{{ consul_config_symlink_dir }}/configs&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_configs_dir</span>: <span style="color:#e6db74">&#34;{{ consul_persistence_dir }}/configs/{{ inventory_hostname }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_data_dir</span>: <span style="color:#e6db74">&#34;{{ consul_persistence_dir }}/data/{{ inventory_hostname }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_config_path</span>: <span style="color:#e6db74">&#34;{{ consul_config_config_dir }}/consul.json&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_config_dir</span>: <span style="color:#e6db74">&#34;{{ consul_configs_dir }}/{{ consul_config_dir_name }}&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_config_data_dir</span>: <span style="color:#e6db74">&#34;{{ consul_config_dir }}/data&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_config_config_dir</span>: <span style="color:#e6db74">&#34;{{ consul_config_dir }}/configs&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_config_dir_name</span>: <span style="color:#e6db74">&#34;{{ consul_config_version }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_config_version</span>: <span style="color:#e6db74">&#34;{{ lookup(&#39;ansible.builtin.pipe&#39;, &#39;git rev-parse HEAD&#39;) }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_env</span>: {}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_configs</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_env_path</span>: <span style="color:#e6db74">&#34;{{ consul_config_data_dir }}/consul.env&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_env_symlink_path</span>: <span style="color:#e6db74">&#34;{{ consul_config_symlink_dir }}/data/consul.env&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_release_dir</span>: <span style="color:#e6db74">&#34;{{ consul_releases_dir }}/{{ consul_release_dir_name }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_release_dir_name</span>: <span style="color:#e6db74">&#34;{{ consul_release_version }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_release_symlink_path</span>: <span style="color:#e6db74">&#34;{{ consul_releases_dir }}/current&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_release_symlink_bin_path</span>: <span style="color:#e6db74">&#34;{{ consul_release_symlink_path }}/consul&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_release_version</span>: <span style="color:#ae81ff">1.20.2</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_release_archive_name</span>: <span style="color:#e6db74">&#34;consul_{{ consul_release_version }}_linux_amd64&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_release_archive_fullname</span>: <span style="color:#e6db74">&#34;{{ consul_release_archive_name }}.zip&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_release_bin_path</span>: <span style="color:#e6db74">&#34;{{ consul_release_dir }}/consul&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_release_url</span>: <span style="color:#e6db74">&#34;https://releases.hashicorp.com/consul/{{ consul_release_version }}/{{ consul_release_archive_fullname }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_release_checksum</span>: <span style="color:#e6db74">&#34;sha256:1bf7ddf332f02e6e36082b0fdf6c3e8ce12a391e7ec7dafd3237bb12766a7fd5&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_agent_ca_cert_path</span>: <span style="color:#e6db74">&#34;{{ consul_config_data_dir }}/agent_ca_cert.pub&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_agent_ca_cert</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_server_cert_path</span>: <span style="color:#e6db74">&#34;{{ consul_config_data_dir }}/server_cert_{{ inventory_hostname }}.pub&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_server_cert</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_server_key_path</span>: <span style="color:#e6db74">&#34;{{ consul_config_data_dir }}/server_cert_{{ inventory_hostname }}.key&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_server_key</span>:
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3a7f180913bc358da5d918b0bbf25bee">2.5 - Consul envoy</h1>
+    <div class="lead">Setup envoy for consul</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-081e1fecbb396235f4ad3cb6a73fda71">2.5.1 - Defaults</h1>
+    <div class="lead">Defaults for consul_envoy</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_dir</span>: <span style="color:#e6db74">&#34;/opt/consul_envoy&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_deployments_dir</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_dir }}/deployments&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_releases_dir</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_dir }}/releases&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_deployment_dir</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_deployments_dir }}/{{ consul_envoy_deployment_version }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_release_dir</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_releases_dir }}/{{ consul_envoy_release_version }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_configs_dir</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_deployment_dir }}/configs&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_bootstrap_config_path</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_configs_dir }}/bootstrap.json&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_deployment_version</span>: <span style="color:#e6db74">&#34;{{ lookup(&#39;ansible.builtin.pipe&#39;, &#39;git rev-parse HEAD&#39;) }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_user_name</span>: <span style="color:#ae81ff">consul_envoy</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_release_version</span>: <span style="color:#ae81ff">1.31.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_release_archive_fullname</span>: <span style="color:#e6db74">&#34;envoy_{{ consul_envoy_release_version }}_linux_amd64.zip&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_release_url</span>: <span style="color:#e6db74">&#34;https://releases.hashicorp.com/envoy/{{ consul_envoy_release_version }}/{{ consul_envoy_release_archive_fullname }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_release_bin_path</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_release_dir }}/envoy&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_release_symlink_path</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_releases_dir }}/current&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_release_checksum</span>: <span style="color:#e6db74">&#34;sha256:350782275de0fe50699844b4f9096d77a0193a5bcf205e14b8ad964ec429d45e&#34;</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8c210c768b2817e55830cc5a27aeec9a">2.6 - DNS</h1>
+    <div class="lead">Setup dns records</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-138215aa6c7ef5186f29880fb48ba249">2.6.1 - Defaults</h1>
+    <div class="lead">Defaults for dns</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">dns_records</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">dns_domains</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">dns_njalla_api_url</span>: <span style="color:#ae81ff">https://njal.la/api/1/</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">dns_njalla_token</span>:
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-4d756cd75b3f4c8877626f2e348797b1">2.7 - Docker</h1>
+    <div class="lead">Setup docker</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-b776c1dd79eb644be9005f97ba55e9c7">2.7.1 - Defaults</h1>
+    <div class="lead">Defaults for docker</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">docker_enabled</span>: <span style="color:#66d9ef">false</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5f4f536033ac30537465643e1056e375">2.8 - Facts</h1>
+    <div class="lead">Setup ansible facts</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-66799841577d4b5802fda22d743c2aea">2.8.1 - Defaults</h1>
+    <div class="lead">Defaults for facts</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-438109bcba665e99f3b3a3d035bb7657">2.9 - Firewall</h1>
+    <div class="lead">Setup firewall</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-194557cb0b5c7c9fb55d52880c00c0af">2.9.1 - Defaults</h1>
+    <div class="lead">Defaults for firewall</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">firewall_state</span>: <span style="color:#ae81ff">enabled</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">firewall_enabled</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">firewall_allow_port_from</span>: []
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e774e85ba522a5b9e3cd2f9364f59c5a">2.10 - Hiddify manager</h1>
+    <div class="lead">Setup hiddify manager</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-31439a6dfe74cbccb756a6472fbf6ad2">2.10.1 - Defaults</h1>
+    <div class="lead">Defaults for hiddify_manager</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">hiddify_manager_env</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">HIDDIFY_MANAGER_IMAGE</span>: <span style="color:#ae81ff">ghcr.io/hiddify/hiddify-manager:main@sha256:d5edef06d2133ffa26f0fcbb67e711f4356dba44c44a41a96570c4e03845a84c</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">HIDDIFY_MANAGER_REDIS_IMAGE</span>: <span style="color:#ae81ff">redis:7.4.1@sha256:bb142a9c18ac18a16713c1491d779697b4e107c22a97266616099d288237ef47</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">HIDDIFY_MANAGER_MARIADB_IMAGE</span>: <span style="color:#ae81ff">mariadb:11.6.2@sha256:a9547599cd87d7242435aea6fda22a9d83e2c06d16c658ef70d2868b3d3f6a80</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">HIDDIFY_MANAGER_REDIS_PASSWORD</span>: <span style="color:#e6db74">&#34;{{ lookup(&#39;ansible.builtin.env&#39;, &#39;HIDDIFY_MANAGER_REDIS_PASSWORD&#39;) | mandatory(&#39;HIDDIFY_MANAGER_REDIS_PASSWORD&#39;) }}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">HIDDIFY_MANAGER_MYSQL_PASSWORD</span>: <span style="color:#e6db74">&#34;{{ lookup(&#39;ansible.builtin.env&#39;, &#39;HIDDIFY_MANAGER_MYSQL_PASSWORD&#39;) | mandatory(&#39;HIDDIFY_MANAGER_MYSQL_PASSWORD&#39;) }}&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">HIDDIFY_MANAGER_MARIADB_PASSWORD</span>: <span style="color:#e6db74">&#34;{{ lookup(&#39;ansible.builtin.env&#39;, &#39;HIDDIFY_MANAGER_MARIADB_PASSWORD&#39;) | mandatory(&#39;HIDDIFY_MANAGER_MARIADB_PASSWORD&#39;) }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">hiddify_manager_env_override</span>: {}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">hiddify_manager_dir</span>: <span style="color:#ae81ff">/opt/hiddify_manager</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-aab5daa82477b3920ff5ee8ec7efbbd0">2.11 - Hiddify manager with host</h1>
+    <div class="lead">Setup host and then hiddify manager</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-5d897bd81c6f320bb7c327bac0e088df">2.11.1 - Defaults</h1>
+    <div class="lead">Defaults for hiddify_manager_host</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-91c65ef0b148bbccf32c7deb1a09c514">2.12 - Host</h1>
+    <div class="lead">Common host setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-9d6bd2cd0303d370abc4f1d98b1650c2">2.12.1 - Defaults</h1>
+    <div class="lead">Defaults for host</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-47fdf99e151dc4c2d11aef1552036c0a">2.13 - K3s</h1>
+    <div class="lead">Setup k3s</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-edc0b3e5e84347496c4c9fae00e2aebf">2.13.1 - Defaults</h1>
+    <div class="lead">Defaults for k3s</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">k3s_install_environment</span>: {}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">k3s_manifests_dir</span>: <span style="color:#ae81ff">/var/lib/rancher/k3s/server/manifests</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">k3s_install_script_path</span>: <span style="color:#ae81ff">/usr/local/bin/k3s_install.sh</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">k3s_config_path</span>: <span style="color:#ae81ff">/etc/rancher/k3s/config.yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">k3s_config</span>: {}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">k3s_service_name</span>: <span style="color:#ae81ff">k3s</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ed02860b5498ad955756c1ae81bfa6e3">2.14 - K3s bootstrap</h1>
+    <div class="lead">Bootstrap k3s cluster</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-c5427a830d474331a32ebec771196c6f">2.14.1 - Defaults</h1>
+    <div class="lead">Defaults for k3s_bootstrap</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">k3s_bootstrap_apply_path</span>: 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">k3s_bootstrap_token_name</span>: <span style="color:#e6db74">&#34;{{ lookup(&#39;ansible.builtin.env&#39;, &#39;USER&#39;) }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">k3s_bootstrap_token_namespace</span>: <span style="color:#ae81ff">kube-system</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">k3s_bootstrap_venv_dir</span>: <span style="color:#e6db74">&#34;/opt/bootstrap-venv&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">k3s_bootstrap_venv_bin</span>: <span style="color:#e6db74">&#34;{{ k3s_bootstrap_venv_dir | mandatory }}/bin/python&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">k3s_bootstrap_kubeconfig</span>: <span style="color:#ae81ff">/etc/rancher/k3s/k3s.yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">k3s_bootstrap_cluster_name</span>: <span style="color:#e6db74">&#34;{{ inventory_hostname }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">k3s_bootstrap_cluster_ca_path</span>: <span style="color:#e6db74">&#34;{{ lookup(&#39;ansible.builtin.env&#39;, &#39;HOME&#39;) | mandatory }}/.kube/ca-{{ k3s_bootstrap_cluster_name | mandatory }}.ca.crt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">k3s_bootstrap_user_ca_path</span>: <span style="color:#e6db74">&#34;{{ k3s_bootstrap_cluster_ca_path | mandatory | dirname }}/ca-{{ k3s_bootstrap_cluster_name | mandatory }}-{{ k3s_bootstrap_token_name | mandatory }}.ca.crt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">k3s_bootstrap_user_name</span>: <span style="color:#e6db74">&#34;{{ k3s_bootstrap_cluster_name | mandatory }}-{{ k3s_bootstrap_token_name | mandatory }}&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">k3s_bootstrap_cluster_port</span>: 
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-620e18e5f1e2bb0d02d255ed581516d3">2.15 - K3s cluster</h1>
+    <div class="lead">Setup k3s cluster</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-b8bbef7b6877eb0f828c8e76a4bcc802">2.15.1 - Defaults</h1>
+    <div class="lead">Defaults for k3s_cluster</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-81cd85a6a11107a59ac2700f5626df64">2.16 - OS</h1>
+    <div class="lead">Common os setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-d90e69704a044104228b9bd720807f68">2.16.1 - Defaults</h1>
+    <div class="lead">Defaults for os</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">os_hardening_enabled</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-17e405829e07a73eec1091b7b246a811">2.17 - PVE cluster</h1>
+    <div class="lead">Setup PVE cluster</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-d67bf79c871dbdfcbf94618fa898fee3">2.17.1 - Defaults</h1>
+    <div class="lead">Defaults for pve_cluster</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_remove_repos</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">pve-enterprise.list </span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">ceph.list</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_add_repos</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">pve-no-subscription</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">value</span>: <span style="color:#ae81ff">deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ceph-squid</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">value</span>: <span style="color:#ae81ff">deb http://download.proxmox.com/debian/ceph-squid bookworm no-subscription</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_node_config</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_admins</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_cluster_name</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_acme_accounts</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_acme_plugins</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_venv_dir</span>: <span style="color:#ae81ff">/opt/ansible/pve_cluster_venv</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_venv_packages</span>: 
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">pexpect</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_base_image_dir</span>: <span style="color:#ae81ff">/var/lib/vz/template</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_node_name</span>: <span style="color:#e6db74">&#34;{{ inventory_hostname | mandatory | split(&#39;.&#39;) | first }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_ceph_enabled</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_ceph_repository</span>: <span style="color:#66d9ef">no</span>-<span style="color:#ae81ff">subscription</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_ceph_osd</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_ceph_pools</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_ceph_mon</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_ceph_mgr</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_ceph_mds</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_storages</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_cluster_storage_config_path</span>: <span style="color:#ae81ff">/etc/pve/storage.cfg</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ca3da3c1ba5fb5da1f283e57dbb393b9">2.18 - PVE VM</h1>
+    <div class="lead">Setup PVE VM</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-1038e347d9491190d1fef56cdc6469f8">2.18.1 - Defaults</h1>
+    <div class="lead">Defaults for pve_vm</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">pve_vm_agent</span>: 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_vm_name</span>: <span style="color:#e6db74">&#34;{{ inventory_hostname }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_vm_delegate_update_known_hosts</span>: <span style="color:#ae81ff">localhost</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_vm_delegate_pve</span>: 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_vm_set</span>: <span style="color:#e6db74">&#34;{{ pve_vm_set_default + pve_vm_set_additional }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_vm_set_default</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_vm_set_additional</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_vm_set_creation</span>: <span style="color:#e6db74">&#34;{{ pve_vm_set_creation_default + pve_vm_set_creation_additional }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_vm_set_creation_default</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_vm_set_creation_additional</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_vm_resize</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_vm_venv_dir</span>: <span style="color:#e6db74">&#34;/opt/ansible/pve_vm_venv&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_vm_init_user</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">pve_vm_venv_packages</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">proxmoxer</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">requests</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-64980a72cc74b50f841ad4687789acdf">2.19 - PVE VM remove</h1>
+    <div class="lead">Remove PVE VM</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-703b55defb376903ababd3202b7a958f">2.19.1 - Defaults</h1>
+    <div class="lead">Defaults for pve_vm_remove</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b591ef4b5b69e8540a2eacfd64b7910b">2.20 - Raspberry pi</h1>
+    <div class="lead">Setup raspberry pi</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-0a950c5bb25da1b69e51de2927e9df59">2.20.1 - Defaults</h1>
+    <div class="lead">Defaults for raspberry_pi</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">raspberry_pi_argon_enabled</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">raspberry_pi_containers_enabled</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">raspberry_pi_argon_eeprom_script_path</span>: <span style="color:#ae81ff">/usr/local/bin/argon_argon_eeprom.sh</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">raspberry_pi_argon_argon1_script_path</span>: <span style="color:#ae81ff">/usr/local/bin/argon_argon1.sh</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">raspberry_pi_cmdline_path</span>: <span style="color:#ae81ff">/boot/firmware/cmdline.txt</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-30a1060fb79f9cb980286abd5f8e426c">2.21 - SSH</h1>
+    <div class="lead">Setup ssh</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-29c97f0a38749962edd84ec904e3d79d">2.21.1 - Defaults</h1>
+    <div class="lead">Defaults for ssh</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">ssh_hardening_enabled</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0a5e3196a671524154fb7d4dd62777e7">2.22 - SSH port forwarding</h1>
+    <div class="lead">Setup SSH port forwarding</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-dbc6a0cb7660b05fe7144cf801836b1f">2.22.1 - Defaults</h1>
+    <div class="lead">Defaults for ssh_port_forward</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">ssh_port_forward_local_addr</span>: <span style="color:#ae81ff">127.0.0.1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">ssh_port_forward_script_path</span>: <span style="color:#ae81ff">/usr/local/bin/ssh-port-forward</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e6c943af3ee2deb48964eba01ea05920">2.23 - SSH update known hosts</h1>
+    <div class="lead">Update known hosts</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-083f8862e92b5e12065dc0ae806fb880">2.23.1 - Defaults</h1>
+    <div class="lead">Defaults for ssh_update_known_hosts</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">ssh_update_known_hosts_hosts</span>: []
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8c1b9c9270f159fcca7a1514b870376f">2.24 - Traefik</h1>
+    <div class="lead">Setup traefik</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-64c36144da7ca469126b8b4625766582">2.24.1 - Defaults</h1>
+    <div class="lead">Defaults for traefik</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">traefik_user</span>: <span style="color:#ae81ff">traefik</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_user_uid</span>: <span style="color:#ae81ff">3653</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_env</span>: {}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_data_dir</span>: <span style="color:#ae81ff">/mnt/traefik</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_log_dir</span>: <span style="color:#e6db74">&#34;/var/log/traefik&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_certificates_dir</span>: <span style="color:#e6db74">&#34;{{ traefik_data_dir }}/certificates&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_configs_dir</span>: <span style="color:#e6db74">&#34;{{ traefik_data_dir }}/configs&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_configs_version</span>: <span style="color:#e6db74">&#34;{{ lookup(&#39;ansible.builtin.pipe&#39;, &#39;git rev-parse HEAD&#39;) }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_configs_dynamic_dir</span>: <span style="color:#e6db74">&#34;{{ traefik_configs_cur_dir }}/dynamic&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_configs_dynamic_dir_symlink</span>: <span style="color:#e6db74">&#34;{{ traefik_configs_symlink }}/dynamic&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_configs_cur_dir_name</span>: <span style="color:#e6db74">&#34;{{ traefik_configs_version }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_configs_cur_dir</span>: <span style="color:#e6db74">&#34;{{ traefik_configs_dir }}/{{ traefik_configs_cur_dir_name }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_configs_symlink</span>: <span style="color:#e6db74">&#34;{{ traefik_configs_dir }}/current&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_static_config_path</span>: <span style="color:#e6db74">&#34;{{ traefik_configs_symlink }}/traefik.yaml&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_releases_dir</span>: <span style="color:#ae81ff">/opt/traefik/releases</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_static_config</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_dynamic_configs</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_version</span>: <span style="color:#ae81ff">v3.3.1 </span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_dir_name</span>: <span style="color:#e6db74">&#34;{{ traefik_release_version }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_dir</span>: <span style="color:#e6db74">&#34;{{ traefik_releases_dir }}/{{ traefik_release_dir_name }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_symlink</span>: <span style="color:#e6db74">&#34;{{ traefik_releases_dir }}/current&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_symlink_bin</span>: <span style="color:#e6db74">&#34;{{ traefik_release_symlink }}/traefik&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_archive_name</span>: <span style="color:#e6db74">&#34;traefik_{{ traefik_release_version }}_linux_amd64&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_archive_full</span>: <span style="color:#e6db74">&#34;traefik_{{ traefik_release_version }}_linux_amd64.tar.gz&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_bin_path</span>: <span style="color:#e6db74">&#34;{{ traefik_release_dir }}/traefik&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_download_url</span>: <span style="color:#e6db74">&#34;https://github.com/traefik/traefik/releases/download/{{ traefik_release_version }}/{{ traefik_release_archive_full }}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_download_checksum</span>: <span style="color:#ae81ff">sha256:27fd502a8d80fc81b97faf5cebd7a1cbc1a2c5369d18e0f4471a66d1a8c139ce</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-17a4d2717c20f3b83ef3b560e84d88b2">2.25 - Update all packages</h1>
+    <div class="lead">Update all system packages</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-2847c001f3a68d2b412fe1f456ef83af">2.25.1 - Defaults</h1>
+    <div class="lead">Defaults for update_all_packages</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-223eb1fd50fcaae788edd245a26950b5">2.26 - Users</h1>
+    <div class="lead">Setup system users</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-0a03a2cb41721fbbb4cc7b575e99682b">2.26.1 - Defaults</h1>
+    <div class="lead">Defaults for users</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">users_regular</span>: {}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">users_remove</span>: {}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">users_admins</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ansible</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ansible</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">disable_passwd</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">sudo_no_passwd</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">users_ssh_keys</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ansible</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">user</span>: <span style="color:#ae81ff">ansible</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">key</span>: <span style="color:#ae81ff">ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMQT6QEqCFlQDRNaU+RrZ0VYoULYttA6oxjJ5U5h75</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-cb528d56ecec0a9c20bb4bddddd23208">2.27 - Vault</h1>
+    <div class="lead">Setup Hashicorp Vault</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-26a8a6b79522c1530b2b2867d0dac032">2.27.1 - Defaults</h1>
+    <div class="lead">Defaults for vault</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">vault_data_driver_opts</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">vault_traefik_static_config</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">vault_traefik_dynamic_configs</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">vault_openbao_config</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">vault_openbao_image</span>: <span style="color:#ae81ff">docker.io/openbao/openbao:2.1@sha256:7de07aa6df3937d44c96c2d65c188b2d4a70546f2a764ad4510301305af6a223</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">vault_traefik_image</span>: <span style="color:#ae81ff">docker.io/traefik:v3.3@sha256:bc534d72121b187efc3706780d604b2a6590ef321c441ef137289052633d27d4</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">vault_user</span>: <span style="color:#ae81ff">vault</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">vault_user_uid</span>: <span style="color:#ae81ff">3123</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">vault_env</span>: {}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">vault_dir</span>: <span style="color:#ae81ff">/opt/vault</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-143d4797f9b8079b3ab27d7445d99320">2.28 - Wireguard</h1>
+    <div class="lead">Setup wireguard</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-c56e62cca984605c452317c05cdf57f6">2.28.1 - Defaults</h1>
+    <div class="lead">Defaults for wireguard</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">wireguard_enabled</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">wireguard_configs</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">wireguard_dir</span>: <span style="color:#e6db74">&#34;/etc/wireguard&#34;</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c8e05c61db7c7cd176ffc9268956bd82">2.29 - Xray</h1>
+    <div class="lead">Setup xray</div>
+	<p>Links:</p>
+<ul>
+<li><a href="https://xtls.github.io/en/">https://xtls.github.io/en/</a></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-9b6da274af8561381ca8cbf5f469fad3">2.29.1 - Defaults</h1>
+    <div class="lead">Defaults for xray</div>
+	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">xray_enabled</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">xray_config_dir</span>: <span style="color:#ae81ff">/usr/local/etc/xray</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">xray_log_dir</span>: <span style="color:#ae81ff">/var/log/xray</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">xray_config_path</span>: <span style="color:#e6db74">&#34;{{ xray_config_dir }}/0-main.json&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">xray_client_id</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">xray_wireguard_relays</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">xray_wireguard_ipv4_address</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">xray_wireguard_ipv6_address</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">xray_wireguard_private_key</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">xray_config</span>:
+</span></span><span style="display:flex;"><span><span style="color:#f92672">xray_configs</span>: {}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">xray_user</span>: <span style="color:#ae81ff">xray</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">xray_socket_dir</span>: <span style="color:#ae81ff">/var/shm/xray</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">xray_caddy_config_path</span>: <span style="color:#ae81ff">/etc/caddy/configs/xray.Caddyfile</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">xray_subscriptions_dir</span>: <span style="color:#ae81ff">/usr/local/etc/xray-subscriptions</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">xray_caddy_user</span>: <span style="color:#ae81ff">caddy</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        
+Built with Hugo <a href="/hugo_env.txt">0.152.2</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.min.bbd51c4d8821b00d332d12d5eb4b11de66b17866799c8a262d5fea4c4eee94d0.js" integrity="sha256-u9UcTYghsA0zLRLV60sR3maxeGZ5nIomLV/qTE7ulNA=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.73478a7d4807698aed7e355eb23f9890ca18fea3158604c8471746d046702bad.js" integrity="sha256-c0eKfUgHaYrtfjVesj&#43;YkMoY/qMVhgTIRxdG0EZwK60=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

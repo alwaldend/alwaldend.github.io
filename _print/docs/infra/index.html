@@ -1,0 +1,866 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/infra/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/infra/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Infra | Alwaldend</title>
+<meta name="description" content="Infrastructure tree">
+<meta property="og:url" content="https://alwaldend.com/docs/infra/">
+  <meta property="og:site_name" content="Alwaldend">
+  <meta property="og:title" content="Infra">
+  <meta property="og:description" content="Infrastructure tree">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Infra">
+  <meta itemprop="description" content="Infrastructure tree">
+  <meta itemprop="dateModified" content="2000-01-01T03:00:00+03:00">
+  <meta itemprop="wordCount" content="19">
+  <meta itemprop="keywords" content="Infra">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Infra">
+  <meta name="twitter:description" content="Infrastructure tree">
+<link rel="preload" href="/scss/main.min.988a146c65ef793ae6145654705b7a4aca318d43123c51df956be40671e18198.css" as="style" integrity="sha256-mIoUbGXveTrmFFZUcFt6SsoxjUMSPFHflWvkBnHhgZg=" crossorigin="anonymous">
+<link href="/scss/main.min.988a146c65ef793ae6145654705b7a4aca318d43123c51df956be40671e18198.css" rel="stylesheet" integrity="sha256-mIoUbGXveTrmFFZUcFt6SsoxjUMSPFHflWvkBnHhgZg=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll" data-bs-theme="dark">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Alwaldend</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Docs</span></a>
+      </li>
+      <li class="td-light-dark-menu nav-item dropdown">
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check2" viewBox="0 0 16 16">
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+  <symbol id="circle-half" viewBox="0 0 16 16">
+    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+  </symbol>
+  <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+  </symbol>
+  <symbol id="sun-fill" viewBox="0 0 16 16">
+    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+  </symbol>
+</svg>
+
+<button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        data-bs-display="static"
+        aria-label="Toggle theme (auto)">
+  <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+</button>
+<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#sun-fill"></use></svg>
+      Light
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#moon-stars-fill"></use></svg>
+      Dark
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+      <svg class="bi me-2 opacity-50"><use href="#circle-half"></use></svg>
+      Auto
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+</ul>
+
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.a01af7848767ae5ec59071d4d461799a.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/infra/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Infra</h1>
+<div class="lead">Infrastructure tree</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-44dafda16b9c10f97d0d311d538b2939">Alwaldend.com</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1.1: <a href="#pg-25c5b060d3a12233b7ea62ff185d2bf0">Dc1</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1.1.1: <a href="#pg-216d27ccdd66d5c1d112fb639551ded5">Cl1</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>1.1.2: <a href="#pg-9aeb0970b16a812a6910245d3148e5b8">Mikrotik</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>1.2: <a href="#pg-f6f2e8288448e71ee4467c8ee9818631">Dc2</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>1.3: <a href="#pg-e81e7de47d41c343dea16a9392524cfe">Dns</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>This tree contains <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">IaC</a></p>
+<h2 id="requirements">Requirements<a class="td-heading-self-link" href="#requirements" aria-label="Heading self-link"></a></h2>
+<ul>
+<li>MUST NOT be public</li>
+<li>MUST NOT be published</li>
+<li>MUST NOT be used in builds</li>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-44dafda16b9c10f97d0d311d538b2939">1 - Alwaldend.com</h1>
+    <div class="lead">Alwaldend.com infrastructure</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-25c5b060d3a12233b7ea62ff185d2bf0">1.1 - Dc1</h1>
+    <div class="lead">Infrastructure for dc1.alwaldend.com</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-216d27ccdd66d5c1d112fb639551ded5">1.1.1 - Cl1</h1>
+    <div class="lead">Infrastructure for cl1.dc1.alwaldend.com</div>
+	<h2 id="deployment">Deployment<a class="td-heading-self-link" href="#deployment" aria-label="Heading self-link"></a></h2>
+<ul>
+<li>Setup the host:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/alwaldend.com/dc1/cl1/ansible:deploy
+</span></span></code></pre></div></li>
+<li>Deploy the chart:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ssh -NR 127.0.0.1:6443:127.0.0.1:6443 pi1.cl1.dc1.alwaldend.com &amp;
+</span></span><span style="display:flex;"><span>bazel run //infra/alwaldend.com/dc1/cl1/helm:deploy
+</span></span></code></pre></div></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9aeb0970b16a812a6910245d3148e5b8">1.1.2 - Mikrotik</h1>
+    <div class="lead">Mikrotik setup for dc1.alwaldend.com</div>
+	<h2 id="deployment">Deployment<a class="td-heading-self-link" href="#deployment" aria-label="Heading self-link"></a></h2>
+<p>Manual export and import through <a href="https://help.mikrotik.com/docs/spaces/ROS/pages/328129/WinBox">Winbox</a></p>
+<h2 id="links">Links<a class="td-heading-self-link" href="#links" aria-label="Heading self-link"></a></h2>
+<ul>
+<li>Website: <a href="https://mikrotik.com">https://mikrotik.com</a></li>
+<li>Docs: <a href="https://help.mikrotik.com/docs/spaces/ROS/pages/328155/Configuration+Management">https://help.mikrotik.com/docs/spaces/ROS/pages/328155/Configuration+Management</a></li>
+</ul>
+<h2 id="exports">Exports<a class="td-heading-self-link" href="#exports" aria-label="Heading self-link"></a></h2>
+<h3 id="router1">Router1<a class="td-heading-self-link" href="#router1" aria-label="Heading self-link"></a></h3>
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <pre tabindex="0"><code class="language-rsc" data-lang="rsc"># 2025-09-14 10:53:06 by RouterOS 7.19.4
+/interface bridge
+add admin-mac=78:9A:18:38:6C:CA auto-mac=no comment=&#34;bridge1 (wired)&#34; name=bridge1
+add comment=&#34;bridge2 (wireless)&#34; name=bridge2
+/interface ethernet
+set [ find default-name=ether1 ] comment=ether1 l2mtu=1500 mac-address=F4:28:53:7F:A4:59
+set [ find default-name=ether2 ] comment=ether2
+set [ find default-name=ether3 ] comment=ether3
+set [ find default-name=ether4 ] comment=ether4
+set [ find default-name=ether5 ] comment=ether5
+/interface wifi
+set [ find default-name=wifi1 ] channel.frequency=5000-5400 .skip-dfs-channels=10min-cac comment=&#34;wifi1 (5GHz)&#34; \
+    configuration.country=Russia .mode=ap .ssid=divinity-5GHz datapath.client-isolation=yes disabled=no \
+    security.authentication-types=wpa2-psk,wpa3-psk .connect-priority=0 .ft=yes .ft-over-ds=yes
+set [ find default-name=wifi2 ] channel.skip-dfs-channels=10min-cac comment=&#34;wifi2 (2GHz)&#34; configuration.country=Russia .mode=ap \
+    .ssid=divinity-2GHz datapath.client-isolation=yes disabled=no security.authentication-types=wpa2-psk,wpa3-psk \
+    .connect-priority=0 .ft=yes .ft-over-ds=yes
+/interface list
+add comment=defconf name=WAN
+add comment=defconf name=LAN
+add name=accept-forward-WAN
+add name=accept-input-DNS
+add name=accept-input-DHCP-server
+add name=accept-input-ICMP
+add name=accept-input-winbox
+add name=accept-input-web-ui
+add name=accept-input-mikrotik-neighbor-discovery
+/ip pool
+add comment=bridge1 name=bridge1 ranges=192.168.1.10-192.168.1.254
+add comment=bridge2 name=bridge2 ranges=192.168.2.10-192.168.2.254
+/ip dhcp-server
+add address-pool=bridge1 comment=bridge1 interface=bridge1 lease-time=10m name=bridge1
+add address-pool=bridge2 interface=bridge2 name=bridge2
+/ipv6 pool
+add name=dc01 prefix=fd2e:546d:5738::/48 prefix-length=64
+/interface bridge port
+add bridge=bridge1 comment=bridge1-ether2 interface=ether2
+add bridge=bridge1 comment=bridge1-ether3 interface=ether3
+add bridge=bridge1 comment=bridge1-ether4 interface=ether4
+add bridge=bridge1 comment=bridge1-ether5 interface=ether5
+add bridge=bridge2 comment=bridge2-wifi1 interface=wifi1
+add bridge=bridge2 comment=bridge2-wifi2 interface=wifi2
+/ip neighbor discovery-settings
+set discover-interface-list=LAN
+/interface detect-internet
+set detect-interface-list=WAN
+/interface list member
+add interface=bridge1 list=LAN
+add interface=ether1 list=WAN
+add interface=bridge2 list=LAN
+add interface=bridge2 list=accept-forward-WAN
+add interface=bridge1 list=accept-forward-WAN
+add interface=bridge1 list=accept-input-DNS
+add interface=bridge2 list=accept-input-DNS
+add interface=bridge1 list=accept-input-DHCP-server
+add interface=bridge2 list=accept-input-DHCP-server
+add interface=bridge1 list=accept-input-ICMP
+add interface=bridge2 list=accept-input-ICMP
+add interface=bridge1 list=accept-input-winbox
+add interface=bridge1 list=accept-input-web-ui
+add interface=bridge1 list=accept-input-mikrotik-neighbor-discovery
+/interface ovpn-server server
+add mac-address=FE:B3:B4:C4:A4:48 name=ovpn-server1
+/ip address
+add address=192.168.1.1/24 comment=bridge1 interface=bridge1 network=192.168.1.0
+add address=192.168.2.1/24 comment=bridge2 interface=bridge2 network=192.168.2.0
+/ip dhcp-client
+add comment=defconf interface=ether1 use-peer-dns=no
+/ip dhcp-server network
+add address=192.168.1.0/24 comment=defconf dns-server=192.168.1.1 gateway=192.168.1.1
+add address=192.168.2.0/24 dns-server=192.168.2.1 gateway=192.168.2.1
+/ip dns
+set allow-remote-requests=yes servers=1.1.1.2,1.0.0.2 use-doh-server=https://odoh.cloudflare-dns.com/dns-query verify-doh-cert=\
+    yes
+/ip dns static
+add address=192.168.88.1 comment=defconf name=router.lan type=A
+/ip firewall filter
+add action=accept chain=input comment=&#34;defconf: accept established,related,untracked&#34; connection-state=\
+    established,related,untracked
+add action=drop chain=input comment=&#34;defconf: drop invalid&#34; connection-state=invalid log-prefix=drop-invalid
+add action=accept chain=input comment=&#34;defconf: accept ICMP&#34; in-interface-list=accept-input-ICMP protocol=icmp
+add action=accept chain=input comment=&#34;defconf: accept to local loopback (for CAPsMAN)&#34; dst-address=127.0.0.1
+add action=drop chain=input comment=&#34;defconf: drop all not coming from LAN&#34; in-interface-list=!LAN log-prefix=\
+    drop-not-coming-from-lan
+add action=accept chain=forward comment=&#34;defconf: accept in ipsec policy&#34; ipsec-policy=in,ipsec
+add action=accept chain=forward comment=&#34;defconf: accept out ipsec policy&#34; ipsec-policy=out,ipsec
+add action=fasttrack-connection chain=forward comment=&#34;defconf: fasttrack&#34; connection-state=established,related hw-offload=yes
+add action=accept chain=forward comment=&#34;defconf: accept established,related, untracked&#34; connection-state=\
+    established,related,untracked
+add action=drop chain=forward comment=&#34;defconf: drop invalid&#34; connection-state=invalid log-prefix=drop-invalid
+add action=drop chain=forward comment=&#34;defconf: drop all from WAN not DSTNATed&#34; connection-nat-state=!dstnat connection-state=\
+    new in-interface-list=WAN log-prefix=drop-from-wan-not-dstnated
+add action=accept chain=input in-interface-list=WAN protocol=gre
+add action=accept chain=forward comment=&#34;accept forward WAN&#34; in-interface-list=accept-forward-WAN out-interface-list=WAN
+add action=accept chain=input comment=&#34;accept input DNS (udp)&#34; dst-port=53 in-interface-list=accept-input-DNS protocol=udp
+add action=accept chain=input comment=&#34;accept input DNS (tcp)&#34; dst-port=53 in-interface-list=accept-input-DNS protocol=tcp
+add action=accept chain=input comment=&#34;accept input DHCP-server&#34; dst-port=67 in-interface-list=accept-input-DHCP-server \
+    log-prefix=accept-DHCP protocol=udp
+add action=accept chain=input comment=&#34;accept input winbox (tcp)&#34; dst-port=8291 in-interface-list=accept-input-winbox protocol=\
+    tcp
+add action=accept chain=input comment=&#34;accept input winbox (udp)&#34; dst-port=20561 in-interface-list=accept-input-winbox protocol=\
+    udp
+add action=accept chain=input comment=&#34;accept input web ui&#34; dst-port=80,443 in-interface-list=accept-input-web-ui protocol=tcp
+add action=accept chain=input comment=&#34;accept input mikrotik neighbor discovery&#34; dst-port=5678 in-interface-list=\
+    accept-input-mikrotik-neighbor-discovery protocol=udp
+add action=drop chain=forward comment=&#34;drop forward&#34; log=yes log-prefix=drop-forward
+add action=drop chain=input comment=&#34;drop input&#34; log=yes log-prefix=drop-input
+/ip firewall nat
+add action=masquerade chain=srcnat comment=&#34;defconf: masquerade&#34; ipsec-policy=out,none out-interface-list=WAN
+/ip ipsec profile
+set [ find default=yes ] dpd-interval=2m dpd-maximum-failures=5
+/ip service
+set www disabled=yes
+set www-ssl certificate=ssl-web-management disabled=no
+/ipv6 address
+add address=::1 from-pool=dc01 interface=bridge1
+add address=::1 from-pool=dc01 interface=bridge2
+/ipv6 firewall address-list
+add address=::/128 comment=&#34;defconf: unspecified address&#34; list=bad_ipv6
+add address=::1/128 comment=&#34;defconf: lo&#34; list=bad_ipv6
+add address=fec0::/10 comment=&#34;defconf: site-local&#34; list=bad_ipv6
+add address=::ffff:0.0.0.0/96 comment=&#34;defconf: ipv4-mapped&#34; list=bad_ipv6
+add address=::/96 comment=&#34;defconf: ipv4 compat&#34; list=bad_ipv6
+add address=100::/64 comment=&#34;defconf: discard only &#34; list=bad_ipv6
+add address=2001:db8::/32 comment=&#34;defconf: documentation&#34; list=bad_ipv6
+add address=2001:10::/28 comment=&#34;defconf: ORCHID&#34; list=bad_ipv6
+add address=3ffe::/16 comment=&#34;defconf: 6bone&#34; list=bad_ipv6
+/ipv6 firewall filter
+add action=accept chain=input comment=&#34;defconf: accept established,related,untracked&#34; connection-state=\
+    established,related,untracked
+add action=drop chain=input comment=&#34;defconf: drop invalid&#34; connection-state=invalid
+add action=accept chain=input comment=&#34;defconf: accept ICMPv6&#34; in-interface-list=accept-input-ICMP protocol=icmpv6
+add action=accept chain=input comment=&#34;defconf: accept UDP traceroute&#34; dst-port=33434-33534 protocol=udp
+add action=accept chain=input comment=&#34;defconf: accept DHCPv6-Client prefix delegation.&#34; dst-port=546 protocol=udp src-address=\
+    fe80::/10
+add action=accept chain=input comment=&#34;defconf: accept IKE&#34; dst-port=500,4500 protocol=udp
+add action=accept chain=input comment=&#34;defconf: accept ipsec AH&#34; protocol=ipsec-ah
+add action=accept chain=input comment=&#34;defconf: accept ipsec ESP&#34; protocol=ipsec-esp
+add action=accept chain=input comment=&#34;defconf: accept all that matches ipsec policy&#34; ipsec-policy=in,ipsec
+add action=drop chain=input comment=&#34;defconf: drop everything else not coming from LAN&#34; in-interface-list=!LAN
+add action=accept chain=forward comment=&#34;defconf: accept established,related,untracked&#34; connection-state=\
+    established,related,untracked
+add action=drop chain=forward comment=&#34;defconf: drop invalid&#34; connection-state=invalid
+add action=drop chain=forward comment=&#34;defconf: drop packets with bad src ipv6&#34; src-address-list=bad_ipv6
+add action=drop chain=forward comment=&#34;defconf: drop packets with bad dst ipv6&#34; dst-address-list=bad_ipv6
+add action=drop chain=forward comment=&#34;defconf: rfc4890 drop hop-limit=1&#34; hop-limit=equal:1 protocol=icmpv6
+add action=accept chain=forward comment=&#34;defconf: accept ICMPv6&#34; in-interface-list=accept-input-ICMP protocol=icmpv6
+add action=accept chain=forward comment=&#34;defconf: accept HIP&#34; protocol=139
+add action=accept chain=forward comment=&#34;defconf: accept IKE&#34; dst-port=500,4500 protocol=udp
+add action=accept chain=forward comment=&#34;defconf: accept ipsec AH&#34; protocol=ipsec-ah
+add action=accept chain=forward comment=&#34;defconf: accept ipsec ESP&#34; protocol=ipsec-esp
+add action=accept chain=forward comment=&#34;defconf: accept all that matches ipsec policy&#34; ipsec-policy=in,ipsec
+add action=drop chain=forward comment=&#34;defconf: drop everything else not coming from LAN&#34; in-interface-list=!LAN
+add action=accept chain=forward comment=&#34;accept forward WAN&#34; in-interface-list=accept-forward-WAN out-interface-list=WAN
+add action=accept chain=input comment=&#34;accept input DNS (udp)&#34; dst-port=53 in-interface-list=accept-input-DNS protocol=udp
+add action=accept chain=input comment=&#34;accept input DNS (tcp)&#34; dst-port=53 in-interface-list=accept-input-DNS protocol=tcp
+add action=accept chain=input comment=&#34;accept input winbox (tcp)&#34; dst-port=8291 in-interface-list=accept-input-winbox protocol=\
+    tcp
+add action=accept chain=input comment=&#34;accept input winbox (udp)&#34; dst-port=20561 in-interface-list=accept-input-winbox protocol=\
+    udp
+add action=accept chain=input comment=&#34;accept input web ui&#34; dst-port=80,443 in-interface-list=accept-input-web-ui protocol=tcp
+add action=accept chain=input comment=&#34;accept input mikrotik neighbor discovery&#34; dst-port=5678 in-interface-list=\
+    accept-input-mikrotik-neighbor-discovery protocol=udp
+add action=drop chain=forward comment=&#34;drop forward&#34; log=yes log-prefix=drop-forward-ipv6
+add action=drop chain=input comment=&#34;drop input&#34; log=yes log-prefix=drop-input-ipv6
+/ipv6 nd
+set [ find default=yes ] interface=bridge1
+add interface=bridge2
+/system clock
+set time-zone-name=Europe/Moscow
+/system identity
+set name=router1.dc1.alwaldend.com
+/system routerboard settings
+set auto-upgrade=yes
+/tool mac-server
+set allowed-interface-list=LAN
+/tool mac-server mac-winbox
+set allowed-interface-list=LAN
+</code></pre>
+
+
+<h3 id="router2">Router2<a class="td-heading-self-link" href="#router2" aria-label="Heading self-link"></a></h3>
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <pre tabindex="0"><code class="language-rsc" data-lang="rsc"># 2025-09-07 11:04:01 by RouterOS 7.19.4
+# model = L009UiGS-2HaxD
+/interface bridge
+add name=bridge01
+/port
+set 0 name=serial0
+/interface bridge port
+add bridge=bridge01 interface=ether2
+add bridge=bridge01 interface=ether3
+add bridge=bridge01 interface=ether4
+add bridge=bridge01 interface=ether5
+add bridge=bridge01 interface=ether6
+add bridge=bridge01 interface=ether7
+add bridge=bridge01 interface=ether8
+add bridge=bridge01 interface=ether1
+/ip neighbor discovery-settings
+set discover-interface-list=!dynamic
+/ipv6 settings
+set accept-router-advertisements=yes
+/ip dhcp-client
+add interface=bridge01
+/system clock
+set time-zone-name=Europe/Moscow
+/system identity
+set name=router02.dc01.alwaldend.com
+/system routerboard settings
+set enter-setup-on=delete-key
+</code></pre>
+
+
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f6f2e8288448e71ee4467c8ee9818631">1.2 - Dc2</h1>
+    <div class="lead">Infrastructure for dc2.alwaldend.com</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e81e7de47d41c343dea16a9392524cfe">1.3 - Dns</h1>
+    <div class="lead">Dns setup for alwaldend.com</div>
+	<h2 id="links">Links<a class="td-heading-self-link" href="#links" aria-label="Heading self-link"></a></h2>
+<ul>
+<li>Docs: <a href="https://docs.dnscontrol.org">https://docs.dnscontrol.org</a></li>
+<li>Rules: <a href="../../../tools/dnscontrol">tools/dnscontrol</a></li>
+</ul>
+<h2 id="deployment">Deployment<a class="td-heading-self-link" href="#deployment" aria-label="Heading self-link"></a></h2>
+<ul>
+<li>Setup environment variables from <code>creds.json.tpl</code></li>
+<li>Modify <code>dnsconfig.js</code></li>
+<li>Preview changes:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/alwaldend.com/dns:preview
+</span></span></code></pre></div></li>
+<li>Deploy changes:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/alwaldend.com/dns:deploy
+</span></span></code></pre></div></li>
+</ul>
+<div class="alert alert-primary" role="alert">
+Deploy modifies the bind file, which will cause
+//infra/alwaldend.com/dns:preview_test to fail
+</div>
+<h2 id="bind-file">BIND file<a class="td-heading-self-link" href="#bind-file" aria-label="Heading self-link"></a></h2>
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zone" data-lang="zone"><span style="display:flex;"><span><span style="color:#a6e22e">$TTL</span> <span style="color:#e6db74">10800</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">; generated with dnscontrol 2025-12-14T16:56:39+03:00</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@</span>          <span style="color:#e6db74">300</span>   <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">SOA</span>   DEFAULT_NOT_SET. DEFAULT_NOT_SET. <span style="color:#e6db74">2025121400</span> <span style="color:#e6db74">3600</span> <span style="color:#e6db74">600</span> <span style="color:#e6db74">604800</span> <span style="color:#e6db74">1440</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">300</span>   <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">NS</span>    malavika.ns.cloudflare.com.
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">300</span>   <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">NS</span>    terry.ns.cloudflare.com.
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">300</span>   <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">A</span>     <span style="color:#ae81ff">185.199.108.153</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">300</span>   <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">A</span>     <span style="color:#ae81ff">185.199.109.153</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">300</span>   <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">A</span>     <span style="color:#ae81ff">185.199.110.153</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">300</span>   <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">A</span>     <span style="color:#ae81ff">185.199.111.153</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">300</span>   <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">AAAA</span>  <span style="color:#ae81ff">2606:50c0:8000::153</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">300</span>   <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">AAAA</span>  <span style="color:#ae81ff">2606:50c0:8001::153</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">300</span>   <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">AAAA</span>  <span style="color:#ae81ff">2606:50c0:8002::153</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">300</span>   <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">AAAA</span>  <span style="color:#ae81ff">2606:50c0:8003::153</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">MX</span>    <span style="color:#e6db74">0</span> mail.tutanota.de.
+</span></span><span style="display:flex;"><span>                 <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">TXT</span>   <span style="color:#960050;background-color:#1e0010">&#34;t-verify=</span><span style="color:#e6db74">518</span><span style="color:#960050;background-color:#1e0010">bd0ae347aa5e3bcca726766106ad3&#34;</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">TXT</span>   <span style="color:#960050;background-color:#1e0010">&#34;v=spf1</span> <span style="color:#960050;background-color:#1e0010">include:</span><span style="color:#a6e22e">spf.tutanota.de</span> <span style="color:#960050;background-color:#1e0010">-all&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">_dmarc</span>           <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">TXT</span>   <span style="color:#960050;background-color:#1e0010">&#34;v=DMARC1</span><span style="color:#75715e">; p=quarantine; adkim=s&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">s1</span><span style="color:#960050;background-color:#1e0010">._domainkey</span>    <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">CNAME</span> s1.domainkey.tutanota.de.
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">s2</span><span style="color:#960050;background-color:#1e0010">._domainkey</span>    <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">CNAME</span> s2.domainkey.tutanota.de.
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">_mta-sts</span>         <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">CNAME</span> mta-sts.tutanota.de.
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pi1.cl1.dc</span><span style="color:#960050;background-color:#1e0010">1</span> <span style="color:#e6db74">300</span>  <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">A</span>     <span style="color:#ae81ff">192.168.1.250</span>
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">300</span>   <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">AAAA</span>  <span style="color:#ae81ff">fd2e:546d:5738:0:e65d:726e:80d9:fef1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">rancher.cl1.dc</span><span style="color:#960050;background-color:#1e0010">1</span>  <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">CNAME</span> pi1.cl1.dc1.
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">router1.dc</span><span style="color:#960050;background-color:#1e0010">1</span> <span style="color:#e6db74">300</span>  <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">AAAA</span>  <span style="color:#ae81ff">fd2e:546d:5738::1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mta-sts</span>          <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">CNAME</span> mta-sts.tutanota.de.
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">simplelogin</span>      <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">MX</span>    <span style="color:#e6db74">10</span> mx1.simplelogin.co.
+</span></span><span style="display:flex;"><span>                 <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">MX</span>    <span style="color:#e6db74">20</span> mx2.simplelogin.co.
+</span></span><span style="display:flex;"><span>                 <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">TXT</span>   <span style="color:#960050;background-color:#1e0010">&#34;sl-verification=bxfzzfjiggzsxyzxhhmkmjqkaskjgy&#34;</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">TXT</span>   <span style="color:#960050;background-color:#1e0010">&#34;v=spf1</span> <span style="color:#960050;background-color:#1e0010">include:</span><span style="color:#a6e22e">simplelogin.co</span> <span style="color:#960050;background-color:#1e0010">~all&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">_dmarc.simplelogin</span> <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">TXT</span> <span style="color:#960050;background-color:#1e0010">&#34;v=DMARC1</span><span style="color:#75715e">; p=quarantine; pct=100; adkim=s; aspf=s&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dkim._domainkey.simplelogin</span> <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">CNAME</span> dkim._domainkey.simplelogin.co.
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dkim02._domainkey.simplelogin</span> <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">CNAME</span> dkim02._domainkey.simplelogin.co.
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dkim03._domainkey.simplelogin</span> <span style="color:#66d9ef">IN</span> <span style="color:#66d9ef">CNAME</span> dkim03._domainkey.simplelogin.co.
+</span></span></code></pre></div>
+
+
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        
+Built with Hugo <a href="/hugo_env.txt">0.152.2</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script src="/js/main.min.bbd51c4d8821b00d332d12d5eb4b11de66b17866799c8a262d5fea4c4eee94d0.js" integrity="sha256-u9UcTYghsA0zLRLV60sR3maxeGZ5nIomLV/qTE7ulNA=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.73478a7d4807698aed7e355eb23f9890ca18fea3158604c8471746d046702bad.js" integrity="sha256-c0eKfUgHaYrtfjVesj&#43;YkMoY/qMVhgTIRxdG0EZwK60=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

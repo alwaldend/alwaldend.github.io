@@ -1,0 +1,59 @@
+{
+    "items":  [
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "3ea013b52665fc306db8d9526f3db69bc7d0c71b7a94e21b4d314120320794a7"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "67b9604e730971895553c2dafd99dc3a"
+                    }
+                ],
+                "name":  "launcher_binary_unsigned.apk",
+                "safeName":  "launcher_binary_unsigned_apk",
+                "size":  "11030814"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_launcher_binary_apk_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "38218191bded84d0326216bf3bb95d0bf3b86fd8076750b19f38782ea9989a19"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "8ae189ee9c00343bdf94f894a99fd49b"
+                    }
+                ],
+                "name":  "launcher_binary.apk",
+                "safeName":  "launcher_binary_apk",
+                "size":  "11090933"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_launcher_binary_apk_"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "project":  {}
+}

@@ -1,0 +1,59 @@
+{
+    "items":  [
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "a8ae77791e6e364c38b01e1aa9072ec185ea1e360d32a3d47e3e7c9289b3c953"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "d265d0df6f50f8e834d4d15d3231a406"
+                    }
+                ],
+                "name":  "patches.tar",
+                "safeName":  "patches_tar",
+                "size":  "163840"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_pinetime_mcuboot_app_dfu_1_15_0_zip_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "48769fdd9ed30fae51929b2c3e645e8f40ffcd84ed5296701c58a43783d4e6c6"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "613e5f81c3f7c5036c7e0fc0703668e8"
+                    }
+                ],
+                "name":  "pinetime-mcuboot-app-dfu-1.15.0.zip",
+                "safeName":  "pinetime_mcuboot_app_dfu_1_15_0_zip",
+                "size":  "380811"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_pinetime_mcuboot_app_dfu_1_15_0_zip_"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "project":  {}
+}

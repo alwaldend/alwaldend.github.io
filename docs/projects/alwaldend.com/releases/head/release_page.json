@@ -1,0 +1,957 @@
+{
+    "sections":  [
+        {
+            "title":  "Changelog",
+            "items":  [
+                {
+                    "content":  "Add deploy to dockerhub, add //tools/oras\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "c535f7614334198cd71006a1c459586a32ccb20d"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaUGCLQAKCRD3LMCDXvUI\negs8AQCUeb24wFNrVSyvssdQhZEHiKAngww37jTx1h9gjC38pwD/aoI+1dvt6XbM\n7W3fvWuUjddcjOTeScA8JU8+iA1oHwQ=\n=QdWA\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Remove last modification footer\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "a0cbdfddc90275f80eb7df102975be963d716bef"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaT8ENAAKCRD3LMCDXvUI\neosyAP4+sg2YK4DF8tFeuBIymgOElToUuNYBuoburqoFlGR1yQD/fd3qar5zc8QG\nJfW/QUYESHL842BgOa5C+jXA/pZUuQk=\n=GI6d\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add missing features to the Pomodoro app, update project readmes, add github pages\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "2b5e29940827287f7657a5671546938c17a87638"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaT8AkgAKCRD3LMCDXvUI\nejeWAP4/jq9f61sZ3gvzJ5rQbvNZYzNp16n9/FaBrtVoEqHDvAEAvrNjbYUfuZZ8\ntpzZ1bbBJHnjL67VJL1qLM2MYvoKPgk=\n=Tbdk\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Update infinitime patch, start adding trufflehog rules\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "012eec6438453e2ff3d0f2c30618fe75c3a10121"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaT2vJQAKCRD3LMCDXvUI\nevXdAQDo7DDREFHWutrgbp1BbcR4UyMj+5vp5q41baipmhUBAQD+NJsT9Ikd7YlU\nLmc889vOB+EKk/Euj74LPs6b6AsWJAc=\n=V7kv\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add hugo lock support, add proper hugo toolchain support, improve the ansible lock\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "7fe94f7de2723a6971f5d00a56b71b877ff0673b"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaTw49AAKCRD3LMCDXvUI\neuynAP0TkvMUqdPuWUzT0QK3P30v5L9Gkix18ySn/pUC1U3ItAEA+uTYt1D6/njU\nsdJ8VKHPDpeWK+yItyc6CSFrg4mr3QU=\n=gA4H\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Move all remaining code to main\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "fae6386a5959c560d94c87cf7dbc6be547e31f97"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaTcIjwAKCRD3LMCDXvUI\nevwCAP9pfpbq/OvbzLuU/R+BZg9/+dr38QMkLAadb3HZQtH5ZAD8DM/YZ3KniZjg\nLQ+3rZ0PdNj+0kziVn+DLAKZe+REwgo=\n=3veL\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Move a portion of tool code to main\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "a32ab0bea9298d24881223120de05f6496273c99"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaTb1PAAKCRD3LMCDXvUI\neidgAP9pgmr07qnFGEFgMjitqeiRMDgH2V5dgvPRCEJ2UxA32gEA6zszPq2mfIar\nsfcyeSxnj8SIziX/Z9WtJYd3Jw9+MgE=\n=JwQg\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Move the registry to //projects/bazel_registry\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "ddc2f592a214d7c72526dd54a153d3fef8da0ccd"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaTbefAAKCRD3LMCDXvUI\nendDAP9nms9rdjE6TQMU3swXrF0H4ozCMvI9H2JxJ62o3gqKQAD/bX31R32Pu0V0\nyUEtgKLlMCDFweMkyb1VZwvm+XYyJA0=\n=gXtz\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add minisign rules\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "a203ae9b7d780913133827bf7e9af71f8e8fb94a"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaSiZ1QAKCRD3LMCDXvUI\nel0nAQC9hX8SLM8P3ZRGOPXnV7MPW53PjcPNZqFZj8gnPQm+sQEAt7nw28ZJGvkT\nR//S2a3BT935QHgsBhuLemqiL31/Vwg=\n=6fYW\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Remove sites taxonomy, start adding xray_manager\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "d9f47bea4df0eb7428bf9bcfc3e181103c7a736c"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaSM3hwAKCRD3LMCDXvUI\neo0yAQDq9GmbO09WkKa1Ms7v7v8dyGSl6ob5nkTgVRRw+4RuYgD/f8rrmFQjbZKA\nOJYw+QqkbyPTFaonZDCBiByDQrFiNgY=\n=6JMA\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Fix release page rendering\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "c040792efc47be413b7cdda3f01f17436c46ed1d"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaSCUfAAKCRD3LMCDXvUI\nepjnAP4q05vkNJ91SvZ6eyTjjNXIEKixYMoywL5pe7TIHyYC7AD/RKEHR1WldhMP\nFsVhXsB21s2tQgJL/FZAy2GlflhLJQI=\n=gD+T\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Move to a light nvim theme, add full git info to releases\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "fb6093f9201814399677c5b8df43723e067d1452"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaSBwswAKCRD3LMCDXvUI\neuOtAP0dYBAEgrRBSL+6yL368P63WkBG39zNyBttDse6AGxPwgEAsiddI4OM8soa\nlCFasslL8+7C6ZErlTt/vepD6cZw9gk=\n=dAQ4\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add release_page generation, remove redundant release templates\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "f45d9d4c30fe010caa64df05958eabd40b49f718"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaR9TVgAKCRD3LMCDXvUI\neifzAP4vRve6HtPVjjBtStqmMbHtgLP3noVNTa3BbjOBFmuHpQD/YgJFzvOUl074\n/EYTPCQnNMxr1kSQLZUuNvzC8kRi9AY=\n=BmPg\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Fix nvim library paths\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "015d3738678b458e8e2b65dde0d43b3bfe63a88c"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaR8LkwAKCRD3LMCDXvUI\nellKAPkBX4jiqs15zssyIme5cGrBqdy6M6wiVZxZQnzMh7o/qwEA87PZzxLaoiwP\nsk53N9QpPCRj9qRRFBbtb4qe/fniCwg=\n=cG3Q\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Parallelize git info retrieval\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "974b463d4cb889171c4c726a7a11077eb22eb1fb"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRyytwAKCRD3LMCDXvUI\negmbAQDGJy+niFhxoiQ7/ipQfddiMHdRgZDHePiZ6evHagEt3gD/Ut39dRC28ZEa\nCS2LcDWFyH+qkN5qIDA6AEJ+MGpzdwQ=\n=8mTp\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Move links to the config, use list groups\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "f9d79f93383d2822ab08086fc88a6dc020d07d3c"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRyRMQAKCRD3LMCDXvUI\neoHKAQClpjw+LvOMhm/tLUBDyqCI4N9/+LRj/JYS+0MJxDFviQD8D+o+zmnPFB99\n9wstoBfM5Xds7RIk3z009vS5BNtJuwg=\n=hixq\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Remove contracts tree\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "d55fc124d72edf372500135273fabc66013cc0ce"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRxSbwAKCRD3LMCDXvUI\neopSAP9TWLu2NpDYXb5zTuaj5kJQez+ImA5mCPLz9Eu9+pGpkgD/QWAWIbdGaQQ5\nDVCBJu9TykeLdM1V64Q9a9q+rigIJw8=\n=74HO\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add changelogs\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "b117416891f1dc747d38c803e729a543b57b4d67"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRsy2AAKCRD3LMCDXvUI\neonnAQCbQxJ0ZOQY+cmLVS2V+OfA651BGv+bRBaulCDU3k8YfgEAgn8/6oyAC3HO\ny7LbRg9ms0R3Pwi+vo5OPPKpDiiv6Q4=\n=W2YJ\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Allow docs to put content outside of docs, refactor git to just use .git directly\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "c9ba7023ce630f30795de79f113a3fa774cc7b33"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRnrvQAKCRD3LMCDXvUI\neu5gAQCxmD6rSMe3P391NRO4gAZ5cw2lBWl2ZE2yvnOHmo9nRQD9FfZQlupLoKYv\nhoAT89IH36ccyu4QSfhCaNiH6ezZkg4=\n=W/Er\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add the footer back, add hugo env information\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "eea01dd0cb5c51059a88386bda8f8e9505fd8a90"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRh5JAAKCRD3LMCDXvUI\nelaBAQCWnyLhrrH7IlYhJbgTCbyF0nfZSaL1HTDtaj7LrJd3hQD8Csi0MRJ9nH/W\nbLAe2XoayusV8WIWVfraef9mh8rpigo=\n=iJw2\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Move release items to a list group, add item counter\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "aae7db0462e74cffe3cdf9042b31faa44d486f0b"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRdzrgAKCRD3LMCDXvUI\nemJEAQCRCkOt8wPgobOr14YYxMkaqt1bJC1Pp5Ae43rkdaPJZAD9EVr9AuyeSBJy\njnRv3D1onCvxoCXlgnWTBVQBfE5aKQc=\n=7G3W\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add cross-compilation, move leetcode downloader contracts out of //contracts\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "a1043546c796aaa42b63ae5450740eed3cc368be"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRdGHQAKCRD3LMCDXvUI\neomwAP4w7iv+z36GDWREinSGaSUhi8sXqc+PNM7n9TsrQGZmEwEAiGrvO+Aa9U1B\ncHtpZX95G+GTThOWVirUC7sqwwSIRQw=\n=kNnr\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Refactor release templates into partials, add release cards\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "780895df3a143515d7a7a97e7a620c861d2354d2"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRcQeAAKCRD3LMCDXvUI\nekKjAQDafiXpdtKhKiiJEOosb87l9ene5Vp1tg9o8qF2Ng3bkwD+KUED7j6sZ+JA\ngLLhITQ8AfD9iWwr7WXYVSQNY6omQAI=\n=o9gU\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add RSS links, rewrite links shortcode to html, improve release tables\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "f9d52019af374d3e92c5d476e14172f756891b55"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRYEzQAKCRD3LMCDXvUI\neirvAQCp4PnDcTZTekXsQqdvRx80W8IjyQdrpB58HIBUyaMThQD+PuLng8T2Sfkj\ns9rnw0JKAcB4mOCEuOgSlKydtz/+ZAE=\n=Zf5p\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add file size to releases, add round_float partial\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "281b1fbd28797e887492e8cc200f94548f8dc379"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRXakAAKCRD3LMCDXvUI\nev11AP4kw7fTBJmOvmkMTkS0DE6sanM9KvgY+Y8rbYN0BMmlaQEA0GOEaL3T6g9p\nvkwL7mq2Ot5OmyGdWrvWHOt6Rg7K2gs=\n=it0w\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Write release tool in go, start adding it to projects, add py proto generation\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "1add813333803a2025e340fff0c9b62a2780743d"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRXABgAKCRD3LMCDXvUI\nejwmAP0Sszy1vev1tQlNrqrbVh4bQIhrLxXL7C01nuBvHwqF9wD+KK9sgjTTN/oV\nzvZdJ0k0nCPjpsei/WST0Jhye/CSEgs=\n=Z4/A\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add release rules, add gzip rules, add several other tools, remove autoscrool deps from the root\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "15626d112102adeaa29d20916260b2508468396f"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRWOWgAKCRD3LMCDXvUI\nehcUAQC2nNcvnoF+dPw8eGl+/1I7EVs+WmtK6cSIn4pXbf7lcQEAiPLMccMa1OGS\nRbDOtPk7ADxf3a8LEbqGCNBLSB9+QwQ=\n=5xca\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add dev_shell rules, add make_install_binary, flatten sh rules, add dotfiles/bin\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "3792b768dbabbaf0320deda2c101845b97177be4"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRSEhAAKCRD3LMCDXvUI\nekNAAP9ux2Gnr1vghWJeHQhLKAkiTV2Qh622C7czmFvy61raAwEA9MgdR6p6VY2F\n2MlOuNpjKBsGixXkxrA4KBsAQprFtwI=\n=PgW+\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add //tools/make_install, start moving dotfiles to it\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "f5340c51931c0ed5ad91638d85eb004cdfde0932"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRN6sAAKCRD3LMCDXvUI\nenknAQDGhIzn0AeJxGwqoc9Z8csN67q90yIybUaavXs5rwVecgEAv5vrlUqLHRpv\neRp8hHUvoto9Bwes22ulnraxteJ/OgE=\n=VSIa\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add label_link shortcode, add todo page\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "8ecf1a1533b6cd2246068db8ddbded1a8df8f8cd"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRMONwAKCRD3LMCDXvUI\nekt1AP9T+KsmIu4K8ilLoRH1ZPSoP9VvXNTsRZNJa8F7Dm6/2AEAwuLHq/DyWnpj\niiTGaAMuRXHi5FwOsQLT4JvD2/cJAw4=\n=z0q0\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Move book data to data/books\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "385990791dea3995405f985754bf3b486b99efe0"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRHZrwAKCRD3LMCDXvUI\neh7GAQDtYHEzK5LZ91baYfoec+sGy4KPJsqPhrHBbym4FkemuQEAue8xNtz+ZPOC\n+/R09MUxAtQLCVgfCIXeNDT2EWqclA0=\n=UWLs\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add tools/rfc\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "0e0dd541d5202f297669eee8413f1b789ed4683b"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRHRQAAKCRD3LMCDXvUI\neglBAP9ayHs4tX+LNcBtZOgR9y9DG82ERxbJooiz8yUGT+FyMQEA5NZ4PlVAvNZF\narFU8W7shb3YWfvcB9DVZbBC/b2DsQY=\n=daJO\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add bzl snippets to proto docs, add targets for ansible playbooks\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "2724210b8d5dea81a3f23b670a18e4be50d02d3a"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRDLEwAKCRD3LMCDXvUI\nehHqAQDBXSvNbHLNbnOmg0NvEut3XdSBA82BIa6Vxm6DPWnX2wEAhkpJj9KMQJ/n\nyL8icOV9FK4xEz7S7Lzv8j2ijFBsSAs=\n=gSo8\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Remove the footer from the docs\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "9cdc8a8c96270ea82d2666ba9ef45405d67cef32"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRCbMQAKCRD3LMCDXvUI\nen2gAP94Vufv29voL6yw+GRPX3n1kPtsy2MwRHMQ1U8m/A2aCgEA/TyrFuY6u6lX\nNDkpTuNR1v+53Ul33pB3mFa/oJn7LQI=\n=i7P3\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add dnscontrol rules\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "ca11e82faf7f24a40ba99f95297baf7676b1de2e"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRCMsQAKCRD3LMCDXvUI\nerkfAQD8vHDr87C4ag3i6zmuwMZbFHrheQJ4WTSENK1+yTROeQD+M+UMhBV5+rhb\nvp7bHRax4c+UBoqRzc43dWsHMpy6ZAA=\n=brEX\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Move book data to the books page, add lazy loading, save some thumbnails locally\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "634edc9e7cbbfb5ab2a87f506c2c98336c2f1f88"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRBxuAAKCRD3LMCDXvUI\netxGAQCZfL+7bFM/YmBTpfUqsKlLEmO3b95ESzNajMRoML8FygD/Q7dv5LElkOq6\nbhHhX2s8rwDaGE++IKShbcXMSWI4jAk=\n=cNJi\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Make tables more compact\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "7be316d244498134a7db5d4f80c5ecc95700512d"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaQ9ttQAKCRD3LMCDXvUI\netvuAP9vIshkiUgFqBvC6x/FS+8VnMIDdFXIdIGSt5SXqo6Y5AEA8JSa8vDKhy2e\nqhNc1La7CyEuyUWPWPnjBPFMGitDCgI=\n=azLt\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Disable inline partials, add last modified section\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "6b1bb4c491c17dd9e653831486df44babacefdc0"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaQ9dGAAKCRD3LMCDXvUI\nehBvAQDnYyh2wVXzdB02d+TInLmFaX9HuhIdVgKJ5cf2bMMBLAD/ZxGatwAnW3dZ\nMPMceNCitoHLrvxY1UZ6pKXtLU7s3g8=\n=Slob\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Tweak tables again\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "8cb1eb595ee58678873fde3d3e10603a26524b8c"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaQ4tGAAKCRD3LMCDXvUI\nemAvAQDbfElCqlZLux7dUu5Zmr9uG5usokKQx8DN7N5SSq1N+wEAxhCAsFqECBv3\nuRgJATN1Q28iHsjTwE/yxTIvL50Jlgc=\n=QkQW\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Improve tables on home and books pages\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "ffb2176f9bd585ca4495a0415bec1930e1517447"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaQzdRwAKCRD3LMCDXvUI\nenZ3AQCX3MQqJrsFdg41QuVZTfW79b/vIVgzRJHdLhwdnJX6rgD8DNtZN/t1v1TC\nQo1WUWrx3ngFF1QnPh7mhblZu53wmgw=\n=71Ls\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Improve tables\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "810ff75ec57710137c706b0487f5ee82f650b1d4"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaQuKAAAKCRD3LMCDXvUI\netUVAP4h3qzFHoggdIr9hRzoDHgq1W+terjDU8un4Xv675MhIAD+JGCQF2S9jPW4\nXslVpg0yP37/MPl0SScIS0Gg6TJECAY=\n=gC77\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Do not use nested tables in docs/misc/books\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "b0483ad5717845524e6888d757b1a0bb323c6a1b"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaQo7aQAKCRD3LMCDXvUI\neomdAP4xPNlzlvMy/ttd60iTZRqsMB2hAA8F+gAbkvEsOCOd4AD/cl7hZihcgJdl\nytxg1zfZ++4A4Lke9bGuCgNRv/lUpwc=\n=fUjq\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Fix book rendering, add arm CI for some reason\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "1693d2f9c18b2d3993fb8f57b7e28ba0e960ec60"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaQi7MwAKCRD3LMCDXvUI\neoSRAPwInJsOEBIhKop2PCKUsZxrVJRjK+zvk2Q/1nbb36rHxgD9H4xkmf2H8Vt2\neH3FC9zHNk4nzZ5E2ZC520ZhkBkYiAU=\n=BH6W\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add git image, split root MODULE.bazel\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "2b98f9b79b3c87946a789ab24b5e7d48bbec11fc"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaQeHwQAKCRD3LMCDXvUI\neoKCAP0dLpPdabai2YvYeXEzc40gJaBAdwXkEU4OSeNJL1J9uQD+MqxXDsPhFU16\nKFcCEZ9S5w31PAD6eybbGZEBLLLMgA0=\n=Bt0M\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add more taxonomies, remove docs tree, move alwaldend.com to projects\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "8fcfb85385cd224081374d74377f85df4bb54e1b"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaQYZPgAKCRD3LMCDXvUI\nemnfAPwMlFn90H8CzaG/eKQ8n1xdLMa1SGwMT56VPwiPu8zFewEArSX5Y3g8dRGM\nRfApVcsDj+2rl6WbzwdNwvkpKi4AIAY=\n=cbSK\n-----END PGP SIGNATURE-----\n"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title":  "Artifacts"
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "items":  [
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "e586d778762c82254f5a01a87f0451505dc520152fe5eaa38a8c9f5daee3a027"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "08b3f157deb470333f07ecca5eb3a004"
+                    }
+                ],
+                "name":  "release_deps.dot",
+                "safeName":  "release_deps_dot",
+                "size":  "1085268"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_release_deps_dot_"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "project":  {}
+}

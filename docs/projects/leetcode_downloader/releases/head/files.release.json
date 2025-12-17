@@ -1,0 +1,1058 @@
+{
+    "items":  [
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "9dd227082e759996cba0395cbb3ed1e2edb018702b0d9a89f606b24431d9ea3e"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "53f96590d459d07ac526a370f790daff"
+                    }
+                ],
+                "name":  "contracts.proto",
+                "safeName":  "contracts_proto",
+                "size":  "1239"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "bf8672c4fe4f8c693c190c3fb9baa41405a683939cafac8b68868624992ca304"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "a47c27a7b646057f1c217a4c0bb63783"
+                    }
+                ],
+                "name":  "leetcode_downloader_tampermonkey.js",
+                "safeName":  "leetcode_downloader_tampermonkey_js",
+                "size":  "3602"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "58ae998c12f1baedfc818b2edb8ff5eb2fd04a5c358a2cfe29aa598a7599ec9c"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "fc61d76297c2eef667902eb186803d29"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.aix_ppc64",
+                "safeName":  "leetcode_downloader_crossbinary_aix_ppc64",
+                "size":  "9113380"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "629603c1e33bc4021bc4efdcde9ac7c554cfdd4beeb1c7e413f666ccf1c41b92"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "cf9b39a76fe2df18dac838a88d45ea41"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.dragonfly_amd64",
+                "safeName":  "leetcode_downloader_crossbinary_dragonfly_amd64",
+                "size":  "7766200"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "131a0d00a4f29c7e41a67c448fd3c7676db412279507c529262622edde533b46"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "d2710ae943b39aa8c2d9dbcdf30cf7b5"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.freebsd_386",
+                "safeName":  "leetcode_downloader_crossbinary_freebsd_386",
+                "size":  "7524546"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "99f51a2c612cb7eaf6847c5401b030009d38ade6b626a27c84928ee4f30eaedd"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "c098a2c6cb0b9117da0fda53a92c094d"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.freebsd_amd64",
+                "safeName":  "leetcode_downloader_crossbinary_freebsd_amd64",
+                "size":  "7782594"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "0546290bbe957c52700d441321f461728c7c897ea46da9fac386b10d4fcac72f"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "370f9ae24cd36cef5d91a207e54aecab"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.freebsd_arm",
+                "safeName":  "leetcode_downloader_crossbinary_freebsd_arm",
+                "size":  "7667906"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "dea2282246c0a48783c2e2d918bb534398a6165bcb1ebb220ec20c9f31b73e34"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "6439a30db329e605504f5623be40c879"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.freebsd_arm64",
+                "safeName":  "leetcode_downloader_crossbinary_freebsd_arm64",
+                "size":  "7274690"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "2b09a3715877576ebf29073beb7c2e3fd0fb08e47ca5342d9cb3c666013b4f11"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "d780037186a600c010ee4b8d3747e5fb"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.illumos_amd64",
+                "safeName":  "leetcode_downloader_crossbinary_illumos_amd64",
+                "size":  "7782692"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "eb02f7ba471713acf221fbad573dbf41f55f2bb64532281a0b12efbc5d53b1ad"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "93f57aa83c06df9ee28ccac69c874c54"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.js_wasm",
+                "safeName":  "leetcode_downloader_crossbinary_js_wasm",
+                "size":  "14466934"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "1e428043c1661c0a8cc087b658f00ab66e1f32101fe70ef8e3937ec04bc990c4"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "5480ada83a7d431404733b089af76102"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.linux_386",
+                "safeName":  "leetcode_downloader_crossbinary_linux_386",
+                "size":  "7622840"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "b603a847006aa4e5c48e30d97d6fcd74e640b1b6aa42cbf05458fd81bf82925a"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "792422f0b410470d799250a0e4e047a6"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.linux_amd64",
+                "safeName":  "leetcode_downloader_crossbinary_linux_amd64",
+                "size":  "7827640"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "f191edbe013799482d787f28fc5bb84bd200270bca823722930b4c8468c3df04"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "942d78169141a79f0711c6954489d2c7"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.linux_arm",
+                "safeName":  "leetcode_downloader_crossbinary_linux_arm",
+                "size":  "7667896"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "6248ab770d0b09e1976f7c7c4e3a32f4a69015546ea50cb18f67d4ef6166fdad"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "405ecbec532d030939cf49df43f9ac0c"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.linux_arm64",
+                "safeName":  "leetcode_downloader_crossbinary_linux_arm64",
+                "size":  "7340216"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "fa976e478d7abf92048ecdc3c89397226cc88ac63a39fd0d6d948496ad1ec7d6"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "46d6c46523f055efe6eafdd0686939f5"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.linux_mips",
+                "safeName":  "leetcode_downloader_crossbinary_linux_mips",
+                "size":  "8650967"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "cae556a96befb589dcc63427b09cae997c5c4296d786de7e4c924a88f12f83bb"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "f7233eec90f9d375f2d6694d298b1bf4"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.linux_mips64",
+                "safeName":  "leetcode_downloader_crossbinary_linux_mips64",
+                "size":  "8716472"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "0cdf31f9430f26bc1b22762d1fe96e1e72b3ed1a08a77f9550854a3e8c8d7543"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "9b6649bc36e1fd4576fa0c891f606006"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.linux_mips64le",
+                "safeName":  "leetcode_downloader_crossbinary_linux_mips64le",
+                "size":  "8716472"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "ce4b370b1372d5296ff8f4e9e0659d554673ca6f3668ceeaa977a22e95bcf468"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "b36aa1d986604b05e52ed063336d95e0"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.linux_mipsle",
+                "safeName":  "leetcode_downloader_crossbinary_linux_mipsle",
+                "size":  "8650967"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "ea85b799ecccb6fe0198614a266e3ed3f0b0b0d1a8819039a290da0f0aa2f41a"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "19252a6be442054e095d4f7c9f48cbbd"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.linux_ppc64",
+                "safeName":  "leetcode_downloader_crossbinary_linux_ppc64",
+                "size":  "7733432"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "5034de2bf9df3765dfe90bfb42d80eace65ffb1433cc31d7e50147805802be40"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "bb54e8c7a252392de15e52cb5a1e2828"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.linux_ppc64le",
+                "safeName":  "leetcode_downloader_crossbinary_linux_ppc64le",
+                "size":  "7798968"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "fc79f16e434870be8a369ed3c781cc1b642c9d60359c63fa7e416231e6064925"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "fde6eebaff3d6854e5586ceae4951c4b"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.linux_riscv64",
+                "safeName":  "leetcode_downloader_crossbinary_linux_riscv64",
+                "size":  "7536824"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "4bae6671506707c15e52decf4c3b080c41bdbac6c1c84a31f8a9c6eae088b014"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "a34c6061169a355275e9d0036541ce95"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.linux_s390x",
+                "safeName":  "leetcode_downloader_crossbinary_linux_s390x",
+                "size":  "8323256"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "17964f618cb93137d0b25de05b98aa782c4723ccdf371b04799af1c8b241e66f"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "9c76957f51d1cc61027a629be52df914"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.netbsd_386",
+                "safeName":  "leetcode_downloader_crossbinary_netbsd_386",
+                "size":  "7487691"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "50bb1e6e7bba4fe809cc9d4474730453b513a606f12e6d434037ea7c6fc4d2ee"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "c1fff61b1303e30abaf3e0b9b9643890"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.netbsd_amd64",
+                "safeName":  "leetcode_downloader_crossbinary_netbsd_amd64",
+                "size":  "7749835"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "6649a76a034092f9429a5ad2a5225833c830280cbd775d213721d17eced42759"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "79af1122d95d2cb14ad53d69695419ec"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.netbsd_arm",
+                "safeName":  "leetcode_downloader_crossbinary_netbsd_arm",
+                "size":  "7602379"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "0c255788c57399f82672cc0cf9b4848a7d15f57678d30548d2191228a5dd2a08"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "9da565686edc4fbcb7e6e8f650743cd8"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.netbsd_arm64",
+                "safeName":  "leetcode_downloader_crossbinary_netbsd_arm64",
+                "size":  "7274699"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "3e32a9c17088e213a1d532dea572f3cdfa15e175c60fd011e266b083e3cd22e9"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "0beebd8609ae7ee6c79d7388a6d70742"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.openbsd_386",
+                "safeName":  "leetcode_downloader_crossbinary_openbsd_386",
+                "size":  "7520566"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "b36eefc079138c4c0df5cd625117de7f00414ab5149a855e8782c3226cef0ab7"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "58920106e2a99822bb6ccc9accc2e6e2"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.openbsd_amd64",
+                "safeName":  "leetcode_downloader_crossbinary_openbsd_amd64",
+                "size":  "7782712"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "7a9bc14a7bfd2d816f9f0a0692ee9b79164bc04ccdfa951af9d88c9d47ba7f8d"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "6372ae7ad64943e104a74ac846fd4155"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.openbsd_arm",
+                "safeName":  "leetcode_downloader_crossbinary_openbsd_arm",
+                "size":  "7602486"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "455fe5038b7ca18af43142aa83537fdc15e9756bf3f087134fcf2e98f51dd14e"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "98c029b2af9f9af456496238763c9ebf"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.openbsd_arm64",
+                "safeName":  "leetcode_downloader_crossbinary_openbsd_arm64",
+                "size":  "7340344"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "8fcb8ae7a55e65ee1d99fc9d3629f50864fc4a20f605478b06a6b979c19db82a"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "373d0523fa750125294c181045739e44"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.plan9_386",
+                "safeName":  "leetcode_downloader_crossbinary_plan9_386",
+                "size":  "7393572"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "7f95c280a3b5a6788451723301a4931c893ac9530aff3b1bc0ff0d2115c1874f"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "0ccacec310a23fcfb0b3277ee7e19fa7"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.plan9_amd64",
+                "safeName":  "leetcode_downloader_crossbinary_plan9_amd64",
+                "size":  "7597488"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "1e87c317ce061f33c9f8f598f6087a9e779147ea7e8808952951e51b75f470c3"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "8d60431c8d61018a0c98d13212cce1c8"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.plan9_arm",
+                "safeName":  "leetcode_downloader_crossbinary_plan9_arm",
+                "size":  "7345844"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "8d01ab0164311e930d9100de98059b258185063d7f309b8f8084b565afd1e233"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "9f21852f81812e100c96c643ac6e87bb"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.solaris_amd64",
+                "safeName":  "leetcode_downloader_crossbinary_solaris_amd64",
+                "size":  "7782692"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "35d834de1ec6f9bb70677d048d941d5dcfd2148d77b99c41f46d0f4f18470b39"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "6641e2ff5273ab1983baee409366eac5"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.wasip1_wasm",
+                "safeName":  "leetcode_downloader_crossbinary_wasip1_wasm",
+                "size":  "14358779"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "bb90a335b1f87eaad9071ed38e8d19c92c5962f26da6ce6eccf004b4ae352386"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "329f3f94b9a6b915851c659e9fe21698"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.windows_386",
+                "safeName":  "leetcode_downloader_crossbinary_windows_386",
+                "size":  "7607296"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "414d69fee27de2a7fa9a20aee84b45d7cabfa4d60ca51729e7eb18493d301399"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "30bc8b5a548ea687978b2e701f22baf1"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.windows_amd64",
+                "safeName":  "leetcode_downloader_crossbinary_windows_amd64",
+                "size":  "7939584"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "bfc78737a1c232bacfcf8254da147301407517f66ea5848bc9bbcf53473dcb69"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "da21faf41d4e1b99fe30efb6a8fb618c"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.windows_arm",
+                "safeName":  "leetcode_downloader_crossbinary_windows_arm",
+                "size":  "7710720"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "042923ea30383c3c92c80da818fe89c4b763e8775491e79535630a4ebb832874"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "b18e8f330a03c58df2d68620cada548d"
+                    }
+                ],
+                "name":  "leetcode_downloader_crossbinary.windows_arm64",
+                "safeName":  "leetcode_downloader_crossbinary_windows_arm64",
+                "size":  "7347200"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_leetcode_downloader_crossbinary_windows_arm64_"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "project":  {}
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bazel on Alwaldend</title>
+    <link>https://alwaldend.com/tags/bazel/</link>
+    <description>Recent content in Bazel on Alwaldend</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://alwaldend.com/tags/bazel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bazel</title>
+      <link>https://alwaldend.com/docs/misc/bazel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/misc/bazel/</guid>
+      <description>&lt;h2 id=&#34;advantages&#34;&gt;Advantages&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#advantages&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Hermetic builds&lt;/li&gt;&#xA;&lt;li&gt;Dependency graph&lt;/li&gt;&#xA;&lt;li&gt;Local build and test cache&lt;/li&gt;&#xA;&lt;li&gt;Remote cache&lt;/li&gt;&#xA;&lt;li&gt;Remote execution&lt;/li&gt;&#xA;&lt;li&gt;Unified API for builds, tasks, and tests&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;disadvantages&#34;&gt;Disadvantages&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#disadvantages&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Additional layer of abstraction and complexity&lt;/li&gt;&#xA;&lt;li&gt;Weird edge cases and occasional bugs&lt;/li&gt;&#xA;&lt;li&gt;Lack of support, documentation, and information on the internet&lt;/li&gt;&#xA;&lt;li&gt;The majority of advantages are irrelevant for the majority of codebases&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;bazelrc-has-variables&#34;&gt;.bazelrc has variables&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#bazelrc-has-variables&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;%workspace%&lt;/code&gt;: Workspace directory&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://bazel.build/run/bazelrc&#34;&gt;https://bazel.build/run/bazelrc&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;local-registry-module-is-cached&#34;&gt;Local registry module is cached&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#local-registry-module-is-cached&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;If you changed a local registry module, but bazel still uses the old version,&#xA;restart bazel: &lt;code&gt;bazel shutdown&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

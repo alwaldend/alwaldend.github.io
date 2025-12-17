@@ -1,0 +1,32 @@
+{
+    "items":  [
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "673204ac19308307028f02d98b7690be56784cb205c9f35f42b67ef0d4355777"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "9792c79265ff0bc3f3653f97cef0fd32"
+                    }
+                ],
+                "name":  "autoscroll-0.0.0-py3-none-any.whl",
+                "safeName":  "autoscroll_0_0_0_py3_none_any_whl",
+                "size":  "27052"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_autoscroll_0_0_0_py3_none_any_whl_"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "project":  {}
+}

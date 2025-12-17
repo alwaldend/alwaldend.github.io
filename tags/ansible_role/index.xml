@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ansible_role on Alwaldend</title>
+    <link>https://alwaldend.com/tags/ansible_role/</link>
+    <description>Recent content in Ansible_role on Alwaldend</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://alwaldend.com/tags/ansible_role/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adguard</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/adguard/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/adguard/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Caddy</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/caddy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/caddy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CIFS</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/cifs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/cifs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Consul</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/consul/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/consul/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Consul envoy</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/consul_envoy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/consul_envoy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DNS</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/dns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/dns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Facts</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/facts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/facts/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Firewall</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/firewall/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/firewall/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hiddify manager</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/hiddify_manager/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/hiddify_manager/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hiddify manager with host</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/hiddify_manager_host/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/hiddify_manager_host/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Host</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/host/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/host/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>K3s</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/k3s/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/k3s/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>K3s bootstrap</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/k3s_bootstrap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/k3s_bootstrap/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>K3s cluster</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/k3s_cluster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/k3s_cluster/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OS</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/os/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/os/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PVE cluster</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/pve_cluster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/pve_cluster/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PVE VM</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/pve_vm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/pve_vm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PVE VM remove</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/pve_vm_remove/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/pve_vm_remove/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Raspberry pi</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/raspberry_pi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/raspberry_pi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SSH</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/ssh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SSH port forwarding</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/ssh_port_forward/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/ssh_port_forward/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SSH update known hosts</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/ssh_update_known_hosts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/ssh_update_known_hosts/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Traefik</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/traefik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/traefik/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Update all packages</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/update_all_packages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/update_all_packages/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Users</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/users/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/users/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vault</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/vault/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/vault/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wireguard</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/wireguard/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/wireguard/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Xray</title>
+      <link>https://alwaldend.com/docs/projects/ansible_collection/roles/xray/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alwaldend.com/docs/projects/ansible_collection/roles/xray/</guid>
+      <description>&lt;p&gt;Links:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://xtls.github.io/en/&#34;&gt;https://xtls.github.io/en/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>
