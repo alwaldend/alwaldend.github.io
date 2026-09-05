@@ -47,14 +47,14 @@ Exact inputs and plan Parent candidate: c9300c9887104777c8915e3d4f390196604e9bd1
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
-		<meta property="article:modified_time" content="2026-09-05T21:49:00+03:00">
+		<meta property="article:modified_time" content="2026-09-05T22:04:33+03:00">
 
 	<meta itemprop="name" content="Alwaldend">
 	<meta itemprop="description" content="Attempt 2Back to durable goal · Attempt history
 Targeted failureAttempt 1’s repo_context_search cannot execute when ripgrep is unavailable from the runtime PATH, preventing all starter packages from passing their portable Bazel execution test.
 HypothesisKeeping ripgrep as the preferred engine but falling back on a bounded Node filesystem search will preserve normal-machine speed and make the reusable package functional in hermetic or minimal environments.
 Exact inputs and plan Parent candidate: c9300c9887104777c8915e3d4f390196604e9bd18497bbec319415d1a4ad057f Preserve all runtime, storage, MCP, and other starter-package code. Add a bounded fallback with workspace path checks, file/byte/result limits, fixed or regex matching, context lines, and basic glob filtering. Store it as a new immutable repo_context version; retain Attempt 1’s source version in its manifest history. Rerun the starter test first, then the complete focused package checks. Planned review packet Search succeeds without rg in Bazel’s test PATH. Traversal outside the workspace remains rejected. All eight starter tools execute through loaded Cordis Fibers. Previously passing lifecycle and real stdio checks remain green. VerdictRefine. The rebased candidate commit e3e74cb1e573867825347292bf17220a5b9a4a0c fixes criterion 7, but its final integrated regression failed because the lifecycle test used elapsed time to infer that an invocation remained in flight.">
-	<meta itemprop="dateModified" content="2026-09-05T21:49:00+03:00">
+	<meta itemprop="dateModified" content="2026-09-05T22:04:33+03:00">
 	<meta itemprop="wordCount" content="520">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
@@ -152,7 +152,7 @@ Exact inputs and plan Parent candidate: c9300c9887104777c8915e3d4f390196604e9bd1
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.1a1c7919aef16a468fd4ea6801f59ec2.json"
+    data-offline-search-index-json-src="/offline-search-index.12051081f41428d072b89229eef5ee49.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -177,7 +177,7 @@ Exact inputs and plan Parent candidate: c9300c9887104777c8915e3d4f390196604e9bd1
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.1a1c7919aef16a468fd4ea6801f59ec2.json"
+    data-offline-search-index-json-src="/offline-search-index.12051081f41428d072b89229eef5ee49.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
