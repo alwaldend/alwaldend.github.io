@@ -1,0 +1,2928 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js" data-theme-init>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#000000">
+
+<style>
+  html { background: Canvas; color: CanvasText; }
+  @media (prefers-color-scheme: dark) {
+    html { background: #0b0d12; color: #e6e6e6; }
+  }
+  html[data-theme-init] * { transition: none !important; }
+</style>
+
+<script>
+  (function() {
+    const themeKey = 'td-color-theme';
+    const storedTheme = localStorage.getItem(themeKey);
+    let theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    if (theme === 'auto') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  })();
+</script>
+<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/infra/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/infra/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+<title>Infra | Alwaldend</title>
+<meta name="description" content="Infrastructure tree">
+<meta property="og:url" content="https://alwaldend.com/docs/infra/">
+	<meta property="og:site_name" content="Alwaldend">
+	<meta property="og:title" content="Infra">
+	<meta property="og:description" content="Infrastructure tree">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="Infra">
+	<meta itemprop="description" content="Infrastructure tree">
+	<meta itemprop="dateModified" content="2026-09-05T20:57:59+03:00">
+	<meta itemprop="wordCount" content="181">
+	<meta itemprop="keywords" content="Infra">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Infra">
+	<meta name="twitter:description" content="Infrastructure tree">
+<link rel="preload" href="/scss/main.min.a66a47685d3dd8f6c2af31e43c9b9d7fbcf89ad26769c00134d82e867e780feb.css" as="style" integrity="sha256-pmpHaF092PbCrzHkPJudf7z4mtJnacABNNguhn54D&#43;s=" crossorigin="anonymous">
+<link href="/scss/main.min.a66a47685d3dd8f6c2af31e43c9b9d7fbcf89ad26769c00134d82e867e780feb.css" rel="stylesheet" integrity="sha256-pmpHaF092PbCrzHkPJudf7z4mtJnacABNNguhn54D&#43;s=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll">
+<div class="td-navbar-container container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Alwaldend</span></a>
+  <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
+    <div class="scroll-indicator scroll-left"></div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Docs</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/"><span>Projects</span></a>
+      </li>
+      <li class="nav-item td-navbar__light-dark-menu">
+        <div class="td-light-dark-menu dropdown"><svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check2" viewBox="0 0 16 16">
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+  <symbol id="circle-half" viewBox="0 0 16 16">
+    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+  </symbol>
+  <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+  </symbol>
+  <symbol id="sun-fill" viewBox="0 0 16 16">
+    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+  </symbol>
+</svg>
+<button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        title="Toggle theme (Auto)"
+        aria-label="Toggle theme (Auto)">
+  <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+  <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+</button>
+<ul class="dropdown-menu" aria-labelledby="bd-theme">
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#sun-fill"></use></svg>
+      Light
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#moon-stars-fill"></use></svg>
+      Dark
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+      <svg class="bi me-2 opacity-50"><use href="#circle-half"></use></svg>
+      Auto
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+</ul>
+</div>
+
+      </li>
+      </ul>
+    <div class="scroll-indicator scroll-right"></div>
+  </div>
+  <div class="td-navbar__search d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon" aria-hidden="true"></div>
+  <input
+    type="search"
+    name="q"
+    class="td-search__input form-control"
+    placeholder='Search this site…'
+    aria-label='Search this site…'
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.1f356a2ab7475879a5e255d2a0c9bf3e.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/infra/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Infra</h1>
+<div class="lead">Infrastructure tree</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-42091939eb4a98eda34f06492da3fb8b">Arch</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-6cd41c17c7d79f9d7b0b7f3f8608c7c1">Ceph</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-cfcd7873cb39ac39fb1979c7ee11a40f">Dns</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>3.1: <a href="#pg-5182c83d4964c12536210ac055ef6ebd">Tf</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-376547b64390a205fb888a5735b6a1f6">flux</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>4.1: <a href="#pg-de0be9c9f29bd0e4867d85c05c90675b">Ansible</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4.2: <a href="#pg-d382b2bcb1a61644d1a6e144f7ad0f24">cl</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4.3: <a href="#pg-c22a494ac2efe6ac7a34589eb0ec7c9b">Tf setup</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-94b79080257dcdffb77daea66ae25fce">forgejo</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>5.1: <a href="#pg-4631e4abd1138ca67304d2dacb44d29f">Ansible</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5.2: <a href="#pg-f3cee4c8624cb7f2609ceabdfcf85a16">Tf</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5.3: <a href="#pg-23e19713f3783652b8b451d0e26fbe6f">Tf setup</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-43911138aa59e3dc37e664b8b5680436">Forgejo runner</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>6.1: <a href="#pg-f066b695c0dd6eed475cb0158d9cb746">Ansible</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>6.2: <a href="#pg-f9ffc9e12b9f5551f238d6b09bbc9cc1">Terraform setup</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-b66b63aa778465190e99764905e898b0">GitHub</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>7.1: <a href="#pg-da73bfdc6f418187206d6aa50dcf4f7d">GitHub Terraform</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-46fe80af07deb2573d864cd166de7e8a">harbor</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>8.1: <a href="#pg-37790ae5b68c8bca2b32394697f159d4">Ansible</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>8.2: <a href="#pg-fe8f1dd506d136059144f407954fda31">cl</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>8.3: <a href="#pg-48d0c8e49f891bda04241fb1931f3237">Tf</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>8.4: <a href="#pg-6c096241e7882502d6144d2b151e4890">Tf setup</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-a416a4c444034fb20d6866d9988d5acd">ingress</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>9.1: <a href="#pg-155b678b86d897031198e5c4ab49f084">Ansible</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>9.2: <a href="#pg-e965813ffff72b80df3981a2f7b45885">Tf</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-5cae54bd900357d37c92a8c5f9cd8f4f">Mikrotik</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>11: <a href="#pg-37a5c21fe7523617f971ede484289410">Nas</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>12: <a href="#pg-0270334bd88c51f1beff552361fddebe">Pve</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>12.1: <a href="#pg-f2ca64eb6e8b88d953d4b1367c0a0df2">Ansible</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>12.2: <a href="#pg-77d854308dcf639524b72459ae4fe51a">Tf</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>13: <a href="#pg-1d52fb56e439607549df402df14e43e7">threexui</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>13.1: <a href="#pg-0285e5414ecda3e14ec3377e1c3ca7ec">Ansible</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>13.2: <a href="#pg-9f45366f1c27fe41503e491be089db11">sub</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>13.3: <a href="#pg-0c61b5306eb2ede5d5fb46f298e59667">Tf</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>13.4: <a href="#pg-0fb932b22c95b085c45384ac9291e3ba">Tf setup</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>14: <a href="#pg-5cd70630a434016d9c3e4a768a96f449">Vault</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>14.1: <a href="#pg-f68ccfab09e0692ff0158601a5e103f8">Ansible</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>14.2: <a href="#pg-76e2c966f28dd06c1b7face04e64fef5">Tf</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>14.2.1: <a href="#pg-9f42dd3acd4ae40b5be7877c8f79052f">Output</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>14.3: <a href="#pg-9b2a26a59bfce6aa9b63d80cfb3c3160">Tf setup</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>15: <a href="#pg-8b49a0addabc40b0f61fd163b17b3245">XCP-ng</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>16: <a href="#pg-36e2592e6caab35c9314fa600b14e721">Yandex Cloud</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>16.1: <a href="#pg-99d6b8f5d9e3de62236ef3e394e0c6a4">Org1</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>16.1.1: <a href="#pg-8b57f168db4c5e422e802143cb3f78df">Tf</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>This tree contains
+<a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">infrastructure as code</a>.
+Tracked source follows the repository&rsquo;s public-source policy. Infrastructure
+facts are not confidential merely because they are operational, generated, or
+live. Reports may include them unless they contain credentials, other secrets,
+or personal information. Inspect raw state, plans, inventories, and decrypted
+configuration because those artifacts can contain prohibited content; do not
+track the artifacts themselves.</p>
+<h2 id="print-7bb53e928f43aa128fc32aa65d384adf-requirements">Requirements<a class="td-heading-self-link" href="#print-7bb53e928f43aa128fc32aa65d384adf-requirements" aria-label="Heading self-link"></a></h2><ul>
+<li>Bazel targets MUST use repository-internal visibility.</li>
+<li>Infrastructure definitions MUST NOT be published as production artifacts.</li>
+<li>Infrastructure targets MUST NOT be dependencies of production build
+targets.</li>
+<li>Public checked-in documentation MAY be included in the repository
+documentation site, including non-secret, non-personal operational facts.</li>
+</ul>
+<h2 id="print-7bb53e928f43aa128fc32aa65d384adf-new-project">New project<a class="td-heading-self-link" href="#print-7bb53e928f43aa128fc32aa65d384adf-new-project" aria-label="Heading self-link"></a></h2><p>The commands below are state-changing operator examples. An agent must use
+<code>bazel_agent</code>, apply the repository Terraform and secret-handling procedures,
+and receive explicit authority for the exact operation and environment before
+running an equivalent command.</p>
+<ul>
+<li>Create an approle:
+<a href="https://github.com/alwaldend/src/blob/master/infra/vault/tf/approle_src_infra_yandex_cloud.tf">example</a></li>
+<li>Add it to approles:
+<a href="https://github.com/alwaldend/src/blob/master/infra/vault/tf/group_approles.tf">example</a></li>
+<li>Run apply:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/vault/tf:tf.apply
+</span></span></code></pre></div></li>
+<li>Update Yandex Cloud folders:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/yandex_cloud/org1/tf:tf.apply
+</span></span></code></pre></div></li>
+<li>Update Proxmox resource pools:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/pve/tf:tf.apply
+</span></span></code></pre></div></li>
+<li>Set up al config:
+<a href="https://github.com/alwaldend/src/blob/master/infra/pve/al.lua">example</a></li>
+<li>Set up a bucket for Terraform state:
+<a href="https://github.com/alwaldend/src/blob/master/infra/vault/tf/cloud.tf">example</a></li>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-42091939eb4a98eda34f06492da3fb8b">1 - Arch</h1>
+    <div class="lead">Architecture diagrams</div>
+	<h2 id="print-83945ffaa7d7202af900483275b11302-launch-drawio">Launch Drawio<a class="td-heading-self-link" href="#print-83945ffaa7d7202af900483275b11302-launch-drawio" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/arch
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6cd41c17c7d79f9d7b0b7f3f8608c7c1">2 - Ceph</h1>
+    <div class="lead">Ceph</div>
+	<h2 id="print-a88093d7661d3fd788c0ba64f43ccb61-links">Links<a class="td-heading-self-link" href="#print-a88093d7661d3fd788c0ba64f43ccb61-links" aria-label="Heading self-link"></a></h2><ul>
+<li>Proxmox docs: <a href="https://pve.proxmox.com/wiki/Deploy_Hyper-Converged_Ceph_Cluster">https://pve.proxmox.com/wiki/Deploy_Hyper-Converged_Ceph_Cluster</a></li>
+<li>Single node crushmap: <a href="https://imanudin.net/2025/05/12/proxmox-ceph-single-node-installation-for-test-lab-or-home-setup/">https://imanudin.net/2025/05/12/proxmox-ceph-single-node-installation-for-test-lab-or-home-setup/</a></li>
+</ul>
+<h2 id="print-a88093d7661d3fd788c0ba64f43ccb61-see-current-crush-map">See current crush map<a class="td-heading-self-link" href="#print-a88093d7661d3fd788c0ba64f43ccb61-see-current-crush-map" aria-label="Heading self-link"></a></h2><p>Go to Nodes -&gt; Host -&gt; Ceph -&gt; Configuration</p>
+<h2 id="print-a88093d7661d3fd788c0ba64f43ccb61-crush-map-update">Crush map update<a class="td-heading-self-link" href="#print-a88093d7661d3fd788c0ba64f43ccb61-crush-map-update" aria-label="Heading self-link"></a></h2><p>Ssh to the PVE host and update the map:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo ceph osd getcrushmap -o crushmap.cm
+</span></span><span style="display:flex;"><span>sudo crushtool --decompile crushmap.cm -o crushmap.txt
+</span></span><span style="display:flex;"><span>sudo vim crushmap.txt
+</span></span><span style="display:flex;"><span>sudo crushtool --compile crushmap.txt -o new_crushmap.cm
+</span></span><span style="display:flex;"><span>sudo ceph osd setcrushmap -i new_crushmap.cm
+</span></span><span style="display:flex;"><span>sudo ceph -s
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-cfcd7873cb39ac39fb1979c7ee11a40f">3 - Dns</h1>
+    <div class="lead">Dns setup for alwaldend.com</div>
+	<h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-links">Links<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-links" aria-label="Heading self-link"></a></h2><ul>
+<li>Docs: <a href="https://docs.dnscontrol.org">https://docs.dnscontrol.org</a></li>
+<li>Rules: <a href="/docs/projects/rules_dnscontrol/">../../projects/rules_dnscontrol</a></li>
+</ul>
+<h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-deployment">Deployment<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-deployment" aria-label="Heading self-link"></a></h2><p>Project landing records live next to their projects in
+<code>projects/&lt;project&gt;/dnsconfig.json</code>. The main website owns the shared
+<code>pages</code> address, and project files own their own subdomain CNAMEs.</p>
+<p>Interactive:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/dns
+</span></span></code></pre></div><p>Just preview:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/dns:dns.preview
+</span></span></code></pre></div><p>Just deploy:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/dns:dns.deploy
+</span></span></code></pre></div><div class="alert alert-primary" role="alert">
+Deploy modifies the bind file, which will cause
+//infra/alwaldend.com/dns:preview_test to fail
+</div>
+<h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-dc1-bind">dc1 BIND<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-dc1-bind" aria-label="Heading self-link"></a></h2><p>{{/<em>&lt; readfile file=&ldquo;zones/dc1/alwaldend.com.zone&rdquo; code=&ldquo;true&rdquo; lang=&ldquo;zone&rdquo; &gt;</em>/}}</p>
+<h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-global-bind">global BIND<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-global-bind" aria-label="Heading self-link"></a></h2><p>{{/<em>&lt; readfile file=&ldquo;zones/global/alwaldend.com.zone&rdquo; code=&ldquo;true&rdquo; lang=&ldquo;zone&rdquo; &gt;</em>/}}</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5182c83d4964c12536210ac055ef6ebd">3.1 - Tf</h1>
+    <div class="lead">Terraform config</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-376547b64390a205fb888a5735b6a1f6">4 - flux</h1>
+    <div class="lead">Fluxcd deployment</div>
+	<h2 id="print-84316393df228d529aa8351a82d6a499-links">Links<a class="td-heading-self-link" href="#print-84316393df228d529aa8351a82d6a499-links" aria-label="Heading self-link"></a></h2><ul>
+<li>Site: <a href="https://fluxcd.io/">https://fluxcd.io/</a></li>
+</ul>
+<h2 id="print-84316393df228d529aa8351a82d6a499-set-up-port-forwarding">Set up port forwarding<a class="td-heading-self-link" href="#print-84316393df228d529aa8351a82d6a499-set-up-port-forwarding" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ssh -L 6443:127.0.0.1:6443 -N flux.alwaldend.com
+</span></span></code></pre></div><h2 id="print-84316393df228d529aa8351a82d6a499-run-flux-cli">Run flux CLI<a class="td-heading-self-link" href="#print-84316393df228d529aa8351a82d6a499-run-flux-cli" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/flux/cl:flux
+</span></span></code></pre></div><h2 id="print-84316393df228d529aa8351a82d6a499-show-flux-status">Show flux status<a class="td-heading-self-link" href="#print-84316393df228d529aa8351a82d6a499-show-flux-status" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run infra/flux/cl:flux -- get all -A
+</span></span></code></pre></div><h2 id="print-84316393df228d529aa8351a82d6a499-run-bootstrap">Run bootstrap<a class="td-heading-self-link" href="#print-84316393df228d529aa8351a82d6a499-run-bootstrap" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/flux/cl:flux.bootstrap
+</span></span></code></pre></div><h2 id="print-84316393df228d529aa8351a82d6a499-run-flux-operator">Run flux operator<a class="td-heading-self-link" href="#print-84316393df228d529aa8351a82d6a499-run-flux-operator" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/flux/cl:op
+</span></span></code></pre></div><h2 id="print-84316393df228d529aa8351a82d6a499-show-oidc-info">Show oidc info<a class="td-heading-self-link" href="#print-84316393df228d529aa8351a82d6a499-show-oidc-info" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/flux/cl:oidc
+</span></span></code></pre></div><h2 id="print-84316393df228d529aa8351a82d6a499-renew-certificate">Renew certificate<a class="td-heading-self-link" href="#print-84316393df228d529aa8351a82d6a499-renew-certificate" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/flux/cl:cmctl -- renew traefik-gateway-websecure-tls -n traefik
+</span></span></code></pre></div><h2 id="print-84316393df228d529aa8351a82d6a499-update-secrets">Update secrets<a class="td-heading-self-link" href="#print-84316393df228d529aa8351a82d6a499-update-secrets" aria-label="Heading self-link"></a></h2><ul>
+<li>Generate secret id and the token:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>SECRET_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>bazel run //infra/flux/cl:vault.secret_id | jq -r .data.secret_id<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>TOKEN<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SECRET_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> | bazel run //infra/flux/cl:vault.ops_token | jq -r .auth.client_token<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Secret id: </span><span style="color:#e6db74">${</span>SECRET_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">, Token: </span><span style="color:#e6db74">${</span>TOKEN<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div></li>
+<li>Patch secret-id in <a href="https://github.com/alwaldend/src/blob/master/infra/flux/cl/cert-manager/issuer-approle.yaml">./cl/cert-manager/issuer-approle.yaml</a></li>
+<li>Patch token in <a href="https://github.com/alwaldend/src/blob/master/projects/kustomization/flux-repo/flux-sops-secret.yaml">projects/kustomization/flux-repo/flux-sops-secret.yaml</a></li>
+<li>Encrypt:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/flux/cl:sops.encrypt infra/flux/cl/cert-manager/issuer-approle.yaml
+</span></span><span style="display:flex;"><span>bazel run //infra/flux/cl:sops.encrypt projects/kustomization/flux-repo/flux-sops-secret.yaml
+</span></span><span style="display:flex;"><span>bazel run //infra/flux/cl:sops.encrypt projects/kustomization/flux-repo/flux-git-src-secret.yaml
+</span></span></code></pre></div></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-de0be9c9f29bd0e4867d85c05c90675b">4.1 - Ansible</h1>
+    <div class="lead">Ansible setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-d382b2bcb1a61644d1a6e144f7ad0f24">4.2 - cl</h1>
+    <div class="lead">Cluster manifests</div>
+	<h2 id="print-c5fcc52468d494f5a7ae68c1e7490717-links">Links<a class="td-heading-self-link" href="#print-c5fcc52468d494f5a7ae68c1e7490717-links" aria-label="Heading self-link"></a></h2><ul>
+<li>Cert manager charts: <a href="https://artifacthub.io/packages/helm/cert-manager/cert-manager">https://artifacthub.io/packages/helm/cert-manager/cert-manager</a></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c22a494ac2efe6ac7a34589eb0ec7c9b">4.3 - Tf setup</h1>
+    <div class="lead">Terraform setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-94b79080257dcdffb77daea66ae25fce">5 - forgejo</h1>
+    <div class="lead">forgejo.alwaldend.com</div>
+	<h2 id="print-0ffd6cbf558ebcb119cece8c34f2b34d-links">Links<a class="td-heading-self-link" href="#print-0ffd6cbf558ebcb119cece8c34f2b34d-links" aria-label="Heading self-link"></a></h2><ul>
+<li>Docs: <a href="https://forgejo.org/docs/latest/admin/installation/binary/">https://forgejo.org/docs/latest/admin/installation/binary/</a></li>
+<li>Config reference: <a href="https://forgejo.org/docs/latest/admin/config-cheat-sheet/">https://forgejo.org/docs/latest/admin/config-cheat-sheet/</a></li>
+</ul>
+<h2 id="print-0ffd6cbf558ebcb119cece8c34f2b34d-deployment">Deployment<a class="td-heading-self-link" href="#print-0ffd6cbf558ebcb119cece8c34f2b34d-deployment" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/forgejo/tf_setup <span style="color:#75715e"># Create hosts</span>
+</span></span><span style="display:flex;"><span>bazel run //infra/forgejo/ansible <span style="color:#75715e"># Configure hosts</span>
+</span></span><span style="display:flex;"><span>bazel run //infra/forgejo/tf <span style="color:#75715e"># Configure forgejo</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-4631e4abd1138ca67304d2dacb44d29f">5.1 - Ansible</h1>
+    <div class="lead">Ansible setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f3cee4c8624cb7f2609ceabdfcf85a16">5.2 - Tf</h1>
+    <div class="lead">Terraform config</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-23e19713f3783652b8b451d0e26fbe6f">5.3 - Tf setup</h1>
+    <div class="lead">Terraform setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-43911138aa59e3dc37e664b8b5680436">6 - Forgejo runner</h1>
+    <div class="lead">Forgejo Actions runner deployment</div>
+	<h2 id="print-1be3fa60768c7ba248d4de62766e0ac5-deploy-vms">Deploy VMs<a class="td-heading-self-link" href="#print-1be3fa60768c7ba248d4de62766e0ac5-deploy-vms" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/forgejo_runner/tf_setup <span style="color:#75715e"># Create VMs</span>
+</span></span><span style="display:flex;"><span>bazel run //infra/forgejo_runner/ansible <span style="color:#75715e"># Configure VMs</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-f066b695c0dd6eed475cb0158d9cb746">6.1 - Ansible</h1>
+    <div class="lead">Forgejo runner configuration</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f9ffc9e12b9f5551f238d6b09bbc9cc1">6.2 - Terraform setup</h1>
+    <div class="lead">Forgejo runner VM</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b66b63aa778465190e99764905e898b0">7 - GitHub</h1>
+    <div class="lead">GitHub Pages repositories for project landing sites</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-da73bfdc6f418187206d6aa50dcf4f7d">7.1 - GitHub Terraform</h1>
+    <div class="lead">GitHub Pages repositories for project landing sites</div>
+	<p>This package creates the public repositories that host the project landing
+pages. Each repository receives its built Hugo site from the reusable deploy
+target in <code>projects/alwaldend.com</code>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-46fe80af07deb2573d864cd166de7e8a">8 - harbor</h1>
+    <div class="lead">Harbor deployment</div>
+	<h2 id="print-21fd05f8558afa5ada6b51bbaadf8e77-links">Links<a class="td-heading-self-link" href="#print-21fd05f8558afa5ada6b51bbaadf8e77-links" aria-label="Heading self-link"></a></h2><ul>
+<li>Site: <a href="https://goharbor.io/">https://goharbor.io/</a></li>
+<li>Releases: <a href="https://github.com/goharbor/harbor/releases">https://github.com/goharbor/harbor/releases</a></li>
+</ul>
+<h2 id="print-21fd05f8558afa5ada6b51bbaadf8e77-ce-login">CE Login<a class="td-heading-self-link" href="#print-21fd05f8558afa5ada6b51bbaadf8e77-ce-login" aria-label="Heading self-link"></a></h2><ul>
+<li>Go to User Profile, copy CLI secret</li>
+<li>Run:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>podman login harbor.alwaldend.com
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="print-21fd05f8558afa5ada6b51bbaadf8e77-update-secrets">Update secrets<a class="td-heading-self-link" href="#print-21fd05f8558afa5ada6b51bbaadf8e77-update-secrets" aria-label="Heading self-link"></a></h2><ul>
+<li>Generate approle secret id:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>SECRET_ID<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>bazel run //infra/harbor/cl:vault.secret_id | jq -r .data.secret_id<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Secret id: </span><span style="color:#e6db74">${</span>SECRET_ID<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div></li>
+<li>Patch secret-id in <a href="https://github.com/alwaldend/src/blob/master/infra/harbor/cl/cert-manager/issuer-approle.yaml">./cl/cert-manager/issuer-approle.yaml</a></li>
+<li>Encrypt:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/flux/cl:sops.encrypt infra/harbor/cl/cert-manager/issuer-approle.yaml
+</span></span></code></pre></div></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-37790ae5b68c8bca2b32394697f159d4">8.1 - Ansible</h1>
+    <div class="lead">Ansible setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-fe8f1dd506d136059144f407954fda31">8.2 - cl</h1>
+    <div class="lead">Cluster manifests</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-48d0c8e49f891bda04241fb1931f3237">8.3 - Tf</h1>
+    <div class="lead">Terraform config</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6c096241e7882502d6144d2b151e4890">8.4 - Tf setup</h1>
+    <div class="lead">Terraform setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a416a4c444034fb20d6866d9988d5acd">9 - ingress</h1>
+    <div class="lead">ingress</div>
+	<h2 id="print-cd9b6d20f7f2a57b1163b6b622a2a9f8-run-ansible">Run ansible<a class="td-heading-self-link" href="#print-cd9b6d20f7f2a57b1163b6b622a2a9f8-run-ansible" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/ingress/ansible
+</span></span></code></pre></div><p>Services in <code>traefik_services</code> must use a backend <code>target</code> that resolves from
+the ingress hosts without resolving back to ingress. Define a dedicated
+site-local address, conventionally prefixed with <code>dc1.</code>, in the owning
+service&rsquo;s DNS configuration and use that address as the target.</p>
+<h2 id="print-cd9b6d20f7f2a57b1163b6b622a2a9f8-apply-terraform">Apply terraform<a class="td-heading-self-link" href="#print-cd9b6d20f7f2a57b1163b6b622a2a9f8-apply-terraform" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/ingress/tf
+</span></span></code></pre></div><h2 id="print-cd9b6d20f7f2a57b1163b6b622a2a9f8-update-signed-image-url">Update signed image url<a class="td-heading-self-link" href="#print-cd9b6d20f7f2a57b1163b6b622a2a9f8-update-signed-image-url" aria-label="Heading self-link"></a></h2><ul>
+<li>Create a signed url: <a href="https://yandex.cloud/ru/docs/storage/operations/objects/link-for-download">https://yandex.cloud/ru/docs/storage/operations/objects/link-for-download</a></li>
+<li>Update the secret: <code>alwaldend.com/vault1/approles/src_infra_ingress/image</code></li>
+</ul>
+<h2 id="print-cd9b6d20f7f2a57b1163b6b622a2a9f8-recreate-vms">Recreate VMs<a class="td-heading-self-link" href="#print-cd9b6d20f7f2a57b1163b6b622a2a9f8-recreate-vms" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run infra/ingress/tf -- -replace <span style="color:#e6db74">&#39;yandex_compute_disk.vpc[&#34;*&#34;]&#39;</span>
+</span></span></code></pre></div><h2 id="print-cd9b6d20f7f2a57b1163b6b622a2a9f8-regenerate-wireguard-keys">Regenerate wireguard keys<a class="td-heading-self-link" href="#print-cd9b6d20f7f2a57b1163b6b622a2a9f8-regenerate-wireguard-keys" aria-label="Heading self-link"></a></h2><ul>
+<li>Regenerate private and public keys:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>wg genkey | tee host1.privatekey.txt | wg pubkey &gt;host1.publickey.txt
+</span></span><span style="display:flex;"><span>wg genkey | tee host2.privatekey.txt | wg pubkey &gt;host2.publickey.txt
+</span></span><span style="display:flex;"><span>wg genkey | tee router.privatekey.txt | wg pubkey &gt;router.publickey.txt
+</span></span><span style="display:flex;"><span>cat - &gt;data.json <span style="color:#e6db74">&lt;&lt;EOF
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;wg_public_keys&#34;: {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;host1&#34;: &#34;$(cat host1.publickey.txt)&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;host2&#34;: &#34;$(cat host2.publickey.txt)&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;router&#34;: &#34;$(cat router.publickey.txt)&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  },
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;wg_private_keys&#34;: {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;host1&#34;: &#34;$(cat host1.privatekey.txt)&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;host2&#34;: &#34;$(cat host2.privatekey.txt)&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;router&#34;: &#34;$(cat router.privatekey.txt)&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  },
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;wg_preshared_keys&#34;: {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;host1&#34;: &#34;$(openssl rand 32 | base64)&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;host2&#34;: &#34;$(openssl rand 32 | base64)&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span><span style="display:flex;"><span>bazel run infra/ingress:vault.kv_put -- -format json alwaldend.com/vault1/approles/src_infra_ingress/wireguard <span style="color:#e6db74">&#34;@</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">/data.json&#34;</span>
+</span></span><span style="display:flex;"><span>rm data.json *.privatekey.txt *.publickey.txt
+</span></span></code></pre></div></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-155b678b86d897031198e5c4ab49f084">9.1 - Ansible</h1>
+    <div class="lead">Ansible setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e965813ffff72b80df3981a2f7b45885">9.2 - Tf</h1>
+    <div class="lead">Terraform config</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5cae54bd900357d37c92a8c5f9cd8f4f">10 - Mikrotik</h1>
+    <div class="lead">Mikrotik setup for dc1.alwaldend.com</div>
+	<h2 id="print-64d11e5be6a668973b7676b14465fedd-deployment">Deployment<a class="td-heading-self-link" href="#print-64d11e5be6a668973b7676b14465fedd-deployment" aria-label="Heading self-link"></a></h2><ul>
+<li>Open <a href="https://help.mikrotik.com/docs/spaces/ROS/pages/328129/WinBox">Winbox</a></li>
+<li>Open new terminal</li>
+<li>Run <code>/export</code></li>
+<li>Copy output</li>
+</ul>
+<h2 id="print-64d11e5be6a668973b7676b14465fedd-links">Links<a class="td-heading-self-link" href="#print-64d11e5be6a668973b7676b14465fedd-links" aria-label="Heading self-link"></a></h2><ul>
+<li>Website: <a href="https://mikrotik.com">https://mikrotik.com</a></li>
+<li>Docs: <a href="https://help.mikrotik.com/docs/spaces/ROS/pages/328155/Configuration&#43;Management">https://help.mikrotik.com/docs/spaces/ROS/pages/328155/Configuration+Management</a></li>
+</ul>
+<h2 id="print-64d11e5be6a668973b7676b14465fedd-exports">Exports<a class="td-heading-self-link" href="#print-64d11e5be6a668973b7676b14465fedd-exports" aria-label="Heading self-link"></a></h2><h3 id="print-64d11e5be6a668973b7676b14465fedd-router1">Router1<a class="td-heading-self-link" href="#print-64d11e5be6a668973b7676b14465fedd-router1" aria-label="Heading self-link"></a></h3><pre tabindex="0"><code class="language-rsc" data-lang="rsc">/interface bridge
+add admin-mac=78:9A:18:38:6C:CA auto-mac=no comment=&#34;bridge1 (wired)&#34; name=bridge1
+add comment=&#34;bridge2 (wireless)&#34; name=bridge2
+/interface wifi
+set [ find default-name=wifi1 ] channel.frequency=5000-5400 .skip-dfs-channels=10min-cac comment=&#34;wifi1 (5GHz)&#34; configuration.country=Russia .mode=ap .ssid=divinity-5GHz datapath.client-isolation=yes disabled=no security.authentication-types=wpa2-psk,wpa3-psk .connect-priority=0 .ft=yes .ft-over-ds=yes
+set [ find default-name=wifi2 ] channel.skip-dfs-channels=10min-cac comment=&#34;wifi2 (2GHz)&#34; configuration.country=Russia .mode=ap .ssid=divinity-2GHz datapath.client-isolation=yes disabled=no security.authentication-types=wpa2-psk,wpa3-psk .connect-priority=0 .ft=yes .ft-over-ds=yes
+/interface ethernet
+set [ find default-name=ether1 ] comment=ether1 l2mtu=1500 mac-address=F4:28:53:7F:A4:59
+set [ find default-name=ether2 ] comment=ether2
+set [ find default-name=ether3 ] comment=ether3
+set [ find default-name=ether4 ] comment=ether4
+set [ find default-name=ether5 ] comment=ether5
+/interface wireguard
+add comment=&#34;tf[users/simeonwarren/hermes/tf_setup]&#34; disabled=yes listen-port=13232 mtu=1420 name=hermes-vpc
+add comment=&#34;tf[infra/ingress/tf]&#34; listen-port=13231 mtu=1420 name=ingress-vpc
+/interface ethernet switch
+set switch1 cpu-flow-control=yes
+/interface list
+add comment=defconf name=WAN
+add comment=defconf name=LAN
+add name=accept-forward-WAN
+add name=accept-input-DNS
+add name=accept-input-DHCP-server
+add name=accept-input-ICMP
+add name=accept-input-winbox
+add name=accept-input-web-ui
+add name=accept-input-mikrotik-neighbor-discovery
+add name=accept-forward-LAN
+add name=accept-output-LAN
+add name=accept-input-NTP
+add name=accept-input-API
+/ip pool
+add comment=bridge1 name=bridge1 ranges=192.168.1.10-192.168.1.254
+add comment=bridge2 name=bridge2 ranges=192.168.2.10-192.168.2.254
+/ip dhcp-server
+add address-pool=bridge1 comment=bridge1 interface=bridge1 lease-time=10m name=bridge1
+add address-pool=bridge2 interface=bridge2 name=bridge2
+/ipv6 pool
+add name=dc01 prefix=fd2e:546d:5738::/48 prefix-length=64
+/user group
+add comment=src_infra_dns name=src_infra_dns policy=read,write,api,rest-api,!local,!telnet,!ssh,!ftp,!reboot,!policy,!test,!winbox,!password,!web,!sniff,!sensitive,!romon
+add comment=src_infra_ingress name=src_infra_ingress policy=read,write,api,rest-api,!local,!telnet,!ssh,!ftp,!reboot,!policy,!test,!winbox,!password,!web,!sniff,!sensitive,!romon
+add comment=users_simeonwarren name=users_simeonwarren policy=read,write,api,rest-api,!local,!telnet,!ssh,!ftp,!reboot,!policy,!test,!winbox,!password,!web,!sniff,!sensitive,!romon
+/interface bridge port
+add bridge=bridge1 comment=bridge1-ether2 interface=ether2
+add bridge=bridge1 comment=bridge1-ether3 interface=ether3
+add bridge=bridge1 comment=bridge1-ether4 interface=ether4
+add bridge=bridge1 comment=bridge1-ether5 interface=ether5
+add bridge=bridge2 comment=bridge2-wifi1 interface=wifi1
+add bridge=bridge2 comment=bridge2-wifi2 interface=wifi2
+/ip neighbor discovery-settings
+set discover-interface-list=LAN
+/interface detect-internet
+set detect-interface-list=WAN
+/interface list member
+add interface=bridge1 list=LAN
+add interface=ether1 list=WAN
+add interface=bridge2 list=LAN
+add interface=bridge2 list=accept-forward-WAN
+add interface=bridge1 list=accept-forward-WAN
+add interface=bridge1 list=accept-input-DNS
+add interface=bridge2 list=accept-input-DNS
+add interface=bridge1 list=accept-input-DHCP-server
+add interface=bridge2 list=accept-input-DHCP-server
+add interface=bridge1 list=accept-input-ICMP
+add interface=bridge2 list=accept-input-ICMP
+add interface=bridge1 list=accept-input-winbox
+add interface=bridge1 list=accept-input-web-ui
+add interface=bridge1 list=accept-input-mikrotik-neighbor-discovery
+add interface=bridge1 list=accept-forward-LAN
+add interface=bridge1 list=accept-output-LAN
+add interface=bridge1 list=accept-input-NTP
+add interface=bridge1 list=accept-input-API
+add comment=&#34;tf[infra/ingress/tf]&#34; interface=ingress-vpc list=accept-input-ICMP
+add comment=&#34;tf[infra/ingress/tf]&#34; interface=ingress-vpc list=LAN
+add comment=&#34;tf[infra/ingress/tf]&#34; interface=ingress-vpc list=accept-forward-LAN
+add comment=&#34;tf[users/simeonwarren/hermes/tf_setup]&#34; interface=hermes-vpc list=accept-forward-LAN
+add comment=&#34;tf[users/simeonwarren/hermes/tf_setup]&#34; interface=hermes-vpc list=accept-input-ICMP
+add comment=&#34;tf[users/simeonwarren/hermes/tf_setup]&#34; interface=hermes-vpc list=LAN
+/interface ovpn-server server
+add mac-address=FE:B3:B4:C4:A4:48 name=ovpn-server1
+/interface wireguard peers
+add allowed-address=10.10.0.2/24 comment=host2 endpoint-address=103.76.53.6 endpoint-port=51820 interface=ingress-vpc name=ingress-vpc-host2 persistent-keepalive=5s public-key=&#34;Z2JamOjZYOGaf4tPZzchyHjLw/XlOtUtQObyROEQ9DM=&#34;
+add allowed-address=10.10.0.1/24 comment=host1 endpoint-address=158.160.196.128 endpoint-port=51820 interface=ingress-vpc name=ingress-vpc-host1 persistent-keepalive=5s public-key=&#34;xmyl+frvngmzRB9z5yEURxQj4vTw47tKQV7EZrTAREw=&#34;
+add allowed-address=10.20.0.1/24 comment=host1 endpoint-address=158.160.220.223 endpoint-port=51820 interface=hermes-vpc name=hermes-vpc-host1 persistent-keepalive=5s public-key=&#34;oA4ZpsmrclIOIWh3ECsb4ZFKH1hQMDtuW3xNXat3IyQ=&#34;
+/ip address
+add address=192.168.1.1/24 comment=&#34;bridge1 (LAN)&#34; interface=bridge1 network=192.168.1.0
+add address=192.168.2.1/24 comment=&#34;bridge2 (Wireless)&#34; interface=bridge2 network=192.168.2.0
+add address=192.168.10.1/24 comment=host1.pve1.dc1.alwaldend.com interface=bridge1 network=192.168.10.0
+add address=10.10.0.0/24 comment=&#34;tf[infra/ingress/tf]&#34; interface=ingress-vpc network=10.10.0.0
+add address=10.20.0.0/24 comment=&#34;tf[users/simeonwarren/hermes/tf_setup]&#34; interface=hermes-vpc network=10.20.0.0
+/ip dhcp-client
+add comment=defconf interface=ether1 name=ether1 use-peer-dns=no
+/ip dhcp-server lease
+add address=192.168.1.250 client-id=1:2c:cf:67:67:b5:13 mac-address=2C:CF:67:67:B5:13 server=bridge1
+add address=192.168.1.218 client-id=1:e0:be:3:2b:9a:1a mac-address=E0:BE:03:2B:9A:1A server=bridge1
+add address=192.168.1.216 client-id=ff:60:8:6d:aa:0:1:0:1:31:93:31:1a:34:5a:60:8:6d:aa mac-address=34:5A:60:08:6D:AA server=bridge1
+/ip dhcp-server network
+add address=192.168.1.0/24 comment=defconf dns-server=192.168.1.1 gateway=192.168.1.1
+add address=192.168.2.0/24 dns-server=192.168.2.1 gateway=192.168.2.1
+/ip dns
+set allow-remote-requests=yes servers=1.1.1.2,1.0.0.2 use-doh-server=https://odoh.cloudflare-dns.com/dns-query verify-doh-cert=yes
+/ip dns static
+add address=185.199.108.153 name=alwaldend.com ttl=5m type=A
+add address=185.199.109.153 name=alwaldend.com ttl=5m type=A
+add address=185.199.110.153 name=alwaldend.com ttl=5m type=A
+add address=185.199.111.153 name=alwaldend.com ttl=5m type=A
+add address=2606:50c0:8000::153 name=alwaldend.com ttl=5m type=AAAA
+add address=2606:50c0:8001::153 name=alwaldend.com ttl=5m type=AAAA
+add address=2606:50c0:8002::153 name=alwaldend.com ttl=5m type=AAAA
+add address=2606:50c0:8003::153 name=alwaldend.com ttl=5m type=AAAA
+add mx-exchange=mail.protonmail.ch mx-preference=10 name=alwaldend.com ttl=5m type=MX
+add mx-exchange=mailsec.protonmail.ch mx-preference=20 name=alwaldend.com ttl=5m type=MX
+add name=alwaldend.com text=&#34;_globalsign-domain-verification=0QBJgVV_uwcFLTi1Rot3bb1LyJ5uW1WD0ygvIS4OM5&#34; ttl=5m type=TXT
+add name=alwaldend.com text=&#34;protonmail-verification=bdcd133d3f472fa17f66328950d02fbeae1bef75&#34; ttl=5m type=TXT
+add name=alwaldend.com text=&#34;v=spf1 include:_spf.protonmail.ch ~all&#34; ttl=5m type=TXT
+add name=_dmarc.alwaldend.com text=&#34;v=DMARC1; p=quarantine; adkim=s&#34; ttl=5m type=TXT
+add cname=protonmail.domainkey.djgwfzcu5fgjtpoijqqomgifmqj6zeiuwdd4mzim4hrxab3zsgwkq.domains.proton.ch name=protonmail._domainkey.alwaldend.com ttl=5m type=CNAME
+add cname=protonmail2.domainkey.djgwfzcu5fgjtpoijqqomgifmqj6zeiuwdd4mzim4hrxab3zsgwkq.domains.proton.ch name=protonmail2._domainkey.alwaldend.com ttl=5m type=CNAME
+add cname=protonmail3.domainkey.djgwfzcu5fgjtpoijqqomgifmqj6zeiuwdd4mzim4hrxab3zsgwkq.domains.proton.ch name=protonmail3._domainkey.alwaldend.com ttl=5m type=CNAME
+add address=192.168.1.222 name=bm1.dc1.alwaldend.com ttl=5m type=A
+add address=192.168.1.216 name=bm2.dc1.alwaldend.com ttl=5m type=A
+add address=fd2e:546d:5738:0:365a:60ff:fe08:6daa name=bm2.dc1.alwaldend.com ttl=10m type=AAAA
+add address=192.168.1.218 name=bm3.dc1.alwaldend.com ttl=5m type=A
+add address=fd2e:546d:5738:0:e2be:3ff:fe2b:9a1a name=bm3.dc1.alwaldend.com ttl=10m type=AAAA
+add cname=bm2.dc1.alwaldend.com name=host1.pve1.dc1.alwaldend.com ttl=10m type=CNAME
+add address=192.168.10.10 name=cloudinit-test.vm.pve1.dc1.alwaldend.com ttl=5m type=A
+add address=192.168.1.1 name=router1.dc1.alwaldend.com ttl=5m type=A
+add address=fd2e:546d:5738::1 name=router1.dc1.alwaldend.com ttl=10m type=AAAA
+add address=192.168.1.254 name=switch1.dc1.alwaldend.com ttl=5m type=A
+add address=192.168.1.218 name=vault.dc1.alwaldend.com ttl=5m type=A
+add mx-exchange=mx1.simplelogin.co mx-preference=10 name=simplelogin.alwaldend.com ttl=3h type=MX
+add mx-exchange=mx2.simplelogin.co mx-preference=20 name=simplelogin.alwaldend.com ttl=3h type=MX
+add name=simplelogin.alwaldend.com text=&#34;sl-verification=bxfzzfjiggzsxyzxhhmkmjqkaskjgy&#34; ttl=3h type=TXT
+add name=simplelogin.alwaldend.com text=&#34;v=spf1 include:simplelogin.co ~all&#34; ttl=3h type=TXT
+add name=_dmarc.simplelogin.alwaldend.com text=&#34;v=DMARC1; p=quarantine; pct=100; adkim=s; aspf=s&#34; ttl=3h type=TXT
+add cname=dkim._domainkey.simplelogin.co name=dkim._domainkey.simplelogin.alwaldend.com ttl=3h type=CNAME
+add cname=dkim02._domainkey.simplelogin.co name=dkim02._domainkey.simplelogin.alwaldend.com ttl=3h type=CNAME
+add cname=dkim03._domainkey.simplelogin.co name=dkim03._domainkey.simplelogin.alwaldend.com ttl=3h type=CNAME
+add cname=alwaldend.com name=www.alwaldend.com ttl=5m type=CNAME
+add mx-exchange=mx.yandex.net mx-preference=10 name=yandex.alwaldend.com ttl=6h type=MX
+add name=yandex.alwaldend.com text=&#34;v=spf1 redirect=_spf.yandex.net&#34; ttl=5m type=TXT
+add name=yandex.alwaldend.com text=&#34;yandex-verification: b83672f59b3dbe16&#34; ttl=5m type=TXT
+add name=mail._domainkey.yandex.alwaldend.com text=&#34;v=DKIM1; k=rsa; t=s; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCcYzFVgkeDOhaIIkWM8gNQjxVsv0/aXfU+ax5urB5y6hA6lSjRnjRo6tm0bXbkOJf41GmiwMNgdXpwRtzgzAlX1i2aJbtEr4b9jzibEGLQ7Cvqs44bOYES9f/K3ueQpnvdTOJmFqlRReFL7ZrUyDFCoQ7f4+7h4i8s01cCcRrt5wIDAQAB&#34; ttl=5m type=TXT
+add address=192.168.1.218 name=host1.vault.dc1.alwaldend.com ttl=5m type=A
+add address=192.168.10.60 name=flux.alwaldend.com ttl=5m type=A
+add address=192.168.10.60 name=host1.flux.alwaldend.com ttl=5m type=A
+add cname=flux.alwaldend.com name=openid.flux.alwaldend.com ttl=10m type=CNAME
+add cname=flux.alwaldend.com name=operator.flux.alwaldend.com ttl=10m type=CNAME
+add address=192.168.10.40 name=forgejo.alwaldend.com ttl=5m type=A
+add address=192.168.10.40 name=host1.forgejo.alwaldend.com ttl=5m type=A
+add address=192.168.10.50 name=harbor.alwaldend.com ttl=5m type=A
+add address=192.168.10.50 name=host1.harbor.alwaldend.com ttl=5m type=A
+add address=192.168.1.216 name=pve.alwaldend.com ttl=5m type=A
+add address=192.168.10.80 name=threexui.alwaldend.com ttl=5m type=A
+add address=192.168.10.80 name=host1.threexui.alwaldend.com ttl=5m type=A
+add address=45.142.141.133 name=njalla1.nodes.threexui.alwaldend.com ttl=5m type=A
+add address=2a0a:3840:8078:141:0:2d8e:8d85:1337 name=njalla1.nodes.threexui.alwaldend.com ttl=10m type=AAAA
+add address=192.168.1.218 name=vault.alwaldend.com ttl=5m type=A
+add address=103.76.53.6 name=ingress.alwaldend.com ttl=5m type=A
+add address=158.160.196.128 name=ingress.alwaldend.com ttl=5m type=A
+add address=158.160.196.128 name=host1.ingress.alwaldend.com ttl=5m type=A
+add address=103.76.53.6 name=host2.ingress.alwaldend.com ttl=5m type=A
+add name=yc.threexui.alwaldend.com ns=ns1.yandexcloud.net ttl=5m type=NS
+add name=yc.threexui.alwaldend.com ns=ns2.yandexcloud.net ttl=5m type=NS
+add cname=host1.nodes.yc.threexui.alwaldend.com name=yc1.nodes.threexui.alwaldend.com ttl=10m type=CNAME
+add address=192.168.10.100 name=runner1.forgejo-runner.alwaldend.com ttl=5m type=A
+add cname=host1.yc.hermes.simeonwarren.users.alwaldend.com name=hermes.simeonwarren.users.alwaldend.com ttl=10m type=CNAME
+add cname=host1.yc.hermes.simeonwarren.users.alwaldend.com name=host1.hermes.simeonwarren.users.alwaldend.com ttl=10m type=CNAME
+add name=yc.hermes.simeonwarren.users.alwaldend.com ns=ns1.yandexcloud.net ttl=5m type=NS
+add name=yc.hermes.simeonwarren.users.alwaldend.com ns=ns2.yandexcloud.net ttl=5m type=NS
+/ip firewall filter
+add action=accept chain=input comment=&#34;defconf: accept established,related,untracked&#34; connection-state=established,related,untracked
+add action=drop chain=input comment=&#34;defconf: drop invalid&#34; connection-state=invalid log-prefix=drop-invalid
+add action=accept chain=input comment=&#34;defconf: accept ICMP&#34; in-interface-list=accept-input-ICMP protocol=icmp
+add action=accept chain=input comment=&#34;defconf: accept to local loopback (for CAPsMAN)&#34; dst-address=127.0.0.1
+add action=drop chain=input comment=&#34;defconf: drop all not coming from LAN&#34; in-interface-list=!LAN log-prefix=drop-not-coming-from-lan
+add action=accept chain=forward comment=&#34;defconf: accept in ipsec policy&#34; ipsec-policy=in,ipsec
+add action=accept chain=forward comment=&#34;defconf: accept out ipsec policy&#34; ipsec-policy=out,ipsec
+add action=fasttrack-connection chain=forward comment=&#34;defconf: fasttrack&#34; connection-state=established,related
+add action=accept chain=forward comment=&#34;defconf: accept established,related, untracked&#34; connection-state=established,related,untracked
+add action=drop chain=forward comment=&#34;defconf: drop invalid&#34; connection-state=invalid log-prefix=drop-invalid
+add action=drop chain=forward comment=&#34;defconf: drop all from WAN not DSTNATed&#34; connection-nat-state=!dstnat connection-state=new in-interface-list=WAN log-prefix=drop-from-wan-not-dstnated
+add action=accept chain=input in-interface-list=WAN protocol=gre
+add action=accept chain=forward comment=&#34;accept forward WAN&#34; in-interface-list=accept-forward-WAN out-interface-list=WAN
+add action=accept chain=forward comment=&#34;accept forward LAN&#34; in-interface-list=accept-forward-LAN out-interface-list=LAN
+add action=accept chain=input comment=&#34;accept input DNS (udp)&#34; dst-port=53 in-interface-list=accept-input-DNS protocol=udp
+add action=accept chain=input comment=&#34;accept input DNS (tcp)&#34; dst-port=53 in-interface-list=accept-input-DNS protocol=tcp
+add action=accept chain=input comment=accept-input-NTP dst-port=123 in-interface-list=accept-input-NTP protocol=udp
+add action=accept chain=input comment=&#34;accept input DHCP-server&#34; dst-port=67 in-interface-list=accept-input-DHCP-server log-prefix=accept-DHCP protocol=udp
+add action=accept chain=input comment=&#34;accept input winbox (tcp)&#34; dst-port=8291 in-interface-list=accept-input-winbox protocol=tcp
+add action=accept chain=input comment=&#34;accept input winbox (udp)&#34; dst-port=20561 in-interface-list=accept-input-winbox protocol=udp
+add action=accept chain=input comment=&#34;accept input web ui&#34; dst-port=80,443 in-interface-list=accept-input-web-ui protocol=tcp
+add action=accept chain=input comment=&#34;accept input mikrotik neighbor discovery&#34; dst-port=5678 in-interface-list=accept-input-mikrotik-neighbor-discovery protocol=udp
+add action=drop chain=forward comment=&#34;drop forward&#34; log=yes log-prefix=drop-forward
+add action=drop chain=input comment=&#34;drop input&#34; log=yes log-prefix=drop-input
+add action=accept chain=output comment=accept-output-LAN out-interface-list=LAN
+/ip firewall nat
+add action=masquerade chain=srcnat comment=&#34;defconf: masquerade&#34; ipsec-policy=out,none out-interface-list=WAN
+/ip ipsec profile
+set [ find default=yes ] dpd-interval=2m dpd-maximum-failures=5
+/ip service
+set www-ssl certificate=alwaldend.com_acme disabled=no
+set reverse-proxy certificate=alwaldend.com_acme
+set api-ssl certificate=alwaldend.com_acme
+/ipv6 address
+add address=::1 from-pool=dc01 interface=bridge1
+add address=::1:0:0:0:1 from-pool=dc01 interface=bridge2
+/ipv6 firewall address-list
+add address=::/128 comment=&#34;defconf: unspecified address&#34; list=bad_ipv6
+add address=::1/128 comment=&#34;defconf: lo&#34; list=bad_ipv6
+add address=fec0::/10 comment=&#34;defconf: site-local&#34; list=bad_ipv6
+add address=::ffff:0.0.0.0/96 comment=&#34;defconf: ipv4-mapped&#34; list=bad_ipv6
+add address=::/96 comment=&#34;defconf: ipv4 compat&#34; list=bad_ipv6
+add address=100::/64 comment=&#34;defconf: discard only &#34; list=bad_ipv6
+add address=2001:db8::/32 comment=&#34;defconf: documentation&#34; list=bad_ipv6
+add address=2001:10::/28 comment=&#34;defconf: ORCHID&#34; list=bad_ipv6
+add address=3ffe::/16 comment=&#34;defconf: 6bone&#34; list=bad_ipv6
+/ipv6 firewall filter
+add action=accept chain=input comment=&#34;defconf: accept established,related,untracked&#34; connection-state=established,related,untracked
+add action=drop chain=input comment=&#34;defconf: drop invalid&#34; connection-state=invalid
+add action=accept chain=input comment=&#34;defconf: accept ICMPv6&#34; in-interface-list=accept-input-ICMP protocol=icmpv6
+add action=accept chain=input comment=&#34;defconf: accept UDP traceroute&#34; dst-port=33434-33534 protocol=udp
+add action=accept chain=input comment=&#34;defconf: accept DHCPv6-Client prefix delegation.&#34; dst-port=546 protocol=udp src-address=fe80::/10
+add action=accept chain=input comment=&#34;defconf: accept IKE&#34; dst-port=500,4500 protocol=udp
+add action=accept chain=input comment=&#34;defconf: accept ipsec AH&#34; protocol=ipsec-ah
+add action=accept chain=input comment=&#34;defconf: accept ipsec ESP&#34; protocol=ipsec-esp
+add action=accept chain=input comment=&#34;defconf: accept all that matches ipsec policy&#34; ipsec-policy=in,ipsec
+add action=drop chain=input comment=&#34;defconf: drop everything else not coming from LAN&#34; in-interface-list=!LAN
+add action=accept chain=forward comment=&#34;defconf: accept established,related,untracked&#34; connection-state=established,related,untracked
+add action=drop chain=forward comment=&#34;defconf: drop invalid&#34; connection-state=invalid
+add action=drop chain=forward comment=&#34;defconf: drop packets with bad src ipv6&#34; src-address-list=bad_ipv6
+add action=drop chain=forward comment=&#34;defconf: drop packets with bad dst ipv6&#34; dst-address-list=bad_ipv6
+add action=drop chain=forward comment=&#34;defconf: rfc4890 drop hop-limit=1&#34; hop-limit=equal:1 protocol=icmpv6
+add action=accept chain=forward comment=&#34;defconf: accept ICMPv6&#34; in-interface-list=accept-input-ICMP protocol=icmpv6
+add action=accept chain=forward comment=&#34;defconf: accept HIP&#34; protocol=139
+add action=accept chain=forward comment=&#34;defconf: accept IKE&#34; dst-port=500,4500 protocol=udp
+add action=accept chain=forward comment=&#34;defconf: accept ipsec AH&#34; protocol=ipsec-ah
+add action=accept chain=forward comment=&#34;defconf: accept ipsec ESP&#34; protocol=ipsec-esp
+add action=accept chain=forward comment=&#34;defconf: accept all that matches ipsec policy&#34; ipsec-policy=in,ipsec
+add action=drop chain=forward comment=&#34;defconf: drop everything else not coming from LAN&#34; in-interface-list=!LAN
+add action=accept chain=forward comment=&#34;accept forward WAN&#34; in-interface-list=accept-forward-WAN out-interface-list=WAN
+add action=accept chain=forward comment=&#34;accept forward LAN&#34; in-interface-list=accept-forward-LAN out-interface-list=LAN
+add action=accept chain=input comment=&#34;accept input DNS (udp)&#34; dst-port=53 in-interface-list=accept-input-DNS protocol=udp
+add action=accept chain=input comment=&#34;accept input DNS (tcp)&#34; dst-port=53 in-interface-list=accept-input-DNS protocol=tcp
+add action=accept chain=input comment=accept-input-NTP dst-port=123 in-interface-list=accept-input-NTP protocol=udp
+add action=accept chain=input comment=&#34;accept input winbox (tcp)&#34; dst-port=8291 in-interface-list=accept-input-winbox protocol=tcp
+add action=accept chain=input comment=&#34;accept input winbox (udp)&#34; dst-port=20561 in-interface-list=accept-input-winbox protocol=udp
+add action=accept chain=input comment=&#34;accept input web ui&#34; dst-port=80,443 in-interface-list=accept-input-web-ui protocol=tcp
+add action=accept chain=input comment=&#34;accept input mikrotik neighbor discovery&#34; dst-port=5678 in-interface-list=accept-input-mikrotik-neighbor-discovery protocol=udp
+add action=drop chain=forward comment=&#34;drop forward&#34; log=yes log-prefix=drop-forward-ipv6
+add action=drop chain=input comment=&#34;drop input&#34; log=yes log-prefix=drop-input-ipv6
+add action=accept chain=output comment=accept-output-LAN out-interface-list=LAN
+/ipv6 nd
+set [ find default=yes ] advertise-dns=yes interface=bridge1
+add advertise-dns=yes interface=bridge2
+/system clock
+set time-zone-name=Europe/Moscow
+/system identity
+set name=router1.dc1.alwaldend.com
+/system ntp server
+set enabled=yes
+/system routerboard settings
+set auto-upgrade=yes
+/tool mac-server
+set allowed-interface-list=LAN
+/tool mac-server mac-winbox
+set allowed-interface-list=LAN
+</code></pre>
+<h3 id="print-64d11e5be6a668973b7676b14465fedd-router2">Router2<a class="td-heading-self-link" href="#print-64d11e5be6a668973b7676b14465fedd-router2" aria-label="Heading self-link"></a></h3><pre tabindex="0"><code class="language-rsc" data-lang="rsc"># 2025-09-07 11:04:01 by RouterOS 7.19.4
+# model = L009UiGS-2HaxD
+/interface bridge
+add name=bridge01
+/port
+set 0 name=serial0
+/interface bridge port
+add bridge=bridge01 interface=ether2
+add bridge=bridge01 interface=ether3
+add bridge=bridge01 interface=ether4
+add bridge=bridge01 interface=ether5
+add bridge=bridge01 interface=ether6
+add bridge=bridge01 interface=ether7
+add bridge=bridge01 interface=ether8
+add bridge=bridge01 interface=ether1
+/ip neighbor discovery-settings
+set discover-interface-list=!dynamic
+/ipv6 settings
+set accept-router-advertisements=yes
+/ip dhcp-client
+add interface=bridge01
+/system clock
+set time-zone-name=Europe/Moscow
+/system identity
+set name=router02.dc01.alwaldend.com
+/system routerboard settings
+set enter-setup-on=delete-key
+</code></pre>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-37a5c21fe7523617f971ede484289410">11 - Nas</h1>
+    <div class="lead">TrueNAS deploy</div>
+	<h2 id="print-b6971392f0d710b1b9087957f7695c37-links">Links<a class="td-heading-self-link" href="#print-b6971392f0d710b1b9087957f7695c37-links" aria-label="Heading self-link"></a></h2><ul>
+<li>Docs: <a href="https://www.truenas.com/">https://www.truenas.com/</a></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0270334bd88c51f1beff552361fddebe">12 - Pve</h1>
+    <div class="lead">Proxmox cluster pve.alwaldend.com</div>
+	<h2 id="print-cf1407a5a11f935a7972527e91fd6211-links">Links<a class="td-heading-self-link" href="#print-cf1407a5a11f935a7972527e91fd6211-links" aria-label="Heading self-link"></a></h2><ul>
+<li>Docs: <a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview">https://www.proxmox.com/en/products/proxmox-virtual-environment/overview</a></li>
+</ul>
+<h2 id="print-cf1407a5a11f935a7972527e91fd6211-deployment">Deployment<a class="td-heading-self-link" href="#print-cf1407a5a11f935a7972527e91fd6211-deployment" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/pve/ansible <span style="color:#75715e"># host setup</span>
+</span></span><span style="display:flex;"><span>bazel run //infra/pve/tf/tf.apply <span style="color:#75715e"># tf setup</span>
+</span></span></code></pre></div><h2 id="print-cf1407a5a11f935a7972527e91fd6211-recreate-the-test-vm">Recreate the test VM<a class="td-heading-self-link" href="#print-cf1407a5a11f935a7972527e91fd6211-recreate-the-test-vm" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/pve/tf:tf.apply -- --replace module.vm_cloudinit_test.proxmox_vm_qemu.vm
+</span></span></code></pre></div><h2 id="print-cf1407a5a11f935a7972527e91fd6211-cloud-init-snippet-update">Cloud-init snippet update<a class="td-heading-self-link" href="#print-cf1407a5a11f935a7972527e91fd6211-cloud-init-snippet-update" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/pve/ansible -- --tags pve_snippets
+</span></span></code></pre></div><h2 id="print-cf1407a5a11f935a7972527e91fd6211-update-acme-account">Update ACME account<a class="td-heading-self-link" href="#print-cf1407a5a11f935a7972527e91fd6211-update-acme-account" aria-label="Heading self-link"></a></h2><ul>
+<li>Create an EAB:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/dc1/vault -- write -f pki/ica_servers/roles/src_infra_dc1_pve1_pki_server/acme/new-eab
+</span></span></code></pre></div></li>
+<li>Login as <code>root@pam</code></li>
+<li>Go to Datacenter -&gt; ACME</li>
+<li>Create a new account with the EAB and a directory:
+<pre tabindex="0"><code>https://vault.dc1.alwaldend.com:8200/v1/pki/ica_servers/roles/src_infra_dc1_pve1_pki_server/acme/directory
+</code></pre></li>
+</ul>
+<h2 id="print-cf1407a5a11f935a7972527e91fd6211-pve-token">Pve token<a class="td-heading-self-link" href="#print-cf1407a5a11f935a7972527e91fd6211-pve-token" aria-label="Heading self-link"></a></h2><ul>
+<li>Create a token with Privilege Separation</li>
+<li>Grant it required roles</li>
+<li>Create json:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;token_id&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;token_secret&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>Write the data:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/pve:vault.kv_put alwaldend.com/vault1/approles/src_infra_dc1_pve1/pve_token @<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">/data.json&#34;</span>
+</span></span></code></pre></div></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f2ca64eb6e8b88d953d4b1367c0a0df2">12.1 - Ansible</h1>
+    <div class="lead">Ansible setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-77d854308dcf639524b72459ae4fe51a">12.2 - Tf</h1>
+    <div class="lead">Terraform config</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-1d52fb56e439607549df402df14e43e7">13 - threexui</h1>
+    <div class="lead">3x-ui</div>
+	<h2 id="print-a222de584d9850c7b3584c1204012b05-links">Links<a class="td-heading-self-link" href="#print-a222de584d9850c7b3584c1204012b05-links" aria-label="Heading self-link"></a></h2><ul>
+<li>Site: <a href="https://docs.sanaei.dev/">https://docs.sanaei.dev/</a></li>
+<li>Releases: <a href="https://github.com/MHSanaei/3x-ui/releases">https://github.com/MHSanaei/3x-ui/releases</a></li>
+</ul>
+<h2 id="print-a222de584d9850c7b3584c1204012b05-fetch-and-fix-subs-for-a-particular-subscription-id">Fetch and fix subs for a particular subscription id<a class="td-heading-self-link" href="#print-a222de584d9850c7b3584c1204012b05-fetch-and-fix-subs-for-a-particular-subscription-id" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/threexui:fix_subs -- --hosts njalla1.nodes.threexui.alwaldend.com,yc1.nodes.threexui.alwaldend.com --sub_id subid
+</span></span></code></pre></div><h2 id="print-a222de584d9850c7b3584c1204012b05-fix-subs-from-a-local-file">Fix subs from a local file<a class="td-heading-self-link" href="#print-a222de584d9850c7b3584c1204012b05-fix-subs-from-a-local-file" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/threexui:fix_subs -- --sub_file path_to_file
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-0285e5414ecda3e14ec3377e1c3ca7ec">13.1 - Ansible</h1>
+    <div class="lead">Ansible setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9f45366f1c27fe41503e491be089db11">13.2 - sub</h1>
+    <div class="lead">Fetch subscriptions and fix them</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0c61b5306eb2ede5d5fb46f298e59667">13.3 - Tf</h1>
+    <div class="lead">Terraform config</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0fb932b22c95b085c45384ac9291e3ba">13.4 - Tf setup</h1>
+    <div class="lead">Terraform setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5cd70630a434016d9c3e4a768a96f449">14 - Vault</h1>
+    <div class="lead">Setup for vault.dc1.alwaldend.com</div>
+	<h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-links">Links<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-links" aria-label="Heading self-link"></a></h2><ul>
+<li>Intermediate CA: <a href="https://developer.hashicorp.com/vault/tutorials/pki/pki-engine-external-ca">https://developer.hashicorp.com/vault/tutorials/pki/pki-engine-external-ca</a></li>
+<li>ACME: <a href="https://developer.hashicorp.com/vault/docs/secrets/pki/acme">https://developer.hashicorp.com/vault/docs/secrets/pki/acme</a></li>
+</ul>
+<h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-deployment">Deployment<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-deployment" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/tf_setup:tf.apply <span style="color:#75715e"># Create VMs (requires an active Vault host)</span>
+</span></span><span style="display:flex;"><span>bazel run //infra/vault/ansible <span style="color:#75715e"># Set up hosts (BM and VMs)</span>
+</span></span><span style="display:flex;"><span>bazel run //infra/vault/tf:tf.apply <span style="color:#75715e"># Configure vault</span>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-backup">Backup<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-backup" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault:backup
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-unseal">Unseal<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-unseal" aria-label="Heading self-link"></a></h2><p>With a working Vault:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault:unseal
+</span></span></code></pre></div><p>Without a working Vault:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault:unseal_standalone
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-fix-quorum">Fix quorum<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-fix-quorum" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/ansible:fix_quorum
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-set-up-only-vms">Set up only VMs<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-set-up-only-vms" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/ansible:ansible.vm <span style="color:#75715e"># Set up only VMs</span>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-set-up-only-bare-metal">Set up only bare metal<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-set-up-only-bare-metal" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/ansible:ansible.bm <span style="color:#75715e"># Set up only bare metal</span>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-tf">Tf<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-tf" aria-label="Heading self-link"></a></h2><p>Plan:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/tf:tf.plan
+</span></span></code></pre></div><p>Apply:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/tf:tf.apply
+</span></span></code></pre></div><p>Run terraform directly:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/tf:tf.direct -- -chdir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> plan
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-replace-vms">Replace VMs<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-replace-vms" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/tf:tf.apply -- -replace <span style="color:#e6db74">&#39;module.vm_ha[&#34;host2&#34;].proxmox_vm_qemu.vm&#39;</span> -replace <span style="color:#960050;background-color:#1e0010">&#39;</span>module.vm_ha<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;host3&#34;</span><span style="color:#f92672">]</span>.proxmox_vm_qemu.vm
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-generate-and-import-a-user-cilent-certificate">Generate and import a user cilent certificate<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-generate-and-import-a-user-cilent-certificate" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>username<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span>
+</span></span><span style="display:flex;"><span>bazel run //infra/vault:gen_client_cert -- --user <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> --output_dir <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>bazel run //tools/ykman -- piv certificates import 9A <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span><span style="color:#e6db74">.pfx&#34;</span>
+</span></span><span style="display:flex;"><span>bazel run //tools/ykman -- piv keys import 9A <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span><span style="color:#e6db74">.pfx&#34;</span>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-generate-a-host-cilent-certificate">Generate a host cilent certificate<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-generate-a-host-cilent-certificate" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault:gen_client_cert -- --host some-host --output_dir <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/.al/client_cert&#34;</span>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-generate-a-user-device-cilent-certificate">Generate a user device cilent certificate<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-generate-a-user-device-cilent-certificate" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault:gen_client_cert -- --host some-host --user username --output_dir <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/.al/client_cert&#34;</span>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-unseal-1">Unseal<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-unseal-1" aria-label="Heading self-link"></a></h2><ul>
+<li>Prepare encrypted unseal token</li>
+<li>Run and input the encrypted token:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault:unseal
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-root-token">Root token<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-root-token" aria-label="Heading self-link"></a></h2><ul>
+<li>Prepare encrypted unseal token</li>
+<li>Run and input the encrypted token:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault:gen_root_token -- --pgp_key path_to_public_gpg_key_in_base64
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-generate-an-eab-for-acme">Generate an EAB for ACME<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-generate-an-eab-for-acme" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault -- write -f pki/ica_servers/roles/ica_servers_dc1_pve1/acme/new-eab
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-sign-a-client-ssh-key">Sign a client ssh key<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-sign-a-client-ssh-key" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //:vault -- write ssh/clients/sign/admins ttl<span style="color:#f92672">=</span><span style="color:#ae81ff">30000000</span>  public_key<span style="color:#f92672">=</span>@<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/.ssh/key&#34;</span>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-revoke-all-tokens">Revoke all tokens<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-revoke-all-tokens" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault -- token revoke -mode<span style="color:#f92672">=</span>path auth
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-vault-certificates">Vault certificates<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-vault-certificates" aria-label="Heading self-link"></a></h2><p>Vault certificates (<code>tls_cert_file</code>, <code>tls_key_file</code>) should be updated manually</p>
+<h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-read-oidc-client-info">Read OIDC client info<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-read-oidc-client-info" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault -- read identity/oidc/client/src_infra_dc1_forgejo1_provider
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-read-all-entity-aliases">Read all entity aliases<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-read-all-entity-aliases" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> bazel run //infra/vault -- list -format json identity/entity-alias/id | jq <span style="color:#e6db74">&#34;.[]&#34;</span> | xargs <span style="color:#e6db74">&#34;-I{}&#34;</span> bazel run //infra/vault -- read <span style="color:#e6db74">&#34;identity/entity-alias/id/{}&#34;</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f68ccfab09e0692ff0158601a5e103f8">14.1 - Ansible</h1>
+    <div class="lead">Ansible setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-76e2c966f28dd06c1b7face04e64fef5">14.2 - Tf</h1>
+    <div class="lead">Terraform config</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-9f42dd3acd4ae40b5be7877c8f79052f">14.2.1 - Output</h1>
+    <div class="lead">Output files</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9b2a26a59bfce6aa9b63d80cfb3c3160">14.3 - Tf setup</h1>
+    <div class="lead">Terraform setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8b49a0addabc40b0f61fd163b17b3245">15 - XCP-ng</h1>
+    <div class="lead">XCP-ng infrastructure</div>
+	<p>The dc1 DNS configuration maps <code>xcp-ng.alwaldend.com</code> and
+<code>host1.xcp-ng.alwaldend.com</code> to <code>192.168.1.213</code>.</p>
+<p>Terraform lives in <code>internal/tf</code> and declares the pinned
+<a href="https://docs.xen-orchestra.com/automation/terraform-provider"><code>vatesfr/xenorchestra</code> provider</a>.
+It includes empty provider and HTTP backend blocks, with no resources,
+endpoints, or credentials. The provider requires Xen Orchestra connected to
+the XCP-ng pool when resources are added.</p>
+<p><code>al.lua</code> authenticates with the <code>src_infra_xcp_ng</code> Vault AppRole and configures
+the HTTP backend using
+<code>secrets/alwaldend.com/vault1/approles/src_infra_xcp_ng/tf_backend</code>.
+The AppRole is declared in <code>infra/vault/tf</code> and must be provisioned before
+running the Terraform commands. Provider connection settings are left to the
+operator.</p>
+<p>Check Terraform formatting with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel test //infra/xcp_ng/internal/tf:tf_tests.fmt_test
+</span></span></code></pre></div><p>The formatting test does not authenticate to Vault.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-36e2592e6caab35c9314fa600b14e721">16 - Yandex Cloud</h1>
+    <div class="lead">Yandex Cloud (yandex.cloud)</div>
+	<h2 id="print-b1be8d5bcd9a2df9e42e6eb78406b380-links">Links<a class="td-heading-self-link" href="#print-b1be8d5bcd9a2df9e42e6eb78406b380-links" aria-label="Heading self-link"></a></h2><ul>
+<li>Site: <a href="https://yandex.cloud">https://yandex.cloud</a></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-99d6b8f5d9e3de62236ef3e394e0c6a4">16.1 - Org1</h1>
+    <div class="lead">Organization 1</div>
+	<h2 id="print-9fdc577c4eff6ef030c00a05958417b0-links">Links<a class="td-heading-self-link" href="#print-9fdc577c4eff6ef030c00a05958417b0-links" aria-label="Heading self-link"></a></h2><ul>
+<li>Site: <a href="https://yandex.cloud">https://yandex.cloud</a></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-8b57f168db4c5e422e802143cb3f78df">16.1.1 - Tf</h1>
+    <div class="lead">Terraform config</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        Built with <a href="https://gohugo.io/">Hugo 0.165.0</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

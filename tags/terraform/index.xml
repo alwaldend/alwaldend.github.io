@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Terraform on Alwaldend</title>
+		<link>https://alwaldend.com/tags/terraform/</link>
+		<description>Recent content in Terraform on Alwaldend</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<atom:link href="https://alwaldend.com/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Org1</title>
+				<link>https://alwaldend.com/docs/infra/yandex_cloud/org1/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/yandex_cloud/org1/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://yandex.cloud&#34;&gt;https://yandex.cloud&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Pve vm qemu</title>
+				<link>https://alwaldend.com/docs/projects/tf_modules/pve_vm_qemu/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/tf_modules/pve_vm_qemu/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Terraform setup</title>
+				<link>https://alwaldend.com/docs/infra/forgejo_runner/tf_setup/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/forgejo_runner/tf_setup/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf</title>
+				<link>https://alwaldend.com/docs/infra/dns/tf/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/dns/tf/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf</title>
+				<link>https://alwaldend.com/docs/infra/forgejo/tf/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/forgejo/tf/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf</title>
+				<link>https://alwaldend.com/docs/infra/harbor/tf/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/harbor/tf/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf</title>
+				<link>https://alwaldend.com/docs/infra/ingress/tf/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/ingress/tf/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf</title>
+				<link>https://alwaldend.com/docs/infra/pve/tf/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/pve/tf/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf</title>
+				<link>https://alwaldend.com/docs/infra/threexui/tf/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/threexui/tf/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf</title>
+				<link>https://alwaldend.com/docs/infra/vault/tf/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/vault/tf/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf</title>
+				<link>https://alwaldend.com/docs/infra/yandex_cloud/org1/tf/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/yandex_cloud/org1/tf/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf</title>
+				<link>https://alwaldend.com/docs/projects/alwaldend.com/tf/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/alwaldend.com/tf/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf</title>
+				<link>https://alwaldend.com/docs/third_party/images/tf/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/images/tf/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf</title>
+				<link>https://alwaldend.com/docs/users/simeonwarren/tf/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/users/simeonwarren/tf/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf backend</title>
+				<link>https://alwaldend.com/docs/tools/vault/tf_backend/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/vault/tf_backend/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf modules</title>
+				<link>https://alwaldend.com/docs/projects/tf_modules/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/tf_modules/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Source code: &lt;a href=&#34;https://github.com/alwaldend/src/tree/master/projects/tf_modules&#34;&gt;https://github.com/alwaldend/src/tree/master/projects/tf_modules&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Docs: &lt;a href=&#34;https://developer.hashicorp.com/terraform/language/modules&#34;&gt;https://developer.hashicorp.com/terraform/language/modules&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;features&#34;&gt;Features&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#features&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Terraform modules&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Tf setup</title>
+				<link>https://alwaldend.com/docs/infra/flux/tf_setup/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/flux/tf_setup/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf setup</title>
+				<link>https://alwaldend.com/docs/infra/forgejo/tf_setup/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/forgejo/tf_setup/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf setup</title>
+				<link>https://alwaldend.com/docs/infra/harbor/tf_setup/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/harbor/tf_setup/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf setup</title>
+				<link>https://alwaldend.com/docs/infra/threexui/tf_setup/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/threexui/tf_setup/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Tf setup</title>
+				<link>https://alwaldend.com/docs/infra/vault/tf_setup/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/vault/tf_setup/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Vault</title>
+				<link>https://alwaldend.com/docs/infra/vault/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/vault/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Intermediate CA: &lt;a href=&#34;https://developer.hashicorp.com/vault/tutorials/pki/pki-engine-external-ca&#34;&gt;https://developer.hashicorp.com/vault/tutorials/pki/pki-engine-external-ca&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;ACME: &lt;a href=&#34;https://developer.hashicorp.com/vault/docs/secrets/pki/acme&#34;&gt;https://developer.hashicorp.com/vault/docs/secrets/pki/acme&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;deployment&#34;&gt;Deployment&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#deployment&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bazel run //infra/vault/tf_setup:tf.apply &lt;span style=&#34;color:#75715e&#34;&gt;# Create VMs (requires an active Vault host)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bazel run //infra/vault/ansible &lt;span style=&#34;color:#75715e&#34;&gt;# Set up hosts (BM and VMs)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bazel run //infra/vault/tf:tf.apply &lt;span style=&#34;color:#75715e&#34;&gt;# Configure vault&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;backup&#34;&gt;Backup&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#backup&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bazel run //infra/vault:backup&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;unseal&#34;&gt;Unseal&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#unseal&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;With a working Vault:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bazel run //infra/vault:unseal&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Without a working Vault:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bazel run //infra/vault:unseal_standalone&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;fix-quorum&#34;&gt;Fix quorum&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#fix-quorum&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bazel run //infra/vault/ansible:fix_quorum&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;set-up-only-vms&#34;&gt;Set up only VMs&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#set-up-only-vms&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bazel run //infra/vault/ansible:ansible.vm &lt;span style=&#34;color:#75715e&#34;&gt;# Set up only VMs&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;set-up-only-bare-metal&#34;&gt;Set up only bare metal&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#set-up-only-bare-metal&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bazel run //infra/vault/ansible:ansible.bm &lt;span style=&#34;color:#75715e&#34;&gt;# Set up only bare metal&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;tf&#34;&gt;Tf&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#tf&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Plan:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Vault approle</title>
+				<link>https://alwaldend.com/docs/projects/tf_modules/vault_approle/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/tf_modules/vault_approle/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Vault approle</title>
+				<link>https://alwaldend.com/docs/projects/tf_modules/vault_pki_ica/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/tf_modules/vault_pki_ica/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Vault OIDC provider</title>
+				<link>https://alwaldend.com/docs/projects/tf_modules/vault_oidc_provider/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/tf_modules/vault_oidc_provider/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Vault pki server</title>
+				<link>https://alwaldend.com/docs/projects/tf_modules/vault_pki_server/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/tf_modules/vault_pki_server/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Vault transit key</title>
+				<link>https://alwaldend.com/docs/projects/tf_modules/vault_transit_key/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/tf_modules/vault_transit_key/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Docs: &lt;a href=&#34;https://developer.hashicorp.com/vault/docs/secrets/transit&#34;&gt;https://developer.hashicorp.com/vault/docs/secrets/transit&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>XCP-ng</title>
+				<link>https://alwaldend.com/docs/infra/xcp_ng/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/xcp_ng/</guid>
+				<description>&lt;p&gt;The dc1 DNS configuration maps &lt;code&gt;xcp-ng.alwaldend.com&lt;/code&gt; and&#xA;&lt;code&gt;host1.xcp-ng.alwaldend.com&lt;/code&gt; to &lt;code&gt;192.168.1.213&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Terraform lives in &lt;code&gt;internal/tf&lt;/code&gt; and declares the pinned&#xA;&lt;a href=&#34;https://docs.xen-orchestra.com/automation/terraform-provider&#34;&gt;&lt;code&gt;vatesfr/xenorchestra&lt;/code&gt; provider&lt;/a&gt;.&#xA;It includes empty provider and HTTP backend blocks, with no resources,&#xA;endpoints, or credentials. The provider requires Xen Orchestra connected to&#xA;the XCP-ng pool when resources are added.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;al.lua&lt;/code&gt; authenticates with the &lt;code&gt;src_infra_xcp_ng&lt;/code&gt; Vault AppRole and configures&#xA;the HTTP backend using&#xA;&lt;code&gt;secrets/alwaldend.com/vault1/approles/src_infra_xcp_ng/tf_backend&lt;/code&gt;.&#xA;The AppRole is declared in &lt;code&gt;infra/vault/tf&lt;/code&gt; and must be provisioned before&#xA;running the Terraform commands. Provider connection settings are left to the&#xA;operator.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

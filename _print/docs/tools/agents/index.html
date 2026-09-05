@@ -1,0 +1,354 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js" data-theme-init>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#000000">
+
+<style>
+  html { background: Canvas; color: CanvasText; }
+  @media (prefers-color-scheme: dark) {
+    html { background: #0b0d12; color: #e6e6e6; }
+  }
+  html[data-theme-init] * { transition: none !important; }
+</style>
+
+<script>
+  (function() {
+    const themeKey = 'td-color-theme';
+    const storedTheme = localStorage.getItem(themeKey);
+    let theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    if (theme === 'auto') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  })();
+</script>
+<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/tools/agents/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/tools/agents/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+<title>Agent control contracts | Alwaldend</title>
+<meta name="description" content="Repository-internal shared contracts for agent-system composition">
+<meta property="og:url" content="https://alwaldend.com/docs/tools/agents/">
+	<meta property="og:site_name" content="Alwaldend">
+	<meta property="og:title" content="Agent control contracts">
+	<meta property="og:description" content="Repository-internal shared contracts for agent-system composition">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="Agent control contracts">
+	<meta itemprop="description" content="Repository-internal shared contracts for agent-system composition">
+	<meta itemprop="dateModified" content="2026-09-05T20:57:59+03:00">
+	<meta itemprop="wordCount" content="997">
+	<meta itemprop="keywords" content="Agent,Control">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Agent control contracts">
+	<meta name="twitter:description" content="Repository-internal shared contracts for agent-system composition">
+<link rel="preload" href="/scss/main.min.a66a47685d3dd8f6c2af31e43c9b9d7fbcf89ad26769c00134d82e867e780feb.css" as="style" integrity="sha256-pmpHaF092PbCrzHkPJudf7z4mtJnacABNNguhn54D&#43;s=" crossorigin="anonymous">
+<link href="/scss/main.min.a66a47685d3dd8f6c2af31e43c9b9d7fbcf89ad26769c00134d82e867e780feb.css" rel="stylesheet" integrity="sha256-pmpHaF092PbCrzHkPJudf7z4mtJnacABNNguhn54D&#43;s=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll">
+<div class="td-navbar-container container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Alwaldend</span></a>
+  <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
+    <div class="scroll-indicator scroll-left"></div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Docs</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/"><span>Projects</span></a>
+      </li>
+      <li class="nav-item td-navbar__light-dark-menu">
+        <div class="td-light-dark-menu dropdown"><svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check2" viewBox="0 0 16 16">
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+  <symbol id="circle-half" viewBox="0 0 16 16">
+    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+  </symbol>
+  <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+  </symbol>
+  <symbol id="sun-fill" viewBox="0 0 16 16">
+    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+  </symbol>
+</svg>
+<button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        title="Toggle theme (Auto)"
+        aria-label="Toggle theme (Auto)">
+  <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+  <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+</button>
+<ul class="dropdown-menu" aria-labelledby="bd-theme">
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#sun-fill"></use></svg>
+      Light
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#moon-stars-fill"></use></svg>
+      Dark
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+      <svg class="bi me-2 opacity-50"><use href="#circle-half"></use></svg>
+      Auto
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+</ul>
+</div>
+
+      </li>
+      </ul>
+    <div class="scroll-indicator scroll-right"></div>
+  </div>
+  <div class="td-navbar__search d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon" aria-hidden="true"></div>
+  <input
+    type="search"
+    name="q"
+    class="td-search__input form-control"
+    placeholder='Search this site…'
+    aria-label='Search this site…'
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.1f356a2ab7475879a5e255d2a0c9bf3e.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/tools/agents/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Agent control contracts</h1>
+<div class="lead">Repository-internal shared contracts for agent-system composition</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+
+    </ul>
+
+
+<div class="content">
+      <h1 id="print-e4b28a82d5af0fa16c8e31945498c551-agent-control-contracts">Agent control contracts<a class="td-heading-self-link" href="#print-e4b28a82d5af0fa16c8e31945498c551-agent-control-contracts" aria-label="Heading self-link"></a></h1><p>This project owns the repository-internal shared vocabulary used to compose
+agent-system declarations and derived catalogs. It does not own component
+payload schemas, user authority, runtime observations, or generated catalogs.</p>
+<p>The initial <code>api/v1alpha1</code> package defines stable references, atomic effects,
+authority and budget envelopes, independent path-policy axes, information and
+retention classes, availability reasons, evidence applicability, and the
+common operation and artifact envelopes. Validation fails closed for unknown
+effects and malformed identities. JSON decoding is strict and canonical
+encoding is deterministic.</p>
+<p>The Phase 1 registry names the closed registration authorities, declares skill
+metadata and supported direct binaries, links owner-local operation files, and
+records generated-artifact ownership. Run the report-only completeness check
+with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/agents/cmd/phase1_check -- <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --workspace-root <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --report out/&lt;task&gt;/phase1-report.json
+</span></span></code></pre></div><p>The adjacent criteria-revision-bound resource baseline records numeric
+ceilings separately from observations. Unavailable observations carry a
+reason instead of an estimate.</p>
+<p>Project roots use exactly one lifecycle value from <code>active</code>, <code>in_progress</code>,
+<code>maintenance</code>, <code>experimental</code>, <code>finished</code>, or <code>abandoned</code>. These values
+describe project maintenance state; they do not imply publication or
+information policy.</p>
+<h2 id="print-e4b28a82d5af0fa16c8e31945498c551-bounded-topology-catalog">Bounded topology catalog<a class="td-heading-self-link" href="#print-e4b28a82d5af0fa16c8e31945498c551-bounded-topology-catalog" aria-label="Heading self-link"></a></h2><p>The topology compiler derives a deterministic, offline <code>TopologyCatalog</code>
+from the registered <code>projects/*</code> universe, top-level boundary READMEs, and
+tracked <code>MODULE.bazel</code> roots. The portable JSON at
+<code>tools/agents/catalogs/topology.json</code> is authoritative; the adjacent Markdown
+renders the same data and states the JSON digest.</p>
+<p>Regenerate with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/agents/cmd/topology_check:topology_update
+</span></span></code></pre></div><p>Verify the checked artifacts are current with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel test //tools/agents/cmd/topology_check:topology_check_check
+</span></span></code></pre></div><p>The catalog contains no timestamps, absolute checkout paths, or nested
+authority; every input is bound by a content digest and the catalog digest
+covers the canonical bytes. Completeness is <code>complete</code> only when every
+eligible registered project, workspace, and boundary tree is emitted without
+conflicts or limitations.</p>
+<h2 id="print-e4b28a82d5af0fa16c8e31945498c551-bounded-context-capsule">Bounded context capsule<a class="td-heading-self-link" href="#print-e4b28a82d5af0fa16c8e31945498c551-bounded-context-capsule" aria-label="Heading self-link"></a></h2><p>The <code>agent_system</code> command emits a bounded offline context capsule for a
+workspace-relative path or local Bazel label. It joins checked catalogs with
+the applicable <code>AGENTS.md</code> chain, nearest owner README, and policy source
+paths. Its digest-bound document links include the nearest package
+<code>BUILD.bazel</code> or <code>BUILD</code>, <code>include.MODULE.bazel</code>, and workspace <code>MODULE.bazel</code>
+when present. These locate the source to inspect; they do not select targets.
+JSON is the default; <code>--markdown</code> or <code>--json=false</code> renders Markdown.
+Existing symlinks resolve to their canonical workspace paths before ownership
+and policy selection. Escaping, dangling, or cyclic symlinks are refused;
+new paths may extend a verified existing parent.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/agents/cmd/agent_system -- <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --workspace-root <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span> --path projects/agents --markdown
+</span></span></code></pre></div><p>The legacy <code>agent_system_update</code> wrapper also forwards these query flags and
+does not update tracked files. <code>--task</code> records a caller-supplied task ID; it
+does not select a goal. Input digests bind accepted catalog and document inputs.</p>
+<p>Relative <code>--workspace-root</code> values resolve against
+<code>BUILD_WORKSPACE_DIRECTORY</code> under <code>bazel run</code>, so <code>--workspace-root .</code> means
+the source workspace. Outside Bazel they resolve against the current
+directory. <code>normalize</code>, <code>coverage</code>, and <code>aggregate</code> apply the same rule to
+relative input, catalog, and output file flags, with optional
+<code>--workspace-root</code> selecting another base. Absolute file paths retain their
+meaning; output parent directories must already exist. For example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/agents/cmd/agent_system -- aggregate <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --catalog tools/agents/catalogs/capability.json <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --input tools/agents/catalogs/skill-cases.json <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --output out/&lt;task&gt;/coverage.json
+</span></span></code></pre></div><p>The context command observes local Git HEAD and dirty state under the selected
+workspace, including untracked files and excluding ignored files. The
+<code>identity.git</code> object separates these observations from optional caller
+<code>--revision</code> and <code>--dirty-inputs</code> declarations. Without overrides, successful
+observations populate the existing identity fields; <code>revisionSource</code> and
+<code>dirtyInputsSource</code> name their basis. Failed Git reads leave <code>git.dirty: null</code>
+or the revision absent with explicit reasons. Legacy identity fields then
+retain an input digest and a conservative dirty default, clearly labelled.</p>
+<p>Git commands have a combined three-second deadline and a 65,536-byte output
+limit each, disable optional index writes and fsmonitor hooks, and ignore
+ambient <code>GIT_*</code> variables. The report contains no changed-path list or Git
+stderr. Git and catalog reads are separate observations, not an atomic
+snapshot or proof that generated catalogs match HEAD.</p>
+<p>The capsule reports the actual read time, unknown catalog freshness, and
+partial completeness. It does not observe runtime health, infer authority,
+resolve effective CODEOWNERS, or associate an unrelated active goal. Its
+capability list is an inventory of root-workspace and selected-workspace
+candidates, not task-intent routing or a complete cross-workspace dependency
+closure. Workspace check phases are references, not instructions to run a
+broad check.</p>
+<p><code>identity.byteSize</code> measures the complete canonical JSON, including its final
+newline. <code>--max-bytes</code> caps the selected JSON or Markdown output at 65,536 bytes
+by default; oversized output fails before writing a partial document. The
+limit may be set explicitly between 1,024 and 1,048,576 bytes. Verification:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel test //tools/agents/cmd/agent_system:agent_system_check
+</span></span></code></pre></div><h2 id="print-e4b28a82d5af0fa16c8e31945498c551-runtime-control-kernel-and-status">Runtime control kernel and status<a class="td-heading-self-link" href="#print-e4b28a82d5af0fa16c8e31945498c551-runtime-control-kernel-and-status" aria-label="Heading self-link"></a></h2><p>The <code>tools/agents/control</code> package owns the fixed runtime control kernel:
+per-package states and deadlines, account/lock acquisition, expires-checked
+leases, and expected-revision asset publication with namespace isolation. It
+persists an offline-readable <code>packages.json</code> snapshot.</p>
+<p>Package registration preserves the caller&rsquo;s scope, desired revision, and
+contract hash. Activation deadlines are fixed at registration time;
+<code>KernelOptions.Deadlines</code> are fixed at kernel creation for packages introduced
+through <code>Mark</code>. Reading status does not extend those deadlines. Lifecycle
+transitions do not establish revision identity, so <code>observedRevision</code>
+remains empty: the current API has no observed revision input.</p>
+<p>The <code>control_status</code> command renders the snapshot/asset status for a control
+root without creating directories or starting a kernel (Markdown with
+<code>--markdown</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/agents/cmd/control_status:control_status -- <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --workspace-root <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">[</span>--markdown<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>The JSON <code>healthy</code> field describes the persisted package observations, with
+<code>healthBasis: persisted-package-snapshot</code>. Ready, degraded, and disabled
+packages count as healthy, matching the kernel. Missing, empty, malformed,
+or rejected observations produce <code>healthy: null</code>; consumers must support
+this unavailable value rather than assuming a boolean is always present.
+<code>snapshotPath</code> identifies the source. The report&rsquo;s <code>observedAt</code> is its read
+time; each package retains the writer&rsquo;s <code>observationTime</code>.</p>
+<p>Freshness is <code>unknown</code> unless the caller supplies a positive duration such
+as <code>--max-snapshot-age 5m</code>. That bound yields <code>within-age-bound</code> or <code>stale</code>;
+stale observations make snapshot health unavailable. This is an explicit
+caller policy, not a heartbeat or runtime liveness guarantee. Live runtime
+health remains unavailable even when every observation is within the bound.
+The snapshot format does not identify its writer, so report <code>runtimeId</code> is
+empty with an unavailable reason. An asset&rsquo;s <code>runtimeId</code> identifies its
+publisher only.</p>
+<p>Verification:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel test //tools/agents/control:all //tools/agents/cmd/control_status:all
+</span></span></code></pre></div>
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        Built with <a href="https://gohugo.io/">Hugo 0.165.0</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

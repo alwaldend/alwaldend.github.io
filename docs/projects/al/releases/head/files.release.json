@@ -1,0 +1,32 @@
+{
+    "items": [
+        {
+            "file": {
+                "hashes": [
+                    {
+                        "algo": "SHA-256",
+                        "content": "9864123b88c7545736962c0bcdad1604f2794434c0c75146c3c80fbed555761f"
+                    },
+                    {
+                        "algo": "MD5",
+                        "content": "53440866d0cf83529b45b1a74726ac7f"
+                    }
+                ],
+                "name": "al",
+                "safeName": "al",
+                "size": "14191328"
+            },
+            "deployments": [
+                {
+                    "oci": {
+                        "repository": "docker.io/alwaldend/src",
+                        "tags": [
+                            "docker.io/alwaldend/src:_al_"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "project": {}
+}

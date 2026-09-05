@@ -1,0 +1,1475 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js" data-theme-init>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#000000">
+
+<style>
+  html { background: Canvas; color: CanvasText; }
+  @media (prefers-color-scheme: dark) {
+    html { background: #0b0d12; color: #e6e6e6; }
+  }
+  html[data-theme-init] * { transition: none !important; }
+</style>
+
+<script>
+  (function() {
+    const themeKey = 'td-color-theme';
+    const storedTheme = localStorage.getItem(themeKey);
+    let theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    if (theme === 'auto') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  })();
+</script>
+<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/projects/goal/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/projects/goal/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+<title>Goal | Alwaldend</title>
+<meta name="description" content="Versioned goal resources, local storage, and agent workflow">
+<meta property="og:url" content="https://alwaldend.com/docs/projects/goal/">
+	<meta property="og:site_name" content="Alwaldend">
+	<meta property="og:title" content="Goal">
+	<meta property="og:description" content="Versioned goal resources, local storage, and agent workflow">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="Goal">
+	<meta itemprop="description" content="Versioned goal resources, local storage, and agent workflow">
+	<meta itemprop="dateModified" content="2026-09-05T20:57:59+03:00">
+	<meta itemprop="wordCount" content="370">
+	<meta itemprop="keywords" content="Agent,Workflow">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Goal">
+	<meta name="twitter:description" content="Versioned goal resources, local storage, and agent workflow">
+<link rel="preload" href="/scss/main.min.a66a47685d3dd8f6c2af31e43c9b9d7fbcf89ad26769c00134d82e867e780feb.css" as="style" integrity="sha256-pmpHaF092PbCrzHkPJudf7z4mtJnacABNNguhn54D&#43;s=" crossorigin="anonymous">
+<link href="/scss/main.min.a66a47685d3dd8f6c2af31e43c9b9d7fbcf89ad26769c00134d82e867e780feb.css" rel="stylesheet" integrity="sha256-pmpHaF092PbCrzHkPJudf7z4mtJnacABNNguhn54D&#43;s=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll">
+<div class="td-navbar-container container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Alwaldend</span></a>
+  <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
+    <div class="scroll-indicator scroll-left"></div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Docs</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/"><span>Projects</span></a>
+      </li>
+      <li class="nav-item td-navbar__light-dark-menu">
+        <div class="td-light-dark-menu dropdown"><svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check2" viewBox="0 0 16 16">
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+  <symbol id="circle-half" viewBox="0 0 16 16">
+    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+  </symbol>
+  <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+  </symbol>
+  <symbol id="sun-fill" viewBox="0 0 16 16">
+    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+  </symbol>
+</svg>
+<button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        title="Toggle theme (Auto)"
+        aria-label="Toggle theme (Auto)">
+  <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+  <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+</button>
+<ul class="dropdown-menu" aria-labelledby="bd-theme">
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#sun-fill"></use></svg>
+      Light
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#moon-stars-fill"></use></svg>
+      Dark
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+      <svg class="bi me-2 opacity-50"><use href="#circle-half"></use></svg>
+      Auto
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+</ul>
+</div>
+
+      </li>
+      </ul>
+    <div class="scroll-indicator scroll-right"></div>
+  </div>
+  <div class="td-navbar__search d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon" aria-hidden="true"></div>
+  <input
+    type="search"
+    name="q"
+    class="td-search__input form-control"
+    placeholder='Search this site…'
+    aria-label='Search this site…'
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.1f356a2ab7475879a5e255d2a0c9bf3e.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/projects/goal/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Goal</h1>
+<div class="lead">Versioned goal resources, local storage, and agent workflow</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-84a58e594e4053a579ed5586c2a2f834"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-ee4b8e4d89db173b39d1b3a0b7583597"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-10e83a7f0aa6d82e10d6de030791a9ee"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-091fb8f176ae4cf704886f276c12f972"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-dbf11cfd1aab9e6b3775367451298ae9"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-489c26dd90f34b01ab82ee0e9992f6ae"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-c59bfb4ffe3563d72f838e2f548ec274">Goal architecture</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-f6ca13c91496f37b089771079fe69b6e">Goal command</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-4f61ac31adb01fbfad621a607f10539d">Goal evaluations</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>This project owns the goal execution skill and the deterministic local store
+that supports it. Ordinary tasks use <code>init</code> for the objective and acceptance,
+<code>checkpoint --summary --subject --next-action</code> for local progress, and <code>show</code>
+for bounded continuation. The store derives IDs and digests while retaining
+explicit resource-version checks. Detailed attempt plans and histories remain
+available for maintained goals, repeated failures, and complex coordination.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>projects/goal/
+</span></span><span style="display:flex;"><span>  api/v1alpha1/      Portable resource types and domain validation
+</span></span><span style="display:flex;"><span>  cmd/goal/          Cobra command wiring and command tests
+</span></span><span style="display:flex;"><span>  docs/              Current architecture and generated diagrams
+</span></span><span style="display:flex;"><span>  internal/fsstore/  Local persistence, per-goal locking, and store tests
+</span></span><span style="display:flex;"><span>  skills/goal/       Model-facing execution protocol and evaluations
+</span></span></code></pre></div><p>Go dependencies flow from <code>cmd/goal</code> to <code>internal/fsstore</code> to
+<code>api/v1alpha1</code>. The API package has no filesystem or command dependency.
+The Go toolchain is Bazel&rsquo;s <code>@rules_go//go</code>; run the package targets below
+rather than a host-installed <code>go</code>.</p>
+<p>The command stores Kubernetes-inspired <code>goals.alwaldend.com/v1alpha1</code> YAML
+resources and canonical, digest-bound attempt Markdown in ordinary repository
+files. Each <code>attempt.yaml</code> binds <code>plan.md</code>, <code>result.md</code>, and <code>evidence/*.md</code> by
+SHA-256. <code>Goal.status.plans</code> records durable plans with one active plan at a
+time and states <code>active</code>, <code>accepted</code>, <code>rejected</code>, or <code>superseded</code>; attempts can
+bind to a plan with <code>spec.planID</code>. Each goal record&rsquo;s <code>README.md</code> is a generated, bounded,
+replaceable projection. The portable API treats resource versions as opaque
+and excludes local ownership paths from desired state. The filesystem backend
+supplies one cooperative lock per goal, local numeric resource versions,
+atomic file replacement by sibling temporary-file rename, session bindings,
+promotion, non-destructive unversioned-record import, and recoverable
+multi-file publication. Before a multi-file mutation, the backend stages exact
+after-images and installs a <code>.goal-publication.yaml</code> intent in the goal
+record; <code>goal doctor</code> classifies the publication state and <code>goal recover</code>
+replays or discards a pending intent. It is a local file editor with atomic
+per-file replacement; it does not claim cross-file transaction semantics
+without the publication intent.</p>
+<p>These files are not installed CRDs. A future Kubernetes adapter can convert
+the API types after adding Kubernetes metadata types, structural schemas,
+status-subresource behavior, generated runtime methods, and reconciliation of
+API-server-owned metadata.</p>
+<p>Run the command through Bazel:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //projects/goal/cmd/goal -- --help
+</span></span></code></pre></div><p>Diagnose and finish an interrupted publication:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //projects/goal/cmd/goal -- doctor --goal-dir $GOAL_DIR
+</span></span><span style="display:flex;"><span>bazel_agent bazel run //projects/goal/cmd/goal -- recover --goal-dir $GOAL_DIR
+</span></span></code></pre></div><p>The canonical skill lives at <code>skills/goal</code>; <code>.agents/skills/goal</code> is only its
+repository discovery symlink.</p>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-84a58e594e4053a579ed5586c2a2f834">1 - </h1>
+    
+	<h1 id="print-343c994395f72bb6b3cb8a8778c9d279-goal-graph-organization">Goal graph organization<a class="td-heading-self-link" href="#print-343c994395f72bb6b3cb8a8778c9d279-goal-graph-organization" aria-label="Heading self-link"></a></h1><p>Use this reference when one objective may need related goals, parallel work,
+or dependency-aware resumption. The graph is a view over ordinary local Goal
+resources. The execution harness remains responsible for scheduling and
+permissions.</p>
+<h2 id="print-343c994395f72bb6b3cb8a8778c9d279-decide-whether-to-decompose">Decide whether to decompose<a class="td-heading-self-link" href="#print-343c994395f72bb6b3cb8a8778c9d279-decide-whether-to-decompose" aria-label="Heading self-link"></a></h2><p>Keep ordinary ordered steps in one attempt plan. Create a separate goal only
+when the subgoal benefits from at least one independent property:</p>
+<ul>
+<li>lifecycle or resumption;</li>
+<li>acceptance criteria and evidence;</li>
+<li>ownership or retention;</li>
+<li>substantial parallel execution; or</li>
+<li>reuse by more than one objective.</li>
+</ul>
+<p>The coordination cost of another goal and edge must be lower than the value of
+making that boundary explicit.</p>
+<h2 id="print-343c994395f72bb6b3cb8a8778c9d279-use-typed-relationships">Use typed relationships<a class="td-heading-self-link" href="#print-343c994395f72bb6b3cb8a8778c9d279-use-typed-relationships" aria-label="Heading self-link"></a></h2><p><code>Goal.spec.relationships</code> supports three same-catalog references:</p>
+<ul>
+<li><code>parentGoalRef</code> expresses hierarchy, not execution order;</li>
+<li><code>dependsOnGoalRefs</code> names prerequisites; and</li>
+<li><code>supersedesGoalRefs</code> records lineage.</li>
+</ul>
+<p>A parent is not a Kubernetes owner reference and never implies garbage
+collection. Supersession does not redirect dependencies or authorize mutation
+of the older goal. Only an <code>achieved</code> prerequisite satisfies a dependency;
+an open prerequisite waits, while an abandoned or superseded prerequisite
+blocks until the relationship is explicitly revised.</p>
+<p>Keep each relationship kind acyclic independently. Do not test the union of
+different edge kinds as one directed acyclic graph. Missing targets make a
+catalog view unknown, rather than making one otherwise well-formed Goal
+resource invalid.</p>
+<h2 id="print-343c994395f72bb6b3cb8a8778c9d279-change-structure-deliberately">Change structure deliberately<a class="td-heading-self-link" href="#print-343c994395f72bb6b3cb8a8778c9d279-change-structure-deliberately" aria-label="Heading self-link"></a></h2><p>Treat inferred relationships as proposals, never facts. Bind a proposal to
+its source evidence and the goal generation it inspected. A coordinator must
+review it, analyze the complete catalog for cycles, and publish it through the
+normal resource-version compare-and-swap path. A worker must not rewrite
+canonical relationships.</p>
+<p>Relationship publication completely replaces the dependency and supersession
+lists. Omitting the parent preserves it; clearing the parent is an explicit
+operation. Close an active attempt before changing relationships: each attempt
+is bound to the goal generation and portable goal-state digest that existed
+when work began. An accepted relationship request advances generation and
+resource version even when normalization makes it a semantic no-op.</p>
+<p>Per-goal locks do not make a catalog transaction. Cycle prevention checks a
+snapshot assembled by reading each goal under its own lock. Concurrent writes
+to different goals can both pass against older snapshots and jointly create a
+cycle. The single coordinator must avoid those conflicting writes; always run
+the deterministic graph projection again after parallel structural changes and
+repair any reported cycle.</p>
+<p>Dispatch only goals whose prerequisites are satisfied. Agent selection,
+capability discovery, delegation, communication topology, and runtime
+scheduling belong to the execution harness.</p>
+<p>Use the complete deterministic graph analysis for inspection. A catalog with
+unresolved references is <code>Unknown</code>; a cyclic catalog is <code>Invalid</code>. Graph
+analysis does not truncate its input, so report a catalog read or validation
+failure instead of inferring readiness from a partial view.</p>
+<p>Attempt input bindings, criteria and goal-state digests, structured reviews,
+and artifact digests form the provenance graph for evidence.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ee4b8e4d89db173b39d1b3a0b7583597">2 - </h1>
+    
+	<h1 id="print-fa810e61ba81a00d6dc51f49a8e87050-attempt-lifecycle-and-evidence">Attempt lifecycle and evidence<a class="td-heading-self-link" href="#print-fa810e61ba81a00d6dc51f49a8e87050-attempt-lifecycle-and-evidence" aria-label="Heading self-link"></a></h1><p>Use this reference for maintained goals, repeated failures, and complex
+coordination. Ordinary progress uses the compact checkpoint workflow in the
+skill entry point.</p>
+<h2 id="print-fa810e61ba81a00d6dc51f49a8e87050-plan-before-work">Plan before work<a class="td-heading-self-link" href="#print-fa810e61ba81a00d6dc51f49a8e87050-plan-before-work" aria-label="Heading self-link"></a></h2><p>One attempt is a bounded work unit with one reviewable outcome. Establish before implementation:</p>
+<ul>
+<li>the observed Goal resource version as the next checkpoint&rsquo;s
+compare-and-swap token; the store derives generation, lifecycle, criteria,
+and digest bindings rather than requiring manual transcription;</li>
+<li>the uncertainty or stable defect being targeted;</li>
+<li>work type and hypothesis when the work tests one;</li>
+<li>the smallest high-leverage module or question, its stop condition, and the
+minimum whole-result context needed to detect interface or integration harm;</li>
+<li>the plan, inputs, parameters, intended result identity, and review packet;</li>
+<li>affected criteria and the fixed regression checks; and</li>
+<li>parent checkpoint or prior attempt when one exists.</li>
+</ul>
+<p>Preflight deterministic geometry, numeric gates, controlling references,
+paths, APIs, tools, permissions, and whether the proposed artifact can satisfy
+its own acceptance gate. Preserve material preflight evidence without turning
+discarded prose drafts into fake attempts.</p>
+<p>Prefer a bounded module whose result can change the next decision. Do not
+polish it in isolation: retain enough surrounding context to judge composition,
+interfaces, and fixed regressions. If a cheap check decisively falsifies the
+module, interface, or approach, stop work and close the attempt with that
+evidence rather than completing the original plan mechanically.</p>
+<h2 id="print-fa810e61ba81a00d6dc51f49a8e87050-bind-evidence-to-what-was-tested">Bind evidence to what was tested<a class="td-heading-self-link" href="#print-fa810e61ba81a00d6dc51f49a8e87050-bind-evidence-to-what-was-tested" aria-label="Heading self-link"></a></h2><p>A criterion verdict is one of <code>pass</code>, <code>fail</code>, or <code>unverified</code>. Evidence must
+identify its criterion revision and the exact tested subject:</p>
+<ul>
+<li>content: a digest or immutable version;</li>
+<li>source change: source revision and relevant configuration;</li>
+<li>stateful operation: target identity, environment/config revision, operation
+receipt, and observed postcondition;</li>
+<li>research or decision: source set, retrieval date where relevant, analysis
+artifact, and review method.</li>
+</ul>
+<p>A later change that can affect a verdict invalidates it until rerun. Never
+combine visual evidence from one candidate with technical evidence from
+another. Command success alone is not evidence of the desired postcondition.</p>
+<p>For a monolithic shared artifact without stable mergeable interfaces, derive
+each candidate from an exact immutable baseline and keep it isolated. Use an
+approved baseline when the task requires approval. Compare the candidate in
+the minimum whole-result context needed to detect integration regressions.
+Bind acceptance or approval evidence to its exact identity; the canonical
+writer may promote it only with existing mutation authority and when the
+task&rsquo;s acceptance and approval policy permits. Do not manufacture a permanent
+file split solely to make concurrent editing possible.</p>
+<h2 id="print-fa810e61ba81a00d6dc51f49a8e87050-review-and-close">Review and close<a class="td-heading-self-link" href="#print-fa810e61ba81a00d6dc51f49a8e87050-review-and-close" aria-label="Heading self-link"></a></h2><p>Inspect likely failure views and edge cases, not only the best output. For
+subjective work, use consistent comparisons and independent review when
+available. Judge absolute quality against the target rather than improvement
+from a weak predecessor.</p>
+<p>Close the attempt with:</p>
+<ol>
+<li>work actually performed;</li>
+<li>artifacts and raw verification evidence;</li>
+<li>a verdict for every affected criterion and regression check;</li>
+<li>the dominant remaining failure;</li>
+<li>the decision to accept, refine, or reset; and</li>
+<li>a process audit covering measurable movement and feedback bottlenecks.</li>
+</ol>
+<p>Publish the close only if the goal resource version and lifecycle generation
+still match. A stale attempt remains useful evidence, but it cannot silently
+become canonical or reopen a closed lifecycle.</p>
+<h2 id="print-fa810e61ba81a00d6dc51f49a8e87050-retry-and-finish">Retry and finish<a class="td-heading-self-link" href="#print-fa810e61ba81a00d6dc51f49a8e87050-retry-and-finish" aria-label="Heading self-link"></a></h2><p>When a required criterion fails or remains unverified, keep the outcome open,
+update the stable failure count, and choose the highest-leverage next attempt.
+After the same defect survives twice, materially change strategy.</p>
+<p>At least every three closed attempts, and immediately on a stalled trend,
+examine the complete attempt history and the end-to-end process, not only the
+latest failure. Identify systemic delays, repeated assumptions, weak evidence,
+poor decomposition, and unhelpful tooling. Process changes are justified only
+when they improve the speed or reliability of producing the requested result.
+Record the review and the last attempt it covers in attempt evidence or the
+attempt result so its cadence survives a session change.</p>
+<p>For final acceptance, freeze one exact result, run every required criterion
+and the complete regression set, deliver or export it, and verify that delivery
+did not change its identity. If delivery changes the tested subject, rerun the
+full evidence plan.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-10e83a7f0aa6d82e10d6de030791a9ee">3 - </h1>
+    
+	<h1 id="print-4a4bda19b0612e56037cd7ba80821cae-promotion-and-migration">Promotion and migration<a class="td-heading-self-link" href="#print-4a4bda19b0612e56037cd7ba80821cae-promotion-and-migration" aria-label="Heading self-link"></a></h1><p>Use this reference only when promoting a workspace goal or importing an
+unversioned record.</p>
+<h2 id="print-4a4bda19b0612e56037cd7ba80821cae-promote-workspace-to-project">Promote workspace to project<a class="td-heading-self-link" href="#print-4a4bda19b0612e56037cd7ba80821cae-promote-workspace-to-project" aria-label="Heading self-link"></a></h2><p>Promotion changes storage and retention, not goal identity. It must:</p>
+<ol>
+<li>require an explicit maintained-project decision and an owning project root;</li>
+<li>lock the source and destination paths in canonical order, then validate the
+source at an expected resource version;</li>
+<li>preserve the goal ID and closed attempt history;</li>
+<li>record source scope and promotion provenance;</li>
+<li>require repository-relative or stable external links;</li>
+<li>retain, copy, or make reproducible every acceptance-critical artifact;</li>
+<li>scan for absolute local paths, credentials, private environment details,
+and ignored evidence that would become broken; and</li>
+<li>validate and render the destination before making it canonical.</li>
+</ol>
+<p>Do not promote caches or routine coordination logs. Refuse a destination that
+would shadow another goal with the same ID or that cannot retain critical
+evidence. Leave the workspace source intact until the destination is verified.</p>
+<h2 id="print-4a4bda19b0612e56037cd7ba80821cae-migrate-an-unversioned-record">Migrate an unversioned record<a class="td-heading-self-link" href="#print-4a4bda19b0612e56037cd7ba80821cae-migrate-an-unversioned-record" aria-label="Heading self-link"></a></h2><p>A README-only goal has no claimed schema version. Migration is intentionally
+conservative and is always a non-destructive import. Supply a distinct legacy
+source directory and destination goals root; the command never converts the
+source in place.</p>
+<ul>
+<li>keep every source byte and source directory entry unchanged;</li>
+<li>derive the stable goal ID from the source directory name and publish only to
+<code>&lt;destination-goals-root&gt;/&lt;goal-id&gt;</code>;</li>
+<li>reject canonical source/target equality or ancestry overlap, then lock both
+paths in canonical sorted order;</li>
+<li>preserve the original prose as an immutable legacy snapshot;</li>
+<li>import only fields that are unambiguous;</li>
+<li>mark imported criteria unverified in the closed migration attempt and begin
+a new structured lifecycle at the migration checkpoint;</li>
+<li>build a complete <code>&lt;goal-id&gt;</code> directory in hidden staging under the
+destination root and run the normal record validator there;</li>
+<li>re-read and digest the source immediately before publishing the staged
+directory with one rename;</li>
+<li>make rerunning the same provenance and options idempotent; and</li>
+<li>refuse an existing target with different provenance, options, ownership, or
+invalid content.</li>
+</ul>
+<p>Do not pretend a prose history can be losslessly normalized. The snapshot is
+evidence of what was recorded; new structured attempts begin from the migration
+checkpoint.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-091fb8f176ae4cf704886f276c12f972">4 - </h1>
+    
+	<h1 id="print-4a8274afabd2b5d2285308ee0a9046bf-goal-resource-format-v1alpha1">Goal resource format v1alpha1<a class="td-heading-self-link" href="#print-4a8274afabd2b5d2285308ee0a9046bf-goal-resource-format-v1alpha1" aria-label="Heading self-link"></a></h1><p>Use this reference for checkpoint payloads, criteria changes, record semantics,
+or validation errors. Ordinary resume uses the CLI&rsquo;s bounded view. The files
+use Kubernetes-style resource envelopes for familiar versioning and evolution;
+they are portable local records, not Kubernetes objects or CRDs.</p>
+<h2 id="print-4a8274afabd2b5d2285308ee0a9046bf-layout">Layout<a class="td-heading-self-link" href="#print-4a8274afabd2b5d2285308ee0a9046bf-layout" aria-label="Heading self-link"></a></h2><p>The same directory shape is used in both scopes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>&lt;goal-id&gt;/
+</span></span><span style="display:flex;"><span>  goal.yaml
+</span></span><span style="display:flex;"><span>  criteria.yaml
+</span></span><span style="display:flex;"><span>  criteria-revisions/
+</span></span><span style="display:flex;"><span>    &lt;revision&gt;.yaml
+</span></span><span style="display:flex;"><span>  README.md
+</span></span><span style="display:flex;"><span>  attempts/
+</span></span><span style="display:flex;"><span>    &lt;attempt-id&gt;/
+</span></span><span style="display:flex;"><span>      attempt.yaml
+</span></span><span style="display:flex;"><span>      plan.md
+</span></span><span style="display:flex;"><span>      result.md
+</span></span><span style="display:flex;"><span>      evidence/
+</span></span></code></pre></div><p>Workspace records normally live at <code>out/&lt;task&gt;/goals/&lt;goal-id&gt;/</code>. The
+recommended direct-initialization layout for project records is
+<code>&lt;owner-root&gt;/goals/&lt;goal-id&gt;/</code>. This is guidance rather than a CLI constraint;
+direct initialization, promotion, and migration accept other safe in-workspace
+roots. A goal ID is stable across promotion and must not be reused.</p>
+<h2 id="print-4a8274afabd2b5d2285308ee0a9046bf-resource-envelope">Resource envelope<a class="td-heading-self-link" href="#print-4a8274afabd2b5d2285308ee0a9046bf-resource-envelope" aria-label="Heading self-link"></a></h2><p>Every canonical YAML resource uses the Kubernetes-style envelope. For example,
+a newly initialized local Goal has this shape:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">goals.alwaldend.com/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Goal</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">example-goal</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">resourceVersion</span>: <span style="color:#e6db74">&#34;1&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">generation</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">creationTimestamp</span>: <span style="color:#e6db74">&#34;2026-08-30T00:00:00Z&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">annotations</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">goals.alwaldend.com/local-owner-root</span>: <span style="color:#ae81ff">out/example</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">title</span>: <span style="color:#ae81ff">Example goal</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">scope</span>: <span style="color:#ae81ff">workspace</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">retention</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">policy</span>: <span style="color:#ae81ff">ephemeral</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">relationships</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">dependsOnGoalRefs</span>: []
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">supersedesGoalRefs</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#f92672">status</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">lifecycleGeneration</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">outcome</span>: <span style="color:#ae81ff">open</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">execution</span>: <span style="color:#ae81ff">active</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">criteriaRevision</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">observedAt</span>: <span style="color:#e6db74">&#34;2026-08-30T00:00:00Z&#34;</span>
+</span></span></code></pre></div><p>The allowed kinds are <code>Goal</code>, <code>GoalCriteria</code>, <code>GoalAttempt</code>, and
+<code>GoalSessionBinding</code>. <code>metadata.name</code> is a DNS-compatible stable resource
+identity. Use only standard Kubernetes <code>ObjectMeta</code> field names. In the local
+store, <code>metadata.resourceVersion</code> emulates an API-server optimistic-concurrency
+token: carry it literally and do not perform arithmetic on it.
+The local CLI advances <code>metadata.generation</code> for spec changes and for every
+accepted relationship replacement, including a normalized no-op. Lifecycle
+generation is separate because criteria replacements and outcome or execution
+changes can invalidate in-flight work without changing desired relationships.</p>
+<h2 id="print-4a8274afabd2b5d2285308ee0a9046bf-authority-and-projections">Authority and projections<a class="td-heading-self-link" href="#print-4a8274afabd2b5d2285308ee0a9046bf-authority-and-projections" aria-label="Heading self-link"></a></h2><p><code>goal.yaml</code>, <code>criteria.yaml</code>, immutable <code>criteria-revisions/&lt;revision&gt;.yaml</code>
+snapshots, each <code>attempt.yaml</code>, and the exact <code>plan.md</code>, <code>result.md</code>, and
+<code>evidence/*.md</code> bytes bound by its artifact manifest are canonical. Validation
+checks those Markdown sidecars against their SHA-256 digests. <code>README.md</code> is
+generated, bounded, and replaceable. It is never canonical input; regenerate
+it from the canonical record instead of editing it by hand.</p>
+<p>Use the repository tool for canonical operations when it is available:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //projects/goal/cmd/goal -- &lt;command&gt; --help
+</span></span></code></pre></div><p>The command owns IDs, resource validation, per-goal locking,
+resource-version checks, atomic file replacement, path normalization, and
+rendering. Do not emulate those mechanics with direct YAML edits. If the tool
+is unavailable, keep exactly one writer and state that revision and
+concurrency safety were not verified.</p>
+<p>The local adapter keeps a deterministic, persistent per-goal lock file under
+<code>$XDG_RUNTIME_DIR/alwaldend/goal/locks/</code>. It is outside the workspace and
+cannot be committed. While held, it contains the current process PID for
+diagnostics; clean release clears it, while a crash can leave a stale PID.
+<code>flock</code>, never the PID text, is authoritative, and the tool never unlinks a
+lock based on that text. The lock is not a resource or part of the portable
+record format. A mutation writes a sibling temporary file, closes it, and
+renames it over the destination while holding that goal&rsquo;s lock. Each file
+replacement is atomic; a command that changes several files does not claim a
+cross-file transaction.</p>
+<h2 id="print-4a8274afabd2b5d2285308ee0a9046bf-goal">Goal<a class="td-heading-self-link" href="#print-4a8274afabd2b5d2285308ee0a9046bf-goal" aria-label="Heading self-link"></a></h2><p><code>Goal.spec</code> owns the requested configuration: title, <code>workspace</code> or <code>project</code>
+scope, retention policy, and stable <code>parentGoalRef</code>, <code>dependsOnGoalRefs</code>, and
+<code>supersedesGoalRefs</code> relationships. The workspace-relative owner root is
+local adapter metadata in the <code>goals.alwaldend.com/local-owner-root</code>
+annotation. The filesystem backend requires it, but portable goal-state
+digests exclude it.
+Each local goal reference is an object containing <code>name</code>, rather than a path or
+bare ID. Relations do not grant permission to change related goals or imply a
+scheduler in v1alpha1.</p>
+<p><code>Goal.status</code> owns observed state: outcome, execution, active and accepted
+attempt IDs, accepted result digest, current criteria revision, lifecycle
+generation, promotion or migration provenance, and update time. Criteria
+replacement and accepted outcome or execution changes advance lifecycle
+generation. Starting, updating, or closing an attempt without such a transition
+changes goal state but does not advance lifecycle generation.</p>
+<h2 id="print-4a8274afabd2b5d2285308ee0a9046bf-criteria">Criteria<a class="td-heading-self-link" href="#print-4a8274afabd2b5d2285308ee0a9046bf-criteria" aria-label="Heading self-link"></a></h2><p><code>GoalCriteria.spec</code> identifies its goal by a <code>{name: ...}</code> reference and a
+revision. Each item has a stable criterion ID, its own revision, a required
+flag, statement, and evidence method. Every accepted complete criteria
+replacement advances the criteria resource version, generation, and spec
+revision. An item&rsquo;s revision advances only when its meaning changes. Evidence
+proves exactly one item revision; an earlier pass becomes historical rather
+than current.</p>
+<p>Keep a fixed regression set in the criteria resource. Run it after every
+attempt that can affect it and against the frozen final result.</p>
+<h2 id="print-4a8274afabd2b5d2285308ee0a9046bf-attempts">Attempts<a class="td-heading-self-link" href="#print-4a8274afabd2b5d2285308ee0a9046bf-attempts" aria-label="Heading self-link"></a></h2><p><code>GoalAttempt.spec</code> binds the work to a <code>{name: ...}</code> goal reference, goal and
+lifecycle generations, criteria revision, portable criteria and goal-state
+digests, optional <code>planID</code>, and work type. It does not store a Goal resource version: that value
+is the checkpoint caller&rsquo;s mutation-time compare-and-swap token, not a durable
+attempt input. Attempt status records whether it is open or closed, relevant
+timestamps, the SHA-256 artifact manifest, and the structured close review.
+Review evidence references may name only the manifest&rsquo;s plan, result, or
+evidence paths. The digest-bound Markdown bytes live beside the resource.</p>
+<p>An attempt may carry optional structured resume fields so a fresh agent can
+resume an open goal without free-form archaeology:</p>
+<ul>
+<li><code>stableDefect</code>: the reproducible problem under investigation.</li>
+<li><code>hypothesis</code>: the candidate explanation being tested.</li>
+<li><code>subject</code>: the exact system, artifact, or reference under test.</li>
+<li><code>affectedCriteria</code>: criterion IDs this attempt exercises; unique and sorted.</li>
+<li><code>regressionRefs</code>: reviewed regression set or fixtures; unique and sorted.</li>
+<li><code>priorAttemptID</code>: an earlier attempt this one resumes or corrects.</li>
+<li><code>dominantFailure</code>: the single most useful failure signal observed.</li>
+<li><code>measurableDelta</code>: the measured difference this attempt produces.</li>
+<li><code>nextAction</code>: the deterministic next step for a resuming agent.</li>
+<li><code>blocker</code>: an external condition preventing progress, if any.</li>
+<li><code>resumeCondition</code>: what must hold before a resuming agent resumes this
+attempt.</li>
+</ul>
+<h2 id="print-4a8274afabd2b5d2285308ee0a9046bf-plans">Plans<a class="td-heading-self-link" href="#print-4a8274afabd2b5d2285308ee0a9046bf-plans" aria-label="Heading self-link"></a></h2><p><code>Goal.status.plans</code> stores durable plan summaries. Each entry has a portable
+<code>planID</code>, a bounded <code>strategy</code>, and a state of <code>active</code>, <code>accepted</code>,
+<code>rejected</code>, or <code>superseded</code>. A rejected plan carries a bounded
+<code>rejectionReason</code>. At most one plan is active. Create or transition a plan
+with <code>goal checkpoint --plan-id ... --plan-strategy ...</code> or
+<code>--plan-state ... --plan-only</code>; a new plan supersedes the previous active plan.
+An attempt may bind to one of these summaries with <code>spec.planID</code>; the plan is
+input context and the attempt review remains the acceptance evidence.</p>
+<p>These fields are advisory input, not acceptance evidence: a closed attempt may
+omit them entirely. Prose fields must be trimmed, bounded, and free of NUL;
+identifiers must be portable record IDs; lists must be unique, sorted, and
+bounded. The generated README projection surfaces <code>stableDefect</code>,
+<code>dominantFailure</code>, <code>nextAction</code>, <code>blocker</code>, and <code>resumeCondition</code> for open
+attempts so an agent can resume directly from the goal record.</p>
+<p>For the registered repository goals root, use the goal command&rsquo;s catalog-backed
+resume view instead of scanning goal directories:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //projects/goal/cmd/goal -- resume <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --goals-root projects/agents/goals <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --catalog ../../../tools/agents/catalogs/goal.json
+</span></span></code></pre></div><p>The output is a bounded <code>GoalResumePacket</code> decoded from the checked,
+digest-verified goal catalog. It contains only open goals with a resumable
+open attempt and their exact candidate paths and continuation fields.
+<code>--catalog</code> is required and resolves relative to <code>--goals-root</code>; a task-specific
+root needs its own generated catalog. The command validates catalog structure
+and its stored digest, not freshness against owning goal records. Revalidate
+the selected record before acting on its continuation fields.</p>
+<p><code>Goal.status.acceptedResultDigest</code> is the accepted attempt&rsquo;s <code>result.md</code>
+SHA-256, not automatically the identity of an external deliverable. Record an
+external subject&rsquo;s exact identity in the result or evidence when acceptance
+depends on it.</p>
+<p>Allowed work types are <code>investigation</code>, <code>candidate</code>, <code>change</code>, <code>integration</code>,
+<code>validation</code>, and <code>decision</code>. Not every work unit has a file
+candidate or hypothesis. Stateful work should identify source revision, target
+and environment/config revision, plus an operation receipt.</p>
+<p>An open attempt may receive isolated evidence. Closing it publishes its final
+resource, plan, result, and evidence set. After close, treat its directory as
+immutable; a correction or additional evidence is a new attempt that refers to
+the old one.</p>
+<h2 id="print-4a8274afabd2b5d2285308ee0a9046bf-close-review">Close review<a class="td-heading-self-link" href="#print-4a8274afabd2b5d2285308ee0a9046bf-close-review" aria-label="Heading self-link"></a></h2><p><code>checkpoint --close-attempt --review-file &lt;path&gt;</code> takes plain YAML with
+exactly two keys, <code>decision</code> and <code>criteria</code>; do not add resource-envelope
+headers. Use the actual IDs and revisions returned by <code>show</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">decision</span>: <span style="color:#ae81ff">accept</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">criteria</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">criterionID</span>: <span style="color:#ae81ff">criterion-001</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">criterionRevision</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">verdict</span>: <span style="color:#ae81ff">pass</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">evidenceRefs</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">evidence/acceptance.md</span>
+</span></span></code></pre></div><p>Decisions are <code>accept</code>, <code>refine</code>, or <code>reset</code>. Verdicts are <code>pass</code>, <code>fail</code>, or
+<code>unverified</code>; passing or failing requires a reference to <code>plan.md</code>,
+<code>result.md</code>, or an imported <code>evidence/*.md</code> artifact. Sort criteria by ID and
+keep evidence references unique and sorted. Evidence must describe the exact
+tested candidate and actual observations. To mark the goal achieved, add
+<code>--outcome achieved</code> only when this accepting close passes every current
+required criterion. Ordinary summaries do not supply these verdicts.</p>
+<h2 id="print-4a8274afabd2b5d2285308ee0a9046bf-bounds-and-paths">Bounds and paths<a class="td-heading-self-link" href="#print-4a8274afabd2b5d2285308ee0a9046bf-bounds-and-paths" aria-label="Heading self-link"></a></h2><p>List, goal-detail, and README views have explicit item or byte limits and
+report truncation. Graph analysis instead consumes the complete accepted
+catalog or fails. Prefer useful recent entries in bounded views over failing
+because history is large. Canonical and migrated Markdown files must be
+bounded regular files containing valid UTF-8 and no NUL bytes. Store links
+relative to the workspace or owner root, or as stable external URLs. Never
+place local absolute paths, credentials, or private environment values in a
+project goal.</p>
+<h2 id="print-4a8274afabd2b5d2285308ee0a9046bf-kubernetes-compatibility-boundary">Kubernetes compatibility boundary<a class="td-heading-self-link" href="#print-4a8274afabd2b5d2285308ee0a9046bf-kubernetes-compatibility-boundary" aria-label="Heading self-link"></a></h2><p>The resources deliberately follow Kubernetes API conventions, but the local
+files are not directly managed by a Kubernetes API server. The filesystem
+adapter supplies <code>resourceVersion</code>, <code>generation</code>, and local annotations. A
+future Kubernetes adapter must let the API server populate its read-only
+metadata, install structural OpenAPI schemas, enable the status subresource,
+and reconcile or strip local-only annotations during import and export.</p>
+<p>Keep portable identity and desired state in the resource. Store a session&rsquo;s
+workspace-relative goal path only in the namespaced annotation
+<code>goals.alwaldend.com/local-goal-ref</code>; <code>GoalSessionBinding.spec.goalRef</code> remains
+a normal <code>{name: ...}</code> object. Digest-bound plan, result, and evidence sidecars
+are a local storage representation; a cluster adapter must map their bytes to
+cluster-accessible objects or artifact references.</p>
+<p>This boundary lets a future CRD/controller reuse the API types. Do not claim
+that a local record can be passed to <code>kubectl apply</code> without that adapter and
+the CRDs.</p>
+<p>When implementing that adapter, verify the current Kubernetes
+<a href="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/">custom-resource</a>
+and <a href="https://kubernetes.io/docs/reference/kubernetes-api/definitions/object-meta-v1-meta/">ObjectMeta</a>
+contracts rather than copying the local store&rsquo;s metadata behavior blindly.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-dbf11cfd1aab9e6b3775367451298ae9">5 - </h1>
+    
+	<h1 id="print-d790b5e4af98e47d37ff75b8af31a663-sessions-and-concurrency">Sessions and concurrency<a class="td-heading-self-link" href="#print-d790b5e4af98e47d37ff75b8af31a663-sessions-and-concurrency" aria-label="Heading self-link"></a></h1><p>Use this reference when resuming, switching goals, delegating, or reconciling
+a stale update.</p>
+<h2 id="print-d790b5e4af98e47d37ff75b8af31a663-many-records-one-focus">Many records, one focus<a class="td-heading-self-link" href="#print-d790b5e4af98e47d37ff75b8af31a663-many-records-one-focus" aria-label="Heading self-link"></a></h2><p>A goal is identified by its stable goal ID and scope, not by a chat thread. A
+<code>GoalSessionBinding</code> is a replaceable pointer to the current goal. Its
+attachment-time generation, revision, and digest fields only detect whether
+that pointer&rsquo;s view has become stale. List and inspect stored goals before
+attaching when identity is uncertain. Starting a new session must not create a
+duplicate merely because the old thread is unavailable.</p>
+<p>Attaching does not mutate the goal. Detaching or switching focus does not
+pause, close, or delete it. Verify the goal resource version and current
+attempt after every fresh attach or context recovery.</p>
+<h2 id="print-d790b5e4af98e47d37ff75b8af31a663-canonical-writer-protocol">Canonical writer protocol<a class="td-heading-self-link" href="#print-d790b5e4af98e47d37ff75b8af31a663-canonical-writer-protocol" aria-label="Heading self-link"></a></h2><p>Use one coordinator for canonical state. For an attempt or lifecycle
+<code>checkpoint</code> mutation within one existing goal record, the goal tool:</p>
+<ol>
+<li>acquires the selected goal&rsquo;s cooperative cross-process file lock;</li>
+<li>rereads canonical state under the lock;</li>
+<li>checks the caller&rsquo;s expected resource version; when publishing an existing
+attempt, it also verifies its goal reference, lifecycle generation, and
+digest-bound criteria snapshot;</li>
+<li>validates the complete prospective state and fully stages a new attempt in
+a hidden sibling directory when needed;</li>
+<li>advances <code>goal.yaml</code> as the optimistic-concurrency commit point;</li>
+<li>publishes the staged directory with one rename, or replaces existing
+attempt files through sibling temporary-file renames;</li>
+<li>finalizes an immediately closed new attempt in <code>goal.yaml</code> at the same
+resource version; and</li>
+<li>writes the derived projection last and releases the lock.</li>
+</ol>
+<p>The intermediate Goal for an immediately closed new attempt keeps an active
+pointer until that attempt exists. An interruption before attempt publication
+or Goal finalization therefore fails validation rather than silently dropping
+the attempt. After the commit point, an error returns the committed Goal
+reference and names its advanced resource version. Validate before resuming;
+never retry with the caller&rsquo;s stale token.</p>
+<p>A <code>checkpoint --criteria-file</code> update uses the same goal lock and expected
+resource version. It installs the immutable criteria snapshot, replaces the
+current criteria, advances <code>goal.yaml</code>, and writes the projection last.</p>
+<p>Atomic rename prevents torn files; it does not prevent lost updates by itself.
+The lock and expected resource version are both required for this
+compare-and-swap path. A process that ignores the lock is outside this
+cooperative trust boundary.</p>
+<p>The lock is keyed by the canonical goal path under
+<code>$XDG_RUNTIME_DIR/alwaldend/goal/locks/</code>, so it is never tracked and work on
+one goal does not block an unrelated sibling goal. If a process exits between
+two file renames, validate the record before resuming instead of inferring
+state from temporary files or generated Markdown.</p>
+<p>The lock file contains the current holder PID for diagnostics. Clean release
+truncates the PID while still holding <code>flock</code>; a crash releases the kernel
+lock automatically and leaves the PID for diagnosis. The next holder
+overwrites a stale PID. <code>flock</code>, not PID existence or process liveness, is the
+authority. Never unlink and recreate a lock path based on PID metadata while
+other processes may be waiting on its existing inode.</p>
+<p>The key uses the full canonical absolute goal path rather than only its ID.
+Same-named goals in parallel workspaces are independent; symlink aliases of
+one path share a lock.</p>
+<p>Other commands use locks according to the paths they coordinate. Promotion and
+migration acquire distinct source and destination locks in canonical-path
+order. Attachment reads the goal under its goal lock, then writes the session
+binding under a separate path lock.</p>
+<p>This is cooperative same-user coordination, not a hostile-process sandbox.
+The runtime lock inode is checked without following a final symlink, but the
+workspace and goal pathnames must remain stable for the duration of a command.
+A process with the same user identity that races workspace renames or symlink
+replacement is outside the tool&rsquo;s trust boundary.</p>
+<p>When an error reports <code>goal publication is incomplete</code>, run <code>goal doctor</code> on
+the goal directory to classify the pending intent, then <code>goal recover</code> to
+replay or discard it. Doctor states: <code>stable</code>,
+<code>committed-projection-stale</code> (a README-only refresh), <code>discardable-intent</code>
+(nothing canonical changed; recover removes it), <code>staged-intent</code> or
+<code>partial-intent</code> (recover replays the after-images), and <code>conflict</code> (refused).
+Never retry a mutation over a pending intent and never delete the intent or
+staging directory by hand.</p>
+<p>On a stale update, retain the isolated attempt output, reread the new canonical
+state, and decide whether to rebase the evidence into a new attempt, revise the
+plan, or discard publication. Never retry blindly with a newly read version.</p>
+<h2 id="print-d790b5e4af98e47d37ff75b8af31a663-workers">Workers<a class="td-heading-self-link" href="#print-d790b5e4af98e47d37ff75b8af31a663-workers" aria-label="Heading self-link"></a></h2><p>Workers receive immutable inputs: goal ID, resource version, lifecycle
+generation, criteria revision, attempt ID, bounded task, and an isolated
+scratch/output location. They do not write into the canonical goal directory.
+The coordinator reviews their output and imports selected Markdown evidence
+through the canonical checkpoint.</p>
+<p>For a long-running goal, the coordinator explicitly lists ready independent
+workstreams at start, resume, and before each attempt. If at least two can
+produce useful reviewable outputs without racing canonical state, delegate
+them concurrently. Remaining sequential requires a concrete reason recorded
+with the attempt, such as an unresolved dependency, unsafe shared mutation, or
+an integration queue that would erase the latency benefit. Recheck when an
+attempt closes, stalls, changes strategy, or exposes another independent
+workstream.</p>
+<p>For a monolithic artifact with no stable mergeable interfaces, give each
+worker an isolated copy of the same exact frozen baseline instead of splitting
+the canonical artifact; use an approved baseline when the task requires
+approval. Bound each copy to one falsifiable change and enough whole-result
+context to expose integration regressions. The coordinator may promote a
+candidate only when the task already authorizes the mutation and the task&rsquo;s
+acceptance and approval policy permits it; workers never merge competing
+copies directly. Copy only data permitted for that worker boundary and
+minimize unrelated context.</p>
+<p>Before publication, recheck that the goal remains open, the execution state
+permits publication, and all versions still match. This prevents a late worker
+from publishing after pause, completion, abandonment, or supersession.</p>
+<p>Parallelize only independent work with disjoint output locations. Allocate
+workers and compute to critical-path uncertainty, and cap work in progress at
+the coordinator&rsquo;s review and integration capacity. Idle slots are not a
+failure when no additional useful workstream is ready. Suitable work includes
+bounded candidate variants, research, disjoint modules, blind review,
+verification, and artifact preparation. Bound fanout and depth; do not split
+trivial operations merely to fill slots, and require a separate benefit for
+recursive delegation. Stop workers whose output can no longer affect the next
+decision or required acceptance and delivery evidence.</p>
+<h2 id="print-d790b5e4af98e47d37ff75b8af31a663-registered-goal-discovery">Registered goal discovery<a class="td-heading-self-link" href="#print-d790b5e4af98e47d37ff75b8af31a663-registered-goal-discovery" aria-label="Heading self-link"></a></h2><p>For registered repository goals, use the explicit checked catalog:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //projects/goal/cmd/goal -- resume <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --goals-root projects/agents/goals <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --catalog ../../../tools/agents/catalogs/goal.json
+</span></span></code></pre></div><p><code>--catalog</code> is required and resolves relative to <code>--goals-root</code>. The bounded
+view selects open goals with resumable attempts and verifies the catalog&rsquo;s
+stored digest, not freshness against current records. Use <code>show --goal-dir</code>
+for a selected local record or workspace goal before continuing its next
+action.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-489c26dd90f34b01ab82ee0e9992f6ae">6 - </h1>
+    <div class="lead">Persist resumable research or implementation work with local checkpoints and evidence. Use when work benefits from state that survives interruption; skip simple tasks and one-response questions.</div>
+	<h1 id="print-d76c9234c711aa5c3587d5dcf7ec92aa-goal">Goal<a class="td-heading-self-link" href="#print-d76c9234c711aa5c3587d5dcf7ec92aa-goal" aria-label="Heading self-link"></a></h1><p>Keep the objective, acceptance check, current candidate, evidence, and next
+action inspectable. The CLI owns record identity, revisions, digests, locking,
+and interrupted-write recovery. Use it instead of editing canonical YAML or
+generated README projections.</p>
+<h2 id="print-d76c9234c711aa5c3587d5dcf7ec92aa-ordinary-tasks">Ordinary tasks<a class="td-heading-self-link" href="#print-d76c9234c711aa5c3587d5dcf7ec92aa-ordinary-tasks" aria-label="Heading self-link"></a></h2><p>Use an ignored workspace goal under <code>out/&lt;task&gt;/goals/&lt;goal-id&gt;/</code>. A project
+goal under <code>&lt;owner-root&gt;/goals/&lt;goal-id&gt;/</code> is appropriate only when the user
+requests, or the project establishes, maintained history. Length alone does
+not justify committed records. A question grants no new mutation authority.</p>
+<p>Select an existing goal by stable ID and path before initializing another.
+When identity is uncertain, use <code>list --goals-root &lt;root&gt;</code>. Initialize once:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //projects/goal/cmd/goal -- init <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --goals-root <span style="color:#e6db74">&#34;out/&lt;task&gt;/goals&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --title <span style="color:#e6db74">&#34;Requested outcome&#34;</span> --criterion <span style="color:#e6db74">&#34;Observable acceptance check&#34;</span>
+</span></span></code></pre></div><p>For routine progress, supply a short summary, the exact candidate identity,
+and the next action. Mark missing checks and inferred criteria honestly:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //projects/goal/cmd/goal -- checkpoint <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --goal-dir <span style="color:#e6db74">&#34;&lt;record&gt;&#34;</span> --expected-resource-version <span style="color:#e6db74">&#34;&lt;observed-version&gt;&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --subject <span style="color:#e6db74">&#34;&lt;exact candidate&gt;&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --summary <span style="color:#e6db74">&#34;&lt;work performed, evidence, and checks still needed&gt;&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --next-action <span style="color:#e6db74">&#34;&lt;next concrete step&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>bazel_agent bazel run //projects/goal/cmd/goal -- show --goal-dir <span style="color:#e6db74">&#34;&lt;record&gt;&#34;</span>
+</span></span></code></pre></div><p><code>--summary</code> accepts up to 8192 bytes of inline Markdown and creates ordinary
+plan/result artifacts internally. Optional <code>--evidence &lt;file.md&gt;</code> imports
+immutable evidence. Later checkpoints replace the open attempt&rsquo;s result and
+update its candidate and next action. The initial plan and imported evidence
+remain intact. Routine progress needs no separate plan ID, payload file,
+process audit, or new attempt.</p>
+<p><code>show</code> returns objective, criteria, current resource version, and active
+attempt progress with a bounded result preview, source paths, and digests.
+Inspect the referenced result when truncated. Candidate and prose fields are
+caller declarations, not live observations or proof of acceptance. Revalidate
+only mutable inputs required by the recorded next action after interruption.</p>
+<p>Carry the literal observed <code>--expected-resource-version</code> into each write.
+If stale, reread and reconcile the intervening changes; never blindly replace
+it with the latest version. Keep one coordinator for canonical goal writes.
+A changed candidate needs a new summary or result; old evidence applies only
+to the candidate it tested. Neither a checkpoint nor a successful command
+establishes acceptance.</p>
+<h2 id="print-d76c9234c711aa5c3587d5dcf7ec92aa-finish-or-continue">Finish or continue<a class="td-heading-self-link" href="#print-d76c9234c711aa5c3587d5dcf7ec92aa-finish-or-continue" aria-label="Heading self-link"></a></h2><p>Keep outcome (<code>open</code>, <code>achieved</code>, <code>abandoned</code>, <code>superseded</code>) separate from
+execution (<code>active</code>, <code>paused</code>, <code>waiting</code>, <code>blocked</code>). Questions and scheduling
+interruptions do not silently pause a goal or expand its authority. Honor
+explicit pause or cancellation and resume authorized work after incidental
+interruptions. Difficulty alone is not a blocker.</p>
+<p>At acceptance, verify the exact result against every required criterion and
+applicable regression. Close the attempt with <code>checkpoint --close-attempt --review-file &lt;review.yaml&gt;</code> and the final result/evidence; use <code>--outcome achieved</code> only when all required criteria pass. The review records criterion
+IDs, revisions, verdicts, and evidence references. Read the
+<a href="/docs/projects/goal/skills/goal/references/record-format-v1alpha1/">close review format</a> when preparing it.
+Closed attempts are immutable; corrections use a new attempt.</p>
+<p>Checkpoint locally when work needs a reliable continuation point. A
+conversational yield does not require committing, pushing, or running the
+full delivery workflow. Use <code>repo-delivery</code> at a meaningful review-ready
+milestone or final implementation handoff, and for an explicitly requested
+remote backup. Deliver all legitimate source changes before final handoff;
+keep scratch and workspace records ignored. Report a blocked or incomplete
+publication honestly and distinguish a local checkpoint from a verified
+remote copy.</p>
+<h2 id="print-d76c9234c711aa5c3587d5dcf7ec92aa-detailed-and-conditional-workflows">Detailed and conditional workflows<a class="td-heading-self-link" href="#print-d76c9234c711aa5c3587d5dcf7ec92aa-detailed-and-conditional-workflows" aria-label="Heading self-link"></a></h2><p>For maintained project goals, repeated failures, or complex coordination,
+read <a href="/docs/projects/goal/skills/goal/references/lifecycle-and-evidence/">lifecycle and evidence</a> for bounded
+plans, attempt histories, review, and strategy changes. After the same defect
+survives two attempts, change the approach and preserve its failure evidence.
+Process reviews support that work; they are not routine checkpoint fields.</p>
+<ul>
+<li>For checkpoint payloads, criteria changes, or validation errors, read
+<a href="/docs/projects/goal/skills/goal/references/record-format-v1alpha1/">record format</a>.</li>
+<li>For registered goals, catalog-backed <code>resume</code>, session switching, or worker
+coordination, read
+<a href="/docs/projects/goal/skills/goal/references/sessions-and-concurrency/">sessions and concurrency</a>.</li>
+<li>For related goals and dependency-aware dispatch, read
+<a href="/docs/projects/goal/skills/goal/references/graph-organization/">graph organization</a>.</li>
+<li>For promotion, imports, or public evidence retention, read
+<a href="/docs/projects/goal/skills/goal/references/promotion-and-migration/">promotion and migration</a>.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c59bfb4ffe3563d72f838e2f548ec274">7 - Goal architecture</h1>
+    <div class="lead">Local storage, locking, formats, and graph boundaries</div>
+	<h1 id="print-0c90e5b4e6aa9303a2c28fa4a2eacec3-goal-architecture">Goal architecture<a class="td-heading-self-link" href="#print-0c90e5b4e6aa9303a2c28fa4a2eacec3-goal-architecture" aria-label="Heading self-link"></a></h1><p>The goal tool is a local CLI for one coordinator working on a goal at a time.
+It edits ordinary files inside the workspace. It does not require a service,
+daemon, database, controller, or network connection.</p>
+<p>The tool release is <code>0.0.1</code>. The independent resource-schema version is
+<code>goals.alwaldend.com/v1alpha1</code>; <code>v1alpha1</code> describes schema stability and does
+not imply a stable tool release.</p>
+<h2 id="print-0c90e5b4e6aa9303a2c28fa4a2eacec3-goal-pursuit-loop">Goal pursuit loop<a class="td-heading-self-link" href="#print-0c90e5b4e6aa9303a2c28fa4a2eacec3-goal-pursuit-loop" aria-label="Heading self-link"></a></h2><p>The pursuit loop belongs to the goal skill and its coordinator. The CLI does
+not schedule or perform the work; it validates and checkpoints the state
+transitions chosen by the coordinator.</p>
+<p><img src="/docs/projects/goal/docs/goal-loop.svg" alt="Goal pursuit loop" loading="lazy"></p>
+<p>The editable Mermaid source is <a href="/docs/projects/goal/docs/goal-loop.mmd">goal-loop.mmd</a>.</p>
+<h2 id="print-0c90e5b4e6aa9303a2c28fa4a2eacec3-system-flow">System flow<a class="td-heading-self-link" href="#print-0c90e5b4e6aa9303a2c28fa4a2eacec3-system-flow" aria-label="Heading self-link"></a></h2><p><img src="/docs/projects/goal/docs/goal-tool.svg" alt="Goal tool architecture" loading="lazy"></p>
+<p>The editable Mermaid source is <a href="/docs/projects/goal/docs/goal-tool.mmd">goal-tool.mmd</a>.</p>
+<h2 id="print-0c90e5b4e6aa9303a2c28fa4a2eacec3-files">Files<a class="td-heading-self-link" href="#print-0c90e5b4e6aa9303a2c28fa4a2eacec3-files" aria-label="Heading self-link"></a></h2><p>Structured resources use Kubernetes-style YAML envelopes. Attempt plans,
+results, and evidence are canonical, digest-bound Markdown artifacts;
+<code>README.md</code> is a generated Markdown projection. A publication intent is
+backend recovery metadata written before each multi-file mutation. A catalog
+has this shape:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>goals/
+</span></span><span style="display:flex;"><span>  &lt;goal-id&gt;/
+</span></span><span style="display:flex;"><span>    goal.yaml
+</span></span><span style="display:flex;"><span>    criteria.yaml
+</span></span><span style="display:flex;"><span>    criteria-revisions/&lt;revision&gt;.yaml
+</span></span><span style="display:flex;"><span>    README.md
+</span></span><span style="display:flex;"><span>    .goal-publication.yaml
+</span></span><span style="display:flex;"><span>    .goal-publication-stage/
+</span></span><span style="display:flex;"><span>    attempts/&lt;attempt-id&gt;/
+</span></span><span style="display:flex;"><span>      attempt.yaml
+</span></span><span style="display:flex;"><span>      plan.md
+</span></span><span style="display:flex;"><span>      result.md
+</span></span><span style="display:flex;"><span>      evidence/*.md
+</span></span></code></pre></div><p>Lock files live under <code>$XDG_RUNTIME_DIR/alwaldend/goal/locks/</code>, outside the
+workspace. They are local adapter state, not Kubernetes resources, and can
+never be added to version control.</p>
+<h2 id="print-0c90e5b4e6aa9303a2c28fa4a2eacec3-update-model">Update model<a class="td-heading-self-link" href="#print-0c90e5b4e6aa9303a2c28fa4a2eacec3-update-model" aria-label="Heading self-link"></a></h2><p>The orchestrator assigns one coordinator to a goal. The CLI independently
+prevents overlapping cooperating processes. An attempt or lifecycle mutation
+through <code>checkpoint</code>, a criteria update, or a relationship update follows this
+path:</p>
+<ol>
+<li>Resolve the canonical goal path, hash it into a lock path under
+<code>$XDG_RUNTIME_DIR/alwaldend/goal/locks/</code>, and take an exclusive <code>flock</code> for
+that goal.</li>
+<li>Refuse to run while a publication intent is pending; read and validate the
+current resources under the lock.</li>
+<li>Reject a stale expected <code>resourceVersion</code>.</li>
+<li>Build and validate the proposed resource values in memory.</li>
+<li>Stage the exact after-images under <code>.goal-publication-stage/</code> and install a
+<code>.goal-publication.yaml</code> intent recording each path and its before/after
+digest. The new-attempt directory is staged as one directory tree.</li>
+<li>Publish <code>goal.yaml</code> with the advanced resource version as the optimistic-
+concurrency commit point.</li>
+<li>Publish the staged attempt directory with one rename when a new attempt
+exists, or replace existing attempt files through sibling temporary-file
+renames.</li>
+<li>For a newly created attempt closed by the same checkpoint, finalize
+<code>goal.yaml</code> at the same resource version.</li>
+<li>Write the replaceable <code>README.md</code> projection last, remove the intent and
+staging directory, and release the lock.</li>
+</ol>
+<p>The first goal write for an immediately closed new attempt deliberately keeps
+an active-attempt pointer until the attempt directory exists. The intent
+remains on disk until the projection writes; after the commit point, an error
+returns the committed Goal reference, names its advanced resource version, and
+leaves the intent pending for recovery. A failure before the first <code>goal.yaml</code>
+rename discards the intent and preserves the exact prior record.</p>
+<p><code>goal doctor</code> is a read-only classification command. With a pending intent it
+reports the per-target state: <code>stable</code>, <code>discardable-intent</code>, <code>staged-intent</code>,
+<code>partial-intent</code>, or <code>conflict</code>. Without one it reports <code>stable</code>, a
+<code>committed-projection-stale</code> README-only issue, or a validation failure.
+<code>goal recover</code> replays every remaining after-image for a staged or partial
+intent, refuses a conflict, or discards a discardable intent to restore the
+prior record. Normal mutations fail closed with a
+<code>goal publication is incomplete</code> error while an intent is pending, so the
+coordinator must run <code>goal doctor</code> then <code>goal recover</code> before continuing.</p>
+<p>Reads and mutations use the same exclusive per-goal lock, matching the
+single-coordinator ownership model and leaving one unambiguous holder PID.
+Different canonical goal paths have different lock files and therefore do not
+block one another. Lock files are never deleted as part of normal operation;
+deleting a lock pathname while a process holds its inode would allow a second,
+unrelated lock to be created.
+The holder writes its PID into the lock file after acquiring <code>flock</code> for
+diagnostics. The kernel lock, not PID-file existence, remains authoritative;
+a clean release truncates the PID while still holding <code>flock</code>, while a crash
+releases the kernel lock and leaves the last PID for diagnosis. The next
+holder overwrites that stale PID. A PID is never authority to unlink or
+recreate the persistent lock path because another waiter may already have its
+inode open.
+The operating system may clear <code>XDG_RUNTIME_DIR</code> after all processes have
+stopped; no canonical state lives there. The command fails clearly when a
+usable <code>XDG_RUNTIME_DIR</code> is unavailable.</p>
+<p>The key includes the full canonical absolute path, not only the goal ID. Two
+parallel workspaces can therefore operate on same-named goals independently,
+while two symlink spellings of the same goal still coordinate through one
+lock.</p>
+<p>Legacy migration is a non-destructive two-path operation. It rejects equal or
+overlapping canonical source and target paths, acquires their locks in sorted
+order, and never writes into the source. The command builds a complete
+<code>&lt;goal-id&gt;</code> below a hidden staging directory in the destination goals root,
+runs the normal record validator there, rechecks that the target is absent,
+and re-digests the source. It then publishes the staged goal with one directory
+rename. A matching existing target is an idempotent result; any other existing
+target is refused.</p>
+<p>Promotion likewise acquires the distinct source and destination goal locks in
+canonical-path order before it validates and publishes the destination.</p>
+<p>The runtime directory is private to the current user. Each lock path is opened
+without following a final symlink, then checked to be a regular, same-user,
+single-link inode before use. The workspace side remains a cooperative
+pathname boundary: the workspace and goal path must remain stable during a
+command. The CLI rejects path escapes and observed symlinks, but it is not a
+sandbox against another process running as the same user that races pathname
+replacement.</p>
+<p>Atomic rename prevents a reader from seeing a partially written file. A
+command that replaces multiple files publishes them in a defined order; if it
+is interrupted between renames, the pending publication intent records exactly
+which after-images remain. Canonical state consists of validated YAML
+resources and the exact <code>plan.md</code>, <code>result.md</code>, and <code>evidence/*.md</code> bytes whose
+SHA-256 digests are stored in each <code>attempt.yaml</code>. Recognized temporary-file
+residue is removed before validation; the generated <code>README.md</code> projection is
+replaceable and non-canonical, and <code>.goal-publication.yaml</code> plus
+<code>.goal-publication-stage/</code> are transitive recovery state that must never be
+committed to version control.</p>
+<h2 id="print-0c90e5b4e6aa9303a2c28fa4a2eacec3-graph-model">Graph model<a class="td-heading-self-link" href="#print-0c90e5b4e6aa9303a2c28fa4a2eacec3-graph-model" aria-label="Heading self-link"></a></h2><p>Goal relationships are typed references in <code>Goal.spec</code>: parent, dependency,
+and supersession. Catalog graph analysis is a pure, deterministic projection
+of fully validated goal records, including their digest-bound Markdown
+artifacts. Each edge kind is checked separately for cycles; missing references
+remain unknown instead of being invented or silently accepted as resolved.</p>
+<p><code>set-relationships</code> replaces the dependency and supersession lists completely;
+omitting the parent flag preserves the parent, while <code>--clear-parent</code> removes
+it. Every accepted request advances <code>metadata.generation</code> and
+<code>metadata.resourceVersion</code>, even when the requested normalized relationships
+equal the current values. The command fully validates the target record under
+its goal lock and rejects relationship changes while an attempt is active,
+because attempts are bound to the goal generation and portable state digest.
+It writes the authoritative <code>goal.yaml</code> first and refreshes the replaceable
+README projection last.</p>
+<p>Relationship updates reject a newly introduced cycle or an expansion of an
+existing cycle for the affected edge kind. Existing unrelated cycles do not
+block a repair, and shrinking the target&rsquo;s existing cycle is allowed.</p>
+<p>Cycle prevention is deliberately snapshot-scoped. The command assembles a
+catalog view by reading each member under that member&rsquo;s per-goal lock, then
+validates and writes the target under its lock; it does not take a catalog-wide
+lock. Two coordinators that concurrently change different goals can therefore
+each validate before the other write and jointly create a cycle. This is the
+accepted consequence of independent per-goal locking and the single-
+coordinator ownership model, not a serializable graph transaction. After the
+writers settle, a subsequent <code>graph</code> call reports the cycle deterministically
+so a coordinator can revise one edge.</p>
+<p>Task scheduling, live agent topology, messages, and runtime state remain
+responsibilities of the agent harness. The local tool stores durable goal
+relationships and evidence provenance as ordinary resources.</p>
+<h2 id="print-0c90e5b4e6aa9303a2c28fa4a2eacec3-kubernetes-boundary">Kubernetes boundary<a class="td-heading-self-link" href="#print-0c90e5b4e6aa9303a2c28fa4a2eacec3-kubernetes-boundary" aria-label="Heading self-link"></a></h2><p>The YAML resources follow Kubernetes API conventions so a future adapter can
+map them to CRDs. Local files are not directly applicable cluster objects.
+Cluster use would still require structural CRDs, API-server-owned metadata,
+status-subresource behavior, and a controller or client that maps Markdown
+artifacts and local annotations.</p>
+<p>That adapter would replace the filesystem lock and rename mechanism with
+API-server concurrency. It must not carry the local lock files or emulate the
+filesystem backend inside Kubernetes.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f6ca13c91496f37b089771079fe69b6e">8 - Goal command</h1>
+    <div class="lead">CLI for versioned local goal records</div>
+	<p><code>goal</code> is the command surface for the repository goal skill. Portable resource
+types and domain validation live in <code>api/v1alpha1</code>; deterministic local
+persistence lives in <code>internal/fsstore</code>. The command keeps authoritative
+Kubernetes-inspired YAML envelopes and digest-bound attempt Markdown separate
+from the bounded generated <code>README.md</code> projection, uses the same record format
+for workspace and project goals, and stores session focus separately under
+ignored workspace scratch.</p>
+<p>The record layout is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>goals/&lt;goal-id&gt;/
+</span></span><span style="display:flex;"><span>  goal.yaml
+</span></span><span style="display:flex;"><span>  criteria.yaml
+</span></span><span style="display:flex;"><span>  criteria-revisions/&lt;revision&gt;.yaml
+</span></span><span style="display:flex;"><span>  README.md
+</span></span><span style="display:flex;"><span>  attempts/&lt;attempt-id&gt;/
+</span></span><span style="display:flex;"><span>    attempt.yaml
+</span></span><span style="display:flex;"><span>    plan.md
+</span></span><span style="display:flex;"><span>    result.md
+</span></span><span style="display:flex;"><span>    evidence/
+</span></span></code></pre></div><p><code>&lt;owner-root&gt;/goals/&lt;goal-id&gt;/</code> is the preferred project placement, not a CLI
+constraint. Direct initialization, promotion, and migration also accept other
+safe in-workspace goals roots while recording the explicit owner root.</p>
+<p>The YAML objects use <code>apiVersion: goals.alwaldend.com/v1alpha1</code> and the kinds
+<code>Goal</code>, <code>GoalCriteria</code>, <code>GoalAttempt</code>, and <code>GoalSessionBinding</code>. Their
+envelopes validate Kubernetes-compatible qualified metadata keys and label
+values and use object-shaped local goal references. The shared API treats
+<code>resourceVersion</code> as opaque. The filesystem backend allocates canonical local
+numeric versions and requires complete persisted metadata. The files are not
+raw <code>kubectl</code> input, and this project supplies neither CRDs nor a controller.</p>
+<p>Run it through Bazel:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //projects/goal/cmd/goal -- init <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --goals-root out/example/goals <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --goal-id verify-the-release <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --title <span style="color:#e6db74">&#34;Verify the release&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --criterion <span style="color:#e6db74">&#34;All affected tests pass&#34;</span>
+</span></span></code></pre></div><p>Use a task-specific binding directory when changing session focus:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //projects/goal/cmd/goal -- attach <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --session-root out/example/goal-sessions <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --session-id current <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --goal-dir out/example/goals/verify-the-release
+</span></span></code></pre></div><p><code>GoalSessionBinding.spec.goalRef</code> contains the stable object name. The
+namespaced annotation <code>goals.alwaldend.com/local-goal-ref</code> contains the
+workspace-relative storage path. Session bindings never create a repository-
+global catalog.</p>
+<p><code>Goal.metadata.annotations[goals.alwaldend.com/local-owner-root]</code> contains the
+workspace-relative owner used only by the local adapter. It is deliberately
+absent from portable <code>Goal.spec</code> and portable digests.</p>
+<p>Commands are <code>init</code>, <code>list</code>, <code>resume</code>, <code>show</code>, <code>attach</code>, <code>checkpoint</code>,
+<code>learning-proposal</code>, <code>graph</code>, <code>set-relationships</code>, <code>validate</code>, <code>promote</code>,
+<code>render</code>, and <code>migrate</code>.
+<code>set-relationships</code> replaces the complete dependency and supersession lists;
+the parent is preserved unless explicitly set or cleared. It requires no
+active attempt, advances Goal generation and resource version on every accepted
+request, and refreshes the bounded README projection. Its cycle check is a
+per-goal-locked catalog snapshot rather than a catalog-wide transaction, so a
+<code>graph</code> call after concurrent writes settle is authoritative.</p>
+<p><code>resume</code> requires <code>--catalog</code>, resolved relative to <code>--goals-root</code>, and prints
+a bounded <code>GoalResumePacket</code> containing only open goals with a resumable
+attempt. The packet carries candidate paths and structured continuation
+fields; it never mutates records or opens goal plans, results, or evidence.
+The strict decoder validates catalog structure and its stored digest, not
+freshness against current goal records. Use <code>show --goal-dir</code> for current
+local state.</p>
+<p><code>learning-proposal</code> validates one Phase 5 proposal. Repeated friction references
+are required, but the command never promotes the proposal or edits source; the
+owning project adopts it through ordinary review and delivery.</p>
+<p><code>checkpoint</code> starts or publishes an attempt, changes execution/outcome state,
+or applies a complete desired criteria-items file with <code>--criteria-file</code>.</p>
+<p>For ordinary work, initialize the objective and acceptance once with <code>init --title ... --criterion ...</code>, then use an inline checkpoint:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //projects/goal/cmd/goal -- checkpoint <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --goal-dir out/example/goals/fix-parser <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --expected-resource-version <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --subject <span style="color:#e6db74">&#34;candidate digest or source revision&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --summary <span style="color:#e6db74">&#34;Parser repaired; focused checks remain unverified.&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --next-action <span style="color:#e6db74">&#34;Run the parser acceptance check.&#34;</span>
+</span></span><span style="display:flex;"><span>bazel_agent bazel run //projects/goal/cmd/goal -- show <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --goal-dir out/example/goals/fix-parser
+</span></span></code></pre></div><p><code>--summary</code> is nonblank UTF-8 Markdown, limited to 8192 bytes, and requires
+<code>--subject</code> and <code>--next-action</code>. It cannot combine with <code>--plan-file</code> or
+<code>--result-file</code>. The store generates the initial plan from the objective,
+criteria, and next action, then writes progress into the existing canonical
+<code>result.md</code>. Later checkpoints reuse the open attempt, preserve its initial
+plan and imported evidence, and update the declared subject and next action.
+Changing an existing subject requires a replacement summary or result;
+retained evidence applies only to the candidate identified in that evidence.
+A next-action-only checkpoint is also supported.</p>
+<p><code>show</code> includes <code>activeAttempt</code> with current continuation fields, an 8192-byte
+UTF-8 result preview, complete result byte count/digest, evidence digests,
+observation time, and source paths relative to the goal directory. Its
+<code>resultTruncated</code> field indicates when the canonical result needs a separate
+read. Subject and progress are caller declarations, not live Git observations
+or criterion verdicts. Initialization, summary checkpoints, and bounded views
+use the same store and recovery protocol as detailed attempts; there is no
+separate compact record format. Closing still requires an explicit
+<code>--close-attempt --review-file</code> with criterion verdicts and evidence; a
+summary does not imply acceptance.</p>
+<p>Detailed attempts can provide separate plan, result, and review payloads.
+Plans are durable summaries in <code>Goal.status.plans</code>. Create one with
+<code>--plan-id ... --plan-strategy ... --plan-only</code>; transition the active plan
+with <code>--plan-id ... --plan-state accepted|rejected|superseded --plan-only</code>,
+adding <code>--plan-rejection-reason</code> for a rejection. A newly created active plan
+supersedes the prior active plan. Attempts may bind to a plan with
+<code>--plan-id</code> when starting or by using the active plan of an existing attempt.
+Criteria updates require paused execution and use ordinary atomic file
+replacement. Immutable criteria snapshots retain the exact canonical criteria
+revision for historical attempts; portable, domain-separated criteria and
+goal-state digests avoid binding durable records to local resource-version
+tokens. Closing an attempt requires <code>--review-file</code> with an <code>accept</code>, <code>refine</code>,
+or <code>reset</code> decision and per-criterion verdicts linked to frozen plan, result,
+or evidence artifacts.
+The review file is plain YAML with exactly two keys. Criteria entries must be
+sorted by <code>criterionID</code>, and <code>evidenceRefs</code> must be unique, sorted, and name
+only frozen artifacts (<code>plan.md</code>, <code>result.md</code>, or files under <code>evidence/</code>).
+Verdicts are <code>pass</code>, <code>fail</code>, or <code>unverified</code>; a non-<code>unverified</code> verdict
+requires at least one evidence reference. Do not add <code>apiVersion</code> or <code>kind</code>
+headers:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">decision</span>: <span style="color:#ae81ff">accept</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">criteria</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">criterionID</span>: <span style="color:#ae81ff">friction-baseline</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">criterionRevision</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">verdict</span>: <span style="color:#ae81ff">pass</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">evidenceRefs</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">evidence/friction-baseline.md</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">criterionID</span>: <span style="color:#ae81ff">optimization-pipeline</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">criterionRevision</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">verdict</span>: <span style="color:#ae81ff">pass</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">evidenceRefs</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">evidence/optimization-pipeline.md</span>
+</span></span></code></pre></div><p>An achieved outcome must close an accepting attempt whose exact passes cover
+every current required criterion. Structured verdicts are kept in
+<code>attempt.yaml</code>; richer narrative stays in <code>result.md</code>.</p>
+<p>For attempt and lifecycle checkpoints, a new attempt is fully staged before
+<code>goal.yaml</code> advances its resource version. That goal write is the optimistic-
+concurrency commit point; canonical attempt content follows, and <code>README.md</code>
+is last. An immediately closed new attempt uses an intermediate active pointer
+until its directory is published and the Goal is finalized at the same
+resource version, so interruption at either gap fails validation. The store
+returns the committed Goal reference after any post-commit failure, and the CLI
+error identifies that resource version.</p>
+<p>Promotion also requires a paused workspace goal and preserves the goal name,
+portable input bindings, immutable criteria history, and content-digest
+provenance. It rejects known absolute workspace/file links in promoted attempt
+artifacts; callers remain responsible for semantic privacy and credential
+review.</p>
+<p>Migration is a non-destructive import, not an in-place conversion. The legacy
+source remains unchanged, while a complete validated record is published at
+<code>&lt;destination-goals-root&gt;/&lt;goal-id&gt;</code> with one final directory rename. Repeating
+the same import is idempotent only while source provenance and import options
+match the existing target.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //projects/goal/cmd/goal -- migrate <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --source-goal-dir out/example/legacy/verify-the-release <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --destination-goals-root out/example/imported/goals
+</span></span></code></pre></div><p>Mutations to an existing Goal&rsquo;s canonical state take an exact expected local
+resource version. Cooperating processes serialize them with an advisory lock
+keyed to the canonical goal path under
+<code>$XDG_RUNTIME_DIR/alwaldend/goal/locks/</code>, reread the manifest while holding the
+lock, and replace individual files by renaming sibling temporary files. Lock
+files are outside the workspace and cannot enter version control. Different
+goals do not share a lock. Local owner and session-link annotations are
+workspace-relative normalized paths; absolute host paths are never written to
+manifests or command output.</p>
+<p>Each individual file replacement is atomic; commands that update several files
+do not claim cross-file transaction semantics. <code>README.md</code> is a derived
+projection and is written last. Plan, result, and evidence Markdown is instead
+canonical through the SHA-256 artifact manifest in <code>attempt.yaml</code>. Direct file
+writers are outside this cooperative trust boundary, and digest validation
+makes later edits detectable. Execution and outcome transitions advance
+<code>status.lifecycleGeneration</code>, invalidating in-flight attempt input bindings.</p>
+<p>This experimental <code>v1alpha1</code> format is a local file protocol. One coordinator
+should own a goal record. Delegated workers write only to isolated scratch;
+the coordinator imports selected artifacts through <code>checkpoint</code>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-4f61ac31adb01fbfad621a607f10539d">9 - Goal evaluations</h1>
+    
+	<h1 id="print-1e8215c8784304dbffd2a2ed51314889-goal-evaluations">Goal evaluations<a class="td-heading-self-link" href="#print-1e8215c8784304dbffd2a2ed51314889-goal-evaluations" aria-label="Heading self-link"></a></h1><p>This suite records the semantic contract for persistent, evidence-backed goal
+pursuit. The required offline Bazel target validates the Promptfoo
+configuration, referenced cases, and staged skill without making a model call.
+The cases cover research routing, workspace-versus-project ownership, explicit
+session focus, stale-update reconciliation, honest acceptance,
+result-prioritized modular work, isolated candidate promotion, and
+critical-path delegation, compact local checkpoints, meaningful publication
+milestones, and explicitly requested remote backup. Concurrency cases require active delegation when a
+long-running goal exposes multiple independently reviewable workstreams,
+require a recorded reason for sequential execution, and reject fanout whose
+only purpose is occupying available slots. The interruption case distinguishes
+turn priority from lifecycle state: questions and additional tasks do not
+silently stop an already-authorized active goal or expand its authority.</p>
+<p>A live target is omitted because representative behavior spans multiple turns
+and requires filesystem tools, safe writable fixtures, and fresh-session
+resume. A tool-free single response cannot verify those longitudinal
+postconditions. Promptfoo validation therefore proves only that these assets
+load. Deterministic store behavior is covered by
+<code>//projects/goal/internal/fsstore:go_test</code>; a future
+model eval still needs an isolated multi-turn workspace fixture.</p>
+<p>The static storage case covers the ordinary one-goal boundary: one path-keyed
+goal lock plus atomic per-file rename. Promotion and migration use a separate
+two-path protocol that acquires distinct source and destination locks in
+canonical-path order.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        Built with <a href="https://gohugo.io/">Hugo 0.165.0</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

@@ -1,0 +1,1118 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js" data-theme-init>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#000000">
+
+<style>
+  html { background: Canvas; color: CanvasText; }
+  @media (prefers-color-scheme: dark) {
+    html { background: #0b0d12; color: #e6e6e6; }
+  }
+  html[data-theme-init] * { transition: none !important; }
+</style>
+
+<script>
+  (function() {
+    const themeKey = 'td-color-theme';
+    const storedTheme = localStorage.getItem(themeKey);
+    let theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    if (theme === 'auto') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  })();
+</script>
+<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/projects/agents/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/projects/agents/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+<title>Agents | Alwaldend</title>
+<meta name="description" content="Repository-wide agent-system architecture, goals, and skills">
+<meta property="og:url" content="https://alwaldend.com/docs/projects/agents/">
+	<meta property="og:site_name" content="Alwaldend">
+	<meta property="og:title" content="Agents">
+	<meta property="og:description" content="Repository-wide agent-system architecture, goals, and skills">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="Agents">
+	<meta itemprop="description" content="Repository-wide agent-system architecture, goals, and skills">
+	<meta itemprop="dateModified" content="2026-09-05T20:57:59+03:00">
+	<meta itemprop="wordCount" content="309">
+	<meta itemprop="keywords" content="Agent,Skills">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Agents">
+	<meta name="twitter:description" content="Repository-wide agent-system architecture, goals, and skills">
+<link rel="preload" href="/scss/main.min.a66a47685d3dd8f6c2af31e43c9b9d7fbcf89ad26769c00134d82e867e780feb.css" as="style" integrity="sha256-pmpHaF092PbCrzHkPJudf7z4mtJnacABNNguhn54D&#43;s=" crossorigin="anonymous">
+<link href="/scss/main.min.a66a47685d3dd8f6c2af31e43c9b9d7fbcf89ad26769c00134d82e867e780feb.css" rel="stylesheet" integrity="sha256-pmpHaF092PbCrzHkPJudf7z4mtJnacABNNguhn54D&#43;s=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll">
+<div class="td-navbar-container container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Alwaldend</span></a>
+  <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
+    <div class="scroll-indicator scroll-left"></div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Docs</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/"><span>Projects</span></a>
+      </li>
+      <li class="nav-item td-navbar__light-dark-menu">
+        <div class="td-light-dark-menu dropdown"><svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check2" viewBox="0 0 16 16">
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+  <symbol id="circle-half" viewBox="0 0 16 16">
+    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+  </symbol>
+  <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+  </symbol>
+  <symbol id="sun-fill" viewBox="0 0 16 16">
+    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+  </symbol>
+</svg>
+<button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        title="Toggle theme (Auto)"
+        aria-label="Toggle theme (Auto)">
+  <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+  <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+</button>
+<ul class="dropdown-menu" aria-labelledby="bd-theme">
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#sun-fill"></use></svg>
+      Light
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#moon-stars-fill"></use></svg>
+      Dark
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+      <svg class="bi me-2 opacity-50"><use href="#circle-half"></use></svg>
+      Auto
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+</ul>
+</div>
+
+      </li>
+      </ul>
+    <div class="scroll-indicator scroll-right"></div>
+  </div>
+  <div class="td-navbar__search d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon" aria-hidden="true"></div>
+  <input
+    type="search"
+    name="q"
+    class="td-search__input form-control"
+    placeholder='Search this site…'
+    aria-label='Search this site…'
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.1f356a2ab7475879a5e255d2a0c9bf3e.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/projects/agents/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Agents</h1>
+<div class="lead">Repository-wide agent-system architecture, goals, and skills</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-bc9faab39f7e07a7d404ea40a7644260">Repository agent goals</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-cbcc7da4eb95b6eb1efb2f3859f1683f">Repository agent system current state</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-193de6c16994a11e6e8081a897df9422">Repository agent-system architecture</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-284de70690c8c0a86aa49ffae1a289ba">Repository agent-system roadmap</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <h1 id="print-c0f0945c625ec27712f6c45a11b9bd02-repository-agent-system">Repository agent system<a class="td-heading-self-link" href="#print-c0f0945c625ec27712f6c45a11b9bd02-repository-agent-system" aria-label="Heading self-link"></a></h1><p>This project owns the repository-wide agent-system contract, its durable
+improvement goals, and reusable cross-repository skills. It does not centralize
+component facts or runtime state: each fact remains canonical at its natural
+owner, and system-wide views are derived projections.</p>
+<h2 id="print-c0f0945c625ec27712f6c45a11b9bd02-start-here">Start here<a class="td-heading-self-link" href="#print-c0f0945c625ec27712f6c45a11b9bd02-start-here" aria-label="Heading self-link"></a></h2><table>
+	<thead>
+			<tr>
+					<th>Document</th>
+					<th>Purpose</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><a href="/docs/projects/agents/docs/current-state/">Current state</a></td>
+					<td>Evidence-backed baseline and material seams</td>
+			</tr>
+			<tr>
+					<td><a href="/docs/projects/agents/docs/architecture/">Architecture</a></td>
+					<td>Canonical abstraction tower, authorities, and invariants</td>
+			</tr>
+			<tr>
+					<td><a href="/docs/projects/agents/docs/roadmap/">Roadmap</a></td>
+					<td>Dependency-ordered future work and acceptance signals</td>
+			</tr>
+			<tr>
+					<td><a href="/docs/projects/agents/goals/">Durable goals</a></td>
+					<td>Versioned attempts, evidence, and acceptance state</td>
+			</tr>
+			<tr>
+					<td><a href="https://github.com/alwaldend/src/blob/master/AGENTS.md">Root agent guide</a></td>
+					<td>Current repository-wide operating policy</td>
+			</tr>
+	</tbody>
+</table>
+<p>The current-state document describes supported entry points and their evidence
+boundaries. Dated audits remain in the goal records. The architecture defines
+the intended composition contract; the roadmap does not claim that proposed
+interfaces already exist.</p>
+<h2 id="print-c0f0945c625ec27712f6c45a11b9bd02-ownership-boundaries">Ownership boundaries<a class="td-heading-self-link" href="#print-c0f0945c625ec27712f6c45a11b9bd02-ownership-boundaries" aria-label="Heading self-link"></a></h2><ul>
+<li><code>docs/</code> owns the cross-layer system model and plan, not duplicated component
+configuration.</li>
+<li><code>goals/</code> owns durable repository-agent work records and evidence.</li>
+<li><code>skills/</code> owns reusable repository-wide agent procedures and their
+development-time evaluations.</li>
+<li>Product-specific skills remain with their project at
+<code>projects/&lt;project&gt;/skills/&lt;name&gt;</code>.</li>
+<li>Repository-internal executors and build integrations may live under
+<code>tools/</code>; their behavior remains owned and documented there.</li>
+</ul>
+<h2 id="print-c0f0945c625ec27712f6c45a11b9bd02-skill-packaging-and-discovery">Skill packaging and discovery<a class="td-heading-self-link" href="#print-c0f0945c625ec27712f6c45a11b9bd02-skill-packaging-and-discovery" aria-label="Heading self-link"></a></h2><p>Every canonical skill is packaged as a <code>skill_library</code> in its owning
+directory.</p>
+<p>The repository discovery directory <code>.agents/skills/</code> contains one relative
+symlink per skill. Each link points directly to its canonical project-owned
+directory. Bazel ignores the discovery directory and builds only canonical
+targets, preventing duplicate packages while allowing skills from more than
+one owning project.</p>
+<p>Skill evaluation data is not part of the runtime <code>skill_library</code> unless a
+skill explicitly declares otherwise. Every new or updated skill includes an
+offline Promptfoo configuration-validation target. That target checks the eval
+harness, not answer correctness. Live behavioral evaluations are manual,
+networked tests and must not be included in ordinary wildcard test runs; they
+may be omitted when representative coverage requires tool calls or external
+state that cannot be provided safely and reproducibly, with the gap documented
+beside the eval configuration.</p>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-bc9faab39f7e07a7d404ea40a7644260">1 - Repository agent goals</h1>
+    <div class="lead">Durable goals, attempts, and evidence for the repository agent system</div>
+	<h1 id="print-8fb42cc58e74c274741f814d4459f7d4-repository-agent-goals">Repository agent goals<a class="td-heading-self-link" href="#print-8fb42cc58e74c274741f814d4459f7d4-repository-agent-goals" aria-label="Heading self-link"></a></h1><p>Each child directory is an owner-local durable goal record. Canonical resource
+files and attempt artifacts are created and validated through the repository
+<code>goal</code> workflow; do not edit generated records or projections directly.</p>
+<p>Goal evidence may contain source and operational analysis, including
+non-secret live or generated facts. It must never contain credentials, other
+secrets, or personal information. Inspect raw artifacts before promoting their
+content.
+Structured task artifacts such as FrictionRecord and LearningProposal JSON
+files are task scratch: keep them under <code>out/&lt;task&gt;/</code> and cite them from goal
+evidence Markdown rather than committing them into <code>evidence/</code>, which accepts
+only <code>.md</code> files.</p>
+<p>Discover current open work through the goal catalog and its bounded resume
+view; status is owned by each goal record. The
+<code>agent-system-phase-six-ergonomics/</code> goal records a completed friction-reduction
+attempt, with the original evidence and its limitations preserved.</p>
+<p>The <a href="/docs/projects/agents/docs/current-state/">current-state document</a> describes supported
+interfaces and current evidence boundaries. Closed attempts remain historical
+records; later implementation reviews may narrow claims they made without
+rewriting those immutable records.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-cbcc7da4eb95b6eb1efb2f3859f1683f">2 - Repository agent system current state</h1>
+    <div class="lead">Supported agent entry points, evidence boundaries, and limitations</div>
+	<h1 id="print-847b4a6fe4ccd1683fe2fa9d8aaf432a-repository-agent-system-current-state">Repository agent system current state<a class="td-heading-self-link" href="#print-847b4a6fe4ccd1683fe2fa9d8aaf432a-repository-agent-system-current-state" aria-label="Heading self-link"></a></h1><p>This is the maintained guide to the checked-in interfaces. Source links below
+identify their owners; runtime availability must be observed in the current
+session. Historical audits and acceptance claims remain in the immutable
+<a href="/docs/projects/agents/goals/">goal records</a>. Their dates and evidence tiers limit what they prove.</p>
+<h2 id="print-847b4a6fe4ccd1683fe2fa9d8aaf432a-start-with-the-affected-path">Start with the affected path<a class="td-heading-self-link" href="#print-847b4a6fe4ccd1683fe2fa9d8aaf432a-start-with-the-affected-path" aria-label="Heading self-link"></a></h2><p>Read applicable <code>AGENTS.md</code> instructions and the nearest owner README. Use
+the available Cordis repository-context handlers for bounded reads and
+searches, or the native tools when Cordis is unavailable. Cordis availability
+does not determine whether offline repository work is possible.</p>
+<p>The offline context command provides a bounded advisory view:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/agents/cmd/agent_system -- <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  --workspace-root <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span> --path projects/goal
+</span></span></code></pre></div><p>Its <a href="/docs/tools/agents/">owner documentation</a> describes the
+supported flags and limitations. Catalog declarations identify source facts;
+they do not establish live provider health, action authorization, successful
+validation, or a task&rsquo;s association with a goal. Missing observations remain
+explicit. A source digest proves identity, not freshness against a live system.</p>
+<h2 id="print-847b4a6fe4ccd1683fe2fa9d8aaf432a-use-the-owning-interface">Use the owning interface<a class="td-heading-self-link" href="#print-847b4a6fe4ccd1683fe2fa9d8aaf432a-use-the-owning-interface" aria-label="Heading self-link"></a></h2><table>
+	<thead>
+			<tr>
+					<th>Need</th>
+					<th>Entry point</th>
+					<th>Boundary</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Policy and layout</td>
+					<td>Applicable <code>AGENTS.md</code>, owner README, BUILD and MODULE files</td>
+					<td>The user request owns intended outcome and authorization.</td>
+			</tr>
+			<tr>
+					<td>Procedure</td>
+					<td>Canonical skill selected from <code>.agents/skills</code></td>
+					<td>Load only the procedure needed for the task.</td>
+			</tr>
+			<tr>
+					<td>Build or test</td>
+					<td><code>bazel_agent bazel &lt;command&gt;</code></td>
+					<td>Start with the affected package and avoid redundant compatible invocations.</td>
+			</tr>
+			<tr>
+					<td>Context</td>
+					<td><code>//tools/agents/cmd/agent_system</code></td>
+					<td>Offline, advisory source projection.</td>
+			</tr>
+			<tr>
+					<td>Stored runtime status</td>
+					<td><code>//tools/agents/cmd/control_status</code></td>
+					<td>Stored package observations do not prove present runtime health.</td>
+			</tr>
+			<tr>
+					<td>Durable work</td>
+					<td><code>//projects/goal/cmd/goal</code></td>
+					<td>Use workspace records for task coordination and owner-local project records when maintained history is needed.</td>
+			</tr>
+			<tr>
+					<td>Delivery</td>
+					<td><code>//tools/repo_delivery</code></td>
+					<td>Prepare, establish applicable validation, then explicitly publish the exact candidate.</td>
+			</tr>
+	</tbody>
+</table>
+<p>The <a href="/docs/projects/bazel_agent/">Bazel runner</a> also supports cached control-tool
+execution in current builds. If an installed runner lacks that subcommand,
+the supported <code>bazel run</code> targets remain available. Updating a shared host
+installation is a separate operation from changing repository source.</p>
+<h2 id="print-847b4a6fe4ccd1683fe2fa9d8aaf432a-keep-routine-work-small">Keep routine work small<a class="td-heading-self-link" href="#print-847b4a6fe4ccd1683fe2fa9d8aaf432a-keep-routine-work-small" aria-label="Heading self-link"></a></h2><p>Simple tasks need no durable goal. For work that needs a resume point, the
+<a href="/docs/projects/goal/">goal checkpoint</a> accepts a short summary, the current candidate,
+evidence references, and the next action. The store maintains the record&rsquo;s
+identity and digests; <code>show</code> includes the active continuation. Detailed attempt
+review remains available for repeated failures and maintained project history.
+Local progress checkpoints do not trigger publication. Deliver at a meaningful
+review boundary or final handoff, with explicit remote backups when needed.</p>
+<p><a href="/docs/tools/repo_delivery/">Delivery</a> can execute a caller-selected Bazel
+validation plan and retain its results against the prepared candidate. Its
+<code>continue</code> command reports the next state; <code>continue --publish</code> explicitly
+requests publication using those results. The tool carries the candidate and
+receipt between steps. It does not decide task ownership, semantic sufficiency,
+or whether representative output satisfies the request. Changed candidates and
+rebases require fresh validation; uncertain publication outcomes require
+inspection before another mutation. Follow the owning README&rsquo;s launcher
+instructions when validation itself invokes Bazel.</p>
+<h2 id="print-847b4a6fe4ccd1683fe2fa9d8aaf432a-supported-guarantees">Supported guarantees<a class="td-heading-self-link" href="#print-847b4a6fe4ccd1683fe2fa9d8aaf432a-supported-guarantees" aria-label="Heading self-link"></a></h2><ul>
+<li><a href="/docs/projects/rules_skill/">Skill packaging</a> validates canonical artifacts and
+discovery links. Evaluation payloads are separate from runtime skill bodies.</li>
+<li><a href="/docs/projects/goal/">Goal storage</a> validates resource revisions and artifact
+digests, provides bounded continuation information, and supports recovery
+from interrupted publication. These checks establish record integrity;
+criterion verdicts still require appropriate evidence.</li>
+<li><a href="/docs/tools/repo_delivery/">Delivery</a> binds the prepared candidate,
+scope, remote expectations, and pull-request identity. Exact leases and
+state checks protect publication. The caller selects and establishes the
+required validation; a preparation receipt is not a test result.</li>
+<li><a href="/docs/projects/mcp_cordis/">Cordis</a> provides bounded repository tools and supervised
+subprocess cleanup. Its package code is trusted. The documented process
+boundary is not a security sandbox.</li>
+</ul>
+<h2 id="print-847b4a6fe4ccd1683fe2fa9d8aaf432a-evidence-and-implementation-limits">Evidence and implementation limits<a class="td-heading-self-link" href="#print-847b4a6fe4ccd1683fe2fa9d8aaf432a-evidence-and-implementation-limits" aria-label="Heading self-link"></a></h2><p>The <a href="https://github.com/alwaldend/src/blob/master/tools/agents/catalogs/skill-coverage.md">coverage projection</a>
+inventories configured cases. It does not measure successful routing or task
+completion. Offline configuration checks are useful hygiene; stronger claims
+require actual result artifacts identifying the source, fixture, execution,
+and judge where applicable.</p>
+<p>The <a href="/docs/tools/agents/">shared control contracts</a> include admission and
+runtime-control libraries with unit tests. Their existence does not establish
+enforcement by production providers. Earlier phase acceptance records describe
+broader gateway and runtime guarantees than those unit tests demonstrate.
+Treat provider integration, process isolation, and runtime fault containment
+as unverified until a concrete consumer and corresponding integration evidence
+establish them. The <a href="/docs/projects/agents/docs/roadmap/">roadmap</a> retains that future work.</p>
+<p>Stored control snapshots contain package observations. Their age, missing
+writer identity, and lack of a live heartbeat limit their interpretation.
+The status reader preserves those limitations and does not create a runtime
+or its storage directories merely to inspect them.</p>
+<h2 id="print-847b4a6fe4ccd1683fe2fa9d8aaf432a-improve-from-task-outcomes">Improve from task outcomes<a class="td-heading-self-link" href="#print-847b4a6fe4ccd1683fe2fa9d8aaf432a-improve-from-task-outcomes" aria-label="Heading self-link"></a></h2><p>Measure representative questions, edits, recovery, and delivery tasks before
+claiming an instruction or workflow is faster or more reliable. Compare task
+success, unauthorized actions, context bytes, commands, duration, and resume
+steps against the prior behavior. Keep model and fixture identities with
+observations; do not infer measured improvement from configuration checks or
+the presence of a new schema.</p>
+<p>The <a href="https://github.com/alwaldend/src/tree/master/projects/agents/test/ergonomics/">local comparison fixtures</a> provide four bounded
+scenarios and an observer protocol. They cover question answering, a local
+prose edit, recovery after a changed postcondition, and a delivery validation
+decision. Their simulated observations do not exercise real publication.
+Unobservable routing, command, context, or token metrics remain unavailable;
+available instruction bytes are not the same as consumed context. Results
+belong with the exact task candidate, not in the configured coverage inventory.</p>
+<p>Preserve useful safeguards while reducing repeated consumer instructions.
+Retire obsolete workarounds and completed tracking when justified. Clean runs
+after a fix are not a reason to remove useful diagnostics or regression tests.
+Historical proposals suggesting otherwise do not define current policy.</p>
+<p>The <a href="/docs/projects/agents/docs/architecture/">architecture</a> describes composition responsibilities.
+It does not replace these implementation boundaries or authorize new work.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-193de6c16994a11e6e8081a897df9422">3 - Repository agent-system architecture</h1>
+    <div class="lead">Canonical composition contract for repository-wide agent work, evidence, delivery, and learning</div>
+	<h1 id="print-2610cadeeafeddc1ff93609a2e1ae14c-repository-agent-system-architecture">Repository agent-system architecture<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-repository-agent-system-architecture" aria-label="Heading self-link"></a></h1><h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-status-and-purpose">Status and purpose<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-status-and-purpose" aria-label="Heading self-link"></a></h2><p>This document defines the target composition contract for the repository as
+one agent-driven system. It is normative about boundaries, invariants, and
+ownership. A named interface or record is not a current capability merely
+because it appears here. The <a href="/docs/projects/agents/docs/current-state/">current-state snapshot</a>
+describes implemented behavior; the <a href="/docs/projects/agents/docs/roadmap/">roadmap</a> orders the work
+needed to reach this design.</p>
+<p>The objective is to let an agent form an accurate situation model, choose the
+least costly safe action, prove the exact result, and make later work cheaper.
+The design must remain useful with no daemon, network, credential, runtime
+extension, or active durable goal.</p>
+<h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-system-thesis">System thesis<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-system-thesis" aria-label="Heading self-link"></a></h2><p>The repository should have one composition protocol, not one mutable brain.</p>
+<p>Each fact stays at its narrow natural owner. Typed, versioned references join
+facts across owners. Deterministic bounded projections make those joins cheap
+to read. An execution gateway enforces effects at the point where they occur.
+No catalog, agent, skill, plan, or receipt may silently become an independent
+authority.</p>
+<p>This yields four structural rules:</p>
+<ol>
+<li><strong>One mutation authority per fact.</strong> A fact changes only at its owner.</li>
+<li><strong>Many derived views.</strong> Human maps, JSON catalogs, context capsules, and
+status views are replaceable projections with provenance.</li>
+<li><strong>Typed transitions.</strong> Cross-layer claims carry stable identities,
+versions or digests, completeness, and limitations.</li>
+<li><strong>Effects are admitted at execution.</strong> Selection and planning advise;
+explicit authority plus an executable contract controls mutation.</li>
+</ol>
+<p>Physical co-location is not required for logical cohesion. Repository-agent
+documents and goals belong under <code>projects/agents</code>. A future
+repository-internal controller or executor may belong under <code>tools/agents</code>.
+Component declarations remain with their component.</p>
+<h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-mutation-authorities">Mutation authorities<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-mutation-authorities" aria-label="Heading self-link"></a></h2><table>
+	<thead>
+			<tr>
+					<th>Fact</th>
+					<th>Mutation authority</th>
+					<th>System projection</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Requested outcome and granted authority</td>
+					<td>Current user/task interaction</td>
+					<td>Task authority envelope</td>
+			</tr>
+			<tr>
+					<td>Applicable agent policy</td>
+					<td>Nearest <code>AGENTS.md</code> chain</td>
+					<td>Policy slice with source digests</td>
+			</tr>
+			<tr>
+					<td>Component purpose and local boundary</td>
+					<td>Nearest owner <code>README.md</code></td>
+					<td>Topology record</td>
+			</tr>
+			<tr>
+					<td>Review accountability</td>
+					<td><code>CODEOWNERS</code></td>
+					<td>Effective reviewer record</td>
+			</tr>
+			<tr>
+					<td>Workspace and dependency structure</td>
+					<td><code>MODULE.bazel</code>, <code>BUILD</code>, and owning macros</td>
+					<td>Workspace and action catalogs</td>
+			</tr>
+			<tr>
+					<td>Reusable procedure and routing intent</td>
+					<td>Canonical project-owned skill</td>
+					<td>Capability record</td>
+			</tr>
+			<tr>
+					<td>Durable outcome, criteria, and attempts</td>
+					<td>Owner-local goal resources</td>
+					<td>Goal catalog and resume packet</td>
+			</tr>
+			<tr>
+					<td>Task-local scratch and worker ownership</td>
+					<td>Task manifest below ignored <code>out/&lt;task&gt;/</code></td>
+					<td>Bounded task-status record</td>
+			</tr>
+			<tr>
+					<td>Desired runtime configuration</td>
+					<td>Owning checked-in or task-local config</td>
+					<td>Desired-state reference</td>
+			</tr>
+			<tr>
+					<td>Observed runtime state</td>
+					<td>Live provider instance</td>
+					<td>Provider-health observation</td>
+			</tr>
+			<tr>
+					<td>Source candidate</td>
+					<td>Git plus an explicit dirty-input declaration</td>
+					<td>Subject reference</td>
+			</tr>
+			<tr>
+					<td>Check execution</td>
+					<td>Executing provider</td>
+					<td>Action receipt</td>
+			</tr>
+			<tr>
+					<td>Acceptance judgment</td>
+					<td>Goal criterion or task acceptance policy</td>
+					<td>Evidence assertion</td>
+			</tr>
+			<tr>
+					<td>Feature publication and review</td>
+					<td>Git, forge, and repository delivery</td>
+					<td>Delivery and review receipts</td>
+			</tr>
+			<tr>
+					<td>Version and release identity</td>
+					<td>Versioning and release owners</td>
+					<td>Release identity and manifest</td>
+			</tr>
+			<tr>
+					<td>Durable adopted learning</td>
+					<td>Destination owner through normal review</td>
+					<td>Updated contract and regression</td>
+			</tr>
+	</tbody>
+</table>
+<p>The architecture owns only this composition model. It must not restate mutable
+component values. If two authorities conflict, a projection reports the
+conflict and its sources; it does not choose a winner. A relevant unresolved
+conflict blocks effectful admission.</p>
+<h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-common-artifact-envelope">Common artifact envelope<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-common-artifact-envelope" aria-label="Heading self-link"></a></h2><p>Cross-layer artifacts should share a small logical envelope. The roadmap owns
+the eventual schema and migration; payloads remain subsystem-specific.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ArtifactEnvelope
+</span></span><span style="display:flex;"><span>  apiVersion, kind, id
+</span></span><span style="display:flex;"><span>  producerRef
+</span></span><span style="display:flex;"><span>  authorityRefs[]?
+</span></span><span style="display:flex;"><span>  inputRefs[]: {kind, id, version?, digest, role}
+</span></span><span style="display:flex;"><span>  subjectRef?
+</span></span><span style="display:flex;"><span>  completeness: complete | partial | truncated | unknown
+</span></span><span style="display:flex;"><span>  limitations[]
+</span></span><span style="display:flex;"><span>  informationClass
+</span></span><span style="display:flex;"><span>  retentionClass
+</span></span><span style="display:flex;"><span>  digest
+</span></span></code></pre></div><p>Observation or expiry times belong on live observations. Deterministic
+catalog content must not contain nondeterministic generation timestamps.
+Artifacts never contain credentials, secret-value hashes, personal
+information, environment dumps, absolute checkout paths, unreviewed raw logs,
+or full transcripts.</p>
+<p>An authority reference is optional and repeatable. A deterministic catalog or
+ordinary observation does not gain authority merely by using this envelope.
+The artifact digest covers canonical schema-defined bytes without recursively
+including its own digest field.</p>
+<p>A <code>SubjectRef</code> identifies the thing a claim is about. Depending on the claim,
+it can bind repository identity, base/commit/tree OIDs, the explicit
+task-owned dirty input set, relevant configuration and toolchain digests, an
+environment or remote resource selector, and a timed remote observation.
+Claims must not use a weaker subject merely because it is easier to obtain.</p>
+<h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-the-abstraction-tower">The abstraction tower<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-the-abstraction-tower" aria-label="Heading self-link"></a></h2><p>Each layer consumes contracts from the layer above, adds one kind of fact, and
+produces a bounded contract for the layer below.</p>
+<h3 id="print-2610cadeeafeddc1ff93609a2e1ae14c-0-intent-outcome-and-authority">0. Intent, outcome, and authority<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-0-intent-outcome-and-authority" aria-label="Heading self-link"></a></h3><p><strong>Owner:</strong> the user interaction; durable acceptance belongs to the goal when
+one exists.</p>
+<p><strong>Input:</strong> the request, explicit constraints, and prior accepted context.</p>
+<p><strong>Output:</strong> an outcome, acceptance questions, scope, authority envelope, and
+resource limits.</p>
+<p><strong>Invariant:</strong> a question, skill selection, plan, prior permission, or tool
+availability never widens authority. Conditional authority is usable only
+after its condition is evidenced. Missing authority is <code>unknown</code>, not
+permission.</p>
+<p>Repository policy may define an explicit implementation request to include
+ordinary feature-branch commit, publication, and review through the delivery
+workflow. That default must be visible in the authority envelope and never
+extends to tags, releases, deployments, infrastructure changes, or
+destruction.</p>
+<p>Simple bounded tasks may keep this state in the active interaction. Iterative,
+delegated, or resumable work uses a durable goal and attempt.</p>
+<h3 id="print-2610cadeeafeddc1ff93609a2e1ae14c-1-topology-classification-and-ownership">1. Topology, classification, and ownership<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-1-topology-classification-and-ownership" aria-label="Heading self-link"></a></h3><p><strong>Owners:</strong> paths, nearest READMEs, <code>CODEOWNERS</code>, <code>MODULE.bazel</code>, BUILD files,
+and explicit boundary declarations.</p>
+<p><strong>Input:</strong> workspace identity plus affected paths or labels.</p>
+<p><strong>Output:</strong> component and workspace identity, applicable policy sources,
+review accountability, dependency role, and classification axes.</p>
+<p><strong>Invariant:</strong> keep these axes independent:</p>
+<ul>
+<li>checked-in source disclosure;</li>
+<li>log and evidence handling;</li>
+<li>Bazel target visibility;</li>
+<li>allowed build consumers;</li>
+<li>artifact and documentation publication; and</li>
+<li>secret or personal-information presence and live-environment association.</li>
+</ul>
+<p>Checked-in content in this public repository is public information unless it
+contains an accidental secret or personal information. Operational facts do
+not become confidential merely because they are generated or live, but raw
+artifacts require inspection because they can contain prohibited content.
+Public information status does not make a target eligible for production
+consumption or artifact publication.</p>
+<h3 id="print-2610cadeeafeddc1ff93609a2e1ae14c-2-policy-and-action-admission">2. Policy and action admission<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-2-policy-and-action-admission" aria-label="Heading self-link"></a></h3><p><strong>Owners:</strong> applicable <code>AGENTS.md</code>, owner-local policy, and the executable
+provider or owning build macro.</p>
+<p><strong>Input:</strong> authority envelope, topology slice, and requested operation.</p>
+<p><strong>Output:</strong> an admission decision with stable reason codes, required
+preconditions, and an exact allowed effect set.</p>
+<p><strong>Invariant:</strong> every runnable operation declares atomic effects such as:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>source.read       source.write       task_state.write
+</span></span><span style="display:flex;"><span>host.write        history.write      code.execute
+</span></span><span style="display:flex;"><span>credential.consume
+</span></span><span style="display:flex;"><span>network.read      remote.write       remote.destroy
+</span></span></code></pre></div><p>The executable/provider owns effects; a skill references them rather than
+copying them. Unknown effects fail closed. Known read-only discovery may
+degrade visibly. Remote writes and destruction require exact resource,
+environment, candidate, pre-state, authority, and expiry bindings.</p>
+<p><code>history.write</code> is distinct from <code>source.write</code>: commits, local ref moves,
+tags, and rewrites alter history even when worktree bytes do not change.
+Operation scopes such as edit, commit, feature publication, review mutation,
+release-ref publication, deployment, and destruction map to additive atomic
+effects rather than substituting for them.</p>
+<p>Review accountability, component ownership, task path/hunk or commit
+ownership, goal-storage ownership, remote-ref ownership, external-resource
+ownership, and user authority are separate relations. Unknown ownership fails
+closed for history rewrite, credential expansion, publication, remote
+mutation, and destruction.</p>
+<h3 id="print-2610cadeeafeddc1ff93609a2e1ae14c-3-capability-and-provider-selection">3. Capability and provider selection<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-3-capability-and-provider-selection" aria-label="Heading self-link"></a></h3><p><strong>Owners:</strong> canonical skills for routing and procedure; executable and runtime
+providers for actual capability contracts.</p>
+<p><strong>Input:</strong> intent, policy slice, available providers, effects, evidence
+maturity, and cost.</p>
+<p><strong>Output:</strong> the smallest sufficient capability set, ordering, exclusions,
+fallbacks, and an explanation of every choice.</p>
+<p><strong>Invariant:</strong> selection is advisory and never grants authority. Required
+dependencies are acyclic. Conflicts, unavailable providers, unsupported
+platforms, and unverified behavior are explicit. Full instructions and schemas
+load only after compact metadata selects them.</p>
+<h3 id="print-2610cadeeafeddc1ff93609a2e1ae14c-4-durable-work-and-planning">4. Durable work and planning<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-4-durable-work-and-planning" aria-label="Heading self-link"></a></h3><p><strong>Owner:</strong> the current task coordinator and, for durable work, owner-local goal
+resources.</p>
+<p><strong>Input:</strong> intent, criteria, context slice, capability choices, prior evidence,
+and relevant defects.</p>
+<p><strong>Output:</strong> a <code>WorkPacket</code> or goal attempt plus <code>CapabilityPlan</code> and
+<code>ActionPlan</code>, with exact inputs, affected criteria, hypotheses where needed,
+checks, omissions, fallbacks, fixed regressions, budgets, stop conditions, and
+a strategy-reset condition.</p>
+<p><strong>Invariant:</strong> a plan does not authorize and does not prove. Delegated workers
+receive immutable bindings and disjoint output ownership; only the coordinator
+mutates canonical goal state. A repeated stable defect changes strategy rather
+than accumulating indistinguishable retries.</p>
+<h3 id="print-2610cadeeafeddc1ff93609a2e1ae14c-5-execution-providers">5. Execution providers<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-5-execution-providers" aria-label="Heading self-link"></a></h3><p><strong>Owners:</strong> Bazel and <code>bazel_agent</code>, native repository tools, Cordis or another
+runtime provider, and explicit external adapters.</p>
+<p><strong>Input:</strong> admitted operation, exact subject and inputs, task/run identity,
+deadline, quotas, and cancellation contract.</p>
+<p><strong>Output:</strong> immutable <code>ActionReceipt</code> records plus bounded task-local raw-log
+pointers.</p>
+<p><strong>Invariant:</strong> executors remain thin and signal-transparent. Scratch is
+isolated by workspace, task, run, and worker; generated execution receives
+only declared filesystem, environment, process, network, and credential
+capabilities. Desired and observed state remain separate. A control kernel
+must stay responsive when optional data-plane extensions fail.</p>
+<h3 id="print-2610cadeeafeddc1ff93609a2e1ae14c-6-observation-evidence-and-acceptance">6. Observation, evidence, and acceptance<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-6-observation-evidence-and-acceptance" aria-label="Heading self-link"></a></h3><p><strong>Owners:</strong> providers own observations; the task or goal acceptance policy owns
+semantic sufficiency.</p>
+<p><strong>Input:</strong> receipts, subject, validation profile, declared policy, known
+limitations, and—only for semantic judgment—a criterion revision.</p>
+<p><strong>Output:</strong> three distinct records:</p>
+<ul>
+<li><code>EvidenceEvaluation</code> derives <code>applicable</code>, <code>stale</code>, <code>insufficient</code>,
+<code>unavailable</code>, or <code>unverifiable</code> with stable reasons;</li>
+<li>execution-owned, criterion-neutral <code>ValidationSet</code> aggregates exact candidate,
+plan/check identities, sanitized invocations, provider/configuration
+provenance, results, coverage, and limitations; and</li>
+<li>goal/task-owned <code>EvidenceAssertion</code> applies evidence to an exact criterion
+and subject with <code>satisfied</code>, <code>not_satisfied</code>, or <code>unknown</code>.</li>
+</ul>
+<p><strong>Invariant:</strong> receipts prove what ran and what was observed; they do not prove
+that selected checks were semantically sufficient. One immutable validation
+set may support non-goal delivery and multiple criterion assertions. Partial,
+truncated, skipped, or unknown evidence cannot support complete coverage.
+Reuse requires matching relevant input, policy, contract, configuration,
+toolchain, and subject-class digests.</p>
+<h3 id="print-2610cadeeafeddc1ff93609a2e1ae14c-7-delivery-review-version-and-release">7. Delivery, review, version, and release<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-7-delivery-review-version-and-release" aria-label="Heading self-link"></a></h3><p><strong>Owners:</strong> Git and the forge own remote facts; repository delivery owns
+feature publication and review operations; versioning and release keep their
+separate identities.</p>
+<p><strong>Input:</strong> exact candidate, authority, an applicable criterion-neutral
+<code>ValidationSet</code>, expected remote state, and operation-specific policy.</p>
+<p><strong>Output:</strong> delivery, synchronization, review, version, release, and deployment
+receipts linked by exact subject references.</p>
+<p><strong>Invariant:</strong> use the effectful protocol:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>inspect -&gt; prepare -&gt; immutable candidate -&gt; validate -&gt; authorize
+</span></span><span style="display:flex;"><span>        -&gt; execute -&gt; verify -&gt; receipt
+</span></span></code></pre></div><p>Delivery validates candidate-bound evidence but does not select semantic
+checks. Feature publication does not imply tag or deployment authority.
+Version identity and release snapshot identity are joined by a typed handoff,
+not by assuming that any Git tag has the same meaning.</p>
+<h3 id="print-2610cadeeafeddc1ff93609a2e1ae14c-8-reviewed-learning-and-accretion">8. Reviewed learning and accretion<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-8-reviewed-learning-and-accretion" aria-label="Heading self-link"></a></h3><p><strong>Owner:</strong> the component that will adopt the lesson through ordinary review
+and delivery.</p>
+<p><strong>Input:</strong> exact task evidence, review dispositions, stable defect identity,
+measured friction, and regression results.</p>
+<p><strong>Output:</strong> a <code>LearningProposal</code>, then—only after acceptance—an owner-local
+document, contract, check, evaluation, skill, or global invariant.</p>
+<p><strong>Invariant:</strong> learning is never automatic mutation. It is minimized, public,
+reviewed, regression-backed, measurable, reversible, and given a retirement
+path. Runtime promotion creates a normal candidate; it does not write project
+source or goal state directly.</p>
+<h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-provenance-spine">Provenance spine<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-provenance-spine" aria-label="Heading self-link"></a></h2><p>The complete traversable chain is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ContextCapsule
+</span></span><span style="display:flex;"><span>  -&gt; GoalAttempt / WorkPacket
+</span></span><span style="display:flex;"><span>  -&gt; CapabilityPlan / ActionPlan
+</span></span><span style="display:flex;"><span>  -&gt; AuthorityBinding + AdmissionDecision
+</span></span><span style="display:flex;"><span>  -&gt; ActionReceipt(s)
+</span></span><span style="display:flex;"><span>  -&gt; EvidenceEvaluation + ValidationSet + EvidenceAssertion(s)
+</span></span><span style="display:flex;"><span>  -&gt; accepted candidate
+</span></span><span style="display:flex;"><span>  -&gt; Delivery / Review / ReleaseRef / ReleaseManifest / Deployment receipts
+</span></span><span style="display:flex;"><span>  -&gt; GoalOutcome
+</span></span><span style="display:flex;"><span>  -&gt; LearningProposal / LearningAdoption
+</span></span></code></pre></div><p>The logical records serve distinct purposes:</p>
+<ul>
+<li><code>ContextCapsule</code> says what was known, applicable, authorized, available,
+stale, and omitted before planning.</li>
+<li><code>WorkPacket</code> says what outcome and criteria a bounded unit will pursue.</li>
+<li><code>CapabilityPlan</code> and <code>ActionPlan</code> say what was selected, omitted, ordered,
+budgeted, and expected to prove the result.</li>
+<li><code>AuthorityBinding</code> and <code>AdmissionDecision</code> say which exact effects, subject,
+environment, policy, pre-state, and expiry were checked before execution.</li>
+<li><code>ActionReceipt</code> says what provider executed or observed against which exact
+inputs and with what result and resource use.</li>
+<li><code>ValidationSet</code> records criterion-neutral check execution and coverage;
+<code>EvidenceAssertion</code> makes the separate criterion judgment.</li>
+<li>Delivery, review, release-ref, manifest, and deployment receipts say which
+external transition occurred and which postcondition was observed.</li>
+<li><code>GoalOutcome</code> records durable acceptance or the honest terminal state.</li>
+<li><code>LearningProposal</code> requests owner review; <code>LearningAdoption</code> identifies the
+exact accepted change, regression, delivery, and measured effect.</li>
+</ul>
+<p>Plans do not authorize. Receipts do not judge semantic sufficiency. Delivery
+receipts do not prove that validation selection was complete. Learning
+proposals do not edit policy.</p>
+<p>Every edge binds the relevant subject and catalog-slice, policy, contract, and
+input digests.</p>
+<h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-temporal-work-loop">Temporal work loop<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-temporal-work-loop" aria-label="Heading self-link"></a></h2><p>The tower defines composition; this loop defines control over time:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Orient -&gt; Bind -&gt; Plan -&gt; Admit -&gt; Act -&gt; Prove -&gt; Decide
+</span></span><span style="display:flex;"><span>                                              |-&gt; replan
+</span></span><span style="display:flex;"><span>                                              |-&gt; deliver -&gt; verify -&gt; close
+</span></span><span style="display:flex;"><span>                                              |-&gt; wait or escalate
+</span></span><span style="display:flex;"><span>                                              `-&gt; stop
+</span></span><span style="display:flex;"><span>                                                     |
+</span></span><span style="display:flex;"><span>                                                   Learn
+</span></span></code></pre></div><p>Orientation obtains the smallest context capable of exposing uncertainty.
+Binding freezes the intended outcome, exact subject, authority, criteria, and
+budgets. Planning names omissions, fallback, stop conditions, and the cheapest
+evidence capable of falsifying the current hypothesis. Admission checks the
+exact plan against current policy and pre-state. Decision either accepts,
+changes strategy, waits for named external state, escalates authority, or
+stops honestly.</p>
+<p>A declared transient failure permits at most one same-input retry. A
+deterministic recurrence requires a changed hypothesis or strategy. A remote
+operation with unknown postcondition is observed and reconciled before any
+second write.</p>
+<h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-bounded-context-capsule">Bounded context capsule<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-bounded-context-capsule" aria-label="Heading self-link"></a></h2><p>The target zero-context interface is one read-only, bounded projection. It may
+be a repository tool and optionally an MCP surface, but it cannot require MCP
+to function. It contains:</p>
+<ul>
+<li>repository, workspace, worktree, revision, and dirty-input identity;</li>
+<li>task/session, coordinator, worker, and run identity;</li>
+<li>requested outcome, authority, budgets, and durable goal binding if any;</li>
+<li>applicable instruction and owner-document paths with digests;</li>
+<li>component, workspace, review owner, and classification slice;</li>
+<li>candidate capabilities with effects, cost, dependencies, providers, and
+evidence maturity;</li>
+<li>provider boot/incarnation ID, catalog ETag, desired/observed revisions,
+action-contract hashes, observation time, expiry, and unavailable reasons;</li>
+<li>relevant checks and reusable evidence, not raw logs; and</li>
+<li>provenance, observation time, freshness, completeness, truncation, and safe
+next discovery actions.</li>
+</ul>
+<p>The capsule is a join over owner-local catalogs and observations. It stores no
+independent truth. A missing optional provider yields a structured unavailable
+field; it does not make the whole capsule fail.</p>
+<h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-resource-economy">Resource economy<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-resource-economy" aria-label="Heading self-link"></a></h2><p>An agent climbs this cost ladder only when existing evidence cannot answer the
+acceptance question:</p>
+<ol>
+<li>checked, cached metadata and narrow source reads;</li>
+<li>targeted static queries and reusable subject-bound receipts;</li>
+<li>narrow local builds and tests;</li>
+<li>broad or uncached validation;</li>
+<li>external reads and stochastic/model-assisted evaluation; and</li>
+<li>authorized remote mutation or destructive work.</li>
+</ol>
+<p>Budgets inherit from repository defaults to task to plan to operation/worker.
+A child may narrow but never silently expand a hard bound. Reserve capacity for
+cancellation cleanup and final verification. Track context/input bytes,
+compute and target/workspace scope, elapsed time, output/log/artifact bytes,
+retention, retries, worker fan-out, concurrency, and cacheability. Use measured
+p50/p95 workloads to set numeric defaults.</p>
+<p>Credentials, network access, history or remote writes, and destruction are
+non-fungible authority scopes, never spendable budget. Compatible Bazel work
+is batched. Context loads summaries and digests first, then full bodies,
+schemas, source, or logs only on demand. A global catalog change triggers
+cheap applicability reevaluation, not automatic reruns of unrelated evidence.</p>
+<h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-accretion-protocol">Accretion protocol<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-accretion-protocol" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>sanitized bounded friction event
+</span></span><span style="display:flex;"><span>  -&gt; aggregation by stable signature and consequence
+</span></span><span style="display:flex;"><span>  -&gt; LearningProposal with destination owner
+</span></span><span style="display:flex;"><span>  -&gt; minimized regression or routing fixture
+</span></span><span style="display:flex;"><span>  -&gt; destination-owner review
+</span></span><span style="display:flex;"><span>  -&gt; one appropriate contract, policy, tool, test, or skill change
+</span></span><span style="display:flex;"><span>  -&gt; normal validation and delivery
+</span></span><span style="display:flex;"><span>  -&gt; LearningAdoption and regenerated evidence status
+</span></span><span style="display:flex;"><span>  -&gt; recurrence and resource measurement
+</span></span></code></pre></div><p>Raw transcripts, credentials, unreviewed runtime values, secret-bearing logs,
+personal information, and accidental local state never enter the promotion
+path. Ignored task-private <code>out/&lt;task&gt;/</code> may temporarily contain secret-bearing
+material under restrictive access and cleanup, but that material is not
+tracked or imported as durable evidence. A global invariant is an exceptional
+owner-approved destination, not the automatic final rung of the sequence.</p>
+<h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-failure-and-degradation-semantics">Failure and degradation semantics<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-failure-and-degradation-semantics" aria-label="Heading self-link"></a></h2><ul>
+<li><code>unknown</code> means the system lacks a fact; it is not false, safe, or allowed.</li>
+<li><code>unavailable</code> names a provider or source that could not be observed.</li>
+<li><code>stale</code> means a once-valid observation no longer matches its applicability
+inputs.</li>
+<li><code>partial</code> and <code>truncated</code> bound what a result can prove.</li>
+<li>Desired state and observed state are always separate fields.</li>
+<li>Runtime observations identify boot/incarnation, catalog, desired and
+observed revisions, action contract, observation time, and expiry.</li>
+<li>Provider lifecycle is explicit: <code>loading</code>, <code>ready</code>, <code>degraded</code>, <code>failed</code>,
+<code>timed_out</code>, <code>draining</code>, or <code>disabled</code>.</li>
+<li>Shared mutable task, goal, and runtime state uses a cross-process lock or
+lease plus expected version/digest; atomic rename alone is not concurrency
+control.</li>
+<li>Nested work uses one absolute deadline with cancellation and cleanup margin.</li>
+<li>Failures carry phase, stable code/signature, subject, observed state, valid
+partial result, retry class, cost spent, redacted artifact references, and
+next safe action. Retry class is <code>never</code>, <code>same-input-once</code>,
+<code>after-state-change</code>, or <code>requires-human</code>.</li>
+<li>Read-only discovery returns the useful safe subset with explicit gaps.</li>
+<li>Effectful admission fails closed on unknown effects, authority, environment,
+subject, policy conflicts, or relevant stale state.</li>
+<li>Secret-bearing raw output stays in task-private scratch and only a
+bounded allowlisted summary may cross into ordinary evidence.</li>
+</ul>
+<h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-measures">Measures<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-measures" aria-label="Heading self-link"></a></h2><p>Optimization is evaluated with representative zero-context tasks, not by file
+count or architectural novelty. Track at least:</p>
+<ul>
+<li>task correctness and unsupported-claim rate;</li>
+<li>unauthorized or incorrectly scoped mutation rate;</li>
+<li>reads, tool calls, context bytes or tokens, and elapsed/resource cost before
+the first correct action;</li>
+<li>redundant checks and exact evidence reuse rate;</li>
+<li>steps and missing facts required to resume durable work;</li>
+<li>stale, partial, and conflict detection accuracy;</li>
+<li>provider startup and degraded-status latency; and</li>
+<li>the rate at which repeated defects gain a regression, owner, delivery
+identity, and eventual retirement.</li>
+</ul>
+<h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-non-goals">Non-goals<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-non-goals" aria-label="Heading self-link"></a></h2><ul>
+<li>No hand-maintained central manifest duplicating owner-local facts.</li>
+<li>No universal mega-skill or always-loaded copy of every procedure.</li>
+<li>No mandatory daemon, database, vector store, or runtime extension for basic
+orientation and safe degradation.</li>
+<li>No raw transcript ingestion, secret promotion, or automatic doctrine edits.</li>
+<li>No inference of authority from selection, planning, receipts, ownership, or
+tool availability.</li>
+<li>No durable goal requirement for a simple one-step task.</li>
+<li>No broad <code>//...</code> validation or live model evaluation by default.</li>
+<li>No physical repository reorganization merely to make the conceptual model
+look centralized.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-284de70690c8c0a86aa49ffae1a289ba">4 - Repository agent-system roadmap</h1>
+    <div class="lead">Remaining work ordered by observed task friction and evidence</div>
+	<h1 id="print-3ffe70470bac4d9398b4a09b90bbd965-repository-agent-system-roadmap">Repository agent-system roadmap<a class="td-heading-self-link" href="#print-3ffe70470bac4d9398b4a09b90bbd965-repository-agent-system-roadmap" aria-label="Heading self-link"></a></h1><p>This document records intentional future work. The
+<a href="/docs/projects/agents/docs/current-state/">current-state guide</a> owns the supported interface summary;
+component documentation and executable tests establish implementation details.
+The <a href="/docs/projects/agents/docs/architecture/">architecture</a> describes composition responsibilities.
+Historical phase plans and acceptance records remain in the immutable
+<a href="/docs/projects/agents/goals/">goals</a>. A completed historical phase does not establish a current
+runtime guarantee.</p>
+<h2 id="print-3ffe70470bac4d9398b4a09b90bbd965-first-measure-and-simplify-ordinary-tasks">First: measure and simplify ordinary tasks<a class="td-heading-self-link" href="#print-3ffe70470bac4d9398b4a09b90bbd965-first-measure-and-simplify-ordinary-tasks" aria-label="Heading self-link"></a></h2><p>Use representative question, edit, recovery, and delivery scenarios to compare
+the current workflow with a candidate. Keep source, instructions, fixture,
+model, observation method, and execution identity with each result. Measure
+task success, unauthorized actions, commands, context actually consumed,
+duration, and resume steps where the observer can establish them. Record
+unavailable measurements explicitly. Configuration validation and shorter
+documents do not establish behavioral improvement.</p>
+<p>Local simulated delivery scenarios can exercise candidate selection and
+validation decisions without publishing anything. They do not prove forge
+integration, remote concurrency, or successful real publication. Use the
+owning delivery integration tests for their encoded cases, and distinguish
+those tests from model behavior.</p>
+<p>Reduce repeated common-path instructions and load exceptional procedures only
+when their triggering condition occurs. Keep exact candidate, task ownership,
+authority, leases, recovery, and review completion requirements. Improve
+entrypoint capability detection and workspace-relative path handling before
+introducing another execution interface.</p>
+<p>Acceptance requires measured task outcomes with no new critical boundary
+failures. A small exploratory comparison is useful evidence, not a universal
+performance claim. Retain useful diagnostics and regressions after clean runs;
+remove obsolete workarounds and completed tracking when their purpose expires.</p>
+<h2 id="print-3ffe70470bac4d9398b4a09b90bbd965-next-reduce-manual-discovery-and-validation-work">Next: reduce manual discovery and validation work<a class="td-heading-self-link" href="#print-3ffe70470bac4d9398b4a09b90bbd965-next-reduce-manual-discovery-and-validation-work" aria-label="Heading self-link"></a></h2><p>Extend bounded offline context only with facts that have an identifiable
+owner and observation method. Prefer observed Git state and direct routes to
+applicable policy, owner documentation, build declarations, and explicit goal
+records. Never infer authorization or task-to-goal association from proximity,
+ownership, a catalog entry, or an available tool.</p>
+<p>Check suggestions must explain their selection basis and uncovered scope.
+Nearest-package selection is not dependency analysis. Root configuration,
+build-graph changes, ignored paths, and nested workspaces can require explicit
+checks beyond the returned labels. Avoid accidental broad builds while keeping
+the mandatory repository quality and affected semantic checks.</p>
+<p>Delivery preparation binds the candidate and publication expectations. The
+caller selects applicable validation. The delivery tool can execute that plan,
+record candidate-bound results, and carry them into explicitly requested
+publication. The manual publication path also remains supported. Neither a
+preparation receipt nor an asserted commit ID proves that tests ran. Broader
+evidence imports must specify their trust boundary and preserve caller
+responsibility for semantic sufficiency.</p>
+<p>Reuse observations only while their relevant inputs remain unchanged. Reuse
+test evidence across a message-only amendment only when tree, configuration,
+toolchain, environment, and every other relevant input are stable. Rerun
+commit-sensitive or uncertain checks. A receipt alone never establishes reuse.</p>
+<p>Acceptance requires representative edits to select sufficient checks, explain
+omissions, and invalidate evidence when a relevant input changes. Preserve
+cheap read-only discovery when optional providers are unavailable.</p>
+<h2 id="print-3ffe70470bac4d9398b4a09b90bbd965-expand-behavioral-evidence-when-it-answers-a-concrete-question">Expand behavioral evidence when it answers a concrete question<a class="td-heading-self-link" href="#print-3ffe70470bac4d9398b4a09b90bbd965-expand-behavioral-evidence-when-it-answers-a-concrete-question" aria-label="Heading self-link"></a></h2><p>The configured coverage inventory is not a successful-run ledger. Extend
+routing scenarios across positive, adjacent-negative, inert-payload, exclusion,
+conflict, and composition cases when the corresponding skill is changed or a
+recurring failure demonstrates a gap.</p>
+<p>Stronger aggregated evidence needs actual execution artifacts bound to the
+source, fixture, model or provider, and judge where applicable. Keep live
+stochastic evaluations manual or scheduled and separate from normal wildcard
+tests. Use isolated writable fixtures for Git, Bazel, forge, infrastructure,
+secret-handling, and runtime trajectories before making claims about them.
+Never reuse shared authentication in a mode that requires exclusive access
+while concurrent sessions are active.</p>
+<p>Promote a repeated lesson only with an owner, minimized public reproducer,
+regression, supported contract, fallback, measured cost, delivered revision,
+and a reasoned retirement rule. A schema or proposal does not establish that
+this learning loop runs automatically.</p>
+<h2 id="print-3ffe70470bac4d9398b4a09b90bbd965-runtime-integration-remains-conditional-work">Runtime integration remains conditional work<a class="td-heading-self-link" href="#print-3ffe70470bac4d9398b4a09b90bbd965-runtime-integration-remains-conditional-work" aria-label="Heading self-link"></a></h2><p>Shared admission and control libraries have unit-test coverage. Production
+provider enforcement, process isolation, and runtime fault containment remain
+unverified. Build further runtime machinery only for an identified consumer
+whose required behavior and failure modes justify it.</p>
+<p>For that consumer, test bounded status during a stuck extension, package
+deadlines, desired versus observed revision, cancellation and cleanup,
+cross-task storage isolation, and the actual filesystem, process, network,
+credential, and output boundaries. Trusted in-process code is not a security
+sandbox. A source contract cannot substitute for consumer integration evidence.</p>
+<p>Keep bounded native and offline fallbacks available. A missing optional
+provider must produce an explicit unavailable result rather than preventing
+ordinary repository work.</p>
+<h2 id="print-3ffe70470bac4d9398b4a09b90bbd965-constraints-on-further-work">Constraints on further work<a class="td-heading-self-link" href="#print-3ffe70470bac4d9398b4a09b90bbd965-constraints-on-further-work" aria-label="Heading self-link"></a></h2><ul>
+<li>Facts remain at their owning sources; generated views carry provenance and
+limits rather than becoming new mutation authorities.</li>
+<li>Keep goals, delivery, release, review, and provider state separate. Add joins
+through typed references only when a real workflow needs them.</li>
+<li>Do not add a mandatory daemon, database, vector store, network call, or
+central orchestrator for basic orientation.</li>
+<li>Do not relocate components merely to match conceptual diagrams.</li>
+<li>Keep reviewed evidence bounded and free of credentials and personal data.</li>
+<li>Use workspace goals for temporary coordination and owner-local maintained
+records only when durable project history is justified.</li>
+<li>Choose the least costly check that answers acceptance; broad audits remain
+separately scoped work.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        Built with <a href="https://gohugo.io/">Hugo 0.165.0</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

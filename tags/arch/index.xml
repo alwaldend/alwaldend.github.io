@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Arch on Alwaldend</title>
+		<link>https://alwaldend.com/tags/arch/</link>
+		<description>Recent content in Arch on Alwaldend</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<atom:link href="https://alwaldend.com/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Arch</title>
+				<link>https://alwaldend.com/docs/infra/arch/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/arch/</guid>
+				<description>&lt;h2 id=&#34;launch-drawio&#34;&gt;Launch Drawio&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#launch-drawio&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bazel run //infra/arch&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+			</item>
+	</channel>
+</rss>

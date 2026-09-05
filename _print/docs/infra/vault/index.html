@@ -1,0 +1,472 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js" data-theme-init>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#000000">
+
+<style>
+  html { background: Canvas; color: CanvasText; }
+  @media (prefers-color-scheme: dark) {
+    html { background: #0b0d12; color: #e6e6e6; }
+  }
+  html[data-theme-init] * { transition: none !important; }
+</style>
+
+<script>
+  (function() {
+    const themeKey = 'td-color-theme';
+    const storedTheme = localStorage.getItem(themeKey);
+    let theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    if (theme === 'auto') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  })();
+</script>
+<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/infra/vault/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/infra/vault/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+<title>Vault | Alwaldend</title>
+<meta name="description" content="Setup for vault.dc1.alwaldend.com">
+<meta property="og:url" content="https://alwaldend.com/docs/infra/vault/">
+	<meta property="og:site_name" content="Alwaldend">
+	<meta property="og:title" content="Vault">
+	<meta property="og:description" content="Setup for vault.dc1.alwaldend.com">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="Vault">
+	<meta itemprop="description" content="Setup for vault.dc1.alwaldend.com">
+	<meta itemprop="dateModified" content="2026-09-05T20:57:59+03:00">
+	<meta itemprop="wordCount" content="271">
+	<meta itemprop="keywords" content="Ansible,Terraform">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Vault">
+	<meta name="twitter:description" content="Setup for vault.dc1.alwaldend.com">
+<link rel="preload" href="/scss/main.min.a66a47685d3dd8f6c2af31e43c9b9d7fbcf89ad26769c00134d82e867e780feb.css" as="style" integrity="sha256-pmpHaF092PbCrzHkPJudf7z4mtJnacABNNguhn54D&#43;s=" crossorigin="anonymous">
+<link href="/scss/main.min.a66a47685d3dd8f6c2af31e43c9b9d7fbcf89ad26769c00134d82e867e780feb.css" rel="stylesheet" integrity="sha256-pmpHaF092PbCrzHkPJudf7z4mtJnacABNNguhn54D&#43;s=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll">
+<div class="td-navbar-container container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Alwaldend</span></a>
+  <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
+    <div class="scroll-indicator scroll-left"></div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Docs</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/"><span>Projects</span></a>
+      </li>
+      <li class="nav-item td-navbar__light-dark-menu">
+        <div class="td-light-dark-menu dropdown"><svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check2" viewBox="0 0 16 16">
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+  <symbol id="circle-half" viewBox="0 0 16 16">
+    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+  </symbol>
+  <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+  </symbol>
+  <symbol id="sun-fill" viewBox="0 0 16 16">
+    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+  </symbol>
+</svg>
+<button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        title="Toggle theme (Auto)"
+        aria-label="Toggle theme (Auto)">
+  <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+  <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+</button>
+<ul class="dropdown-menu" aria-labelledby="bd-theme">
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#sun-fill"></use></svg>
+      Light
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#moon-stars-fill"></use></svg>
+      Dark
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+      <svg class="bi me-2 opacity-50"><use href="#circle-half"></use></svg>
+      Auto
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+</ul>
+</div>
+
+      </li>
+      </ul>
+    <div class="scroll-indicator scroll-right"></div>
+  </div>
+  <div class="td-navbar__search d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon" aria-hidden="true"></div>
+  <input
+    type="search"
+    name="q"
+    class="td-search__input form-control"
+    placeholder='Search this site…'
+    aria-label='Search this site…'
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.1f356a2ab7475879a5e255d2a0c9bf3e.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/infra/vault/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Vault</h1>
+<div class="lead">Setup for vault.dc1.alwaldend.com</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-f68ccfab09e0692ff0158601a5e103f8">Ansible</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-76e2c966f28dd06c1b7face04e64fef5">Tf</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1: <a href="#pg-9f42dd3acd4ae40b5be7877c8f79052f">Output</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-9b2a26a59bfce6aa9b63d80cfb3c3160">Tf setup</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-links">Links<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-links" aria-label="Heading self-link"></a></h2><ul>
+<li>Intermediate CA: <a href="https://developer.hashicorp.com/vault/tutorials/pki/pki-engine-external-ca">https://developer.hashicorp.com/vault/tutorials/pki/pki-engine-external-ca</a></li>
+<li>ACME: <a href="https://developer.hashicorp.com/vault/docs/secrets/pki/acme">https://developer.hashicorp.com/vault/docs/secrets/pki/acme</a></li>
+</ul>
+<h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-deployment">Deployment<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-deployment" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/tf_setup:tf.apply <span style="color:#75715e"># Create VMs (requires an active Vault host)</span>
+</span></span><span style="display:flex;"><span>bazel run //infra/vault/ansible <span style="color:#75715e"># Set up hosts (BM and VMs)</span>
+</span></span><span style="display:flex;"><span>bazel run //infra/vault/tf:tf.apply <span style="color:#75715e"># Configure vault</span>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-backup">Backup<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-backup" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault:backup
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-unseal">Unseal<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-unseal" aria-label="Heading self-link"></a></h2><p>With a working Vault:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault:unseal
+</span></span></code></pre></div><p>Without a working Vault:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault:unseal_standalone
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-fix-quorum">Fix quorum<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-fix-quorum" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/ansible:fix_quorum
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-set-up-only-vms">Set up only VMs<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-set-up-only-vms" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/ansible:ansible.vm <span style="color:#75715e"># Set up only VMs</span>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-set-up-only-bare-metal">Set up only bare metal<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-set-up-only-bare-metal" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/ansible:ansible.bm <span style="color:#75715e"># Set up only bare metal</span>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-tf">Tf<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-tf" aria-label="Heading self-link"></a></h2><p>Plan:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/tf:tf.plan
+</span></span></code></pre></div><p>Apply:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/tf:tf.apply
+</span></span></code></pre></div><p>Run terraform directly:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/tf:tf.direct -- -chdir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> plan
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-replace-vms">Replace VMs<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-replace-vms" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault/tf:tf.apply -- -replace <span style="color:#e6db74">&#39;module.vm_ha[&#34;host2&#34;].proxmox_vm_qemu.vm&#39;</span> -replace <span style="color:#960050;background-color:#1e0010">&#39;</span>module.vm_ha<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;host3&#34;</span><span style="color:#f92672">]</span>.proxmox_vm_qemu.vm
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-generate-and-import-a-user-cilent-certificate">Generate and import a user cilent certificate<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-generate-and-import-a-user-cilent-certificate" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>username<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span>
+</span></span><span style="display:flex;"><span>bazel run //infra/vault:gen_client_cert -- --user <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> --output_dir <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>bazel run //tools/ykman -- piv certificates import 9A <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span><span style="color:#e6db74">.pfx&#34;</span>
+</span></span><span style="display:flex;"><span>bazel run //tools/ykman -- piv keys import 9A <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>username<span style="color:#e6db74">}</span><span style="color:#e6db74">.pfx&#34;</span>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-generate-a-host-cilent-certificate">Generate a host cilent certificate<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-generate-a-host-cilent-certificate" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault:gen_client_cert -- --host some-host --output_dir <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/.al/client_cert&#34;</span>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-generate-a-user-device-cilent-certificate">Generate a user device cilent certificate<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-generate-a-user-device-cilent-certificate" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault:gen_client_cert -- --host some-host --user username --output_dir <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/.al/client_cert&#34;</span>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-unseal-1">Unseal<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-unseal-1" aria-label="Heading self-link"></a></h2><ul>
+<li>Prepare encrypted unseal token</li>
+<li>Run and input the encrypted token:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault:unseal
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-root-token">Root token<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-root-token" aria-label="Heading self-link"></a></h2><ul>
+<li>Prepare encrypted unseal token</li>
+<li>Run and input the encrypted token:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault:gen_root_token -- --pgp_key path_to_public_gpg_key_in_base64
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-generate-an-eab-for-acme">Generate an EAB for ACME<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-generate-an-eab-for-acme" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault -- write -f pki/ica_servers/roles/ica_servers_dc1_pve1/acme/new-eab
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-sign-a-client-ssh-key">Sign a client ssh key<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-sign-a-client-ssh-key" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //:vault -- write ssh/clients/sign/admins ttl<span style="color:#f92672">=</span><span style="color:#ae81ff">30000000</span>  public_key<span style="color:#f92672">=</span>@<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/.ssh/key&#34;</span>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-revoke-all-tokens">Revoke all tokens<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-revoke-all-tokens" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault -- token revoke -mode<span style="color:#f92672">=</span>path auth
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-vault-certificates">Vault certificates<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-vault-certificates" aria-label="Heading self-link"></a></h2><p>Vault certificates (<code>tls_cert_file</code>, <code>tls_key_file</code>) should be updated manually</p>
+<h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-read-oidc-client-info">Read OIDC client info<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-read-oidc-client-info" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/vault -- read identity/oidc/client/src_infra_dc1_forgejo1_provider
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-read-all-entity-aliases">Read all entity aliases<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-read-all-entity-aliases" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> bazel run //infra/vault -- list -format json identity/entity-alias/id | jq <span style="color:#e6db74">&#34;.[]&#34;</span> | xargs <span style="color:#e6db74">&#34;-I{}&#34;</span> bazel run //infra/vault -- read <span style="color:#e6db74">&#34;identity/entity-alias/id/{}&#34;</span>
+</span></span></code></pre></div>
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f68ccfab09e0692ff0158601a5e103f8">1 - Ansible</h1>
+    <div class="lead">Ansible setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-76e2c966f28dd06c1b7face04e64fef5">2 - Tf</h1>
+    <div class="lead">Terraform config</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-9f42dd3acd4ae40b5be7877c8f79052f">2.1 - Output</h1>
+    <div class="lead">Output files</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9b2a26a59bfce6aa9b63d80cfb3c3160">3 - Tf setup</h1>
+    <div class="lead">Terraform setup</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        Built with <a href="https://gohugo.io/">Hugo 0.165.0</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

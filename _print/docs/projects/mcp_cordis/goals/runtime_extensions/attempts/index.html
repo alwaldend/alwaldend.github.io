@@ -1,0 +1,1519 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js" data-theme-init>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#000000">
+
+<style>
+  html { background: Canvas; color: CanvasText; }
+  @media (prefers-color-scheme: dark) {
+    html { background: #0b0d12; color: #e6e6e6; }
+  }
+  html[data-theme-init] * { transition: none !important; }
+</style>
+
+<script>
+  (function() {
+    const themeKey = 'td-color-theme';
+    const storedTheme = localStorage.getItem(themeKey);
+    let theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    if (theme === 'auto') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  })();
+</script>
+<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+<title>Alwaldend</title>
+<meta name="description" content="Attempt historyBack to durable goal
+Attempt 11: consolidate the owned range, reconcile the advanced base, validate and publish the exact rebased candidate, then incorporate and reconcile the final hosted review. Complete. Attempt 10: keep the thin wrapper and patch pinned Cordis HMR to serialize reloads and drain writes arriving during an in-flight reload. Complete locally and carried into Attempt 11. Attempt 9: simplify source updates to validated atomic persistence plus Cordis HMR, deleting the private acknowledgement transaction. Refined after independent review reproduced a lost overlapping update. Attempt 8: correct the final hosted review’s fallback filtering, byte-offset, and UTF-8 body-preview findings. Complete locally. Attempt 7: replace the custom manifest/version store and worker generations with official Cordis Loader, Include, HMR, standard cordis.yaml, and normal modules. Delivered, then refined by Attempt 8. Attempt 6: make bounded execution backward-compatible, close process/lifecycle admission races, publish exact package completeness, and replace worker-side spawning after independent review. Rejected because its package persistence model was custom rather than standard Cordis. Attempt 5: make every output-loss signal and bounded Git result exact, then cover the imported skill behaviors. Refine after independent review found lifecycle, compatibility, and policy defects. Attempt 4: import PR 24’s scoped agent guidance, then correct the three valid PR 32 review findings. Refine after independent review. Attempt 3: replace a lifecycle test’s elapsed-time inference with a deterministic started/release handshake. Published, then superseded by review findings. Attempt 2: retained the proven runtime and added a bounded search fallback for hermetic portability. Starter packages pass; refine because the integrated lifecycle evidence was timing-dependent. Attempt 1: direct Cordis runtime with MCP v2, worker-isolated generations, two-tier immutable persistence, and three starter packages. Rejected because one starter package required an unavailable executable.">
+<meta property="og:url" content="https://alwaldend.com/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/">
+	<meta property="og:site_name" content="Alwaldend">
+	<meta property="og:title" content="Alwaldend">
+	<meta property="og:description" content="Attempt historyBack to durable goal
+Attempt 11: consolidate the owned range, reconcile the advanced base, validate and publish the exact rebased candidate, then incorporate and reconcile the final hosted review. Complete. Attempt 10: keep the thin wrapper and patch pinned Cordis HMR to serialize reloads and drain writes arriving during an in-flight reload. Complete locally and carried into Attempt 11. Attempt 9: simplify source updates to validated atomic persistence plus Cordis HMR, deleting the private acknowledgement transaction. Refined after independent review reproduced a lost overlapping update. Attempt 8: correct the final hosted review’s fallback filtering, byte-offset, and UTF-8 body-preview findings. Complete locally. Attempt 7: replace the custom manifest/version store and worker generations with official Cordis Loader, Include, HMR, standard cordis.yaml, and normal modules. Delivered, then refined by Attempt 8. Attempt 6: make bounded execution backward-compatible, close process/lifecycle admission races, publish exact package completeness, and replace worker-side spawning after independent review. Rejected because its package persistence model was custom rather than standard Cordis. Attempt 5: make every output-loss signal and bounded Git result exact, then cover the imported skill behaviors. Refine after independent review found lifecycle, compatibility, and policy defects. Attempt 4: import PR 24’s scoped agent guidance, then correct the three valid PR 32 review findings. Refine after independent review. Attempt 3: replace a lifecycle test’s elapsed-time inference with a deterministic started/release handshake. Published, then superseded by review findings. Attempt 2: retained the proven runtime and added a bounded search fallback for hermetic portability. Starter packages pass; refine because the integrated lifecycle evidence was timing-dependent. Attempt 1: direct Cordis runtime with MCP v2, worker-isolated generations, two-tier immutable persistence, and three starter packages. Rejected because one starter package required an unavailable executable.">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="Alwaldend">
+	<meta itemprop="description" content="Attempt historyBack to durable goal
+Attempt 11: consolidate the owned range, reconcile the advanced base, validate and publish the exact rebased candidate, then incorporate and reconcile the final hosted review. Complete. Attempt 10: keep the thin wrapper and patch pinned Cordis HMR to serialize reloads and drain writes arriving during an in-flight reload. Complete locally and carried into Attempt 11. Attempt 9: simplify source updates to validated atomic persistence plus Cordis HMR, deleting the private acknowledgement transaction. Refined after independent review reproduced a lost overlapping update. Attempt 8: correct the final hosted review’s fallback filtering, byte-offset, and UTF-8 body-preview findings. Complete locally. Attempt 7: replace the custom manifest/version store and worker generations with official Cordis Loader, Include, HMR, standard cordis.yaml, and normal modules. Delivered, then refined by Attempt 8. Attempt 6: make bounded execution backward-compatible, close process/lifecycle admission races, publish exact package completeness, and replace worker-side spawning after independent review. Rejected because its package persistence model was custom rather than standard Cordis. Attempt 5: make every output-loss signal and bounded Git result exact, then cover the imported skill behaviors. Refine after independent review found lifecycle, compatibility, and policy defects. Attempt 4: import PR 24’s scoped agent guidance, then correct the three valid PR 32 review findings. Refine after independent review. Attempt 3: replace a lifecycle test’s elapsed-time inference with a deterministic started/release handshake. Published, then superseded by review findings. Attempt 2: retained the proven runtime and added a bounded search fallback for hermetic portability. Starter packages pass; refine because the integrated lifecycle evidence was timing-dependent. Attempt 1: direct Cordis runtime with MCP v2, worker-isolated generations, two-tier immutable persistence, and three starter packages. Rejected because one starter package required an unavailable executable.">
+	<meta itemprop="dateModified" content="2026-09-05T20:57:59+03:00">
+	<meta itemprop="wordCount" content="281">
+	<meta itemprop="keywords" content="Project">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Alwaldend">
+	<meta name="twitter:description" content="Attempt historyBack to durable goal
+Attempt 11: consolidate the owned range, reconcile the advanced base, validate and publish the exact rebased candidate, then incorporate and reconcile the final hosted review. Complete. Attempt 10: keep the thin wrapper and patch pinned Cordis HMR to serialize reloads and drain writes arriving during an in-flight reload. Complete locally and carried into Attempt 11. Attempt 9: simplify source updates to validated atomic persistence plus Cordis HMR, deleting the private acknowledgement transaction. Refined after independent review reproduced a lost overlapping update. Attempt 8: correct the final hosted review’s fallback filtering, byte-offset, and UTF-8 body-preview findings. Complete locally. Attempt 7: replace the custom manifest/version store and worker generations with official Cordis Loader, Include, HMR, standard cordis.yaml, and normal modules. Delivered, then refined by Attempt 8. Attempt 6: make bounded execution backward-compatible, close process/lifecycle admission races, publish exact package completeness, and replace worker-side spawning after independent review. Rejected because its package persistence model was custom rather than standard Cordis. Attempt 5: make every output-loss signal and bounded Git result exact, then cover the imported skill behaviors. Refine after independent review found lifecycle, compatibility, and policy defects. Attempt 4: import PR 24’s scoped agent guidance, then correct the three valid PR 32 review findings. Refine after independent review. Attempt 3: replace a lifecycle test’s elapsed-time inference with a deterministic started/release handshake. Published, then superseded by review findings. Attempt 2: retained the proven runtime and added a bounded search fallback for hermetic portability. Starter packages pass; refine because the integrated lifecycle evidence was timing-dependent. Attempt 1: direct Cordis runtime with MCP v2, worker-isolated generations, two-tier immutable persistence, and three starter packages. Rejected because one starter package required an unavailable executable.">
+<link rel="preload" href="/scss/main.min.a66a47685d3dd8f6c2af31e43c9b9d7fbcf89ad26769c00134d82e867e780feb.css" as="style" integrity="sha256-pmpHaF092PbCrzHkPJudf7z4mtJnacABNNguhn54D&#43;s=" crossorigin="anonymous">
+<link href="/scss/main.min.a66a47685d3dd8f6c2af31e43c9b9d7fbcf89ad26769c00134d82e867e780feb.css" rel="stylesheet" integrity="sha256-pmpHaF092PbCrzHkPJudf7z4mtJnacABNNguhn54D&#43;s=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll">
+<div class="td-navbar-container container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Alwaldend</span></a>
+  <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
+    <div class="scroll-indicator scroll-left"></div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Docs</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/"><span>Projects</span></a>
+      </li>
+      <li class="nav-item td-navbar__light-dark-menu">
+        <div class="td-light-dark-menu dropdown"><svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check2" viewBox="0 0 16 16">
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+  <symbol id="circle-half" viewBox="0 0 16 16">
+    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+  </symbol>
+  <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+  </symbol>
+  <symbol id="sun-fill" viewBox="0 0 16 16">
+    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+  </symbol>
+</svg>
+<button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        title="Toggle theme (Auto)"
+        aria-label="Toggle theme (Auto)">
+  <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+  <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+</button>
+<ul class="dropdown-menu" aria-labelledby="bd-theme">
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#sun-fill"></use></svg>
+      Light
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#moon-stars-fill"></use></svg>
+      Dark
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+      <svg class="bi me-2 opacity-50"><use href="#circle-half"></use></svg>
+      Auto
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+</ul>
+</div>
+
+      </li>
+      </ul>
+    <div class="scroll-indicator scroll-right"></div>
+  </div>
+  <div class="td-navbar__search d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon" aria-hidden="true"></div>
+  <input
+    type="search"
+    name="q"
+    class="td-search__input form-control"
+    placeholder='Search this site…'
+    aria-label='Search this site…'
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.1f356a2ab7475879a5e255d2a0c9bf3e.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title"></h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-eb9d798d7399ec664641ad828f7e3fe8"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-5e14862f15330e347bbcf04a55bad20e"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-73d3880198bb0a7e8582dde9e68a5a75"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-c84fe36f46edddc1f4d09c460d0fb7b8"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-60638d7cd8441f105e803695ab81cbb5"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-3a640524bcfdd594f0f63b4585e4d023"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-77fcf0bd7c7ee87d958f5212ddd32844"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-36e8e87748b64dfe90d194514e74e981"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>9: <a href="#pg-9e600649cce1db583a0259459afc3a54"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>10: <a href="#pg-c2f56977cc0a7e3f8d8467cf4f11ba75"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>11: <a href="#pg-dafc9ba3cb0e1a032751b2be98d8797d"></a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <h1 id="print-5a43d39806b0ed96e72e0f7311e89dd2-attempt-history">Attempt history<a class="td-heading-self-link" href="#print-5a43d39806b0ed96e72e0f7311e89dd2-attempt-history" aria-label="Heading self-link"></a></h1><p><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/">Back to durable goal</a></p>
+<ul>
+<li><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/011/">Attempt 11</a>: consolidate the owned range, reconcile the advanced
+base, validate and publish the exact rebased candidate, then incorporate and
+reconcile the final hosted review. Complete.</li>
+<li><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/010/">Attempt 10</a>: keep the thin wrapper and patch pinned Cordis HMR to
+serialize reloads and drain writes arriving during an in-flight reload.
+Complete locally and carried into Attempt 11.</li>
+<li><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/009/">Attempt 9</a>: simplify source updates to validated atomic persistence
+plus Cordis HMR, deleting the private acknowledgement transaction. Refined
+after independent review reproduced a lost overlapping update.</li>
+<li><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/008/">Attempt 8</a>: correct the final hosted review&rsquo;s fallback filtering,
+byte-offset, and UTF-8 body-preview findings. Complete locally.</li>
+<li><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/007/">Attempt 7</a>: replace the custom manifest/version store and worker
+generations with official Cordis Loader, Include, HMR, standard
+<code>cordis.yaml</code>, and normal modules. Delivered, then refined by Attempt 8.</li>
+<li><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/006/">Attempt 6</a>: make bounded execution backward-compatible, close
+process/lifecycle admission races, publish exact package completeness, and
+replace worker-side spawning after independent review. Rejected because its
+package persistence model was custom rather than standard Cordis.</li>
+<li><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/005/">Attempt 5</a>: make every output-loss signal and bounded Git result
+exact, then cover the imported skill behaviors. Refine after independent
+review found lifecycle, compatibility, and policy defects.</li>
+<li><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/004/">Attempt 4</a>: import PR 24&rsquo;s scoped agent guidance, then correct the
+three valid PR 32 review findings. Refine after independent review.</li>
+<li><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/003/">Attempt 3</a>: replace a lifecycle test&rsquo;s elapsed-time inference with
+a deterministic started/release handshake. Published, then superseded by
+review findings.</li>
+<li><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/002/">Attempt 2</a>: retained the proven runtime and added a bounded search
+fallback for hermetic portability. Starter packages pass; refine because
+the integrated lifecycle evidence was timing-dependent.</li>
+<li><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/001/">Attempt 1</a>: direct Cordis runtime with MCP v2, worker-isolated
+generations, two-tier immutable persistence, and three starter packages.
+Rejected because one starter package required an unavailable executable.</li>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-eb9d798d7399ec664641ad828f7e3fe8">1 - </h1>
+    
+	<h1 id="print-aa2de72c11b6500a1d530dadec486520-attempt-1">Attempt 1<a class="td-heading-self-link" href="#print-aa2de72c11b6500a1d530dadec486520-attempt-1" aria-label="Heading self-link"></a></h1><p><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/">Back to durable goal</a> · <a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/">Attempt history</a></p>
+<h2 id="print-aa2de72c11b6500a1d530dadec486520-hypothesis">Hypothesis<a class="td-heading-self-link" href="#print-aa2de72c11b6500a1d530dadec486520-hypothesis" aria-label="Heading self-link"></a></h2><p>A small adapter around <code>@deepseek-ai/cordis@4.0.1</code> can provide durable,
+transactional runtime packages behind a fixed MCP stdio surface without
+embedding DeepSeek Harness or restarting the MCP connection.</p>
+<h2 id="print-aa2de72c11b6500a1d530dadec486520-exact-inputs">Exact inputs<a class="td-heading-self-link" href="#print-aa2de72c11b6500a1d530dadec486520-exact-inputs" aria-label="Heading self-link"></a></h2><ul>
+<li>Parent checkpoint: task-start state of branch
+<code>t3code/runtime-modifiable-plugin</code></li>
+<li>Cordis: <code>@deepseek-ai/cordis@4.0.1</code></li>
+<li>MCP server/client: <code>@modelcontextprotocol/server@2.0.0</code> and
+<code>@modelcontextprotocol/client@2.0.0</code></li>
+<li>Node: repository-pinned Node 24.13.0</li>
+<li>Package source contract: one import-free JavaScript expression returning a
+Cordis plugin with <code>apply(ctx)</code></li>
+</ul>
+<h2 id="print-aa2de72c11b6500a1d530dadec486520-candidate-plan">Candidate plan<a class="td-heading-self-link" href="#print-aa2de72c11b6500a1d530dadec486520-candidate-plan" aria-label="Heading self-link"></a></h2><ol>
+<li>Add an ordinary Bazel package with a dedicated exact pnpm lock.</li>
+<li>Persist definitions as content-addressed immutable source plus atomic
+manifests under explicit <code>project</code> and <code>scratch</code> roots.</li>
+<li>Evaluate each generation in a worker, mount it through a real Cordis
+<code>Context</code> and Fiber, and register handlers through Cordis effects.</li>
+<li>Activate transactionally: prove the candidate ready, swap the active
+pointer, drain in-flight calls, then dispose the prior Fiber exactly once.</li>
+<li>Expose fixed MCP tools for list, inspect, define, run/reload, invoke, stop,
+remove, and promote; never rely on dynamic MCP schema refresh.</li>
+<li>Seed and execute <code>repo_context</code>, <code>git_worktree</code>, and <code>network_probe</code> through
+the same runtime path.</li>
+</ol>
+<h2 id="print-aa2de72c11b6500a1d530dadec486520-review-packet">Review packet<a class="td-heading-self-link" href="#print-aa2de72c11b6500a1d530dadec486520-review-packet" aria-label="Heading self-link"></a></h2><ul>
+<li>Explicit <code>(scope, name)</code> identities prevent hidden scratch/project shadowing.</li>
+<li>Workspace root is an explicit CLI argument or
+<code>BUILD_WORKSPACE_DIRECTORY</code>, never inferred from a runfiles cwd.</li>
+<li>A failed candidate never changes the active manifest or runtime pointer.</li>
+<li>Package stdout/stderr cannot corrupt MCP stdout.</li>
+<li>Disposable state remains under ignored <code>out/mcp_cordis</code>; reusable source is
+public project code.</li>
+</ul>
+<h2 id="print-aa2de72c11b6500a1d530dadec486520-verdict">Verdict<a class="td-heading-self-link" href="#print-aa2de72c11b6500a1d530dadec486520-verdict" aria-label="Heading self-link"></a></h2><p>Refine. Candidate
+<code>c9300c9887104777c8915e3d4f390196604e9bd18497bbec319415d1a4ad057f</code>
+proved the architecture but failed acceptance criterion 7.</p>
+<h2 id="print-aa2de72c11b6500a1d530dadec486520-work-performed">Work performed<a class="td-heading-self-link" href="#print-aa2de72c11b6500a1d530dadec486520-work-performed" aria-label="Heading self-link"></a></h2><ul>
+<li>Added the exact pnpm/Bzlmod/Bazel package and documentation.</li>
+<li>Implemented content-addressed storage, worker-isolated Cordis Fibers,
+transactional generation replacement, fixed MCP gateways, and stdio entry.</li>
+<li>Added project and scratch scopes, promotion, recovery, and three starter
+package definitions.</li>
+<li>Added lifecycle, in-memory MCP, subprocess stdio, and package execution
+tests.</li>
+</ul>
+<h2 id="print-aa2de72c11b6500a1d530dadec486520-verification-evidence">Verification evidence<a class="td-heading-self-link" href="#print-aa2de72c11b6500a1d530dadec486520-verification-evidence" aria-label="Heading self-link"></a></h2><ul>
+<li><code>bazel_agent bazel query //projects/mcp_cordis:all</code>: pass after the pnpm v10
+declaration and starter catalog were present.</li>
+<li><code>bazel_agent bazel test //projects/mcp_cordis:runtime_test</code>: pass. This covers
+real Cordis contexts/effects, immutable versions, rollback, drain, scopes,
+promotion, restart, removal, isolation, and fixed MCP invocation.</li>
+<li><code>bazel_agent bazel test //projects/mcp_cordis:stdio_test</code>: pass. One stdio client
+hot-updated v1 to v2 without a process change; a new server process recovered
+the project package.</li>
+<li><code>bazel_agent bazel test //projects/mcp_cordis:starter_packages_test</code>: fail because
+<code>repo_context_search</code> received <code>spawn rg ENOENT</code> in the hermetic test PATH.</li>
+</ul>
+<h2 id="print-aa2de72c11b6500a1d530dadec486520-acceptance-results">Acceptance results<a class="td-heading-self-link" href="#print-aa2de72c11b6500a1d530dadec486520-acceptance-results" aria-label="Heading self-link"></a></h2><ol>
+<li>Pass: documented standalone stdio server built and exercised by Bazel.</li>
+<li>Pass: source and runtime tests use Cordis <code>Context</code>, Fiber await/dispose,
+and effect cleanup.</li>
+<li>Pass for implemented lifecycle operations; fixed MCP use is proven on one
+connection.</li>
+<li>Pass: content hashes, failed syntax/startup rollback, and v1/v2/v3 behavior
+are exercised.</li>
+<li>Pass: roots and exact scope identity are exercised in isolated workspaces.</li>
+<li>Pass: promotion and server-only project recovery are exercised.</li>
+<li>Fail: the Git and network package paths were not reached after the
+repository search package required an unavailable <code>rg</code> executable.</li>
+<li>Pass: in-memory and real stdio tests invoke new handlers through the stable
+gateway without reconnecting.</li>
+<li>Unverified: the full integrated fixed regression set has not run.</li>
+</ol>
+<h2 id="print-aa2de72c11b6500a1d530dadec486520-progress-approach-and-process-audit">Progress, approach, and process audit<a class="td-heading-self-link" href="#print-aa2de72c11b6500a1d530dadec486520-progress-approach-and-process-audit" aria-label="Heading self-link"></a></h2><ul>
+<li>Criteria 1–6 and 8 improved from unverified to measured passes. Criterion 7
+is an absolute portability failure, not merely a weaker result.</li>
+<li>Passing lifecycle and stdio tests support retaining the direct Cordis,
+worker, storage, and fixed-gateway representation.</li>
+<li>The highest-leverage problem is removing the starter package&rsquo;s undeclared
+executable assumption while retaining ripgrep as a fast path.</li>
+<li>Continue the architecture but revise <code>repo_context_search</code>; no evidence
+supports discarding the runtime foundation.</li>
+<li>The largest avoidable delay was 144 seconds in a failed test whose worker was
+not registered for unconditional teardown. <code>node:test</code> cleanup now registers
+before assertions, reducing the next failure cycle to under a second.</li>
+<li>The next feedback loop starts with the single starter target and only then
+returns to the integrated regression set.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5e14862f15330e347bbcf04a55bad20e">2 - </h1>
+    
+	<h1 id="print-ba7da44142c974ae675a76bd216e1e97-attempt-2">Attempt 2<a class="td-heading-self-link" href="#print-ba7da44142c974ae675a76bd216e1e97-attempt-2" aria-label="Heading self-link"></a></h1><p><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/">Back to durable goal</a> · <a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/">Attempt history</a></p>
+<h2 id="print-ba7da44142c974ae675a76bd216e1e97-targeted-failure">Targeted failure<a class="td-heading-self-link" href="#print-ba7da44142c974ae675a76bd216e1e97-targeted-failure" aria-label="Heading self-link"></a></h2><p>Attempt 1&rsquo;s <code>repo_context_search</code> cannot execute when ripgrep is unavailable
+from the runtime PATH, preventing all starter packages from passing their
+portable Bazel execution test.</p>
+<h2 id="print-ba7da44142c974ae675a76bd216e1e97-hypothesis">Hypothesis<a class="td-heading-self-link" href="#print-ba7da44142c974ae675a76bd216e1e97-hypothesis" aria-label="Heading self-link"></a></h2><p>Keeping ripgrep as the preferred engine but falling back on a bounded Node
+filesystem search will preserve normal-machine speed and make the reusable
+package functional in hermetic or minimal environments.</p>
+<h2 id="print-ba7da44142c974ae675a76bd216e1e97-exact-inputs-and-plan">Exact inputs and plan<a class="td-heading-self-link" href="#print-ba7da44142c974ae675a76bd216e1e97-exact-inputs-and-plan" aria-label="Heading self-link"></a></h2><ul>
+<li>Parent candidate:
+<code>c9300c9887104777c8915e3d4f390196604e9bd18497bbec319415d1a4ad057f</code></li>
+<li>Preserve all runtime, storage, MCP, and other starter-package code.</li>
+<li>Add a bounded fallback with workspace path checks, file/byte/result limits,
+fixed or regex matching, context lines, and basic glob filtering.</li>
+<li>Store it as a new immutable <code>repo_context</code> version; retain Attempt 1&rsquo;s source
+version in its manifest history.</li>
+<li>Rerun the starter test first, then the complete focused package checks.</li>
+</ul>
+<h2 id="print-ba7da44142c974ae675a76bd216e1e97-planned-review-packet">Planned review packet<a class="td-heading-self-link" href="#print-ba7da44142c974ae675a76bd216e1e97-planned-review-packet" aria-label="Heading self-link"></a></h2><ul>
+<li>Search succeeds without <code>rg</code> in Bazel&rsquo;s test PATH.</li>
+<li>Traversal outside the workspace remains rejected.</li>
+<li>All eight starter tools execute through loaded Cordis Fibers.</li>
+<li>Previously passing lifecycle and real stdio checks remain green.</li>
+</ul>
+<h2 id="print-ba7da44142c974ae675a76bd216e1e97-verdict">Verdict<a class="td-heading-self-link" href="#print-ba7da44142c974ae675a76bd216e1e97-verdict" aria-label="Heading self-link"></a></h2><p>Refine. The rebased candidate commit
+<code>e3e74cb1e573867825347292bf17220a5b9a4a0c</code> fixes criterion 7, but its final
+integrated regression failed because the lifecycle test used elapsed time to
+infer that an invocation remained in flight.</p>
+<h2 id="print-ba7da44142c974ae675a76bd216e1e97-work-performed">Work performed<a class="td-heading-self-link" href="#print-ba7da44142c974ae675a76bd216e1e97-work-performed" aria-label="Heading self-link"></a></h2><ul>
+<li>Added a bounded pure-JavaScript fallback as immutable <code>repo_context</code>
+version
+<code>fd10633b1569665764e9a526f2cfaf38d1847ee9842934258cefc25f08ea9050</code>
+while preserving ripgrep as the preferred engine and retaining the original
+version in manifest history.</li>
+<li>Rebased the complete task commit onto fetched remote <code>master</code>
+<code>7ad2704cd27757355ab36ec8eb1bb27ef9e1d91d</code> with no conflicts. The resulting
+tree is <code>079a0c27b86527c6950cc75b0c8b9dbf572d3e4b</code>.</li>
+</ul>
+<h2 id="print-ba7da44142c974ae675a76bd216e1e97-verification-evidence">Verification evidence<a class="td-heading-self-link" href="#print-ba7da44142c974ae675a76bd216e1e97-verification-evidence" aria-label="Heading self-link"></a></h2><ul>
+<li>Pre-rebase
+<code>bazel_agent bazel test //projects/mcp_cordis:starter_packages_test</code>: pass. All
+eight tools executed, including search without <code>rg</code>.</li>
+<li>Post-rebase <code>bazel_agent bazel query //projects/mcp_cordis:all</code>: pass.</li>
+<li>Post-rebase <code>bazel_agent bazel test //projects/mcp_cordis:all</code>: three of four test
+targets pass. <code>runtime_test</code> fails at its drain-count assertion with actual
+<code>0</code>, expected <code>1</code>.</li>
+<li>The test starts a 150 ms invocation, waits only 20 ms, and then starts a new
+worker before swapping generations. Candidate startup has no upper bound
+below the old invocation&rsquo;s delay, so the test does not prove the invocation
+is still active at the swap.</li>
+</ul>
+<h2 id="print-ba7da44142c974ae675a76bd216e1e97-acceptance-results">Acceptance results<a class="td-heading-self-link" href="#print-ba7da44142c974ae675a76bd216e1e97-acceptance-results" aria-label="Heading self-link"></a></h2><ol>
+<li>Pass in the integrated build test.</li>
+<li>Unverified for final acceptance because the lifecycle regression did not
+complete.</li>
+<li>Unverified for final acceptance for the same reason.</li>
+<li>Unverified for final acceptance for the same reason.</li>
+<li>Pass in the previously focused storage/lifecycle evidence; final rerun is
+still required.</li>
+<li>Pass in the subprocess stdio target; final rerun is still required.</li>
+<li>Pass on the exact rebased candidate through the starter-package target.</li>
+<li>Pass on the exact rebased candidate through the stdio target.</li>
+<li>Fail: the complete fixed regression set is not green.</li>
+</ol>
+<h2 id="print-ba7da44142c974ae675a76bd216e1e97-progress-approach-and-process-audit">Progress, approach, and process audit<a class="td-heading-self-link" href="#print-ba7da44142c974ae675a76bd216e1e97-progress-approach-and-process-audit" aria-label="Heading self-link"></a></h2><ul>
+<li>Criterion 7 measurably improved from fail to pass; no starter package now
+assumes ripgrep is installed.</li>
+<li>The runtime representation did not regress. The failing value demonstrates
+that the old request finished before the atomic swap, which is permitted;
+the test&rsquo;s elapsed-time setup failed to establish its own precondition.</li>
+<li>The highest-leverage issue is evidence quality, not another runtime rewrite.</li>
+<li>Attempt 3 should preserve all delivered runtime bytes and replace only the
+drain test&rsquo;s wall-clock inference with a deterministic cross-worker latch.</li>
+<li>The requested rebase and adapter compilation dominated this cycle&rsquo;s wall
+time. Focused query feedback fell to under two seconds once caches were warm.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-73d3880198bb0a7e8582dde9e68a5a75">3 - </h1>
+    
+	<h1 id="print-fbec4105e17da95df27ae4c3b2cf8a4b-attempt-3">Attempt 3<a class="td-heading-self-link" href="#print-fbec4105e17da95df27ae4c3b2cf8a4b-attempt-3" aria-label="Heading self-link"></a></h1><p><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/">Back to durable goal</a> · <a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/">Attempt history</a></p>
+<h2 id="print-fbec4105e17da95df27ae4c3b2cf8a4b-targeted-failure">Targeted failure<a class="td-heading-self-link" href="#print-fbec4105e17da95df27ae4c3b2cf8a4b-targeted-failure" aria-label="Heading self-link"></a></h2><p>The integrated lifecycle test assumes that a 150 ms invocation remains active
+after a new worker has started. Under parallel Bazel execution, the candidate
+can become ready only after that invocation has completed, making the expected
+drain count nondeterministic.</p>
+<h2 id="print-fbec4105e17da95df27ae4c3b2cf8a4b-hypothesis">Hypothesis<a class="td-heading-self-link" href="#print-fbec4105e17da95df27ae4c3b2cf8a4b-hypothesis" aria-label="Heading self-link"></a></h2><p>A file-backed started/release handshake in the test package will establish the
+in-flight precondition independently of worker startup speed and prove that a
+generation swap reports and drains exactly one old invocation.</p>
+<h2 id="print-fbec4105e17da95df27ae4c3b2cf8a4b-exact-inputs-and-plan">Exact inputs and plan<a class="td-heading-self-link" href="#print-fbec4105e17da95df27ae4c3b2cf8a4b-exact-inputs-and-plan" aria-label="Heading self-link"></a></h2><ul>
+<li>Parent commit:
+<code>e3e74cb1e573867825347292bf17220a5b9a4a0c</code></li>
+<li>Parent tree: <code>079a0c27b86527c6950cc75b0c8b9dbf572d3e4b</code></li>
+<li>Base commit: <code>7ad2704cd27757355ab36ec8eb1bb27ef9e1d91d</code></li>
+<li>Preserve all product runtime, storage, MCP, package, and build files.</li>
+<li>Extend only the lifecycle test fixture with optional started/release paths.</li>
+<li>Wait for the started marker before activation, keep the old handler blocked
+until after the drain count is observed, and release it in <code>finally</code> so a
+failed assertion cannot strand teardown.</li>
+<li>Rerun the focused lifecycle target first, then the entire recorded regression
+set on one amended candidate.</li>
+</ul>
+<h2 id="print-fbec4105e17da95df27ae4c3b2cf8a4b-planned-review-packet">Planned review packet<a class="td-heading-self-link" href="#print-fbec4105e17da95df27ae4c3b2cf8a4b-planned-review-packet" aria-label="Heading self-link"></a></h2><ul>
+<li>The test contains no fixed request duration or startup race.</li>
+<li>Replacement reports exactly one draining call.</li>
+<li>The old call returns v2 and the next call returns v3.</li>
+<li>Cordis cleanup still runs exactly once.</li>
+<li>All project, buildifier, and diff checks pass on the same commit tree.</li>
+</ul>
+<h2 id="print-fbec4105e17da95df27ae4c3b2cf8a4b-verdict">Verdict<a class="td-heading-self-link" href="#print-fbec4105e17da95df27ae4c3b2cf8a4b-verdict" aria-label="Heading self-link"></a></h2><p>Accept as the final local candidate. Commit
+<code>7cfef0719075ad372c3bb257ad216b35770356b2</code> and tree
+<code>34153eca0f582af5c641f81bf8c7209b0045ab9a</code> pass the entire evidence plan.
+Remote delivery is pending separate authorization.</p>
+<h2 id="print-fbec4105e17da95df27ae4c3b2cf8a4b-work-performed">Work performed<a class="td-heading-self-link" href="#print-fbec4105e17da95df27ae4c3b2cf8a4b-work-performed" aria-label="Heading self-link"></a></h2><ul>
+<li>Replaced the 150 ms elapsed-time assumption with workspace-local started and
+release markers in the lifecycle test fixture.</li>
+<li>Proved the new v3 generation serves calls while the old v2 invocation remains
+blocked, then released v2 and proved its Cordis effect disposes exactly once.</li>
+<li>Applied Buildifier&rsquo;s mechanical label ordering to the runtime test data.</li>
+<li>Amended the sole feature commit through the delivery adapter without changing
+its direct base parent.</li>
+</ul>
+<h2 id="print-fbec4105e17da95df27ae4c3b2cf8a4b-verification-evidence">Verification evidence<a class="td-heading-self-link" href="#print-fbec4105e17da95df27ae4c3b2cf8a4b-verification-evidence" aria-label="Heading self-link"></a></h2><ul>
+<li><code>git diff --check HEAD^..HEAD</code>: pass on the prepared commit.</li>
+<li><code>bazel_agent bazel query //projects/mcp_cordis:all</code>: pass.</li>
+<li><code>bazel_agent bazel test //projects/mcp_cordis:runtime_test</code>: pass after the
+deterministic gate.</li>
+<li><code>bazel_agent bazel test //projects/mcp_cordis:all --nocache_test_results</code>: pass,
+four of four tests executed on the exact commit.</li>
+<li><code>bazel_agent bazel build //projects/mcp_cordis:all</code>: pass, all nine targets.</li>
+<li><code>bazel_agent bazel test //:buildifier_test --nocache_test_results</code>: pass.</li>
+<li>The delivery receipt records direct base
+<code>7ad2704cd27757355ab36ec8eb1bb27ef9e1d91d</code>, prepared head <code>7cfef071</code>, and
+prepared tree <code>34153eca</code>.</li>
+</ul>
+<h2 id="print-fbec4105e17da95df27ae4c3b2cf8a4b-acceptance-results">Acceptance results<a class="td-heading-self-link" href="#print-fbec4105e17da95df27ae4c3b2cf8a4b-acceptance-results" aria-label="Heading self-link"></a></h2><ol>
+<li>Pass: documented standalone Bazel-built stdio MCP server.</li>
+<li>Pass: lifecycle tests exercise real Cordis contexts, Fibers, and effects.</li>
+<li>Pass: one runtime and one stdio connection exercise the complete mutable
+package lifecycle.</li>
+<li>Pass: immutable versions, rollback, deterministic drain, and exact cleanup
+are exercised.</li>
+<li>Pass: isolated project and scratch roots are exercised.</li>
+<li>Pass: promotion and subprocess restart recovery are exercised.</li>
+<li>Pass: three justified starter packages and all eight tools execute.</li>
+<li>Pass: fixed discovery/invocation gateways work without reconnecting.</li>
+<li>Pass locally: all recorded checks and the real stdio transcript pass on the
+exact candidate tree. Remote repository handoff remains pending authority.</li>
+</ol>
+<h2 id="print-fbec4105e17da95df27ae4c3b2cf8a4b-progress-approach-and-process-audit">Progress, approach, and process audit<a class="td-heading-self-link" href="#print-fbec4105e17da95df27ae4c3b2cf8a4b-progress-approach-and-process-audit" aria-label="Heading self-link"></a></h2><ul>
+<li>Criterion 9 improved from a nondeterministic failure to a forced, exact-tree
+pass; no technical criterion regressed.</li>
+<li>The explicit gate improves evidence in absolute terms: candidate startup can
+take arbitrarily longer than the old call without changing the assertion.</li>
+<li>Independent code review and the measured zero drain count both supported
+retaining transactional start-before-swap behavior.</li>
+<li>No defect survived two attempts. The elapsed-time test and Buildifier order
+are resolved in their first corrective cycle.</li>
+<li>Adapter and root Buildifier startup dominated wall time; warmed focused tests
+remained under ten seconds. Further local optimization would not change the
+delivery critical path.</li>
+<li>The only remaining action is remote publication, which cannot proceed from a
+rebase-only authorization.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c84fe36f46edddc1f4d09c460d0fb7b8">4 - </h1>
+    
+	<h1 id="print-7845fed331be8fd7199dc3c09058f892-attempt-4">Attempt 4<a class="td-heading-self-link" href="#print-7845fed331be8fd7199dc3c09058f892-attempt-4" aria-label="Heading self-link"></a></h1><p><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/">Back to durable goal</a> · <a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/">Attempt history</a></p>
+<h2 id="print-7845fed331be8fd7199dc3c09058f892-targeted-failures-and-scope">Targeted failures and scope<a class="td-heading-self-link" href="#print-7845fed331be8fd7199dc3c09058f892-targeted-failures-and-scope" aria-label="Heading self-link"></a></h2><p>PR 32 commit <code>7cfef071</code> is remotely reproducible but is not a final candidate:
+three review findings are valid. The user also requires the four
+<code>projects/agents</code> changes from PR 24, whose missing <code>decision-review</code> package
+explains the current base&rsquo;s dangling instruction reference.</p>
+<h2 id="print-7845fed331be8fd7199dc3c09058f892-hypotheses">Hypotheses<a class="td-heading-self-link" href="#print-7845fed331be8fd7199dc3c09058f892-hypotheses" aria-label="Heading self-link"></a></h2><ol>
+<li>Applying PR 24&rsquo;s changes three-way will preserve newer <code>goal</code> guidance while
+importing its result-first additions, Bazel batching guidance, and
+<code>decision-review</code> package.</li>
+<li>Treating command overflow as bounded success will preserve useful prefixes
+for search and diff consumers without leaking child processes or invalid
+UTF-8.</li>
+<li>Enforcing <code>max_changes</code> before every porcelain status record will bound all
+record kinds uniformly.</li>
+<li>Closing admission, draining registered package locks, then disposing active
+workers will make shutdown linearizable with concurrent run/reload.</li>
+</ol>
+<h2 id="print-7845fed331be8fd7199dc3c09058f892-exact-inputs-and-boundaries">Exact inputs and boundaries<a class="td-heading-self-link" href="#print-7845fed331be8fd7199dc3c09058f892-exact-inputs-and-boundaries" aria-label="Heading self-link"></a></h2><ul>
+<li>Current and published task commit: <code>7cfef0719075ad372c3bb257ad216b35770356b2</code>.</li>
+<li>Current base/direct parent: <code>7ad2704cd27757355ab36ec8eb1bb27ef9e1d91d</code>.</li>
+<li>PR 24 base/head: <code>ada3ed90123c224729f9174c6127c50b933d2f48</code>
+/ <code>da2085f1807bfea1c7f3979730f6b7df0033fdce</code>.</li>
+<li>Import boundary: only paths beneath <code>projects/agents</code> changed by PR 24.</li>
+<li>Review boundary: the three existing PR 32 threads and directly required
+regression coverage; no unrelated runtime redesign.</li>
+<li>Preserve all immutable package versions already referenced by manifests.</li>
+</ul>
+<h2 id="print-7845fed331be8fd7199dc3c09058f892-candidate-plan">Candidate plan<a class="td-heading-self-link" href="#print-7845fed331be8fd7199dc3c09058f892-candidate-plan" aria-label="Heading self-link"></a></h2><ol>
+<li>Merge the PR 24 <code>bazel-agent</code> and <code>goal</code> hunks into current files; add
+<code>decision-review</code> plus the offline eval structure required today.</li>
+<li>Add black-box execution overflow coverage and implement bounded UTF-8-safe
+truncation while preserving timeout/spawn errors.</li>
+<li>Add table-driven status-limit coverage and publish a new immutable
+<code>git_worktree</code> version with the limit check before record parsing.</li>
+<li>Add a deterministic concurrent activation/shutdown gate and memoized
+shutdown sequence that waits for admitted locks before disposal.</li>
+<li>Run focused tests first, then both affected packages, Buildifier, exact diff
+checks, delivery preparation, exact-candidate validation, publication, and
+review-thread replies/resolution.</li>
+</ol>
+<h2 id="print-7845fed331be8fd7199dc3c09058f892-planned-acceptance-packet">Planned acceptance packet<a class="td-heading-self-link" href="#print-7845fed331be8fd7199dc3c09058f892-planned-acceptance-packet" aria-label="Heading self-link"></a></h2><ul>
+<li>PR 24 provenance maps exactly to the imported agent changes; newer main
+guidance remains present.</li>
+<li><code>decision-review</code> validates and its Promptfoo configuration loads offline.</li>
+<li>Output at and beyond the cap is bounded, UTF-8 valid, truncation-marked, and
+stopped; under-cap and timeout behavior remain correct.</li>
+<li>Every porcelain-v2 record kind obeys <code>max_changes</code>.</li>
+<li>Shutdown cannot resolve before an already-admitted activation is owned and
+disposed, and later calls reject <code>runtime_closed</code>.</li>
+<li>All previous MCP lifecycle, restart, package, and stdio regressions remain
+green on the exact delivered commit.</li>
+</ul>
+<h2 id="print-7845fed331be8fd7199dc3c09058f892-progress-approach-and-process-audit">Progress, approach, and process audit<a class="td-heading-self-link" href="#print-7845fed331be8fd7199dc3c09058f892-progress-approach-and-process-audit" aria-label="Heading self-link"></a></h2><ul>
+<li>Remote publication improved delivery evidence but exposed three absolute
+correctness failures; validation success alone was insufficient.</li>
+<li>The PR 24 request resolves an upstream packaging inconsistency and is
+independent enough to integrate before runtime corrections.</li>
+<li>The current representation remains viable: every defect has a narrow
+controlling mechanism and deterministic test. No evidence supports replacing
+Cordis, the worker boundary, or content-addressed persistence.</li>
+</ul>
+<h2 id="print-7845fed331be8fd7199dc3c09058f892-work-performed">Work performed<a class="td-heading-self-link" href="#print-7845fed331be8fd7199dc3c09058f892-work-performed" aria-label="Heading self-link"></a></h2><ul>
+<li>Imported all four PR 24 agent-tree changes three-way and added the offline
+validation files required by current repository policy.</li>
+<li>Changed <code>ctx.exec()</code> overflow from an output-limit rejection to a bounded,
+UTF-8-valid success result with explicit process-group cleanup and a
+truncation flag.</li>
+<li>Published the corrected Git parser as new immutable version <code>de978...</code> while
+retaining <code>70d8...</code> as permanent rollback history.</li>
+<li>Made shutdown join admitted activation locks before its final active-worker
+snapshot and added closure checks around initialization storage awaits.</li>
+<li>Added direct regressions plus an actual <code>git_compare</code> cap integration case.</li>
+</ul>
+<h2 id="print-7845fed331be8fd7199dc3c09058f892-verification-evidence">Verification evidence<a class="td-heading-self-link" href="#print-7845fed331be8fd7199dc3c09058f892-verification-evidence" aria-label="Heading self-link"></a></h2><ul>
+<li>Four focused Bazel tests: pass.</li>
+<li>Complete MCP package plus three skill eval-config targets: ten of ten pass.</li>
+<li>Complete MCP package build plus three skill libraries: pass; all skill
+validation aspects pass.</li>
+<li>Root <code>//:buildifier_test</code>: pass.</li>
+<li>JavaScript syntax, exact new version SHA-256, quick skill validation, and
+<code>git diff --check</code>: pass.</li>
+</ul>
+<h2 id="print-7845fed331be8fd7199dc3c09058f892-final-verdict">Final verdict<a class="td-heading-self-link" href="#print-7845fed331be8fd7199dc3c09058f892-final-verdict" aria-label="Heading self-link"></a></h2><p>Refine. The product and packaging gates were green, but independent review
+found silent output-loss and exact-limit semantics that those gates did not
+exercise. Preserve the architectural changes; Attempt 5 changes the affected
+contracts and tests rather than discarding the worker/runtime design.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-60638d7cd8441f105e803695ab81cbb5">5 - </h1>
+    
+	<h1 id="print-bcb728195bf057c21a77a07fdfe76d22-attempt-5">Attempt 5<a class="td-heading-self-link" href="#print-bcb728195bf057c21a77a07fdfe76d22-attempt-5" aria-label="Heading self-link"></a></h1><p><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/">Back to durable goal</a> · <a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/">Attempt history</a></p>
+<h2 id="print-bcb728195bf057c21a77a07fdfe76d22-targeted-failures">Targeted failures<a class="td-heading-self-link" href="#print-bcb728195bf057c21a77a07fdfe76d22-targeted-failures" aria-label="Heading self-link"></a></h2><p>Attempt 4 passed every recorded command but independent review disproved four
+completeness claims: malformed UTF-8 loss was unmarked, built-in consumers
+silently accepted partial host output, Git status truncation was inferred from
+capacity rather than omission and missed newline paths, and imported skill
+evals did not cover their added behavior.</p>
+<h2 id="print-bcb728195bf057c21a77a07fdfe76d22-hypotheses-and-plan">Hypotheses and plan<a class="td-heading-self-link" href="#print-bcb728195bf057c21a77a07fdfe76d22-hypotheses-and-plan" aria-label="Heading self-link"></a></h2><ol>
+<li>Have UTF-8 decoding report whether it dropped any retained bytes and OR
+that fact into <code>truncated</code>; cover malformed output below and above the cap.</li>
+<li>Publish new immutable versions for each reusable package whose result fields
+need host-truncation propagation. Preserve every previously tracked version
+byte-for-byte and make partial fields explicit rather than hiding signal
+termination as ordinary success.</li>
+<li>Parse status records before deciding whether an additional logical change
+was omitted, capture NUL-delimited paths with newline-safe expressions, and
+cover exact-one, max-two, max-one-of-two, copy, and newline cases.</li>
+<li>Add offline cases that exercise compatible multi-target Bazel batching,
+immutable exact-hash candidate promotion/regression, and durable task-owned
+push behavior that excludes disposable output and reports blockers.</li>
+<li>Track disposal of an activation removed by <code>#handleUnavailable()</code> as a
+retirement so shutdown cannot return before its worker teardown completes.</li>
+<li>Rerun each focused target, all affected package/skill tests and builds,
+Buildifier, and another independent review before freezing a commit.</li>
+</ol>
+<h2 id="print-bcb728195bf057c21a77a07fdfe76d22-boundaries">Boundaries<a class="td-heading-self-link" href="#print-bcb728195bf057c21a77a07fdfe76d22-boundaries" aria-label="Heading self-link"></a></h2><ul>
+<li>Retain the Cordis/worker/storage architecture and the shutdown correction.</li>
+<li>Do not modify historical hash-named version bytes.</li>
+<li>Do not import any PR 24 path outside <code>projects/agents</code>.</li>
+<li>Do not add live, billable eval targets; these cases extend the existing
+offline-validated behavioral configurations.</li>
+<li>Do not prepare, commit, or publish until the new review is clean.</li>
+</ul>
+<h2 id="print-bcb728195bf057c21a77a07fdfe76d22-planned-acceptance-packet">Planned acceptance packet<a class="td-heading-self-link" href="#print-bcb728195bf057c21a77a07fdfe76d22-planned-acceptance-packet" aria-label="Heading self-link"></a></h2><ul>
+<li>Every discarded output byte makes <code>truncated</code> true.</li>
+<li>Each Git/context field that can be partial exposes that fact; bounded diff
+and search remain successful.</li>
+<li>Shutdown joins teardown for generations that become unavailable immediately
+before shutdown, not only those still present in the active map.</li>
+<li>Exactly <code>maximum</code> status changes reports complete, while an actual additional
+parseable change reports truncated; valid newline paths round-trip.</li>
+<li>Eval configs validate with cases for every material imported behavior.</li>
+<li>A second independent read-only review reports no remaining actionable issue.</li>
+</ul>
+<h2 id="print-bcb728195bf057c21a77a07fdfe76d22-working-tree-result">Working-tree result<a class="td-heading-self-link" href="#print-bcb728195bf057c21a77a07fdfe76d22-working-tree-result" aria-label="Heading self-link"></a></h2><ul>
+<li><code>ctx.exec()</code> now retains a combined bounded prefix, marks byte overflow and
+malformed UTF-8 loss as <code>truncated</code>, and stops the child before resolving.</li>
+<li><code>repo_context</code> activates immutable version <code>abd0db3e...</code>; root, HEAD,
+status, and ripgrep results propagate host truncation explicitly.</li>
+<li><code>git_worktree</code> retains original version <code>70d8f28d...</code> unchanged and activates
+sole new version <code>8853aa20...</code>. The rejected intermediate <code>de978...</code> file is
+absent. Exact-limit status, newline paths, incomplete NUL records, revision
+discovery, history, name-status, diff, and aggregate flags are covered.</li>
+<li>Runtime shutdown is memoized, closes admission, joins admitted package
+operations, and tracks disposal after an unavailable activation leaves the
+active map.</li>
+<li>PR 24&rsquo;s <code>projects/agents</code> subtree is integrated as <code>bazel-agent</code>, <code>goal</code>, and
+packaged <code>decision-review</code> changes only. Newer goal-record and delegation
+policy is preserved; added eval cases exercise every material imported rule.</li>
+</ul>
+<h2 id="print-bcb728195bf057c21a77a07fdfe76d22-validation-evidence">Validation evidence<a class="td-heading-self-link" href="#print-bcb728195bf057c21a77a07fdfe76d22-validation-evidence" aria-label="Heading self-link"></a></h2><ul>
+<li>Focused Bazel regression/eval batch: 8 of 8 tests pass.</li>
+<li>Entire affected MCP package plus skill evals: 12 of 12 tests pass.</li>
+<li>Entire MCP package and all three skill libraries build; every skill
+validation aspect passes.</li>
+<li>Root <code>//:buildifier_test</code>: 1 of 1 passes.</li>
+<li><code>git diff --check</code>, JavaScript syntax checks, and every retained/new reusable
+package content hash pass.</li>
+</ul>
+<h2 id="print-bcb728195bf057c21a77a07fdfe76d22-progress-approach-and-process-audit">Progress, approach, and process audit<a class="td-heading-self-link" href="#print-bcb728195bf057c21a77a07fdfe76d22-progress-approach-and-process-audit" aria-label="Heading self-link"></a></h2><p>Attempt 5 materially closes every falsified completeness claim from Attempt 4
+without replacing the accepted architecture. New versions are confined to
+the two reusable packages whose public result contract changed; historical
+bytes remain intact. The test packet now observes semantic completeness rather
+than only byte caps or array lengths. The remaining critical path is review
+and exact-candidate delivery, not additional implementation.</p>
+<p>Verdict: proceed to independent review. Do not freeze or publish the candidate
+until that review is clean.</p>
+<h2 id="print-bcb728195bf057c21a77a07fdfe76d22-independent-review-correction-1">Independent-review correction 1<a class="td-heading-self-link" href="#print-bcb728195bf057c21a77a07fdfe76d22-independent-review-correction-1" aria-label="Heading self-link"></a></h2><p>The agent-skill review found that PR 24&rsquo;s absolute &ldquo;commit and push every
+turn&rdquo; wording contradicted the preserved throwaway-record policy when a
+rejected attempt leaves no durable tracked change. The merged skill now makes
+delivery conditional on authorized, nonempty durable tracked progress and
+explicitly forbids empty/cosmetic commits or promoting disposable <code>out/</code>
+evidence merely to manufacture a checkpoint. A new offline case covers the
+no-durable-output rejection. This changes the candidate and invalidates the
+prior goal eval result; rerun the affected skill and integrated gates after
+the remaining reviewers report.</p>
+<p>The follow-up review also found that the durable-progress eval incorrectly
+required preparation while remote-ref ownership was unknown. Its oracle now
+requires exact inspection followed by a safe stop before preparation, rewrite,
+or publication until ownership is established.</p>
+<p>The review then found that <code>decision-review</code>&rsquo;s self-contained case could run
+meaningfully with the available provider, so offline validation alone did not
+satisfy current skill-package policy. A manual, credentialed <code>promptfoo_test</code>
+target now complements the ordinary offline validation target; it is declared
+but will not be executed as part of normal or delivery validation.</p>
+<p>The generic goal skill also carried Blender-specific scene, topology,
+datablock, and linked-library mechanics from PR 24. Those details could
+misroute domain policy into software and documentation goals. The merged text
+now retains only the cross-domain invariant: immutable candidate copies, one
+writer per candidate, exact or deterministic component promotion, and
+post-promotion regression. Its eval uses a generic protected deliverable. The
+<code>bazel-agent</code> eval documentation now correctly describes its plural cases.</p>
+<p>The generalized component-promotion rule initially tried to compare a
+component-merged aggregate with a whole-candidate hash, which is impossible.
+It now distinguishes exact whole-candidate promotion from independently
+hashed component promotion and always reruns affected aggregate gates.</p>
+<p>The first manual <code>decision-review</code> target reused credentials without isolating
+subject and judge state. Its config now uses separate runner-provided Codex
+homes and workspaces, an explicit executable override, and isolated proxy
+inheritance; its README documents the required absolute-path invocation.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3a640524bcfdd594f0f63b4585e4d023">6 - </h1>
+    
+	<h1 id="print-36e78df015b1395e38ecaa4e8a0300ff-attempt-6">Attempt 6<a class="td-heading-self-link" href="#print-36e78df015b1395e38ecaa4e8a0300ff-attempt-6" aria-label="Heading self-link"></a></h1><p><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/">Back to durable goal</a> · <a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/">Attempt history</a></p>
+<h2 id="print-36e78df015b1395e38ecaa4e8a0300ff-why-attempt-5-was-rejected">Why Attempt 5 was rejected<a class="td-heading-self-link" href="#print-36e78df015b1395e38ecaa4e8a0300ff-why-attempt-5-was-rejected" aria-label="Heading self-link"></a></h2><p>Attempt 5 passed every repository gate, but the required second independent
+review found release-blocking lifecycle and compatibility defects: worker
+termination could orphan detached <code>ctx.exec()</code> children, promotion was outside
+shutdown admission, unavailable candidates could cross the persistence/swap
+boundary, and the new always-partial output contract made retained package
+versions lie about completeness. The same review found narrower package and
+imported-skill correctness gaps. The candidate is rejected despite green
+tests.</p>
+<h2 id="print-36e78df015b1395e38ecaa4e8a0300ff-strategy-reset">Strategy reset<a class="td-heading-self-link" href="#print-36e78df015b1395e38ecaa4e8a0300ff-strategy-reset" aria-label="Heading self-link"></a></h2><ol>
+<li>Preserve backward compatibility by making partial output an explicit
+<code>ctx.exec()</code> option. Existing package versions retain rejection on overflow;
+new versions opt in and receive an explicit output-limit reason alongside
+<code>truncated</code>.</li>
+<li>Close worker disposal admission before spawning, clean child process groups
+both before and after admitted handlers settle, and replace immediate parent
+termination with graceful disposal followed by the existing bounded forced
+fallback.</li>
+<li>Track complete promotion operations in the runtime admission barrier and
+stage candidate availability across persistence so a failed candidate cannot
+replace or persist over the working generation.</li>
+<li>Publish sole new immutable starter versions after correcting unexpected
+signal/error handling, exact-boundary flags, omitted-record flags, Git
+read-only behavior, robust history framing, and containment checks. Delete
+every rejected untracked hash candidate rather than retaining it as history.</li>
+<li>Pin LF checkout semantics for hash-addressed source and test retained-version
+compatibility, exact output boundaries, outer timeouts, settlement-after-
+group-confirmed settlement, late-spawn disposal, promotion shutdown, and
+candidate failure.</li>
+<li>Finish the PR 24 merge by keeping generic goal invariants generic and making
+the manual <code>decision-review</code> eval isolate subject and judge state.</li>
+</ol>
+<h2 id="print-36e78df015b1395e38ecaa4e8a0300ff-boundaries">Boundaries<a class="td-heading-self-link" href="#print-36e78df015b1395e38ecaa4e8a0300ff-boundaries" aria-label="Heading self-link"></a></h2><ul>
+<li>Do not change any previously tracked hash-named source bytes.</li>
+<li>Do not add PR 24 paths outside <code>projects/agents</code>.</li>
+<li>Do not run the credentialed manual Promptfoo target.</li>
+<li>Linux is the supported supervised-execution platform for this repository
+target. The guarantee covers the direct child and live descendants that stay
+in its original process group; deliberate new sessions are excluded.</li>
+<li>Keep one writer per runtime source group and one writer for all active
+content-addressed package candidates/manifests.</li>
+</ul>
+<h2 id="print-36e78df015b1395e38ecaa4e8a0300ff-acceptance-packet">Acceptance packet<a class="td-heading-self-link" href="#print-36e78df015b1395e38ecaa4e8a0300ff-acceptance-packet" aria-label="Heading self-link"></a></h2><ul>
+<li>No live member of a supervised original process group survives inner timeout,
+outer invocation timeout, disposal, shutdown, or successful truncation
+settlement.</li>
+<li>Shutdown waits for every admitted mutation, including promotion, and never
+publishes a candidate observed unavailable during persistence.</li>
+<li>Historical package versions reject overflow under their original contract;
+only explicit opt-in versions return a marked partial prefix.</li>
+<li>Every result field distinguishes complete, locally clipped, host-limited,
+failed, and unexpectedly signaled outcomes.</li>
+<li>Exact limits are complete until one additional logical record is observed.</li>
+<li>All content hashes, LF attributes, skill validation, offline eval configs,
+focused regressions, integrated tests/build, and Buildifier pass.</li>
+<li>A fresh review of the final Attempt 6 diff reports no release-blocking issue.</li>
+</ul>
+<h2 id="print-36e78df015b1395e38ecaa4e8a0300ff-work-performed">Work performed<a class="td-heading-self-link" href="#print-36e78df015b1395e38ecaa4e8a0300ff-work-performed" aria-label="Heading self-link"></a></h2><ul>
+<li>Restored the historical <code>ctx.exec()</code> contract: overflow and invalid UTF-8
+reject by default, while new packages opt into a bounded marked prefix.</li>
+<li>Moved process launch and output accounting from the disposable worker into a
+parent-owned Linux supervisor. Launch admission is atomic in the parent&rsquo;s
+event loop, direct exit terminates the original process group before inherited
+pipes can hold settlement open, and timeout/disposal results wait for group
+non-liveness.</li>
+<li>Narrowed the documented contract honestly: a package that deliberately calls
+<code>setsid()</code> or otherwise creates a new session is outside the trusted original-
+group guarantee; non-Linux execution fails closed.</li>
+<li>Made shutdown actively dispose both active and draining retired generations,
+and staged candidate persistence so an unavailable candidate rolls back
+without displacing the working generation.</li>
+<li>Published one current source candidate per starter package. The hashes are
+<code>04b06a7d6277c4a6e8513d970f549ad980a780b68755f28d7b402fe8be26c279</code>
+for <code>git_worktree</code> and
+<code>94131e058f82328f091613dc68d2717484378066a9c64940d99522c14b48b4d7</code>
+for <code>repo_context</code>; historical source bytes remain unchanged.</li>
+<li>Made ripgrep byte-valued JSON fields explicitly incomplete rather than
+returning empty text under a false completeness claim.</li>
+<li>Imported PR 24&rsquo;s agent skills, added current validation/eval packaging,
+generalized goal policy, and moved this complete goal directory into the
+reusable project docs hierarchy.</li>
+</ul>
+<h2 id="print-36e78df015b1395e38ecaa4e8a0300ff-verification-so-far">Verification so far<a class="td-heading-self-link" href="#print-36e78df015b1395e38ecaa4e8a0300ff-verification-so-far" aria-label="Heading self-link"></a></h2><ul>
+<li>Static syntax, manifest/hash, LF-attribute, local-link, and <code>git diff --check</code>
+checks pass on the corrected working tree.</li>
+<li>Focused process, unavailable-shutdown, and retired-generation tests pass 3/3
+in Bazel invocation <code>9b1b2d34-8490-474a-b12c-e2052bf2d90b</code>.</li>
+<li>Process, package-byte-field, and retired-generation tests pass 3/3 in Bazel
+invocation <code>7c680be8-e2a6-4b5b-9b45-4a0390f39a5a</code>.</li>
+<li>The earlier 14/14 integrated packet, complete affected build, validation
+aspects, and Buildifier passed before the supervisor and final package-byte
+corrections. Those results are preserved as progress evidence but are
+invalidated for final acceptance and must be rerun.</li>
+</ul>
+<h2 id="print-36e78df015b1395e38ecaa4e8a0300ff-independent-review-result">Independent-review result<a class="td-heading-self-link" href="#print-36e78df015b1395e38ecaa4e8a0300ff-independent-review-result" aria-label="Heading self-link"></a></h2><p>The first final review rejected the candidate despite green tests. It found
+that outer timeouts settled before cleanup, a signal was mislabeled as reaping,
+the shared PID publication window made disposal unbounded, inherited pipes
+could delay successful commands, retired generations were not actively
+disposed by shutdown, ripgrep byte fields could masquerade as text, and the
+durable records were stale. The strategy changed from worker-side process
+ownership to parent-owned supervision; every other finding has a direct source
+or regression correction. Fresh review of that new strategy is pending.</p>
+<h2 id="print-36e78df015b1395e38ecaa4e8a0300ff-acceptance-status">Acceptance status<a class="td-heading-self-link" href="#print-36e78df015b1395e38ecaa4e8a0300ff-acceptance-status" aria-label="Heading self-link"></a></h2><ul>
+<li>Criteria 1-8: pass on implementation and existing executable evidence.</li>
+<li>Criterion 9: unverified after the latest source changes; full exact-candidate
+validation and delivery remain.</li>
+<li>Criterion 10: focused regressions pass; fresh adversarial source review is
+still pending.</li>
+</ul>
+<h2 id="print-36e78df015b1395e38ecaa4e8a0300ff-progress-approach-and-process-audit">Progress, approach, and process audit<a class="td-heading-self-link" href="#print-36e78df015b1395e38ecaa4e8a0300ff-progress-approach-and-process-audit" aria-label="Heading self-link"></a></h2><p>Attempt 6 improved compatibility, package completeness, promotion admission,
+and teardown coverage in absolute terms. The repeated late lifecycle findings
+showed that PID publication inside a terminable worker was the wrong ownership
+boundary, not merely an under-tested implementation. Moving execution to the
+parent removes that race and makes cleanup ordering directly observable. The
+highest-leverage remaining work is review and full validation of this new
+boundary, not more feature expansion. The attempt remains open until that
+review accepts one frozen candidate and delivery verifies the same bytes.</p>
+<h2 id="print-36e78df015b1395e38ecaa4e8a0300ff-decision">Decision<a class="td-heading-self-link" href="#print-36e78df015b1395e38ecaa4e8a0300ff-decision" aria-label="Heading self-link"></a></h2><p>Refine within Attempt 6: the review changed an implementation strategy without
+changing the recorded goal or acceptance contract. Do not freeze or deliver
+until fresh review and the complete invalidated regression set pass.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-77fcf0bd7c7ee87d958f5212ddd32844">7 - </h1>
+    
+	<h1 id="print-7af159b26883e4b0abfb93f55428db3c-attempt-7">Attempt 7<a class="td-heading-self-link" href="#print-7af159b26883e4b0abfb93f55428db3c-attempt-7" aria-label="Heading self-link"></a></h1><p><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/">Back to durable goal</a> · <a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/">Attempt history</a></p>
+<h2 id="print-7af159b26883e4b0abfb93f55428db3c-why-attempt-6-was-rejected">Why Attempt 6 was rejected<a class="td-heading-self-link" href="#print-7af159b26883e4b0abfb93f55428db3c-why-attempt-6-was-rejected" aria-label="Heading self-link"></a></h2><p>The user correctly identified that each package&rsquo;s <code>manifest.json</code>,
+content-addressed <code>versions/</code> directory, and active/latest pointers were a
+custom package manager rather than an MCP or Cordis standard. That mechanism
+made reusable source look temporary, duplicated Cordis loader responsibilities,
+and drove much of the worker-generation complexity. Green tests cannot justify
+shipping the wrong extension model.</p>
+<h2 id="print-7af159b26883e4b0abfb93f55428db3c-decision-review">Decision review<a class="td-heading-self-link" href="#print-7af159b26883e4b0abfb93f55428db3c-decision-review" aria-label="Heading self-link"></a></h2><p><strong>Verdict: revise and proceed.</strong> The published DeepSeek Cordis packages provide
+the missing standard mechanisms directly:</p>
+<ul>
+<li><code>@deepseek-ai/cordis-plugin-loader</code> owns runtime entries and lifecycle;</li>
+<li><code>@deepseek-ai/cordis-plugin-include</code> persists entries in <code>cordis.yaml</code> and
+transactionally refreshes them with rollback; and</li>
+<li><code>@deepseek-ai/cordis-plugin-hmr</code> watches normal modules, imports changed code
+before replacement, and restores the prior runtime when reload fails.</li>
+</ul>
+<p>The strongest objection is that HMR is event-driven and failed source reloads
+are logged rather than returned to the file writer. MCP-driven updates must
+therefore retain prior bytes, wait for a correlated reload result, and restore
+the prior source on failure or timeout. Manual external edits retain Cordis
+HMR&rsquo;s normal behavior and diagnostics.</p>
+<h2 id="print-7af159b26883e4b0abfb93f55428db3c-frozen-plan">Frozen plan<a class="td-heading-self-link" href="#print-7af159b26883e4b0abfb93f55428db3c-frozen-plan" aria-label="Heading self-link"></a></h2><ol>
+<li>Pin the exact released Loader, Include, HMR, Timer, and required peer
+dependencies through the project-owned npm lock.</li>
+<li>Replace package manifests and hash-named versions with normal ESM modules:
+reusable modules under <code>projects/mcp_cordis/plugins/</code>, disposable modules
+under <code>out/mcp_cordis/plugins/</code>.</li>
+<li>Make <code>projects/mcp_cordis/cordis.yaml</code> and
+<code>out/mcp_cordis/cordis.yaml</code> the authoritative standard entry lists.</li>
+<li>Mount the official Cordis Loader, two Include trees, Timer, and HMR in the
+stdio server. Keep the stable MCP gateway, workspace helpers, bounded
+process execution, and tool-registration effects as host services.</li>
+<li>Implement MCP define, update, start, stop, remove, and promotion as atomic
+source/config changes followed by Cordis lifecycle acknowledgement and
+rollback. Use Git for reusable history; do not create a second version
+database.</li>
+<li>Replace version-store tests with standard-config, restart, HMR rollback,
+manual-edit reload, and project/scratch promotion tests.</li>
+<li>Run the complete affected test/build/Buildifier packet, obtain a fresh
+independent review of the standard design, then rebase and deliver PR 32.</li>
+</ol>
+<h2 id="print-7af159b26883e4b0abfb93f55428db3c-boundaries">Boundaries<a class="td-heading-self-link" href="#print-7af159b26883e4b0abfb93f55428db3c-boundaries" aria-label="Heading self-link"></a></h2><ul>
+<li>Do not add an MCP Registry <code>server.json</code> unless the server is actually being
+prepared for registry publication; it describes the whole server, not its
+internal Cordis entries.</li>
+<li>Do not retain committed hash-named source snapshots or custom package
+manifests.</li>
+<li>Keep reusable source and config in the project and all disposable modules,
+atomic-write scratch, state, and logs under <code>out/mcp_cordis</code>.</li>
+<li>Keep one normal module per package and one stable entry id per scope.</li>
+<li>Preserve PR 24&rsquo;s scoped <code>projects/agents</code> import and the accepted process
+execution corrections that remain relevant to the in-process host.</li>
+</ul>
+<h2 id="print-7af159b26883e4b0abfb93f55428db3c-acceptance-status">Acceptance status<a class="td-heading-self-link" href="#print-7af159b26883e4b0abfb93f55428db3c-acceptance-status" aria-label="Heading self-link"></a></h2><p>Implementation and working-tree validation are complete; exact post-rebase
+delivery gates remain open. The final architecture adds four narrow host
+guards around the official Cordis services: synchronous activation admission
+to prevent a never-settling <code>apply()</code>, source-token HMR correlation, a private
+stdio protocol stream, and Fiber/invocation-owned Linux process supervision.
+The real stdio regression covers define, inspect, run, invoke, update, failed
+update rollback, stop, remove, logging isolation, and restart recovery.</p>
+<p>Bazel invocation <code>39711671-375a-413f-8a72-e6f9ff892bd3</code> passes all 11 affected
+tests on the rebased implementation after the import-boundary review
+corrections, including Buildifier and all three imported skill configurations.
+Invocation <code>153467fd-e62d-4eab-b260-6754d17fe8e2</code> builds all 26 affected
+targets. Those receipts bind implementation commit <code>0a93e487</code>; the following
+amendments change only this durable goal record, with proportional diff and
+format validation required before publication. Fresh independent review
+accepted durable-record commit <code>c05bd45a</code> with no actionable findings.
+PR 32 was republished at the verified rebased head, its obsolete description
+was replaced, and all three prior review threads were resolved.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-36e8e87748b64dfe90d194514e74e981">8 - </h1>
+    
+	<h1 id="print-c3b79e9af58c966eb8700f5d59fe3333-attempt-8">Attempt 8<a class="td-heading-self-link" href="#print-c3b79e9af58c966eb8700f5d59fe3333-attempt-8" aria-label="Heading self-link"></a></h1><p><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/">Back to durable goal</a> · <a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/">Attempt history</a></p>
+<h2 id="print-c3b79e9af58c966eb8700f5d59fe3333-trigger">Trigger<a class="td-heading-self-link" href="#print-c3b79e9af58c966eb8700f5d59fe3333-trigger" aria-label="Heading self-link"></a></h2><p>The fresh hosted review of the delivered standard-Cordis candidate found three
+valid starter-package defects: the JavaScript search fallback recursively read
+ignored and hidden files when ripgrep was absent, fallback submatch offsets
+used UTF-16 code units instead of ripgrep-compatible UTF-8 bytes, and a bounded
+textual HTTP body could end with a replacement character when the byte limit
+split a multibyte sequence.</p>
+<h2 id="print-c3b79e9af58c966eb8700f5d59fe3333-corrections">Corrections<a class="td-heading-self-link" href="#print-c3b79e9af58c966eb8700f5d59fe3333-corrections" aria-label="Heading self-link"></a></h2><ul>
+<li>The JavaScript fallback now fails closed for directory searches and supports
+only explicitly selected files. This preserves hermetic single-file fallback
+without silently weakening ripgrep&rsquo;s hidden and ignore filtering.</li>
+<li>Fixed-string and regular-expression fallback matches calculate <code>start</code> and
+<code>end</code> from UTF-8 byte lengths.</li>
+<li>Textual HTTP previews discard only an incomplete trailing UTF-8 sequence;
+the raw retained-byte count and truncation signal remain exact.</li>
+<li>Follow-up review found that case-insensitive fixed matching could still use a
+length-changing lowercased index, explicit files did not override globs as
+they do in ripgrep, and unfiltered listing reparsed a malformed scope instead
+of returning the healthy scope with an error.</li>
+<li>Case-insensitive fixed fallback now matches against the original line with a
+Unicode regular expression, explicit files bypass fallback glob filtering,
+and unfiltered listing returns per-scope errors alongside healthy packages.
+Explicitly listing a malformed scope continues to fail directly.</li>
+<li>Final hosted review showed that a valid config with an unavailable module
+still bypassed the malformed-config catch, and bounded reads reported the
+requested range end instead of the last retained line. Unfiltered listing
+now skips every scope whose Include failed to mount, and bounded reads derive
+<code>endLine</code> from retained content.</li>
+<li>Fresh diff-focused correctness scrutiny then found that repeated
+<code>initialize()</code> calls lost the original partial-startup errors. The runtime
+now preserves and clones those errors across idempotent initialization.</li>
+<li>The same scrutiny found that incomplete UTF-8 suffix removal also ran for a
+naturally completed malformed textual body. It now runs only when the local
+byte cap truncates the response; naturally malformed bytes retain the prior
+replacement-character preview.</li>
+<li>The repository&rsquo;s <code>repo-delivery</code> skill now invalidates prior correctness
+verdicts after behavior-changing edits and requires proportional adversarial
+scrutiny in addition to test reruns.</li>
+<li>Exact-thread reconciliation after the final hosted review exposed one older
+unresolved finding and one new finding: the explicit-file regex fallback
+matched UTF-16 surrogate halves, and <code>cordis_define</code> plus <code>cordis_promote</code>
+advertised overwriting operations as non-destructive. Regex fallback now
+uses Unicode scalar mode, and both source-overwriting tools carry the
+destructive MCP hint.</li>
+<li>The next exact-commit review found two more fallback-boundary defects:
+adjacent matches were also emitted as context, and a retained empty line was
+reported like a request past EOF. Fallback search now plans a single ordered
+event stream from all matching lines, and bounded reads track range existence
+independently from textual content.</li>
+</ul>
+<h2 id="print-c3b79e9af58c966eb8700f5d59fe3333-evidence">Evidence<a class="td-heading-self-link" href="#print-c3b79e9af58c966eb8700f5d59fe3333-evidence" aria-label="Heading self-link"></a></h2><ul>
+<li>Focused invocation <code>b73ce3b4-bfb6-4081-b84f-29c3f763b3a4</code> passes both
+corrected starter-package test targets.</li>
+<li>Complete MCP test invocation <code>93845f08-cd10-4dfb-88c5-034497dea58a</code>
+passes all 7 tests; build invocation
+<code>d7716a48-9509-44fe-9e37-b5c44904fffd</code> builds all 16 targets.</li>
+<li>Buildifier invocation <code>1fb561cc-d336-49db-813f-de26b7fedbe4</code> passes.</li>
+<li>Regression cases prove directory fallback fails closed while an explicitly
+selected hidden file remains available, both fallback engines report byte
+offsets for <code>éneedle</code>, and a one-byte preview of <code>é</code> returns an empty valid
+UTF-8 prefix rather than U+FFFD.</li>
+<li>Follow-up focused invocation <code>c07704be-cdf8-4045-a0c0-4626ebc0d1e7</code>
+passes both affected targets. Complete test invocation
+<code>3fbaa4e1-8ea1-4b3f-a533-51e1ad01f87b</code> passes all 7 tests, build invocation
+<code>f87e45b6-765e-49c8-a618-cd2eb1efa1ad</code> builds all 16 targets, and Buildifier
+invocation <code>8542838d-92ae-4999-b1e8-fac631629f6f</code> passes.</li>
+<li>Final-cycle focused invocation <code>99866999-c31d-457f-b64b-c7a15073e7a2</code>
+passes both affected MCP tests. Combined affected invocation
+<code>e86a5d1c-cadf-4ff6-9647-3e1050e461e6</code> passes all 8 MCP and skill tests;
+<code>083fbf55-851e-4db4-b8e5-e5871c874faa</code> builds all 19 affected targets.
+Skill quick validation and Buildifier both pass.</li>
+<li>Focused starter invocation <code>e80439df-bddd-4a76-b9e1-be6c7f1ed649</code>
+distinguishes a cap-split multibyte prefix from a naturally completed
+malformed textual body.</li>
+<li>Exact aggregate validation exposed timing-sensitive evidence: a wall-clock
+admission bound failed under load, and the expected invocation timeout could
+reject before its assertion was attached. The test now asserts the wrapped
+synchronous-admission semantics and attaches the expected rejection before
+waiting for its PID fixture. Invocation
+<code>e7d69598-b843-4da4-833b-e024d406b8ca</code> passes three consecutive runs.</li>
+<li>A later loaded aggregate run exposed a real HMR rollback race. Cordis restores
+the prior module cache after a failed import without emitting a reload event;
+the host unnecessarily waited for a second filesystem reload that could be
+absent. Rollback now accepts the already-restored prior source marker and
+waits for HMR only when the failed candidate actually reached the cache.
+Invocation <code>5f9b49e0-d3d3-4f9e-84ec-602dfbe38c77</code> passes three runs.</li>
+<li>Focused invocation <code>132e2f33-837c-40b2-83b5-4b06ceadfd0f</code> passes the
+Unicode fallback and real-stdio MCP annotation regressions.</li>
+<li>Complete affected invocation <code>b19d303e-0aca-4097-a191-e81015dc2982</code>
+passes all 8 MCP and skill tests; build invocation
+<code>1c8aa274-dd72-4e6f-9491-de5e283b2c5c</code> builds all 19 targets, and
+Buildifier invocation <code>34f6f5c7-7f44-478b-b939-63ac03c3bbb1</code> passes.</li>
+<li>Focused invocation <code>2528b6ee-7d82-48c9-a607-298a4cef0b9b</code> proves adjacent
+matches remain ordered match events and empty retained lines report their
+actual endpoint while a request past EOF reports <code>null</code>.</li>
+</ul>
+<h2 id="print-c3b79e9af58c966eb8700f5d59fe3333-verdict">Verdict<a class="td-heading-self-link" href="#print-c3b79e9af58c966eb8700f5d59fe3333-verdict" aria-label="Heading self-link"></a></h2><p>Accept locally. Publish the exact follow-up correction commit, resolve the
+hosted review threads, and verify the remote head before final handoff.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9e600649cce1db583a0259459afc3a54">9 - </h1>
+    
+	<h1 id="print-656c910bd6bdd28724b188ee6c7f884f-attempt-9">Attempt 9<a class="td-heading-self-link" href="#print-656c910bd6bdd28724b188ee6c7f884f-attempt-9" aria-label="Heading self-link"></a></h1><p><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/">Back to durable goal</a> · <a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/">Attempt history</a></p>
+<h2 id="print-656c910bd6bdd28724b188ee6c7f884f-trigger">Trigger<a class="td-heading-self-link" href="#print-656c910bd6bdd28724b188ee6c7f884f-trigger" aria-label="Heading self-link"></a></h2><p>The user rejected the growing HMR race-handling layer and explicitly requested
+the simplest robust way for an MCP server to load DeepSeek/Cordis plugins. The
+published parent is <code>bc4e5ae97ef9ea968c01b1b2a55403ae032a6a8d</code>. An
+unpublished polling experiment is rejected rather than promoted.</p>
+<h2 id="print-656c910bd6bdd28724b188ee6c7f884f-hypothesis">Hypothesis<a class="td-heading-self-link" href="#print-656c910bd6bdd28724b188ee6c7f884f-hypothesis" aria-label="Heading self-link"></a></h2><p>Atomic persistence plus the official Cordis Include and HMR services is the
+smallest reliable boundary. If MCP source mutations stop claiming synchronous
+activation or transactional on-disk rollback, the runtime can delete its
+source-marker protocol and every dependency on Loader internals while still
+loading, invoking, and eventually hot-reloading normal Cordis plugins without
+restarting the MCP connection.</p>
+<h2 id="print-656c910bd6bdd28724b188ee6c7f884f-frozen-plan">Frozen plan<a class="td-heading-self-link" href="#print-656c910bd6bdd28724b188ee6c7f884f-frozen-plan" aria-label="Heading self-link"></a></h2><ol>
+<li>Keep standard <code>cordis.yaml</code>, ordinary <code>plugins/*.mjs</code>, and the two project
+and <code>out/mcp_cordis</code> scopes.</li>
+<li>Keep the fixed MCP list/invoke gateway and the existing package context API.</li>
+<li>Validate module syntax before an MCP write and use atomic file replacement.</li>
+<li>For an existing running module, return after persistence with
+<code>persisted: true</code>, <code>sourceChanged: true</code>, and <code>activation: &quot;pending&quot;</code>;
+official Cordis HMR owns eventual activation. Do not claim that every
+evaluation or <code>apply()</code> failure restores the prior live entry.</li>
+<li>Keep public Include refresh for entry-list changes, because it is the
+official transactional API for starting, stopping, adding, and removing
+entries.</li>
+<li>Delete injected source markers, HMR acknowledgement waiters, polling,
+Loader <code>loadCache</code> inspection, and MCP-owned source rollback.</li>
+<li>Update documentation and tests so success means persisted/configured, while
+live update is verified by bounded eventual observation.</li>
+<li>Retain and validate the two pending <code>repo_context</code> review corrections for
+ordered context events and empty-line endpoints.</li>
+<li>Register the server in the trusted workspace&rsquo;s <code>.codex/config.toml</code>. Use a
+worktree-resolving launcher and Bazel&rsquo;s <code>run --script_path</code> handoff so the
+long-lived MCP does not retain the Bazel output-base lock.</li>
+<li>Rebase onto <code>d29f9d471ea467e8dfc75db4eedeedbbae43dc2d</code>, preserve its
+<code>projects/goal</code> redesign, and discard the superseded in-place goal-skill
+edits rather than replaying them.</li>
+</ol>
+<h2 id="print-656c910bd6bdd28724b188ee6c7f884f-planned-review-packet">Planned review packet<a class="td-heading-self-link" href="#print-656c910bd6bdd28724b188ee6c7f884f-planned-review-packet" aria-label="Heading self-link"></a></h2><ul>
+<li>Focused runtime, stdio, and <code>repo_context</code> tests.</li>
+<li>Complete <code>//projects/mcp_cordis:all</code> tests and build.</li>
+<li><code>repo-delivery</code> skill tests and root Buildifier.</li>
+<li>Fresh diff-focused scrutiny of update failure, disabled-entry, promotion,
+restart, shutdown, and watcher timing paths.</li>
+<li>Independent review and exact PR 32 thread reconciliation before delivery.</li>
+</ul>
+<h2 id="print-656c910bd6bdd28724b188ee6c7f884f-current-verdict">Current verdict<a class="td-heading-self-link" href="#print-656c910bd6bdd28724b188ee6c7f884f-current-verdict" aria-label="Heading self-link"></a></h2><p>Refine. Removing wrapper-side acknowledgement machinery was correct, but an
+independent reproduction proved that unmodified HMR 1.0.16 can lose a source
+change arriving during an in-flight reload. Attempt 10 keeps the thin wrapper
+and moves serialization into a focused, reproducibly pinned dependency patch.
+The separate delivery-adapter refusal still prevents the history rewrite.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c2f56977cc0a7e3f8d8467cf4f11ba75">10 - </h1>
+    
+	<h1 id="print-2bd193a2fcb18aec8a831a6b78df8084-attempt-10">Attempt 10<a class="td-heading-self-link" href="#print-2bd193a2fcb18aec8a831a6b78df8084-attempt-10" aria-label="Heading self-link"></a></h1><p><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/">Back to durable goal</a> · <a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/">Attempt history</a></p>
+<h2 id="print-2bd193a2fcb18aec8a831a6b78df8084-trigger">Trigger<a class="td-heading-self-link" href="#print-2bd193a2fcb18aec8a831a6b78df8084-trigger" aria-label="Heading self-link"></a></h2><p>Independent review of Attempt 9 reproduced a lost update in pinned
+<code>@deepseek-ai/cordis-plugin-hmr</code> 1.0.16. A slow top-level-await replacement
+followed by a second source write left the latest bytes on disk while the
+earlier generation remained live. The public HMR surface has no module-failure
+event, so a wrapper-side single-flight gate cannot be both safe and
+recoverable.</p>
+<h2 id="print-2bd193a2fcb18aec8a831a6b78df8084-hypothesis">Hypothesis<a class="td-heading-self-link" href="#print-2bd193a2fcb18aec8a831a6b78df8084-hypothesis" aria-label="Heading self-link"></a></h2><p>The narrowest robust correction belongs in HMR&rsquo;s own reload scheduler. A
+standard pnpm dependency patch can serialize <code>partialReload()</code> calls, snapshot
+each observed change set, and drain changes arriving during an in-flight
+reload. <code>mcp_cordis</code> then remains a thin persistence and invocation gateway
+without source markers, Loader-cache inspection, polling, or acknowledgement
+state.</p>
+<h2 id="print-2bd193a2fcb18aec8a831a6b78df8084-frozen-plan">Frozen plan<a class="td-heading-self-link" href="#print-2bd193a2fcb18aec8a831a6b78df8084-frozen-plan" aria-label="Heading self-link"></a></h2><ol>
+<li>Keep the standard Cordis Loader, Include, Timer, and HMR services and normal
+<code>cordis.yaml</code> plus ESM plugin files.</li>
+<li>Patch the exact HMR 1.0.16 artifact through pnpm <code>patchedDependencies</code>.
+Track one module-refresh task, snapshot its stashed URLs before each reload,
+and drain any URLs observed while that reload is running.</li>
+<li>Patch both the published JavaScript and TypeScript source shipped in the
+package; bind the patch through the generated lockfile and Bazel module
+extension data.</li>
+<li>Add explicit release-gated overlapping-update regressions for slow
+top-level module evaluation and slow asynchronous <code>apply()</code> activation.</li>
+<li>Refresh a disabled entry&rsquo;s exact cached module through HMR before enabling
+it, so activation returns only after the latest persisted source is live.</li>
+<li>Adopt the fetched base&rsquo;s role-based layout: command files under
+<code>cmd/mcp_cordis</code>, private implementation under <code>internal</code>, and the separate
+suite under <code>test</code>.</li>
+<li>Preserve the two accepted <code>repo_context</code> review corrections and the
+worktree-local launcher.</li>
+<li>Stop before Git history mutation until the delivery adapter has an
+authorized, guarded path for the nine-commit feature range.</li>
+</ol>
+<h2 id="print-2bd193a2fcb18aec8a831a6b78df8084-current-evidence">Current evidence<a class="td-heading-self-link" href="#print-2bd193a2fcb18aec8a831a6b78df8084-current-evidence" aria-label="Heading self-link"></a></h2><ul>
+<li>The package registry and upstream repository both expose 1.0.16 as the
+latest official HMR release; its source still invokes untracked concurrent
+<code>partialReload()</code> work and clears the shared stash after one successful run.</li>
+<li><code>git apply --check</code> accepts <code>patches/hmr@1.0.16.patch</code> against the exact
+resolved package bytes. Its SHA-256 and lockfile patch hash are both
+<code>ec800d86298faacc86c7717ffa1dce7c28116ab1393b8abc198be6ac02c38489</code>.</li>
+<li>The patch serializes module reloads through complete Cordis Fiber cleanup
+and activation, drains newly stashed URLs, preserves and retries changes
+after unexpected scheduler failures, and declares its public refresh API in
+the shipped TypeScript declarations.</li>
+<li>Bazel invocation <code>ac79a8e4-f5d9-4dd7-a821-29bce3d8ece6</code> passes the focused
+runtime suite with explicit top-level-evaluation and asynchronous-apply
+overlap gates, failed-apply rollback and recovery, manual-edit, and disabled
+activation regressions.</li>
+<li>Bazel invocation <code>65c1932a-896b-470d-9462-086dd93beaff</code> passes ten runs each
+of <code>runtime_test</code> and <code>starter_packages_test</code>.</li>
+<li>Bazel invocations <code>6490dd57-49e0-4558-b280-f5625db07208</code>,
+<code>218e5797-b2d7-44bc-aded-f5df8139ca1c</code>, and
+<code>09d4ec2c-aac1-4509-8579-5ef8c5eebe39</code> pass the complete project tests,
+complete project build, and root Buildifier check respectively.</li>
+<li>Final independent HMR review accepts the patch identity, stashed-change
+draining, complete Fiber cleanup join, public declarations, causal overlap
+tests, rollback and recovery, and disabled-entry activation behavior. Its
+sole remaining finding was the corrected README publication-order wording.</li>
+<li>The checked-in workspace launcher completed MCP initialization and returned
+all ten gateway tools while concurrent Bazel query invocation
+<code>7739c14e-1b22-40c7-94af-b81143e84d4a</code> completed successfully; SIGINT then
+produced a clean server shutdown.</li>
+<li>Preliminary current-tree Bazel invocations
+<code>95d37231-63f9-44f6-9eee-3f0fe8fb4107</code>,
+<code>d70f61a2-57e5-4ce9-b8fd-27b06bd02a6d</code>, and
+<code>1e186c82-3bcd-4048-a534-fe747e1cf79c</code> pass the complete affected test
+packet (10/10), affected build packet, and root Buildifier check.</li>
+<li>Guarded delivery inspection found local and remote feature OID
+<code>bc4e5ae97ef9ea968c01b1b2a55403ae032a6a8d</code>, base OID
+<code>d29f9d471ea467e8dfc75db4eedeedbbae43dc2d</code>, same-repository PR 32, SSH
+transport, and nine linear commits all authored and committed by the task
+bot. Its sole refusal is version 1&rsquo;s unconditional multi-commit range
+refusal; the fetched base contains the same limitation and no explicit
+consolidation authorization.</li>
+<li>The user then explicitly authorized extending the adapter. The new
+<code>prepare --consolidate &lt;exact-head&gt;</code> path retains every other refusal and
+requires a single-parent chain, identical author and committer identities,
+the oldest commit&rsquo;s ownership marker, unchanged pull-request projection,
+and signature preservation. It creates one aggregate commit while binding
+the original remote head into the normal publication receipt.</li>
+<li>Bazel invocations <code>574dadd5-51b1-443e-b8c2-50ca5d257eb2</code> and
+<code>030a8bb4-2a22-4ece-b632-b3c75572bcee</code> pass the complete adapter suite once,
+then its Go, skill-validation, and root Buildifier targets three times.</li>
+<li>Independent adapter review found that the first implementation required an
+extra staged edit and therefore could not consolidate an already-clean
+range. The corrected gate permits an unchanged index only after exact
+consolidation evidence; parent-to-tree scope validation still rejects an
+empty aggregate. A clean <code>--path</code> integration case proves tree preservation
+and one final commit. Bazel invocation
+<code>0d715375-6a8d-4269-ad3e-f8a002888808</code> passes the corrected suite, and the
+independent re-review accepts it with no remaining findings.</li>
+<li>Upstream incorporation review preserves the new <code>projects/goal</code> project,
+drops the deleted predecessor skill under <code>projects/agents</code>, adopts the
+role-based MCP layout, and adds root-consumer visibility to the branch-owned
+<code>decision-review</code> skill. The root discovery-link entry must be added after
+the new base is applied.</li>
+<li>After that visibility correction, Bazel invocations
+<code>6099d90d-0ade-43b2-b50b-8f7050c26c32</code> and
+<code>7f4b37a4-b970-46ea-bc76-b4a60aeeab59</code> pass the focused skill validation and
+root Buildifier check; <code>git diff --check</code> also passes.</li>
+</ul>
+<h2 id="print-2bd193a2fcb18aec8a831a6b78df8084-current-verdict">Current verdict<a class="td-heading-self-link" href="#print-2bd193a2fcb18aec8a831a6b78df8084-current-verdict" aria-label="Heading self-link"></a></h2><p>Proceed. The dependency-layer correction addresses the reproduced race and
+failure recovery at Cordis&rsquo;s owning lifecycle boundary while the MCP wrapper
+remains a thin persistence and invocation gateway. The complete local project
+packet and focused independent review pass. Exact-candidate validation,
+rebase, publication, and hosted-thread reconciliation remain open.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-dafc9ba3cb0e1a032751b2be98d8797d">11 - </h1>
+    
+	<h1 id="print-764aab118f18f879d45c7fbbc9b2af2a-attempt-11-exact-consolidated-rebase">Attempt 11: exact consolidated rebase<a class="td-heading-self-link" href="#print-764aab118f18f879d45c7fbbc9b2af2a-attempt-11-exact-consolidated-rebase" aria-label="Heading self-link"></a></h1><p><a href="/docs/projects/mcp_cordis/goals/runtime_extensions/attempts/">Back to attempt history</a> | <a href="/docs/projects/mcp_cordis/goals/runtime_extensions/">Back to durable goal</a></p>
+<h2 id="print-764aab118f18f879d45c7fbbc9b2af2a-objective">Objective<a class="td-heading-self-link" href="#print-764aab118f18f879d45c7fbbc9b2af2a-objective" aria-label="Heading self-link"></a></h2><p>Replace the nine task-owned feature commits with one aggregate commit, rebase
+that exact candidate onto the current remote base, preserve the incoming goal
+and skill-discovery layouts, and establish publish-ready evidence without
+bypassing <code>repo_delivery</code>.</p>
+<h2 id="print-764aab118f18f879d45c7fbbc9b2af2a-reconciliation">Reconciliation<a class="td-heading-self-link" href="#print-764aab118f18f879d45c7fbbc9b2af2a-reconciliation" aria-label="Heading self-link"></a></h2><ul>
+<li>The fetched base advanced to
+<code>63e7b9f0be1e054373415914ff3d2ea2282aa3da</code> and added the reusable
+<code>projects/goal</code> project, per-skill discovery links, <code>decision-review</code>, and
+exact-head remote-review waiting rules.</li>
+<li>The old agent-local goal skill remains deleted. The durable MCP goal stays
+under <code>projects/mcp_cordis/goals/runtime_extensions</code>.</li>
+<li>The branch keeps the upstream root discovery target, including
+<code>decision-review</code> and <code>projects/goal/skills/goal</code>, and combines the incoming
+review-waiting policy with the branch&rsquo;s correctness-revalidation policy.</li>
+</ul>
+<h2 id="print-764aab118f18f879d45c7fbbc9b2af2a-delivery-adapter-corrections">Delivery adapter corrections<a class="td-heading-self-link" href="#print-764aab118f18f879d45c7fbbc9b2af2a-delivery-adapter-corrections" aria-label="Heading self-link"></a></h2><p>The authorized consolidation path exposed four fail-closed edge cases during
+the real rebase:</p>
+<ol>
+<li>Existing PR text must match the requested aggregate projection, rather
+than the obsolete first commit&rsquo;s projection.</li>
+<li>Explicit staging must handle deleted paths, partial directory deletions,
+and a tracked symlink replaced by a directory.</li>
+<li>Patch files need the standard repository-wide whitespace exceptions for
+structural context prefixes.</li>
+<li>A rebased aggregate path may disappear only when the prior candidate and
+new base contain the exact same Git tree entry. The receipt then records
+the reduced path set; added paths, non-identical loss, and an empty
+aggregate remain refusals.</li>
+</ol>
+<p>Each case has focused integration coverage. Every failed preparation restored
+the original branch, index, and worktree before the next correction.</p>
+<h2 id="print-764aab118f18f879d45c7fbbc9b2af2a-exact-candidate-evidence">Exact candidate evidence<a class="td-heading-self-link" href="#print-764aab118f18f879d45c7fbbc9b2af2a-exact-candidate-evidence" aria-label="Heading self-link"></a></h2><ul>
+<li><code>repo_delivery prepare --consolidate</code> produced one commit on the fetched
+base. The first exact code candidate before the final adapter-and-record
+update was
+<code>f1c313b0920cb92f2d643dcb5c7d79ab364df058</code>.</li>
+<li>Bazel query invocation <code>5ad9400e-f7b8-4688-9b8c-e962f3de8e66</code> discovered
+the affected MCP, delivery, and skill targets.</li>
+<li>Bazel test invocation <code>13588b19-1f8a-43a7-8006-f9d5d4652670</code> passed all
+12 affected tests, including Buildifier and discovery-link validation.</li>
+<li>Bazel build invocation <code>5863ac24-3bb2-47be-99fb-50141e933018</code> passed all
+29 affected targets.</li>
+<li>The real launcher initialized, listed all ten gateway tools, and remained
+live while Bazel query invocation
+<code>4637f187-d05e-4905-8153-18fca8644ea1</code> completed. SIGINT then terminated
+the server as expected.</li>
+<li><code>git diff --check</code> passed and the worktree remained clean after validation.</li>
+</ul>
+<h2 id="print-764aab118f18f879d45c7fbbc9b2af2a-verdict">Verdict<a class="td-heading-self-link" href="#print-764aab118f18f879d45c7fbbc9b2af2a-verdict" aria-label="Heading self-link"></a></h2><p>The aggregate was published as a single commit on PR 32 and its delivery
+receipt verified the local tree, remote feature ref, current base ancestry,
+and PR projection. The exact-head hosted review found three additional issues:</p>
+<ul>
+<li>repository reads reopened a checked symlink through its lexical alias;</li>
+<li>permanent <code>/proc</code> inspection failures could prevent shutdown from settling;</li>
+<li>the process-tree timeout regression assumed Node could start within 100 ms.</li>
+</ul>
+<p>The final correction reads through a canonical, no-follow file handle and
+verifies that handle through <code>/proc/self/fd</code> before consuming bytes, turns
+repeated process-inspection failures into a bounded <code>EXEC_CLEANUP</code> result, and
+uses a startup-safe timeout in the process-tree regression. The full MCP test
+and build packets pass, and both focused targets pass three repeated runs.
+The review threads are reconciled through the receipt-bound delivery adapter.
+The follow-up exact-head review found the same replaceable-path class in
+<code>git_worktree</code>: discovery verified one repository directory, but later Git
+commands reopened its lexical path. Git discovery and every subsequent
+command now use <code>/proc/&lt;pid&gt;/fd/&lt;fd&gt;</code> paths backed by verified open directory
+handles, while the subprocess working directory remains workspace-local.
+Focused mock coverage checks every Git <code>-C</code> path and the real Cordis starter
+package integration passes. The next pass found the same class in
+<code>repo_context</code>&rsquo;s ripgrep and Git metadata branches; both now use verified
+descriptor paths for the complete subprocess lifetime, and directory listing
+uses the selected directory handle as well. Attempt 11 is accepted and the
+goal is complete. The terminal exact-head review then identified that the
+JavaScript regular-expression fallback could both block the MCP event loop on
+pathological backtracking and disagree with ripgrep&rsquo;s Unicode semantics. The
+fallback now fails closed for regex requests when ripgrep is unavailable;
+bounded fixed-string search remains available. Focused and complete MCP test
+and build packets pass after that correction. The next exact-head pass found
+that replacement decoding of invalid UTF-8 also changed fixed-search raw byte
+offsets. The fallback now fails closed for such files as well, leaving raw-byte
+search semantics to ripgrep; the focused, complete test, and build packets
+again pass.</p>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        Built with <a href="https://gohugo.io/">Hugo 0.165.0</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>
