@@ -45,13 +45,13 @@ HypothesisThe narrowest robust correction belongs in HMR’s own reload schedule
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
-		<meta property="article:modified_time" content="2026-09-05T20:57:59+03:00">
+		<meta property="article:modified_time" content="2026-09-05T21:49:00+03:00">
 
 	<meta itemprop="name" content="Alwaldend">
 	<meta itemprop="description" content="Attempt 10Back to durable goal · Attempt history
 TriggerIndependent review of Attempt 9 reproduced a lost update in pinned @deepseek-ai/cordis-plugin-hmr 1.0.16. A slow top-level-await replacement followed by a second source write left the latest bytes on disk while the earlier generation remained live. The public HMR surface has no module-failure event, so a wrapper-side single-flight gate cannot be both safe and recoverable.
 HypothesisThe narrowest robust correction belongs in HMR’s own reload scheduler. A standard pnpm dependency patch can serialize partialReload() calls, snapshot each observed change set, and drain changes arriving during an in-flight reload. mcp_cordis then remains a thin persistence and invocation gateway without source markers, Loader-cache inspection, polling, or acknowledgement state.">
-	<meta itemprop="dateModified" content="2026-09-05T20:57:59+03:00">
+	<meta itemprop="dateModified" content="2026-09-05T21:49:00+03:00">
 	<meta itemprop="wordCount" content="812">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
@@ -81,9 +81,6 @@ HypothesisThe narrowest robust correction belongs in HMR’s own reload schedule
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/projects/"><span>Projects</span></a>
       </li>
       <li class="nav-item td-navbar__light-dark-menu">
         <div class="td-light-dark-menu dropdown"><svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -151,7 +148,7 @@ HypothesisThe narrowest robust correction belongs in HMR’s own reload schedule
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.1f356a2ab7475879a5e255d2a0c9bf3e.json"
+    data-offline-search-index-json-src="/offline-search-index.1a1c7919aef16a468fd4ea6801f59ec2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -176,7 +173,7 @@ HypothesisThe narrowest robust correction belongs in HMR’s own reload schedule
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.1f356a2ab7475879a5e255d2a0c9bf3e.json"
+    data-offline-search-index-json-src="/offline-search-index.1a1c7919aef16a468fd4ea6801f59ec2.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
