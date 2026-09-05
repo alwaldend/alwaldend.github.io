@@ -45,13 +45,13 @@ Exact inputs Parent checkpoint: task-start state of branch t3code/runtime-modifi
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
-		<meta property="article:modified_time" content="2026-09-05T22:21:49+03:00">
+		<meta property="article:modified_time" content="2026-09-05T22:41:15+03:00">
 
 	<meta itemprop="name" content="Alwaldend">
 	<meta itemprop="description" content="Attempt 1Back to durable goal · Attempt history
 HypothesisA small adapter around @deepseek-ai/cordis@4.0.1 can provide durable, transactional runtime packages behind a fixed MCP stdio surface without embedding DeepSeek Harness or restarting the MCP connection.
 Exact inputs Parent checkpoint: task-start state of branch t3code/runtime-modifiable-plugin Cordis: @deepseek-ai/cordis@4.0.1 MCP server/client: @modelcontextprotocol/server@2.0.0 and @modelcontextprotocol/client@2.0.0 Node: repository-pinned Node 24.13.0 Package source contract: one import-free JavaScript expression returning a Cordis plugin with apply(ctx) Candidate plan Add an ordinary Bazel package with a dedicated exact pnpm lock. Persist definitions as content-addressed immutable source plus atomic manifests under explicit project and scratch roots. Evaluate each generation in a worker, mount it through a real Cordis Context and Fiber, and register handlers through Cordis effects. Activate transactionally: prove the candidate ready, swap the active pointer, drain in-flight calls, then dispose the prior Fiber exactly once. Expose fixed MCP tools for list, inspect, define, run/reload, invoke, stop, remove, and promote; never rely on dynamic MCP schema refresh. Seed and execute repo_context, git_worktree, and network_probe through the same runtime path. Review packet Explicit (scope, name) identities prevent hidden scratch/project shadowing. Workspace root is an explicit CLI argument or BUILD_WORKSPACE_DIRECTORY, never inferred from a runfiles cwd. A failed candidate never changes the active manifest or runtime pointer. Package stdout/stderr cannot corrupt MCP stdout. Disposable state remains under ignored out/mcp_cordis; reusable source is public project code. VerdictRefine. Candidate c9300c9887104777c8915e3d4f390196604e9bd18497bbec319415d1a4ad057f proved the architecture but failed acceptance criterion 7.">
-	<meta itemprop="dateModified" content="2026-09-05T22:21:49+03:00">
+	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
 	<meta itemprop="wordCount" content="599">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
@@ -59,8 +59,8 @@ Exact inputs Parent checkpoint: task-start state of branch t3code/runtime-modifi
 	<meta name="twitter:description" content="Attempt 1Back to durable goal · Attempt history
 HypothesisA small adapter around @deepseek-ai/cordis@4.0.1 can provide durable, transactional runtime packages behind a fixed MCP stdio surface without embedding DeepSeek Harness or restarting the MCP connection.
 Exact inputs Parent checkpoint: task-start state of branch t3code/runtime-modifiable-plugin Cordis: @deepseek-ai/cordis@4.0.1 MCP server/client: @modelcontextprotocol/server@2.0.0 and @modelcontextprotocol/client@2.0.0 Node: repository-pinned Node 24.13.0 Package source contract: one import-free JavaScript expression returning a Cordis plugin with apply(ctx) Candidate plan Add an ordinary Bazel package with a dedicated exact pnpm lock. Persist definitions as content-addressed immutable source plus atomic manifests under explicit project and scratch roots. Evaluate each generation in a worker, mount it through a real Cordis Context and Fiber, and register handlers through Cordis effects. Activate transactionally: prove the candidate ready, swap the active pointer, drain in-flight calls, then dispose the prior Fiber exactly once. Expose fixed MCP tools for list, inspect, define, run/reload, invoke, stop, remove, and promote; never rely on dynamic MCP schema refresh. Seed and execute repo_context, git_worktree, and network_probe through the same runtime path. Review packet Explicit (scope, name) identities prevent hidden scratch/project shadowing. Workspace root is an explicit CLI argument or BUILD_WORKSPACE_DIRECTORY, never inferred from a runfiles cwd. A failed candidate never changes the active manifest or runtime pointer. Package stdout/stderr cannot corrupt MCP stdout. Disposable state remains under ignored out/mcp_cordis; reusable source is public project code. VerdictRefine. Candidate c9300c9887104777c8915e3d4f390196604e9bd18497bbec319415d1a4ad057f proved the architecture but failed acceptance criterion 7.">
-<link rel="preload" href="/scss/main.min.209762589d626b464ddf2f8546ad40190493e3455b145c1603abeb42bd6850cf.css" as="style" integrity="sha256-IJdiWJ1ia0ZN3y&#43;FRq1AGQST40VbFFwWA6vrQr1oUM8=" crossorigin="anonymous">
-<link href="/scss/main.min.209762589d626b464ddf2f8546ad40190493e3455b145c1603abeb42bd6850cf.css" rel="stylesheet" integrity="sha256-IJdiWJ1ia0ZN3y&#43;FRq1AGQST40VbFFwWA6vrQr1oUM8=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
+<link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -148,7 +148,7 @@ Exact inputs Parent checkpoint: task-start state of branch t3code/runtime-modifi
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.e6f69148da6523cdd5b278dfd287d597.json"
+    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -173,7 +173,7 @@ Exact inputs Parent checkpoint: task-start state of branch t3code/runtime-modifi
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.e6f69148da6523cdd5b278dfd287d597.json"
+    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
