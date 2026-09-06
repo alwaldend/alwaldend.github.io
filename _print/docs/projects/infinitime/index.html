@@ -34,22 +34,22 @@
 <meta name="robots" content="noindex, nofollow">
 
 <title>Infinitime | Alwaldend</title>
-<meta name="description" content="Fork of InfiniTimeOrg/InfiniTime">
+<meta name="description" content="InfiniTime firmware fork with a text watchface and Pomodoro app">
 <meta property="og:url" content="https://alwaldend.com/docs/projects/infinitime/">
 	<meta property="og:site_name" content="Alwaldend">
 	<meta property="og:title" content="Infinitime">
-	<meta property="og:description" content="Fork of InfiniTimeOrg/InfiniTime">
+	<meta property="og:description" content="InfiniTime firmware fork with a text watchface and Pomodoro app">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="website">
 
 	<meta itemprop="name" content="Infinitime">
-	<meta itemprop="description" content="Fork of InfiniTimeOrg/InfiniTime">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
-	<meta itemprop="wordCount" content="36">
+	<meta itemprop="description" content="InfiniTime firmware fork with a text watchface and Pomodoro app">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="wordCount" content="166">
 	<meta itemprop="keywords" content="Embedded,Fork">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Infinitime">
-	<meta name="twitter:description" content="Fork of InfiniTimeOrg/InfiniTime">
+	<meta name="twitter:description" content="InfiniTime firmware fork with a text watchface and Pomodoro app">
 <link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
 <link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
 <script
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -170,7 +170,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Infinitime</h1>
-<div class="lead">Fork of InfiniTimeOrg/InfiniTime</div>
+<div class="lead">InfiniTime firmware fork with a text watchface and Pomodoro app</div>
 
 
 
@@ -215,7 +215,9 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <h2 id="print-f13f849d797f44328675f93ebba1c108-links">Links<a class="td-heading-self-link" href="#print-f13f849d797f44328675f93ebba1c108-links" aria-label="Heading self-link"></a></h2><ul>
+      <p>This InfiniTime firmware fork adds a text watchface and a Pomodoro app. The
+repository packages the pinned firmware source and its build dependencies.</p>
+<h2 id="print-f13f849d797f44328675f93ebba1c108-links">Links<a class="td-heading-self-link" href="#print-f13f849d797f44328675f93ebba1c108-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Source code: <a href="https://github.com/alwaldend/src/tree/master/projects/infinitime">https://github.com/alwaldend/src/tree/master/projects/infinitime</a></li>
 <li>Fork code: <a href="https://github.com/alwaldend/com_github_infinitimeorg_infinitime">https://github.com/alwaldend/com_github_infinitimeorg_infinitime</a></li>
 <li>Upstream code: <a href="https://github.com/InfiniTimeOrg/InfiniTime">https://github.com/InfiniTimeOrg/InfiniTime</a></li>
@@ -225,7 +227,18 @@ This is the multi-page printable view of this section.
 <li>Extra app: <code>Pomodoro</code></li>
 <li>C++, embedded</li>
 </ul>
-<h2 id="print-f13f849d797f44328675f93ebba1c108-usage">Usage<a class="td-heading-self-link" href="#print-f13f849d797f44328675f93ebba1c108-usage" aria-label="Heading self-link"></a></h2><ul>
+<h2 id="print-f13f849d797f44328675f93ebba1c108-usage">Usage<a class="td-heading-self-link" href="#print-f13f849d797f44328675f93ebba1c108-usage" aria-label="Heading self-link"></a></h2><p>The root workspace declares the pinned firmware with <code>use_repo_rule</code> in
+<code>include.MODULE.bazel</code>, preserving recursive Git submodules and the CMake
+toolchain patch. Firmware source is fetched when referenced, rather than
+during module resolution. Its Python/npm lockfiles and SDK archives retain
+the upstream pins; Python and Node runtimes use the root workspace toolchains.
+The project re-exports pip and npm with separate extension identities so
+unrelated Python/npm targets do not fetch firmware to read those lockfiles.
+The isolated pip extension declares the Linux x86_64 host platform used by
+the pinned ARM compiler archive.
+<code>bazel mod deps</code> deliberately evaluates all extensions and can still fetch it.</p>
+<p>Validate the firmware with <code>bazel test //projects/infinitime:build_test</code>.</p>
+<ul>
 <li>Install <a href="https://gadgetbridge.org/">Gadgetbridge</a></li>
 <li>Download the firmware:
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oras pull docker.io/alwaldend/src:projects_infinitime_pinetime_mcuboot_app_dfu_1_15_0_zip_head
@@ -252,7 +265,7 @@ This is the multi-page printable view of this section.
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a2d385a71a9cd7197c0dfec3ac67084e">1 - Releases</h1>
     <div class="lead">Releases</div>
@@ -278,7 +291,7 @@ This is the multi-page printable view of this section.
         data-bs-target="#print-9be7b9ff9d319390ae3ad05c12e45f59-release-24269daeeec4e19e63bc24e18f50dcfc-list-0_collapse"
         aria-expanded="false"
         aria-controls="print-9be7b9ff9d319390ae3ad05c12e45f59-release-24269daeeec4e19e63bc24e18f50dcfc-list-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">26</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">28</span>
 </button>
     </h3>
     <div
@@ -288,6 +301,181 @@ This is the multi-page printable view of this section.
       data-bs-parent="#print-9be7b9ff9d319390ae3ad05c12e45f59-release-24269daeeec4e19e63bc24e18f50dcfc-list-0_accordion"
     >
       <div class="accordion-body"><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Publish project sites and reproducible infrastructure diagrams</p>
+<p>Build and deploy all 30 remaining project sites with the standard Docsy
+header, project descriptions and a linked documentation directory. Remove
+the unused cgit and xray_manager projects and retire their site resources.</p>
+<p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
+GitHub Pages DNS records. Preserve repeated publication when pages is the
+remote default branch, and include Rules ISO in the main documentation.
+Document site onboarding in a registered, validated skill.</p>
+<p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
+Chrome inputs, sandboxed export actions, an update target and freshness
+checks, and include the maintained diagrams in infra/arch documentation.</p>
+<p>Validation covers project and apex builds, rendered pages, publisher tests,
+diagram repeatability and freshness, DNS configuration, Terraform formatting,
+semantic lint and repository quality.</p>
+<p>Goal-Ref: build-and-deploy-every-project-landing-page-a782b800
+Attempt-ID: attempt-c6bde9df37ce</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">f9007f8da73ef5596869adf52c6b4e4e7d016e83</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQJBVcpoJH1A0JZ&#43;mwtOOdr/FpLWe/TU9IoQDkIfoBCL/Xz6NCqZ0gFI7tbTJJKjH/B
+4NEhM/bv8uaodCikwfTgc=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Keep Bazel dependencies lazy and generate the root module</p>
+<p>Declare pinned InfiniTime sources and the Hedron extractor through use_repo_rule,
+retain recursive firmware submodules, and use the official contrib_rules_jvm
+0.32.0 release. Keep default toolchain registration convenient for consumers.</p>
+<p>Move root tool implementations into owning packages while preserving compatibility
+labels, visibility, manual tags, Python paths, Terraform working directories,
+pnpm dependency pins, and documentation archive layout. Guard the load-free root
+BUILD with a parser-based quality test. Generate root MODULE.bazel directly from
+owning include files, with an update command and freshness/integration tests.</p>
+<p>Cache hermetic agent tests, preserve lint analysis across modes, and build only
+lint outputs in lint mode. Allow normal agent lockfile updates while retaining
+strict CI checks. Limit host Bazel scheduling to eight jobs and half its CPUs,
+with matching checked-in host configuration.</p>
+<p>Fix DNSControl command ordering, JSON manifest loading, record filename suffixes,
+and credential-file wiring through existing Vault environment injection. Add an
+offline config test. Correct the Git wrapper shebang for direct execution and
+refresh derived catalogs affected by the Bazel changes.</p>
+<p>Validation covers compatibility builds, firmware, documentation outputs, generator
+freshness, DNS configuration, and a live DNS preview without applying changes.
+The repository-wide audit also identifies pre-existing test and coverage gaps.</p>
+<p>Goal-Ref: avoid-unrelated-bazel-dependency-downloads-638e8329
+Attempt-ID: attempt-106ffd5ccaeb</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">23da2e154958e23a666a2d9af7a413f316d1021d</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
           <li class="list-group-item my-auto">
             <p>Extract DNSControl setup into rules_dnscontrol</p>
 <p>Extract the DNSControl setup into <code>rules_dnscontrol</code>, generate its Bazel
@@ -2450,7 +2638,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">5004cda4e9904e1067ad8e37c09c1f6731738edca87073389e2e724ba7129254</pre>
+                    <pre class="my-auto">73366fbe72fab6f42c4ba14d0cb6d8ba74b95ba8d952526e37d40723c8270428</pre>
                   </span>
                 </li>
               </ul>
@@ -2467,7 +2655,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">9dcf0cf378108619528121fd055f3f2a</pre>
+                    <pre class="my-auto">e553940e67320e17affb3578d68a0125</pre>
                   </span>
                 </li>
               </ul>
@@ -2521,7 +2709,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
         data-bs-target="#print-24269daeeec4e19e63bc24e18f50dcfc-release-24269daeeec4e19e63bc24e18f50dcfc-page-0_collapse"
         aria-expanded="true"
         aria-controls="print-24269daeeec4e19e63bc24e18f50dcfc-release-24269daeeec4e19e63bc24e18f50dcfc-page-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">26</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">28</span>
 </button>
     </h3>
     <div
@@ -2531,6 +2719,181 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
       data-bs-parent="#print-24269daeeec4e19e63bc24e18f50dcfc-release-24269daeeec4e19e63bc24e18f50dcfc-page-0_accordion"
     >
       <div class="accordion-body"><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Publish project sites and reproducible infrastructure diagrams</p>
+<p>Build and deploy all 30 remaining project sites with the standard Docsy
+header, project descriptions and a linked documentation directory. Remove
+the unused cgit and xray_manager projects and retire their site resources.</p>
+<p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
+GitHub Pages DNS records. Preserve repeated publication when pages is the
+remote default branch, and include Rules ISO in the main documentation.
+Document site onboarding in a registered, validated skill.</p>
+<p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
+Chrome inputs, sandboxed export actions, an update target and freshness
+checks, and include the maintained diagrams in infra/arch documentation.</p>
+<p>Validation covers project and apex builds, rendered pages, publisher tests,
+diagram repeatability and freshness, DNS configuration, Terraform formatting,
+semantic lint and repository quality.</p>
+<p>Goal-Ref: build-and-deploy-every-project-landing-page-a782b800
+Attempt-ID: attempt-c6bde9df37ce</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">f9007f8da73ef5596869adf52c6b4e4e7d016e83</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQJBVcpoJH1A0JZ&#43;mwtOOdr/FpLWe/TU9IoQDkIfoBCL/Xz6NCqZ0gFI7tbTJJKjH/B
+4NEhM/bv8uaodCikwfTgc=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Keep Bazel dependencies lazy and generate the root module</p>
+<p>Declare pinned InfiniTime sources and the Hedron extractor through use_repo_rule,
+retain recursive firmware submodules, and use the official contrib_rules_jvm
+0.32.0 release. Keep default toolchain registration convenient for consumers.</p>
+<p>Move root tool implementations into owning packages while preserving compatibility
+labels, visibility, manual tags, Python paths, Terraform working directories,
+pnpm dependency pins, and documentation archive layout. Guard the load-free root
+BUILD with a parser-based quality test. Generate root MODULE.bazel directly from
+owning include files, with an update command and freshness/integration tests.</p>
+<p>Cache hermetic agent tests, preserve lint analysis across modes, and build only
+lint outputs in lint mode. Allow normal agent lockfile updates while retaining
+strict CI checks. Limit host Bazel scheduling to eight jobs and half its CPUs,
+with matching checked-in host configuration.</p>
+<p>Fix DNSControl command ordering, JSON manifest loading, record filename suffixes,
+and credential-file wiring through existing Vault environment injection. Add an
+offline config test. Correct the Git wrapper shebang for direct execution and
+refresh derived catalogs affected by the Bazel changes.</p>
+<p>Validation covers compatibility builds, firmware, documentation outputs, generator
+freshness, DNS configuration, and a live DNS preview without applying changes.
+The repository-wide audit also identifies pre-existing test and coverage gaps.</p>
+<p>Goal-Ref: avoid-unrelated-bazel-dependency-downloads-638e8329
+Attempt-ID: attempt-106ffd5ccaeb</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">23da2e154958e23a666a2d9af7a413f316d1021d</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
           <li class="list-group-item my-auto">
             <p>Extract DNSControl setup into rules_dnscontrol</p>
 <p>Extract the DNSControl setup into <code>rules_dnscontrol</code>, generate its Bazel
@@ -4693,7 +5056,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">5004cda4e9904e1067ad8e37c09c1f6731738edca87073389e2e724ba7129254</pre>
+                    <pre class="my-auto">73366fbe72fab6f42c4ba14d0cb6d8ba74b95ba8d952526e37d40723c8270428</pre>
                   </span>
                 </li>
               </ul>
@@ -4710,7 +5073,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">9dcf0cf378108619528121fd055f3f2a</pre>
+                    <pre class="my-auto">e553940e67320e17affb3578d68a0125</pre>
                   </span>
                 </li>
               </ul>

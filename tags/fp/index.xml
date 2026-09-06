@@ -16,7 +16,7 @@
 				<link>https://alwaldend.com/docs/projects/al/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/projects/al/</guid>
-				<description></description>
+				<description>&lt;p&gt;&lt;code&gt;al&lt;/code&gt; runs repository commands with configured plugins and environment values.&#xA;It provides the command-line tool and Bazel rules used to package and execute&#xA;those configurations.&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>

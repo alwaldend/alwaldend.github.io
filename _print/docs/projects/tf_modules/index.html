@@ -34,22 +34,22 @@
 <meta name="robots" content="noindex, nofollow">
 
 <title>Tf modules | Alwaldend</title>
-<meta name="description" content="Terraform modules">
+<meta name="description" content="Reusable Terraform modules for Vault, virtual machines, and storage">
 <meta property="og:url" content="https://alwaldend.com/docs/projects/tf_modules/">
 	<meta property="og:site_name" content="Alwaldend">
 	<meta property="og:title" content="Tf modules">
-	<meta property="og:description" content="Terraform modules">
+	<meta property="og:description" content="Reusable Terraform modules for Vault, virtual machines, and storage">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="website">
 
 	<meta itemprop="name" content="Tf modules">
-	<meta itemprop="description" content="Terraform modules">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
-	<meta itemprop="wordCount" content="9">
+	<meta itemprop="description" content="Reusable Terraform modules for Vault, virtual machines, and storage">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="wordCount" content="33">
 	<meta itemprop="keywords" content="Terraform">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Tf modules">
-	<meta name="twitter:description" content="Terraform modules">
+	<meta name="twitter:description" content="Reusable Terraform modules for Vault, virtual machines, and storage">
 <link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
 <link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
 <script
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -170,7 +170,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Tf modules</h1>
-<div class="lead">Terraform modules</div>
+<div class="lead">Reusable Terraform modules for Vault, virtual machines, and storage</div>
 
 
 
@@ -405,7 +405,10 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <h2 id="print-44252e3bdd25558d5a80a89eddc1abd3-links">Links<a class="td-heading-self-link" href="#print-44252e3bdd25558d5a80a89eddc1abd3-links" aria-label="Heading self-link"></a></h2><ul>
+      <p>This project contains reusable Terraform modules for Vault configuration,
+Proxmox virtual machines, backup storage, and related infrastructure. The
+module collection is still in progress.</p>
+<h2 id="print-44252e3bdd25558d5a80a89eddc1abd3-links">Links<a class="td-heading-self-link" href="#print-44252e3bdd25558d5a80a89eddc1abd3-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Source code: <a href="https://github.com/alwaldend/src/tree/master/projects/tf_modules">https://github.com/alwaldend/src/tree/master/projects/tf_modules</a></li>
 <li>Docs: <a href="https://developer.hashicorp.com/terraform/language/modules">https://developer.hashicorp.com/terraform/language/modules</a></li>
 </ul>
@@ -515,7 +518,7 @@ This is the multi-page printable view of this section.
         data-bs-target="#print-992f1801f99d749aab6ee2ecf3b8d4bf-release-c5d25fafe4cbb64f9db783e65dbc0f94-list-0_collapse"
         aria-expanded="false"
         aria-controls="print-992f1801f99d749aab6ee2ecf3b8d4bf-release-c5d25fafe4cbb64f9db783e65dbc0f94-list-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">45</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">46</span>
 </button>
     </h3>
     <div
@@ -525,6 +528,102 @@ This is the multi-page printable view of this section.
       data-bs-parent="#print-992f1801f99d749aab6ee2ecf3b8d4bf-release-c5d25fafe4cbb64f9db783e65dbc0f94-list-0_accordion"
     >
       <div class="accordion-body"><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Publish project sites and reproducible infrastructure diagrams</p>
+<p>Build and deploy all 30 remaining project sites with the standard Docsy
+header, project descriptions and a linked documentation directory. Remove
+the unused cgit and xray_manager projects and retire their site resources.</p>
+<p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
+GitHub Pages DNS records. Preserve repeated publication when pages is the
+remote default branch, and include Rules ISO in the main documentation.
+Document site onboarding in a registered, validated skill.</p>
+<p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
+Chrome inputs, sandboxed export actions, an update target and freshness
+checks, and include the maintained diagrams in infra/arch documentation.</p>
+<p>Validation covers project and apex builds, rendered pages, publisher tests,
+diagram repeatability and freshness, DNS configuration, Terraform formatting,
+semantic lint and repository quality.</p>
+<p>Goal-Ref: build-and-deploy-every-project-landing-page-a782b800
+Attempt-ID: attempt-c6bde9df37ce</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">f9007f8da73ef5596869adf52c6b4e4e7d016e83</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQJBVcpoJH1A0JZ&#43;mwtOOdr/FpLWe/TU9IoQDkIfoBCL/Xz6NCqZ0gFI7tbTJJKjH/B
+4NEhM/bv8uaodCikwfTgc=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
           <li class="list-group-item my-auto">
             <p>Extract DNSControl setup into rules_dnscontrol</p>
 <p>Extract the DNSControl setup into <code>rules_dnscontrol</code>, generate its Bazel
@@ -4511,7 +4610,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
         data-bs-target="#print-c5d25fafe4cbb64f9db783e65dbc0f94-release-c5d25fafe4cbb64f9db783e65dbc0f94-page-0_collapse"
         aria-expanded="true"
         aria-controls="print-c5d25fafe4cbb64f9db783e65dbc0f94-release-c5d25fafe4cbb64f9db783e65dbc0f94-page-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">45</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">46</span>
 </button>
     </h3>
     <div
@@ -4521,6 +4620,102 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
       data-bs-parent="#print-c5d25fafe4cbb64f9db783e65dbc0f94-release-c5d25fafe4cbb64f9db783e65dbc0f94-page-0_accordion"
     >
       <div class="accordion-body"><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Publish project sites and reproducible infrastructure diagrams</p>
+<p>Build and deploy all 30 remaining project sites with the standard Docsy
+header, project descriptions and a linked documentation directory. Remove
+the unused cgit and xray_manager projects and retire their site resources.</p>
+<p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
+GitHub Pages DNS records. Preserve repeated publication when pages is the
+remote default branch, and include Rules ISO in the main documentation.
+Document site onboarding in a registered, validated skill.</p>
+<p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
+Chrome inputs, sandboxed export actions, an update target and freshness
+checks, and include the maintained diagrams in infra/arch documentation.</p>
+<p>Validation covers project and apex builds, rendered pages, publisher tests,
+diagram repeatability and freshness, DNS configuration, Terraform formatting,
+semantic lint and repository quality.</p>
+<p>Goal-Ref: build-and-deploy-every-project-landing-page-a782b800
+Attempt-ID: attempt-c6bde9df37ce</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">f9007f8da73ef5596869adf52c6b4e4e7d016e83</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQJBVcpoJH1A0JZ&#43;mwtOOdr/FpLWe/TU9IoQDkIfoBCL/Xz6NCqZ0gFI7tbTJJKjH/B
+4NEhM/bv8uaodCikwfTgc=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
           <li class="list-group-item my-auto">
             <p>Extract DNSControl setup into rules_dnscontrol</p>
 <p>Extract the DNSControl setup into <code>rules_dnscontrol</code>, generate its Bazel

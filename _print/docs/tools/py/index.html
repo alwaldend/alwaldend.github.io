@@ -44,7 +44,8 @@
 
 	<meta itemprop="name" content="Py">
 	<meta itemprop="description" content="Python rules">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="wordCount" content="47">
 	<meta itemprop="keywords" content="Bzl_rules">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Py">
@@ -138,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -246,7 +247,12 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p>The repository Python dependency lock remains in root <code>requirements.txt</code>, next
+to <code>pyproject.toml</code>. Update it with <code>//tools/py:requirements.update</code> and validate
+it with <code>//tools/py:requirements.test</code>; the root labels remain compatibility
+entry points. These upstream pip-tools workflows require network access to
+resolve and validate package versions and run outside the action sandbox.</p>
+
 </div>
 </div>
 
@@ -598,7 +604,7 @@ al_py_checkers(<a href="#print-b3113408b57fc0c6100065a655a0aa1e-al_py_checkers-n
 			<tr>
 					<td style="text-align: left"><a id="print-b3113408b57fc0c6100065a655a0aa1e-al_py_checkers-pyproject_label"></a>pyproject_label</td>
 					<td style="text-align: left"><p align="center"> - </p></td>
-					<td style="text-align: left"><code>&quot;//:pyproject&quot;</code></td>
+					<td style="text-align: left"><code>&quot;//tools/py:pyproject&quot;</code></td>
 			</tr>
 	</tbody>
 </table>

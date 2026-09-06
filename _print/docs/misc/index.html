@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="Misc">
 	<meta itemprop="description" content="Miscellaneous pages">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
 	<meta itemprop="keywords" content="Misc">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Misc">
@@ -138,7 +138,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -15914,8 +15914,8 @@ not own the directory.</p>
 </ul>
 <h2 id="print-49b94ca4b2a787aabea506de173cd757-js_binary-does-not-work-for-some-reason">js_binary does not work for some reason<a class="td-heading-self-link" href="#print-49b94ca4b2a787aabea506de173cd757-js_binary-does-not-work-for-some-reason" aria-label="Heading self-link"></a></h2><p>One of possible errors:</p>
 <pre tabindex="0"><code>FATAL: aspect_rules_js[js_binary]: RUNFILES environment variable is not set
-</code></pre><h3 id="print-49b94ca4b2a787aabea506de173cd757-solutions">Solutions<a class="td-heading-self-link" href="#print-49b94ca4b2a787aabea506de173cd757-solutions" aria-label="Heading self-link"></a></h3><h4 id="print-49b94ca4b2a787aabea506de173cd757-run-the-binary-that-fixes-it-for-some-reason">Run the binary (that fixes it for some reason)<a class="td-heading-self-link" href="#print-49b94ca4b2a787aabea506de173cd757-run-the-binary-that-fixes-it-for-some-reason" aria-label="Heading self-link"></a></h4><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //tools:postcss
-</span></span></code></pre></div><h4 id="print-49b94ca4b2a787aabea506de173cd757-run-pnpm-install-sometimes-node_modules-directory-is-not-up-to-date">Run <code>pnpm install</code> (sometimes node_modules directory is not up-to-date)<a class="td-heading-self-link" href="#print-49b94ca4b2a787aabea506de173cd757-run-pnpm-install-sometimes-node_modules-directory-is-not-up-to-date" aria-label="Heading self-link"></a></h4><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run -- tools:pnpm --dir <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> install
+</code></pre><h3 id="print-49b94ca4b2a787aabea506de173cd757-solutions">Solutions<a class="td-heading-self-link" href="#print-49b94ca4b2a787aabea506de173cd757-solutions" aria-label="Heading self-link"></a></h3><h4 id="print-49b94ca4b2a787aabea506de173cd757-run-the-binary-that-fixes-it-for-some-reason">Run the binary (that fixes it for some reason)<a class="td-heading-self-link" href="#print-49b94ca4b2a787aabea506de173cd757-run-the-binary-that-fixes-it-for-some-reason" aria-label="Heading self-link"></a></h4><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //tools/postcss
+</span></span></code></pre></div><h4 id="print-49b94ca4b2a787aabea506de173cd757-run-pnpm-install-sometimes-node_modules-directory-is-not-up-to-date">Run <code>pnpm install</code> (sometimes node_modules directory is not up-to-date)<a class="td-heading-self-link" href="#print-49b94ca4b2a787aabea506de173cd757-run-pnpm-install-sometimes-node_modules-directory-is-not-up-to-date" aria-label="Heading self-link"></a></h4><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //tools/pnpm -- --dir <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">/tools&#34;</span> install --ignore-scripts
 </span></span></code></pre></div>
 </div>
 

@@ -34,22 +34,22 @@
 <meta name="robots" content="noindex, nofollow">
 
 <title>Rules template | Alwaldend</title>
-<meta name="description" content="Rules to template files">
+<meta name="description" content="Bazel rules and a Go command for rendering template files">
 <meta property="og:url" content="https://alwaldend.com/docs/projects/rules_template/">
 	<meta property="og:site_name" content="Alwaldend">
 	<meta property="og:title" content="Rules template">
-	<meta property="og:description" content="Rules to template files">
+	<meta property="og:description" content="Bazel rules and a Go command for rendering template files">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="website">
 
 	<meta itemprop="name" content="Rules template">
-	<meta itemprop="description" content="Rules to template files">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
-	<meta itemprop="wordCount" content="10">
+	<meta itemprop="description" content="Bazel rules and a Go command for rendering template files">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="wordCount" content="32">
 	<meta itemprop="keywords" content="Bzl_rules">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Rules template">
-	<meta name="twitter:description" content="Rules to template files">
+	<meta name="twitter:description" content="Bazel rules and a Go command for rendering template files">
 <link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
 <link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
 <script
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -170,7 +170,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Rules template</h1>
-<div class="lead">Rules to template files</div>
+<div class="lead">Bazel rules and a Go command for rendering template files</div>
 
 
 
@@ -207,7 +207,10 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <h2 id="print-e51679785e7e72aef155fda1dceb9c26-getting-started">Getting started<a class="td-heading-self-link" href="#print-e51679785e7e72aef155fda1dceb9c26-getting-started" aria-label="Heading self-link"></a></h2><p><code>MODULE.bazel</code>:</p>
+      <p><code>rules_template</code> provides Bazel rules and a Go command for rendering template
+files. A registered toolchain supplies the templating executable to build
+actions.</p>
+<h2 id="print-e51679785e7e72aef155fda1dceb9c26-getting-started">Getting started<a class="td-heading-self-link" href="#print-e51679785e7e72aef155fda1dceb9c26-getting-started" aria-label="Heading self-link"></a></h2><p><code>MODULE.bazel</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>bazel_dep(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rules_template&#34;</span>, version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;VERSION&gt;&#34;</span>)
 </span></span><span style="display:flex;"><span>register_toolchains(<span style="color:#e6db74">&#34;@rules_template//main/bzl:all&#34;</span>)
 </span></span></code></pre></div><p><code>BUILD.bazel</code>:</p>

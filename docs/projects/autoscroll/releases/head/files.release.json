@@ -5,16 +5,16 @@
                 "hashes": [
                     {
                         "algo": "SHA-256",
-                        "content": "29e8c20228e596c173d35b41c8c34664d09afc9c02b422036ba6d1bdd1ded1ff"
+                        "content": "a2233239ad67c970c3d1a5ed33d972f33b1e3ff07433059d0dbf3e2cd93fa7d6"
                     },
                     {
                         "algo": "MD5",
-                        "content": "df1a1f23ab3f0932c54ea994e82ff50d"
+                        "content": "6d4e2cf3c7043f25862ba1ed2def1d02"
                     }
                 ],
                 "name": "autoscroll-0.0.0-py3-none-any.whl",
                 "safeName": "autoscroll_0_0_0_py3_none_any_whl",
-                "size": "25294"
+                "size": "25397"
             },
             "deployments": [
                 {

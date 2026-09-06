@@ -29,27 +29,27 @@
     document.documentElement.setAttribute('data-bs-theme', theme);
   })();
 </script>
-<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/projects/xray_manager/">
-<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/projects/xray_manager/index.xml">
+<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/tools/gazelle/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/tools/gazelle/index.xml">
 <meta name="robots" content="noindex, nofollow">
 
-<title>Xray manager | Alwaldend</title>
-<meta name="description" content="Xray manager">
-<meta property="og:url" content="https://alwaldend.com/docs/projects/xray_manager/">
+<title>Gazelle | Alwaldend</title>
+<meta name="description" content="Repository BUILD file generation">
+<meta property="og:url" content="https://alwaldend.com/docs/tools/gazelle/">
 	<meta property="og:site_name" content="Alwaldend">
-	<meta property="og:title" content="Xray manager">
-	<meta property="og:description" content="Xray manager">
+	<meta property="og:title" content="Gazelle">
+	<meta property="og:description" content="Repository BUILD file generation">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="website">
 
-	<meta itemprop="name" content="Xray manager">
-	<meta itemprop="description" content="Xray manager">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
-	<meta itemprop="wordCount" content="7">
-	<meta itemprop="keywords" content="Vpn,Xray,V2ray">
+	<meta itemprop="name" content="Gazelle">
+	<meta itemprop="description" content="Repository BUILD file generation">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="wordCount" content="53">
+	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="Xray manager">
-	<meta name="twitter:description" content="Xray manager">
+	<meta name="twitter:title" content="Gazelle">
+	<meta name="twitter:description" content="Repository BUILD file generation">
 <link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
 <link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
 <script
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -163,14 +163,14 @@
 This is the multi-page printable view of this section.
 <a href="#" onclick="print();return false;">Click here to print</a>.
 </p><p>
-<a href="/docs/projects/xray_manager/">Return to the regular view of this page</a>.
+<a href="/docs/tools/gazelle/">Return to the regular view of this page</a>.
 </p>
 </div>
 
 
 
-<h1 class="title">Xray manager</h1>
-<div class="lead">Xray manager</div>
+<h1 class="title">Gazelle</h1>
+<div class="lead">Repository BUILD file generation</div>
 
 
 
@@ -188,8 +188,15 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <p>Tool to manage an <a href="https://xtls.github.io">XRay</a> servers</p>
-<h2 id="print-d2970d9486a564dbaa8a47f93be365c7-links">Links<a class="td-heading-self-link" href="#print-d2970d9486a564dbaa8a47f93be365c7-links" aria-label="Heading self-link"></a></h2>
+      <p><code>//tools/gazelle:gazelle</code> runs the repository&rsquo;s Gazelle language plugins.
+Repository-wide directives remain in root <code>BUILD.bazel</code>, where Gazelle discovers
+them for all packages. Root <code>//:gazelle</code> and <code>//:gazelle_bin</code> remain compatibility
+entry points.</p>
+<p><code>//tools/gazelle:gazelle_python_manifest.update</code> refreshes root
+<code>gazelle_python.yaml</code>; <code>//tools/gazelle:gazelle_python_manifest.test</code> validates
+its integrity against root <code>requirements.txt</code>. Keeping the manifest at the
+repository root preserves Python dependency discovery in every package.</p>
+
 </div>
 </div>
 

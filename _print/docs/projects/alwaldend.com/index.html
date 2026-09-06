@@ -34,22 +34,22 @@
 <meta name="robots" content="noindex, nofollow">
 
 <title>Alwaldend.com | Alwaldend</title>
-<meta name="description" content="Alwaldend.com site">
+<meta name="description" content="Main website and project documentation">
 <meta property="og:url" content="https://alwaldend.com/docs/projects/alwaldend.com/">
 	<meta property="og:site_name" content="Alwaldend">
 	<meta property="og:title" content="Alwaldend.com">
-	<meta property="og:description" content="Alwaldend.com site">
+	<meta property="og:description" content="Main website and project documentation">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="website">
 
 	<meta itemprop="name" content="Alwaldend.com">
-	<meta itemprop="description" content="Alwaldend.com site">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
-	<meta itemprop="wordCount" content="354">
+	<meta itemprop="description" content="Main website and project documentation">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="wordCount" content="367">
 	<meta itemprop="keywords" content="Hugo,Github_pages">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Alwaldend.com">
-	<meta name="twitter:description" content="Alwaldend.com site">
+	<meta name="twitter:description" content="Main website and project documentation">
 <link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
 <link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
 <script
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -170,7 +170,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Alwaldend.com</h1>
-<div class="lead">Alwaldend.com site</div>
+<div class="lead">Main website and project documentation</div>
 
 
 
@@ -234,7 +234,9 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <h2 id="print-c7bd85f7dbde24195ea786f2a5e0e45f-links">Links<a class="td-heading-self-link" href="#print-c7bd85f7dbde24195ea786f2a5e0e45f-links" aria-label="Heading self-link"></a></h2><ul>
+      <p>Alwaldend.com is the repository&rsquo;s main website and documentation site. It
+uses Hugo with Docsy to publish project documentation on GitHub Pages.</p>
+<h2 id="print-c7bd85f7dbde24195ea786f2a5e0e45f-links">Links<a class="td-heading-self-link" href="#print-c7bd85f7dbde24195ea786f2a5e0e45f-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Source code: <a href="https://github.com/alwaldend/src/tree/master/projects/alwaldend.com">https://github.com/alwaldend/src/tree/master/projects/alwaldend.com</a></li>
 <li>Github Pages repo: <a href="https://github.com/alwaldend/alwaldend.github.io">https://github.com/alwaldend/alwaldend.github.io</a></li>
 <li>Hugo rules: <a href="/docs/projects/rules_hugo/">../../projects/rules_hugo</a></li>
@@ -261,12 +263,11 @@ they are not silently redirected to GitHub.</p>
 document, keeping anchors distinct when documents are combined.</p>
 <h2 id="print-c7bd85f7dbde24195ea786f2a5e0e45f-deployment">Deployment<a class="td-heading-self-link" href="#print-c7bd85f7dbde24195ea786f2a5e0e45f-deployment" aria-label="Heading self-link"></a></h2><ul>
 <li>DNS setup: <a href="/docs/infra/dns/">infra/dns</a></li>
-<li>Per-project DNS declaration: <a href="https://github.com/alwaldend/src/blob/master/projects/alwaldend.com/dnsconfig.json">dnsconfig.json</a>. It declares
-the GitHub Pages <code>pages</code> address and one unproxied CNAME per project landing
-subdomain, for example <code>android-launcher.alwaldend.com</code>. Hostnames use
-hyphens while docs paths keep underscores. Each landing site links to its
-project documentation, so Cloudflare redirects are unnecessary. The apex
-and <code>www</code> records stay managed centrally.</li>
+<li>This project&rsquo;s <a href="https://github.com/alwaldend/src/blob/master/projects/alwaldend.com/dnsconfig.json">DNS declaration</a>
+owns the shared <code>pages</code> address. Each other project owns its landing CNAME
+pointing directly to <code>alwaldend.github.io.</code>. Hostnames use hyphens while docs
+paths keep underscores. The <a href="/docs/projects/">project directory</a> links to all
+sites. The apex and <code>www</code> records stay managed centrally.</li>
 <li>Deploy to the Github Pages repo (the <code>pages</code> branch of
 <code>alwaldend/alwaldend.github.io</code>, which GitHub Pages serves):
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tools/versioning/cmd/versioning/versioning.sh bazel -- <span style="color:#ae81ff">\
@@ -370,7 +371,7 @@ the page title is the fallback.</p>
         data-bs-target="#print-0a97c32bc24a9b84410b32b0ce316aa2-release-83657c70317637f5217b9aeefa3af582-list-0_collapse"
         aria-expanded="false"
         aria-controls="print-0a97c32bc24a9b84410b32b0ce316aa2-release-83657c70317637f5217b9aeefa3af582-list-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">101</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">103</span>
 </button>
     </h3>
     <div
@@ -381,27 +382,22 @@ the page title is the fallback.</p>
     >
       <div class="accordion-body"><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Repair site navigation and simplify page layout</p>
-<p>Show one homepage panel with vertically stacked GitHub and Docs rows using
-the name: URL format, hiding the protocol and trailing slash in the link text.
-Center the panel and cap its width at 40rem while allowing it to shrink on mobile.
-Move it slightly lower on desktop and brighten the footer link.
-Restore the project assets mount so custom styles load.
-Reduce the footer to its content height with compact padding. Size the homepage
-against the visible viewport so mobile browser controls do not hide its footer.
-Remove the separate Projects page and its header link, while keeping project
-documentation under Docs. Remove the introductory homepage copy and visible title.</p>
-<p>Resolve Markdown links and images from their source locations, package
-missing documentation and book covers, correct source links, and scope
-anchors and release controls in combined print pages. Restore the archive-root
-CNAME explicitly during deployment so replacing the site preserves the
-custom domain.</p>
-<p>Validate generated HTML for missing internal files and fragments, duplicate
-IDs, image alternatives, and the homepage, Misc source-link, and Goal diagram
-regressions. Check the production build, repository quality, affected-target
-semantic lint, desktop and mobile homepage rendering, and deployment output.</p>
-<p>Goal-Ref: out/site-fix/goals/fix-local-alwaldend-com-layout-and-links-a2e69a4e
-Attempt-ID: attempt-165dd5be7d71</p>
+            <p>Publish project sites and reproducible infrastructure diagrams</p>
+<p>Build and deploy all 30 remaining project sites with the standard Docsy
+header, project descriptions and a linked documentation directory. Remove
+the unused cgit and xray_manager projects and retire their site resources.</p>
+<p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
+GitHub Pages DNS records. Preserve repeated publication when pages is the
+remote default branch, and include Rules ISO in the main documentation.
+Document site onboarding in a registered, validated skill.</p>
+<p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
+Chrome inputs, sandboxed export actions, an update target and freshness
+checks, and include the maintained diagrams in infra/arch documentation.</p>
+<p>Validation covers project and apex builds, rendered pages, publisher tests,
+diagram repeatability and freshness, DNS configuration, Terraform formatting,
+semantic lint and repository quality.</p>
+<p>Goal-Ref: build-and-deploy-every-project-landing-page-a782b800
+Attempt-ID: attempt-c6bde9df37ce</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -418,7 +414,7 @@ Attempt-ID: attempt-165dd5be7d71</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">77a195ffaecd430aff2a19e5a40746dcfcac19df</pre>
+                    <pre class="my-auto">f9007f8da73ef5596869adf52c6b4e4e7d016e83</pre>
                   </span>
                 </li>
               </ul>
@@ -472,10 +468,167 @@ Attempt-ID: attempt-165dd5be7d71</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQNUYS26Qphq9Tje17uoNG1vGI6XSLtMh8BECuOczBlP3otGD&#43;BZJl&#43;2PGnKqbyQg7D
-x1i&#43;lKeNBSi5oypRqh/wc=
+AAAAQJBVcpoJH1A0JZ&#43;mwtOOdr/FpLWe/TU9IoQDkIfoBCL/Xz6NCqZ0gFI7tbTJJKjH/B
+4NEhM/bv8uaodCikwfTgc=
 -----END SSH SIGNATURE-----
 </pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Keep Bazel dependencies lazy and generate the root module</p>
+<p>Declare pinned InfiniTime sources and the Hedron extractor through use_repo_rule,
+retain recursive firmware submodules, and use the official contrib_rules_jvm
+0.32.0 release. Keep default toolchain registration convenient for consumers.</p>
+<p>Move root tool implementations into owning packages while preserving compatibility
+labels, visibility, manual tags, Python paths, Terraform working directories,
+pnpm dependency pins, and documentation archive layout. Guard the load-free root
+BUILD with a parser-based quality test. Generate root MODULE.bazel directly from
+owning include files, with an update command and freshness/integration tests.</p>
+<p>Cache hermetic agent tests, preserve lint analysis across modes, and build only
+lint outputs in lint mode. Allow normal agent lockfile updates while retaining
+strict CI checks. Limit host Bazel scheduling to eight jobs and half its CPUs,
+with matching checked-in host configuration.</p>
+<p>Fix DNSControl command ordering, JSON manifest loading, record filename suffixes,
+and credential-file wiring through existing Vault environment injection. Add an
+offline config test. Correct the Git wrapper shebang for direct execution and
+refresh derived catalogs affected by the Bazel changes.</p>
+<p>Validation covers compatibility builds, firmware, documentation outputs, generator
+freshness, DNS configuration, and a live DNS preview without applying changes.
+The repository-wide audit also identifies pre-existing test and coverage gaps.</p>
+<p>Goal-Ref: avoid-unrelated-bazel-dependency-downloads-638e8329
+Attempt-ID: attempt-106ffd5ccaeb</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">23da2e154958e23a666a2d9af7a413f316d1021d</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Repair site navigation and simplify page layout</p>
+<p>Show one homepage panel with vertically stacked GitHub and Docs rows using
+the name: URL format, hiding the protocol and trailing slash in the link text.
+Center the panel and cap its width at 40rem while allowing it to shrink on mobile.
+Move it slightly lower on desktop and brighten the footer link.
+Restore the project assets mount so custom styles load.
+Reduce the footer to its content height with compact padding. Size the homepage
+against the visible viewport so mobile browser controls do not hide its footer.
+Remove the separate Projects page and its header link, while keeping project
+documentation under Docs. Remove the introductory homepage copy and visible title.</p>
+<p>Resolve Markdown links and images from their source locations, package
+missing documentation and book covers, correct source links, and scope
+anchors and release controls in combined print pages. Restore the archive-root
+CNAME explicitly during deployment so replacing the site preserves the
+custom domain.</p>
+<p>Validate generated HTML for missing internal files and fragments, duplicate
+IDs, image alternatives, and the homepage, Misc source-link, and Goal diagram
+regressions. Check the production build, repository quality, affected-target
+semantic lint, desktop and mobile homepage rendering, and deployment output.</p>
+<p>Goal-Ref: out/site-fix/goals/fix-local-alwaldend-com-layout-and-links-a2e69a4e
+Attempt-ID: attempt-165dd5be7d71</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">894494f4c509300287a089f0411511e2c260a2ab</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
                   </span>
                 </li>
               </ul>
@@ -8462,7 +8615,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
         data-bs-target="#print-83657c70317637f5217b9aeefa3af582-release-83657c70317637f5217b9aeefa3af582-page-0_collapse"
         aria-expanded="true"
         aria-controls="print-83657c70317637f5217b9aeefa3af582-release-83657c70317637f5217b9aeefa3af582-page-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">101</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">103</span>
 </button>
     </h3>
     <div
@@ -8473,27 +8626,22 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
     >
       <div class="accordion-body"><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Repair site navigation and simplify page layout</p>
-<p>Show one homepage panel with vertically stacked GitHub and Docs rows using
-the name: URL format, hiding the protocol and trailing slash in the link text.
-Center the panel and cap its width at 40rem while allowing it to shrink on mobile.
-Move it slightly lower on desktop and brighten the footer link.
-Restore the project assets mount so custom styles load.
-Reduce the footer to its content height with compact padding. Size the homepage
-against the visible viewport so mobile browser controls do not hide its footer.
-Remove the separate Projects page and its header link, while keeping project
-documentation under Docs. Remove the introductory homepage copy and visible title.</p>
-<p>Resolve Markdown links and images from their source locations, package
-missing documentation and book covers, correct source links, and scope
-anchors and release controls in combined print pages. Restore the archive-root
-CNAME explicitly during deployment so replacing the site preserves the
-custom domain.</p>
-<p>Validate generated HTML for missing internal files and fragments, duplicate
-IDs, image alternatives, and the homepage, Misc source-link, and Goal diagram
-regressions. Check the production build, repository quality, affected-target
-semantic lint, desktop and mobile homepage rendering, and deployment output.</p>
-<p>Goal-Ref: out/site-fix/goals/fix-local-alwaldend-com-layout-and-links-a2e69a4e
-Attempt-ID: attempt-165dd5be7d71</p>
+            <p>Publish project sites and reproducible infrastructure diagrams</p>
+<p>Build and deploy all 30 remaining project sites with the standard Docsy
+header, project descriptions and a linked documentation directory. Remove
+the unused cgit and xray_manager projects and retire their site resources.</p>
+<p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
+GitHub Pages DNS records. Preserve repeated publication when pages is the
+remote default branch, and include Rules ISO in the main documentation.
+Document site onboarding in a registered, validated skill.</p>
+<p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
+Chrome inputs, sandboxed export actions, an update target and freshness
+checks, and include the maintained diagrams in infra/arch documentation.</p>
+<p>Validation covers project and apex builds, rendered pages, publisher tests,
+diagram repeatability and freshness, DNS configuration, Terraform formatting,
+semantic lint and repository quality.</p>
+<p>Goal-Ref: build-and-deploy-every-project-landing-page-a782b800
+Attempt-ID: attempt-c6bde9df37ce</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -8510,7 +8658,7 @@ Attempt-ID: attempt-165dd5be7d71</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">77a195ffaecd430aff2a19e5a40746dcfcac19df</pre>
+                    <pre class="my-auto">f9007f8da73ef5596869adf52c6b4e4e7d016e83</pre>
                   </span>
                 </li>
               </ul>
@@ -8564,10 +8712,167 @@ Attempt-ID: attempt-165dd5be7d71</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQNUYS26Qphq9Tje17uoNG1vGI6XSLtMh8BECuOczBlP3otGD&#43;BZJl&#43;2PGnKqbyQg7D
-x1i&#43;lKeNBSi5oypRqh/wc=
+AAAAQJBVcpoJH1A0JZ&#43;mwtOOdr/FpLWe/TU9IoQDkIfoBCL/Xz6NCqZ0gFI7tbTJJKjH/B
+4NEhM/bv8uaodCikwfTgc=
 -----END SSH SIGNATURE-----
 </pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Keep Bazel dependencies lazy and generate the root module</p>
+<p>Declare pinned InfiniTime sources and the Hedron extractor through use_repo_rule,
+retain recursive firmware submodules, and use the official contrib_rules_jvm
+0.32.0 release. Keep default toolchain registration convenient for consumers.</p>
+<p>Move root tool implementations into owning packages while preserving compatibility
+labels, visibility, manual tags, Python paths, Terraform working directories,
+pnpm dependency pins, and documentation archive layout. Guard the load-free root
+BUILD with a parser-based quality test. Generate root MODULE.bazel directly from
+owning include files, with an update command and freshness/integration tests.</p>
+<p>Cache hermetic agent tests, preserve lint analysis across modes, and build only
+lint outputs in lint mode. Allow normal agent lockfile updates while retaining
+strict CI checks. Limit host Bazel scheduling to eight jobs and half its CPUs,
+with matching checked-in host configuration.</p>
+<p>Fix DNSControl command ordering, JSON manifest loading, record filename suffixes,
+and credential-file wiring through existing Vault environment injection. Add an
+offline config test. Correct the Git wrapper shebang for direct execution and
+refresh derived catalogs affected by the Bazel changes.</p>
+<p>Validation covers compatibility builds, firmware, documentation outputs, generator
+freshness, DNS configuration, and a live DNS preview without applying changes.
+The repository-wide audit also identifies pre-existing test and coverage gaps.</p>
+<p>Goal-Ref: avoid-unrelated-bazel-dependency-downloads-638e8329
+Attempt-ID: attempt-106ffd5ccaeb</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">23da2e154958e23a666a2d9af7a413f316d1021d</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Repair site navigation and simplify page layout</p>
+<p>Show one homepage panel with vertically stacked GitHub and Docs rows using
+the name: URL format, hiding the protocol and trailing slash in the link text.
+Center the panel and cap its width at 40rem while allowing it to shrink on mobile.
+Move it slightly lower on desktop and brighten the footer link.
+Restore the project assets mount so custom styles load.
+Reduce the footer to its content height with compact padding. Size the homepage
+against the visible viewport so mobile browser controls do not hide its footer.
+Remove the separate Projects page and its header link, while keeping project
+documentation under Docs. Remove the introductory homepage copy and visible title.</p>
+<p>Resolve Markdown links and images from their source locations, package
+missing documentation and book covers, correct source links, and scope
+anchors and release controls in combined print pages. Restore the archive-root
+CNAME explicitly during deployment so replacing the site preserves the
+custom domain.</p>
+<p>Validate generated HTML for missing internal files and fragments, duplicate
+IDs, image alternatives, and the homepage, Misc source-link, and Goal diagram
+regressions. Check the production build, repository quality, affected-target
+semantic lint, desktop and mobile homepage rendering, and deployment output.</p>
+<p>Goal-Ref: out/site-fix/goals/fix-local-alwaldend-com-layout-and-links-a2e69a4e
+Attempt-ID: attempt-165dd5be7d71</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">894494f4c509300287a089f0411511e2c260a2ab</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
                   </span>
                 </li>
               </ul>

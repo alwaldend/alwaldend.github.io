@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Hugo Landing">
 	<meta itemprop="description" content="Reusable Hugo landing site for project pages">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
-	<meta itemprop="wordCount" content="93">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="wordCount" content="321">
 	<meta itemprop="keywords" content="Hugo">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Hugo Landing">
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -212,6 +212,32 @@ source archive.
 <code>//projects/&lt;project&gt;/landing:site</code>. The shared macro remains in
 <code>hugo_landing</code> so the visual shell and README-to-site transformation stay
 reusable.</p>
+<p>Agent workflow: <a href="https://github.com/alwaldend/src/blob/master/projects/hugo_landing/skills/add-project-site/SKILL.md">Add a project site</a>.</p>
+<p><code>projects/projects.bzl</code> lists the dedicated project sites; the
+<a href="/docs/projects/">project directory</a> links to each site. The existing
+<code>alwaldend.com</code> apex site covers that project. Nested rules modules use
+<code>//projects/hugo_landing/landing:&lt;project&gt;</code> targets in the root workspace.</p>
+<p>README-relative links lead to their source files on GitHub, and relative images
+load from the matching source directory. Literal template examples are preserved;
+Hugo shortcodes requiring the full documentation site are omitted.</p>
+<h2 id="print-5da4802f7607dea5c629f7fa070d38cd-publish-project-sites">Publish project sites<a class="td-heading-self-link" href="#print-5da4802f7607dea5c629f7fa070d38cd-publish-project-sites" aria-label="Heading self-link"></a></h2><p>Build and validate all sites from the repository root:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel test //projects:landings //infra/dns:config_test
+</span></span></code></pre></div><p>The authenticated deployment command uses the operator&rsquo;s Git executable and
+GitHub authentication. It intentionally accesses GitHub at runtime; builds do
+not deploy. Supply an absolute, task-owned scratch directory:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //projects:deploy_landings -- --scratch /absolute/worktree/out/site-rollout/git
+</span></span></code></pre></div><p>Each site is pushed to <code>alwaldend/&lt;project-slug&gt;-landing</code> on the <code>pages</code> branch
+with <code>CNAME</code> and <code>.nojekyll</code>. Existing branch history is preserved, unchanged
+sites produce no commit, and empty repositories can be bootstrapped. Use
+<code>--dry-run</code> to stage and compare without pushing. The deployment tool validates
+every input before publishing and stops on the first failed project.
+Add <code>--project &lt;project_id&gt;</code> to publish only one registered site.</p>
+<p>Repository creation and Pages settings belong to
+<a href="/docs/infra/github/tf/">GitHub Terraform</a>. DNS records belong to
+<code>projects/&lt;project&gt;/dnsconfig.json</code> and are applied through
+<a href="/docs/infra/dns/">DNSControl</a>. Review each plan or preview and apply
+only the authorized project-site changes. Verify the published commit, Pages
+build, DNS, and HTTPS response before calling a rollout complete.</p>
 
 </div>
 </div>

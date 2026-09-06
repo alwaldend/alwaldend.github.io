@@ -29,26 +29,27 @@
     document.documentElement.setAttribute('data-bs-theme', theme);
   })();
 </script>
-<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/projects/cgit/">
-<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/projects/cgit/index.xml">
+<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/tools/bazel_module/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/tools/bazel_module/index.xml">
 <meta name="robots" content="noindex, nofollow">
 
-<title>CGit | Alwaldend</title>
-<meta name="description" content="CGit images and charts">
-<meta property="og:url" content="https://alwaldend.com/docs/projects/cgit/">
+<title>Root Bazel module | Alwaldend</title>
+<meta name="description" content="Generate the root module&#39;s owning include list">
+<meta property="og:url" content="https://alwaldend.com/docs/tools/bazel_module/">
 	<meta property="og:site_name" content="Alwaldend">
-	<meta property="og:title" content="CGit">
-	<meta property="og:description" content="CGit images and charts">
+	<meta property="og:title" content="Root Bazel module">
+	<meta property="og:description" content="Generate the root module&#39;s owning include list">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="website">
 
-	<meta itemprop="name" content="CGit">
-	<meta itemprop="description" content="CGit images and charts">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
-	<meta itemprop="keywords" content="Project,Maintenance">
+	<meta itemprop="name" content="Root Bazel module">
+	<meta itemprop="description" content="Generate the root module&#39;s owning include list">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="wordCount" content="180">
+	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="CGit">
-	<meta name="twitter:description" content="CGit images and charts">
+	<meta name="twitter:title" content="Root Bazel module">
+	<meta name="twitter:description" content="Generate the root module&#39;s owning include list">
 <link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
 <link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
 <script
@@ -138,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -162,14 +163,14 @@
 This is the multi-page printable view of this section.
 <a href="#" onclick="print();return false;">Click here to print</a>.
 </p><p>
-<a href="/docs/projects/cgit/">Return to the regular view of this page</a>.
+<a href="/docs/tools/bazel_module/">Return to the regular view of this page</a>.
 </p>
 </div>
 
 
 
-<h1 class="title">CGit</h1>
-<div class="lead">CGit images and charts</div>
+<h1 class="title">Root Bazel module</h1>
+<div class="lead">Generate the root module&rsquo;s owning include list</div>
 
 
 
@@ -181,32 +182,35 @@ This is the multi-page printable view of this section.
   
   
 
-  
-    
-    
-	
-<li>1: <a href="#pg-7d7f0d33196d258c72dc724d962b640b">Images</a></li>
-
-
-    
-    <ul>
-        
-  
-  
-  
-  
-
-  
-
-    </ul>
-    
   
 
     </ul>
 
 
 <div class="content">
-      
+      <p><code>MODULE.bazel</code> is generated directly from <code>include.MODULE.bazel</code> files:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //tools/bazel_module:update
+</span></span></code></pre></div><p>Dependency declarations and pins stay in their owning include files. The small
+root <code>module(...)</code> header lives in the Go generator. Discovery uses the existing
+<code>//tools/git</code> host Git wrapper to include tracked and untracked files while
+respecting Git ignore rules. Deleted files, symlinks, <code>.bazelignore</code>
+directories, and standalone workspaces beneath
+<code>MODULE.bazel</code>, <code>WORKSPACE</code>, or <code>WORKSPACE.bazel</code> boundaries are excluded.</p>
+<p>Includes are ordered by owning directory, with <code>third_party</code>, <code>tools</code>, then
+<code>projects</code> before other trees. This keeps the existing precedence between those
+trees, including toolchain registrations. A parent directory precedes its
+children. Keep any order-sensitive declarations together in one owning include.</p>
+<p><code>//tools/bazel_module/cmd/update:freshness_test</code> checks the current checkout and
+is included in <code>//:repo_quality_test</code>. It intentionally disables sandboxing and
+result caching to detect new or removed files outside declared Bazel inputs.
+The generator&rsquo;s unit tests remain sandboxed and cacheable.</p>
+<p>Before deleting or moving an existing include, retain a launcher so regeneration
+does not need to load the old module after its include disappears:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir -p out/bazel_module
+</span></span><span style="display:flex;"><span>bazel run --script_path<span style="color:#f92672">=</span>out/bazel_module/update //tools/bazel_module:update
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Delete or move the include, then regenerate:</span>
+</span></span><span style="display:flex;"><span>out/bazel_module/update
+</span></span></code></pre></div>
 </div>
 </div>
 
@@ -219,35 +223,6 @@ This is the multi-page printable view of this section.
   
   
 
-  
-    
-    
-	
-    
-
-<div class="td-content" style="">
-    
-	<h1 id="pg-7d7f0d33196d258c72dc724d962b640b">1 - Images</h1>
-    <div class="lead">OCI images</div>
-	
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-
-    
-	
   
 
 

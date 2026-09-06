@@ -44,7 +44,8 @@
 
 	<meta itemprop="name" content="Js">
 	<meta itemprop="description" content="Js">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="wordCount" content="66">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Js">
@@ -138,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -187,7 +188,14 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p>Repository JavaScript tooling dependencies belong to the pnpm workspace in
+<code>tools/</code>. Its <code>package.json</code> and <code>pnpm-lock.yaml</code> own their requested and resolved
+versions. <code>//tools:node_modules</code> owns the Bazel package store and links; loading
+the repository root package does not load the npm extension&rsquo;s generated rules.</p>
+<p>Run pnpm with <code>//tools/pnpm</code>, passing <code>--dir</code> with the absolute path to <code>tools/</code>
+for dependency updates. Keep lifecycle scripts disabled (<code>--ignore-scripts</code>)
+when updating the lockfile.</p>
+
 </div>
 </div>
 

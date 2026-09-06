@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Repository quality">
 	<meta itemprop="description" content="Whole-index formatting, linting and validation coordinator">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
-	<meta itemprop="wordCount" content="257">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="wordCount" content="286">
 	<meta itemprop="keywords" content="Formatter,Linter,Validation">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Repository quality">
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -199,7 +199,10 @@ and <code>.qrc</code> files.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //:format
 </span></span></code></pre></div><p>Run the non-mutating repository check:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel test //:repo_quality_test
-</span></span></code></pre></div><p>Run semantic source linters over declared targets:</p>
+</span></span></code></pre></div><p>The suite also parses root <code>BUILD.bazel</code> and rejects <code>load()</code> statements to keep
+unrelated tool dependencies out of root package loading. Run this check alone
+with <code>bazel_agent bazel test //tools/repo_quality/test/root_build:root_build_test</code>.</p>
+<p>Run semantic source linters over declared targets:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel build --config<span style="color:#f92672">=</span>lint //...
 </span></span></code></pre></div><p>The CSS formatter bucket includes CSS, Less and SCSS. The JavaScript bucket
 includes JavaScript, JSON, JSON-with-comments, JSON5, TypeScript, TSX and Vue.

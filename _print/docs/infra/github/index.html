@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="GitHub">
 	<meta itemprop="description" content="GitHub Pages repositories for project landing sites">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="GitHub">
@@ -138,7 +138,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -231,7 +231,18 @@ This is the multi-page printable view of this section.
     <div class="lead">GitHub Pages repositories for project landing sites</div>
 	<p>This package creates the public repositories that host the project landing
 pages. Each repository receives its built Hugo site from the reusable deploy
-target in <code>projects/alwaldend.com</code>.</p>
+target <code>//projects:deploy_landings</code> in the root workspace. Terraform also manages
+the custom domain and Pages source (<code>pages</code>, <code>/</code>).</p>
+<p>For a new site, first plan and apply with <code>bootstrap_projects</code> containing only
+the new projects whose <code>pages</code> branches do not yet exist. For example, pass
+<code>-var='bootstrap_projects=[&quot;new_project&quot;]'</code> to <code>//infra/github/tf:tf.plan</code> and
+the reviewed <code>tf.apply</code>. This creates the repository without trying to enable
+Pages on a nonexistent branch. Do not include an existing live site: doing so
+would remove its Pages configuration.</p>
+<p>Publish the built site with <code>//projects:deploy_landings</code>, then plan and apply
+with the default empty <code>bootstrap_projects</code> to enable Pages. Keep all applies
+limited to reviewed, authorized repository and Pages changes. DNS is managed
+separately by <code>//infra/dns</code>; validate the public custom domain after rollout.</p>
 
 </div>
 

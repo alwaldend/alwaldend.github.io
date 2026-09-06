@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Dns">
 	<meta itemprop="description" content="Dns setup for alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
-	<meta itemprop="wordCount" content="70">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="wordCount" content="118">
 	<meta itemprop="keywords" content="Dns,Dnscontrol">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Dns">
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -211,9 +211,15 @@ This is the multi-page printable view of this section.
 <li>Docs: <a href="https://docs.dnscontrol.org">https://docs.dnscontrol.org</a></li>
 <li>Rules: <a href="/docs/projects/rules_dnscontrol/">../../projects/rules_dnscontrol</a></li>
 </ul>
-<h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-deployment">Deployment<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-deployment" aria-label="Heading self-link"></a></h2><p>Project landing records live next to their projects in
-<code>projects/&lt;project&gt;/dnsconfig.json</code>. The main website owns the shared
-<code>pages</code> address, and project files own their own subdomain CNAMEs.</p>
+<h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-deployment">Deployment<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-deployment" aria-label="Heading self-link"></a></h2><p><code>//infra/dns:config_test</code> validates the generated configuration with the pinned
+DNSControl <code>check</code> command. It requires no credentials and does not access DNS
+providers.</p>
+<p>Operational wrappers pass <code>providers.json</code> explicitly. Its environment references
+are populated by the AL Vault injector; DNSControl reads the values directly
+without a rendered credentials file.</p>
+<p>Project landing records live next to their projects in
+<code>projects/&lt;project&gt;/dnsconfig.json</code>. Project files own their subdomain CNAMEs, which point directly to
+<code>alwaldend.github.io.</code> as required by GitHub Pages custom-domain setup.</p>
 <p>Interactive:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/dns
 </span></span></code></pre></div><p>Just preview:</p>

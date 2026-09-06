@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Terraform">
 	<meta itemprop="description" content="Terraform">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
-	<meta itemprop="wordCount" content="23">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="wordCount" content="54">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Terraform">
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -213,6 +213,10 @@ This is the multi-page printable view of this section.
 <h2 id="print-5926141501693e2fdaefbc61a650ebaa-features">Features<a class="td-heading-self-link" href="#print-5926141501693e2fdaefbc61a650ebaa-features" aria-label="Heading self-link"></a></h2><ul>
 <li>Terraform binaries use explicit operation suffixes. In particular, apply is
 <code>&lt;name&gt;.apply</code>; the unnamed <code>&lt;name&gt;</code> mutating alias is intentionally absent.</li>
+<li>Root <code>//:tf.*</code> commands delegate to <code>//tools/terraform/cmd/workspace:tf.*</code>.
+They retain the repository root as Terraform&rsquo;s working directory. Other
+packages default to their own directory; <code>terraform_binary</code> accepts an
+explicit <code>chdir</code> for relocated command wrappers.</li>
 </ul>
 
 </div>
@@ -233,7 +237,7 @@ This is the multi-page printable view of this section.
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-20b2440a3ede3523083e3ba0de843c53">1 - Runner</h1>
     <div class="lead">Golang code for the terraform runner</div>

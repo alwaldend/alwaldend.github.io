@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Vault">
 	<meta itemprop="description" content="Vault">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
-	<meta itemprop="wordCount" content="3">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="wordCount" content="29">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Vault">
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -421,6 +421,9 @@ This is the multi-page printable view of this section.
       <h2 id="print-65e377f360d9e0c0b6e9d9df77d9ce1d-links">Links<a class="td-heading-self-link" href="#print-65e377f360d9e0c0b6e9d9df77d9ce1d-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Repo: <a href="https://github.com/hashicorp/vault">https://github.com/hashicorp/vault</a></li>
 </ul>
+<p>The root <code>//:vault</code> and <code>//:vault.*</code> labels delegate to wrappers in
+<code>//tools/vault/cmd/workspace</code>, using <code>//tools/al:config</code>. <code>//tools/vault:vault</code>
+is the standalone CLI; the wrappers add the existing AL environment injection.</p>
 
 </div>
 </div>

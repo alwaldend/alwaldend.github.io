@@ -45,13 +45,13 @@ Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained b
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
-		<meta property="article:modified_time" content="2026-09-05T22:41:15+03:00">
+		<meta property="article:modified_time" content="2026-09-06T16:28:30+03:00">
 
 	<meta itemprop="name" content="Alwaldend">
 	<meta itemprop="description" content="Attempt 5Back to durable goal · Attempt history
 Targeted failuresAttempt 4 passed every recorded command but independent review disproved four completeness claims: malformed UTF-8 loss was unmarked, built-in consumers silently accepted partial host output, Git status truncation was inferred from capacity rather than omission and missed newline paths, and imported skill evals did not cover their added behavior.
 Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained bytes and OR that fact into truncated; cover malformed output below and above the cap. Publish new immutable versions for each reusable package whose result fields need host-truncation propagation. Preserve every previously tracked version byte-for-byte and make partial fields explicit rather than hiding signal termination as ordinary success. Parse status records before deciding whether an additional logical change was omitted, capture NUL-delimited paths with newline-safe expressions, and cover exact-one, max-two, max-one-of-two, copy, and newline cases. Add offline cases that exercise compatible multi-target Bazel batching, immutable exact-hash candidate promotion/regression, and durable task-owned push behavior that excludes disposable output and reports blockers. Track disposal of an activation removed by #handleUnavailable() as a retirement so shutdown cannot return before its worker teardown completes. Rerun each focused target, all affected package/skill tests and builds, Buildifier, and another independent review before freezing a commit. Boundaries Retain the Cordis/worker/storage architecture and the shutdown correction. Do not modify historical hash-named version bytes. Do not import any PR 24 path outside projects/agents. Do not add live, billable eval targets; these cases extend the existing offline-validated behavioral configurations. Do not prepare, commit, or publish until the new review is clean. Planned acceptance packet Every discarded output byte makes truncated true. Each Git/context field that can be partial exposes that fact; bounded diff and search remain successful. Shutdown joins teardown for generations that become unavailable immediately before shutdown, not only those still present in the active map. Exactly maximum status changes reports complete, while an actual additional parseable change reports truncated; valid newline paths round-trip. Eval configs validate with cases for every material imported behavior. A second independent read-only review reports no remaining actionable issue. Working-tree result ctx.exec() now retains a combined bounded prefix, marks byte overflow and malformed UTF-8 loss as truncated, and stops the child before resolving. repo_context activates immutable version abd0db3e...; root, HEAD, status, and ripgrep results propagate host truncation explicitly. git_worktree retains original version 70d8f28d... unchanged and activates sole new version 8853aa20.... The rejected intermediate de978... file is absent. Exact-limit status, newline paths, incomplete NUL records, revision discovery, history, name-status, diff, and aggregate flags are covered. Runtime shutdown is memoized, closes admission, joins admitted package operations, and tracks disposal after an unavailable activation leaves the active map. PR 24’s projects/agents subtree is integrated as bazel-agent, goal, and packaged decision-review changes only. Newer goal-record and delegation policy is preserved; added eval cases exercise every material imported rule. Validation evidence Focused Bazel regression/eval batch: 8 of 8 tests pass. Entire affected MCP package plus skill evals: 12 of 12 tests pass. Entire MCP package and all three skill libraries build; every skill validation aspect passes. Root //:buildifier_test: 1 of 1 passes. git diff --check, JavaScript syntax checks, and every retained/new reusable package content hash pass. Progress, approach, and process auditAttempt 5 materially closes every falsified completeness claim from Attempt 4 without replacing the accepted architecture. New versions are confined to the two reusable packages whose public result contract changed; historical bytes remain intact. The test packet now observes semantic completeness rather than only byte caps or array lengths. The remaining critical path is review and exact-candidate delivery, not additional implementation.">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
 	<meta itemprop="wordCount" content="928">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
@@ -148,7 +148,7 @@ Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained b
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -173,7 +173,7 @@ Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained b
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -838,17 +838,6 @@ Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained b
     <input type="checkbox" id="m-docsprojectsbazel_agent-check"/>
     <label for="m-docsprojectsbazel_agent-check"><a href="/docs/projects/bazel_agent/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsprojectsbazel_agent"><span class="">Bazel agent</span></a></label>
     
-  </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsprojectscgit-li">
-    <input type="checkbox" id="m-docsprojectscgit-check"/>
-    <label for="m-docsprojectscgit-check"><a href="/docs/projects/cgit/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsprojectscgit"><span class="">CGit</span></a></label>
-    
-    <ul class="ul-3 foldable">
-      <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsprojectscgitimages-li">
-    <input type="checkbox" id="m-docsprojectscgitimages-check"/>
-    <label for="m-docsprojectscgitimages-check"><a href="/docs/projects/cgit/images/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsprojectscgitimages"><span class="">Images</span></a></label>
-    
-  </li>
-    </ul>
   </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsprojectsci_platform-li">
     <input type="checkbox" id="m-docsprojectsci_platform-check"/>
     <label for="m-docsprojectsci_platform-check"><a href="/docs/projects/ci_platform/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsprojectsci_platform"><span class="">Ci platform</span></a></label>
@@ -1131,6 +1120,10 @@ Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained b
     
   </li>
     </ul>
+  </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsprojectsrules_iso-li">
+    <input type="checkbox" id="m-docsprojectsrules_iso-check"/>
+    <label for="m-docsprojectsrules_iso-check"><a href="/docs/projects/rules_iso/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsprojectsrules_iso"><span class="">rules_iso</span></a></label>
+    
   </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsprojectssri-li">
     <input type="checkbox" id="m-docsprojectssri-check"/>
     <label for="m-docsprojectssri-check"><a href="/docs/projects/sri/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsprojectssri"><span class="">Sri</span></a></label>
@@ -1197,10 +1190,6 @@ Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained b
     <input type="checkbox" id="m-docsprojectsuseless_qt_gui-check"/>
     <label for="m-docsprojectsuseless_qt_gui-check"><a href="/docs/projects/useless_qt_gui/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsprojectsuseless_qt_gui"><span class="">Useless QT GUI</span></a></label>
     
-  </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsprojectsxray_manager-li">
-    <input type="checkbox" id="m-docsprojectsxray_manager-check"/>
-    <label for="m-docsprojectsxray_manager-check"><a href="/docs/projects/xray_manager/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsprojectsxray_manager"><span class="">Xray manager</span></a></label>
-    
   </li>
     </ul>
   </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsinfra-li">
@@ -1210,7 +1199,7 @@ Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained b
     <ul class="ul-2 foldable">
       <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsinfraarch-li">
     <input type="checkbox" id="m-docsinfraarch-check"/>
-    <label for="m-docsinfraarch-check"><a href="/docs/infra/arch/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsinfraarch"><span class="">Arch</span></a></label>
+    <label for="m-docsinfraarch-check"><a href="/docs/infra/arch/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsinfraarch"><span class="">Architecture</span></a></label>
     
   </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsinfraceph-li">
     <input type="checkbox" id="m-docsinfraceph-check"/>
@@ -1430,7 +1419,11 @@ Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained b
     <label for="m-docstools-check"><a href="/docs/tools/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docstools"><span class="">Tools</span></a></label>
     
     <ul class="ul-2 foldable">
-      <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docstoolsagents-li">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docstoolsbazel_session_cleanup-li">
+    <input type="checkbox" id="m-docstoolsbazel_session_cleanup-check"/>
+    <label for="m-docstoolsbazel_session_cleanup-check"><a href="/docs/tools/bazel_session_cleanup/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docstoolsbazel_session_cleanup"><span class=""></span></a></label>
+    
+  </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docstoolsagents-li">
     <input type="checkbox" id="m-docstoolsagents-check"/>
     <label for="m-docstoolsagents-check"><a href="/docs/tools/agents/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docstoolsagents"><span class="">Agent control contracts</span></a></label>
     
@@ -1624,6 +1617,10 @@ Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained b
   </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docstoolsforgejo-li">
     <input type="checkbox" id="m-docstoolsforgejo-check"/>
     <label for="m-docstoolsforgejo-check"><a href="/docs/tools/forgejo/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docstoolsforgejo"><span class="">Forgejo</span></a></label>
+    
+  </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docstoolsgazelle-li">
+    <input type="checkbox" id="m-docstoolsgazelle-check"/>
+    <label for="m-docstoolsgazelle-check"><a href="/docs/tools/gazelle/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docstoolsgazelle"><span class="">Gazelle</span></a></label>
     
   </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docstoolsgit-li">
     <input type="checkbox" id="m-docstoolsgit-check"/>
@@ -2198,6 +2195,10 @@ Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained b
     </ul>
   </li>
     </ul>
+  </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docstoolsal-li">
+    <input type="checkbox" id="m-docstoolsal-check"/>
+    <label for="m-docstoolsal-check"><a href="/docs/tools/al/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docstoolsal"><span class="">Repository AL configuration</span></a></label>
+    
   </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docstoolsrepo_delivery-li">
     <input type="checkbox" id="m-docstoolsrepo_delivery-check"/>
     <label for="m-docstoolsrepo_delivery-check"><a href="/docs/tools/repo_delivery/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docstoolsrepo_delivery"><span class="">Repository delivery</span></a></label>
@@ -2246,6 +2247,10 @@ Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained b
     </ul>
   </li>
     </ul>
+  </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docstoolsbazel_module-li">
+    <input type="checkbox" id="m-docstoolsbazel_module-check"/>
+    <label for="m-docstoolsbazel_module-check"><a href="/docs/tools/bazel_module/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docstoolsbazel_module"><span class="">Root Bazel module</span></a></label>
+    
   </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docstoolsrun_tool-li">
     <input type="checkbox" id="m-docstoolsrun_tool-check"/>
     <label for="m-docstoolsrun_tool-check"><a href="/docs/tools/run_tool/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docstoolsrun_tool"><span class="">Run tool</span></a></label>
@@ -2902,9 +2907,9 @@ Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained b
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/data/" data-taxonomy-term="data"><span class="taxonomy-label">Data</span><span class="taxonomy-count">11</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/infra/" data-taxonomy-term="infra"><span class="taxonomy-label">Infra</span><span class="taxonomy-count">45</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/misc/" data-taxonomy-term="misc"><span class="taxonomy-label">Misc</span><span class="taxonomy-count">22</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/categories/project/" data-taxonomy-term="project"><span class="taxonomy-label">Project</span><span class="taxonomy-count">210</span></a></li>
+        <li><a class="taxonomy-term" href="https://alwaldend.com/categories/project/" data-taxonomy-term="project"><span class="taxonomy-label">Project</span><span class="taxonomy-count">208</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/third_party/" data-taxonomy-term="third_party"><span class="taxonomy-label">Third_party</span><span class="taxonomy-count">36</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/categories/tool/" data-taxonomy-term="tool"><span class="taxonomy-label">Tool</span><span class="taxonomy-count">223</span></a></li>
+        <li><a class="taxonomy-term" href="https://alwaldend.com/categories/tool/" data-taxonomy-term="tool"><span class="taxonomy-label">Tool</span><span class="taxonomy-count">227</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/user/" data-taxonomy-term="user"><span class="taxonomy-label">User</span><span class="taxonomy-count">6</span></a></li>
         </ul>
     </div>
@@ -2914,7 +2919,7 @@ Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained b
         <li><a class="taxonomy-term" href="https://alwaldend.com/languages/bzl/" data-taxonomy-term="bzl"><span class="taxonomy-label">Bzl</span><span class="taxonomy-count">50</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/languages/c/" data-taxonomy-term="c"><span class="taxonomy-label">C</span><span class="taxonomy-count">1</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/languages/cpp/" data-taxonomy-term="cpp"><span class="taxonomy-label">Cpp</span><span class="taxonomy-count">2</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/languages/go/" data-taxonomy-term="go"><span class="taxonomy-label">Go</span><span class="taxonomy-count">32</span></a></li>
+        <li><a class="taxonomy-term" href="https://alwaldend.com/languages/go/" data-taxonomy-term="go"><span class="taxonomy-label">Go</span><span class="taxonomy-count">31</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/languages/java/" data-taxonomy-term="java"><span class="taxonomy-label">Java</span><span class="taxonomy-count">1</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/languages/javascript/" data-taxonomy-term="javascript"><span class="taxonomy-label">Javascript</span><span class="taxonomy-count">1</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/languages/js/" data-taxonomy-term="js"><span class="taxonomy-label">Js</span><span class="taxonomy-count">2</span></a></li>
@@ -2931,11 +2936,11 @@ Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained b
       <h5 class="taxonomy-title">Statuses</h5>
       <ul class="taxonomy-terms">
         <li><a class="taxonomy-term" href="https://alwaldend.com/statuses/abandoned/" data-taxonomy-term="abandoned"><span class="taxonomy-label">Abandoned</span><span class="taxonomy-count">1</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/statuses/active/" data-taxonomy-term="active"><span class="taxonomy-label">Active</span><span class="taxonomy-count">15</span></a></li>
+        <li><a class="taxonomy-term" href="https://alwaldend.com/statuses/active/" data-taxonomy-term="active"><span class="taxonomy-label">Active</span><span class="taxonomy-count">16</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/statuses/experimental/" data-taxonomy-term="experimental"><span class="taxonomy-label">Experimental</span><span class="taxonomy-count">2</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/statuses/finished/" data-taxonomy-term="finished"><span class="taxonomy-label">Finished</span><span class="taxonomy-count">4</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/statuses/in_progress/" data-taxonomy-term="in_progress"><span class="taxonomy-label">In_progress</span><span class="taxonomy-count">6</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/statuses/maintenance/" data-taxonomy-term="maintenance"><span class="taxonomy-label">Maintenance</span><span class="taxonomy-count">5</span></a></li>
+        <li><a class="taxonomy-term" href="https://alwaldend.com/statuses/in_progress/" data-taxonomy-term="in_progress"><span class="taxonomy-label">In_progress</span><span class="taxonomy-count">5</span></a></li>
+        <li><a class="taxonomy-term" href="https://alwaldend.com/statuses/maintenance/" data-taxonomy-term="maintenance"><span class="taxonomy-label">Maintenance</span><span class="taxonomy-count">4</span></a></li>
         </ul>
     </div>
   <div class="taxonomy taxonomy-terms-cloud taxo-tags">
@@ -3047,16 +3052,15 @@ Hypotheses and plan Have UTF-8 decoding report whether it dropped any retained b
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/truenas/" data-taxonomy-term="truenas"><span class="taxonomy-label">Truenas</span><span class="taxonomy-count">2</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/udev/" data-taxonomy-term="udev"><span class="taxonomy-label">Udev</span><span class="taxonomy-count">1</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/unikernels/" data-taxonomy-term="unikernels"><span class="taxonomy-label">Unikernels</span><span class="taxonomy-count">2</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/tags/v2ray/" data-taxonomy-term="v2ray"><span class="taxonomy-label">V2ray</span><span class="taxonomy-count">1</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/validation/" data-taxonomy-term="validation"><span class="taxonomy-label">Validation</span><span class="taxonomy-count">1</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/vault/" data-taxonomy-term="vault"><span class="taxonomy-label">Vault</span><span class="taxonomy-count">14</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/vial/" data-taxonomy-term="vial"><span class="taxonomy-label">Vial</span><span class="taxonomy-count">1</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/tags/vpn/" data-taxonomy-term="vpn"><span class="taxonomy-label">Vpn</span><span class="taxonomy-count">4</span></a></li>
+        <li><a class="taxonomy-term" href="https://alwaldend.com/tags/vpn/" data-taxonomy-term="vpn"><span class="taxonomy-label">Vpn</span><span class="taxonomy-count">3</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/vuejs/" data-taxonomy-term="vuejs"><span class="taxonomy-label">Vuejs</span><span class="taxonomy-count">1</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/waydroid/" data-taxonomy-term="waydroid"><span class="taxonomy-label">Waydroid</span><span class="taxonomy-count">1</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/workflow/" data-taxonomy-term="workflow"><span class="taxonomy-label">Workflow</span><span class="taxonomy-count">2</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/xcp-ng/" data-taxonomy-term="xcp-ng"><span class="taxonomy-label">Xcp-Ng</span><span class="taxonomy-count">2</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/tags/xray/" data-taxonomy-term="xray"><span class="taxonomy-label">Xray</span><span class="taxonomy-count">4</span></a></li>
+        <li><a class="taxonomy-term" href="https://alwaldend.com/tags/xray/" data-taxonomy-term="xray"><span class="taxonomy-label">Xray</span><span class="taxonomy-count">3</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/yandex_cloud/" data-taxonomy-term="yandex_cloud"><span class="taxonomy-label">Yandex_cloud</span><span class="taxonomy-count">2</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/yubikey/" data-taxonomy-term="yubikey"><span class="taxonomy-label">Yubikey</span><span class="taxonomy-count">1</span></a></li>
         </ul>

@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Bazelrc">
 	<meta itemprop="description" content="Bazelrc files">
-	<meta itemprop="dateModified" content="2026-09-05T22:41:15+03:00">
-	<meta itemprop="wordCount" content="42">
+	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="wordCount" content="135">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Bazelrc">
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.6f838f3766ecdf1f965ac729df023915.json"
+    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -193,6 +193,15 @@ This is the multi-page printable view of this section.
 values into repository rules, actions, host actions, or tests. Those execution
 contexts use Bazel-managed temporary storage; host tools own any explicit
 task/run scratch they require.</p>
+<p>Agent tests use Bazel&rsquo;s normal result cache. Tests that inspect undeclared
+workspace files must opt out with the <code>no-cache</code> tag.</p>
+<p>Agent commands use Bazel&rsquo;s default lockfile update mode. Review and commit
+generated lockfile changes with dependency changes. CI retains strict lockfile
+checking; use <code>--lockfile_mode=error</code> for an explicit reproducibility check.</p>
+<p>In the root workspace, lint actions fail on violations. Their failure setting
+is identical across normal and lint configurations to preserve the analysis
+cache when switching modes. <code>--config=lint</code> enables the linter aspects and
+requests only lint reports and skill validation, not ordinary target outputs.</p>
 <h2 id="print-fcd8d261d05886ef7cc7283fd902afb8-links">Links<a class="td-heading-self-link" href="#print-fcd8d261d05886ef7cc7283fd902afb8-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Rules: <a href="https://github.com/bazel-contrib/bazelrc-preset.bzl/">https://github.com/bazel-contrib/bazelrc-preset.bzl/</a></li>
 </ul>

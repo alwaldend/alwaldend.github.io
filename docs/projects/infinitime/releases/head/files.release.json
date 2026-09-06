@@ -32,16 +32,16 @@
                 "hashes": [
                     {
                         "algo": "SHA-256",
-                        "content": "5004cda4e9904e1067ad8e37c09c1f6731738edca87073389e2e724ba7129254"
+                        "content": "73366fbe72fab6f42c4ba14d0cb6d8ba74b95ba8d952526e37d40723c8270428"
                     },
                     {
                         "algo": "MD5",
-                        "content": "9dcf0cf378108619528121fd055f3f2a"
+                        "content": "e553940e67320e17affb3578d68a0125"
                     }
                 ],
                 "name": "pinetime-mcuboot-app-dfu-1.15.0.zip",
                 "safeName": "pinetime_mcuboot_app_dfu_1_15_0_zip",
-                "size": "381106"
+                "size": "381123"
             },
             "deployments": [
                 {
