@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Al">
 	<meta itemprop="description" content="Repository command runner and Bazel configuration rules">
-	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
-	<meta itemprop="wordCount" content="25">
+	<meta itemprop="dateModified" content="2026-09-06T16:49:24+03:00">
+	<meta itemprop="wordCount" content="283">
 	<meta itemprop="keywords" content="Bzl_rules,Fp,Proto">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Al">
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
+    data-offline-search-index-json-src="/offline-search-index.51de21bfb23737c5260665e0e7cc08da.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -280,6 +280,31 @@ This is the multi-page printable view of this section.
       <p><code>al</code> runs repository commands with configured plugins and environment values.
 It provides the command-line tool and Bazel rules used to package and execute
 those configurations.</p>
+<p><code>al run</code> starts selected plugins, passes their environment to a command, and
+keeps plugin resources available until that command exits. On cancellation it
+asks the command to terminate and waits up to ten seconds before killing it.
+Plugin shutdown then drains requests, releases resources in reverse registration
+order, and waits for plugin exit. Startup failure cancels sibling starts and
+rolls back partially initialized resources. Cleanup errors fail the invocation.</p>
+<p>The injector creates secret files with owner-only permissions and removes them
+after consumers stop. Vault stores revoke AppRole tokens they issue; failed
+AppRole login attempts destroy their unused single-use SecretID. The role&rsquo;s
+bootstrap policy must permit <code>secret-id-accessor/destroy</code>, as declared by
+<code>projects/tf_modules/vault_approle</code>. The user&rsquo;s existing token-helper credential
+is never erased or revoked. Secret inputs and remote response bodies are omitted
+from diagnostic messages. OIDC authorization uses the configured Vault HTTPS
+origin and TLS transport, rejecting alternate origins and redirects.
+Explicit config dumps still contain the requested configuration; file outputs
+use owner-only permissions and truncate previous contents.</p>
+<p><code>no_auth</code> prevents AL&rsquo;s Vault client from loading credentials. For environment
+injection it clears inherited <code>VAULT_TOKEN</code>; it does not sandbox the command or
+prevent a command from independently reading the user&rsquo;s token helper. Plugins
+and invoked commands remain trusted programs with the user&rsquo;s filesystem access.</p>
+<p>Cleanup is observable best effort, not secure erasure. Memory copies are not
+zeroized. Forced termination, host failure, unresponsive cleanup code, or an
+unavailable service can prevent deletion or revocation. Subprocess signaling
+targets direct children, not arbitrary descendants. Credential expiry remains
+a fallback; service-specific logout requirements are documented with each plugin.</p>
 
 </div>
 </div>
@@ -299,7 +324,7 @@ those configurations.</p>
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-01b527ba1995527b0761df3b16d62db6">1 - Releases</h1>
     <div class="lead">Releases</div>
@@ -325,7 +350,7 @@ those configurations.</p>
         data-bs-target="#print-652226f353b09ab1409a7a9d983ce444-release-0a118e046f55db876bac8b68ea96694d-list-0_collapse"
         aria-expanded="false"
         aria-controls="print-652226f353b09ab1409a7a9d983ce444-release-0a118e046f55db876bac8b68ea96694d-list-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">126</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">127</span>
 </button>
     </h3>
     <div
@@ -368,7 +393,7 @@ Attempt-ID: attempt-c6bde9df37ce</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">f9007f8da73ef5596869adf52c6b4e4e7d016e83</pre>
+                    <pre class="my-auto">9f32d650600a8c79aebaf4bd56836b265a2c36ff</pre>
                   </span>
                 </li>
               </ul>
@@ -422,10 +447,81 @@ Attempt-ID: attempt-c6bde9df37ce</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQJBVcpoJH1A0JZ&#43;mwtOOdr/FpLWe/TU9IoQDkIfoBCL/Xz6NCqZ0gFI7tbTJJKjH/B
-4NEhM/bv8uaodCikwfTgc=
+AAAAQE0q&#43;hGXdH4ewWwxa2oZKHukCqeFNKzG4Ed6myUEeAjXKZWSv2Q60u0x6o/XAq2KOE
+ahJzFdP13G3O1jy0&#43;tqAw=
 -----END SSH SIGNATURE-----
 </pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Wait for AL secret cleanup and plugin shutdown</p>
+<p>Roll back partial plugin startup, drain requests before releasing resources,
+and wait for plugin and command processes to exit. Stop independent plugins
+concurrently while preserving dependency order inside each plugin.</p>
+<p>Revoke invocation-owned credentials, remove temporary secret files, and verify
+Forgejo and Harbor session cleanup. Preserve the user&rsquo;s existing Vault login.
+Enforce Vault OIDC origins and no_auth, redact sensitive errors, and restrict
+config dumps to owner-only files. Add the AppRole SecretID cleanup permission.</p>
+<p>Cover normal exit, cancellation, failed startup, credential revocation, and
+transport cleanup with synthetic unit and real command/plugin regression tests.</p>
+<p>Clarify that required formatting-only repairs need no separate approval, and
+fix the existing blank-line formatting failure in the GitHub AL wrapper.</p>
+<p>Goal-Ref: fix-al-secret-lifecycle-and-plugin-shutdown-3137c0b0
+Attempt-ID: attempt-0c1353676e2f</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">5c26140799f280c0afb1878e404aed30475457f7</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
                   </span>
                 </li>
               </ul>
@@ -10573,7 +10669,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">13.53 MB</pre>
+                    <pre class="my-auto">13.55 MB</pre>
                   </span>
                 </li>
               </ul>
@@ -10590,7 +10686,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">9864123b88c7545736962c0bcdad1604f2794434c0c75146c3c80fbed555761f</pre>
+                    <pre class="my-auto">631f8dd669e13041003b245770bbbbb0799c23c891a167d89d789083277a4e1f</pre>
                   </span>
                 </li>
               </ul>
@@ -10607,7 +10703,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">53440866d0cf83529b45b1a74726ac7f</pre>
+                    <pre class="my-auto">2388483f37dd583703a567f5da24035f</pre>
                   </span>
                 </li>
               </ul>
@@ -10661,7 +10757,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
         data-bs-target="#print-0a118e046f55db876bac8b68ea96694d-release-0a118e046f55db876bac8b68ea96694d-page-0_collapse"
         aria-expanded="true"
         aria-controls="print-0a118e046f55db876bac8b68ea96694d-release-0a118e046f55db876bac8b68ea96694d-page-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">126</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">127</span>
 </button>
     </h3>
     <div
@@ -10704,7 +10800,7 @@ Attempt-ID: attempt-c6bde9df37ce</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">f9007f8da73ef5596869adf52c6b4e4e7d016e83</pre>
+                    <pre class="my-auto">9f32d650600a8c79aebaf4bd56836b265a2c36ff</pre>
                   </span>
                 </li>
               </ul>
@@ -10758,10 +10854,81 @@ Attempt-ID: attempt-c6bde9df37ce</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQJBVcpoJH1A0JZ&#43;mwtOOdr/FpLWe/TU9IoQDkIfoBCL/Xz6NCqZ0gFI7tbTJJKjH/B
-4NEhM/bv8uaodCikwfTgc=
+AAAAQE0q&#43;hGXdH4ewWwxa2oZKHukCqeFNKzG4Ed6myUEeAjXKZWSv2Q60u0x6o/XAq2KOE
+ahJzFdP13G3O1jy0&#43;tqAw=
 -----END SSH SIGNATURE-----
 </pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Wait for AL secret cleanup and plugin shutdown</p>
+<p>Roll back partial plugin startup, drain requests before releasing resources,
+and wait for plugin and command processes to exit. Stop independent plugins
+concurrently while preserving dependency order inside each plugin.</p>
+<p>Revoke invocation-owned credentials, remove temporary secret files, and verify
+Forgejo and Harbor session cleanup. Preserve the user&rsquo;s existing Vault login.
+Enforce Vault OIDC origins and no_auth, redact sensitive errors, and restrict
+config dumps to owner-only files. Add the AppRole SecretID cleanup permission.</p>
+<p>Cover normal exit, cancellation, failed startup, credential revocation, and
+transport cleanup with synthetic unit and real command/plugin regression tests.</p>
+<p>Clarify that required formatting-only repairs need no separate approval, and
+fix the existing blank-line formatting failure in the GitHub AL wrapper.</p>
+<p>Goal-Ref: fix-al-secret-lifecycle-and-plugin-shutdown-3137c0b0
+Attempt-ID: attempt-0c1353676e2f</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">5c26140799f280c0afb1878e404aed30475457f7</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
                   </span>
                 </li>
               </ul>
@@ -20909,7 +21076,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">13.53 MB</pre>
+                    <pre class="my-auto">13.55 MB</pre>
                   </span>
                 </li>
               </ul>
@@ -20926,7 +21093,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">9864123b88c7545736962c0bcdad1604f2794434c0c75146c3c80fbed555761f</pre>
+                    <pre class="my-auto">631f8dd669e13041003b245770bbbbb0799c23c891a167d89d789083277a4e1f</pre>
                   </span>
                 </li>
               </ul>
@@ -20943,7 +21110,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">53440866d0cf83529b45b1a74726ac7f</pre>
+                    <pre class="my-auto">2388483f37dd583703a567f5da24035f</pre>
                   </span>
                 </li>
               </ul>

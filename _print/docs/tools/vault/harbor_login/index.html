@@ -44,7 +44,8 @@
 
 	<meta itemprop="name" content="Harbor login">
 	<meta itemprop="description" content="Create a harbor session using OIDC">
-	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="dateModified" content="2026-09-06T16:49:24+03:00">
+	<meta itemprop="wordCount" content="85">
 	<meta itemprop="keywords" content="Harbor,Vault,Oidc">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Harbor login">
@@ -138,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
+    data-offline-search-index-json-src="/offline-search-index.51de21bfb23737c5260665e0e7cc08da.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -195,7 +196,16 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p>The plugin destroys its Harbor session on normal shutdown and checks that the
+original session ID is rejected by the current-user API. Cleanup uses Harbor&rsquo;s
+<code>/c/oidc/logout</code> endpoint (available in newer Harbor releases) and does not follow
+the optional identity-provider logout redirect. Unsupported endpoints, network
+failures, or sessions that remain valid are reported as cleanup errors. Session
+expiry remains server-controlled; forced termination cannot guarantee logout.</p>
+<p>The session destruction behavior is defined by Harbor&rsquo;s
+<a href="https://github.com/goharbor/harbor/blob/main/src/core/controllers/oidc.go">OIDC controller</a>.
+Vault tokens created by the invocation are revoked after session cleanup.</p>
+
 </div>
 </div>
 
@@ -214,7 +224,7 @@ This is the multi-page printable view of this section.
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-4c7e7d1be66da6d50952f158f23c17f0">1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>

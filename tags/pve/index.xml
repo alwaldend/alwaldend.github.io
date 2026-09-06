@@ -51,7 +51,7 @@
 				<link>https://alwaldend.com/docs/tools/vault/pve_login/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/tools/vault/pve_login/</guid>
-				<description></description>
+				<description>&lt;p&gt;The plugin requests an API token with a one-hour expiry and deletes that token&#xA;on shutdown using the retained login ticket and CSRF token. The token name is&#xA;registered for cleanup before creation, so cleanup is attempted even when a&#xA;creation response is lost or malformed. Failures to delete are reported; expiry&#xA;is the fallback when shutdown cannot complete. Pre-existing credentials are not&#xA;revoked. Vault tokens created by the invocation are revoked after token cleanup.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Pve vm qemu</title>

@@ -44,7 +44,8 @@
 
 	<meta itemprop="name" content="Forgejo login">
 	<meta itemprop="description" content="Get a short-lived Forgejo token using OIDC">
-	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="dateModified" content="2026-09-06T16:49:24+03:00">
+	<meta itemprop="wordCount" content="168">
 	<meta itemprop="keywords" content="Forgejo,Vault">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Forgejo login">
@@ -138,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
+    data-offline-search-index-json-src="/offline-search-index.51de21bfb23737c5260665e0e7cc08da.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -163,7 +164,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
+    data-offline-search-index-json-src="/offline-search-index.51de21bfb23737c5260665e0e7cc08da.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -3089,7 +3090,22 @@
 </div>
 
 </header>
-	
+	<p>The plugin registers token removal before issuance, using a unique token name.
+Startup failure and normal shutdown attempt removal through the authenticated
+Forgejo browser session, including when creation did not return a usable token.
+Cleanup parses the complete applications settings page and verifies token absence
+after deletion. It then logs out the invocation&rsquo;s browser session and verifies
+that the retained original cookie no longer accesses authenticated settings.
+Cleanup failures are reported.</p>
+<p>The parser follows the <a href="https://codeberg.org/forgejo/forgejo/src/tag/v15.0.3/templates/user/settings/applications.tmpl">Forgejo 15.0.3 applications template</a>: all tokens appear on
+one page, each in a <code>flex-item</code> row with a title and a matching delete button.
+It requires the applications page marker and new-token link before accepting an
+empty list. Login pages, invalid token IDs, duplicates, and responses larger than
+4 MiB fail closed. A changed upstream template may require a parser update.
+Network requests have a ten-second timeout and honor cancellation. Forced process
+termination or an unavailable Forgejo server can prevent cleanup; Forgejo tokens
+do not acquire an expiry merely because this plugin created them.</p>
+
 	<div class="section-index">
     
     

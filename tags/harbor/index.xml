@@ -37,7 +37,7 @@
 				<link>https://alwaldend.com/docs/tools/vault/harbor_login/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/tools/vault/harbor_login/</guid>
-				<description></description>
+				<description>&lt;p&gt;The plugin destroys its Harbor session on normal shutdown and checks that the&#xA;original session ID is rejected by the current-user API. Cleanup uses Harbor&amp;rsquo;s&#xA;&lt;code&gt;/c/oidc/logout&lt;/code&gt; endpoint (available in newer Harbor releases) and does not follow&#xA;the optional identity-provider logout redirect. Unsupported endpoints, network&#xA;failures, or sessions that remain valid are reported as cleanup errors. Session&#xA;expiry remains server-controlled; forced termination cannot guarantee logout.&lt;/p&gt;&#xA;&lt;p&gt;The session destruction behavior is defined by Harbor&amp;rsquo;s&#xA;&lt;a href=&#34;https://github.com/goharbor/harbor/blob/main/src/core/controllers/oidc.go&#34;&gt;OIDC controller&lt;/a&gt;.&#xA;Vault tokens created by the invocation are revoked after session cleanup.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>io_goharbor_harbor_cli</title>

@@ -44,7 +44,8 @@
 
 	<meta itemprop="name" content="Injector">
 	<meta itemprop="description" content="Secret injector">
-	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="dateModified" content="2026-09-06T16:49:24+03:00">
+	<meta itemprop="wordCount" content="117">
 	<meta itemprop="keywords" content="Vault">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Injector">
@@ -138,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
+    data-offline-search-index-json-src="/offline-search-index.51de21bfb23737c5260665e0e7cc08da.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -163,7 +164,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
+    data-offline-search-index-json-src="/offline-search-index.51de21bfb23737c5260665e0e7cc08da.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -3087,7 +3088,18 @@
 </div>
 
 </header>
-	
+	<p>Shutdown first drains plugin requests, then stops and waits for resource
+processes, revokes invocation-owned Vault credentials, and deletes temporary
+files and SSH key directories. Failed cleanup is reported. Registration after
+shutdown is rejected; a fetcher removes any unregistered temporary material.
+Temporary files use mode <code>0600</code> and directories use <code>0700</code>. Deletion is filesystem
+unlinking, not secure erasure, and cannot run after <code>SIGKILL</code> or host failure.</p>
+<p><code>no_auth</code> explicitly sets the injected <code>VAULT_TOKEN</code> to an empty value so an
+inherited token is overridden. This does not remove the user&rsquo;s token-helper
+file; commands that independently consult that helper may still authenticate.
+Template errors and OIDC status errors omit input and response contents.
+OIDC requests honor cancellation and do not follow redirects.</p>
+
 	<div class="section-index">
     
     

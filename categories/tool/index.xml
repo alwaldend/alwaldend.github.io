@@ -989,7 +989,7 @@
 				<link>https://alwaldend.com/docs/tools/vault/forgejo_login/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/tools/vault/forgejo_login/</guid>
-				<description></description>
+				<description>&lt;p&gt;The plugin registers token removal before issuance, using a unique token name.&#xA;Startup failure and normal shutdown attempt removal through the authenticated&#xA;Forgejo browser session, including when creation did not return a usable token.&#xA;Cleanup parses the complete applications settings page and verifies token absence&#xA;after deletion. It then logs out the invocation&amp;rsquo;s browser session and verifies&#xA;that the retained original cookie no longer accesses authenticated settings.&#xA;Cleanup failures are reported.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Gazelle</title>
@@ -1066,7 +1066,7 @@
 				<link>https://alwaldend.com/docs/tools/vault/harbor_login/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/tools/vault/harbor_login/</guid>
-				<description></description>
+				<description>&lt;p&gt;The plugin destroys its Harbor session on normal shutdown and checks that the&#xA;original session ID is rejected by the current-user API. Cleanup uses Harbor&amp;rsquo;s&#xA;&lt;code&gt;/c/oidc/logout&lt;/code&gt; endpoint (available in newer Harbor releases) and does not follow&#xA;the optional identity-provider logout redirect. Unsupported endpoints, network&#xA;failures, or sessions that remain valid are reported as cleanup errors. Session&#xA;expiry remains server-controlled; forced termination cannot guarantee logout.&lt;/p&gt;&#xA;&lt;p&gt;The session destruction behavior is defined by Harbor&amp;rsquo;s&#xA;&lt;a href=&#34;https://github.com/goharbor/harbor/blob/main/src/core/controllers/oidc.go&#34;&gt;OIDC controller&lt;/a&gt;.&#xA;Vault tokens created by the invocation are revoked after session cleanup.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Helm</title>
@@ -1108,7 +1108,7 @@
 				<link>https://alwaldend.com/docs/tools/vault/injector/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/tools/vault/injector/</guid>
-				<description></description>
+				<description>&lt;p&gt;Shutdown first drains plugin requests, then stops and waits for resource&#xA;processes, revokes invocation-owned Vault credentials, and deletes temporary&#xA;files and SSH key directories. Failed cleanup is reported. Registration after&#xA;shutdown is rejected; a fetcher removes any unregistered temporary material.&#xA;Temporary files use mode &lt;code&gt;0600&lt;/code&gt; and directories use &lt;code&gt;0700&lt;/code&gt;. Deletion is filesystem&#xA;unlinking, not secure erasure, and cannot run after &lt;code&gt;SIGKILL&lt;/code&gt; or host failure.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;no_auth&lt;/code&gt; explicitly sets the injected &lt;code&gt;VAULT_TOKEN&lt;/code&gt; to an empty value so an&#xA;inherited token is overridden. This does not remove the user&amp;rsquo;s token-helper&#xA;file; commands that independently consult that helper may still authenticate.&#xA;Template errors and OIDC status errors omit input and response contents.&#xA;OIDC requests honor cancellation and do not follow redirects.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Install file</title>
@@ -1332,7 +1332,7 @@
 				<link>https://alwaldend.com/docs/tools/vault/pve_login/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/tools/vault/pve_login/</guid>
-				<description></description>
+				<description>&lt;p&gt;The plugin requests an API token with a one-hour expiry and deletes that token&#xA;on shutdown using the retained login ticket and CSRF token. The token name is&#xA;registered for cleanup before creation, so cleanup is attempted even when a&#xA;creation response is lost or malformed. Failures to delete are reported; expiry&#xA;is the fallback when shutdown cannot complete. Pre-existing credentials are not&#xA;revoked. Vault tokens created by the invocation are revoked after token cleanup.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Py</title>
@@ -1500,7 +1500,7 @@
 				<link>https://alwaldend.com/docs/tools/vault/tf_backend/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/tools/vault/tf_backend/</guid>
-				<description></description>
+				<description>&lt;p&gt;The plugin tracks each running backend for shutdown, including backends created&#xA;before a later call fails. Shutdown drains HTTP requests before revoking the&#xA;backend&amp;rsquo;s invocation-owned Vault credentials. If the shutdown deadline expires,&#xA;connections are forcibly closed and the timeout is reported. Normal HTTP server&#xA;closure is not an error. Vault requests use their incoming request context.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Toml</title>

@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="Vault">
 	<meta itemprop="description" content="Vault">
-	<meta itemprop="dateModified" content="2026-09-06T16:28:30+03:00">
+	<meta itemprop="dateModified" content="2026-09-06T16:49:24+03:00">
 	<meta itemprop="wordCount" content="29">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.777acf8c01ef596a48124379ab56368f.json"
+    data-offline-search-index-json-src="/offline-search-index.51de21bfb23737c5260665e0e7cc08da.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -476,7 +476,22 @@ is the standalone CLI; the wrappers add the existing AL environment injection.</
     
 	<h1 id="pg-e2ef3e755f2b9b82043c74dead7c06cd">2 - Forgejo login</h1>
     <div class="lead">Get a short-lived Forgejo token using OIDC</div>
-	
+	<p>The plugin registers token removal before issuance, using a unique token name.
+Startup failure and normal shutdown attempt removal through the authenticated
+Forgejo browser session, including when creation did not return a usable token.
+Cleanup parses the complete applications settings page and verifies token absence
+after deletion. It then logs out the invocation&rsquo;s browser session and verifies
+that the retained original cookie no longer accesses authenticated settings.
+Cleanup failures are reported.</p>
+<p>The parser follows the <a href="https://codeberg.org/forgejo/forgejo/src/tag/v15.0.3/templates/user/settings/applications.tmpl">Forgejo 15.0.3 applications template</a>: all tokens appear on
+one page, each in a <code>flex-item</code> row with a title and a matching delete button.
+It requires the applications page marker and new-token link before accepting an
+empty list. Login pages, invalid token IDs, duplicates, and responses larger than
+4 MiB fail closed. A changed upstream template may require a parser update.
+Network requests have a ten-second timeout and honor cancellation. Forced process
+termination or an unavailable Forgejo server can prevent cleanup; Forgejo tokens
+do not acquire an expiry merely because this plugin created them.</p>
+
 </div>
 
 
@@ -497,7 +512,7 @@ is the standalone CLI; the wrappers add the existing AL environment injection.</
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-016c3d67c6aa8c5306c267b2e2d94e0c">2.1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>
@@ -608,7 +623,16 @@ is the standalone CLI; the wrappers add the existing AL environment injection.</
     
 	<h1 id="pg-c6b1dafc90ff70943ef5ca5593500a08">5 - Harbor login</h1>
     <div class="lead">Create a harbor session using OIDC</div>
-	
+	<p>The plugin destroys its Harbor session on normal shutdown and checks that the
+original session ID is rejected by the current-user API. Cleanup uses Harbor&rsquo;s
+<code>/c/oidc/logout</code> endpoint (available in newer Harbor releases) and does not follow
+the optional identity-provider logout redirect. Unsupported endpoints, network
+failures, or sessions that remain valid are reported as cleanup errors. Session
+expiry remains server-controlled; forced termination cannot guarantee logout.</p>
+<p>The session destruction behavior is defined by Harbor&rsquo;s
+<a href="https://github.com/goharbor/harbor/blob/main/src/core/controllers/oidc.go">OIDC controller</a>.
+Vault tokens created by the invocation are revoked after session cleanup.</p>
+
 </div>
 
 
@@ -629,7 +653,7 @@ is the standalone CLI; the wrappers add the existing AL environment injection.</
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-4c7e7d1be66da6d50952f158f23c17f0">5.1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>
@@ -681,7 +705,18 @@ is the standalone CLI; the wrappers add the existing AL environment injection.</
     
 	<h1 id="pg-9b04319a9711db4eed8dc781aedb4887">6 - Injector</h1>
     <div class="lead">Secret injector</div>
-	
+	<p>Shutdown first drains plugin requests, then stops and waits for resource
+processes, revokes invocation-owned Vault credentials, and deletes temporary
+files and SSH key directories. Failed cleanup is reported. Registration after
+shutdown is rejected; a fetcher removes any unregistered temporary material.
+Temporary files use mode <code>0600</code> and directories use <code>0700</code>. Deletion is filesystem
+unlinking, not secure erasure, and cannot run after <code>SIGKILL</code> or host failure.</p>
+<p><code>no_auth</code> explicitly sets the injected <code>VAULT_TOKEN</code> to an empty value so an
+inherited token is overridden. This does not remove the user&rsquo;s token-helper
+file; commands that independently consult that helper may still authenticate.
+Template errors and OIDC status errors omit input and response contents.
+OIDC requests honor cancellation and do not follow redirects.</p>
+
 </div>
 
 
@@ -702,7 +737,7 @@ is the standalone CLI; the wrappers add the existing AL environment injection.</
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b69ec13422b4f7b5373308f2b8516e28">6.1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>
@@ -860,7 +895,15 @@ is the standalone CLI; the wrappers add the existing AL environment injection.</
     
 	<h1 id="pg-a5b1d93f0d9f1c18d0bfe7630c4cebca">8 - PVE login</h1>
     <div class="lead">Get a login ticket using OIDC</div>
-	
+	<p>The plugin requests an API token with a one-hour expiry and deletes that token
+on shutdown using the retained login ticket and CSRF token. The token name is
+registered for cleanup before creation, so cleanup is attempted even when a
+creation response is lost or malformed. Failures to delete are reported; expiry
+is the fallback when shutdown cannot complete. Pre-existing credentials are not
+revoked. Vault tokens created by the invocation are revoked after token cleanup.</p>
+<p>Token deletion uses the Proxmox
+<a href="https://github.com/proxmox/pve-access-control/blob/master/src/PVE/API2/User.pm">user token API</a>.</p>
+
 </div>
 
 
@@ -881,7 +924,7 @@ is the standalone CLI; the wrappers add the existing AL environment injection.</
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5e6863d3330b5c4ee495b8207b4a1ee8">8.1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>
@@ -935,7 +978,12 @@ is the standalone CLI; the wrappers add the existing AL environment injection.</
     
 	<h1 id="pg-172b5a9d697d743491cef630872406dc">9 - Tf backend</h1>
     <div class="lead">Http terraform backend backed by Vault</div>
-	
+	<p>The plugin tracks each running backend for shutdown, including backends created
+before a later call fails. Shutdown drains HTTP requests before revoking the
+backend&rsquo;s invocation-owned Vault credentials. If the shutdown deadline expires,
+connections are forcibly closed and the timeout is reported. Normal HTTP server
+closure is not an error. Vault requests use their incoming request context.</p>
+
 </div>
 
 
@@ -956,7 +1004,7 @@ is the standalone CLI; the wrappers add the existing AL environment injection.</
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-32190bc37a299fdcd2fb9acc6abc6cbf">9.1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>
