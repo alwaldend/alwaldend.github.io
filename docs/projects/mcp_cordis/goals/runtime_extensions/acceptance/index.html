@@ -43,12 +43,12 @@ projects/mcp_cordis is a documented, Bazel-built standalone MCP stdio server and
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
-		<meta property="article:modified_time" content="2026-09-06T16:58:04+03:00">
+		<meta property="article:modified_time" content="2026-09-06T17:34:36+03:00">
 
 	<meta itemprop="name" content="Alwaldend">
 	<meta itemprop="description" content="Acceptance criteriaBack to durable goal
 projects/mcp_cordis is a documented, Bazel-built standalone MCP stdio server and is not coupled to a Codex plugin manifest. The server demonstrably uses Cordis lifecycle primitives rather than a separately invented plugin framework. One connected MCP client can define, start, inspect, invoke, update, stop, and remove a runtime package without restarting the server. MCP source writes are syntax-checked and atomically persisted. Existing running entries are handed to Cordis HMR without a private acknowledgement protocol. The MCP does not promise synchronous activation, broad activation rollback, or restoration of prior on-disk bytes. Native Cordis failure behavior remains intact. The pinned HMR dependency serializes reload work and drains later observed writes so an in-flight replacement cannot discard the latest persisted source. Git owns reusable source history; the runtime does not invent a second version store. Reusable package source is stored beneath projects/mcp_cordis/plugins; disposable source and configuration resolve beneath the current workspace’s out/mcp_cordis. Reusable packages reload after an MCP server restart. Disposable packages have an explicit promotion path into the reusable library. At least three useful, non-sensitive starter packages are justified by recurring prior-session tasks and have executable tests. Stable gateway tools allow immediate invocation even if a particular MCP client does not refresh dynamically registered schemas. Focused tests, builds, repository formatting checks, and an end-to-end MCP transcript pass for the exact delivered candidate. On Linux, ctx.exec() results, execution timeouts, and plugin disposal settle only after the direct child and live members of its original process group stop. A trusted package that deliberately creates a new session is explicitly outside that guarantee; unsupported platforms fail closed. cordis_invoke.timeout_ms is a response deadline, not handler cancellation; the admitted handler retains its Fiber lease until completion. Trusted Codex sessions discover the MCP from the checked-in .codex/config.toml in the active clone or linked worktree. Server startup releases Bazel’s output-base lock before serving stdio, and source plus disposable state remain scoped to that worktree. Evidence plan Unit tests cover validation, standard Cordis entries, lifecycle disposal, persistence roots, eventual reload, and promotion. An MCP integration test drives initialize/list/define/run/invoke/update/stop over stdio without restarting the process. A restart test proves reusable package recovery. Package tests execute every starter package through the same runtime path. Process regressions cover normal results, output limits, valid UTF-8 prefix retention, timeout, disposal, and rejection of launches after disposal. HMR regressions write a second generation during slow top-level evaluation and slow asynchronous activation, then require convergence to the latest persisted generation. Bazel query, test, build, Buildifier, and git diff --check cover repository integration. A launcher probe starts the generated-script MCP and runs a second Bazel command concurrently in the same linked worktree. Fixed regression set git diff --check Focused //projects/mcp_cordis:all Bazel tests and build //:buildifier_test after every BUILD or Bzlmod change End-to-end stdio lifecycle and restart tests">
-	<meta itemprop="dateModified" content="2026-09-06T16:58:04+03:00">
+	<meta itemprop="dateModified" content="2026-09-06T17:34:36+03:00">
 	<meta itemprop="wordCount" content="463">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
@@ -144,7 +144,7 @@ projects/mcp_cordis is a documented, Bazel-built standalone MCP stdio server and
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.f36e3b3e746cc08da7060a5204da72bc.json"
+    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -169,7 +169,7 @@ projects/mcp_cordis is a documented, Bazel-built standalone MCP stdio server and
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.f36e3b3e746cc08da7060a5204da72bc.json"
+    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -215,7 +215,11 @@ projects/mcp_cordis is a documented, Bazel-built standalone MCP stdio server and
     <label for="m-docsprojectsal-check"><a href="/docs/projects/al/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsprojectsal"><span class="">Al</span></a></label>
     
     <ul class="ul-3 foldable">
-      <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsprojectsalreleases-li">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsprojectsaldocs-li">
+    <input type="checkbox" id="m-docsprojectsaldocs-check"/>
+    <label for="m-docsprojectsaldocs-check"><a href="/docs/projects/al/docs/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsprojectsaldocs"><span class="">Command and plugin lifecycle</span></a></label>
+    
+  </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsprojectsalreleases-li">
     <input type="checkbox" id="m-docsprojectsalreleases-check"/>
     <label for="m-docsprojectsalreleases-check"><a href="/docs/projects/al/releases/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsprojectsalreleases"><span class="">Releases</span></a></label>
     
@@ -2897,7 +2901,7 @@ projects/mcp_cordis is a documented, Bazel-built standalone MCP stdio server and
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/data/" data-taxonomy-term="data"><span class="taxonomy-label">Data</span><span class="taxonomy-count">11</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/infra/" data-taxonomy-term="infra"><span class="taxonomy-label">Infra</span><span class="taxonomy-count">45</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/misc/" data-taxonomy-term="misc"><span class="taxonomy-label">Misc</span><span class="taxonomy-count">22</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/categories/project/" data-taxonomy-term="project"><span class="taxonomy-label">Project</span><span class="taxonomy-count">208</span></a></li>
+        <li><a class="taxonomy-term" href="https://alwaldend.com/categories/project/" data-taxonomy-term="project"><span class="taxonomy-label">Project</span><span class="taxonomy-count">209</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/third_party/" data-taxonomy-term="third_party"><span class="taxonomy-label">Third_party</span><span class="taxonomy-count">36</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/tool/" data-taxonomy-term="tool"><span class="taxonomy-label">Tool</span><span class="taxonomy-count">227</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/user/" data-taxonomy-term="user"><span class="taxonomy-label">User</span><span class="taxonomy-count">6</span></a></li>

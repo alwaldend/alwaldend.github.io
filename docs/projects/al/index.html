@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Al">
 	<meta itemprop="description" content="Repository command runner and Bazel configuration rules">
-	<meta itemprop="dateModified" content="2026-09-06T16:58:04+03:00">
-	<meta itemprop="wordCount" content="283">
+	<meta itemprop="dateModified" content="2026-09-06T17:34:36+03:00">
+	<meta itemprop="wordCount" content="40">
 	<meta itemprop="keywords" content="Bzl_rules,Fp,Proto">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Al">
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.f36e3b3e746cc08da7060a5204da72bc.json"
+    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -164,7 +164,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.f36e3b3e746cc08da7060a5204da72bc.json"
+    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -210,7 +210,11 @@
     <label for="m-docsprojectsal-check"><a href="/docs/projects/al/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsprojectsal"><span class="">Al</span></a></label>
     
     <ul class="ul-3 foldable">
-      <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsprojectsalreleases-li">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsprojectsaldocs-li">
+    <input type="checkbox" id="m-docsprojectsaldocs-check"/>
+    <label for="m-docsprojectsaldocs-check"><a href="/docs/projects/al/docs/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsprojectsaldocs"><span class="">Command and plugin lifecycle</span></a></label>
+    
+  </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsprojectsalreleases-li">
     <input type="checkbox" id="m-docsprojectsalreleases-check"/>
     <label for="m-docsprojectsalreleases-check"><a href="/docs/projects/al/releases/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsprojectsalreleases"><span class="">Releases</span></a></label>
     
@@ -2877,7 +2881,16 @@
 </div>
 
             <div class="td-toc" data-proofer-ignore>
-</div>
+<div class="td-toc-title">
+      <span class="td-toc-title__text">On this page</span>
+      <a class="td-toc-title__link" title="Top of page" href="#"></a>
+    </div>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#links">Links</a></li>
+  </ul>
+</nav>
+  </div>
 
             <div class="taxonomy taxonomy-terms-cloud taxo-categories">
       <h5 class="taxonomy-title">Categories</h5>
@@ -2885,7 +2898,7 @@
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/data/" data-taxonomy-term="data"><span class="taxonomy-label">Data</span><span class="taxonomy-count">11</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/infra/" data-taxonomy-term="infra"><span class="taxonomy-label">Infra</span><span class="taxonomy-count">45</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/misc/" data-taxonomy-term="misc"><span class="taxonomy-label">Misc</span><span class="taxonomy-count">22</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/categories/project/" data-taxonomy-term="project"><span class="taxonomy-label">Project</span><span class="taxonomy-count">208</span></a></li>
+        <li><a class="taxonomy-term" href="https://alwaldend.com/categories/project/" data-taxonomy-term="project"><span class="taxonomy-label">Project</span><span class="taxonomy-count">209</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/third_party/" data-taxonomy-term="third_party"><span class="taxonomy-label">Third_party</span><span class="taxonomy-count">36</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/tool/" data-taxonomy-term="tool"><span class="taxonomy-label">Tool</span><span class="taxonomy-count">227</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/user/" data-taxonomy-term="user"><span class="taxonomy-label">User</span><span class="taxonomy-count">6</span></a></li>
@@ -3097,39 +3110,25 @@
 </div>
 
 </header>
-	<p><code>al</code> runs repository commands with configured plugins and environment values.
-It provides the command-line tool and Bazel rules used to package and execute
-those configurations.</p>
-<p><code>al run</code> starts selected plugins, passes their environment to a command, and
-keeps plugin resources available until that command exits. On cancellation it
-asks the command to terminate and waits up to ten seconds before killing it.
-Plugin shutdown then drains requests, releases resources in reverse registration
-order, and waits for plugin exit. Startup failure cancels sibling starts and
-rolls back partially initialized resources. Cleanup errors fail the invocation.</p>
-<p>The injector creates secret files with owner-only permissions and removes them
-after consumers stop. Vault stores revoke AppRole tokens they issue; failed
-AppRole login attempts destroy their unused single-use SecretID. The role&rsquo;s
-bootstrap policy must permit <code>secret-id-accessor/destroy</code>, as declared by
-<code>projects/tf_modules/vault_approle</code>. The user&rsquo;s existing token-helper credential
-is never erased or revoked. Secret inputs and remote response bodies are omitted
-from diagnostic messages. OIDC authorization uses the configured Vault HTTPS
-origin and TLS transport, rejecting alternate origins and redirects.
-Explicit config dumps still contain the requested configuration; file outputs
-use owner-only permissions and truncate previous contents.</p>
-<p><code>no_auth</code> prevents AL&rsquo;s Vault client from loading credentials. For environment
-injection it clears inherited <code>VAULT_TOKEN</code>; it does not sandbox the command or
-prevent a command from independently reading the user&rsquo;s token helper. Plugins
-and invoked commands remain trusted programs with the user&rsquo;s filesystem access.</p>
-<p>Cleanup is observable best effort, not secure erasure. Memory copies are not
-zeroized. Forced termination, host failure, unresponsive cleanup code, or an
-unavailable service can prevent deletion or revocation. Subprocess signaling
-targets direct children, not arbitrary descendants. Credential expiry remains
-a fallback; service-specific logout requirements are documented with each plugin.</p>
+	<p>AL is a command runner that prepares credentials and environment variables
+through plugins, runs your command, and cleans up afterward. Its Bazel rules
+package commands with their configuration and required plugins.</p>
+<h2 id="links">Links<a class="td-heading-self-link" href="#links" aria-label="Heading self-link"></a></h2><ul>
+<li><a href="https://github.com/alwaldend/src/tree/master/projects/al">Source code</a></li>
+<li><a href="https://alwaldend.com/docs/projects/al/rules/">Bazel rules</a></li>
+<li><a href="https://alwaldend.com/docs/projects/al/docs/">Command and plugin lifecycle</a></li>
+</ul>
 
 	<div class="section-index">
     
     
     <hr class="panel-line">
+        <div class="entry">
+                <h5>
+                    <a href="/docs/projects/al/docs/">Command and plugin lifecycle</a>
+                </h5>
+                <p>Startup, shutdown, and secret cleanup guarantees</p>
+            </div>
         <div class="entry">
                 <h5>
                     <a href="/docs/projects/al/releases/">Releases</a>

@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="Projects">
 	<meta itemprop="description" content="Project tree">
-	<meta itemprop="dateModified" content="2026-09-06T16:58:04+03:00">
+	<meta itemprop="dateModified" content="2026-09-06T17:34:36+03:00">
 	<meta itemprop="wordCount" content="377">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.f36e3b3e746cc08da7060a5204da72bc.json"
+    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -263,7 +263,26 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.1: <a href="#pg-01b527ba1995527b0761df3b16d62db6">Releases</a></li>
+<li>2.1: <a href="#pg-bc9fb8c7c931e2822126aa1357e74f2e">Command and plugin lifecycle</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.2: <a href="#pg-01b527ba1995527b0761df3b16d62db6">Releases</a></li>
 
 
     
@@ -278,7 +297,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.1.1: <a href="#pg-e31684f8f95d7e2e7477e8d6562b0676">head</a></li>
+<li>2.2.1: <a href="#pg-e31684f8f95d7e2e7477e8d6562b0676">head</a></li>
 
 
     
@@ -290,7 +309,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.2: <a href="#pg-16674256f22e81dd532ebfbc24154ad4">Rules</a></li>
+<li>2.3: <a href="#pg-16674256f22e81dd532ebfbc24154ad4">Rules</a></li>
 
 
     
@@ -305,7 +324,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.2.1: <a href="#pg-045add8eac4308be990b0b492ff02e0d">Bzl</a></li>
+<li>2.3.1: <a href="#pg-045add8eac4308be990b0b492ff02e0d">Bzl</a></li>
 
 
     
@@ -320,7 +339,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.2.1.1: <a href="#pg-e6a1a56fe3b79fd8ba92250d7df6c43c">al_config</a></li>
+<li>2.3.1.1: <a href="#pg-e6a1a56fe3b79fd8ba92250d7df6c43c">al_config</a></li>
 
 
     
@@ -328,7 +347,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.2.1.2: <a href="#pg-46eb181e97888d3560dc0f62e6238547">al_toolchain</a></li>
+<li>2.3.1.2: <a href="#pg-46eb181e97888d3560dc0f62e6238547">al_toolchain</a></li>
 
 
     
@@ -336,7 +355,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.2.1.3: <a href="#pg-502c5f33e6feb679be901aa41616a9b6">al_toolchain_resolved</a></li>
+<li>2.3.1.3: <a href="#pg-502c5f33e6feb679be901aa41616a9b6">al_toolchain_resolved</a></li>
 
 
     
@@ -4717,10 +4736,40 @@ separately scoped work.</li>
     
 	<h1 id="pg-29721d30f9020d16f1dd4c6975af0ff2">2 - Al</h1>
     <div class="lead">Repository command runner and Bazel configuration rules</div>
-	<p><code>al</code> runs repository commands with configured plugins and environment values.
-It provides the command-line tool and Bazel rules used to package and execute
-those configurations.</p>
-<p><code>al run</code> starts selected plugins, passes their environment to a command, and
+	<p>AL is a command runner that prepares credentials and environment variables
+through plugins, runs your command, and cleans up afterward. Its Bazel rules
+package commands with their configuration and required plugins.</p>
+<h2 id="print-21001fc1f7feabce5fc65f16d92a40d3-links">Links<a class="td-heading-self-link" href="#print-21001fc1f7feabce5fc65f16d92a40d3-links" aria-label="Heading self-link"></a></h2><ul>
+<li><a href="https://github.com/alwaldend/src/tree/master/projects/al">Source code</a></li>
+<li><a href="https://alwaldend.com/docs/projects/al/rules/">Bazel rules</a></li>
+<li><a href="https://alwaldend.com/docs/projects/al/docs/">Command and plugin lifecycle</a></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-bc9fb8c7c931e2822126aa1357e74f2e">2.1 - Command and plugin lifecycle</h1>
+    <div class="lead">Startup, shutdown, and secret cleanup guarantees</div>
+	<p><code>al run</code> starts selected plugins, passes their environment to a command, and
 keeps plugin resources available until that command exits. On cancellation it
 asks the command to terminate and waits up to ten seconds before killing it.
 Plugin shutdown then drains requests, releases resources in reverse registration
@@ -4761,6 +4810,10 @@ a fallback; service-specific logout requirements are documented with each plugin
   
 
   
+
+    
+	
+  
     
     
 	
@@ -4768,7 +4821,7 @@ a fallback; service-specific logout requirements are documented with each plugin
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-01b527ba1995527b0761df3b16d62db6">2.1 - Releases</h1>
+	<h1 id="pg-01b527ba1995527b0761df3b16d62db6">2.2 - Releases</h1>
     <div class="lead">Releases</div>
 	
 
@@ -4805,12 +4858,15 @@ a fallback; service-specific logout requirements are documented with each plugin
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -4836,7 +4892,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -4890,8 +4946,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -15184,7 +15240,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-e31684f8f95d7e2e7477e8d6562b0676">2.1.1 - head</h1>
+	<h1 id="pg-e31684f8f95d7e2e7477e8d6562b0676">2.2.1 - head</h1>
     <div class="lead">Release head</div>
 	
 
@@ -15213,12 +15269,15 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -15244,7 +15303,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -15298,8 +15357,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -25583,7 +25642,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-16674256f22e81dd532ebfbc24154ad4">2.2 - Rules</h1>
+	<h1 id="pg-16674256f22e81dd532ebfbc24154ad4">2.3 - Rules</h1>
     <div class="lead">Bazel rules</div>
 	
 </div>
@@ -25608,7 +25667,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
 
 <div class="td-content" style="">
     
-	<h1 id="pg-045add8eac4308be990b0b492ff02e0d">2.2.1 - Bzl</h1>
+	<h1 id="pg-045add8eac4308be990b0b492ff02e0d">2.3.1 - Bzl</h1>
     <div class="lead">Bazel rules</div>
 	
 </div>
@@ -25633,7 +25692,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
 
 <div class="td-content" style="">
     
-	<h1 id="pg-e6a1a56fe3b79fd8ba92250d7df6c43c">2.2.1.1 - al_config</h1>
+	<h1 id="pg-e6a1a56fe3b79fd8ba92250d7df6c43c">2.3.1.1 - al_config</h1>
     
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-ff9b6ce90a896594df2980c8634a91e4-al_config"></a></p>
@@ -25722,7 +25781,7 @@ AlConfigInfo(<a href="#print-ff9b6ce90a896594df2980c8634a91e4-AlConfigInfo-confi
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-46eb181e97888d3560dc0f62e6238547">2.2.1.2 - al_toolchain</h1>
+	<h1 id="pg-46eb181e97888d3560dc0f62e6238547">2.3.1.2 - al_toolchain</h1>
     
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-b05366cc0ae2ce405ad593020ad10c3d-al_toolchain"></a></p>
@@ -25775,7 +25834,7 @@ al_toolchain(<a href="#print-b05366cc0ae2ce405ad593020ad10c3d-al_toolchain-name"
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-502c5f33e6feb679be901aa41616a9b6">2.2.1.3 - al_toolchain_resolved</h1>
+	<h1 id="pg-502c5f33e6feb679be901aa41616a9b6">2.3.1.3 - al_toolchain_resolved</h1>
     
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-de4a2e0e33f503d129fc5ba76c500359-al_toolchain_resolved"></a></p>
@@ -25987,12 +26046,15 @@ the page title is the fallback.</p>
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -26018,7 +26080,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -26072,8 +26134,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -34232,12 +34294,15 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -34263,7 +34328,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -34317,8 +34382,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -42546,12 +42611,15 @@ you hide apps and runs without ads, tracking, or internet access.</p>
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -42577,7 +42645,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -42631,8 +42699,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -45062,12 +45130,15 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -45093,7 +45164,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -45147,8 +45218,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -51158,12 +51229,15 @@ debug:
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -51189,7 +51263,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -51243,8 +51317,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -53484,12 +53558,15 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -53515,7 +53592,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -53569,8 +53646,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -56023,12 +56100,15 @@ management components.</p>
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -56054,7 +56134,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -56108,8 +56188,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -57260,12 +57340,15 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -57291,7 +57374,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -57345,8 +57428,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -58558,12 +58641,15 @@ make: Nothing to be done for &#39;help&#39;.
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -58589,7 +58675,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -58643,8 +58729,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -62932,12 +63018,15 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -62963,7 +63052,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -63017,8 +63106,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -68620,12 +68709,15 @@ the pinned ARM compiler archive.
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -68651,7 +68743,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -68705,8 +68797,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -71039,12 +71131,15 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -71070,7 +71165,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -71124,8 +71219,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -73491,12 +73586,15 @@ and cert-manager. It is still in progress.</p>
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -73522,7 +73620,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -73576,8 +73674,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -74603,12 +74701,15 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -74634,7 +74735,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -74688,8 +74789,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -75978,12 +76079,15 @@ al_leetcode_submissions(<a href="#print-5efabb8210ed71b39f13ff3f8ea8acf0-al_leet
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -76009,7 +76113,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -76063,8 +76167,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -79862,12 +79966,15 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -79893,7 +80000,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -79947,8 +80054,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -86463,12 +86570,15 @@ rebase, review, and incorporate the upstream changes.</li>
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -86494,7 +86604,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -86548,8 +86658,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -88396,12 +88506,15 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -88427,7 +88540,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -88481,8 +88594,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -90297,7 +90410,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
     
 	<h1 id="pg-639ba37e4ff8cf4cf3175e530232ce50">17 - Renders</h1>
     <div class="lead">Repository-owned render assets and their acceptance evidence</div>
-	<h1 id="print-a42408e03272c43957a8950fe495c59f-renders">Renders<a class="td-heading-self-link" href="#print-a42408e03272c43957a8950fe495c59f-renders" aria-label="Heading self-link"></a></h1><p>This project owns reusable Blender assets, their controlling references, and
+	<p>This project owns reusable Blender assets, their controlling references, and
 compact goal records that bind acceptance evidence to exact candidate bytes.</p>
 <p>The Reimu Fumo work lives under <a href="https://github.com/alwaldend/src/tree/master/projects/renders/assets/reimu_fumo/">assets/reimu_fumo/</a>. Its
 reusable asset target will be added only after a candidate passes the visual,
@@ -91267,12 +91380,15 @@ Example:
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -91298,7 +91414,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -91352,8 +91468,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -93384,12 +93500,15 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -93415,7 +93534,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -93469,8 +93588,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -95597,12 +95716,15 @@ module collection is still in progress.</p>
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -95628,7 +95750,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -95682,8 +95804,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -99761,12 +99883,15 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
           <li class="list-group-item my-auto">
             <p>Publish project sites and reproducible infrastructure diagrams</p>
 <p>Build and deploy all 30 remaining project sites with the standard Docsy
-header, project descriptions and a linked documentation directory. Remove
+header, project descriptions and a linked documentation directory. Omit the
+repeated page title and generated language heading. Remove
 the unused cgit and xray_manager projects and retire their site resources.</p>
 <p>Add a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct
 GitHub Pages DNS records. Preserve repeated publication when pages is the
 remote default branch, and include Rules ISO in the main documentation.
-Document site onboarding in a registered, validated skill.</p>
+Document site onboarding in a registered, validated skill. Keep AL
+introduction short with useful links and preserve its lifecycle details in
+a dedicated documentation page.</p>
 <p>Render all 15 existing infrastructure Drawio pages with pinned Drawio and
 Chrome inputs, sandboxed export actions, an update target and freshness
 checks, and include the maintained diagrams in infra/arch documentation.
@@ -99792,7 +99917,7 @@ Attempt-ID: attempt-00941092c164</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8da1707c6cc5344ff5976ef89c3e426ade36c30e</pre>
+                    <pre class="my-auto">5a2c497e2e4dc9e1dc11a73ed6d82affecdd5c56</pre>
                   </span>
                 </li>
               </ul>
@@ -99846,8 +99971,8 @@ Attempt-ID: attempt-00941092c164</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQEbbaReXsNnZSPEXY0//Ibr8ip0a07H4qm7UeYauYMITcYAnwVRfv/ZdK&#43;8qgJwWL6
-0w30kjLYhmh5kSUvZ0aws=
+AAAAQI2GsuaBDy9HF6lt/gP6FC6vtfcUWn&#43;xKb2P1zo0YfUOqps&#43;SlVyaiRhgdYC&#43;GS&#43;K1
+6Mh59OkP1733okHlyUSwE=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
