@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Drawio">
 	<meta itemprop="description" content="Bazel rules for drawio">
-	<meta itemprop="dateModified" content="2026-09-06T16:49:24+03:00">
-	<meta itemprop="wordCount" content="198">
+	<meta itemprop="dateModified" content="2026-09-06T16:58:04+03:00">
+	<meta itemprop="wordCount" content="232">
 	<meta itemprop="keywords" content="Bzl_rules,Drawio">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Drawio">
@@ -139,7 +139,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.51de21bfb23737c5260665e0e7cc08da.json"
+    data-offline-search-index-json-src="/offline-search-index.f36e3b3e746cc08da7060a5204da72bc.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -235,6 +235,9 @@ adapter close to Drawio&rsquo;s browser API and the existing Puppeteer dependenc
 <p>Use the rule from an explicit source-update target with <code>write_source_files</code>,
 as in <code>//infra/arch:update</code>. Normal documentation consumes the maintained SVGs,
 not the rendering tool. The generated freshness tests catch stale output.</p>
+<p>Exports use a light theme with an opaque white canvas, keeping labels and
+connectors readable in both light and dark documentation themes and standalone
+image viewers. The renderer adds this canvas on every export.</p>
 <p>Chrome&rsquo;s inner sandbox is disabled because it cannot nest within the Bazel
 Linux sandbox used for these actions. The Bazel sandbox remains enabled;
 requests outside local files and embedded data are rejected. The renderer is
