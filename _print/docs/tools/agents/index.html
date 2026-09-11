@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Agent control contracts">
 	<meta itemprop="description" content="Repository-internal shared contracts for agent-system composition">
-	<meta itemprop="dateModified" content="2026-09-06T17:34:36+03:00">
-	<meta itemprop="wordCount" content="997">
+	<meta itemprop="dateModified" content="2026-09-12T01:12:02+03:00">
+	<meta itemprop="wordCount" content="1154">
 	<meta itemprop="keywords" content="Agent,Control">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Agent control contracts">
 	<meta name="twitter:description" content="Repository-internal shared contracts for agent-system composition">
-<link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
-<link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -70,6 +70,9 @@
   <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
     <div class="scroll-indicator scroll-left"></div>
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
       </li>
@@ -139,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
+    data-offline-search-index-json-src="/offline-search-index.c3d3b0348f8e3f6d78a284cfdc2506d8.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -204,7 +207,20 @@ with:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/agents/cmd/phase1_check -- <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span>  --workspace-root <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span>  --report out/&lt;task&gt;/phase1-report.json
-</span></span></code></pre></div><p>The adjacent criteria-revision-bound resource baseline records numeric
+</span></span></code></pre></div><p>Each project and infrastructure owner keeps maintained specifications and
+durable change state in its own <code>openspec/</code> directory.
+<a href="/docs/infra/src/openspec/"><code>infra/src/openspec/</code></a> describes repository evolution and
+indexes the historical goal migration. The completeness check counts native
+active and archived changes under direct <code>projects/*</code> and
+<code>infra/*</code> owners, excluding nested provenance and fixtures. The registry advertises the
+<code>openspec</code> skill; goal&rsquo;s direct binary and operations are classified as
+<code>deprecated</code> for compatibility. Deprecated providers remain visible in the
+catalogs but are excluded from current context-capsule recommendations.
+The legacy <code>goal.json</code> schema and compiler remain available for historical
+consumers. With the OpenSpec authority registered, the compiler emits an
+empty legacy projection and explicitly states that it does not inventory
+OpenSpec changes. Its old manifest support is limited to legacy registries.</p>
+<p>The adjacent criteria-revision-bound resource baseline records numeric
 ceilings separately from observations. Unavailable observations carry a
 reason instead of an estimate.</p>
 <p>Project roots use exactly one lifecycle value from <code>active</code>, <code>in_progress</code>,
@@ -239,7 +255,12 @@ new paths may extend a verified existing parent.</p>
 </span></span></span><span style="display:flex;"><span>  --workspace-root <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span> --path projects/agents --markdown
 </span></span></code></pre></div><p>The legacy <code>agent_system_update</code> wrapper also forwards these query flags and
 does not update tracked files. <code>--task</code> records a caller-supplied task ID; it
-does not select a goal. Input digests bind accepted catalog and document inputs.</p>
+does not select an OpenSpec change. Input digests bind accepted catalog and
+document inputs, including the nearest ancestor <code>openspec/config.yaml</code> and
+its optional README. Continuation recommendations name that owner&rsquo;s
+<code>openspec/changes/</code> directory; <code>infra/src/openspec/</code> is the repository evolution
+fallback when no nearer workspace exists. The capsule does not read or
+associate individual changes.</p>
 <p>Relative <code>--workspace-root</code> values resolve against
 <code>BUILD_WORKSPACE_DIRECTORY</code> under <code>bazel run</code>, so <code>--workspace-root .</code> means
 the source workspace. Outside Bazel they resolve against the current
@@ -266,7 +287,7 @@ stderr. Git and catalog reads are separate observations, not an atomic
 snapshot or proof that generated catalogs match HEAD.</p>
 <p>The capsule reports the actual read time, unknown catalog freshness, and
 partial completeness. It does not observe runtime health, infer authority,
-resolve effective CODEOWNERS, or associate an unrelated active goal. Its
+resolve effective CODEOWNERS, or associate an unrelated OpenSpec change. Its
 capability list is an inventory of root-workspace and selected-workspace
 candidates, not task-intent routing or a complete cross-workspace dependency
 closure. Workspace check phases are references, not instructions to run a

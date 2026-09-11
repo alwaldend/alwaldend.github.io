@@ -11,5 +11,12 @@
 		
 		
 			<atom:link href="https://alwaldend.com/docs/infra/threexui/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title></title>
+				<link>https://alwaldend.com/docs/infra/threexui/openspec/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/threexui/openspec/spec/</guid>
+				<description>&lt;h1 id=&#34;infrastructure-3x-ui&#34;&gt;Infrastructure 3x-ui&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#infrastructure-3x-ui&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe 3x-ui provisioning, host deployment, node routing configuration, and&#xA;the subscription URL transformer. This baseline describes checked-in source,&#xA;not verified live node access. The advertised host-only subscription command&#xA;has a source limitation: &lt;code&gt;sub/main.go&lt;/code&gt; also attempts to read &lt;code&gt;sub_file&lt;/code&gt; when it&#xA;is empty, so successful host-only operation is not a baseline guarantee.&lt;/p&gt;&#xA;&lt;p&gt;Baseline source revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.&lt;/p&gt;</description>
+			</item>
 	</channel>
 </rss>

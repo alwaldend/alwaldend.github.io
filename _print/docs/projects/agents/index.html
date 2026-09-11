@@ -34,24 +34,24 @@
 <meta name="robots" content="noindex, nofollow">
 
 <title>Agents | Alwaldend</title>
-<meta name="description" content="Repository-wide agent-system architecture, goals, and skills">
+<meta name="description" content="Repository-wide agent-system architecture and skills">
 <meta property="og:url" content="https://alwaldend.com/docs/projects/agents/">
 	<meta property="og:site_name" content="Alwaldend">
 	<meta property="og:title" content="Agents">
-	<meta property="og:description" content="Repository-wide agent-system architecture, goals, and skills">
+	<meta property="og:description" content="Repository-wide agent-system architecture and skills">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="website">
 
 	<meta itemprop="name" content="Agents">
-	<meta itemprop="description" content="Repository-wide agent-system architecture, goals, and skills">
-	<meta itemprop="dateModified" content="2026-09-06T17:34:36+03:00">
-	<meta itemprop="wordCount" content="309">
+	<meta itemprop="description" content="Repository-wide agent-system architecture and skills">
+	<meta itemprop="dateModified" content="2026-09-12T01:12:02+03:00">
+	<meta itemprop="wordCount" content="367">
 	<meta itemprop="keywords" content="Agent,Skills">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Agents">
-	<meta name="twitter:description" content="Repository-wide agent-system architecture, goals, and skills">
-<link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
-<link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
+	<meta name="twitter:description" content="Repository-wide agent-system architecture and skills">
+<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -70,6 +70,9 @@
   <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
     <div class="scroll-indicator scroll-left"></div>
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
       </li>
@@ -139,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
+    data-offline-search-index-json-src="/offline-search-index.c3d3b0348f8e3f6d78a284cfdc2506d8.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -170,7 +173,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Agents</h1>
-<div class="lead">Repository-wide agent-system architecture, goals, and skills</div>
+<div class="lead">Repository-wide agent-system architecture and skills</div>
 
 
 
@@ -186,26 +189,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-bc9faab39f7e07a7d404ea40a7644260">Repository agent goals</a></li>
-
-
-    
-    <ul>
-        
-  
-  
-  
-  
-
-  
-
-    </ul>
-    
-  
-    
-    
-	
-<li>2: <a href="#pg-cbcc7da4eb95b6eb1efb2f3859f1683f">Repository agent system current state</a></li>
+<li>1: <a href="#pg-cbcc7da4eb95b6eb1efb2f3859f1683f">Repository agent system current state</a></li>
 
 
     
@@ -213,7 +197,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-193de6c16994a11e6e8081a897df9422">Repository agent-system architecture</a></li>
+<li>2: <a href="#pg-193de6c16994a11e6e8081a897df9422">Repository agent-system architecture</a></li>
 
 
     
@@ -221,7 +205,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-284de70690c8c0a86aa49ffae1a289ba">Repository agent-system roadmap</a></li>
+<li>3: <a href="#pg-284de70690c8c0a86aa49ffae1a289ba">Repository agent-system roadmap</a></li>
 
 
     
@@ -231,8 +215,9 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <h1 id="print-c0f0945c625ec27712f6c45a11b9bd02-repository-agent-system">Repository agent system<a class="td-heading-self-link" href="#print-c0f0945c625ec27712f6c45a11b9bd02-repository-agent-system" aria-label="Heading self-link"></a></h1><p>This project owns the repository-wide agent-system contract, its durable
-improvement goals, and reusable cross-repository skills. It does not centralize
+      <h1 id="print-c0f0945c625ec27712f6c45a11b9bd02-repository-agent-system">Repository agent system<a class="td-heading-self-link" href="#print-c0f0945c625ec27712f6c45a11b9bd02-repository-agent-system" aria-label="Heading self-link"></a></h1><p>This project owns the repository-wide agent-system contract and reusable
+cross-repository skills. Maintained improvement work lives in this project&rsquo;s
+<a href="openspec/">OpenSpec workspace</a>. It does not centralize
 component facts or runtime state: each fact remains canonical at its natural
 owner, and system-wide views are derived projections.</p>
 <h2 id="print-c0f0945c625ec27712f6c45a11b9bd02-start-here">Start here<a class="td-heading-self-link" href="#print-c0f0945c625ec27712f6c45a11b9bd02-start-here" aria-label="Heading self-link"></a></h2><table>
@@ -256,8 +241,8 @@ owner, and system-wide views are derived projections.</p>
 					<td>Dependency-ordered future work and acceptance signals</td>
 			</tr>
 			<tr>
-					<td><a href="/docs/projects/agents/goals/">Durable goals</a></td>
-					<td>Versioned attempts, evidence, and acceptance state</td>
+					<td><a href="openspec/changes/">OpenSpec changes</a></td>
+					<td>Maintained work, acceptance, and preserved goal history</td>
 			</tr>
 			<tr>
 					<td><a href="https://github.com/alwaldend/src/blob/master/AGENTS.md">Root agent guide</a></td>
@@ -266,17 +251,23 @@ owner, and system-wide views are derived projections.</p>
 	</tbody>
 </table>
 <p>The current-state document describes supported entry points and their evidence
-boundaries. Dated audits remain in the goal records. The architecture defines
+boundaries. Dated audits remain in <a href="/docs/infra/src/openspec/migration/">migrated history</a>.
+The architecture defines
 the intended composition contract; the roadmap does not claim that proposed
 interfaces already exist.</p>
 <h2 id="print-c0f0945c625ec27712f6c45a11b9bd02-ownership-boundaries">Ownership boundaries<a class="td-heading-self-link" href="#print-c0f0945c625ec27712f6c45a11b9bd02-ownership-boundaries" aria-label="Heading self-link"></a></h2><ul>
 <li><code>docs/</code> owns the cross-layer system model and plan, not duplicated component
 configuration.</li>
-<li><code>goals/</code> owns durable repository-agent work records and evidence.</li>
-<li><code>skills/</code> owns reusable repository-wide agent procedures and their
-development-time evaluations.</li>
+<li><code>openspec/</code> owns agent-system requirements, changes, and evidence;
+<a href="/docs/infra/src/openspec/migration/">the migration map</a> locates historical records.</li>
+<li>Other components own their specifications and changes under their own
+<code>openspec/</code> directory. <code>infra/src/openspec/</code> describes repository evolution.</li>
+<li><code>skills/</code> owns reusable cross-product, repository-wide agent procedures and
+their development-time evaluations. A product-specific procedure belongs
+with its product; a procedure that no narrower project genuinely owns lives
+here rather than in a contrived local home.</li>
 <li>Product-specific skills remain with their project at
-<code>projects/&lt;project&gt;/skills/&lt;name&gt;</code>.</li>
+<code>projects/&lt;project&gt;/skills/&lt;name&gt;</code>. Do not split one skill across owners.</li>
 <li>Repository-internal executors and build integrations may live under
 <code>tools/</code>; their behavior remains owned and documented there.</li>
 </ul>
@@ -316,71 +307,24 @@ beside the eval configuration.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-bc9faab39f7e07a7d404ea40a7644260">1 - Repository agent goals</h1>
-    <div class="lead">Durable goals, attempts, and evidence for the repository agent system</div>
-	<h1 id="print-8fb42cc58e74c274741f814d4459f7d4-repository-agent-goals">Repository agent goals<a class="td-heading-self-link" href="#print-8fb42cc58e74c274741f814d4459f7d4-repository-agent-goals" aria-label="Heading self-link"></a></h1><p>Each child directory is an owner-local durable goal record. Canonical resource
-files and attempt artifacts are created and validated through the repository
-<code>goal</code> workflow; do not edit generated records or projections directly.</p>
-<p>Goal evidence may contain source and operational analysis, including
-non-secret live or generated facts. It must never contain credentials, other
-secrets, or personal information. Inspect raw artifacts before promoting their
-content.
-Structured task artifacts such as FrictionRecord and LearningProposal JSON
-files are task scratch: keep them under <code>out/&lt;task&gt;/</code> and cite them from goal
-evidence Markdown rather than committing them into <code>evidence/</code>, which accepts
-only <code>.md</code> files.</p>
-<p>Discover current open work through the goal catalog and its bounded resume
-view; status is owned by each goal record. The
-<code>agent-system-phase-six-ergonomics/</code> goal records a completed friction-reduction
-attempt, with the original evidence and its limitations preserved.</p>
-<p>The <a href="/docs/projects/agents/docs/current-state/">current-state document</a> describes supported
-interfaces and current evidence boundaries. Closed attempts remain historical
-records; later implementation reviews may narrow claims they made without
-rewriting those immutable records.</p>
-
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-cbcc7da4eb95b6eb1efb2f3859f1683f">2 - Repository agent system current state</h1>
+	<h1 id="pg-cbcc7da4eb95b6eb1efb2f3859f1683f">1 - Repository agent system current state</h1>
     <div class="lead">Supported agent entry points, evidence boundaries, and limitations</div>
 	<h1 id="print-847b4a6fe4ccd1683fe2fa9d8aaf432a-repository-agent-system-current-state">Repository agent system current state<a class="td-heading-self-link" href="#print-847b4a6fe4ccd1683fe2fa9d8aaf432a-repository-agent-system-current-state" aria-label="Heading self-link"></a></h1><p>This is the maintained guide to the checked-in interfaces. Source links below
 identify their owners; runtime availability must be observed in the current
 session. Historical audits and acceptance claims remain in the immutable
-<a href="/docs/projects/agents/goals/">goal records</a>. Their dates and evidence tiers limit what they prove.</p>
+<a href="/docs/infra/src/openspec/migration/">migrated OpenSpec records</a>. Their dates and
+evidence tiers limit what they prove.</p>
 <h2 id="print-847b4a6fe4ccd1683fe2fa9d8aaf432a-start-with-the-affected-path">Start with the affected path<a class="td-heading-self-link" href="#print-847b4a6fe4ccd1683fe2fa9d8aaf432a-start-with-the-affected-path" aria-label="Heading self-link"></a></h2><p>Read applicable <code>AGENTS.md</code> instructions and the nearest owner README. Use
 the available Cordis repository-context handlers for bounded reads and
 searches, or the native tools when Cordis is unavailable. Cordis availability
 does not determine whether offline repository work is possible.</p>
 <p>The offline context command provides a bounded advisory view:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/agents/cmd/agent_system -- <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --workspace-root <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span> --path projects/goal
+</span></span></span><span style="display:flex;"><span>  --workspace-root <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span> --path tools/openspec
 </span></span></code></pre></div><p>Its <a href="/docs/tools/agents/">owner documentation</a> describes the
 supported flags and limitations. Catalog declarations identify source facts;
 they do not establish live provider health, action authorization, successful
-validation, or a task&rsquo;s association with a goal. Missing observations remain
+validation, or a task&rsquo;s association with a change. Missing observations remain
 explicit. A source digest proves identity, not freshness against a live system.</p>
 <h2 id="print-847b4a6fe4ccd1683fe2fa9d8aaf432a-use-the-owning-interface">Use the owning interface<a class="td-heading-self-link" href="#print-847b4a6fe4ccd1683fe2fa9d8aaf432a-use-the-owning-interface" aria-label="Heading self-link"></a></h2><table>
 	<thead>
@@ -418,8 +362,8 @@ explicit. A source digest proves identity, not freshness against a live system.<
 			</tr>
 			<tr>
 					<td>Durable work</td>
-					<td><code>//projects/goal/cmd/goal</code></td>
-					<td>Use workspace records for task coordination and owner-local project records when maintained history is needed.</td>
+					<td><code>//tools/openspec</code></td>
+					<td>The affected owner&rsquo;s <code>openspec/changes/</code> holds maintained work; ignored <code>out/&lt;task&gt;/</code> holds temporary coordination.</td>
 			</tr>
 			<tr>
 					<td>Delivery</td>
@@ -432,13 +376,19 @@ explicit. A source digest proves identity, not freshness against a live system.<
 execution in current builds. If an installed runner lacks that subcommand,
 the supported <code>bazel run</code> targets remain available. Updating a shared host
 installation is a separate operation from changing repository source.</p>
-<h2 id="print-847b4a6fe4ccd1683fe2fa9d8aaf432a-keep-routine-work-small">Keep routine work small<a class="td-heading-self-link" href="#print-847b4a6fe4ccd1683fe2fa9d8aaf432a-keep-routine-work-small" aria-label="Heading self-link"></a></h2><p>Simple tasks need no durable goal. For work that needs a resume point, the
-<a href="/docs/projects/goal/">goal checkpoint</a> accepts a short summary, the current candidate,
-evidence references, and the next action. The store maintains the record&rsquo;s
-identity and digests; <code>show</code> includes the active continuation. Detailed attempt
-review remains available for repeated failures and maintained project history.
-Local progress checkpoints do not trigger publication. Deliver at a meaningful
-review boundary or final handoff, with explicit remote backups when needed.</p>
+<h2 id="print-847b4a6fe4ccd1683fe2fa9d8aaf432a-keep-routine-work-small">Keep routine work small<a class="td-heading-self-link" href="#print-847b4a6fe4ccd1683fe2fa9d8aaf432a-keep-routine-work-small" aria-label="Heading self-link"></a></h2><p>Simple tasks need no maintained change. For work that needs a resume point,
+<a href="../../../tools/openspec/README.md">OpenSpec</a> keeps the outcome in <code>proposal.md</code>,
+decisions and continuation in <code>design.md</code>, remaining work in <code>tasks.md</code>, and
+requirement deltas in <code>specs/</code>. Use the affected component&rsquo;s <code>&lt;owner&gt;/openspec/</code>
+workspace, such as <a href="../openspec/">this project&rsquo;s workspace</a>, and select the
+owner with <code>OPENSPEC_PROJECT=&lt;owner&gt;</code> when running the CLI from the root Bazel
+workspace. <code>infra/src/openspec/</code> records evolution of the repository itself.
+Preserve the exact candidate, evidence,
+execution state and next action. These ordinary files use Git and a single
+coordinator; they do not provide the legacy store&rsquo;s revision locks or attempt
+transactions. A checked task still requires acceptance evidence. Local notes
+do not trigger publication. Deliver at a meaningful review boundary or final
+handoff, with explicit remote backups when needed.</p>
 <p><a href="/docs/tools/repo_delivery/">Delivery</a> can execute a caller-selected Bazel
 validation plan and retain its results against the prepared candidate. Its
 <code>continue</code> command reports the next state; <code>continue --publish</code> explicitly
@@ -451,10 +401,11 @@ instructions when validation itself invokes Bazel.</p>
 <h2 id="print-847b4a6fe4ccd1683fe2fa9d8aaf432a-supported-guarantees">Supported guarantees<a class="td-heading-self-link" href="#print-847b4a6fe4ccd1683fe2fa9d8aaf432a-supported-guarantees" aria-label="Heading self-link"></a></h2><ul>
 <li><a href="/docs/projects/rules_skill/">Skill packaging</a> validates canonical artifacts and
 discovery links. Evaluation payloads are separate from runtime skill bodies.</li>
-<li><a href="/docs/projects/goal/">Goal storage</a> validates resource revisions and artifact
-digests, provides bounded continuation information, and supports recovery
-from interrupted publication. These checks establish record integrity;
-criterion verdicts still require appropriate evidence.</li>
+<li><a href="../../../tools/openspec/README.md">OpenSpec</a> validates specification and change
+structure through the pinned upstream CLI. Its migration retains original
+records and checksum manifests; structure and checksums do not prove
+requirement acceptance. <a href="/docs/projects/goal/">Goal storage</a> remains deprecated
+compatibility code, and its skill is disabled for discovery.</li>
 <li><a href="/docs/tools/repo_delivery/">Delivery</a> binds the prepared candidate,
 scope, remote expectations, and pull-request identity. Exact leases and
 state checks protect publication. The caller selects and establishes the
@@ -513,7 +464,7 @@ It does not replace these implementation boundaries or authorize new work.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-193de6c16994a11e6e8081a897df9422">3 - Repository agent-system architecture</h1>
+	<h1 id="pg-193de6c16994a11e6e8081a897df9422">2 - Repository agent-system architecture</h1>
     <div class="lead">Canonical composition contract for repository-wide agent work, evidence, delivery, and learning</div>
 	<h1 id="print-2610cadeeafeddc1ff93609a2e1ae14c-repository-agent-system-architecture">Repository agent-system architecture<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-repository-agent-system-architecture" aria-label="Heading self-link"></a></h1><h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-status-and-purpose">Status and purpose<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-status-and-purpose" aria-label="Heading self-link"></a></h2><p>This document defines the target composition contract for the repository as
 one agent-driven system. It is normative about boundaries, invariants, and
@@ -521,10 +472,19 @@ ownership. A named interface or record is not a current capability merely
 because it appears here. The <a href="/docs/projects/agents/docs/current-state/">current-state snapshot</a>
 describes implemented behavior; the <a href="/docs/projects/agents/docs/roadmap/">roadmap</a> orders the work
 needed to reach this design.</p>
+<p>Maintained work uses the affected owner&rsquo;s OpenSpec workspace, such as
+<a href="../openspec/"><code>projects/agents/openspec/</code></a> for this agent system. The
+<a href="/docs/infra/src/openspec/"><code>infra/src</code> workspace</a> describes
+repository evolution. The <a href="/docs/infra/src/openspec/migration/">migration</a>
+preserves prior goal resources
+as historical evidence. Existing <code>GoalAttempt</code>, <code>GoalOutcome</code> and criterion
+types below describe legacy or proposed integration contracts, not an active
+goal workflow or guarantees supplied by OpenSpec. New work records its outcome,
+decisions, tasks and requirement deltas in OpenSpec artifacts.</p>
 <p>The objective is to let an agent form an accurate situation model, choose the
 least costly safe action, prove the exact result, and make later work cheaper.
 The design must remain useful with no daemon, network, credential, runtime
-extension, or active durable goal.</p>
+extension, or maintained change record.</p>
 <h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-system-thesis">System thesis<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-system-thesis" aria-label="Heading self-link"></a></h2><p>The repository should have one composition protocol, not one mutable brain.</p>
 <p>Each fact stays at its narrow natural owner. Typed, versioned references join
 facts across owners. Deterministic bounded projections make those joins cheap
@@ -542,7 +502,9 @@ versions or digests, completeness, and limitations.</li>
 explicit authority plus an executable contract controls mutation.</li>
 </ol>
 <p>Physical co-location is not required for logical cohesion. Repository-agent
-documents and goals belong under <code>projects/agents</code>. A future
+documents belong under <code>projects/agents</code>; maintained specifications and changes
+use <code>&lt;owner&gt;/openspec/</code> beside the owning component. The <code>infra/src/openspec/</code>
+workspace owns specifications and changes for the repository itself. A future
 repository-internal controller or executor may belong under <code>tools/agents</code>.
 Component declarations remain with their component.</p>
 <h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-mutation-authorities">Mutation authorities<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-mutation-authorities" aria-label="Heading self-link"></a></h2><table>
@@ -585,9 +547,9 @@ Component declarations remain with their component.</p>
 					<td>Capability record</td>
 			</tr>
 			<tr>
-					<td>Durable outcome, criteria, and attempts</td>
-					<td>Owner-local goal resources</td>
-					<td>Goal catalog and resume packet</td>
+					<td>Maintained requirements and work</td>
+					<td>Owning component&rsquo;s OpenSpec specs and changes</td>
+					<td>OpenSpec CLI views and Git diff</td>
 			</tr>
 			<tr>
 					<td>Task-local scratch and worker ownership</td>
@@ -616,7 +578,7 @@ Component declarations remain with their component.</p>
 			</tr>
 			<tr>
 					<td>Acceptance judgment</td>
-					<td>Goal criterion or task acceptance policy</td>
+					<td>Requirement scenario or task acceptance policy</td>
 					<td>Evidence assertion</td>
 			</tr>
 			<tr>
@@ -669,8 +631,8 @@ environment or remote resource selector, and a timed remote observation.
 Claims must not use a weaker subject merely because it is easier to obtain.</p>
 <h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-the-abstraction-tower">The abstraction tower<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-the-abstraction-tower" aria-label="Heading self-link"></a></h2><p>Each layer consumes contracts from the layer above, adds one kind of fact, and
 produces a bounded contract for the layer below.</p>
-<h3 id="print-2610cadeeafeddc1ff93609a2e1ae14c-0-intent-outcome-and-authority">0. Intent, outcome, and authority<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-0-intent-outcome-and-authority" aria-label="Heading self-link"></a></h3><p><strong>Owner:</strong> the user interaction; durable acceptance belongs to the goal when
-one exists.</p>
+<h3 id="print-2610cadeeafeddc1ff93609a2e1ae14c-0-intent-outcome-and-authority">0. Intent, outcome, and authority<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-0-intent-outcome-and-authority" aria-label="Heading self-link"></a></h3><p><strong>Owner:</strong> the user interaction; maintained requirements and acceptance
+evidence belong to the named OpenSpec change when one exists.</p>
 <p><strong>Input:</strong> the request, explicit constraints, and prior accepted context.</p>
 <p><strong>Output:</strong> an outcome, acceptance questions, scope, authority envelope, and
 resource limits.</p>
@@ -684,7 +646,8 @@ workflow. That default must be visible in the authority envelope and never
 extends to tags, releases, deployments, infrastructure changes, or
 destruction.</p>
 <p>Simple bounded tasks may keep this state in the active interaction. Iterative,
-delegated, or resumable work uses a durable goal and attempt.</p>
+delegated, or resumable work uses a named OpenSpec change when maintained
+history is needed, or ignored task notes for temporary coordination.</p>
 <h3 id="print-2610cadeeafeddc1ff93609a2e1ae14c-1-topology-classification-and-ownership">1. Topology, classification, and ownership<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-1-topology-classification-and-ownership" aria-label="Heading self-link"></a></h3><p><strong>Owners:</strong> paths, nearest READMEs, <code>CODEOWNERS</code>, <code>MODULE.bazel</code>, BUILD files,
 and explicit boundary declarations.</p>
 <p><strong>Input:</strong> workspace identity plus affected paths or labels.</p>
@@ -725,7 +688,7 @@ Operation scopes such as edit, commit, feature publication, review mutation,
 release-ref publication, deployment, and destruction map to additive atomic
 effects rather than substituting for them.</p>
 <p>Review accountability, component ownership, task path/hunk or commit
-ownership, goal-storage ownership, remote-ref ownership, external-resource
+ownership, OpenSpec artifact ownership, remote-ref ownership, external-resource
 ownership, and user authority are separate relations. Unknown ownership fails
 closed for history rewrite, credential expansion, publication, remote
 mutation, and destruction.</p>
@@ -739,18 +702,24 @@ fallbacks, and an explanation of every choice.</p>
 dependencies are acyclic. Conflicts, unavailable providers, unsupported
 platforms, and unverified behavior are explicit. Full instructions and schemas
 load only after compact metadata selects them.</p>
-<h3 id="print-2610cadeeafeddc1ff93609a2e1ae14c-4-durable-work-and-planning">4. Durable work and planning<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-4-durable-work-and-planning" aria-label="Heading self-link"></a></h3><p><strong>Owner:</strong> the current task coordinator and, for durable work, owner-local goal
-resources.</p>
+<h3 id="print-2610cadeeafeddc1ff93609a2e1ae14c-4-durable-work-and-planning">4. Durable work and planning<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-4-durable-work-and-planning" aria-label="Heading self-link"></a></h3><p><strong>Owner:</strong> the current task coordinator and, for maintained work, the affected
+owner&rsquo;s OpenSpec change artifacts.</p>
 <p><strong>Input:</strong> intent, criteria, context slice, capability choices, prior evidence,
 and relevant defects.</p>
-<p><strong>Output:</strong> a <code>WorkPacket</code> or goal attempt plus <code>CapabilityPlan</code> and
-<code>ActionPlan</code>, with exact inputs, affected criteria, hypotheses where needed,
-checks, omissions, fallbacks, fixed regressions, budgets, stop conditions, and
-a strategy-reset condition.</p>
+<p><strong>Output:</strong> a proposal, design, task checklist and requirement deltas, with
+exact inputs, acceptance scenarios, hypotheses where needed, checks, omissions,
+fallbacks, fixed regressions, resource constraints, next action and execution
+state. The broader <code>WorkPacket</code>, <code>CapabilityPlan</code> and <code>ActionPlan</code> types remain
+optional integration concepts, not prerequisites for ordinary work.</p>
 <p><strong>Invariant:</strong> a plan does not authorize and does not prove. Delegated workers
 receive immutable bindings and disjoint output ownership; only the coordinator
-mutates canonical goal state. A repeated stable defect changes strategy rather
+coordinates shared change artifacts. A repeated stable defect changes strategy rather
 than accumulating indistinguishable retries.</p>
+<p>OpenSpec&rsquo;s plain files do not implement the legacy goal store&rsquo;s transactional
+locking or optimistic resource versions. Use disjoint worker files and Git
+reconciliation; a task checkbox or structurally valid spec is not acceptance
+evidence. Archive only completed changes after verifying their resulting
+baseline deltas. Historical migrated deltas are not reapplied.</p>
 <h3 id="print-2610cadeeafeddc1ff93609a2e1ae14c-5-execution-providers">5. Execution providers<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-5-execution-providers" aria-label="Heading self-link"></a></h3><p><strong>Owners:</strong> Bazel and <code>bazel_agent</code>, native repository tools, Cordis or another
 runtime provider, and explicit external adapters.</p>
 <p><strong>Input:</strong> admitted operation, exact subject and inputs, task/run identity,
@@ -805,7 +774,7 @@ document, contract, check, evaluation, skill, or global invariant.</p>
 <p><strong>Invariant:</strong> learning is never automatic mutation. It is minimized, public,
 reviewed, regression-backed, measurable, reversible, and given a retirement
 path. Runtime promotion creates a normal candidate; it does not write project
-source or goal state directly.</p>
+source or maintained change state directly.</p>
 <h2 id="print-2610cadeeafeddc1ff93609a2e1ae14c-provenance-spine">Provenance spine<a class="td-heading-self-link" href="#print-2610cadeeafeddc1ff93609a2e1ae14c-provenance-spine" aria-label="Heading self-link"></a></h2><p>The complete traversable chain is:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ContextCapsule
 </span></span><span style="display:flex;"><span>  -&gt; GoalAttempt / WorkPacket
@@ -866,7 +835,7 @@ to function. It contains:</p>
 <ul>
 <li>repository, workspace, worktree, revision, and dirty-input identity;</li>
 <li>task/session, coordinator, worker, and run identity;</li>
-<li>requested outcome, authority, budgets, and durable goal binding if any;</li>
+<li>requested outcome, authority, budgets, and explicit OpenSpec change binding if any;</li>
 <li>applicable instruction and owner-document paths with digests;</li>
 <li>component, workspace, review owner, and classification slice;</li>
 <li>candidate capabilities with effects, cost, dependencies, providers, and
@@ -927,9 +896,10 @@ inputs.</li>
 observed revisions, action contract, observation time, and expiry.</li>
 <li>Provider lifecycle is explicit: <code>loading</code>, <code>ready</code>, <code>degraded</code>, <code>failed</code>,
 <code>timed_out</code>, <code>draining</code>, or <code>disabled</code>.</li>
-<li>Shared mutable task, goal, and runtime state uses a cross-process lock or
-lease plus expected version/digest; atomic rename alone is not concurrency
-control.</li>
+<li>Runtime and legacy transactional stores use their owning lock and version
+contracts. OpenSpec artifact edits use a single coordinator, disjoint worker
+paths and Git reconciliation; plain-file writes provide no transactional
+concurrency guarantee.</li>
 <li>Nested work uses one absolute deadline with cancellation and cleanup margin.</li>
 <li>Failures carry phase, stable code/signature, subject, observed state, valid
 partial result, retry class, cost spent, redacted artifact references, and
@@ -963,7 +933,7 @@ orientation and safe degradation.</li>
 <li>No raw transcript ingestion, secret promotion, or automatic doctrine edits.</li>
 <li>No inference of authority from selection, planning, receipts, ownership, or
 tool availability.</li>
-<li>No durable goal requirement for a simple one-step task.</li>
+<li>No maintained OpenSpec change requirement for a simple one-step task.</li>
 <li>No broad <code>//...</code> validation or live model evaluation by default.</li>
 <li>No physical repository reorganization merely to make the conceptual model
 look centralized.</li>
@@ -983,14 +953,14 @@ look centralized.</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-284de70690c8c0a86aa49ffae1a289ba">4 - Repository agent-system roadmap</h1>
+	<h1 id="pg-284de70690c8c0a86aa49ffae1a289ba">3 - Repository agent-system roadmap</h1>
     <div class="lead">Remaining work ordered by observed task friction and evidence</div>
 	<h1 id="print-3ffe70470bac4d9398b4a09b90bbd965-repository-agent-system-roadmap">Repository agent-system roadmap<a class="td-heading-self-link" href="#print-3ffe70470bac4d9398b4a09b90bbd965-repository-agent-system-roadmap" aria-label="Heading self-link"></a></h1><p>This document records intentional future work. The
 <a href="/docs/projects/agents/docs/current-state/">current-state guide</a> owns the supported interface summary;
 component documentation and executable tests establish implementation details.
 The <a href="/docs/projects/agents/docs/architecture/">architecture</a> describes composition responsibilities.
 Historical phase plans and acceptance records remain in the immutable
-<a href="/docs/projects/agents/goals/">goals</a>. A completed historical phase does not establish a current
+<a href="/docs/infra/src/openspec/migration/">OpenSpec migration</a>. A completed historical phase does not establish a current
 runtime guarantee.</p>
 <h2 id="print-3ffe70470bac4d9398b4a09b90bbd965-first-measure-and-simplify-ordinary-tasks">First: measure and simplify ordinary tasks<a class="td-heading-self-link" href="#print-3ffe70470bac4d9398b4a09b90bbd965-first-measure-and-simplify-ordinary-tasks" aria-label="Heading self-link"></a></h2><p>Use representative question, edit, recovery, and delivery scenarios to compare
 the current workflow with a candidate. Keep source, instructions, fixture,
@@ -1015,8 +985,8 @@ performance claim. Retain useful diagnostics and regressions after clean runs;
 remove obsolete workarounds and completed tracking when their purpose expires.</p>
 <h2 id="print-3ffe70470bac4d9398b4a09b90bbd965-next-reduce-manual-discovery-and-validation-work">Next: reduce manual discovery and validation work<a class="td-heading-self-link" href="#print-3ffe70470bac4d9398b4a09b90bbd965-next-reduce-manual-discovery-and-validation-work" aria-label="Heading self-link"></a></h2><p>Extend bounded offline context only with facts that have an identifiable
 owner and observation method. Prefer observed Git state and direct routes to
-applicable policy, owner documentation, build declarations, and explicit goal
-records. Never infer authorization or task-to-goal association from proximity,
+applicable policy, owner documentation, build declarations, and explicit OpenSpec
+changes. Never infer authorization or task-to-change association from proximity,
 ownership, a catalog entry, or an available tool.</p>
 <p>Check suggestions must explain their selection basis and uncovered scope.
 Nearest-package selection is not dependency analysis. Root configuration,
@@ -1067,14 +1037,14 @@ ordinary repository work.</p>
 <h2 id="print-3ffe70470bac4d9398b4a09b90bbd965-constraints-on-further-work">Constraints on further work<a class="td-heading-self-link" href="#print-3ffe70470bac4d9398b4a09b90bbd965-constraints-on-further-work" aria-label="Heading self-link"></a></h2><ul>
 <li>Facts remain at their owning sources; generated views carry provenance and
 limits rather than becoming new mutation authorities.</li>
-<li>Keep goals, delivery, release, review, and provider state separate. Add joins
+<li>Keep OpenSpec changes, delivery, release, review, and provider state separate. Add joins
 through typed references only when a real workflow needs them.</li>
 <li>Do not add a mandatory daemon, database, vector store, network call, or
 central orchestrator for basic orientation.</li>
 <li>Do not relocate components merely to match conceptual diagrams.</li>
 <li>Keep reviewed evidence bounded and free of credentials and personal data.</li>
-<li>Use workspace goals for temporary coordination and owner-local maintained
-records only when durable project history is justified.</li>
+<li>Use ignored <code>out/&lt;task&gt;/</code> notes for temporary coordination and the affected
+owner&rsquo;s OpenSpec changes when maintained project history is justified.</li>
 <li>Choose the least costly check that answers acceptance; broad audits remain
 separately scoped work.</li>
 </ul>

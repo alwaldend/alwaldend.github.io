@@ -11,5 +11,12 @@
 		
 		
 			<atom:link href="https://alwaldend.com/docs/infra/flux/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title></title>
+				<link>https://alwaldend.com/docs/infra/flux/openspec/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/flux/openspec/spec/</guid>
+				<description>&lt;h1 id=&#34;flux-infrastructure-specification&#34;&gt;Flux infrastructure specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#flux-infrastructure-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the Flux management cluster&amp;rsquo;s VM definition, K3s configuration,&#xA;and Git reconciliation entry points owned by &lt;code&gt;infra/flux&lt;/code&gt;. The &lt;code&gt;tf_setup&lt;/code&gt;,&#xA;&lt;code&gt;ansible&lt;/code&gt;, and &lt;code&gt;cl&lt;/code&gt; packages implement stages of this owner. This is a&#xA;checked-in source baseline; no cluster health or successful deployment was&#xA;observed for this specification.&lt;/p&gt;&#xA;&lt;p&gt;Baseline revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observed: 2026-09-08. Sources: &lt;a href=&#34;https://alwaldend.com/docs/&#34;&gt;owner README&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;BUILD&lt;/a&gt;, and the implementation links below.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-dedicated-k3s-management-host&#34;&gt;Requirement: Dedicated K3s management host&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-dedicated-k3s-management-host&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Terraform setup SHALL declare a Proxmox VM in the &lt;code&gt;src_infra_flux&lt;/code&gt; pool with&#xA;two cores, 4096 MiB memory, and separate 20 GiB boot, K3s data, and K3s&#xA;storage disks. The deployment playbook SHALL apply the shared host and K3s&#xA;roles, and the K3s configuration SHALL enable secrets encryption and disable&#xA;the bundled Traefik component.&lt;/p&gt;</description>
+			</item>
 	</channel>
 </rss>

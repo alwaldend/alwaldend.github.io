@@ -11,5 +11,12 @@
 		
 		
 			<atom:link href="https://alwaldend.com/docs/infra/mikrotik/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title></title>
+				<link>https://alwaldend.com/docs/infra/mikrotik/openspec/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/mikrotik/openspec/spec/</guid>
+				<description>&lt;h1 id=&#34;infrastructure-mikrotik&#34;&gt;Infrastructure MikroTik&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#infrastructure-mikrotik&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the checked-in RouterOS export snapshots and site DNS declarations for&#xA;the dc1 routers. This package is a documentation and record-input owner: its&#xA;BUILD file declares no router deployment executable. Export contents are&#xA;historical source evidence, not a verification of current device configuration.&lt;/p&gt;&#xA;&lt;p&gt;Baseline source revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/&#34;&gt;export workflow&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;package targets&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../router1.rsc&#34;&gt;router1 snapshot&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../router2.rsc&#34;&gt;router2 snapshot&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../dnsconfig.json&#34;&gt;DNS declarations&lt;/a&gt;.&lt;/p&gt;</description>
+			</item>
 	</channel>
 </rss>

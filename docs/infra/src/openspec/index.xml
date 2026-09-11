@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Alwaldend</title>
+		<link>https://alwaldend.com/docs/infra/src/openspec/</link>
+		<description>Recent content on Alwaldend</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<atom:link href="https://alwaldend.com/docs/infra/src/openspec/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title></title>
+				<link>https://alwaldend.com/docs/infra/src/openspec/migration/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/src/openspec/migration/</guid>
+				<description>&lt;h1 id=&#34;goal-migration-to-openspec&#34;&gt;Goal migration to OpenSpec&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#goal-migration-to-openspec&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;On 2026-09-08, all nine tracked maintained project goal records at source commit &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt; were migrated into native OpenSpec changes. Each change now lives in its owning project’s &lt;code&gt;openspec/&lt;/code&gt; workspace. Eight completed records are imported as archived history. The Reimu Fumo change remains open with blocked execution and no accepted candidate.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;migration.json&#34;&gt;machine-readable inventory&lt;/a&gt; maps all 222 tracked source files (834,320 bytes) to byte-identical provenance snapshots. Test fixtures and ignored task scratch are outside the maintained-record inventory.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title></title>
+				<link>https://alwaldend.com/docs/infra/src/openspec/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/src/openspec/spec/</guid>
+				<description>&lt;h1 id=&#34;repository-evolution-specification&#34;&gt;Repository Evolution Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#repository-evolution-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define how the alwaldend/src monorepo evolves its shared structure, build&#xA;system and development workflows. Component behavior is specified in each&#xA;owner&amp;rsquo;s local OpenSpec workspace. This baseline was inspected at source revision&#xA;&lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt; on 2026-09-08 and incorporates the&#xA;OpenSpec migration delivered with this specification. Changes in &lt;code&gt;infra/src&lt;/code&gt;&#xA;record repository evolution; they do not collect unrelated component work or claim&#xA;runtime health or deployed infrastructure.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/&#34;&gt;repository map&lt;/a&gt;, &lt;a href=&#34;../../../../../AGENTS.md&#34;&gt;agent policy&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../../../BUILD.bazel&#34;&gt;root build&lt;/a&gt;, &lt;a href=&#34;https://alwaldend.com/projects/&#34;&gt;project boundary&lt;/a&gt;,&#xA;&lt;a href=&#34;https://alwaldend.com/&#34;&gt;infrastructure boundary&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../../../tools/README.md&#34;&gt;tool boundary&lt;/a&gt;, and &lt;a href=&#34;https://alwaldend.com/docs/infra/&#34;&gt;OpenSpec workflow&lt;/a&gt;.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

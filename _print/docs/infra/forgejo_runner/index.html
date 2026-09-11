@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Forgejo runner">
 	<meta itemprop="description" content="Forgejo Actions runner deployment">
-	<meta itemprop="dateModified" content="2026-09-06T17:34:36+03:00">
+	<meta itemprop="dateModified" content="2026-09-12T01:12:02+03:00">
 	<meta itemprop="wordCount" content="13">
 	<meta itemprop="keywords" content="Forgejo,Ansible,Pve">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Forgejo runner">
 	<meta name="twitter:description" content="Forgejo Actions runner deployment">
-<link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
-<link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -70,6 +70,9 @@
   <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
     <div class="scroll-indicator scroll-left"></div>
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
       </li>
@@ -139,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
+    data-offline-search-index-json-src="/offline-search-index.c3d3b0348f8e3f6d78a284cfdc2506d8.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -186,7 +189,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-f066b695c0dd6eed475cb0158d9cb746">Ansible</a></li>
+<li>1: <a href="#pg-90863e7fdd14cf654bf683df9a8cba73"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-f066b695c0dd6eed475cb0158d9cb746">Ansible</a></li>
 
 
     
@@ -205,7 +216,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-f9ffc9e12b9f5551f238d6b09bbc9cc1">Terraform setup</a></li>
+<li>3: <a href="#pg-f9ffc9e12b9f5551f238d6b09bbc9cc1">Terraform setup</a></li>
 
 
     
@@ -249,7 +260,72 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-f066b695c0dd6eed475cb0158d9cb746">1 - Ansible</h1>
+	<h1 id="pg-90863e7fdd14cf654bf683df9a8cba73">1 - </h1>
+    
+	<h1 id="print-6e90898760752dbb2b924092d4a47ea8-forgejo-runner-infrastructure-specification">Forgejo runner infrastructure specification<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-forgejo-runner-infrastructure-specification" aria-label="Heading self-link"></a></h1><h2 id="print-6e90898760752dbb2b924092d4a47ea8-purpose">Purpose<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Forgejo Actions runner VM and deployment scaffold owned by
+<code>infra/forgejo_runner</code>. Its <code>tf_setup</code> and <code>ansible</code> packages are stages of
+this owner. The runner role is commented out in the baseline playbook;
+the checked-in configuration therefore does not establish a deployed or
+registered Actions worker. No live runner state was observed.</p>
+<p>Baseline revision: <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.
+Observed: 2026-09-08. Sources:
+<a href="/docs/">owner README</a>,
+<a href="../../../BUILD.bazel">BUILD</a>, and the implementation
+links below.</p>
+<h2 id="print-6e90898760752dbb2b924092d4a47ea8-requirements">Requirements<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-6e90898760752dbb2b924092d4a47ea8-requirement-dedicated-runner-vm-allocation">Requirement: Dedicated runner VM allocation<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-requirement-dedicated-runner-vm-allocation" aria-label="Heading self-link"></a></h3><p>Setup SHALL declare <code>runner1</code> as Proxmox VM 1200 in the
+<code>src_infra_forgejo_runner</code> pool, with eight cores, 16 GiB memory, a 20 GiB
+boot disk, and a 300 GiB runner disk on <code>ceph-ec</code> storage. Its hostname and
+address SHALL derive from the owner&rsquo;s DNS declaration.</p>
+<p>Source: <a href="../../../tf_setup/vms.tf">VM definition</a>.</p>
+<h4 id="print-6e90898760752dbb2b924092d4a47ea8-scenario-inspect-the-runner-capacity-definition">Scenario: Inspect the runner capacity definition<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-scenario-inspect-the-runner-capacity-definition" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a maintainer evaluates the runner VM configuration</li>
+<li><strong>THEN</strong> the source declares the dedicated runner pool, compute allocation,
+and separate boot and runner disks</li>
+<li><strong>AND</strong> DNS source supplies the hostname and address</li>
+</ul>
+<h3 id="print-6e90898760752dbb2b924092d4a47ea8-requirement-explicit-host-only-deployment-baseline">Requirement: Explicit host-only deployment baseline<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-requirement-explicit-host-only-deployment-baseline" aria-label="Heading self-link"></a></h3><p>The baseline deployment playbook SHALL apply the shared host role to the
+<code>forgejo_runner</code> inventory group. The specification MUST identify the
+commented-out Forgejo runner role as inactive and MUST NOT interpret the
+available runner variables as evidence that the worker is installed or
+registered.</p>
+<p>Sources: <a href="../../../ansible/playbook_deploy.yaml">deployment playbook</a>
+and <a href="../../../ansible/group_vars/all.yaml">runner variables</a>.</p>
+<h4 id="print-6e90898760752dbb2b924092d4a47ea8-scenario-determine-the-effect-of-the-current-playbook">Scenario: Determine the effect of the current playbook<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-scenario-determine-the-effect-of-the-current-playbook" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the current playbook&rsquo;s active roles are inspected</li>
+<li><strong>THEN</strong> only the shared host role is enabled</li>
+<li><strong>AND</strong> runner installation and registration remain outside the behavior
+established by this source baseline</li>
+</ul>
+<h3 id="print-6e90898760752dbb2b924092d4a47ea8-requirement-packaged-setup-and-deployment-configuration">Requirement: Packaged setup and deployment configuration<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-requirement-packaged-setup-and-deployment-configuration" aria-label="Heading self-link"></a></h3><p>The owner SHALL expose Terraform setup and packaged Ansible entry points
+through its <code>al</code> configuration and Vault injection dependencies. The runner
+configuration SHALL reference <code>https://git.alwaldend.com</code>, <code>/dev/sdb</code>, and
+an environment-supplied <code>FORGEJO_RUNNER_TOKEN</code> rather than a checked-in
+registration token.</p>
+<p>Sources: <a href="../../../tf_setup/BUILD.bazel">setup BUILD</a>,
+<a href="../../../ansible/BUILD.bazel">Ansible BUILD</a>, and
+<a href="../../../ansible/group_vars/all.yaml">runner variables</a>.</p>
+<h4 id="print-6e90898760752dbb2b924092d4a47ea8-scenario-resolve-the-registration-credential-source">Scenario: Resolve the registration credential source<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-scenario-resolve-the-registration-credential-source" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a maintainer inspects the runner configuration scaffold</li>
+<li><strong>THEN</strong> its token value is an environment lookup and its instance URL is
+the canonical Forgejo service</li>
+<li><strong>AND</strong> the token reference alone does not enable the inactive runner role</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f066b695c0dd6eed475cb0158d9cb746">2 - Ansible</h1>
     <div class="lead">Forgejo runner configuration</div>
 	
 </div>
@@ -278,7 +354,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f9ffc9e12b9f5551f238d6b09bbc9cc1">2 - Terraform setup</h1>
+	<h1 id="pg-f9ffc9e12b9f5551f238d6b09bbc9cc1">3 - Terraform setup</h1>
     <div class="lead">Forgejo runner VM</div>
 	
 </div>

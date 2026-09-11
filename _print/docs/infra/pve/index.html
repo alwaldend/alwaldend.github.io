@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Pve">
 	<meta itemprop="description" content="Proxmox cluster pve.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-06T17:34:36+03:00">
+	<meta itemprop="dateModified" content="2026-09-12T01:12:02+03:00">
 	<meta itemprop="wordCount" content="92">
 	<meta itemprop="keywords" content="Ansible,Pve">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Pve">
 	<meta name="twitter:description" content="Proxmox cluster pve.alwaldend.com">
-<link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
-<link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -70,6 +70,9 @@
   <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
     <div class="scroll-indicator scroll-left"></div>
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
       </li>
@@ -139,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
+    data-offline-search-index-json-src="/offline-search-index.c3d3b0348f8e3f6d78a284cfdc2506d8.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -186,7 +189,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-f2ca64eb6e8b88d953d4b1367c0a0df2">Ansible</a></li>
+<li>1: <a href="#pg-58b41f4c3e98d7b9e35e301e2a0157da"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-f2ca64eb6e8b88d953d4b1367c0a0df2">Ansible</a></li>
 
 
     
@@ -205,7 +216,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-77d854308dcf639524b72459ae4fe51a">Tf</a></li>
+<li>3: <a href="#pg-77d854308dcf639524b72459ae4fe51a">Tf</a></li>
 
 
     
@@ -277,7 +288,75 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f2ca64eb6e8b88d953d4b1367c0a0df2">1 - Ansible</h1>
+	<h1 id="pg-58b41f4c3e98d7b9e35e301e2a0157da">1 - </h1>
+    
+	<h1 id="print-95297c23f15e2f1231b4003b7fc7d92e-proxmox-infrastructure-specification">Proxmox infrastructure Specification<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-proxmox-infrastructure-specification" aria-label="Heading self-link"></a></h1><h2 id="print-95297c23f15e2f1231b4003b7fc7d92e-purpose">Purpose<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-purpose" aria-label="Heading self-link"></a></h2><p>Specify the Proxmox cluster configuration, resource pools, and bootstrap test
+VM owned by <code>infra/pve</code>. The baseline is checked-in source at revision
+<code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>, observed on 2026-09-08.
+It describes declared infrastructure and packaged operator entry points;
+deployment and cluster health have not been observed for this baseline.</p>
+<h2 id="print-95297c23f15e2f1231b4003b7fc7d92e-requirements">Requirements<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-95297c23f15e2f1231b4003b7fc7d92e-requirement-approle-resource-pools">Requirement: AppRole resource pools<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-requirement-approle-resource-pools" aria-label="Heading self-link"></a></h3><p>The Terraform configuration SHALL resolve the members of Vault&rsquo;s <code>approles</code>
+identity group and declare one Proxmox pool per resolved entity, keyed and
+named by that entity&rsquo;s name. It SHALL also declare a separate <code>templates</code> pool.</p>
+<p>Sources: <a href="/docs/">project documentation</a> and
+<a href="../../../tf/pools.tf">resource pool definitions</a>.</p>
+<h4 id="print-95297c23f15e2f1231b4003b7fc7d92e-scenario-declare-pools-for-known-approles">Scenario: Declare pools for known AppRoles<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-scenario-declare-pools-for-known-approles" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> Terraform resolves the entities in the Vault <code>approles</code> group</li>
+<li><strong>THEN</strong> the desired configuration includes a pool with each entity&rsquo;s name
+and the dedicated <code>templates</code> pool.</li>
+</ul>
+<h3 id="print-95297c23f15e2f1231b4003b7fc7d92e-requirement-packaged-host-and-snippet-configuration">Requirement: Packaged host and snippet configuration<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-requirement-packaged-host-and-snippet-configuration" aria-label="Heading self-link"></a></h3><p>The PVE Ansible entry point SHALL package the inventory and deployment playbook
+and apply the shared host and PVE roles to the <code>pve1</code> inventory group. It SHALL
+package the canonical shared cloud-init files under <code>files/cloud_init.yaml</code>
+and <code>files/cloud_init_min.yaml</code>, preserving the existing snippet update flow.</p>
+<p>Sources: <a href="../../../ansible/BUILD.bazel">deployment target</a>,
+<a href="../../../ansible/playbook_deploy.yaml">playbook</a>, and
+<a href="../../../ansible/group_vars/all.yaml">snippet variables</a>.</p>
+<h4 id="print-95297c23f15e2f1231b4003b7fc7d92e-scenario-assemble-the-pve-deployment-package">Scenario: Assemble the PVE deployment package<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-scenario-assemble-the-pve-deployment-package" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the Ansible binary&rsquo;s source package is built</li>
+<li><strong>THEN</strong> it includes the playbook, inventory, shared role collection, and
+both shared cloud-init files under their established aliases.</li>
+</ul>
+<h3 id="print-95297c23f15e2f1231b4003b7fc7d92e-requirement-cloud-init-test-virtual-machine">Requirement: Cloud-init test virtual machine<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-requirement-cloud-init-test-virtual-machine" aria-label="Heading self-link"></a></h3><p>The Terraform configuration SHALL declare its cloud-init test VM through the
+shared <code>pve_vm_qemu</code> module, derive its hostname and address from the project&rsquo;s
+DNS configuration, and place it in the <code>src_infra_dc1_pve1</code> AppRole pool. The
+baseline declaration SHALL use VM ID 100, a 5G <code>scsi0</code> disk, and the <code>test</code> tag.</p>
+<p>Sources: <a href="../../../tf/vms.tf">VM definition</a> and
+<a href="../../../dnsconfig.json">DNS configuration</a>.</p>
+<h4 id="print-95297c23f15e2f1231b4003b7fc7d92e-scenario-resolve-the-test-vms-desired-configuration">Scenario: Resolve the test VM&rsquo;s desired configuration<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-scenario-resolve-the-test-vms-desired-configuration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> Terraform evaluates <code>module.vm_cloudinit_test</code></li>
+<li><strong>THEN</strong> its name and <code>/24</code> address derive from <code>cloudinit_test</code> DNS fields,
+and its pool resolves to the declared PVE AppRole pool.</li>
+</ul>
+<h3 id="print-95297c23f15e2f1231b4003b7fc7d92e-requirement-repository-managed-execution-inputs">Requirement: Repository-managed execution inputs<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-requirement-repository-managed-execution-inputs" aria-label="Heading self-link"></a></h3><p>PVE Terraform commands SHALL use the project&rsquo;s AL configuration and the
+declared Terraform, PVE-login, and Vault-environment plugins. The package SHALL
+include the lockfile, Terraform source, shared backend and VM modules, and
+required Vault helper targets. PVE Ansible commands SHALL likewise use the
+project AL configuration and packaged injector.</p>
+<p>Sources: <a href="../../../tf/BUILD.bazel">Terraform wrapper</a> and
+<a href="../../../ansible/BUILD.bazel">Ansible wrapper</a>.</p>
+<h4 id="print-95297c23f15e2f1231b4003b7fc7d92e-scenario-construct-a-pve-terraform-invocation">Scenario: Construct a PVE Terraform invocation<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-scenario-construct-a-pve-terraform-invocation" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a repository Terraform command target is invoked with authorization
+for its operation</li>
+<li><strong>THEN</strong> the wrapper supplies the declared modules and helper inputs and
+selects the <code>tf</code>, <code>pve_login</code>, and <code>vault_env=default_default</code> plugins.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f2ca64eb6e8b88d953d4b1367c0a0df2">2 - Ansible</h1>
     <div class="lead">Ansible setup</div>
 	
 </div>
@@ -306,7 +385,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-77d854308dcf639524b72459ae4fe51a">2 - Tf</h1>
+	<h1 id="pg-77d854308dcf639524b72459ae4fe51a">3 - Tf</h1>
     <div class="lead">Terraform config</div>
 	
 </div>

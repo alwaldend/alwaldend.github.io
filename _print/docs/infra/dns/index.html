@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Dns">
 	<meta itemprop="description" content="Dns setup for alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-06T17:34:36+03:00">
+	<meta itemprop="dateModified" content="2026-09-12T01:12:02+03:00">
 	<meta itemprop="wordCount" content="118">
 	<meta itemprop="keywords" content="Dns,Dnscontrol">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Dns">
 	<meta name="twitter:description" content="Dns setup for alwaldend.com">
-<link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
-<link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -70,6 +70,9 @@
   <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
     <div class="scroll-indicator scroll-left"></div>
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
       </li>
@@ -139,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
+    data-offline-search-index-json-src="/offline-search-index.c3d3b0348f8e3f6d78a284cfdc2506d8.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -186,7 +189,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-5182c83d4964c12536210ac055ef6ebd">Tf</a></li>
+<li>1: <a href="#pg-a2a8fb4565c12c951b85dedb4e2ccf6e"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-5182c83d4964c12536210ac055ef6ebd">Tf</a></li>
 
 
     
@@ -253,7 +264,74 @@ Deploy modifies the bind file, which will cause
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-5182c83d4964c12536210ac055ef6ebd">1 - Tf</h1>
+	<h1 id="pg-a2a8fb4565c12c951b85dedb4e2ccf6e">1 - </h1>
+    
+	<h1 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-infrastructure-dns">Infrastructure DNS<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-infrastructure-dns" aria-label="Heading self-link"></a></h1><h2 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose">Purpose<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose" aria-label="Heading self-link"></a></h2><p>Describe the repository-owned DNSControl configuration for the global and dc1
+views of <code>alwaldend.com</code>, including project-owned landing records. This baseline
+describes checked-in configuration and wrappers; deployed records were not
+observed.</p>
+<p>Baseline source revision: <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.
+Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.</p>
+<p>Sources: <a href="/docs/">component documentation</a>,
+<a href="../../../BUILD.bazel">target definitions</a>,
+<a href="../../../dnsconfig.js">DNSControl configuration</a>,
+<a href="../../../providers.json">provider configuration</a>, and
+<a href="../../../al.lua">credential injection</a>.</p>
+<h2 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirements">Requirements<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-aggregate-records-from-their-owning-components">Requirement: Aggregate records from their owning components<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-aggregate-records-from-their-owning-components" aria-label="Heading self-link"></a></h3><p>The DNS package SHALL assemble its record input manifest from the declared
+infrastructure sources and the project registry, including nested <code>rules_*</code>
+modules through their external Bazel repositories. Project landing CNAMEs SHALL
+remain owned by each project&rsquo;s <code>dnsconfig.json</code>.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-registered-project-contributes-landing-records">Scenario: A registered project contributes landing records<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-registered-project-contributes-landing-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the DNS configuration is assembled for a registered project</li>
+<li><strong>THEN</strong> its owning DNS target is included in the record manifest</li>
+<li><strong>AND</strong> the landing CNAME points directly to <code>alwaldend.github.io.</code> as required
+by the component documentation</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-distinct-global-and-site-local-views">Requirement: Preserve distinct global and site-local views<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-distinct-global-and-site-local-views" aria-label="Heading self-link"></a></h3><p>The configuration SHALL combine common apex and mail records with records
+assigned to the <code>global</code> or <code>dc1</code> view. It SHALL reject a record that names an
+unknown destination view.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-record-is-assigned-only-to-dc1">Scenario: A record is assigned only to dc1<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-record-is-assigned-only-to-dc1" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a record declares <code>dsp: [&quot;dc1&quot;]</code></li>
+<li><strong>THEN</strong> its modifier is added to the dc1 domain configuration</li>
+<li><strong>AND</strong> it is not added to the global domain configuration by that declaration</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-record-names-an-unsupported-destination">Scenario: A record names an unsupported destination<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-record-names-an-unsupported-destination" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a record references a destination missing from the modifiers map</li>
+<li><strong>THEN</strong> DNSControl configuration evaluation fails with <code>invalid dsp</code></li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-validate-configuration-without-provider-access">Requirement: Validate configuration without provider access<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-validate-configuration-without-provider-access" aria-label="Heading self-link"></a></h3><p>The <code>//infra/dns:config_test</code> target SHALL invoke the pinned DNSControl <code>check</code>
+command with the configuration and generated manifest, without requiring
+provider credentials or contacting DNS providers.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-validate-a-proposed-record-change-locally">Scenario: Validate a proposed record change locally<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-validate-a-proposed-record-change-locally" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the configuration test is run</li>
+<li><strong>THEN</strong> DNSControl checks the assembled configuration without a deployment</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-inject-credentials-into-operational-wrappers">Requirement: Inject credentials into operational wrappers<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-inject-credentials-into-operational-wrappers" aria-label="Heading self-link"></a></h3><p>The preview and push wrappers SHALL pass <code>providers.json</code> explicitly and obtain
+its environment references through the AL Vault injector. The provider mapping
+SHALL use Cloudflare for the global view, MikroTik for dc1, and BIND files for
+both views.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-authorized-operator-previews-a-dns-change">Scenario: An authorized operator previews a DNS change<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-authorized-operator-previews-a-dns-change" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> <code>//infra/dns:dns.preview</code> is invoked with its injected environment</li>
+<li><strong>THEN</strong> DNSControl receives the declared configuration and provider mapping</li>
+<li><strong>AND</strong> credentials are read from environment references rather than a rendered
+credentials file</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5182c83d4964c12536210ac055ef6ebd">2 - Tf</h1>
     <div class="lead">Terraform config</div>
 	
 </div>

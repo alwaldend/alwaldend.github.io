@@ -44,7 +44,7 @@
 				<link>https://alwaldend.com/docs/infra/forgejo/tf/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/infra/forgejo/tf/</guid>
-				<description></description>
+				<description>&lt;p&gt;This package configures Forgejo organizations, repositories, and access. Before&#xA;applying, provision the Vault OIDC authentication source with Ansible and set&#xA;&lt;code&gt;TF_VAR_vault_oauth_source_id&lt;/code&gt; to its verified positive numeric ID. Obtain the&#xA;ID from &lt;code&gt;forgejo admin auth list&lt;/code&gt; on the instance using the service&amp;rsquo;s config&#xA;and work path; confirm that the &lt;code&gt;vault&lt;/code&gt; source is active and uses OpenID&#xA;Connect with the expected Vault issuer. Do not assume source IDs survive&#xA;instance recreation.&lt;/p&gt;&#xA;&lt;p&gt;Terraform discovers users from the authoritative Vault&#xA;&lt;code&gt;src_infra_dc1_forgejo1_users&lt;/code&gt; login group, then looks up their entities,&#xA;following the PVE Terraform pattern. Discovery includes direct members and&#xA;two levels of nested groups, covering the current administrator membership.&#xA;Deeper nesting fails validation rather than silently omitting accounts.&#xA;Each account uses its Vault entity UUID as the OIDC login name and its&#xA;canonical username/email metadata. No local password or user impersonation is&#xA;used. The Forgejo AppRole receives the existing group/entity lookup permissions,&#xA;as PVE does. Apply those Vault group memberships before running this package.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Tf</title>
@@ -135,7 +135,7 @@
 				<link>https://alwaldend.com/docs/infra/forgejo/tf_setup/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/infra/forgejo/tf_setup/</guid>
-				<description></description>
+				<description>&lt;p&gt;This package creates a Xen Orchestra VM in the &lt;code&gt;src_infra_dc1_forgejo1&lt;/code&gt;&#xA;resource set. &lt;code&gt;infra/forgejo/al.lua&lt;/code&gt; authenticates with Forgejo&amp;rsquo;s own Vault&#xA;AppRole and the packaged XO OIDC login plugin. The plugin supplies a temporary&#xA;XO token and revokes it on shutdown; no infrastructure administrator token&#xA;is loaded. The setup HTTP backend remains owned by the same Forgejo config.&lt;/p&gt;&#xA;&lt;p&gt;Before running this package, bootstrap the AppRole&amp;rsquo;s XO OIDC user and apply&#xA;its resource-set membership and existing VM ACL through &lt;code&gt;infra/xcp_ng/tf&lt;/code&gt;.&#xA;Subjects are matched by immutable Vault entity UUID under the configured&#xA;OIDC issuer, not by login name or AppRole group membership. See&#xA;&lt;a href=&#34;../../xcp_ng/cmd/xo_login/README.md&#34;&gt;XO authentication&lt;/a&gt;.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Tf setup</title>
@@ -205,7 +205,7 @@
 				<link>https://alwaldend.com/docs/infra/xcp_ng/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/infra/xcp_ng/</guid>
-				<description>&lt;p&gt;The dc1 DNS configuration maps &lt;code&gt;xcp-ng.alwaldend.com&lt;/code&gt; and&#xA;&lt;code&gt;host1.xcp-ng.alwaldend.com&lt;/code&gt; to &lt;code&gt;192.168.1.213&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Terraform lives in &lt;code&gt;internal/tf&lt;/code&gt; and declares the pinned&#xA;&lt;a href=&#34;https://docs.xen-orchestra.com/automation/terraform-provider&#34;&gt;&lt;code&gt;vatesfr/xenorchestra&lt;/code&gt; provider&lt;/a&gt;.&#xA;It includes empty provider and HTTP backend blocks, with no resources,&#xA;endpoints, or credentials. The provider requires Xen Orchestra connected to&#xA;the XCP-ng pool when resources are added.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;al.lua&lt;/code&gt; authenticates with the &lt;code&gt;src_infra_xcp_ng&lt;/code&gt; Vault AppRole and configures&#xA;the HTTP backend using&#xA;&lt;code&gt;secrets/alwaldend.com/vault1/approles/src_infra_xcp_ng/tf_backend&lt;/code&gt;.&#xA;The AppRole is declared in &lt;code&gt;infra/vault/tf&lt;/code&gt; and must be provisioned before&#xA;running the Terraform commands. Provider connection settings are left to the&#xA;operator.&lt;/p&gt;</description>
+				<description>&lt;p&gt;Terraform in &lt;code&gt;tf&lt;/code&gt; manages a Xen Orchestra resource set for every&#xA;entity in Vault&amp;rsquo;s &lt;code&gt;approles&lt;/code&gt; group, following &lt;code&gt;infra/pve/tf&lt;/code&gt;. Resource sets&#xA;are the XO grouping and delegation mechanism; XCP-ng host pools represent&#xA;physical clusters and are not created per AppRole.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;resource_set_inventory&lt;/code&gt; assigns a pool, template, storage repository and&#xA;network by name to each AppRole. Native provider lookups resolve their IDs&#xA;and reject ambiguous matches. Only Forgejo has an assignment by default;&#xA;other sets remain empty. Subjects are the exact synchronized OIDC users&#xA;selected by Vault issuer and immutable AppRole entity UUID. Bootstrap has&#xA;synchronized the 18 AppRole users; new AppRoles need their first OIDC login&#xA;before Terraform can bind their sets. &lt;code&gt;resource_set_cpu_limit&lt;/code&gt; defaults to&#xA;32 CPUs per set. Creating a set does not allocate CPUs or storage.&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>

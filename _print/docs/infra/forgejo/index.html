@@ -34,24 +34,24 @@
 <meta name="robots" content="noindex, nofollow">
 
 <title>forgejo | Alwaldend</title>
-<meta name="description" content="forgejo.alwaldend.com">
+<meta name="description" content="git.alwaldend.com">
 <meta property="og:url" content="https://alwaldend.com/docs/infra/forgejo/">
 	<meta property="og:site_name" content="Alwaldend">
 	<meta property="og:title" content="forgejo">
-	<meta property="og:description" content="forgejo.alwaldend.com">
+	<meta property="og:description" content="git.alwaldend.com">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="website">
 
 	<meta itemprop="name" content="forgejo">
-	<meta itemprop="description" content="forgejo.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-06T17:34:36+03:00">
-	<meta itemprop="wordCount" content="24">
-	<meta itemprop="keywords" content="Ansible,Pve,Forgejo">
+	<meta itemprop="description" content="git.alwaldend.com">
+	<meta itemprop="dateModified" content="2026-09-12T01:12:02+03:00">
+	<meta itemprop="wordCount" content="281">
+	<meta itemprop="keywords" content="Ansible,Xcp-Ng,Forgejo">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="forgejo">
-	<meta name="twitter:description" content="forgejo.alwaldend.com">
-<link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
-<link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
+	<meta name="twitter:description" content="git.alwaldend.com">
+<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -70,6 +70,9 @@
   <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
     <div class="scroll-indicator scroll-left"></div>
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
       </li>
@@ -139,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
+    data-offline-search-index-json-src="/offline-search-index.c3d3b0348f8e3f6d78a284cfdc2506d8.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -170,7 +173,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">forgejo</h1>
-<div class="lead">forgejo.alwaldend.com</div>
+<div class="lead">git.alwaldend.com</div>
 
 
 
@@ -186,26 +189,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-4631e4abd1138ca67304d2dacb44d29f">Ansible</a></li>
+<li>1: <a href="#pg-790115e37f94678096e813c6a41a28c8"></a></li>
 
 
-    
-    <ul>
-        
-  
-  
-  
-  
-
-  
-
-    </ul>
     
   
     
     
 	
-<li>2: <a href="#pg-f3cee4c8624cb7f2609ceabdfcf85a16">Tf</a></li>
+<li>2: <a href="#pg-4631e4abd1138ca67304d2dacb44d29f">Ansible</a></li>
 
 
     
@@ -224,7 +216,26 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-23e19713f3783652b8b451d0e26fbe6f">Tf setup</a></li>
+<li>3: <a href="#pg-f3cee4c8624cb7f2609ceabdfcf85a16">Tf</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-23e19713f3783652b8b451d0e26fbe6f">Tf setup</a></li>
 
 
     
@@ -249,9 +260,36 @@ This is the multi-page printable view of this section.
 <li>Docs: <a href="https://forgejo.org/docs/latest/admin/installation/binary/">https://forgejo.org/docs/latest/admin/installation/binary/</a></li>
 <li>Config reference: <a href="https://forgejo.org/docs/latest/admin/config-cheat-sheet/">https://forgejo.org/docs/latest/admin/config-cheat-sheet/</a></li>
 </ul>
-<h2 id="print-0ffd6cbf558ebcb119cece8c34f2b34d-deployment">Deployment<a class="td-heading-self-link" href="#print-0ffd6cbf558ebcb119cece8c34f2b34d-deployment" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/forgejo/tf_setup <span style="color:#75715e"># Create hosts</span>
-</span></span><span style="display:flex;"><span>bazel run //infra/forgejo/ansible <span style="color:#75715e"># Configure hosts</span>
-</span></span><span style="display:flex;"><span>bazel run //infra/forgejo/tf <span style="color:#75715e"># Configure forgejo</span>
+<h2 id="print-0ffd6cbf558ebcb119cece8c34f2b34d-deployment">Deployment<a class="td-heading-self-link" href="#print-0ffd6cbf558ebcb119cece8c34f2b34d-deployment" aria-label="Heading self-link"></a></h2><p>Forgejo is recreated on XCP-ng through Xen Orchestra, using the
+<code>src_infra_dc1_forgejo1</code> resource set provisioned by <code>infra/xcp_ng</code>.
+VM provisioning authenticates to XO through Vault OIDC as Forgejo&rsquo;s own
+AppRole. Its exact synchronized user receives the resource-set membership
+and an explicit administration ACL on the existing Forgejo VM; it does not
+use the shared infrastructure administrator token. These bindings must be
+applied by <code>infra/xcp_ng/tf</code> before Forgejo&rsquo;s setup Terraform runs.</p>
+<p>The canonical service URL is <code>https://git.alwaldend.com</code>. The previous
+<code>forgejo.alwaldend.com</code> name remains available for existing clients.
+The VM retains <code>192.168.10.40</code> and <code>host1.forgejo.alwaldend.com</code>. Its boot, Forgejo,
+and Traefik disks are 20, 40, and 5 GiB respectively.</p>
+<p>See <a href="/docs/infra/forgejo/tf_setup/">Terraform setup</a> for the template, network, storage,
+and previous-state prerequisites. These commands create and configure a
+fresh service; they do not restore the destroyed Proxmox VM&rsquo;s data.</p>
+<p>Fresh host hardening can outlast the ten-minute Vault token. Run host setup
+and service deployment separately to obtain fresh authentication for each phase. Ansible
+creates the missing Vault OIDC login source after starting Forgejo; existing
+active Vault sources are preserved.</p>
+<p>Before configuring Forgejo with Terraform, set <code>TF_VAR_vault_oauth_source_id</code>
+to the verified ID of the active <code>vault</code> OIDC source, as described in
+<a href="/docs/infra/forgejo/tf/">service Terraform</a>. Its narrowly scoped Vault entity-read policy
+must be provisioned first so the required external users can be created.</p>
+<p>The guest disables IPv4 redirect acceptance so its traffic uses the configured
+gateway. LAN clients must also retain symmetric routes: same-interface router
+redirects can otherwise make connections fail. Router redirect policy and stale
+client route caches must be resolved before relying on LAN access.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/forgejo/tf_setup:tf_setup.apply
+</span></span><span style="display:flex;"><span>bazel_agent bazel run //infra/forgejo/ansible:ansible -- --skip-tags traefik,forgejo,forgejo_oidc
+</span></span><span style="display:flex;"><span>bazel_agent bazel run //infra/forgejo/ansible:ansible -- --tags traefik,forgejo,forgejo_oidc
+</span></span><span style="display:flex;"><span>bazel_agent bazel run //infra/forgejo/tf:tf.apply
 </span></span></code></pre></div>
 </div>
 </div>
@@ -271,9 +309,96 @@ This is the multi-page printable view of this section.
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-4631e4abd1138ca67304d2dacb44d29f">1 - Ansible</h1>
+	<h1 id="pg-790115e37f94678096e813c6a41a28c8">1 - </h1>
+    
+	<h1 id="print-d79f07ab925735e495692c354cc5135b-forgejo-infrastructure-specification">Forgejo infrastructure specification<a class="td-heading-self-link" href="#print-d79f07ab925735e495692c354cc5135b-forgejo-infrastructure-specification" aria-label="Heading self-link"></a></h1><h2 id="print-d79f07ab925735e495692c354cc5135b-purpose">Purpose<a class="td-heading-self-link" href="#print-d79f07ab925735e495692c354cc5135b-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Forgejo service owned by <code>infra/forgejo</code>, including Xen
+Orchestra provisioning, Ansible service configuration, and Terraform account
+and repository management. The <code>tf_setup</code>, <code>ansible</code>, and <code>tf</code> packages are
+implementation stages of this owner. This baseline records source guarantees
+and prerequisites; it does not verify live service health or restore earlier
+Forgejo data.</p>
+<p>Baseline revision: <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.
+Observed: 2026-09-08. Sources: <a href="/docs/">owner README</a>,
+<a href="../../../BUILD.bazel">BUILD</a>, and the implementation links below.</p>
+<h2 id="print-d79f07ab925735e495692c354cc5135b-requirements">Requirements<a class="td-heading-self-link" href="#print-d79f07ab925735e495692c354cc5135b-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-d79f07ab925735e495692c354cc5135b-requirement-scoped-xen-orchestra-provisioning-and-disk-checks">Requirement: Scoped Xen Orchestra provisioning and disk checks<a class="td-heading-self-link" href="#print-d79f07ab925735e495692c354cc5135b-requirement-scoped-xen-orchestra-provisioning-and-disk-checks" aria-label="Heading self-link"></a></h3><p>Setup SHALL provision Forgejo through Xen Orchestra in the
+<code>src_infra_dc1_forgejo1</code> resource set using the owner&rsquo;s Vault AppRole and
+packaged XO OIDC login flow. The VM SHALL declare 20 GiB boot, 40 GiB
+Forgejo, and 5 GiB Traefik disks. Ansible SHALL verify the expected sizes
+of <code>xvdb</code> and <code>xvdc</code> before applying the service roles that use them.</p>
+<p>Sources: <a href="../../../tf_setup/README.md">setup contract</a>,
+<a href="../../../tf_setup/BUILD.bazel">setup BUILD</a>,
+<a href="../../../tf_setup/vms.tf">VM definition</a>, and
+<a href="../../../ansible/playbook_deploy.yaml">deployment playbook</a>.</p>
+<h4 id="print-d79f07ab925735e495692c354cc5135b-scenario-detect-unexpected-xen-disk-attachments">Scenario: Detect unexpected Xen disk attachments<a class="td-heading-self-link" href="#print-d79f07ab925735e495692c354cc5135b-scenario-detect-unexpected-xen-disk-attachments" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> Ansible gathers disks that do not match the expected Forgejo and
+Traefik device names and sizes</li>
+<li><strong>THEN</strong> its pre-task assertion fails before the service roles run</li>
+</ul>
+<h3 id="print-d79f07ab925735e495692c354cc5135b-requirement-canonical-service-routing-with-legacy-hostname-support">Requirement: Canonical service routing with legacy hostname support<a class="td-heading-self-link" href="#print-d79f07ab925735e495692c354cc5135b-requirement-canonical-service-routing-with-legacy-hostname-support" aria-label="Heading self-link"></a></h3><p>Forgejo SHALL configure <code>https://git.alwaldend.com/</code> as its canonical root
+URL, bind its HTTP service to loopback port 3000, and enable the built-in
+SSH service on port 3005. Traefik SHALL route the canonical hostname, the
+inventory hostname, and <code>forgejo.alwaldend.com</code> to that HTTP service with
+the Vault certificate resolver.</p>
+<p>Sources: <a href="../../../ansible/group_vars/all.yaml">service variables</a>,
+<a href="../../../ansible/files/forgejo.ini">Forgejo configuration</a>, and
+<a href="../../../ansible/files/traefik_dynamic.toml">Traefik routing</a>.</p>
+<h4 id="print-d79f07ab925735e495692c354cc5135b-scenario-inspect-support-for-existing-forgejo-clients">Scenario: Inspect support for existing Forgejo clients<a class="td-heading-self-link" href="#print-d79f07ab925735e495692c354cc5135b-scenario-inspect-support-for-existing-forgejo-clients" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the Traefik routing template is rendered with the owner&rsquo;s variables</li>
+<li><strong>THEN</strong> the canonical and legacy hostnames resolve to the same configured
+loopback service</li>
+<li><strong>AND</strong> generated Forgejo URLs use the canonical Git hostname</li>
+</ul>
+<h3 id="print-d79f07ab925735e495692c354cc5135b-requirement-guarded-vault-oidc-bootstrap">Requirement: Guarded Vault OIDC bootstrap<a class="td-heading-self-link" href="#print-d79f07ab925735e495692c354cc5135b-requirement-guarded-vault-oidc-bootstrap" aria-label="Heading self-link"></a></h3><p>The deployment playbook SHALL create a missing <code>vault</code> OIDC authentication
+source after configuring the Forgejo service. It SHALL preserve one existing
+active OAuth2 source and reject multiple matches, an inactive source, or a
+source of another type. Creation SHALL obtain client credentials from the
+injected environment and suppress secret-bearing task output.</p>
+<p>Source: <a href="../../../ansible/playbook_deploy.yaml">deployment playbook</a>.</p>
+<h4 id="print-d79f07ab925735e495692c354cc5135b-scenario-preserve-an-existing-active-authentication-source">Scenario: Preserve an existing active authentication source<a class="td-heading-self-link" href="#print-d79f07ab925735e495692c354cc5135b-scenario-preserve-an-existing-active-authentication-source" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> Forgejo reports exactly one active OAuth2 source named <code>vault</code></li>
+<li><strong>THEN</strong> the bootstrap accepts it and skips source creation</li>
+</ul>
+<h4 id="print-d79f07ab925735e495692c354cc5135b-scenario-reject-an-ambiguous-authentication-source">Scenario: Reject an ambiguous authentication source<a class="td-heading-self-link" href="#print-d79f07ab925735e495692c354cc5135b-scenario-reject-an-ambiguous-authentication-source" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> more than one <code>vault</code> source is discovered, or its type or active
+state is incompatible</li>
+<li><strong>THEN</strong> the bootstrap assertion fails rather than selecting or replacing
+an arbitrary source</li>
+</ul>
+<h3 id="print-d79f07ab925735e495692c354cc5135b-requirement-vault-authoritative-account-and-repository-access">Requirement: Vault-authoritative account and repository access<a class="td-heading-self-link" href="#print-d79f07ab925735e495692c354cc5135b-requirement-vault-authoritative-account-and-repository-access" aria-label="Heading self-link"></a></h3><p>Service Terraform SHALL require a verified positive integer Vault OAuth
+source ID, discover login users from the owning Vault group through at most
+two nested group levels, and use entity UUIDs as external login names.
+Managed accounts SHALL be protected from deletion. Access memberships SHALL
+belong to the discovered login population, and the <code>src</code> automation writer
+group SHALL resolve to exactly one user.</p>
+<p>Sources: <a href="../../../tf/README.md">service Terraform contract</a>,
+<a href="../../../tf/users.tf">users</a>,
+<a href="../../../tf/access.tf">access validation</a>, and
+<a href="../../../tf/alwaldend_repos.tf">repository access</a>.</p>
+<h4 id="print-d79f07ab925735e495692c354cc5135b-scenario-reject-unsupported-group-membership">Scenario: Reject unsupported group membership<a class="td-heading-self-link" href="#print-d79f07ab925735e495692c354cc5135b-scenario-reject-unsupported-group-membership" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a login group extends beyond two nested levels, an access-group
+member is outside the login population, or the automation writer count is
+not one</li>
+<li><strong>THEN</strong> the corresponding Terraform condition rejects the configuration</li>
+<li><strong>AND</strong> Terraform does not silently omit the unsupported membership</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-4631e4abd1138ca67304d2dacb44d29f">2 - Ansible</h1>
     <div class="lead">Ansible setup</div>
 	
 </div>
@@ -302,9 +427,41 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f3cee4c8624cb7f2609ceabdfcf85a16">2 - Tf</h1>
+	<h1 id="pg-f3cee4c8624cb7f2609ceabdfcf85a16">3 - Tf</h1>
     <div class="lead">Terraform config</div>
-	
+	<p>This package configures Forgejo organizations, repositories, and access. Before
+applying, provision the Vault OIDC authentication source with Ansible and set
+<code>TF_VAR_vault_oauth_source_id</code> to its verified positive numeric ID. Obtain the
+ID from <code>forgejo admin auth list</code> on the instance using the service&rsquo;s config
+and work path; confirm that the <code>vault</code> source is active and uses OpenID
+Connect with the expected Vault issuer. Do not assume source IDs survive
+instance recreation.</p>
+<p>Terraform discovers users from the authoritative Vault
+<code>src_infra_dc1_forgejo1_users</code> login group, then looks up their entities,
+following the PVE Terraform pattern. Discovery includes direct members and
+two levels of nested groups, covering the current administrator membership.
+Deeper nesting fails validation rather than silently omitting accounts.
+Each account uses its Vault entity UUID as the OIDC login name and its
+canonical username/email metadata. No local password or user impersonation is
+used. The Forgejo AppRole receives the existing group/entity lookup permissions,
+as PVE does. Apply those Vault group memberships before running this package.</p>
+<p>The accounts are protected from Terraform deletion. OIDC group claims retain
+ownership of administrator/restricted status after login. If a user already
+exists outside this state, verify its source and login-name mapping before
+importing it; never replace an existing account to resolve a name collision.
+Resource addresses remain keyed by Vault entity name, preserving existing
+managed users. The Forgejo service identity may already exist from the first
+OIDC login: verify and import it before applying its newly discovered resource.</p>
+<p>Organization administrators come from <code>src_infra_dc1_forgejo1_admins</code> and its
+direct child groups. Package writers and the repository automation writer
+come from the corresponding <code>src_infra_dc1_forgejo1_package_writers</code> and
+<code>src_infra_dc1_forgejo1_src_writers</code> Vault groups. These dedicated groups avoid
+granting service permissions to AppRole credential issuers. The repository&rsquo;s
+existing singleton collaborator requires exactly one discovered writer.
+Access-group members outside the login population also fail validation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/forgejo/tf:tf.plan
+</span></span><span style="display:flex;"><span>bazel_agent bazel run //infra/forgejo/tf:tf.apply
+</span></span></code></pre></div>
 </div>
 
 
@@ -331,9 +488,42 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-23e19713f3783652b8b451d0e26fbe6f">3 - Tf setup</h1>
+	<h1 id="pg-23e19713f3783652b8b451d0e26fbe6f">4 - Tf setup</h1>
     <div class="lead">Terraform setup</div>
-	
+	<p>This package creates a Xen Orchestra VM in the <code>src_infra_dc1_forgejo1</code>
+resource set. <code>infra/forgejo/al.lua</code> authenticates with Forgejo&rsquo;s own Vault
+AppRole and the packaged XO OIDC login plugin. The plugin supplies a temporary
+XO token and revokes it on shutdown; no infrastructure administrator token
+is loaded. The setup HTTP backend remains owned by the same Forgejo config.</p>
+<p>Before running this package, bootstrap the AppRole&rsquo;s XO OIDC user and apply
+its resource-set membership and existing VM ACL through <code>infra/xcp_ng/tf</code>.
+Subjects are matched by immutable Vault entity UUID under the configured
+OIDC issuer, not by login name or AppRole group membership. See
+<a href="../../xcp_ng/cmd/xo_login/README.md">XO authentication</a>.</p>
+<p>Defaults select the imported Fedora 44 template, local storage and wired
+network by name from the Forgejo resource set. Override
+<code>TF_VAR_xoa_template_name</code>, <code>TF_VAR_xoa_storage_name</code>, and
+<code>TF_VAR_xoa_network_name</code> for another assignment. Native provider lookups run
+as Forgejo&rsquo;s own identity and reject ambiguous matches. No infrastructure
+UUID defaults are required; resolved IDs are passed to the XO API.
+The template must contain a single boot disk no larger than 20 GiB, Fedora,
+and cloud-init. Bootstrap installs Xen guest tools. The pinned Fedora 44
+image uses predictable interface naming; <code>xoa_guest_interface</code> defaults to
+<code>enX0</code> for its first Xen interface and can be overridden for another template.
+The selected network must carry <code>192.168.10.0/24</code>; gateway and DNS default to
+<code>192.168.10.1</code> (the wired router) and can be overridden with the Terraform variables.</p>
+<p>The PVE-based <code>infra/cloud_init:xen_linux</code> target supplies the shared Ansible
+user and CA configuration through the repository template rule. Terraform adds
+the hostname and static network configuration from <code>../dnsconfig.json</code>. After cloud-init completes, verify that <code>/dev/xvda</code> is the
+boot disk, <code>/dev/xvdb</code> is the 40 GiB Forgejo disk, and <code>/dev/xvdc</code> is the 5 GiB
+Traefik disk before running Ansible, which creates filesystems on the latter
+two devices.</p>
+<p>The old Proxmox VM was destroyed and its obsolete Terraform state binding
+was removed without issuing a destroy. This package now uses only XO.
+There is no cross-provider state move or data restoration in this package.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/forgejo/tf_setup:tf_setup.plan
+</span></span><span style="display:flex;"><span>bazel_agent bazel run //infra/forgejo/tf_setup:tf_setup.apply
+</span></span></code></pre></div>
 </div>
 
 

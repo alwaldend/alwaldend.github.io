@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="harbor">
 	<meta itemprop="description" content="Harbor deployment">
-	<meta itemprop="dateModified" content="2026-09-06T17:34:36+03:00">
+	<meta itemprop="dateModified" content="2026-09-12T01:12:02+03:00">
 	<meta itemprop="wordCount" content="44">
 	<meta itemprop="keywords" content="Harbor,Ansible,Pve">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="harbor">
 	<meta name="twitter:description" content="Harbor deployment">
-<link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
-<link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -70,6 +70,9 @@
   <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
     <div class="scroll-indicator scroll-left"></div>
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
       </li>
@@ -139,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
+    data-offline-search-index-json-src="/offline-search-index.c3d3b0348f8e3f6d78a284cfdc2506d8.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -186,7 +189,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-37790ae5b68c8bca2b32394697f159d4">Ansible</a></li>
+<li>1: <a href="#pg-a6cdb5c8426e0aa9031b561d46265ec6"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-37790ae5b68c8bca2b32394697f159d4">Ansible</a></li>
 
 
     
@@ -205,7 +216,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-fe8f1dd506d136059144f407954fda31">cl</a></li>
+<li>3: <a href="#pg-fe8f1dd506d136059144f407954fda31">cl</a></li>
 
 
     
@@ -224,7 +235,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-48d0c8e49f891bda04241fb1931f3237">Tf</a></li>
+<li>4: <a href="#pg-48d0c8e49f891bda04241fb1931f3237">Tf</a></li>
 
 
     
@@ -243,7 +254,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-6c096241e7882502d6144d2b151e4890">Tf setup</a></li>
+<li>5: <a href="#pg-6c096241e7882502d6144d2b151e4890">Tf setup</a></li>
 
 
     
@@ -305,7 +316,88 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-37790ae5b68c8bca2b32394697f159d4">1 - Ansible</h1>
+	<h1 id="pg-a6cdb5c8426e0aa9031b561d46265ec6">1 - </h1>
+    
+	<h1 id="print-362faf89ff50624f8cb07b0226dc22b0-harbor-infrastructure-specification">Harbor infrastructure specification<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-harbor-infrastructure-specification" aria-label="Heading self-link"></a></h1><h2 id="print-362faf89ff50624f8cb07b0226dc22b0-purpose">Purpose<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Harbor registry infrastructure owned by <code>infra/harbor</code>, spanning
+Proxmox setup, K3s host configuration, Flux-managed chart declarations, and
+Harbor service Terraform. The <code>tf_setup</code>, <code>ansible</code>, <code>cl</code>, and <code>tf</code> packages
+are implementation stages of this owner. This is a checked-in source
+baseline, without an observation of live registry availability or deployment
+success.</p>
+<p>Baseline revision: <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.
+Observed: 2026-09-08. Sources: <a href="/docs/">owner README</a>,
+<a href="../../../BUILD.bazel">BUILD</a>, and the implementation links below.</p>
+<h2 id="print-362faf89ff50624f8cb07b0226dc22b0-requirements">Requirements<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-362faf89ff50624f8cb07b0226dc22b0-requirement-dedicated-k3s-registry-host">Requirement: Dedicated K3s registry host<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-requirement-dedicated-k3s-registry-host" aria-label="Heading self-link"></a></h3><p>Setup SHALL declare a Proxmox VM in the <code>src_infra_harbor</code> pool with two
+cores, 4096 MiB memory, and 20 GiB boot, 20 GiB K3s data, and 40 GiB K3s
+storage disks. Ansible SHALL apply the shared host and K3s roles with K3s
+secrets encryption enabled. Its firewall variables SHALL scope API port
+6443 access to the declared Flux host address.</p>
+<p>Sources: <a href="../../../tf_setup/vms.tf">VM definition</a>,
+<a href="../../../ansible/playbook_deploy.yaml">deployment playbook</a>,
+<a href="../../../ansible/files/k3s.yaml">K3s configuration</a>, and
+<a href="../../../ansible/group_vars/all.yaml">host variables</a>.</p>
+<h4 id="print-362faf89ff50624f8cb07b0226dc22b0-scenario-inspect-management-api-access">Scenario: Inspect management API access<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-scenario-inspect-management-api-access" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the Harbor host configuration is evaluated</li>
+<li><strong>THEN</strong> the API-port firewall entry identifies the Flux source address</li>
+<li><strong>AND</strong> the K3s configuration enables secrets encryption and disables
+bundled Traefik</li>
+</ul>
+<h3 id="print-362faf89ff50624f8cb07b0226dc22b0-requirement-remote-flux-chart-reconciliation">Requirement: Remote Flux chart reconciliation<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-requirement-remote-flux-chart-reconciliation" aria-label="Heading self-link"></a></h3><p>The Harbor Flux manifests SHALL declare a remote-cluster Kustomization and
+HelmRelease using <code>src-infra-harbor-cl-kubeconfig</code>. The HelmRelease SHALL
+pin its chart version, enable Helm tests and drift detection, set
+<code>https://harbor.alwaldend.com</code> as the external URL, and use the <code>local-path</code>
+storage class for its declared persistent components.</p>
+<p>Source: <a href="../../../cl/flux/harbor.yaml">Harbor Flux manifests</a>.</p>
+<h4 id="print-362faf89ff50624f8cb07b0226dc22b0-scenario-inspect-the-harbor-release-declaration">Scenario: Inspect the Harbor release declaration<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-scenario-inspect-the-harbor-release-declaration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a maintainer evaluates the Harbor HelmRelease</li>
+<li><strong>THEN</strong> the source selects a specific chart version and the remote Harbor
+cluster configuration</li>
+<li><strong>AND</strong> tests, drift detection, external URL, and persistent storage choices
+are explicit</li>
+</ul>
+<h3 id="print-362faf89ff50624f8cb07b0226dc22b0-requirement-vault-backed-registry-identity-configuration">Requirement: Vault-backed registry identity configuration<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-requirement-vault-backed-registry-identity-configuration" aria-label="Heading self-link"></a></h3><p>Harbor service Terraform SHALL configure Vault OIDC authentication using
+client credentials from the Vault provider, the <code>groups</code> claim, and the
+<code>src_infra_harbor_admins</code> administrator group. It SHALL enable automatic
+onboarding and use the <code>username</code> claim for users.</p>
+<p>Source: <a href="../../../tf/config.tf">authentication configuration</a>.
+The baseline sets <code>oidc_verify_cert = false</code> with a CA-issues comment; this
+specification does not claim that OIDC server certificate verification is
+enabled.</p>
+<h4 id="print-362faf89ff50624f8cb07b0226dc22b0-scenario-resolve-oidc-identity-settings">Scenario: Resolve OIDC identity settings<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-scenario-resolve-oidc-identity-settings" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the service Terraform authentication resource is inspected</li>
+<li><strong>THEN</strong> it references Vault-provided client credentials and the configured
+user and group claims</li>
+<li><strong>AND</strong> its certificate-verification setting remains visible as a baseline
+limitation</li>
+</ul>
+<h3 id="print-362faf89ff50624f8cb07b0226dc22b0-requirement-registry-projects-and-guest-access">Requirement: Registry projects and guest access<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-requirement-registry-projects-and-guest-access" aria-label="Heading self-link"></a></h3><p>Service Terraform SHALL declare an <code>alwaldend</code> project with vulnerability
+scanning and automatic SBOM generation, plus a <code>dockerhub</code> proxy-cache
+project linked to the Docker Hub registry. Both projects SHALL grant the
+configured <code>src_infra_harbor_users</code> OIDC group the guest role.</p>
+<p>Sources: <a href="../../../tf/alwaldend.tf">first-party project</a> and
+<a href="../../../tf/dockerhub.tf">Docker Hub proxy</a>.</p>
+<h4 id="print-362faf89ff50624f8cb07b0226dc22b0-scenario-inspect-registry-consumer-permissions">Scenario: Inspect registry consumer permissions<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-scenario-inspect-registry-consumer-permissions" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the managed registry projects are evaluated</li>
+<li><strong>THEN</strong> <code>alwaldend</code> enables scanning and SBOM generation, while <code>dockerhub</code>
+references the Docker Hub proxy registry</li>
+<li><strong>AND</strong> both group membership resources specify guest access</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-37790ae5b68c8bca2b32394697f159d4">2 - Ansible</h1>
     <div class="lead">Ansible setup</div>
 	
 </div>
@@ -334,7 +426,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-fe8f1dd506d136059144f407954fda31">2 - cl</h1>
+	<h1 id="pg-fe8f1dd506d136059144f407954fda31">3 - cl</h1>
     <div class="lead">Cluster manifests</div>
 	
 </div>
@@ -363,7 +455,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-48d0c8e49f891bda04241fb1931f3237">3 - Tf</h1>
+	<h1 id="pg-48d0c8e49f891bda04241fb1931f3237">4 - Tf</h1>
     <div class="lead">Terraform config</div>
 	
 </div>
@@ -392,7 +484,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-6c096241e7882502d6144d2b151e4890">4 - Tf setup</h1>
+	<h1 id="pg-6c096241e7882502d6144d2b151e4890">5 - Tf setup</h1>
     <div class="lead">Terraform setup</div>
 	
 </div>

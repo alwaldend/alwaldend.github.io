@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="simeonwarren">
 	<meta itemprop="description" content="simeonwarren">
-	<meta itemprop="dateModified" content="2026-09-06T17:34:36+03:00">
+	<meta itemprop="dateModified" content="2026-09-12T01:12:02+03:00">
 	<meta itemprop="wordCount" content="32">
 	<meta itemprop="keywords" content="User">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="simeonwarren">
 	<meta name="twitter:description" content="simeonwarren">
-<link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
-<link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -70,6 +70,9 @@
   <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
     <div class="scroll-indicator scroll-left"></div>
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
       </li>
@@ -139,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
+    data-offline-search-index-json-src="/offline-search-index.c3d3b0348f8e3f6d78a284cfdc2506d8.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -388,6 +391,23 @@ safely migrate in place.</p>
 isolated home defaults to <code>~deepseek/deepseek-v4-flash-latest</code> and shares no
 conversation state with the ChatGPT-backed Codex provider. Start a new thread
 when selecting it.</p>
+<p>The OpenRouter no-tools home at <code>~/.codex-openrouter-no-tools</code> mirrors the
+OpenRouter provider with every tool surface disabled. It reuses the same
+keyring lookup and model, sets <code>web_search = &quot;disabled&quot;</code>, turns off the shell,
+unified-exec, image, multi-agent, computer-use, browser, app, plugin, and goal
+features, and disables the <code>request_user_input</code> tool and the MCP servers.
+Codex then advertises no tools at all, so the model can only reply with text.
+This matters beyond tidiness: OpenRouter rejects a request that carries any
+tools when its routed endpoint supports none, so a single leftover tool fails
+the turn.</p>
+<p>T3 Code launches the Codex app server with
+<code>-c mcp_servers.t3-code.url=...</code>, so its own MCP server would otherwise
+reintroduce the MCP resource tools. The no-tools config therefore declares
+<code>[mcp_servers.t3-code]</code> with <code>enabled = false</code>, which still wins over that
+launch-time override.</p>
+<p>Select it in T3 Code with <code>CODEX_HOME path</code> set to
+<code>/var/home/simeonwarrenbot/.codex-openrouter-no-tools</code> and start a new thread.
+The Abliteration and standard OpenRouter homes keep their tools.</p>
 <p>Abliteration uses a separate home with
 <code>CODEX_HOME=&quot;$HOME/.codex-abliteration&quot; codex</code>, using the endpoint and model from its
 <a href="https://docs.abliteration.ai/integrations/codex">Codex integration guide</a>.

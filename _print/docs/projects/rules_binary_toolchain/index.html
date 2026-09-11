@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Rules binary toolchain">
 	<meta itemprop="description" content="Bazel toolchains for packaged executable binaries">
-	<meta itemprop="dateModified" content="2026-09-06T17:34:36+03:00">
+	<meta itemprop="dateModified" content="2026-09-12T01:12:02+03:00">
 	<meta itemprop="wordCount" content="26">
 	<meta itemprop="keywords" content="Bzl_rules">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Rules binary toolchain">
 	<meta name="twitter:description" content="Bazel toolchains for packaged executable binaries">
-<link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
-<link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -70,6 +70,9 @@
   <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
     <div class="scroll-indicator scroll-left"></div>
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
       </li>
@@ -139,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
+    data-offline-search-index-json-src="/offline-search-index.c3d3b0348f8e3f6d78a284cfdc2506d8.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -186,7 +189,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-e0541fd842808a7f627d7ec4e89d3c40">Bzl</a></li>
+<li>1: <a href="#pg-8e869841e2fd9dfce9d3f5ce0fcf01d5"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-e0541fd842808a7f627d7ec4e89d3c40">Bzl</a></li>
 
 
     
@@ -231,7 +242,59 @@ which the generated binary targets expose through Bazel runfiles.</p>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-e0541fd842808a7f627d7ec4e89d3c40">1 - Bzl</h1>
+	<h1 id="pg-8e869841e2fd9dfce9d3f5ce0fcf01d5">1 - </h1>
+    
+	<h1 id="print-d3453e026d2dab835d6afd9f9bd3f787-rules-binary-toolchain">Rules binary toolchain<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-rules-binary-toolchain" aria-label="Heading self-link"></a></h1><h2 id="print-d3453e026d2dab835d6afd9f9bd3f787-purpose">Purpose<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-purpose" aria-label="Heading self-link"></a></h2><p>Provide Bazel toolchains and runnable targets for packaged executable binaries,
+including their runtime files. This source baseline was observed on 2026-09-08
+at revision <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.</p>
+<p>Sources: <a href="/docs/">project description</a>,
+<a href="../../../main/bzl/binary_toolchain_lock.bzl">lock parsing</a>,
+<a href="../../../main/bzl/binary_toolchain_extension.bzl">module extension</a>,
+<a href="../../../main/bzl/binary_toolchain_repo.bzl">archive repositories</a>,
+and <a href="../../../main/bzl/binary_toolchain_binary.bzl">runnable wrapper</a>.</p>
+<h2 id="print-d3453e026d2dab835d6afd9f9bd3f787-requirements">Requirements<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-d3453e026d2dab835d6afd9f9bd3f787-requirement-select-archives-from-the-declared-toolchain-lock">Requirement: Select archives from the declared toolchain lock<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-requirement-select-archives-from-the-declared-toolchain-lock" aria-label="Heading self-link"></a></h3><p>The module extension SHALL resolve a requested toolchain by name and version
+from its JSON lock and create repositories for the matching archives.</p>
+<h4 id="print-d3453e026d2dab835d6afd9f9bd3f787-scenario-a-requested-toolchain-has-no-matching-archive">Scenario: A requested toolchain has no matching archive<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-scenario-a-requested-toolchain-has-no-matching-archive" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the requested toolchain is absent or has no archive matching its locked version</li>
+<li><strong>THEN</strong> extension evaluation fails with a diagnostic instead of selecting another version.</li>
+</ul>
+<h3 id="print-d3453e026d2dab835d6afd9f9bd3f787-requirement-verify-downloaded-archive-integrity">Requirement: Verify downloaded archive integrity<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-requirement-verify-downloaded-archive-integrity" aria-label="Heading self-link"></a></h3><p>Archive repository download and download-and-extract actions SHALL compare the
+reported integrity against the action&rsquo;s declared integrity and fail on mismatch.</p>
+<h4 id="print-d3453e026d2dab835d6afd9f9bd3f787-scenario-downloaded-content-differs-from-its-lock-entry">Scenario: Downloaded content differs from its lock entry<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-scenario-downloaded-content-differs-from-its-lock-entry" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a download reports an integrity value different from the lock action</li>
+<li><strong>THEN</strong> repository creation fails with the expected and observed integrity values.</li>
+</ul>
+<h3 id="print-d3453e026d2dab835d6afd9f9bd3f787-requirement-preserve-runtime-files-in-generated-binary-targets">Requirement: Preserve runtime files in generated binary targets<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-requirement-preserve-runtime-files-in-generated-binary-targets" aria-label="Heading self-link"></a></h3><p>Generated native binary and filegroup targets SHALL include the files selected
+by each binary&rsquo;s <code>runtime_files</code> glob patterns, in addition to the executable.
+Runnable toolchain wrappers SHALL merge the selected toolchain&rsquo;s runfiles and
+declared data runfiles.</p>
+<h4 id="print-d3453e026d2dab835d6afd9f9bd3f787-scenario-a-packaged-executable-needs-an-adjacent-runtime-asset">Scenario: A packaged executable needs an adjacent runtime asset<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-scenario-a-packaged-executable-needs-an-adjacent-runtime-asset" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an archive declares a runtime asset through <code>runtime_files</code></li>
+<li><strong>THEN</strong> the native binary carries that asset in its data, the filegroup exposes it, and a wrapper carries the toolchain runfiles into execution.</li>
+</ul>
+<h3 id="print-d3453e026d2dab835d6afd9f9bd3f787-requirement-forward-wrapper-arguments-and-environment">Requirement: Forward wrapper arguments and environment<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-requirement-forward-wrapper-arguments-and-environment" aria-label="Heading self-link"></a></h3><p>The runnable wrapper SHALL expand declared location and make-variable arguments,
+append invocation arguments, and expose the declared <code>env</code> through
+<code>RunEnvironmentInfo</code>.</p>
+<h4 id="print-d3453e026d2dab835d6afd9f9bd3f787-scenario-a-caller-supplies-additional-command-arguments">Scenario: A caller supplies additional command arguments<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-scenario-a-caller-supplies-additional-command-arguments" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a generated wrapper is invoked with arguments after its configured arguments</li>
+<li><strong>THEN</strong> the selected toolchain binary receives both argument sets in that order.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e0541fd842808a7f627d7ec4e89d3c40">2 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	<h2 id="print-c867147f6c5137a127befe418be2cb97-archive-binaries">Archive binaries<a class="td-heading-self-link" href="#print-c867147f6c5137a127befe418be2cb97-archive-binaries" aria-label="Heading self-link"></a></h2><p>Each archive <code>binaries</code> entry requires a <code>name</code> and <code>path</code>. It can also set
 <code>runtime_files</code> to a list of Bazel glob patterns relative to the unpacked

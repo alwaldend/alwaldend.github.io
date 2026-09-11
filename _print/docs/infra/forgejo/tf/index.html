@@ -44,13 +44,14 @@
 
 	<meta itemprop="name" content="Tf">
 	<meta itemprop="description" content="Terraform config">
-	<meta itemprop="dateModified" content="2026-09-06T17:34:36+03:00">
+	<meta itemprop="dateModified" content="2026-09-12T01:12:02+03:00">
+	<meta itemprop="wordCount" content="301">
 	<meta itemprop="keywords" content="Terraform">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Tf">
 	<meta name="twitter:description" content="Terraform config">
-<link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
-<link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -69,6 +70,9 @@
   <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
     <div class="scroll-indicator scroll-left"></div>
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
       </li>
@@ -138,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
+    data-offline-search-index-json-src="/offline-search-index.c3d3b0348f8e3f6d78a284cfdc2506d8.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -187,7 +191,39 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p>This package configures Forgejo organizations, repositories, and access. Before
+applying, provision the Vault OIDC authentication source with Ansible and set
+<code>TF_VAR_vault_oauth_source_id</code> to its verified positive numeric ID. Obtain the
+ID from <code>forgejo admin auth list</code> on the instance using the service&rsquo;s config
+and work path; confirm that the <code>vault</code> source is active and uses OpenID
+Connect with the expected Vault issuer. Do not assume source IDs survive
+instance recreation.</p>
+<p>Terraform discovers users from the authoritative Vault
+<code>src_infra_dc1_forgejo1_users</code> login group, then looks up their entities,
+following the PVE Terraform pattern. Discovery includes direct members and
+two levels of nested groups, covering the current administrator membership.
+Deeper nesting fails validation rather than silently omitting accounts.
+Each account uses its Vault entity UUID as the OIDC login name and its
+canonical username/email metadata. No local password or user impersonation is
+used. The Forgejo AppRole receives the existing group/entity lookup permissions,
+as PVE does. Apply those Vault group memberships before running this package.</p>
+<p>The accounts are protected from Terraform deletion. OIDC group claims retain
+ownership of administrator/restricted status after login. If a user already
+exists outside this state, verify its source and login-name mapping before
+importing it; never replace an existing account to resolve a name collision.
+Resource addresses remain keyed by Vault entity name, preserving existing
+managed users. The Forgejo service identity may already exist from the first
+OIDC login: verify and import it before applying its newly discovered resource.</p>
+<p>Organization administrators come from <code>src_infra_dc1_forgejo1_admins</code> and its
+direct child groups. Package writers and the repository automation writer
+come from the corresponding <code>src_infra_dc1_forgejo1_package_writers</code> and
+<code>src_infra_dc1_forgejo1_src_writers</code> Vault groups. These dedicated groups avoid
+granting service permissions to AppRole credential issuers. The repository&rsquo;s
+existing singleton collaborator requires exactly one discovered writer.
+Access-group members outside the login population also fail validation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/forgejo/tf:tf.plan
+</span></span><span style="display:flex;"><span>bazel_agent bazel run //infra/forgejo/tf:tf.apply
+</span></span></code></pre></div>
 </div>
 </div>
 

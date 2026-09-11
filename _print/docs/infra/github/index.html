@@ -44,13 +44,13 @@
 
 	<meta itemprop="name" content="GitHub">
 	<meta itemprop="description" content="GitHub Pages repositories for project landing sites">
-	<meta itemprop="dateModified" content="2026-09-06T17:34:36+03:00">
+	<meta itemprop="dateModified" content="2026-09-12T01:12:02+03:00">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="GitHub">
 	<meta name="twitter:description" content="GitHub Pages repositories for project landing sites">
-<link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
-<link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -69,6 +69,9 @@
   <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
     <div class="scroll-indicator scroll-left"></div>
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
       </li>
@@ -138,7 +141,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
+    data-offline-search-index-json-src="/offline-search-index.c3d3b0348f8e3f6d78a284cfdc2506d8.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -185,7 +188,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-da73bfdc6f418187206d6aa50dcf4f7d">GitHub Terraform</a></li>
+<li>1: <a href="#pg-2d4c0aa31bb9f31a17be9bab67d4ba5b"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-da73bfdc6f418187206d6aa50dcf4f7d">GitHub Terraform</a></li>
 
 
     
@@ -227,7 +238,62 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-da73bfdc6f418187206d6aa50dcf4f7d">1 - GitHub Terraform</h1>
+	<h1 id="pg-2d4c0aa31bb9f31a17be9bab67d4ba5b">1 - </h1>
+    
+	<h1 id="print-cf248aee02ac4b94b7e64b84272f960a-infrastructure-github">Infrastructure GitHub<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-infrastructure-github" aria-label="Heading self-link"></a></h1><h2 id="print-cf248aee02ac4b94b7e64b84272f960a-purpose">Purpose<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-purpose" aria-label="Heading self-link"></a></h2><p>Describe Terraform ownership of GitHub repositories and Pages settings for
+project landing sites. This baseline records desired configuration; it does not
+assert that repositories or published sites were inspected live.</p>
+<p>Baseline source revision: <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.
+Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.</p>
+<p>Sources: <a href="/docs/">component documentation</a>,
+<a href="../../../tf/README.md">Terraform workflow</a>,
+<a href="../../../tf/BUILD.bazel">registry-derived inputs</a>,
+<a href="../../../tf/alwaldend_pages_repos.tf">repository resources</a>, and
+<a href="../../../tf/provider.tf">provider configuration</a>.</p>
+<h2 id="print-cf248aee02ac4b94b7e64b84272f960a-requirements">Requirements<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-cf248aee02ac4b94b7e64b84272f960a-requirement-derive-landing-repositories-from-the-project-registry">Requirement: Derive landing repositories from the project registry<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-requirement-derive-landing-repositories-from-the-project-registry" aria-label="Heading self-link"></a></h3><p>The package SHALL generate its Terraform project-to-repository mapping from
+<code>PROJECTS</code>. Each entry SHALL name a public repository by replacing underscores
+in the project name with hyphens and appending <code>-landing</code>, under the configured
+<code>alwaldend</code> GitHub owner.</p>
+<h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-generate-the-mapping-for-a-project-with-underscores">Scenario: Generate the mapping for a project with underscores<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-generate-the-mapping-for-a-project-with-underscores" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a registered project is named <code>example_project</code></li>
+<li><strong>THEN</strong> its generated repository name is <code>example-project-landing</code></li>
+<li><strong>AND</strong> its configured homepage is <code>https://example-project.alwaldend.com/</code></li>
+</ul>
+<h3 id="print-cf248aee02ac4b94b7e64b84272f960a-requirement-enable-pages-only-after-its-source-branch-exists">Requirement: Enable Pages only after its source branch exists<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-requirement-enable-pages-only-after-its-source-branch-exists" aria-label="Heading self-link"></a></h3><p>Terraform SHALL configure Pages to use the <code>pages</code> branch at <code>/</code> with the
+project&rsquo;s hyphenated <code>alwaldend.com</code> subdomain, except for entries explicitly in
+<code>bootstrap_projects</code>. That set SHALL default to empty.</p>
+<h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-bootstrap-a-new-landing-repository">Scenario: Bootstrap a new landing repository<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-bootstrap-a-new-landing-repository" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an authorized apply includes a new project in <code>bootstrap_projects</code></li>
+<li><strong>THEN</strong> the repository resource omits its Pages block</li>
+<li><strong>AND</strong> the documented workflow publishes the site before a later apply removes
+that project from the bootstrap set and enables Pages</li>
+</ul>
+<h3 id="print-cf248aee02ac4b94b7e64b84272f960a-requirement-keep-repository-provisioning-separate-from-site-and-dns-publication">Requirement: Keep repository provisioning separate from site and DNS publication<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-requirement-keep-repository-provisioning-separate-from-site-and-dns-publication" aria-label="Heading self-link"></a></h3><p>This package SHALL own repository resources, Pages settings, and the
+<code>github-pages</code> environment with custom branch policies. The documented workflow
+SHALL use <code>//projects:deploy_landings</code> for site content and <code>//infra/dns</code> for DNS
+records.</p>
+<h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-review-a-landing-site-rollout">Scenario: Review a landing-site rollout<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-review-a-landing-site-rollout" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an operator prepares an authorized project landing rollout</li>
+<li><strong>THEN</strong> repository and Pages changes are reviewed in the Terraform workflow</li>
+<li><strong>AND</strong> built content publication and DNS changes use their separately owned
+workflows</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-da73bfdc6f418187206d6aa50dcf4f7d">2 - GitHub Terraform</h1>
     <div class="lead">GitHub Pages repositories for project landing sites</div>
 	<p>This package creates the public repositories that host the project landing
 pages. Each repository receives its built Hugo site from the reusable deploy

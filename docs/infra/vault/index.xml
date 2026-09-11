@@ -11,5 +11,12 @@
 		
 		
 			<atom:link href="https://alwaldend.com/docs/infra/vault/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title></title>
+				<link>https://alwaldend.com/docs/infra/vault/openspec/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/vault/openspec/spec/</guid>
+				<description>&lt;h1 id=&#34;infrastructure-vault&#34;&gt;Infrastructure Vault&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#infrastructure-vault&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the Vault host configuration, authentication and certificate services,&#xA;and packaged recovery entry points. This baseline concerns checked-in desired&#xA;state and supported wrapper structure; it does not establish live unsealed&#xA;state, successful backups, quorum, or certificate freshness.&lt;/p&gt;&#xA;&lt;p&gt;Baseline source revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/&#34;&gt;operator documentation&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;operational wrappers&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../ansible/BUILD.bazel&#34;&gt;Ansible entry points&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../ansible/files/vault.hcl&#34;&gt;Vault host template&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/auth.tf&#34;&gt;authentication backends&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/mounts.tf&#34;&gt;storage engines&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/pki_servers.tf&#34;&gt;server PKI&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/pki_clients.tf&#34;&gt;client PKI&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../tf/outputs.tf&#34;&gt;public CA outputs&lt;/a&gt;.&lt;/p&gt;</description>
+			</item>
 	</channel>
 </rss>

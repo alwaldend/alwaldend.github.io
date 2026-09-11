@@ -11,5 +11,12 @@
 		
 		
 			<atom:link href="https://alwaldend.com/docs/projects/tf_modules/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title></title>
+				<link>https://alwaldend.com/docs/projects/tf_modules/openspec/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/tf_modules/openspec/spec/</guid>
+				<description>&lt;h1 id=&#34;reusable-terraform-modules&#34;&gt;Reusable Terraform modules&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#reusable-terraform-modules&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Provide reusable infrastructure declarations for Vault, virtual machines,&#xA;storage, and related services. This baseline was observed at repository&#xA;revision &lt;code&gt;550d7e79&lt;/code&gt; on 2026-09-08. The collection remains in progress according&#xA;to its &lt;a href=&#34;https://alwaldend.com/docs/&#34;&gt;README&lt;/a&gt;. Sources for the&#xA;representative module contracts below are the&#xA;&lt;a href=&#34;../../../vault_approle/main.tf&#34;&gt;AppRole module&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../vault_transit_key/main.tf&#34;&gt;transit-key module&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../backup_bucket/main.tf&#34;&gt;backup-bucket module&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../vault_approle/BUILD.bazel&#34;&gt;module packaging&lt;/a&gt;.&#xA;These are declarative source contracts; no live provisioning is asserted.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-package-reusable-module-source&#34;&gt;Requirement: Package reusable module source&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-package-reusable-module-source&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The AppRole, transit-key, backup-bucket, and Proxmox VM module packages SHALL&#xA;each expose their &lt;code&gt;main.tf&lt;/code&gt; through a same-named Bazel filegroup available to&#xA;repository subpackages.&lt;/p&gt;</description>
+			</item>
 	</channel>
 </rss>

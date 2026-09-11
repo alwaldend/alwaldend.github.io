@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="threexui">
 	<meta itemprop="description" content="3x-ui">
-	<meta itemprop="dateModified" content="2026-09-06T17:34:36+03:00">
+	<meta itemprop="dateModified" content="2026-09-12T01:12:02+03:00">
 	<meta itemprop="wordCount" content="32">
 	<meta itemprop="keywords" content="Xray,Vpn">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="threexui">
 	<meta name="twitter:description" content="3x-ui">
-<link rel="preload" href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" as="style" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
-<link href="/scss/main.min.1a4193c3f6a08d9002af2d120d5e6e96aa3e0604a2840e538cc2e8976021985c.css" rel="stylesheet" integrity="sha256-GkGTw/agjZACry0SDV5ulqo&#43;BgSihA5TjMLol2AhmFw=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -70,6 +70,9 @@
   <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
     <div class="scroll-indicator scroll-left"></div>
     <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
       </li>
@@ -139,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.5c6fcdf19f2badec882fa03d4c3f27d7.json"
+    data-offline-search-index-json-src="/offline-search-index.c3d3b0348f8e3f6d78a284cfdc2506d8.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -186,7 +189,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-0285e5414ecda3e14ec3377e1c3ca7ec">Ansible</a></li>
+<li>1: <a href="#pg-27d66394474bf53d7fe6587220ddfab8"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-0285e5414ecda3e14ec3377e1c3ca7ec">Ansible</a></li>
 
 
     
@@ -205,7 +216,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-9f45366f1c27fe41503e491be089db11">sub</a></li>
+<li>3: <a href="#pg-9f45366f1c27fe41503e491be089db11">sub</a></li>
 
 
     
@@ -224,7 +235,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-0c61b5306eb2ede5d5fb46f298e59667">Tf</a></li>
+<li>4: <a href="#pg-0c61b5306eb2ede5d5fb46f298e59667">Tf</a></li>
 
 
     
@@ -243,7 +254,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-0fb932b22c95b085c45384ac9291e3ba">Tf setup</a></li>
+<li>5: <a href="#pg-0fb932b22c95b085c45384ac9291e3ba">Tf setup</a></li>
 
 
     
@@ -291,7 +302,81 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-0285e5414ecda3e14ec3377e1c3ca7ec">1 - Ansible</h1>
+	<h1 id="pg-27d66394474bf53d7fe6587220ddfab8">1 - </h1>
+    
+	<h1 id="print-5c71667e3e26d7c639916a8a7678e202-infrastructure-3x-ui">Infrastructure 3x-ui<a class="td-heading-self-link" href="#print-5c71667e3e26d7c639916a8a7678e202-infrastructure-3x-ui" aria-label="Heading self-link"></a></h1><h2 id="print-5c71667e3e26d7c639916a8a7678e202-purpose">Purpose<a class="td-heading-self-link" href="#print-5c71667e3e26d7c639916a8a7678e202-purpose" aria-label="Heading self-link"></a></h2><p>Describe 3x-ui provisioning, host deployment, node routing configuration, and
+the subscription URL transformer. This baseline describes checked-in source,
+not verified live node access. The advertised host-only subscription command
+has a source limitation: <code>sub/main.go</code> also attempts to read <code>sub_file</code> when it
+is empty, so successful host-only operation is not a baseline guarantee.</p>
+<p>Baseline source revision: <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.
+Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.</p>
+<p>Sources: <a href="/docs/">component documentation</a>,
+<a href="../../../BUILD.bazel">root wrappers</a>,
+<a href="../../../tf_setup/BUILD.bazel">provisioning package</a>,
+<a href="../../../tf/BUILD.bazel">configuration package</a>,
+<a href="../../../ansible/playbook_deploy.yaml">host playbook</a>,
+<a href="../../../ansible/files/traefik_dynamic.toml">Traefik routes</a>,
+<a href="../../../tf/nodes.tf">node definitions</a>,
+<a href="../../../tf/node/inbounds.tf">node inbounds</a>,
+<a href="../../../tf/node/routing.tf">node routing</a>, and
+<a href="../../../sub/main.go">subscription transformer</a>.</p>
+<h2 id="print-5c71667e3e26d7c639916a8a7678e202-requirements">Requirements<a class="td-heading-self-link" href="#print-5c71667e3e26d7c639916a8a7678e202-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-5c71667e3e26d7c639916a8a7678e202-requirement-separate-provisioning-deployment-and-service-configuration">Requirement: Separate provisioning, deployment, and service configuration<a class="td-heading-self-link" href="#print-5c71667e3e26d7c639916a8a7678e202-requirement-separate-provisioning-deployment-and-service-configuration" aria-label="Heading self-link"></a></h3><p>The package SHALL keep infrastructure creation in <code>tf_setup</code>, host deployment
+in Ansible, and 3x-ui API resources in <code>tf</code>. The deployment playbook SHALL apply
+host, Traefik, and 3x-ui roles to the control-plane and data-plane inventory
+groups.</p>
+<h4 id="print-5c71667e3e26d7c639916a8a7678e202-scenario-select-a-3x-ui-workflow">Scenario: Select a 3x-ui workflow<a class="td-heading-self-link" href="#print-5c71667e3e26d7c639916a8a7678e202-scenario-select-a-3x-ui-workflow" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an authorized operator selects the setup or main Terraform wrapper</li>
+<li><strong>THEN</strong> its AL plugin selects the corresponding Terraform stage</li>
+<li><strong>AND</strong> the Ansible playbook remains the owner of host and service installation</li>
+</ul>
+<h3 id="print-5c71667e3e26d7c639916a8a7678e202-requirement-terminate-proxy-traffic-at-the-declared-local-services">Requirement: Terminate proxy traffic at the declared local services<a class="td-heading-self-link" href="#print-5c71667e3e26d7c639916a8a7678e202-requirement-terminate-proxy-traffic-at-the-declared-local-services" aria-label="Heading self-link"></a></h3><p>The Traefik route template SHALL forward the panel to loopback port 2053 and
+subscription requests to loopback port 2096. It SHALL define HTTP inbound routes
+for ports 40000 through 40149 and TCP inbound routes for ports 40150 through
+40299, forwarding to corresponding loopback ports.</p>
+<h4 id="print-5c71667e3e26d7c639916a8a7678e202-scenario-render-a-subscription-route">Scenario: Render a subscription route<a class="td-heading-self-link" href="#print-5c71667e3e26d7c639916a8a7678e202-scenario-render-a-subscription-route" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the checked-in dynamic Traefik template is rendered</li>
+<li><strong>THEN</strong> requests matching the configured subscription path prefix route to
+<code>http://127.0.0.1:2096</code></li>
+<li><strong>AND</strong> the router selects the configured TLS certificate resolver</li>
+</ul>
+<h3 id="print-5c71667e3e26d7c639916a8a7678e202-requirement-declare-explicit-node-and-outbound-routing-relationships">Requirement: Declare explicit node and outbound routing relationships<a class="td-heading-self-link" href="#print-5c71667e3e26d7c639916a8a7678e202-requirement-declare-explicit-node-and-outbound-routing-relationships" aria-label="Heading self-link"></a></h3><p>Terraform SHALL configure the <code>njalla1</code> and <code>yc1</code> nodes through the shared node
+module. The node routing declaration SHALL block the advertising category and
+private IP destinations before routing the freedom inbound directly and each
+<code>mullvad_min</code> or <code>http_proxy</code> inbound through its named WireGuard outbound.
+The enabled <code>mullvad_min_lb</code> inbound has no active dedicated balancing rule;
+commented balancing rules SHALL NOT be treated as enabled routing behavior.</p>
+<h4 id="print-5c71667e3e26d7c639916a8a7678e202-scenario-inspect-a-configured-mullvad-inbound-route">Scenario: Inspect a configured Mullvad inbound route<a class="td-heading-self-link" href="#print-5c71667e3e26d7c639916a8a7678e202-scenario-inspect-a-configured-mullvad-inbound-route" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a node&rsquo;s selected relay creates a Mullvad inbound</li>
+<li><strong>THEN</strong> the inbound listens on loopback</li>
+<li><strong>AND</strong> its routing rule selects the matching <code>out-mullvad-min-</code> outbound tag</li>
+<li><strong>AND</strong> the node declaration supplies its own relay selection to the module</li>
+</ul>
+<h3 id="print-5c71667e3e26d7c639916a8a7678e202-requirement-normalize-subscription-urls-from-readable-inputs">Requirement: Normalize subscription URLs from readable inputs<a class="td-heading-self-link" href="#print-5c71667e3e26d7c639916a8a7678e202-requirement-normalize-subscription-urls-from-readable-inputs" aria-label="Heading self-link"></a></h3><p>For readable local subscription files, the transformer SHALL ignore blank and
+comment lines, parse each remaining URL, set <code>security=tls</code> and <code>sni</code> to the URL
+hostname, sort URLs by fragment, and write one URL per output line. It SHALL
+return a nonzero exit status when input reading or URL parsing fails.</p>
+<h4 id="print-5c71667e3e26d7c639916a8a7678e202-scenario-transform-a-local-subscription-file">Scenario: Transform a local subscription file<a class="td-heading-self-link" href="#print-5c71667e3e26d7c639916a8a7678e202-scenario-transform-a-local-subscription-file" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> <code>fix_subs</code> receives a readable <code>--sub_file</code> containing subscription URLs</li>
+<li><strong>THEN</strong> output URL queries contain <code>security=tls</code> and the matching hostname SNI</li>
+<li><strong>AND</strong> output is ordered by URL fragment with blank and comment lines omitted</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0285e5414ecda3e14ec3377e1c3ca7ec">2 - Ansible</h1>
     <div class="lead">Ansible setup</div>
 	
 </div>
@@ -320,7 +405,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-9f45366f1c27fe41503e491be089db11">2 - sub</h1>
+	<h1 id="pg-9f45366f1c27fe41503e491be089db11">3 - sub</h1>
     <div class="lead">Fetch subscriptions and fix them</div>
 	
 </div>
@@ -349,7 +434,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-0c61b5306eb2ede5d5fb46f298e59667">3 - Tf</h1>
+	<h1 id="pg-0c61b5306eb2ede5d5fb46f298e59667">4 - Tf</h1>
     <div class="lead">Terraform config</div>
 	
 </div>
@@ -378,7 +463,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-0fb932b22c95b085c45384ac9291e3ba">4 - Tf setup</h1>
+	<h1 id="pg-0fb932b22c95b085c45384ac9291e3ba">5 - Tf setup</h1>
     <div class="lead">Terraform setup</div>
 	
 </div>

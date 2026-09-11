@@ -10,7 +10,7 @@
 		
 		
 		
-			<lastBuildDate>Sun, 06 Sep 2026 17:34:36 +0300</lastBuildDate>
+			<lastBuildDate>Sat, 12 Sep 2026 01:12:02 +0300</lastBuildDate>
 		
 			<atom:link href="https://alwaldend.com/tags/index.xml" rel="self" type="application/rss+xml" />
 			<item>
@@ -266,6 +266,13 @@
 				<description></description>
 			</item>
 			<item>
+				<title>Fdroid</title>
+				<link>https://alwaldend.com/tags/fdroid/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/fdroid/</guid>
+				<description></description>
+			</item>
+			<item>
 				<title>Fedora</title>
 				<link>https://alwaldend.com/tags/fedora/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -343,10 +350,10 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Goals</title>
-				<link>https://alwaldend.com/tags/goals/</link>
+				<title>Gradle</title>
+				<link>https://alwaldend.com/tags/gradle/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/tags/goals/</guid>
+				<guid>https://alwaldend.com/tags/gradle/</guid>
 				<description></description>
 			</item>
 			<item>
