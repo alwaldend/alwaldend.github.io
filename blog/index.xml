@@ -11,5 +11,12 @@
 		
 		
 			<atom:link href="https://alwaldend.com/blog/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Slop without a clear goal</title>
+				<link>https://alwaldend.com/blog/slop-without-a-clear-goal/</link>
+				<pubDate>Sat, 12 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/blog/slop-without-a-clear-goal/</guid>
+				<description>&lt;p&gt;A while back, I said to &lt;abbr title=&#34;GPT 5.6 Sol&#34;&gt;Jipity&lt;/abbr&gt;: &amp;ldquo;&lt;abbr title=&#34;GPT 5.6 Sol&#34;&gt;Jipity&lt;/abbr&gt;, how can I improve agent ergonomics in this monorepo?&amp;rdquo;, and &lt;abbr title=&#34;GPT 5.6 Sol&#34;&gt;Jipity&lt;/abbr&gt; gave me some useful suggestions, but one of them was not like the rest. It said that context in the repo was too splintered — agents had to read many things in different directories to understand how things are done. In my infinite wisdom, I said, &amp;ldquo;&lt;abbr title=&#34;GPT 5.6 Sol&#34;&gt;Jipity&lt;/abbr&gt;, write me a comprehensive plan implementing a unified agent system with the goal of improving ergonomics in this monorepo&amp;rdquo;. And it wrote me a plan, I did not really read it.&lt;/p&gt;</description>
+			</item>
 	</channel>
 </rss>

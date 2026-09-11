@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="Blog">
 	<meta itemprop="description" content="Blog">
-	<meta itemprop="dateModified" content="2026-09-12T01:12:02+03:00">
+	<meta itemprop="dateModified" content="2026-09-12T02:47:29+03:00">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Blog">
 	<meta name="twitter:description" content="Blog">
@@ -140,7 +140,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.c3d3b0348f8e3f6d78a284cfdc2506d8.json"
+    data-offline-search-index-json-src="/offline-search-index.4b4bdeb75353f0a5764774bb29b93c40.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -188,6 +188,16 @@ This is the multi-page printable view of this section.
   
 
   
+    
+    
+	
+
+    <li><a href="#pg-79bf4a204ab93c4b5e17a9686fa780cc">Slop without a clear goal</a></li>
+
+
+
+    
+  
 
     </ul>
 
@@ -206,6 +216,136 @@ This is the multi-page printable view of this section.
   
   
 
+  
+    
+    
+	
+    
+
+
+  
+
+<div class="td-content" style="">
+    <h1 id="pg-79bf4a204ab93c4b5e17a9686fa780cc">Slop without a clear goal</h1>
+	<div class="lead">Imprecise goals without quality assurance lead to bad results, obviously.</div>
+	<div class="td-byline mb-4">
+		
+        
+		<time datetime="2026-09-12" class="text-body-secondary">Saturday, September 12, 2026</time>
+        
+	</div>
+	<p>A while back, I said to <abbr title="GPT 5.6 Sol">Jipity</abbr>: &ldquo;<abbr title="GPT 5.6 Sol">Jipity</abbr>, how can I improve agent ergonomics in this monorepo?&rdquo;, and <abbr title="GPT 5.6 Sol">Jipity</abbr> gave me some useful suggestions, but one of them was not like the rest. It said that context in the repo was too splintered — agents had to read many things in different directories to understand how things are done. In my infinite wisdom, I said, &ldquo;<abbr title="GPT 5.6 Sol">Jipity</abbr>, write me a comprehensive plan implementing a unified agent system with the goal of improving ergonomics in this monorepo&rdquo;. And it wrote me a plan, I did not really read it.</p>
+<p>The plan consisted of several phases which gradually added more agent ergonomics improvements. Over the course of several days I made several PRs implementing the plan. In each PR, agents added things I did not understand according to the plan I did not read. After I prompted them to explain and still did not understand, I gave up and decided to just &ldquo;trust the plan&rdquo;, and merged everything. After implementing the plan, my repo was littered with garbage manifests, I had a lot of new code, and nothing really changed.</p>
+<p>I decided that maybe I did not trust the plan enough, and did a couple more phases of &ldquo;ergonomics improvements&rdquo;, which also did nothing but increase line count and litter the repo with garbage. Overall, I got around crisp 30k lines of new code.</p>
+<p>30k of code is not much in the grand scheme of things, but I don&rsquo;t like that my pristine monorepo had 30k lines of pointless slop, so I&rsquo;ve deleted the &ldquo;agent system&rdquo;.</p>
+<p>The lesson here is that you need to have a clear idea of what you are trying to accomplish, I guess.</p>
+<hr>
+<h2 id="data">Data<a class="td-heading-self-link" href="#data" aria-label="Heading self-link"></a></h2><p><abbr title="GPT 5.6 Sol">Jipity</abbr> made me a table, seems about right.</p>
+<table>
+	<thead>
+			<tr>
+					<th>Date</th>
+					<th>Timeline item</th>
+					<th style="text-align: right">Code files</th>
+					<th style="text-align: right">Non-code files</th>
+					<th style="text-align: right">Code LOC</th>
+					<th style="text-align: right">Non-code LOC</th>
+					<th style="text-align: right">Total LOC</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>2026-08-31</td>
+					<td>Phase 0 — System contract</td>
+					<td style="text-align: right">4</td>
+					<td style="text-align: right">39</td>
+					<td style="text-align: right"><strong>21</strong> (+21/−0)</td>
+					<td style="text-align: right"><strong>6,908</strong> (+6,825/−83)</td>
+					<td style="text-align: right"><strong>6,929</strong></td>
+			</tr>
+			<tr>
+					<td>2026-08-31</td>
+					<td>Phase 1 — Shared semantics and controls</td>
+					<td style="text-align: right">32</td>
+					<td style="text-align: right">58</td>
+					<td style="text-align: right"><strong>2,661</strong> (+2,456/−205)</td>
+					<td style="text-align: right"><strong>2,779</strong> (+2,736/−43)</td>
+					<td style="text-align: right"><strong>5,440</strong></td>
+			</tr>
+			<tr>
+					<td>2026-09-01</td>
+					<td>Phases 2–3 — Context, recovery, planning, and evidence</td>
+					<td style="text-align: right">115</td>
+					<td style="text-align: right">73</td>
+					<td style="text-align: right"><strong>18,018</strong> (+17,850/−168)</td>
+					<td style="text-align: right"><strong>3,121</strong> (+2,980/−141)</td>
+					<td style="text-align: right"><strong>21,139</strong></td>
+			</tr>
+			<tr>
+					<td>2026-09-02</td>
+					<td>Phase 4 — Connect work, delivery, and release</td>
+					<td style="text-align: right">26</td>
+					<td style="text-align: right">19</td>
+					<td style="text-align: right"><strong>2,996</strong> (+2,883/−113)</td>
+					<td style="text-align: right"><strong>566</strong> (+521/−45)</td>
+					<td style="text-align: right"><strong>3,562</strong></td>
+			</tr>
+			<tr>
+					<td>2026-09-02</td>
+					<td>Phase 5 — Learning contracts</td>
+					<td style="text-align: right">21</td>
+					<td style="text-align: right">16</td>
+					<td style="text-align: right"><strong>1,524</strong> (+1,523/−1)</td>
+					<td style="text-align: right"><strong>311</strong> (+258/−53)</td>
+					<td style="text-align: right"><strong>1,835</strong></td>
+			</tr>
+			<tr>
+					<td>2026-09-03</td>
+					<td>Phase 5 follow-up — Exercise the learning workflow</td>
+					<td style="text-align: right">25</td>
+					<td style="text-align: right">27</td>
+					<td style="text-align: right"><strong>914</strong> (+883/−31)</td>
+					<td style="text-align: right"><strong>1,043</strong> (+1,007/−36)</td>
+					<td style="text-align: right"><strong>1,957</strong></td>
+			</tr>
+			<tr>
+					<td>2026-09-03</td>
+					<td>Phase 6 — Reduce workflow friction</td>
+					<td style="text-align: right">28</td>
+					<td style="text-align: right">69</td>
+					<td style="text-align: right"><strong>1,198</strong> (+1,101/−97)</td>
+					<td style="text-align: right"><strong>1,206</strong> (+793/−413)</td>
+					<td style="text-align: right"><strong>2,404</strong></td>
+			</tr>
+			<tr>
+					<td>2026-09-05</td>
+					<td>System simplification</td>
+					<td style="text-align: right">41</td>
+					<td style="text-align: right">49</td>
+					<td style="text-align: right"><strong>5,037</strong> (+4,548/−489)</td>
+					<td style="text-align: right"><strong>4,714</strong> (+2,293/−2,421)</td>
+					<td style="text-align: right"><strong>9,751</strong></td>
+			</tr>
+			<tr>
+					<td><strong>Overall</strong></td>
+					<td><strong>8 commits</strong></td>
+					<td style="text-align: right"><strong>292</strong></td>
+					<td style="text-align: right"><strong>350</strong></td>
+					<td style="text-align: right"><strong>32,369</strong> (+31,265/−1,104)</td>
+					<td style="text-align: right"><strong>20,648</strong> (+17,413/−3,235)</td>
+					<td style="text-align: right"><strong>53,017</strong></td>
+			</tr>
+	</tbody>
+</table>
+
+</div>
+
+
+
+
+
+    
+	
   
 
 
