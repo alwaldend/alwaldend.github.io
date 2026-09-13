@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="Source repository">
 	<meta itemprop="description" content="Repository evolution specifications and workflow history">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
 	<meta itemprop="wordCount" content="85">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -212,7 +212,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.2: <a href="#pg-9e4bfd73380a8b829dd80b26de011b19"></a></li>
+<li>1.2: <a href="#pg-cc3c87837ad1ff9bf91f41890da9af88"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>1.3: <a href="#pg-c8750e23cfc87061c0ef77ac0fe6060a"></a></li>
 
 
     
@@ -261,7 +269,7 @@ It selects this project by default:</p>
     
 	<h1 id="print-7e33ab7c282b877266711b62eeedc88f-repository-evolution">Repository evolution<a class="td-heading-self-link" href="#print-7e33ab7c282b877266711b62eeedc88f-repository-evolution" aria-label="Heading self-link"></a></h1><p>This OpenSpec workspace describes evolution of the alwaldend/src repository
 itself: its shared structure, build system and development workflows.
-<a href="specs/repository/spec.md"><code>specs/repository/spec.md</code></a> records that contract;
+<a href="/docs/infra/src/openspec/specs/repository/spec/"><code>specs/repository/spec.md</code></a> records that contract;
 <code>changes/</code> records proposed and completed changes to it.</p>
 <p>Each component owns a separate OpenSpec workspace beside its source:</p>
 <ul>
@@ -296,7 +304,7 @@ Read an existing matching change before creating another. Keep temporary
 notes, raw logs and validation receipts under ignored <code>out/&lt;task&gt;/</code>.</p>
 <p>On interruption, preserve the candidate, evidence, execution state and next
 action. Keep blocked or unfinished work explicit. OpenSpec files and Git do
-not supply the deprecated goal store&rsquo;s transaction locks or evidence verdicts;
+not supply the removed legacy goal store&rsquo;s transaction locks or evidence verdicts;
 one coordinator owns a change and reconciles concurrent edits.</p>
 <p>After acceptance, validate and archive the change in its owning workspace,
 then inspect the resulting baseline specs. Specifications and generated
@@ -307,9 +315,9 @@ history and work state live with Agents, MCP Cordis and Renders. Original
 history, checksums and acceptance states are preserved. Historical deltas
 were archived without applying them to current specs. Reimu Fumo remains
 open and blocked.</p>
-<p>The goal skill is disabled and the <a href="/docs/projects/goal/">goal CLI</a>
-is deprecated compatibility tooling. New maintained work uses the owning
-OpenSpec workspace.</p>
+<p>The legacy goal tool, its skill, and its store have been removed. New
+maintained work uses the owning OpenSpec workspace; the migration record above
+preserves the historical record.</p>
 
 </div>
 
@@ -413,7 +421,7 @@ OpenSpec workspace.</p>
 </ul>
 <h2 id="print-44481c6e2bf3bb456eeadd73dd49887c-provenance-and-navigation">Provenance and navigation<a class="td-heading-self-link" href="#print-44481c6e2bf3bb456eeadd73dd49887c-provenance-and-navigation" aria-label="Heading self-link"></a></h2><p>Each change has <code>migration.json</code>, a checksum inventory at <code>provenance/manifest.json</code>, original record bytes at <code>provenance/source/</code>, and a provenance navigation guide. The old agent goal landing and BUILD file are also retained under the repository-agent-system archive. The historical BUILD snapshot uses <code>.original</code> to preserve bytes without creating a new Bazel package.</p>
 <p>Among preserved Markdown links, 47 links depend on the former location; companion navigation tables resolve them where the referenced artifact exists. 46 historical targets are unavailable in the checkout. Original bytes and historical Git identities are not rewritten to disguise unavailable scratch or superseded paths.</p>
-<p>The former maintained goal directories are removed; native OpenSpec work is the continuation surface. Provenance files are excluded from generic formatting so their source digests remain stable. The migration inventory is import evidence, not an alternate work scheduler or mutable status catalog.</p>
+<p>The former maintained goal directories are removed, and the legacy goal tool and its store were later removed as well; native OpenSpec work is the continuation surface. Provenance files are excluded from generic formatting so their source digests remain stable. The migration inventory is import evidence, not an alternate work scheduler or mutable status catalog. The removal change is <a href="changes/remove-deprecated-goal-component/proposal.md">remove-deprecated-goal-component</a>.</p>
 
 </div>
 
@@ -429,98 +437,173 @@ OpenSpec workspace.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-9e4bfd73380a8b829dd80b26de011b19">1.2 - </h1>
+	<h1 id="pg-cc3c87837ad1ff9bf91f41890da9af88">1.2 - </h1>
     
-	<h1 id="print-3bf9931a5acd852feb7a46cf4766ef0a-repository-evolution-specification">Repository Evolution Specification<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-repository-evolution-specification" aria-label="Heading self-link"></a></h1><h2 id="print-3bf9931a5acd852feb7a46cf4766ef0a-purpose">Purpose<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-purpose" aria-label="Heading self-link"></a></h2><p>Define how the alwaldend/src monorepo evolves its shared structure, build
+	<h1 id="print-94ba0afea6b2cedcd3970d33f46ae336-go-mod-version-specification">go-mod-version Specification<a class="td-heading-self-link" href="#print-94ba0afea6b2cedcd3970d33f46ae336-go-mod-version-specification" aria-label="Heading self-link"></a></h1><h2 id="print-94ba0afea6b2cedcd3970d33f46ae336-purpose">Purpose<a class="td-heading-self-link" href="#print-94ba0afea6b2cedcd3970d33f46ae336-purpose" aria-label="Heading self-link"></a></h2><p>Keep tracked <code>go.mod</code> files on the Go version configured for
+<a href="/docs/tools/go_mod/"><code>tools/go_mod</code></a>.</p>
+<p>Sources: <a href="/docs/tools/go_mod/">tool README</a>,
+<a href="../../../../../tools/go_mod/cmd/go_mod/BUILD.bazel">tool BUILD</a>, and
+<a href="../../changes/archive/2026-09-12-add-go-mod-version-tool/proposal.md">archive</a>.</p>
+<h2 id="print-94ba0afea6b2cedcd3970d33f46ae336-requirements">Requirements<a class="td-heading-self-link" href="#print-94ba0afea6b2cedcd3970d33f46ae336-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-94ba0afea6b2cedcd3970d33f46ae336-requirement-configured-gomod-version">Requirement: Configured go.mod version<a class="td-heading-self-link" href="#print-94ba0afea6b2cedcd3970d33f46ae336-requirement-configured-gomod-version" aria-label="Heading self-link"></a></h3><p>The repository SHALL provide a <code>tools/go_mod</code> command that discovers every
+tracked <code>go.mod</code> file and sets its <code>go</code> directive to the version configured in
+the tool&rsquo;s BUILD file. The command MUST offer an update mode and a check mode.</p>
+<h4 id="print-94ba0afea6b2cedcd3970d33f46ae336-scenario-update-module-files">Scenario: Update module files<a class="td-heading-self-link" href="#print-94ba0afea6b2cedcd3970d33f46ae336-scenario-update-module-files" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a user runs the update target</li>
+<li><strong>THEN</strong> every tracked <code>go.mod</code> file whose <code>go</code> directive differs from the
+configured version is rewritten to that version</li>
+<li><strong>AND</strong> files already on the configured version remain unchanged</li>
+</ul>
+<h4 id="print-94ba0afea6b2cedcd3970d33f46ae336-scenario-check-module-files">Scenario: Check module files<a class="td-heading-self-link" href="#print-94ba0afea6b2cedcd3970d33f46ae336-scenario-check-module-files" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the check test runs</li>
+<li><strong>THEN</strong> it fails if any tracked <code>go.mod</code> file has a <code>go</code> directive
+different from the configured version</li>
+<li><strong>AND</strong> it passes when every tracked <code>go.mod</code> file matches</li>
+</ul>
+<h3 id="print-94ba0afea6b2cedcd3970d33f46ae336-requirement-repository-quality-integration">Requirement: Repository quality integration<a class="td-heading-self-link" href="#print-94ba0afea6b2cedcd3970d33f46ae336-requirement-repository-quality-integration" aria-label="Heading self-link"></a></h3><p>The go.mod version check MUST run as part of <code>//:repo_quality_test</code> so a
+version mismatch fails repository quality.</p>
+<h4 id="print-94ba0afea6b2cedcd3970d33f46ae336-scenario-quality-suite-covers-the-check">Scenario: Quality suite covers the check<a class="td-heading-self-link" href="#print-94ba0afea6b2cedcd3970d33f46ae336-scenario-quality-suite-covers-the-check" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a <code>go.mod</code> file&rsquo;s <code>go</code> directive differs from the configured
+version</li>
+<li><strong>THEN</strong> <code>//:repo_quality_test</code> fails</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c8750e23cfc87061c0ef77ac0fe6060a">1.3 - </h1>
+    
+	<h1 id="print-c378dc05c1ccc435141658b0f6b0a137-repository-evolution-specification">Repository Evolution Specification<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-repository-evolution-specification" aria-label="Heading self-link"></a></h1><h2 id="print-c378dc05c1ccc435141658b0f6b0a137-purpose">Purpose<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-purpose" aria-label="Heading self-link"></a></h2><p>Define how the alwaldend/src monorepo evolves its shared structure, build
 system and development workflows. Component behavior is specified in each
 owner&rsquo;s local OpenSpec workspace. This baseline was inspected at source revision
 <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code> on 2026-09-08 and incorporates the
 OpenSpec migration delivered with this specification. Changes in <code>infra/src</code>
 record repository evolution; they do not collect unrelated component work or claim
 runtime health or deployed infrastructure.</p>
-<p>Sources: <a href="/">repository map</a>, <a href="../../../../../AGENTS.md">agent policy</a>,
-<a href="../../../../../BUILD.bazel">root build</a>, <a href="/projects/">project boundary</a>,
-<a href="/">infrastructure boundary</a>,
-<a href="../../../../../tools/README.md">tool boundary</a>, and <a href="/docs/infra/">OpenSpec workflow</a>.</p>
-<h2 id="print-3bf9931a5acd852feb7a46cf4766ef0a-requirements">Requirements<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-3bf9931a5acd852feb7a46cf4766ef0a-requirement-component-ownership-and-source-boundaries">Requirement: Component ownership and source boundaries<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-requirement-component-ownership-and-source-boundaries" aria-label="Heading self-link"></a></h3><p>The repository MUST keep component purpose and publication boundaries in the
+<p>Sources: <a href="/docs/">repository map</a>, <a href="../../../../../AGENTS.md">agent policy</a>,
+<a href="../../../../../BUILD.bazel">root build</a>, <a href="/docs/projects/">project boundary</a>,
+<a href="/docs/infra/">infrastructure boundary</a>,
+<a href="/docs/tools/">tool boundary</a>, and <a href="/docs/infra/src/openspec/">OpenSpec workflow</a>.</p>
+<h2 id="print-c378dc05c1ccc435141658b0f6b0a137-requirements">Requirements<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-c378dc05c1ccc435141658b0f6b0a137-requirement-component-ownership-and-source-boundaries">Requirement: Component ownership and source boundaries<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-requirement-component-ownership-and-source-boundaries" aria-label="Heading self-link"></a></h3><p>The repository MUST keep component purpose and publication boundaries in the
 nearest owner README, executable and dependency structure in BUILD and MODULE
 files, and agent policy in the applicable AGENTS.md chain. Specifications SHALL
 describe component requirements with links to these owners.</p>
-<h4 id="print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-select-an-implementation-owner">Scenario: Select an implementation owner<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-select-an-implementation-owner" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-select-an-implementation-owner">Scenario: Select an implementation owner<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-select-an-implementation-owner" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a change affects a project, tool or infrastructure component</li>
 <li><strong>THEN</strong> its owning documents and Bazel workspace determine the affected
 paths and supported consumers</li>
 <li><strong>AND</strong> a repository-wide catalog or specification does not grant broader
 publication or execution authority</li>
 </ul>
-<h3 id="print-3bf9931a5acd852feb7a46cf4766ef0a-requirement-reproducible-bazel-development">Requirement: Reproducible Bazel development<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-requirement-reproducible-bazel-development" aria-label="Heading self-link"></a></h3><p>Repository agent build and test operations MUST use <code>bazel_agent bazel</code> in the
+<h3 id="print-c378dc05c1ccc435141658b0f6b0a137-requirement-reproducible-bazel-development">Requirement: Reproducible Bazel development<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-requirement-reproducible-bazel-development" aria-label="Heading self-link"></a></h3><p>Repository agent build and test operations MUST use <code>bazel_agent bazel</code> in the
 owning workspace with pinned dependencies and the repository&rsquo;s shared agent
 configuration. Generated dependency and catalog files MUST be updated through
 their owning generator.</p>
-<h4 id="print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-change-a-shared-dependency">Scenario: Change a shared dependency<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-change-a-shared-dependency" aria-label="Heading self-link"></a></h4><ul>
+<p>Every nested module that declares <code>MODULE.bazel</code> MUST declare only
+dependencies its own sources use, with a resolvable version or an override
+that applies when that module is the root. Every nested module directory MUST
+appear in the root <code>.bazelignore</code> so root target expansion does not cross the
+workspace boundary. Each nested workspace MUST build and test standalone.</p>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-change-a-shared-dependency">Scenario: Change a shared dependency<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-change-a-shared-dependency" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> an implementation adds an external build input</li>
 <li><strong>THEN</strong> its owner records an immutable version and integrity information</li>
 <li><strong>AND</strong> applicable generated locks and package checks validate the declared
 dependency through the pinned build workflow</li>
 </ul>
-<h3 id="print-3bf9931a5acd852feb7a46cf4766ef0a-requirement-isolated-implementation-and-evidence">Requirement: Isolated implementation and evidence<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-requirement-isolated-implementation-and-evidence" aria-label="Heading self-link"></a></h3><p>Repository modifications MUST use a dedicated feature branch and linked
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-build-a-nested-module-standalone">Scenario: Build a nested module standalone<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-build-a-nested-module-standalone" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a nested Bazel workspace is built or tested on its own</li>
+<li><strong>THEN</strong> its module graph resolves without depending on root-only overrides</li>
+<li><strong>AND</strong> the workspace builds and tests through its shared configuration</li>
+</ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-expand-root-targets-across-a-nested-boundary">Scenario: Expand root targets across a nested boundary<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-expand-root-targets-across-a-nested-boundary" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the root workspace expands targets beneath a nested module directory</li>
+<li><strong>THEN</strong> the nested workspace is excluded by the root ignore list</li>
+<li><strong>AND</strong> root expansion neither loads nor silently omits that module</li>
+</ul>
+<h3 id="print-c378dc05c1ccc435141658b0f6b0a137-requirement-isolated-implementation-and-evidence">Requirement: Isolated implementation and evidence<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-requirement-isolated-implementation-and-evidence" aria-label="Heading self-link"></a></h3><p>Repository modifications MUST use a dedicated feature branch and linked
 worktree. Task scratch MUST remain under ignored <code>out/&lt;task&gt;/</code> in the
 applicable workspace. Acceptance SHALL identify the candidate and relevant
 checks and representative output before delivery.</p>
-<h4 id="print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-finish-a-repository-change">Scenario: Finish a repository change<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-finish-a-repository-change" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-finish-a-repository-change">Scenario: Finish a repository change<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-finish-a-repository-change" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> an authorized implementation is ready for delivery</li>
 <li><strong>THEN</strong> task-owned changes pass applicable formatting, quality and semantic
 checks and are committed and published through the repository procedure</li>
 <li><strong>AND</strong> unrelated edits, scratch and protected data are excluded</li>
 </ul>
-<h3 id="print-3bf9931a5acd852feb7a46cf4766ef0a-requirement-declarative-infrastructure-authority">Requirement: Declarative infrastructure authority<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-requirement-declarative-infrastructure-authority" aria-label="Heading self-link"></a></h3><p>Persistent infrastructure configuration MUST be defined in checked-in owning
+<h3 id="print-c378dc05c1ccc435141658b0f6b0a137-requirement-declarative-infrastructure-authority">Requirement: Declarative infrastructure authority<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-requirement-declarative-infrastructure-authority" aria-label="Heading self-link"></a></h3><p>Persistent infrastructure configuration MUST be defined in checked-in owning
 infrastructure code. Infrastructure operations MUST require the user&rsquo;s exact
 operation and scope authorization; an implementation validation request SHALL
 NOT authorize live deployment.</p>
-<h4 id="print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-validate-an-infrastructure-specification">Scenario: Validate an infrastructure specification<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-validate-an-infrastructure-specification" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-validate-an-infrastructure-specification">Scenario: Validate an infrastructure specification<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-validate-an-infrastructure-specification" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> an agent adds or updates an infra component specification</li>
 <li><strong>THEN</strong> it inspects source and runs applicable offline checks</li>
 <li><strong>AND</strong> it does not infer deployed state or execute live apply or deployment
 from the existence of the specification</li>
 </ul>
-<h3 id="print-3bf9931a5acd852feb7a46cf4766ef0a-requirement-openspec-coverage-and-work-state">Requirement: OpenSpec coverage and work state<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-requirement-openspec-coverage-and-work-state" aria-label="Heading self-link"></a></h3><p>Each direct project in <code>projects/</code> and <code>infra/</code> SHALL keep its baseline
+<h3 id="print-c378dc05c1ccc435141658b0f6b0a137-requirement-openspec-coverage-and-work-state">Requirement: OpenSpec coverage and work state<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-requirement-openspec-coverage-and-work-state" aria-label="Heading self-link"></a></h3><p>Each direct project in <code>projects/</code> and <code>infra/</code> SHALL keep its baseline
 specifications and maintained changes in its own <code>openspec/</code> workspace.
 <code>infra/src/openspec</code> SHALL describe evolution of the repository itself,
 including shared structure, build system and development workflows. The
 repository root SHALL NOT collect component specifications or change records.
 Maintained work SHALL preserve outcome, decisions, tasks and requirement
 deltas. Existing task authority MUST survive workflow transitions.</p>
-<h4 id="print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-change-a-component-contract">Scenario: Change a component contract<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-change-a-component-contract" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-change-a-component-contract">Scenario: Change a component contract<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-change-a-component-contract" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a change affects a project&rsquo;s supported behavior</li>
 <li><strong>THEN</strong> its specifications and change artifacts remain in that project&rsquo;s
 <code>openspec/</code> directory</li>
 <li><strong>AND</strong> the pinned CLI and context routing select that owner workspace</li>
 </ul>
-<h4 id="print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-evolve-the-repository-itself">Scenario: Evolve the repository itself<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-evolve-the-repository-itself" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-evolve-the-repository-itself">Scenario: Evolve the repository itself<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-evolve-the-repository-itself" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a change affects the monorepo&rsquo;s shared structure or development workflow</li>
 <li><strong>THEN</strong> <code>infra/src/openspec</code> records its repository requirements and evolution</li>
 <li><strong>AND</strong> component contracts remain with their respective owners</li>
 </ul>
-<h4 id="print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-resume-unfinished-maintained-work">Scenario: Resume unfinished maintained work<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-resume-unfinished-maintained-work" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-resume-unfinished-maintained-work">Scenario: Resume unfinished maintained work<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-resume-unfinished-maintained-work" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> an agent resumes a named OpenSpec change</li>
 <li><strong>THEN</strong> it reads that owner&rsquo;s change artifacts, candidate, evidence and next action</li>
 <li><strong>AND</strong> unfinished or blocked acceptance remains explicit until evidence
 supports completion</li>
 </ul>
-<h4 id="print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-validate-a-standalone-project">Scenario: Validate a standalone project<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-validate-a-standalone-project" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-validate-a-standalone-project">Scenario: Validate a standalone project<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-validate-a-standalone-project" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a project has its own Bazel module</li>
 <li><strong>THEN</strong> repository OpenSpec validation still checks its declared local workspace</li>
 <li><strong>AND</strong> a successful repository check does not omit that project&rsquo;s requirements</li>
 </ul>
-<h3 id="print-3bf9931a5acd852feb7a46cf4766ef0a-requirement-legacy-goal-migration-and-deprecation">Requirement: Legacy goal migration and deprecation<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-requirement-legacy-goal-migration-and-deprecation" aria-label="Heading self-link"></a></h3><p>The migration SHALL preserve all tracked maintained goal history and its
+<h3 id="print-c378dc05c1ccc435141658b0f6b0a137-requirement-legacy-goal-migration-and-deprecation">Requirement: Legacy goal migration and deprecation<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-requirement-legacy-goal-migration-and-deprecation" aria-label="Heading self-link"></a></h3><p>The migration SHALL preserve all tracked maintained goal history and its
 recorded acceptance and execution states with source-to-change mappings and
 checksums. The goal skill MUST be disabled for discovery and the goal tool
 MUST identify itself as deprecated compatibility functionality.</p>
-<h4 id="print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-inspect-a-migrated-historical-record">Scenario: Inspect a migrated historical record<a class="td-heading-self-link" href="#print-3bf9931a5acd852feb7a46cf4766ef0a-scenario-inspect-a-migrated-historical-record" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-inspect-a-migrated-historical-record">Scenario: Inspect a migrated historical record<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-inspect-a-migrated-historical-record" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a reader follows a legacy goal&rsquo;s migration entry</li>
 <li><strong>THEN</strong> its OpenSpec change exposes the original history and status</li>
 <li><strong>AND</strong> historical completion does not establish acceptance for a different
 candidate or automatically apply old specification deltas</li>
+</ul>
+<h3 id="print-c378dc05c1ccc435141658b0f6b0a137-requirement-rule-scripts-and-generated-documentation">Requirement: Rule scripts and generated documentation<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-requirement-rule-scripts-and-generated-documentation" aria-label="Heading self-link"></a></h3><p>Bazel rules MUST NOT embed templated executable content in rule source. A rule
+that needs an executable MUST reference an ordinary checked-in script and
+supply its inputs as declared arguments or data files. Every public rule set
+MUST generate stardoc documentation for its public <code>.bzl</code> entry points, and the
+repository&rsquo;s main documentation output MUST include that generated
+documentation.</p>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-a-rule-needs-to-run-scripted-logic">Scenario: A rule needs to run scripted logic<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-a-rule-needs-to-run-scripted-logic" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an implementation needs a rule to run a script</li>
+<li><strong>THEN</strong> the script is checked in as a normal file with its own target and receives data through arguments or a declared data file</li>
+<li><strong>AND</strong> generated shell or program text does not live in the <code>.bzl</code> source</li>
+</ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-a-rule-set-exposes-public-rules">Scenario: A rule set exposes public rules<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-a-rule-set-exposes-public-rules" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a project publishes a public Bazel rule or macro</li>
+<li><strong>THEN</strong> it declares stardoc coverage for the declaring file</li>
+<li><strong>AND</strong> the generated pages appear in the repository documentation build</li>
 </ul>
 
 </div>

@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="Rules binary toolchain">
 	<meta itemprop="description" content="Bazel toolchains for packaged executable binaries">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
 	<meta itemprop="wordCount" content="26">
 	<meta itemprop="keywords" content="Bzl_rules">
 	<meta name="twitter:card" content="summary">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -189,7 +189,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-8e869841e2fd9dfce9d3f5ce0fcf01d5"></a></li>
+<li>1: <a href="#pg-04ee94fdfa04b356462ed330466615e4"></a></li>
 
 
     
@@ -197,7 +197,34 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-e0541fd842808a7f627d7ec4e89d3c40">Bzl</a></li>
+<li>2: <a href="#pg-7b5e3cd808748908c6d9ed792cef8be2"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-e0541fd842808a7f627d7ec4e89d3c40">Bzl</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-3fa8aed53804b71324129be5213f6282">Project DNS Terraform</a></li>
 
 
     
@@ -242,40 +269,93 @@ which the generated binary targets expose through Bazel runfiles.</p>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-8e869841e2fd9dfce9d3f5ce0fcf01d5">1 - </h1>
+	<h1 id="pg-04ee94fdfa04b356462ed330466615e4">1 - </h1>
     
-	<h1 id="print-d3453e026d2dab835d6afd9f9bd3f787-rules-binary-toolchain">Rules binary toolchain<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-rules-binary-toolchain" aria-label="Heading self-link"></a></h1><h2 id="print-d3453e026d2dab835d6afd9f9bd3f787-purpose">Purpose<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-purpose" aria-label="Heading self-link"></a></h2><p>Provide Bazel toolchains and runnable targets for packaged executable binaries,
+	<h1 id="print-7b73b7d713cdf695121480deab28faee-project-dns-specification">project-dns Specification<a class="td-heading-self-link" href="#print-7b73b7d713cdf695121480deab28faee-project-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-7b73b7d713cdf695121480deab28faee-purpose">Purpose<a class="td-heading-self-link" href="#print-7b73b7d713cdf695121480deab28faee-purpose" aria-label="Heading self-link"></a></h2><p>Give <code>rules_binary_toolchain</code> an independent Terraform state for its existing DNS declarations
+while retaining the project&rsquo;s reusable Bazel module boundary.</p>
+<h2 id="print-7b73b7d713cdf695121480deab28faee-requirements">Requirements<a class="td-heading-self-link" href="#print-7b73b7d713cdf695121480deab28faee-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-7b73b7d713cdf695121480deab28faee-requirement-own-project-dns-through-one-terraform-root">Requirement: Own project DNS through one Terraform root<a class="td-heading-self-link" href="#print-7b73b7d713cdf695121480deab28faee-requirement-own-project-dns-through-one-terraform-root" aria-label="Heading self-link"></a></h3><p>The project&rsquo;s <code>tf</code> root SHALL consume its canonical <code>dnsconfig.json</code> and use a
+project-specific state and Vault/AppRole configuration. Record ownership and
+adoption SHALL follow the
+<a href="../../../../../infra/dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/specs/infra-dns/spec.md">shared migration contract</a>.</p>
+<p>After authorized adoption, the root SHALL retain enabled record ownership in
+its checked-in defaults and reconcile unchanged declarations without record
+additions, changes, replacements, or deletions.</p>
+<h4 id="print-7b73b7d713cdf695121480deab28faee-scenario-the-prepared-root-has-not-been-adopted">Scenario: The prepared root has not been adopted<a class="td-heading-self-link" href="#print-7b73b7d713cdf695121480deab28faee-scenario-the-prepared-root-has-not-been-adopted" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the project root is packaged with its initial configuration</li>
+<li><strong>THEN</strong> DNS record creation is disabled pending authorized adoption.</li>
+</ul>
+<h4 id="print-7b73b7d713cdf695121480deab28faee-scenario-inspect-adopted-source-defaults">Scenario: Inspect adopted source defaults<a class="td-heading-self-link" href="#print-7b73b7d713cdf695121480deab28faee-scenario-inspect-adopted-source-defaults" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the adopted project root uses its checked-in source defaults</li>
+<li><strong>THEN</strong> DNS record ownership is enabled in its project-specific state.</li>
+</ul>
+<h4 id="print-7b73b7d713cdf695121480deab28faee-scenario-reconcile-existing-public-dns-records">Scenario: Reconcile existing public DNS records<a class="td-heading-self-link" href="#print-7b73b7d713cdf695121480deab28faee-scenario-reconcile-existing-public-dns-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the project plans against its adopted state and unchanged declarations</li>
+<li><strong>THEN</strong> it proposes no record additions, changes, replacements, or deletions.</li>
+</ul>
+<h3 id="print-7b73b7d713cdf695121480deab28faee-requirement-use-the-normal-authenticated-terraform-flow">Requirement: Use the normal authenticated Terraform flow<a class="td-heading-self-link" href="#print-7b73b7d713cdf695121480deab28faee-requirement-use-the-normal-authenticated-terraform-flow" aria-label="Heading self-link"></a></h3><p>The project SHALL select DNS provider credential injection with <code>tf=main</code>.
+Its AppRole and required Vault credentials SHALL be deployed before its
+authenticated root commands run. The <code>dns_enabled</code> setting SHALL control DNS
+record creation without bypassing authentication or credential injection.</p>
+<h4 id="print-7b73b7d713cdf695121480deab28faee-scenario-a-root-command-runs-before-dns-adoption">Scenario: A root command runs before DNS adoption<a class="td-heading-self-link" href="#print-7b73b7d713cdf695121480deab28faee-scenario-a-root-command-runs-before-dns-adoption" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an authenticated Terraform root command runs with <code>dns_enabled=false</code></li>
+<li><strong>THEN</strong> the normal AppRole, backend, and provider credential flow still applies.</li>
+</ul>
+<h3 id="print-7b73b7d713cdf695121480deab28faee-requirement-keep-reusable-module-consumers-independent-of-operations">Requirement: Keep reusable module consumers independent of operations<a class="td-heading-self-link" href="#print-7b73b7d713cdf695121480deab28faee-requirement-keep-reusable-module-consumers-independent-of-operations" aria-label="Heading self-link"></a></h3><p>The project SHALL export canonical Terraform source for the repository&rsquo;s
+operational wrapper without requiring consumers of its reusable Bazel rules
+to depend on the parent monorepo.</p>
+<h4 id="print-7b73b7d713cdf695121480deab28faee-scenario-the-parent-workspace-packages-project-dns-operations">Scenario: The parent workspace packages project DNS operations<a class="td-heading-self-link" href="#print-7b73b7d713cdf695121480deab28faee-scenario-the-parent-workspace-packages-project-dns-operations" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the root-workspace operational wrapper is built</li>
+<li><strong>THEN</strong> it consumes the project&rsquo;s exported Terraform source and DNS declarations without copying their definitions.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7b5e3cd808748908c6d9ed792cef8be2">2 - </h1>
+    
+	<h1 id="print-b7285c283fdef9ae40a14ed4b446da0e-rules-binary-toolchain">Rules binary toolchain<a class="td-heading-self-link" href="#print-b7285c283fdef9ae40a14ed4b446da0e-rules-binary-toolchain" aria-label="Heading self-link"></a></h1><h2 id="print-b7285c283fdef9ae40a14ed4b446da0e-purpose">Purpose<a class="td-heading-self-link" href="#print-b7285c283fdef9ae40a14ed4b446da0e-purpose" aria-label="Heading self-link"></a></h2><p>Provide Bazel toolchains and runnable targets for packaged executable binaries,
 including their runtime files. This source baseline was observed on 2026-09-08
 at revision <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.</p>
-<p>Sources: <a href="/docs/">project description</a>,
+<p>Sources: <a href="/docs/projects/rules_binary_toolchain/">project description</a>,
 <a href="../../../main/bzl/binary_toolchain_lock.bzl">lock parsing</a>,
 <a href="../../../main/bzl/binary_toolchain_extension.bzl">module extension</a>,
 <a href="../../../main/bzl/binary_toolchain_repo.bzl">archive repositories</a>,
 and <a href="../../../main/bzl/binary_toolchain_binary.bzl">runnable wrapper</a>.</p>
-<h2 id="print-d3453e026d2dab835d6afd9f9bd3f787-requirements">Requirements<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-d3453e026d2dab835d6afd9f9bd3f787-requirement-select-archives-from-the-declared-toolchain-lock">Requirement: Select archives from the declared toolchain lock<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-requirement-select-archives-from-the-declared-toolchain-lock" aria-label="Heading self-link"></a></h3><p>The module extension SHALL resolve a requested toolchain by name and version
+<h2 id="print-b7285c283fdef9ae40a14ed4b446da0e-requirements">Requirements<a class="td-heading-self-link" href="#print-b7285c283fdef9ae40a14ed4b446da0e-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-b7285c283fdef9ae40a14ed4b446da0e-requirement-select-archives-from-the-declared-toolchain-lock">Requirement: Select archives from the declared toolchain lock<a class="td-heading-self-link" href="#print-b7285c283fdef9ae40a14ed4b446da0e-requirement-select-archives-from-the-declared-toolchain-lock" aria-label="Heading self-link"></a></h3><p>The module extension SHALL resolve a requested toolchain by name and version
 from its JSON lock and create repositories for the matching archives.</p>
-<h4 id="print-d3453e026d2dab835d6afd9f9bd3f787-scenario-a-requested-toolchain-has-no-matching-archive">Scenario: A requested toolchain has no matching archive<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-scenario-a-requested-toolchain-has-no-matching-archive" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-b7285c283fdef9ae40a14ed4b446da0e-scenario-a-requested-toolchain-has-no-matching-archive">Scenario: A requested toolchain has no matching archive<a class="td-heading-self-link" href="#print-b7285c283fdef9ae40a14ed4b446da0e-scenario-a-requested-toolchain-has-no-matching-archive" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the requested toolchain is absent or has no archive matching its locked version</li>
 <li><strong>THEN</strong> extension evaluation fails with a diagnostic instead of selecting another version.</li>
 </ul>
-<h3 id="print-d3453e026d2dab835d6afd9f9bd3f787-requirement-verify-downloaded-archive-integrity">Requirement: Verify downloaded archive integrity<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-requirement-verify-downloaded-archive-integrity" aria-label="Heading self-link"></a></h3><p>Archive repository download and download-and-extract actions SHALL compare the
+<h3 id="print-b7285c283fdef9ae40a14ed4b446da0e-requirement-verify-downloaded-archive-integrity">Requirement: Verify downloaded archive integrity<a class="td-heading-self-link" href="#print-b7285c283fdef9ae40a14ed4b446da0e-requirement-verify-downloaded-archive-integrity" aria-label="Heading self-link"></a></h3><p>Archive repository download and download-and-extract actions SHALL compare the
 reported integrity against the action&rsquo;s declared integrity and fail on mismatch.</p>
-<h4 id="print-d3453e026d2dab835d6afd9f9bd3f787-scenario-downloaded-content-differs-from-its-lock-entry">Scenario: Downloaded content differs from its lock entry<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-scenario-downloaded-content-differs-from-its-lock-entry" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-b7285c283fdef9ae40a14ed4b446da0e-scenario-downloaded-content-differs-from-its-lock-entry">Scenario: Downloaded content differs from its lock entry<a class="td-heading-self-link" href="#print-b7285c283fdef9ae40a14ed4b446da0e-scenario-downloaded-content-differs-from-its-lock-entry" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a download reports an integrity value different from the lock action</li>
 <li><strong>THEN</strong> repository creation fails with the expected and observed integrity values.</li>
 </ul>
-<h3 id="print-d3453e026d2dab835d6afd9f9bd3f787-requirement-preserve-runtime-files-in-generated-binary-targets">Requirement: Preserve runtime files in generated binary targets<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-requirement-preserve-runtime-files-in-generated-binary-targets" aria-label="Heading self-link"></a></h3><p>Generated native binary and filegroup targets SHALL include the files selected
+<h3 id="print-b7285c283fdef9ae40a14ed4b446da0e-requirement-preserve-runtime-files-in-generated-binary-targets">Requirement: Preserve runtime files in generated binary targets<a class="td-heading-self-link" href="#print-b7285c283fdef9ae40a14ed4b446da0e-requirement-preserve-runtime-files-in-generated-binary-targets" aria-label="Heading self-link"></a></h3><p>Generated native binary and filegroup targets SHALL include the files selected
 by each binary&rsquo;s <code>runtime_files</code> glob patterns, in addition to the executable.
 Runnable toolchain wrappers SHALL merge the selected toolchain&rsquo;s runfiles and
 declared data runfiles.</p>
-<h4 id="print-d3453e026d2dab835d6afd9f9bd3f787-scenario-a-packaged-executable-needs-an-adjacent-runtime-asset">Scenario: A packaged executable needs an adjacent runtime asset<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-scenario-a-packaged-executable-needs-an-adjacent-runtime-asset" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-b7285c283fdef9ae40a14ed4b446da0e-scenario-a-packaged-executable-needs-an-adjacent-runtime-asset">Scenario: A packaged executable needs an adjacent runtime asset<a class="td-heading-self-link" href="#print-b7285c283fdef9ae40a14ed4b446da0e-scenario-a-packaged-executable-needs-an-adjacent-runtime-asset" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> an archive declares a runtime asset through <code>runtime_files</code></li>
 <li><strong>THEN</strong> the native binary carries that asset in its data, the filegroup exposes it, and a wrapper carries the toolchain runfiles into execution.</li>
 </ul>
-<h3 id="print-d3453e026d2dab835d6afd9f9bd3f787-requirement-forward-wrapper-arguments-and-environment">Requirement: Forward wrapper arguments and environment<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-requirement-forward-wrapper-arguments-and-environment" aria-label="Heading self-link"></a></h3><p>The runnable wrapper SHALL expand declared location and make-variable arguments,
+<h3 id="print-b7285c283fdef9ae40a14ed4b446da0e-requirement-forward-wrapper-arguments-and-environment">Requirement: Forward wrapper arguments and environment<a class="td-heading-self-link" href="#print-b7285c283fdef9ae40a14ed4b446da0e-requirement-forward-wrapper-arguments-and-environment" aria-label="Heading self-link"></a></h3><p>The runnable wrapper SHALL expand declared location and make-variable arguments,
 append invocation arguments, and expose the declared <code>env</code> through
 <code>RunEnvironmentInfo</code>.</p>
-<h4 id="print-d3453e026d2dab835d6afd9f9bd3f787-scenario-a-caller-supplies-additional-command-arguments">Scenario: A caller supplies additional command arguments<a class="td-heading-self-link" href="#print-d3453e026d2dab835d6afd9f9bd3f787-scenario-a-caller-supplies-additional-command-arguments" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-b7285c283fdef9ae40a14ed4b446da0e-scenario-a-caller-supplies-additional-command-arguments">Scenario: A caller supplies additional command arguments<a class="td-heading-self-link" href="#print-b7285c283fdef9ae40a14ed4b446da0e-scenario-a-caller-supplies-additional-command-arguments" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a generated wrapper is invoked with arguments after its configured arguments</li>
 <li><strong>THEN</strong> the selected toolchain binary receives both argument sets in that order.</li>
 </ul>
@@ -294,13 +374,59 @@ append invocation arguments, and expose the declared <code>env</code> through
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-e0541fd842808a7f627d7ec4e89d3c40">2 - Bzl</h1>
+	<h1 id="pg-e0541fd842808a7f627d7ec4e89d3c40">3 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	<h2 id="print-c867147f6c5137a127befe418be2cb97-archive-binaries">Archive binaries<a class="td-heading-self-link" href="#print-c867147f6c5137a127befe418be2cb97-archive-binaries" aria-label="Heading self-link"></a></h2><p>Each archive <code>binaries</code> entry requires a <code>name</code> and <code>path</code>. It can also set
 <code>runtime_files</code> to a list of Bazel glob patterns relative to the unpacked
 archive. The generated <code>&lt;name&gt;_native_binary</code> exposes matching files as
 runfiles; <code>&lt;name&gt;_filegroup</code> exposes the binary and those same files.</p>
 <p>Omit <code>runtime_files</code> when the binary needs no extra runtime files.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3fa8aed53804b71324129be5213f6282">4 - Project DNS Terraform</h1>
+    <div class="lead">Project-owned DNS root with repository operational packaging</div>
+	<p>This root reads the canonical <a href="../dnsconfig.json">DNS declarations</a> and calls
+the shared <a href="/docs/projects/tf_modules/dns_records/global/">DNS records module</a>.
+Its <a href="../al.lua">AL configuration</a> owns its Vault identity and HTTP state
+backend.</p>
+<p>Run the root-workspace commands
+<code>//infra/dns/projects:rules_binary_toolchain_tf.&lt;operation&gt;</code> through <code>bazel_agent</code>.
+The offline formatting check is
+<code>//infra/dns/projects:rules_binary_toolchain_tf_tests.fmt_test</code>.
+The <a href="/docs/infra/dns/projects/">operational adapter</a> imports this
+project&rsquo;s source filegroup; the reusable Bazel module does not depend on the
+monorepo.</p>
+<p>The operational root requires its deployed AppRole and DNS credential access.
+<code>dns_enabled</code> defaults to <code>true</code> after verified adoption. Keep it enabled to
+retain existing records; disabling it would propose deletion. The
+<a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">adoption record</a>
+contains the import and verification evidence. Use the shared
+<a href="/docs/infra/dns/">DNS workflow</a> for reconciliation and recovery.</p>
 
 </div>
 

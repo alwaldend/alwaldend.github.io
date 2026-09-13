@@ -10,9 +10,44 @@
 		
 		
 		
-			<lastBuildDate>Sat, 12 Sep 2026 03:04:23 +0300</lastBuildDate>
+			<lastBuildDate>Sun, 13 Sep 2026 20:22:19 +0300</lastBuildDate>
 		
 			<atom:link href="https://alwaldend.com/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Dns</title>
+				<link>https://alwaldend.com/tags/dns/</link>
+				<pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/dns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Dnscontrol</title>
+				<link>https://alwaldend.com/tags/dnscontrol/</link>
+				<pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/dnscontrol/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Repo</title>
+				<link>https://alwaldend.com/tags/repo/</link>
+				<pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/repo/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Terraform</title>
+				<link>https://alwaldend.com/tags/terraform/</link>
+				<pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/terraform/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Agent</title>
+				<link>https://alwaldend.com/tags/agent/</link>
+				<pubDate>Sat, 12 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/agent/</guid>
+				<description></description>
+			</item>
 			<item>
 				<title>Generated</title>
 				<link>https://alwaldend.com/tags/generated/</link>
@@ -28,10 +63,10 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Agent</title>
-				<link>https://alwaldend.com/tags/agent/</link>
+				<title>Activitywatch</title>
+				<link>https://alwaldend.com/tags/activitywatch/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/tags/agent/</guid>
+				<guid>https://alwaldend.com/tags/activitywatch/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -74,13 +109,6 @@
 				<link>https://alwaldend.com/tags/arch/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/tags/arch/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Architecture</title>
-				<link>https://alwaldend.com/tags/architecture/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/tags/architecture/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -203,13 +231,6 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Control</title>
-				<link>https://alwaldend.com/tags/control/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/tags/control/</guid>
-				<description></description>
-			</item>
-			<item>
 				<title>Css</title>
 				<link>https://alwaldend.com/tags/css/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -221,20 +242,6 @@
 				<link>https://alwaldend.com/tags/desktop/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/tags/desktop/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Dns</title>
-				<link>https://alwaldend.com/tags/dns/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/tags/dns/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Dnscontrol</title>
-				<link>https://alwaldend.com/tags/dnscontrol/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/tags/dnscontrol/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -347,6 +354,13 @@
 				<link>https://alwaldend.com/tags/github_pages/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/tags/github_pages/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Go</title>
+				<link>https://alwaldend.com/tags/go/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/go/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -490,6 +504,13 @@
 				<description></description>
 			</item>
 			<item>
+				<title>Modules</title>
+				<link>https://alwaldend.com/tags/modules/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/modules/</guid>
+				<description></description>
+			</item>
+			<item>
 				<title>Nanovms</title>
 				<link>https://alwaldend.com/tags/nanovms/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -522,6 +543,13 @@
 				<link>https://alwaldend.com/tags/oidc/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/tags/oidc/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Openhands</title>
+				<link>https://alwaldend.com/tags/openhands/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/openhands/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -630,31 +658,10 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Repo</title>
-				<link>https://alwaldend.com/tags/repo/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/tags/repo/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Repository</title>
-				<link>https://alwaldend.com/tags/repository/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/tags/repository/</guid>
-				<description></description>
-			</item>
-			<item>
 				<title>Rfc</title>
 				<link>https://alwaldend.com/tags/rfc/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/tags/rfc/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Roadmap</title>
-				<link>https://alwaldend.com/tags/roadmap/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/tags/roadmap/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -707,13 +714,6 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Terraform</title>
-				<link>https://alwaldend.com/tags/terraform/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/tags/terraform/</guid>
-				<description></description>
-			</item>
-			<item>
 				<title>Terraform_module</title>
 				<link>https://alwaldend.com/tags/terraform_module/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -725,6 +725,13 @@
 				<link>https://alwaldend.com/tags/tf_module/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/tags/tf_module/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Third_party</title>
+				<link>https://alwaldend.com/tags/third_party/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/third_party/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -802,13 +809,6 @@
 				<link>https://alwaldend.com/tags/waydroid/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/tags/waydroid/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Workflow</title>
-				<link>https://alwaldend.com/tags/workflow/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/tags/workflow/</guid>
 				<description></description>
 			</item>
 			<item>

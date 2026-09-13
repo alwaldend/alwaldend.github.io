@@ -33,22 +33,23 @@
 <link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/infra/dns/tf/index.xml">
 <meta name="robots" content="noindex, nofollow">
 
-<title>Tf | Alwaldend</title>
-<meta name="description" content="Terraform config">
+<title>Shared DNS Terraform | Alwaldend</title>
+<meta name="description" content="Owner state for common apex and mail records">
 <meta property="og:url" content="https://alwaldend.com/docs/infra/dns/tf/">
 	<meta property="og:site_name" content="Alwaldend">
-	<meta property="og:title" content="Tf">
-	<meta property="og:description" content="Terraform config">
+	<meta property="og:title" content="Shared DNS Terraform">
+	<meta property="og:description" content="Owner state for common apex and mail records">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="website">
 
-	<meta itemprop="name" content="Tf">
-	<meta itemprop="description" content="Terraform config">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="name" content="Shared DNS Terraform">
+	<meta itemprop="description" content="Owner state for common apex and mail records">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="127">
 	<meta itemprop="keywords" content="Terraform">
 	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="Tf">
-	<meta name="twitter:description" content="Terraform config">
+	<meta name="twitter:title" content="Shared DNS Terraform">
+	<meta name="twitter:description" content="Owner state for common apex and mail records">
 <link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <script
@@ -141,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -171,8 +172,8 @@ This is the multi-page printable view of this section.
 
 
 
-<h1 class="title">Tf</h1>
-<div class="lead">Terraform config</div>
+<h1 class="title">Shared DNS Terraform</h1>
+<div class="lead">Owner state for common apex and mail records</div>
 
 
 
@@ -190,7 +191,21 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p>This root consumes <a href="../dnsconfig.json">the canonical common declarations</a>
+through the reusable DNS module. It uses the <code>src_infra_dns</code> AppRole and its
+existing Vault-backed HTTP state. Both Cloudflare and RouterOS credentials
+are injected through the <code>tf=1</code> stage label.</p>
+<p>Shared apex and mail records were adopted on 2026-09-13. <code>dns_enabled</code> now
+defaults to <code>true</code>; reconciliation against the adopted state and unchanged
+declarations must propose no record changes. The <a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">adoption evidence</a>
+records 60 imports and preservation of both complete provider inventories.</p>
+<p>Operational calls require the AppRole policy and Vault credential fields
+described by <a href="../openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/cutover.md">the cutover procedure</a>.
+The module&rsquo;s <code>import_addresses</code> output gives addresses relative to <code>module.dns</code>;
+actual provider IDs come from the authorized adoption inventory.</p>
+<p>Build the wrappers or run <code>:tf_tests.fmt_test</code> for offline validation. Import,
+plan and apply follow the separately authorized adoption procedure.</p>
+
 </div>
 </div>
 

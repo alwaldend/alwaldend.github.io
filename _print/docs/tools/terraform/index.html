@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Terraform">
 	<meta itemprop="description" content="Terraform">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
-	<meta itemprop="wordCount" content="54">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="113">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Terraform">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -220,6 +220,12 @@ This is the multi-page printable view of this section.
 They retain the repository root as Terraform&rsquo;s working directory. Other
 packages default to their own directory; <code>terraform_binary</code> accepts an
 explicit <code>chdir</code> for relocated command wrappers.</li>
+<li><code>terraform_target_binary_map</code> exposes <code>&lt;name&gt;.plan</code>, <code>&lt;name&gt;.show</code>, and
+<code>&lt;name&gt;.apply</code> for a target in an existing root. Plan includes its declared
+<code>-target</code>; apply accepts only one saved plan file, which must be reviewed
+before execution. The caller retains its root, backend, and AL configuration.
+The <a href="/docs/tools/terraform/runner/">runner&rsquo;s saved-plan guard</a> prevents this apply target
+from starting a new plan for services elsewhere in the root.</li>
 </ul>
 
 </div>
@@ -244,7 +250,18 @@ explicit <code>chdir</code> for relocated command wrappers.</li>
     
 	<h1 id="pg-20b2440a3ede3523083e3ba0de843c53">1 - Runner</h1>
     <div class="lead">Golang code for the terraform runner</div>
-	
+	<p>The runner initializes the owning Terraform working directory before running
+the requested operation. <code>--direct</code> skips initialization.</p>
+<p>Wrappers can set <code>--require-saved-plan</code> before the Terraform command to accept
+only <code>apply &lt;saved-plan-file&gt;</code>. The runner rejects bare apply, other commands,
+flags, extra arguments, missing files, and directories before initializing
+Terraform. Relative plan paths resolve against <code>--chdir</code>; absolute paths remain
+absolute. Terraform validates the plan contents and applies its recorded scope.
+The guard also rejects nonempty <code>TF_CLI_ARGS</code> and <code>TF_CLI_ARGS_*</code> environment
+variables before initialization so injected flags cannot change the command&rsquo;s
+meaning. Diagnostics identify the variable name without displaying its value.
+The guard is disabled by default, preserving ordinary wrappers.</p>
+
 </div>
 
 

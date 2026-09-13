@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="Rules template">
 	<meta itemprop="description" content="Bazel rules and a Go command for rendering template files">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
 	<meta itemprop="wordCount" content="32">
 	<meta itemprop="keywords" content="Bzl_rules">
 	<meta name="twitter:card" content="summary">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -189,7 +189,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-c337215abbaed3f47ce86f220d95c558"></a></li>
+<li>1: <a href="#pg-a0ba471568d56bb339092b01f7535be3"></a></li>
 
 
     
@@ -197,7 +197,34 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-4c16d03e4062bb28fcbc7314c1e19d6f">Bzl</a></li>
+<li>2: <a href="#pg-67d6ec3440a8e901f8b0954de60357cd"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-4c16d03e4062bb28fcbc7314c1e19d6f">Bzl</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-ababa972825343e5f65bdd2325c84f67">Project DNS Terraform</a></li>
 
 
     
@@ -246,44 +273,96 @@ actions.</p>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-c337215abbaed3f47ce86f220d95c558">1 - </h1>
+	<h1 id="pg-a0ba471568d56bb339092b01f7535be3">1 - </h1>
     
-	<h1 id="print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-rules-template">Rules template<a class="td-heading-self-link" href="#print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-rules-template" aria-label="Heading self-link"></a></h1><h2 id="print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-purpose">Purpose<a class="td-heading-self-link" href="#print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-purpose" aria-label="Heading self-link"></a></h2><p>Render Go text templates from declared data files through a command and a Bazel
+	<h1 id="print-57d751e264f7201832f9e1362ecfd653-project-dns-specification">project-dns Specification<a class="td-heading-self-link" href="#print-57d751e264f7201832f9e1362ecfd653-project-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-57d751e264f7201832f9e1362ecfd653-purpose">Purpose<a class="td-heading-self-link" href="#print-57d751e264f7201832f9e1362ecfd653-purpose" aria-label="Heading self-link"></a></h2><p>Give <code>rules_template</code> an independent Terraform state for its existing DNS declarations
+while retaining the project&rsquo;s reusable Bazel module boundary.</p>
+<h2 id="print-57d751e264f7201832f9e1362ecfd653-requirements">Requirements<a class="td-heading-self-link" href="#print-57d751e264f7201832f9e1362ecfd653-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-57d751e264f7201832f9e1362ecfd653-requirement-own-project-dns-through-one-terraform-root">Requirement: Own project DNS through one Terraform root<a class="td-heading-self-link" href="#print-57d751e264f7201832f9e1362ecfd653-requirement-own-project-dns-through-one-terraform-root" aria-label="Heading self-link"></a></h3><p>The project&rsquo;s <code>tf</code> root SHALL consume its canonical <code>dnsconfig.json</code> and use a
+project-specific state and Vault/AppRole configuration. Record ownership and
+adoption SHALL follow the
+<a href="../../../../../infra/dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/specs/infra-dns/spec.md">shared migration contract</a>.
+After authorized adoption into the project&rsquo;s state, the root SHALL retain
+enabled record ownership in its checked-in source defaults.</p>
+<h4 id="print-57d751e264f7201832f9e1362ecfd653-scenario-the-prepared-root-has-not-been-adopted">Scenario: The prepared root has not been adopted<a class="td-heading-self-link" href="#print-57d751e264f7201832f9e1362ecfd653-scenario-the-prepared-root-has-not-been-adopted" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the project root is packaged with its initial configuration</li>
+<li><strong>THEN</strong> DNS record creation is disabled pending authorized adoption.</li>
+</ul>
+<h4 id="print-57d751e264f7201832f9e1362ecfd653-scenario-inspect-adopted-source-defaults">Scenario: Inspect adopted source defaults<a class="td-heading-self-link" href="#print-57d751e264f7201832f9e1362ecfd653-scenario-inspect-adopted-source-defaults" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the adopted project root uses its checked-in source defaults</li>
+<li><strong>THEN</strong> <code>dns_enabled</code> is true and record ownership remains enabled.</li>
+</ul>
+<h4 id="print-57d751e264f7201832f9e1362ecfd653-scenario-reconcile-existing-public-dns-records">Scenario: Reconcile existing public DNS records<a class="td-heading-self-link" href="#print-57d751e264f7201832f9e1362ecfd653-scenario-reconcile-existing-public-dns-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the project plans against its adopted state and unchanged declarations</li>
+<li><strong>THEN</strong> it proposes no record additions, changes, replacements, or deletions.</li>
+</ul>
+<h3 id="print-57d751e264f7201832f9e1362ecfd653-requirement-use-the-normal-authenticated-terraform-flow">Requirement: Use the normal authenticated Terraform flow<a class="td-heading-self-link" href="#print-57d751e264f7201832f9e1362ecfd653-requirement-use-the-normal-authenticated-terraform-flow" aria-label="Heading self-link"></a></h3><p>The project SHALL select DNS provider credential injection with <code>tf=main</code>.
+Its AppRole and required Vault credentials SHALL be deployed before its
+authenticated root commands run. The <code>dns_enabled</code> setting SHALL control DNS
+record creation without bypassing authentication or credential injection.</p>
+<h4 id="print-57d751e264f7201832f9e1362ecfd653-scenario-a-root-command-runs-before-dns-adoption">Scenario: A root command runs before DNS adoption<a class="td-heading-self-link" href="#print-57d751e264f7201832f9e1362ecfd653-scenario-a-root-command-runs-before-dns-adoption" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an authenticated Terraform root command runs with <code>dns_enabled=false</code></li>
+<li><strong>THEN</strong> the normal AppRole, backend, and provider credential flow still applies.</li>
+</ul>
+<h3 id="print-57d751e264f7201832f9e1362ecfd653-requirement-keep-reusable-module-consumers-independent-of-operations">Requirement: Keep reusable module consumers independent of operations<a class="td-heading-self-link" href="#print-57d751e264f7201832f9e1362ecfd653-requirement-keep-reusable-module-consumers-independent-of-operations" aria-label="Heading self-link"></a></h3><p>The project SHALL export canonical Terraform source for the repository&rsquo;s
+operational wrapper without requiring consumers of its reusable Bazel rules
+to depend on the parent monorepo.</p>
+<h4 id="print-57d751e264f7201832f9e1362ecfd653-scenario-the-parent-workspace-packages-project-dns-operations">Scenario: The parent workspace packages project DNS operations<a class="td-heading-self-link" href="#print-57d751e264f7201832f9e1362ecfd653-scenario-the-parent-workspace-packages-project-dns-operations" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the root-workspace operational wrapper is built</li>
+<li><strong>THEN</strong> it consumes the project&rsquo;s exported Terraform source and DNS declarations without copying their definitions.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-67d6ec3440a8e901f8b0954de60357cd">2 - </h1>
+    
+	<h1 id="print-1e078d9d8db0a587c0a3cbd36b2eca20-rules-template">Rules template<a class="td-heading-self-link" href="#print-1e078d9d8db0a587c0a3cbd36b2eca20-rules-template" aria-label="Heading self-link"></a></h1><h2 id="print-1e078d9d8db0a587c0a3cbd36b2eca20-purpose">Purpose<a class="td-heading-self-link" href="#print-1e078d9d8db0a587c0a3cbd36b2eca20-purpose" aria-label="Heading self-link"></a></h2><p>Render Go text templates from declared data files through a command and a Bazel
 toolchain rule. This source baseline was observed on 2026-09-08 at revision
 <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>. The command operates on one template
 and output per invocation; the rule&rsquo;s list attributes do not establish a
 multi-template rendering guarantee.</p>
-<p>Sources: <a href="/docs/">project description</a>,
+<p>Sources: <a href="/docs/projects/rules_template/">project description</a>,
 <a href="../../../main/go/cmd.go">command flags</a>,
 <a href="../../../main/go/templater.go">templater</a>,
 <a href="../../../main/go/templater_func_map.go">template functions</a>,
 and <a href="../../../main/bzl/template_run_binary.bzl">Bazel action</a>.</p>
-<h2 id="print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-requirements">Requirements<a class="td-heading-self-link" href="#print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-requirement-load-supported-data-formats-into-template-context">Requirement: Load supported data formats into template context<a class="td-heading-self-link" href="#print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-requirement-load-supported-data-formats-into-template-context" aria-label="Heading self-link"></a></h3><p>The <code>template</code> command SHALL load data files in argument order into <code>DataFiles</code>,
+<h2 id="print-1e078d9d8db0a587c0a3cbd36b2eca20-requirements">Requirements<a class="td-heading-self-link" href="#print-1e078d9d8db0a587c0a3cbd36b2eca20-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-1e078d9d8db0a587c0a3cbd36b2eca20-requirement-load-supported-data-formats-into-template-context">Requirement: Load supported data formats into template context<a class="td-heading-self-link" href="#print-1e078d9d8db0a587c0a3cbd36b2eca20-requirement-load-supported-data-formats-into-template-context" aria-label="Heading self-link"></a></h3><p>The <code>template</code> command SHALL load data files in argument order into <code>DataFiles</code>,
 decode <code>.toml</code>, <code>.json</code>, <code>.ndjson</code>, and <code>.yaml</code> data, and expose <code>.txt</code> files as
 lines without structured decoding. <code>--extension</code> SHALL override extension
 selection for the supplied data files.</p>
-<h4 id="print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-scenario-a-caller-renders-a-template-using-newline-delimited-json">Scenario: A caller renders a template using newline-delimited JSON<a class="td-heading-self-link" href="#print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-scenario-a-caller-renders-a-template-using-newline-delimited-json" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-1e078d9d8db0a587c0a3cbd36b2eca20-scenario-a-caller-renders-a-template-using-newline-delimited-json">Scenario: A caller renders a template using newline-delimited JSON<a class="td-heading-self-link" href="#print-1e078d9d8db0a587c0a3cbd36b2eca20-scenario-a-caller-renders-a-template-using-newline-delimited-json" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a declared <code>.ndjson</code> input contains valid JSON on each data line</li>
 <li><strong>THEN</strong> its template context contains a parsed sequence in <code>Data</code> and the input lines in <code>Lines</code>.</li>
 </ul>
-<h3 id="print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-requirement-report-unsupported-formats-and-rendering-failures">Requirement: Report unsupported formats and rendering failures<a class="td-heading-self-link" href="#print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-requirement-report-unsupported-formats-and-rendering-failures" aria-label="Heading self-link"></a></h3><p>The command SHALL return errors for unsupported data extensions, failed reads,
+<h3 id="print-1e078d9d8db0a587c0a3cbd36b2eca20-requirement-report-unsupported-formats-and-rendering-failures">Requirement: Report unsupported formats and rendering failures<a class="td-heading-self-link" href="#print-1e078d9d8db0a587c0a3cbd36b2eca20-requirement-report-unsupported-formats-and-rendering-failures" aria-label="Heading self-link"></a></h3><p>The command SHALL return errors for unsupported data extensions, failed reads,
 invalid structured data, invalid template syntax, template execution failures,
 and failed output writes.</p>
-<h4 id="print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-scenario-a-data-file-uses-an-unsupported-extension">Scenario: A data file uses an unsupported extension<a class="td-heading-self-link" href="#print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-scenario-a-data-file-uses-an-unsupported-extension" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-1e078d9d8db0a587c0a3cbd36b2eca20-scenario-a-data-file-uses-an-unsupported-extension">Scenario: A data file uses an unsupported extension<a class="td-heading-self-link" href="#print-1e078d9d8db0a587c0a3cbd36b2eca20-scenario-a-data-file-uses-an-unsupported-extension" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a data path has an unrecognized extension and no supported override</li>
 <li><strong>THEN</strong> rendering fails with an unsupported-extension diagnostic identifying the data path.</li>
 </ul>
-<h3 id="print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-requirement-expose-the-registered-template-function-set">Requirement: Expose the registered template function set<a class="td-heading-self-link" href="#print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-requirement-expose-the-registered-template-function-set" aria-label="Heading self-link"></a></h3><p>Template execution SHALL use the project&rsquo;s function map, including JSON
+<h3 id="print-1e078d9d8db0a587c0a3cbd36b2eca20-requirement-expose-the-registered-template-function-set">Requirement: Expose the registered template function set<a class="td-heading-self-link" href="#print-1e078d9d8db0a587c0a3cbd36b2eca20-requirement-expose-the-registered-template-function-set" aria-label="Heading self-link"></a></h3><p>Template execution SHALL use the project&rsquo;s function map, including JSON
 serialization, HTML escaping, path basename and dirname helpers, and first and
 last element helpers.</p>
-<h4 id="print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-scenario-a-template-serializes-structured-data">Scenario: A template serializes structured data<a class="td-heading-self-link" href="#print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-scenario-a-template-serializes-structured-data" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-1e078d9d8db0a587c0a3cbd36b2eca20-scenario-a-template-serializes-structured-data">Scenario: A template serializes structured data<a class="td-heading-self-link" href="#print-1e078d9d8db0a587c0a3cbd36b2eca20-scenario-a-template-serializes-structured-data" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a valid template invokes <code>to_json</code> on JSON-serializable context data</li>
 <li><strong>THEN</strong> the function returns the JSON representation for inclusion in the output.</li>
 </ul>
-<h3 id="print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-requirement-render-declared-bazel-inputs-with-the-selected-toolchain">Requirement: Render declared Bazel inputs with the selected toolchain<a class="td-heading-self-link" href="#print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-requirement-render-declared-bazel-inputs-with-the-selected-toolchain" aria-label="Heading self-link"></a></h3><p><code>template_run_binary</code> SHALL invoke the registered templater with its <code>template</code>
+<h3 id="print-1e078d9d8db0a587c0a3cbd36b2eca20-requirement-render-declared-bazel-inputs-with-the-selected-toolchain">Requirement: Render declared Bazel inputs with the selected toolchain<a class="td-heading-self-link" href="#print-1e078d9d8db0a587c0a3cbd36b2eca20-requirement-render-declared-bazel-inputs-with-the-selected-toolchain" aria-label="Heading self-link"></a></h3><p><code>template_run_binary</code> SHALL invoke the registered templater with its <code>template</code>
 subcommand, declare source and data files as inputs, declare output files, and
 forward additional rule arguments.</p>
-<h4 id="print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-scenario-a-target-declares-one-template-and-one-output">Scenario: A target declares one template and one output<a class="td-heading-self-link" href="#print-2bfdf6e46d0cfc8e451bbe1fb0c3a4da-scenario-a-target-declares-one-template-and-one-output" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-1e078d9d8db0a587c0a3cbd36b2eca20-scenario-a-target-declares-one-template-and-one-output">Scenario: A target declares one template and one output<a class="td-heading-self-link" href="#print-1e078d9d8db0a587c0a3cbd36b2eca20-scenario-a-target-declares-one-template-and-one-output" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> Bazel executes the target with its registered template toolchain</li>
 <li><strong>THEN</strong> the action passes the template, ordered data flags, and output path to the templater and exposes the declared output to downstream targets.</li>
 </ul>
@@ -302,9 +381,57 @@ forward additional rule arguments.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-4c16d03e4062bb28fcbc7314c1e19d6f">2 - Bzl</h1>
+	<h1 id="pg-4c16d03e4062bb28fcbc7314c1e19d6f">3 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ababa972825343e5f65bdd2325c84f67">4 - Project DNS Terraform</h1>
+    <div class="lead">Project-owned DNS root with repository operational packaging</div>
+	<p>This root reads the canonical <a href="../dnsconfig.json">DNS declarations</a> and calls
+the shared <a href="/docs/projects/tf_modules/dns_records/global/">DNS records module</a>.
+Its <a href="../al.lua">AL configuration</a> owns its Vault identity and HTTP state
+backend.</p>
+<p>Run the root-workspace commands
+<code>//infra/dns/projects:rules_template_tf.&lt;operation&gt;</code> through <code>bazel_agent</code>.
+The offline formatting check is
+<code>//infra/dns/projects:rules_template_tf_tests.fmt_test</code>.
+The <a href="/docs/infra/dns/projects/">operational adapter</a> imports this
+project&rsquo;s source filegroup; the reusable Bazel module does not depend on the
+monorepo.</p>
+<p>The operational root requires its deployed AppRole and DNS credential access
+described by the <a href="../../../infra/dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/cutover.md#prepare-the-owner">migration prerequisites</a>.
+<code>dns_enabled</code> defaults to <code>true</code> after verified adoption. Keep it enabled to
+retain existing records; disabling it would propose deletion. The zone input
+remains optional.</p>
+<p>Follow the <a href="/docs/infra/dns/">DNS migration workflow</a> for continued
+reconciliation and recovery. The project&rsquo;s adoption change records its import,
+no-change plan, and verification evidence.</p>
+
 </div>
 
 

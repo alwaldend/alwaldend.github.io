@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="flux">
 	<meta itemprop="description" content="Fluxcd deployment">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
 	<meta itemprop="wordCount" content="100">
 	<meta itemprop="keywords" content="Flux,Ansible,Pve,K3s">
 	<meta name="twitter:card" content="summary">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -189,7 +189,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-c8a0464e6f02555e8a571881d3ad89c5"></a></li>
+<li>1: <a href="#pg-b4f8b763632dafb9253d5de4d0a62163"></a></li>
 
 
     
@@ -197,7 +197,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-de0be9c9f29bd0e4867d85c05c90675b">Ansible</a></li>
+<li>2: <a href="#pg-b6f415fdbda930a78d6f2df1f71d654f"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-de0be9c9f29bd0e4867d85c05c90675b">Ansible</a></li>
 
 
     
@@ -216,7 +224,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-d382b2bcb1a61644d1a6e144f7ad0f24">cl</a></li>
+<li>4: <a href="#pg-d382b2bcb1a61644d1a6e144f7ad0f24">cl</a></li>
 
 
     
@@ -235,7 +243,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-c22a494ac2efe6ac7a34589eb0ec7c9b">Tf setup</a></li>
+<li>5: <a href="#pg-c22a494ac2efe6ac7a34589eb0ec7c9b">Tf setup</a></li>
 
 
     
@@ -301,17 +309,17 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-c8a0464e6f02555e8a571881d3ad89c5">1 - </h1>
+	<h1 id="pg-b4f8b763632dafb9253d5de4d0a62163">1 - </h1>
     
-	<h1 id="print-eb1d991a0e198a2a557686c0a52e542b-flux-infrastructure-specification">Flux infrastructure specification<a class="td-heading-self-link" href="#print-eb1d991a0e198a2a557686c0a52e542b-flux-infrastructure-specification" aria-label="Heading self-link"></a></h1><h2 id="print-eb1d991a0e198a2a557686c0a52e542b-purpose">Purpose<a class="td-heading-self-link" href="#print-eb1d991a0e198a2a557686c0a52e542b-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Flux management cluster&rsquo;s VM definition, K3s configuration,
+	<h1 id="print-d1bd8ac5f87f418fdfaaab7e376fec50-flux-infrastructure-specification">Flux infrastructure specification<a class="td-heading-self-link" href="#print-d1bd8ac5f87f418fdfaaab7e376fec50-flux-infrastructure-specification" aria-label="Heading self-link"></a></h1><h2 id="print-d1bd8ac5f87f418fdfaaab7e376fec50-purpose">Purpose<a class="td-heading-self-link" href="#print-d1bd8ac5f87f418fdfaaab7e376fec50-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Flux management cluster&rsquo;s VM definition, K3s configuration,
 and Git reconciliation entry points owned by <code>infra/flux</code>. The <code>tf_setup</code>,
 <code>ansible</code>, and <code>cl</code> packages implement stages of this owner. This is a
 checked-in source baseline; no cluster health or successful deployment was
 observed for this specification.</p>
 <p>Baseline revision: <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.
-Observed: 2026-09-08. Sources: <a href="/docs/">owner README</a>,
+Observed: 2026-09-08. Sources: <a href="/docs/infra/flux/">owner README</a>,
 <a href="../../../BUILD.bazel">BUILD</a>, and the implementation links below.</p>
-<h2 id="print-eb1d991a0e198a2a557686c0a52e542b-requirements">Requirements<a class="td-heading-self-link" href="#print-eb1d991a0e198a2a557686c0a52e542b-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-eb1d991a0e198a2a557686c0a52e542b-requirement-dedicated-k3s-management-host">Requirement: Dedicated K3s management host<a class="td-heading-self-link" href="#print-eb1d991a0e198a2a557686c0a52e542b-requirement-dedicated-k3s-management-host" aria-label="Heading self-link"></a></h3><p>Terraform setup SHALL declare a Proxmox VM in the <code>src_infra_flux</code> pool with
+<h2 id="print-d1bd8ac5f87f418fdfaaab7e376fec50-requirements">Requirements<a class="td-heading-self-link" href="#print-d1bd8ac5f87f418fdfaaab7e376fec50-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-d1bd8ac5f87f418fdfaaab7e376fec50-requirement-dedicated-k3s-management-host">Requirement: Dedicated K3s management host<a class="td-heading-self-link" href="#print-d1bd8ac5f87f418fdfaaab7e376fec50-requirement-dedicated-k3s-management-host" aria-label="Heading self-link"></a></h3><p>Terraform setup SHALL declare a Proxmox VM in the <code>src_infra_flux</code> pool with
 two cores, 4096 MiB memory, and separate 20 GiB boot, K3s data, and K3s
 storage disks. The deployment playbook SHALL apply the shared host and K3s
 roles, and the K3s configuration SHALL enable secrets encryption and disable
@@ -319,13 +327,13 @@ the bundled Traefik component.</p>
 <p>Sources: <a href="../../../tf_setup/vms.tf">VM definition</a>,
 <a href="../../../ansible/playbook_deploy.yaml">deployment playbook</a>, and
 <a href="../../../ansible/files/k3s.yaml">K3s configuration</a>.</p>
-<h4 id="print-eb1d991a0e198a2a557686c0a52e542b-scenario-inspect-the-management-cluster-deployment-definition">Scenario: Inspect the management cluster deployment definition<a class="td-heading-self-link" href="#print-eb1d991a0e198a2a557686c0a52e542b-scenario-inspect-the-management-cluster-deployment-definition" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-d1bd8ac5f87f418fdfaaab7e376fec50-scenario-inspect-the-management-cluster-deployment-definition">Scenario: Inspect the management cluster deployment definition<a class="td-heading-self-link" href="#print-d1bd8ac5f87f418fdfaaab7e376fec50-scenario-inspect-the-management-cluster-deployment-definition" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a maintainer evaluates the setup and deployment source</li>
 <li><strong>THEN</strong> VM provisioning, host configuration, and K3s configuration are
 separate stages with the recorded compute and disk allocation</li>
 <li><strong>AND</strong> the K3s configuration enables secrets encryption at rest</li>
 </ul>
-<h3 id="print-eb1d991a0e198a2a557686c0a52e542b-requirement-git-reconciliation-for-flux-and-harbor">Requirement: Git reconciliation for Flux and Harbor<a class="td-heading-self-link" href="#print-eb1d991a0e198a2a557686c0a52e542b-requirement-git-reconciliation-for-flux-and-harbor" aria-label="Heading self-link"></a></h3><p>The cluster&rsquo;s root Kustomization SHALL include the Flux and Harbor
+<h3 id="print-d1bd8ac5f87f418fdfaaab7e376fec50-requirement-git-reconciliation-for-flux-and-harbor">Requirement: Git reconciliation for Flux and Harbor<a class="td-heading-self-link" href="#print-d1bd8ac5f87f418fdfaaab7e376fec50-requirement-git-reconciliation-for-flux-and-harbor" aria-label="Heading self-link"></a></h3><p>The cluster&rsquo;s root Kustomization SHALL include the Flux and Harbor
 reconciliation trees. Flux&rsquo;s reconciliation resources SHALL read the
 <code>flux-git-src</code> GitRepository and use SOPS decryption through
 <code>flux-sops-secret</code>, with pruning enabled and forced replacement disabled.
@@ -334,20 +342,20 @@ Flux manifests.</p>
 <p>Sources: <a href="../../../cl/kustomization.yaml">root Kustomization</a>,
 <a href="../../../cl/src-infra-flux-cl/manifests.yaml">Flux reconciliation</a>,
 and <a href="../../../cl/src-infra-harbor-cl/kustomization.yaml">Harbor reconciliation tree</a>.</p>
-<h4 id="print-eb1d991a0e198a2a557686c0a52e542b-scenario-resolve-the-reconciliation-source-tree">Scenario: Resolve the reconciliation source tree<a class="td-heading-self-link" href="#print-eb1d991a0e198a2a557686c0a52e542b-scenario-resolve-the-reconciliation-source-tree" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-d1bd8ac5f87f418fdfaaab7e376fec50-scenario-resolve-the-reconciliation-source-tree">Scenario: Resolve the reconciliation source tree<a class="td-heading-self-link" href="#print-d1bd8ac5f87f418fdfaaab7e376fec50-scenario-resolve-the-reconciliation-source-tree" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the checked-in root Kustomization is traversed</li>
 <li><strong>THEN</strong> both <code>src-infra-flux-cl</code> and <code>src-infra-harbor-cl</code> are included</li>
 <li><strong>AND</strong> the Flux reconciliation resources retain their Git source,
 decryption reference, and explicit prune and force settings</li>
 </ul>
-<h3 id="print-eb1d991a0e198a2a557686c0a52e542b-requirement-packaged-operator-and-controller-configuration">Requirement: Packaged operator and controller configuration<a class="td-heading-self-link" href="#print-eb1d991a0e198a2a557686c0a52e542b-requirement-packaged-operator-and-controller-configuration" aria-label="Heading self-link"></a></h3><p>The cluster package SHALL provide repository-configured Flux, Flux
+<h3 id="print-d1bd8ac5f87f418fdfaaab7e376fec50-requirement-packaged-operator-and-controller-configuration">Requirement: Packaged operator and controller configuration<a class="td-heading-self-link" href="#print-d1bd8ac5f87f418fdfaaab7e376fec50-requirement-packaged-operator-and-controller-configuration" aria-label="Heading self-link"></a></h3><p>The cluster package SHALL provide repository-configured Flux, Flux
 operator, kubectl, Helm, certificate-manager, and SOPS command wrappers.
 Its Flux instance SHALL declare source, Kustomize, Helm, notification,
 image-reflector, image-automation, and source-watcher controllers, with
 network policy enabled.</p>
 <p>Sources: <a href="../../../cl/BUILD.bazel">cluster BUILD</a> and
 <a href="../../../cl/flux-system/flux-instance.yaml">Flux instance</a>.</p>
-<h4 id="print-eb1d991a0e198a2a557686c0a52e542b-scenario-select-a-repository-operator-entry-point">Scenario: Select a repository operator entry point<a class="td-heading-self-link" href="#print-eb1d991a0e198a2a557686c0a52e542b-scenario-select-a-repository-operator-entry-point" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-d1bd8ac5f87f418fdfaaab7e376fec50-scenario-select-a-repository-operator-entry-point">Scenario: Select a repository operator entry point<a class="td-heading-self-link" href="#print-d1bd8ac5f87f418fdfaaab7e376fec50-scenario-select-a-repository-operator-entry-point" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> an operator selects a declared cluster command target</li>
 <li><strong>THEN</strong> the target supplies the packaged tool and the Flux owner&rsquo;s <code>al</code>
 configuration</li>
@@ -369,7 +377,78 @@ asserting that they are currently available in a live cluster</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-de0be9c9f29bd0e4867d85c05c90675b">2 - Ansible</h1>
+	<h1 id="pg-b6f415fdbda930a78d6f2df1f71d654f">2 - </h1>
+    
+	<h1 id="print-046a6e6ad5187e98a76cf80927cdcf33-owned-dns-specification">owned-dns Specification<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-owned-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-046a6e6ad5187e98a76cf80927cdcf33-purpose">Purpose<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-purpose" aria-label="Heading self-link"></a></h2><p>Define Flux DNS management through the owner&rsquo;s <code>tf_setup</code> root,
+including canonical declarations, scoped credentials, and offline source checks
+before adopting live records.</p>
+<h2 id="print-046a6e6ad5187e98a76cf80927cdcf33-requirements">Requirements<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-046a6e6ad5187e98a76cf80927cdcf33-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf_setup</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through
+the shared DNS Terraform module, preserving declared record identities and views.
+DNS resources SHALL default to disabled before adoption and SHALL remain enabled
+by default after authorized adoption. Adoption SHALL bind existing provider records
+to the owner&rsquo;s state without adding, changing, replacing, or deleting DNS records.
+Subsequent reconciliation of unchanged declarations SHALL preserve owned and
+unrelated records.</p>
+<h4 id="print-046a6e6ad5187e98a76cf80927cdcf33-scenario-inspect-the-preparatory-configuration">Scenario: Inspect the preparatory configuration<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-scenario-inspect-the-preparatory-configuration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the checked-in root is evaluated with default inputs before adoption</li>
+<li><strong>THEN</strong> it reads this owner&rsquo;s declaration and disables managed DNS records</li>
+<li><strong>AND</strong> the package contains the module and declaration inputs</li>
+</ul>
+<h4 id="print-046a6e6ad5187e98a76cf80927cdcf33-scenario-inspect-the-adopted-configuration">Scenario: Inspect the adopted configuration<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-scenario-inspect-the-adopted-configuration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the adopted root is evaluated with default inputs</li>
+<li><strong>THEN</strong> it reads this owner&rsquo;s declaration and enables managed DNS records</li>
+<li><strong>AND</strong> the package contains the module and declaration inputs</li>
+</ul>
+<h4 id="print-046a6e6ad5187e98a76cf80927cdcf33-scenario-adopt-existing-records">Scenario: Adopt existing records<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-scenario-adopt-existing-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the owner applies a reviewed saved import plan through
+<code>//infra/flux/tf_setup:dns.apply</code></li>
+<li><strong>THEN</strong> the owner state binds each declared record to its existing provider identity</li>
+<li><strong>AND</strong> the reviewed adoption plan proposes no record additions, changes,
+replacements, or deletions</li>
+</ul>
+<h4 id="print-046a6e6ad5187e98a76cf80927cdcf33-scenario-reconcile-unchanged-declarations">Scenario: Reconcile unchanged declarations<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-scenario-reconcile-unchanged-declarations" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the adopted root plans and applies unchanged declarations through its
+<code>//infra/flux/tf_setup</code> wrappers</li>
+<li><strong>THEN</strong> it makes no DNS resource changes</li>
+<li><strong>AND</strong> owned records retain their declared values and views while unrelated
+records remain unchanged</li>
+</ul>
+<h3 id="print-046a6e6ad5187e98a76cf80927cdcf33-requirement-scoped-dns-execution-and-offline-checks">Requirement: Scoped DNS execution and offline checks<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-requirement-scoped-dns-execution-and-offline-checks" aria-label="Heading self-link"></a></h3><p>The DNS wrappers SHALL select <code>src_infra_flux</code> through the repository AL flow and
+keep secret values in injected variables. The <code>dns.plan</code>, <code>dns.show</code>, and
+<code>dns.apply</code> targets SHALL select <code>dns=1</code> and retain the owner&rsquo;s setup backend;
+plans SHALL target <code>module.dns</code> and apply SHALL require a reviewed saved plan.
+Ordinary setup wrappers SHALL retain their service authentication behavior.
+Real DNS credentials and Vault policy grants SHALL be prerequisites for operational
+Terraform calls. RouterOS DNS credentials SHALL remain isolated from unrelated
+RouterOS resources. The package SHALL expose a format test without live credentials.
+DNS-targeted validation SHALL NOT establish unrelated VM or service health.</p>
+<h4 id="print-046a6e6ad5187e98a76cf80927cdcf33-scenario-validate-the-terraform-source">Scenario: Validate the Terraform source<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-scenario-validate-the-terraform-source" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the package format test executes</li>
+<li><strong>THEN</strong> it checks the packaged Terraform configuration without live credentials</li>
+<li><strong>AND</strong> existing non-DNS authentication and backend paths remain unchanged</li>
+</ul>
+<h4 id="print-046a6e6ad5187e98a76cf80927cdcf33-scenario-prepare-an-operational-terraform-invocation">Scenario: Prepare an operational Terraform invocation<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-scenario-prepare-an-operational-terraform-invocation" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an authorized operator selects the owner&rsquo;s DNS wrapper</li>
+<li><strong>THEN</strong> it selects DNS credential injection through the owner AppRole and setup backend</li>
+<li><strong>AND</strong> its scoped plan and saved-plan apply cover DNS and its dependencies</li>
+<li><strong>AND</strong> disabled DNS resources do not imply offline provider configuration</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-de0be9c9f29bd0e4867d85c05c90675b">3 - Ansible</h1>
     <div class="lead">Ansible setup</div>
 	
 </div>
@@ -398,7 +477,7 @@ asserting that they are currently available in a live cluster</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-d382b2bcb1a61644d1a6e144f7ad0f24">3 - cl</h1>
+	<h1 id="pg-d382b2bcb1a61644d1a6e144f7ad0f24">4 - cl</h1>
     <div class="lead">Cluster manifests</div>
 	<h2 id="print-c5fcc52468d494f5a7ae68c1e7490717-links">Links<a class="td-heading-self-link" href="#print-c5fcc52468d494f5a7ae68c1e7490717-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Cert manager charts: <a href="https://artifacthub.io/packages/helm/cert-manager/cert-manager">https://artifacthub.io/packages/helm/cert-manager/cert-manager</a></li>
@@ -430,9 +509,20 @@ asserting that they are currently available in a live cluster</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-c22a494ac2efe6ac7a34589eb0ec7c9b">4 - Tf setup</h1>
+	<h1 id="pg-c22a494ac2efe6ac7a34589eb0ec7c9b">5 - Tf setup</h1>
     <div class="lead">Terraform setup</div>
-	
+	<p>This root owns the <a href="../dnsconfig.json">Flux DNS declaration</a>. DNS ownership
+defaults to enabled after <a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">verified adoption</a>;
+keep it enabled to retain the managed records.</p>
+<p>Use <code>//infra/flux/tf_setup:dns.plan</code>, <code>:dns.show</code>, and <code>:dns.apply</code> for
+<a href="../../dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/cutover.md#prepare-the-owner">scoped DNS reconciliation</a>.
+These targets retain the setup backend and <code>src_infra_flux</code> AppRole, select
+<code>dns=1</code>, and target <code>module.dns</code>. Apply requires a reviewed saved plan.
+Reconciliation of unchanged declarations must produce no DNS changes.</p>
+<p>The ordinary setup targets retain their service authentication behavior.
+DNS checks do not establish PVE VM or service health; current aggregate source
+validation remains part of repository delivery.</p>
+
 </div>
 
 

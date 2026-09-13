@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Repository delivery">
 	<meta itemprop="description" content="Guarded Git and pull-request delivery">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
-	<meta itemprop="wordCount" content="2902">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="2867">
 	<meta itemprop="keywords" content="Git,Github">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Repository delivery">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -201,12 +201,9 @@ target. Use the same feature worktree, not another checkout. The baseline works
 with older installed runners. Detect the provider without printing a
 credential-bearing remote URL:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/repo_delivery -- provider
-</span></span></code></pre></div><p>The optional cached form is <code>bazel_agent tool run repo_delivery -- ...</code>.
-Follow the <code>bazel-agent</code> skill&rsquo;s one-time capability check before using it:
-reuse the known result for this runner binary, or inspect
-<code>bazel_agent tool --help</code> once. Unsupported <code>tool</code> means use the baseline
-without updating the host; an execution failure or delivery refusal still
-requires diagnosis. All examples below use the baseline.</p>
+</span></span></code></pre></div><p>The optional cached form is <code>al tool repo_delivery -- ...</code>. An execution
+failure or delivery refusal still requires diagnosis. All examples below use
+the baseline.</p>
 <p>The sanitized report distinguishes forge support from Git transport support.
 <code>adapter_available</code> reports whether the forge has an adapter;
 <code>git_transport</code> reports <code>ssh</code>, <code>https</code>, or <code>mixed_or_unsupported</code>; and

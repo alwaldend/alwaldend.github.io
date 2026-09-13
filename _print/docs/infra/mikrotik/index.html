@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Mikrotik">
 	<meta itemprop="description" content="Mikrotik setup for dc1.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
-	<meta itemprop="wordCount" content="1509">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="1528">
 	<meta itemprop="keywords" content="Mikrotik">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Mikrotik">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -189,9 +189,36 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-ea40b77bcdb50fd182277f55ac0c1341"></a></li>
+<li>1: <a href="#pg-4a7aa602631c1397a463a49d6fbaa9ba"></a></li>
 
 
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-7d4c79db8afd894dc74d9aea9a0ac2c3"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-89bb8f0db70375d53494f67dc3b50533"></a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
     
   
 
@@ -199,7 +226,9 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <h2 id="print-64d11e5be6a668973b7676b14465fedd-deployment">Deployment<a class="td-heading-self-link" href="#print-64d11e5be6a668973b7676b14465fedd-deployment" aria-label="Heading self-link"></a></h2><ul>
+      <p>The <a href="/docs/infra/mikrotik/tf/">Terraform package</a> prepares owner-local DNS management.
+Router exports remain documentation inputs and are not applied by that package.</p>
+<h2 id="print-64d11e5be6a668973b7676b14465fedd-deployment">Deployment<a class="td-heading-self-link" href="#print-64d11e5be6a668973b7676b14465fedd-deployment" aria-label="Heading self-link"></a></h2><ul>
 <li>Open <a href="https://help.mikrotik.com/docs/spaces/ROS/pages/328129/WinBox">Winbox</a></li>
 <li>Open new terminal</li>
 <li>Run <code>/export</code></li>
@@ -529,51 +558,51 @@ set enter-setup-on=delete-key
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ea40b77bcdb50fd182277f55ac0c1341">1 - </h1>
+	<h1 id="pg-4a7aa602631c1397a463a49d6fbaa9ba">1 - </h1>
     
-	<h1 id="print-ffb3aff8b36a41fbce80caed17741ede-infrastructure-mikrotik">Infrastructure MikroTik<a class="td-heading-self-link" href="#print-ffb3aff8b36a41fbce80caed17741ede-infrastructure-mikrotik" aria-label="Heading self-link"></a></h1><h2 id="print-ffb3aff8b36a41fbce80caed17741ede-purpose">Purpose<a class="td-heading-self-link" href="#print-ffb3aff8b36a41fbce80caed17741ede-purpose" aria-label="Heading self-link"></a></h2><p>Describe the checked-in RouterOS export snapshots and site DNS declarations for
+	<h1 id="print-f648ce6b9e1fa8aa6d8246c95a0619c0-infrastructure-mikrotik">Infrastructure MikroTik<a class="td-heading-self-link" href="#print-f648ce6b9e1fa8aa6d8246c95a0619c0-infrastructure-mikrotik" aria-label="Heading self-link"></a></h1><h2 id="print-f648ce6b9e1fa8aa6d8246c95a0619c0-purpose">Purpose<a class="td-heading-self-link" href="#print-f648ce6b9e1fa8aa6d8246c95a0619c0-purpose" aria-label="Heading self-link"></a></h2><p>Describe the checked-in RouterOS export snapshots and site DNS declarations for
 the dc1 routers. This package is a documentation and record-input owner: its
 BUILD file declares no router deployment executable. Export contents are
 historical source evidence, not a verification of current device configuration.</p>
 <p>Baseline source revision: <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.
 Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.</p>
-<p>Sources: <a href="/docs/">export workflow</a>,
+<p>Sources: <a href="/docs/infra/mikrotik/">export workflow</a>,
 <a href="../../../BUILD.bazel">package targets</a>,
-<a href="../../../router1.rsc">router1 snapshot</a>,
-<a href="../../../router2.rsc">router2 snapshot</a>, and
+<a href="/docs/infra/mikrotik/router1.rsc">router1 snapshot</a>,
+<a href="/docs/infra/mikrotik/router2.rsc">router2 snapshot</a>, and
 <a href="../../../dnsconfig.json">DNS declarations</a>.</p>
-<h2 id="print-ffb3aff8b36a41fbce80caed17741ede-requirements">Requirements<a class="td-heading-self-link" href="#print-ffb3aff8b36a41fbce80caed17741ede-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-ffb3aff8b36a41fbce80caed17741ede-requirement-preserve-export-snapshots-as-the-packages-documented-interface">Requirement: Preserve export snapshots as the package&rsquo;s documented interface<a class="td-heading-self-link" href="#print-ffb3aff8b36a41fbce80caed17741ede-requirement-preserve-export-snapshots-as-the-packages-documented-interface" aria-label="Heading self-link"></a></h3><p>The package SHALL retain the router export files as documentation inputs and
+<h2 id="print-f648ce6b9e1fa8aa6d8246c95a0619c0-requirements">Requirements<a class="td-heading-self-link" href="#print-f648ce6b9e1fa8aa6d8246c95a0619c0-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-f648ce6b9e1fa8aa6d8246c95a0619c0-requirement-preserve-export-snapshots-as-the-packages-documented-interface">Requirement: Preserve export snapshots as the package&rsquo;s documented interface<a class="td-heading-self-link" href="#print-f648ce6b9e1fa8aa6d8246c95a0619c0-requirement-preserve-export-snapshots-as-the-packages-documented-interface" aria-label="Heading self-link"></a></h3><p>The package SHALL retain the router export files as documentation inputs and
 describe the RouterOS <code>/export</code> collection workflow. Documentation SHALL
-distinguish these snapshots from an automatically applied desired-state
-configuration.</p>
-<h4 id="print-ffb3aff8b36a41fbce80caed17741ede-scenario-inspect-the-router-package">Scenario: Inspect the router package<a class="td-heading-self-link" href="#print-ffb3aff8b36a41fbce80caed17741ede-scenario-inspect-the-router-package" aria-label="Heading self-link"></a></h4><ul>
+distinguish these snapshots from automatically applied desired state. The
+Terraform root SHALL manage DNS records only and SHALL NOT apply router exports.</p>
+<h4 id="print-f648ce6b9e1fa8aa6d8246c95a0619c0-scenario-inspect-the-router-package">Scenario: Inspect the router package<a class="td-heading-self-link" href="#print-f648ce6b9e1fa8aa6d8246c95a0619c0-scenario-inspect-the-router-package" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a reader opens the component documentation</li>
 <li><strong>THEN</strong> the reader can inspect both router export snapshots</li>
-<li><strong>AND</strong> the available Bazel targets expose documentation and DNS inputs rather
-than an automated router deployment</li>
+<li><strong>AND</strong> the Terraform package exposes owner-local DNS management while the
+snapshots remain documentary inputs</li>
 </ul>
-<h3 id="print-ffb3aff8b36a41fbce80caed17741ede-requirement-describe-the-two-routers-according-to-their-recorded-topology">Requirement: Describe the two routers according to their recorded topology<a class="td-heading-self-link" href="#print-ffb3aff8b36a41fbce80caed17741ede-requirement-describe-the-two-routers-according-to-their-recorded-topology" aria-label="Heading self-link"></a></h3><p>The baseline description SHALL identify router1&rsquo;s separate wired and wireless
+<h3 id="print-f648ce6b9e1fa8aa6d8246c95a0619c0-requirement-describe-the-two-routers-according-to-their-recorded-topology">Requirement: Describe the two routers according to their recorded topology<a class="td-heading-self-link" href="#print-f648ce6b9e1fa8aa6d8246c95a0619c0-requirement-describe-the-two-routers-according-to-their-recorded-topology" aria-label="Heading self-link"></a></h3><p>The baseline description SHALL identify router1&rsquo;s separate wired and wireless
 bridges with their own DHCP networks, and router2&rsquo;s single bridge containing its
 eight Ethernet interfaces with a DHCP client. It SHALL NOT infer additional
 live devices or enabled topology from comments elsewhere in the repository.</p>
-<h4 id="print-ffb3aff8b36a41fbce80caed17741ede-scenario-compare-the-recorded-network-roles">Scenario: Compare the recorded network roles<a class="td-heading-self-link" href="#print-ffb3aff8b36a41fbce80caed17741ede-scenario-compare-the-recorded-network-roles" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-f648ce6b9e1fa8aa6d8246c95a0619c0-scenario-compare-the-recorded-network-roles">Scenario: Compare the recorded network roles<a class="td-heading-self-link" href="#print-f648ce6b9e1fa8aa6d8246c95a0619c0-scenario-compare-the-recorded-network-roles" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the two checked-in exports are compared</li>
 <li><strong>THEN</strong> router1 records <code>bridge1</code> for wired ports and <code>bridge2</code> for Wi-Fi ports</li>
 <li><strong>AND</strong> router2 records <code>bridge01</code> and an IP DHCP client on that bridge</li>
 </ul>
-<h3 id="print-ffb3aff8b36a41fbce80caed17741ede-requirement-retain-the-recorded-router1-traffic-policy-structure">Requirement: Retain the recorded router1 traffic-policy structure<a class="td-heading-self-link" href="#print-ffb3aff8b36a41fbce80caed17741ede-requirement-retain-the-recorded-router1-traffic-policy-structure" aria-label="Heading self-link"></a></h3><p>The router1 snapshot SHALL describe named interface lists for input and
+<h3 id="print-f648ce6b9e1fa8aa6d8246c95a0619c0-requirement-retain-the-recorded-router1-traffic-policy-structure">Requirement: Retain the recorded router1 traffic-policy structure<a class="td-heading-self-link" href="#print-f648ce6b9e1fa8aa6d8246c95a0619c0-requirement-retain-the-recorded-router1-traffic-policy-structure" aria-label="Heading self-link"></a></h3><p>The router1 snapshot SHALL describe named interface lists for input and
 forwarding permissions, explicit terminal IPv4 input and forwarding drops,
 and source NAT masquerading for WAN egress. This contract describes the export
 and SHALL NOT be represented as a live firewall audit.</p>
-<h4 id="print-ffb3aff8b36a41fbce80caed17741ede-scenario-review-router1s-recorded-ipv4-policy">Scenario: Review router1&rsquo;s recorded IPv4 policy<a class="td-heading-self-link" href="#print-ffb3aff8b36a41fbce80caed17741ede-scenario-review-router1s-recorded-ipv4-policy" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-f648ce6b9e1fa8aa6d8246c95a0619c0-scenario-review-router1s-recorded-ipv4-policy">Scenario: Review router1&rsquo;s recorded IPv4 policy<a class="td-heading-self-link" href="#print-f648ce6b9e1fa8aa6d8246c95a0619c0-scenario-review-router1s-recorded-ipv4-policy" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a reader follows the IPv4 firewall section of the snapshot</li>
 <li><strong>THEN</strong> the listed service permissions precede terminal input and forwarding
 drop rules</li>
 <li><strong>AND</strong> the NAT section declares masquerading for traffic leaving the WAN list</li>
 </ul>
-<h3 id="print-ffb3aff8b36a41fbce80caed17741ede-requirement-supply-site-local-dns-records-to-the-dns-owner">Requirement: Supply site-local DNS records to the DNS owner<a class="td-heading-self-link" href="#print-ffb3aff8b36a41fbce80caed17741ede-requirement-supply-site-local-dns-records-to-the-dns-owner" aria-label="Heading self-link"></a></h3><p>The package SHALL expose its <code>dnsconfig.json</code> as a Bazel filegroup. Its router,
+<h3 id="print-f648ce6b9e1fa8aa6d8246c95a0619c0-requirement-supply-site-local-dns-records-to-the-dns-owner">Requirement: Supply site-local DNS records to the DNS owner<a class="td-heading-self-link" href="#print-f648ce6b9e1fa8aa6d8246c95a0619c0-requirement-supply-site-local-dns-records-to-the-dns-owner" aria-label="Heading self-link"></a></h3><p>The package SHALL expose its <code>dnsconfig.json</code> as a Bazel filegroup. Its router,
 switch, and bare-metal records SHALL be assigned to the <code>dc1</code> destination view.</p>
-<h4 id="print-ffb3aff8b36a41fbce80caed17741ede-scenario-assemble-the-dc1-dns-configuration">Scenario: Assemble the dc1 DNS configuration<a class="td-heading-self-link" href="#print-ffb3aff8b36a41fbce80caed17741ede-scenario-assemble-the-dc1-dns-configuration" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-f648ce6b9e1fa8aa6d8246c95a0619c0-scenario-assemble-the-dc1-dns-configuration">Scenario: Assemble the dc1 DNS configuration<a class="td-heading-self-link" href="#print-f648ce6b9e1fa8aa6d8246c95a0619c0-scenario-assemble-the-dc1-dns-configuration" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the DNS owner consumes <code>//infra/mikrotik:dnsconfig</code></li>
 <li><strong>THEN</strong> router1 IPv4 and IPv6 records and the declared switch and bare-metal
 IPv4 records are available for the dc1 view</li>
@@ -582,6 +611,113 @@ IPv4 records are available for the dc1 view</li>
 </div>
 
 
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7d4c79db8afd894dc74d9aea9a0ac2c3">2 - </h1>
+    
+	<h1 id="print-ac9efe641dd659616487e8baa99a35e5-owned-dns-specification">owned-dns Specification<a class="td-heading-self-link" href="#print-ac9efe641dd659616487e8baa99a35e5-owned-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-ac9efe641dd659616487e8baa99a35e5-purpose">Purpose<a class="td-heading-self-link" href="#print-ac9efe641dd659616487e8baa99a35e5-purpose" aria-label="Heading self-link"></a></h2><p>Define MikroTik router DNS management through the owner&rsquo;s <code>tf</code> root,
+including canonical declarations, scoped credentials, and offline source checks
+before adopting live records.</p>
+<h2 id="print-ac9efe641dd659616487e8baa99a35e5-requirements">Requirements<a class="td-heading-self-link" href="#print-ac9efe641dd659616487e8baa99a35e5-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-ac9efe641dd659616487e8baa99a35e5-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-ac9efe641dd659616487e8baa99a35e5-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through
+the shared DNS Terraform module, preserving declared record identities and views.
+DNS resources SHALL default to disabled until the authorized adoption revision
+and SHALL retain enabled ownership after existing records are imported into the
+owner&rsquo;s state. Reconciliation against unchanged declarations and adopted state
+SHALL propose no record additions, changes, replacements, or deletions.</p>
+<h4 id="print-ac9efe641dd659616487e8baa99a35e5-scenario-inspect-the-preparatory-configuration">Scenario: Inspect the preparatory configuration<a class="td-heading-self-link" href="#print-ac9efe641dd659616487e8baa99a35e5-scenario-inspect-the-preparatory-configuration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the checked-in root is evaluated with default inputs before its
+authorized adoption revision</li>
+<li><strong>THEN</strong> it reads this owner&rsquo;s declaration and disables managed DNS records</li>
+<li><strong>AND</strong> the package contains the module and declaration inputs</li>
+</ul>
+<h4 id="print-ac9efe641dd659616487e8baa99a35e5-scenario-adopt-existing-dns-records">Scenario: Adopt existing DNS records<a class="td-heading-self-link" href="#print-ac9efe641dd659616487e8baa99a35e5-scenario-adopt-existing-dns-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the authorized adoption audits competing writers within its documented
+coverage, keeps identified competing writers stopped, and enables the owner&rsquo;s
+record management</li>
+<li><strong>THEN</strong> the owning root imports existing records by exact provider ID into
+its state while preserving their declared identities and views</li>
+</ul>
+<h4 id="print-ac9efe641dd659616487e8baa99a35e5-scenario-inspect-adopted-source-defaults">Scenario: Inspect adopted source defaults<a class="td-heading-self-link" href="#print-ac9efe641dd659616487e8baa99a35e5-scenario-inspect-adopted-source-defaults" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the adopted root uses its checked-in source defaults</li>
+<li><strong>THEN</strong> DNS ownership remains enabled and the package retains the module
+and canonical declaration inputs</li>
+</ul>
+<h4 id="print-ac9efe641dd659616487e8baa99a35e5-scenario-reconcile-existing-dns-records">Scenario: Reconcile existing DNS records<a class="td-heading-self-link" href="#print-ac9efe641dd659616487e8baa99a35e5-scenario-reconcile-existing-dns-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the owning root plans against its adopted state and unchanged declarations</li>
+<li><strong>THEN</strong> it proposes no record additions, changes, replacements, or deletions</li>
+</ul>
+<h3 id="print-ac9efe641dd659616487e8baa99a35e5-requirement-scoped-dns-execution-and-offline-checks">Requirement: Scoped DNS execution and offline checks<a class="td-heading-self-link" href="#print-ac9efe641dd659616487e8baa99a35e5-requirement-scoped-dns-execution-and-offline-checks" aria-label="Heading self-link"></a></h3><p>The DNS wrapper SHALL select <code>src_infra_mikrotik</code> through the repository AL flow and keep
+secret values in injected variables. DNS injection SHALL select the root&rsquo;s existing
+Terraform stage label. Real DNS credentials and Vault policy grants SHALL be
+prerequisites for operational Terraform calls. RouterOS DNS credentials SHALL be isolated
+from unrelated RouterOS resources. The package SHALL expose a format test that
+does not authenticate to Vault or contact DNS providers.</p>
+<h4 id="print-ac9efe641dd659616487e8baa99a35e5-scenario-validate-the-terraform-source">Scenario: Validate the Terraform source<a class="td-heading-self-link" href="#print-ac9efe641dd659616487e8baa99a35e5-scenario-validate-the-terraform-source" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the package format test executes</li>
+<li><strong>THEN</strong> it checks the packaged Terraform configuration without live credentials</li>
+<li><strong>AND</strong> existing non-DNS authentication and backend paths remain unchanged</li>
+</ul>
+<h4 id="print-ac9efe641dd659616487e8baa99a35e5-scenario-prepare-an-operational-terraform-invocation">Scenario: Prepare an operational Terraform invocation<a class="td-heading-self-link" href="#print-ac9efe641dd659616487e8baa99a35e5-scenario-prepare-an-operational-terraform-invocation" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the wrapper selects its Terraform stage labels</li>
+<li><strong>THEN</strong> it selects DNS credential injection through the owner AppRole</li>
+<li><strong>AND</strong> disabled DNS resources do not imply offline provider configuration</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-89bb8f0db70375d53494f67dc3b50533">3 - </h1>
+    
+	<h1 id="print-42997b0c34769282fcd3a007f9381bb4-dns-terraform">DNS Terraform<a class="td-heading-self-link" href="#print-42997b0c34769282fcd3a007f9381bb4-dns-terraform" aria-label="Heading self-link"></a></h1><p>This root packages the owner&rsquo;s canonical <a href="../dnsconfig.json">DNS declaration</a>
+through the shared DNS module and keeps state in the owner AppRole&rsquo;s Vault HTTP
+backend. The root contains DNS resources only. <code>dns_enabled</code> defaults to <code>true</code>
+after verified adoption. Keep it enabled to retain existing records; disabling
+it would propose deletion.</p>
+<p>Use the normal <code>//infra/mikrotik/tf:tf.&lt;operation&gt;</code> wrappers for this DNS-only
+root. The <a href="/docs/infra/dns/">DNS migration procedure</a> owns credential
+provisioning, reconciliation, and recovery. The
+<a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">adoption record</a>
+contains the import and inventory-preservation evidence. The package exposes
+<code>//infra/mikrotik/tf:tf_tests.fmt_test</code> for offline formatting checks.</p>
+<p>Operational Terraform calls require the DNS AppRole policy grants and credential
+fields described by the migration procedure. Provider configuration requires
+real credentials and live access independently of the activation setting.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
 
     
 	

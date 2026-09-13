@@ -44,7 +44,8 @@
 
 	<meta itemprop="name" content="Terraform setup">
 	<meta itemprop="description" content="Forgejo runner VM">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="104">
 	<meta itemprop="keywords" content="Terraform,Pve">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Terraform setup">
@@ -141,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -190,7 +191,20 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p>Use this package&rsquo;s <code>dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> targets for the
+<a href="/docs/infra/dns/">scoped DNS adoption workflow</a>.</p>
+<p>These targets select <code>dns=1</code> and target <code>module.dns</code> with the existing
+<code>src_infra_forgejo_runner</code> AppRole and setup backend. Plan declared imports,
+inspect the saved plan with <code>dns.show</code>, and apply only the reviewed file with
+<code>dns.apply</code>. Ordinary setup commands retain their <code>tf=setup</code> flow.</p>
+<p><code>dns_enabled</code> defaults to <code>true</code> after verified adoption. Keep it enabled to
+retain existing records; disabling it would propose deletion. The
+<a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">adoption record</a>
+contains the import, follow-up plan, inventory, and DNS verification evidence.
+The shared <a href="../../dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/cutover.md#prepare-the-owner">cutover procedure</a>
+owns prerequisites and recovery. Scoped DNS checks do not establish VM or runner
+service health.</p>
+
 </div>
 </div>
 

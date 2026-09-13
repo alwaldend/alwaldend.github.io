@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Alwaldend.com">
 	<meta itemprop="description" content="Main website and project documentation">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
-	<meta itemprop="wordCount" content="473">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="441">
 	<meta itemprop="keywords" content="Hugo,Github_pages">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Alwaldend.com">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -250,12 +250,9 @@ uses Hugo with Docsy to publish project documentation on GitHub Pages.</p>
 </ul>
 <h2 id="print-c7bd85f7dbde24195ea786f2a5e0e45f-local-preview-and-validation">Local preview and validation<a class="td-heading-self-link" href="#print-c7bd85f7dbde24195ea786f2a5e0e45f-local-preview-and-validation" aria-label="Heading self-link"></a></h2><p>Run from the repository root:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel build //projects/alwaldend.com:site
-</span></span><span style="display:flex;"><span>bazel_agent bazel test //projects/alwaldend.com:site_test <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  //projects/alwaldend.com/test/site:site_test
+</span></span><span style="display:flex;"><span>bazel_agent bazel test //projects/alwaldend.com:site_test
 </span></span><span style="display:flex;"><span>bazel_agent bazel run //projects/alwaldend.com:site_serve
-</span></span></code></pre></div><p>The preview serves the local build at http://127.0.0.1:1313. The generated-site
-test checks internal links, image paths, fragment targets, duplicate IDs, and
-selected page markup. It does not check external destination availability.</p>
+</span></span></code></pre></div><p>The preview serves the local build at http://127.0.0.1:1313.</p>
 <h2 id="print-c7bd85f7dbde24195ea786f2a5e0e45f-blog">Blog<a class="td-heading-self-link" href="#print-c7bd85f7dbde24195ea786f2a5e0e45f-blog" aria-label="Heading self-link"></a></h2><p>The site publishes dated articles from <code>content/blog</code>. Each post is its own
 Bazel package with an <code>index.md</code> and a <code>BUILD.bazel</code> declaring its
 <code>docs_filegroup</code>; the section package aggregates them. The section publishes
@@ -270,8 +267,7 @@ draft state alone withholds a post from the deployed site.</p>
 <code>README.md</code> and <code>_index.md</code> links resolve to generated pages; packaged resources
 use their published URLs, including when embedded in print pages. Link files
 that exist only in the repository with explicit GitHub URLs. Unknown internal
-destinations remain unchanged and are reported by the generated-site test;
-they are not silently redirected to GitHub.</p>
+destinations remain unchanged rather than being silently redirected to GitHub.</p>
 <p>Print pages scope IDs and their fragment and control references to each source
 document, keeping anchors distinct when documents are combined.</p>
 <h2 id="print-c7bd85f7dbde24195ea786f2a5e0e45f-deployment">Deployment<a class="td-heading-self-link" href="#print-c7bd85f7dbde24195ea786f2a5e0e45f-deployment" aria-label="Heading self-link"></a></h2><ul>
@@ -384,7 +380,7 @@ the page title is the fallback.</p>
         data-bs-target="#print-0a97c32bc24a9b84410b32b0ce316aa2-release-83657c70317637f5217b9aeefa3af582-list-0_collapse"
         aria-expanded="false"
         aria-controls="print-0a97c32bc24a9b84410b32b0ce316aa2-release-83657c70317637f5217b9aeefa3af582-list-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">104</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">110</span>
 </button>
     </h3>
     <div
@@ -394,6 +390,503 @@ the page title is the fallback.</p>
       data-bs-parent="#print-0a97c32bc24a9b84410b32b0ce316aa2-release-83657c70317637f5217b9aeefa3af582-list-0_accordion"
     >
       <div class="accordion-body"><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Publish the DNS evolution article and update blog workflow</p>
+<p>Publish the author&rsquo;s account of moving DNS management from a central
+DNSControl configuration to project-owned Terraform records, with examples
+and directory layouts. Include the author&rsquo;s clarifications and approved
+wording corrections, and remove the draft flag for publication.</p>
+<p>Tag both blog posts using existing site topics. Require relevant tags and
+iterative reviews in the blog skill: report findings before validation and
+delivery, repeat after changes, and finish delivery when the review is clear
+or the author ends it. Cover both behaviors in the existing evaluation cases.</p>
+<p>Validation: local and release Hugo builds, site_test, skill validation and
+offline Promptfoo configuration test, skill discovery, Buildifier, repository
+quality, and semantic lint for the affected blog and skill packages.</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">35042f702505732d8122c875bd10e04acd922ff0</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQNBVZrJuMjuQt5BNo5cGQ1JzPsUvMQK/wBRvOhzXEbmlQb5LHEwJt9JVY72f8rq0Ym
+nIGyZ2QzyWOGofXTXmHQQ=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Deploy project DNS through Terraform modules</p>
+<p>Move DNS ownership into each project’s Terraform state using shared modules.
+Load dnsconfig.json files at runtime, reject conflicting domain ownership,
+and render their records as a table. Add missing project AppRoles and scoped
+DNS policies, and document grouping related Terraform resources in modules.</p>
+<p>Deploy all 45 owners sequentially: adopt 155 existing records and create 13
+missing OpenHands records. Preserve every pre-existing provider record and
+verify no-op follow-up plans and DNS answers. Add DNS-scoped plan/show/apply
+wrappers with a saved-plan guard for roots that also manage services.
+Allow bounded aggregate path inventories large enough to deliver this migration
+while retaining truncation refusal in the delivery tool.</p>
+<p>Validate runtime ownership, provider imports and preservation with isolated
+fixtures, Terraform formatting, wrapper builds, repository quality checks,
+semantic lint, and project documentation/specification builds.</p>
+<p>OpenSpec-Change: infra/dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">cc4f205bf73b49364ba3bd441b7f485b9872e742</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Record the site hostname decision for alwaldend.com</p>
+<p>Record the evaluated options for the apex site&rsquo;s landing, documentation, and
+blog sections: one hostname with one build (retained), separate hostnames
+served from separate GitHub Pages repositories, and one hostname with
+independently built and merged section outputs. The generated documentation
+tree is a projection of the repository&rsquo;s own directory structure across 471
+packaged README files, and an earlier commit already combined the misc, docs,
+and projects sites, so splitting the hostnames would move where the projection
+is served without decoupling it from its source.</p>
+<p>Separate the shared-build failure coupling from the hostname question: the
+recorded fallback keeps one published tree while splitting the build graph, if
+panicking on any packaged README warning starts blocking delivery.</p>
+<p>Record the search-engine evidence from primary sources. Google&rsquo;s
+crawling-and-indexing FAQ states that from an indexing and ranking perspective
+Google has no preference, and the office-hours answer recorded here addresses
+the same question. The record explicitly does not claim that subdirectories
+preserve link equity that a subdomain would forfeit, and it cites a third
+vendor video by title only because its spoken content could not be retrieved.</p>
+<p>This change adds no site behavior, build target, configuration, DNS record, or
+Terraform resource.</p>
+<p>OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-09-12-record-site-hostname-decision</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">225d508ce3472498b960cdf5b95594750402e2ed</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Fix Android review feedback</p>
+<p>Add a shared <code>androidPlugins</code> version catalog so both Android apps declare the
+AGP, Kotlin, Compose, and protobuf plugin versions once, and derive their
+versions from it instead of duplicating literals per root Gradle file.</p>
+<p>Align the launcher and ingester app versions with the repository versioning
+contract: development builds use <code>0.0.0-dev</code> with <code>versionCode</code> 1 in both the
+Gradle default config and the Bazel <code>manifest_values</code>.</p>
+<p>Ignore the whole materialized <code>.agents/skills</code> directory in Prettier because
+every entry is either a source-tree symlink or a byte-pinned external archive
+copy.</p>
+<p>Apply the ingester&rsquo;s themed surface background to the main content surface so
+the status bar area follows the system theme, not a default white surface.</p>
+<p>Token: z-ai-glm-flash-latest</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">eca2feb173b09d58d466a82000e8152bd2e664d0</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Add a blog section, a shared site canvas, and standalone nested modules</p>
+<p>Publish the Docsy blog section on the apex site with its content package,
+navigation entry, RSS feed, and draft-safe release flags. The release build
+excludes drafts so a post stays unpublished from its front matter alone.</p>
+<p>Move the reusable project-site procedure to a generic repo-hugo skill that
+also documents the Hugo theme layout, and add an alwaldend-blog skill that
+publishes supplied content verbatim and reviews it afterward. Enforce one
+implementation and one copy of each fact in the root policy, and refine the
+skill locality rule to prefer local ownership only when it genuinely fits.</p>
+<p>Share one black theme between the landing shell and the apex site from a
+single SCSS source, and let docs_filegroup preserve source paths so packages
+holding identically named files stop colliding.</p>
+<p>Repair every nested Bazel workspace: rules_openspec declared six unused,
+versionless sibling dependencies whose local_path_override entries never
+applied outside the root module, which broke standalone resolution for all
+nested modules. Drop those dependencies, ignore the two nested module
+directories that lacked an ignore entry, add the missing build_test coverage,
+and extend the full-repository check to all twelve nested workspaces.</p>
+<p>OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-09-12-add-docsy-blog-section
+OpenSpec-Change: projects/hugo_landing/openspec/changes/archive/2026-09-12-shared-site-canvas
+OpenSpec-Change: projects/rules_docs/openspec/changes/archive/2026-09-12-nested-spec-path-collision
+OpenSpec-Change: infra/src/openspec/changes/archive/2026-09-12-fix-nested-workspace-module-resolution</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">832ae5a7f05764796b75ee3b8e7671315a225551</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Remove the goal component, the agent control tower, and the site link test</p>
+<p>Delete projects/goal entirely: its CLI, API package, filesystem store, landing
+site, disabled skill sources, documentation pages, diagrams, Bazel targets,
+project-registry entry, and committed DNS record. The goal tool was deprecated
+by the 2026-09-08 migration to the pinned OpenSpec CLI, which is in active use,
+and the repository policy already told agents not to create goal records.</p>
+<p>Delete tools/agents entirely. It carried repository-internal control contracts,
+seven catalog compilers, an offline context capsule, and typed
+admission/control/plan/evidence libraries. The goal tool was their only
+consumer; no CI or AGENTS.md invocation read the catalogs. Relocate the generic
+skill-discovery declaration to .agents/BUILD.bazel beside the directory it
+generates, and repoint the 29 skill visibility labels from
+//tools/agents:skill_discovery to //.agents:skill_discovery. Skill content,
+link targets, and the 27 existing symlinks are unchanged. A BUILD.bazel inside
+.agents/skills/ was rejected because the generated updater rejects a
+non-symlink there.</p>
+<p>Reduce projects/agents to its skills: delete the architecture, current-state,
+and roadmap documents and the docs package they fed. Documentation describing
+agent-system composition now belongs with the component that owns the behavior.</p>
+<p>Remove //projects/alwaldend.com/test/site:site_test. It has never passed since
+894494f4: it fails on unmodified HEAD with 330 missing-file findings because it
+treats repository source paths and the published URL space as one namespace.
+Repository-only targets such as BUILD.bazel and playbook YAML are deliberately
+not packaged, so those links can never resolve in generated output.</p>
+<p>Record the removals as three OpenSpec changes: remove-deprecated-goal-component
+and remove-generated-site-link-test under infra/src and projects/alwaldend.com,
+and remove-goal-tool-and-contract-tower under projects/agents.</p>
+<p>The removed bytes remain retrievable from git history at the parent of this
+commit; the changes neither copy nor restate them.</p>
+<p>Address review feedback before publication:</p>
+<p>Point the hugo_landing site example at the surviving //projects/agents:docs
+target. The copied example referenced //projects/agents/docs:docs, which this
+change deletes, so the snippet failed label resolution.</p>
+<p>Point the new specification links at their real paths. The repository change
+referenced migration.md one directory too shallow, and the Reimu continuation
+requirement referenced the process contract from beneath the change directory
+instead of the project root; neither path existed.</p>
+<p>Rewrite projects/renders/assets/reimu_fumo/PROCESS.md so its required stage
+gates no longer depend on the removed goal tool. That contract was the
+authoritative process for the still-open Reimu work, and it required goal-tool
+checkpoints, portable goal plans, and goal state to start, repair, reset, and
+close attempts. Those mechanics now record into the project&rsquo;s OpenSpec change
+and its durable evidence, so every gate stays executable. Acceptance criteria
+and the blocked continuation state are unchanged. The continuation requirement
+is recorded in the change spec and its rationale in the change design.</p>
+<p>OpenSpec-Change: infra/src/openspec/changes/remove-deprecated-goal-component
+OpenSpec-Change: projects/agents/openspec/changes/remove-goal-tool-and-contract-tower
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/remove-generated-site-link-test
+OpenSpec-Change: projects/renders/openspec/changes/reimu-fumo-finish</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">fe25efac8f1a75a7325d426c31fb19d3d5848737</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
           <li class="list-group-item my-auto">
             <p>Simplify OpenSpec workspace globs</p>
 <p>Collapse OpenSpec source globs to specs and changes, drop redundant
@@ -8670,7 +9163,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
         data-bs-target="#print-83657c70317637f5217b9aeefa3af582-release-83657c70317637f5217b9aeefa3af582-page-0_collapse"
         aria-expanded="true"
         aria-controls="print-83657c70317637f5217b9aeefa3af582-release-83657c70317637f5217b9aeefa3af582-page-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">104</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">110</span>
 </button>
     </h3>
     <div
@@ -8680,6 +9173,503 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
       data-bs-parent="#print-83657c70317637f5217b9aeefa3af582-release-83657c70317637f5217b9aeefa3af582-page-0_accordion"
     >
       <div class="accordion-body"><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Publish the DNS evolution article and update blog workflow</p>
+<p>Publish the author&rsquo;s account of moving DNS management from a central
+DNSControl configuration to project-owned Terraform records, with examples
+and directory layouts. Include the author&rsquo;s clarifications and approved
+wording corrections, and remove the draft flag for publication.</p>
+<p>Tag both blog posts using existing site topics. Require relevant tags and
+iterative reviews in the blog skill: report findings before validation and
+delivery, repeat after changes, and finish delivery when the review is clear
+or the author ends it. Cover both behaviors in the existing evaluation cases.</p>
+<p>Validation: local and release Hugo builds, site_test, skill validation and
+offline Promptfoo configuration test, skill discovery, Buildifier, repository
+quality, and semantic lint for the affected blog and skill packages.</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">35042f702505732d8122c875bd10e04acd922ff0</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQNBVZrJuMjuQt5BNo5cGQ1JzPsUvMQK/wBRvOhzXEbmlQb5LHEwJt9JVY72f8rq0Ym
+nIGyZ2QzyWOGofXTXmHQQ=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Deploy project DNS through Terraform modules</p>
+<p>Move DNS ownership into each project’s Terraform state using shared modules.
+Load dnsconfig.json files at runtime, reject conflicting domain ownership,
+and render their records as a table. Add missing project AppRoles and scoped
+DNS policies, and document grouping related Terraform resources in modules.</p>
+<p>Deploy all 45 owners sequentially: adopt 155 existing records and create 13
+missing OpenHands records. Preserve every pre-existing provider record and
+verify no-op follow-up plans and DNS answers. Add DNS-scoped plan/show/apply
+wrappers with a saved-plan guard for roots that also manage services.
+Allow bounded aggregate path inventories large enough to deliver this migration
+while retaining truncation refusal in the delivery tool.</p>
+<p>Validate runtime ownership, provider imports and preservation with isolated
+fixtures, Terraform formatting, wrapper builds, repository quality checks,
+semantic lint, and project documentation/specification builds.</p>
+<p>OpenSpec-Change: infra/dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">cc4f205bf73b49364ba3bd441b7f485b9872e742</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Record the site hostname decision for alwaldend.com</p>
+<p>Record the evaluated options for the apex site&rsquo;s landing, documentation, and
+blog sections: one hostname with one build (retained), separate hostnames
+served from separate GitHub Pages repositories, and one hostname with
+independently built and merged section outputs. The generated documentation
+tree is a projection of the repository&rsquo;s own directory structure across 471
+packaged README files, and an earlier commit already combined the misc, docs,
+and projects sites, so splitting the hostnames would move where the projection
+is served without decoupling it from its source.</p>
+<p>Separate the shared-build failure coupling from the hostname question: the
+recorded fallback keeps one published tree while splitting the build graph, if
+panicking on any packaged README warning starts blocking delivery.</p>
+<p>Record the search-engine evidence from primary sources. Google&rsquo;s
+crawling-and-indexing FAQ states that from an indexing and ranking perspective
+Google has no preference, and the office-hours answer recorded here addresses
+the same question. The record explicitly does not claim that subdirectories
+preserve link equity that a subdomain would forfeit, and it cites a third
+vendor video by title only because its spoken content could not be retrieved.</p>
+<p>This change adds no site behavior, build target, configuration, DNS record, or
+Terraform resource.</p>
+<p>OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-09-12-record-site-hostname-decision</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">225d508ce3472498b960cdf5b95594750402e2ed</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Fix Android review feedback</p>
+<p>Add a shared <code>androidPlugins</code> version catalog so both Android apps declare the
+AGP, Kotlin, Compose, and protobuf plugin versions once, and derive their
+versions from it instead of duplicating literals per root Gradle file.</p>
+<p>Align the launcher and ingester app versions with the repository versioning
+contract: development builds use <code>0.0.0-dev</code> with <code>versionCode</code> 1 in both the
+Gradle default config and the Bazel <code>manifest_values</code>.</p>
+<p>Ignore the whole materialized <code>.agents/skills</code> directory in Prettier because
+every entry is either a source-tree symlink or a byte-pinned external archive
+copy.</p>
+<p>Apply the ingester&rsquo;s themed surface background to the main content surface so
+the status bar area follows the system theme, not a default white surface.</p>
+<p>Token: z-ai-glm-flash-latest</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">eca2feb173b09d58d466a82000e8152bd2e664d0</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Add a blog section, a shared site canvas, and standalone nested modules</p>
+<p>Publish the Docsy blog section on the apex site with its content package,
+navigation entry, RSS feed, and draft-safe release flags. The release build
+excludes drafts so a post stays unpublished from its front matter alone.</p>
+<p>Move the reusable project-site procedure to a generic repo-hugo skill that
+also documents the Hugo theme layout, and add an alwaldend-blog skill that
+publishes supplied content verbatim and reviews it afterward. Enforce one
+implementation and one copy of each fact in the root policy, and refine the
+skill locality rule to prefer local ownership only when it genuinely fits.</p>
+<p>Share one black theme between the landing shell and the apex site from a
+single SCSS source, and let docs_filegroup preserve source paths so packages
+holding identically named files stop colliding.</p>
+<p>Repair every nested Bazel workspace: rules_openspec declared six unused,
+versionless sibling dependencies whose local_path_override entries never
+applied outside the root module, which broke standalone resolution for all
+nested modules. Drop those dependencies, ignore the two nested module
+directories that lacked an ignore entry, add the missing build_test coverage,
+and extend the full-repository check to all twelve nested workspaces.</p>
+<p>OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-09-12-add-docsy-blog-section
+OpenSpec-Change: projects/hugo_landing/openspec/changes/archive/2026-09-12-shared-site-canvas
+OpenSpec-Change: projects/rules_docs/openspec/changes/archive/2026-09-12-nested-spec-path-collision
+OpenSpec-Change: infra/src/openspec/changes/archive/2026-09-12-fix-nested-workspace-module-resolution</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">832ae5a7f05764796b75ee3b8e7671315a225551</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Remove the goal component, the agent control tower, and the site link test</p>
+<p>Delete projects/goal entirely: its CLI, API package, filesystem store, landing
+site, disabled skill sources, documentation pages, diagrams, Bazel targets,
+project-registry entry, and committed DNS record. The goal tool was deprecated
+by the 2026-09-08 migration to the pinned OpenSpec CLI, which is in active use,
+and the repository policy already told agents not to create goal records.</p>
+<p>Delete tools/agents entirely. It carried repository-internal control contracts,
+seven catalog compilers, an offline context capsule, and typed
+admission/control/plan/evidence libraries. The goal tool was their only
+consumer; no CI or AGENTS.md invocation read the catalogs. Relocate the generic
+skill-discovery declaration to .agents/BUILD.bazel beside the directory it
+generates, and repoint the 29 skill visibility labels from
+//tools/agents:skill_discovery to //.agents:skill_discovery. Skill content,
+link targets, and the 27 existing symlinks are unchanged. A BUILD.bazel inside
+.agents/skills/ was rejected because the generated updater rejects a
+non-symlink there.</p>
+<p>Reduce projects/agents to its skills: delete the architecture, current-state,
+and roadmap documents and the docs package they fed. Documentation describing
+agent-system composition now belongs with the component that owns the behavior.</p>
+<p>Remove //projects/alwaldend.com/test/site:site_test. It has never passed since
+894494f4: it fails on unmodified HEAD with 330 missing-file findings because it
+treats repository source paths and the published URL space as one namespace.
+Repository-only targets such as BUILD.bazel and playbook YAML are deliberately
+not packaged, so those links can never resolve in generated output.</p>
+<p>Record the removals as three OpenSpec changes: remove-deprecated-goal-component
+and remove-generated-site-link-test under infra/src and projects/alwaldend.com,
+and remove-goal-tool-and-contract-tower under projects/agents.</p>
+<p>The removed bytes remain retrievable from git history at the parent of this
+commit; the changes neither copy nor restate them.</p>
+<p>Address review feedback before publication:</p>
+<p>Point the hugo_landing site example at the surviving //projects/agents:docs
+target. The copied example referenced //projects/agents/docs:docs, which this
+change deletes, so the snippet failed label resolution.</p>
+<p>Point the new specification links at their real paths. The repository change
+referenced migration.md one directory too shallow, and the Reimu continuation
+requirement referenced the process contract from beneath the change directory
+instead of the project root; neither path existed.</p>
+<p>Rewrite projects/renders/assets/reimu_fumo/PROCESS.md so its required stage
+gates no longer depend on the removed goal tool. That contract was the
+authoritative process for the still-open Reimu work, and it required goal-tool
+checkpoints, portable goal plans, and goal state to start, repair, reset, and
+close attempts. Those mechanics now record into the project&rsquo;s OpenSpec change
+and its durable evidence, so every gate stays executable. Acceptance criteria
+and the blocked continuation state are unchanged. The continuation requirement
+is recorded in the change spec and its rationale in the change design.</p>
+<p>OpenSpec-Change: infra/src/openspec/changes/remove-deprecated-goal-component
+OpenSpec-Change: projects/agents/openspec/changes/remove-goal-tool-and-contract-tower
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/remove-generated-site-link-test
+OpenSpec-Change: projects/renders/openspec/changes/reimu-fumo-finish</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">fe25efac8f1a75a7325d426c31fb19d3d5848737</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
           <li class="list-group-item my-auto">
             <p>Simplify OpenSpec workspace globs</p>
 <p>Collapse OpenSpec source globs to specs and changes, drop redundant
@@ -16933,7 +17923,27 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
     
 	<h1 id="pg-4b9333d9aa0d5ea6b80164629790df83">2 - Tf</h1>
     <div class="lead">Terraform</div>
-	
+	<p>This service stage consumes the <a href="../dnsconfig.json">project DNS declaration</a>
+through the <a href="/docs/projects/tf_modules/dns_records/global/">shared global DNS module</a>.
+The DNS workflow uses the project&rsquo;s AppRole, HTTP state backend, and Cloudflare
+credentials. This public-only module does not require RouterOS. Ordinary
+service commands retain their <code>tf=main</code> authentication, including PVE login.</p>
+<p>Operational commands require the project AppRole and Vault provider fields in
+the <a href="../../../infra/dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/cutover.md#prepare-the-owner">migration prerequisites</a>.
+<code>dns_enabled</code> defaults to <code>true</code> after verified adoption. Keep it enabled to
+retain existing records; disabling it would propose deletion. The zone input
+remains optional.</p>
+<p>The <code>dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> targets select only the DNS
+workflow in this same root and backend. They use <code>dns=1</code> to load DNS credentials
+without starting PVE login. Apply requires a reviewed saved plan file. Targeted
+DNS planning does not establish PVE or other service health.</p>
+<p>Follow the <a href="/docs/infra/dns/">DNS migration workflow</a> for continued
+reconciliation and recovery. The
+<a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">adoption record</a>
+contains the earlier blocked attempt and completed scoped DNS verification.</p>
+<p>Offline formatting is available through
+<code>//projects/alwaldend.com/tf:tf_tests.fmt_test</code>.</p>
+
 </div>
 
 

@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Host Bot">
 	<meta itemprop="description" content="host-bot.simeonwarren.users.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
-	<meta itemprop="wordCount" content="978">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="998">
 	<meta itemprop="keywords" content="Ansible,T3code,Traefik">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Host Bot">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -189,7 +189,34 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-e80c05316e82a2eeb8214df5e2dc13af">Ansible</a></li>
+<li>1: <a href="#pg-9035d64ba8b9ecebabdee908fca856e2"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-0602a8eef66b5449a7b3aff1c99e4201"></a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-e80c05316e82a2eeb8214df5e2dc13af">Ansible</a></li>
 
 
     
@@ -213,6 +240,9 @@ This is the multi-page printable view of this section.
       <p>Host Bot runs Traefik with mTLS in front of T3 Code. The host firewall blocks
 direct external access to T3 Code and accepts new connections only on SSH,
 HTTP, and HTTPS ports.</p>
+<p>The <a href="/docs/users/simeonwarren/host_bot/tf/">DNS Terraform package</a> uses the dedicated
+<code>src_users_simeonwarren_host_bot</code> AppRole through <code>dns_al</code>. Ansible retains
+its existing <code>al</code> configuration and <code>user_simeonwarren</code> authentication.</p>
 <p>T3 Code controls permissions per thread. Its <strong>Auto</strong> mode maps to Codex
 Auto-review. The managed Codex requirements allow read-only and <code>host-bot</code>
 permissions with on-request approvals, so threads cannot select <strong>Full
@@ -332,7 +362,110 @@ so those subprocesses do not inherit the credential.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-e80c05316e82a2eeb8214df5e2dc13af">1 - Ansible</h1>
+	<h1 id="pg-9035d64ba8b9ecebabdee908fca856e2">1 - </h1>
+    
+	<h1 id="print-fb62021ea833772ac61b140c388335e3-owned-dns-specification">owned-dns Specification<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-owned-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-fb62021ea833772ac61b140c388335e3-purpose">Purpose<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-purpose" aria-label="Heading self-link"></a></h2><p>Define Host Bot DNS management through the owner&rsquo;s <code>tf</code> root,
+including canonical declarations, scoped credentials, and offline source checks
+before adopting live records.</p>
+<h2 id="print-fb62021ea833772ac61b140c388335e3-requirements">Requirements<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-fb62021ea833772ac61b140c388335e3-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through
+the shared DNS Terraform module, preserving declared record identities and views.
+DNS resources SHALL default to disabled until the shared migration adopts them
+and SHALL retain enabled ownership after authorized adoption into the owner&rsquo;s
+state. Reconciliation of adopted records with unchanged declarations SHALL
+propose no record additions, changes, replacements, or deletions.</p>
+<h4 id="print-fb62021ea833772ac61b140c388335e3-scenario-inspect-the-preparatory-configuration">Scenario: Inspect the preparatory configuration<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-scenario-inspect-the-preparatory-configuration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the checked-in root is evaluated with default inputs before authorized
+adoption</li>
+<li><strong>THEN</strong> it reads this owner&rsquo;s declaration and disables managed DNS records</li>
+<li><strong>AND</strong> the package contains the module and declaration inputs</li>
+</ul>
+<h4 id="print-fb62021ea833772ac61b140c388335e3-scenario-inspect-adopted-source-defaults">Scenario: Inspect adopted source defaults<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-scenario-inspect-adopted-source-defaults" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the adopted host root is evaluated with its checked-in source defaults</li>
+<li><strong>THEN</strong> record ownership is enabled for the owner&rsquo;s declared records and views</li>
+<li><strong>AND</strong> the package retains the canonical declaration and shared module inputs</li>
+</ul>
+<h4 id="print-fb62021ea833772ac61b140c388335e3-scenario-reconcile-existing-dns-records">Scenario: Reconcile existing DNS records<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-scenario-reconcile-existing-dns-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the host root plans against its adopted state and unchanged declarations</li>
+<li><strong>THEN</strong> it proposes no record additions, changes, replacements, or deletions</li>
+<li><strong>AND</strong> records outside this owner&rsquo;s declarations remain unchanged</li>
+</ul>
+<h3 id="print-fb62021ea833772ac61b140c388335e3-requirement-scoped-dns-execution-and-offline-checks">Requirement: Scoped DNS execution and offline checks<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-requirement-scoped-dns-execution-and-offline-checks" aria-label="Heading self-link"></a></h3><p>The DNS wrapper SHALL select <code>src_users_simeonwarren_host_bot</code> through the repository AL flow and keep
+secret values in injected variables. DNS injection SHALL select the root&rsquo;s existing
+Terraform stage label. Real DNS credentials and Vault policy grants SHALL be
+prerequisites for operational Terraform calls. RouterOS DNS credentials SHALL be isolated
+from unrelated RouterOS resources. The package SHALL expose a format test that
+does not authenticate to Vault or contact DNS providers.</p>
+<h4 id="print-fb62021ea833772ac61b140c388335e3-scenario-validate-the-terraform-source">Scenario: Validate the Terraform source<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-scenario-validate-the-terraform-source" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the package format test executes</li>
+<li><strong>THEN</strong> it checks the packaged Terraform configuration without live credentials</li>
+<li><strong>AND</strong> existing non-DNS authentication and backend paths remain unchanged</li>
+</ul>
+<h4 id="print-fb62021ea833772ac61b140c388335e3-scenario-prepare-an-operational-terraform-invocation">Scenario: Prepare an operational Terraform invocation<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-scenario-prepare-an-operational-terraform-invocation" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the wrapper selects its Terraform stage labels</li>
+<li><strong>THEN</strong> it selects DNS credential injection through the owner AppRole</li>
+<li><strong>AND</strong> disabled DNS resources do not imply offline provider configuration</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0602a8eef66b5449a7b3aff1c99e4201">2 - </h1>
+    
+	<h1 id="print-c881651d61a7b36b2a0dc6b851a56d3a-dns-terraform">DNS Terraform<a class="td-heading-self-link" href="#print-c881651d61a7b36b2a0dc6b851a56d3a-dns-terraform" aria-label="Heading self-link"></a></h1><p>This root packages the owner&rsquo;s canonical <a href="../dnsconfig.json">DNS declarations</a>
+through the shared DNS module and keeps state in the DNS AppRole&rsquo;s Vault HTTP
+backend. It uses the dedicated <code>dns_al</code> configuration; Ansible retains its
+separate <code>al</code> configuration and <code>user_simeonwarren</code> authority.
+The root contains DNS resources only. <code>dns_enabled</code> defaults to <code>true</code> after
+verified adoption. Keep it enabled to retain records; disabling it would
+propose deletion.</p>
+<p>The <a href="/docs/infra/dns/">DNS migration procedure</a> owns
+credential provisioning, reconciliation, and recovery. The <a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">adoption record</a>
+contains import and verification evidence. Use the normal explicit
+<code>//users/simeonwarren/host_bot/tf:tf</code> wrappers for DNS operations and the
+<code>//users/simeonwarren/host_bot/tf:tf_tests.fmt_test</code> target for offline source
+validation.</p>
+<p>Operational Terraform calls require the DNS AppRole policy grants and credential
+fields described by the migration procedure. Provider configuration and
+authentication require real credentials and live access.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e80c05316e82a2eeb8214df5e2dc13af">3 - Ansible</h1>
     <div class="lead">Host Bot Traefik configuration</div>
 	
 </div>

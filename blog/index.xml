@@ -12,6 +12,13 @@
 		
 			<atom:link href="https://alwaldend.com/blog/index.xml" rel="self" type="application/rss+xml" />
 			<item>
+				<title>DNS management in a monorepo</title>
+				<link>https://alwaldend.com/blog/dns-management-in-a-monorepo/</link>
+				<pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/blog/dns-management-in-a-monorepo/</guid>
+				<description>&lt;p&gt;Buying a domain is one of the best purchases you can make because they are very cheap and owning one offers you more independence - you can have your email not tied to a specific provider, you can have a site, etc.&lt;/p&gt;&#xA;&lt;p&gt;After I bought a domain, I needed a way to manage DNS of that domain. Since using the registrar&amp;rsquo;s UI to do that is not the best idea, I searched for an IaC tool that can do that for me - I settled on &lt;a href=&#34;https://dnscontrol.org/&#34;&gt;DNSControl&lt;/a&gt;.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>Slop without a clear goal</title>
 				<link>https://alwaldend.com/blog/slop-without-a-clear-goal/</link>
 				<pubDate>Sat, 12 Sep 2026 00:00:00 +0000</pubDate>

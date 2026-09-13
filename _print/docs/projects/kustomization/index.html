@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="Kustomization">
 	<meta itemprop="description" content="Kubernetes resources for Flux, Traefik, and cert-manager">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
 	<meta itemprop="wordCount" content="19">
 	<meta itemprop="keywords" content="K8s,Flux">
 	<meta name="twitter:card" content="summary">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -189,7 +189,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-1666783e69b8a080563d52c1368b0d7b"></a></li>
+<li>1: <a href="#pg-1932435aaa76239f3f20ef3770a9b110"></a></li>
 
 
     
@@ -197,7 +197,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-80b951100af7b0bfe6e85972b4d7c244">Releases</a></li>
+<li>2: <a href="#pg-0cf7fa7f9192031ff3f37c466b55049d"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-80b951100af7b0bfe6e85972b4d7c244">Releases</a></li>
 
 
     
@@ -212,10 +220,29 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.1: <a href="#pg-0339c5af163875920ed3058e337bc9b0">head</a></li>
+<li>3.1: <a href="#pg-0339c5af163875920ed3058e337bc9b0">head</a></li>
 
 
     
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-b7d8fe59d559ead9a020f62a9a0d6b1d">Terraform DNS</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
   
 
     </ul>
@@ -252,37 +279,87 @@ and cert-manager. It is still in progress.</p>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-1666783e69b8a080563d52c1368b0d7b">1 - </h1>
+	<h1 id="pg-1932435aaa76239f3f20ef3770a9b110">1 - </h1>
     
-	<h1 id="print-13b8cd3db89aea8e91a34d7c28fecf86-kustomization-specification">Kustomization Specification<a class="td-heading-self-link" href="#print-13b8cd3db89aea8e91a34d7c28fecf86-kustomization-specification" aria-label="Heading self-link"></a></h1><h2 id="print-13b8cd3db89aea8e91a34d7c28fecf86-purpose">Purpose<a class="td-heading-self-link" href="#print-13b8cd3db89aea8e91a34d7c28fecf86-purpose" aria-label="Heading self-link"></a></h2><p>Provide in-progress Kubernetes resource definitions for Flux, Traefik, and
+	<h1 id="print-4a11f616705fadfa0cb9fb611d2db839-project-dns-specification">project-dns Specification<a class="td-heading-self-link" href="#print-4a11f616705fadfa0cb9fb611d2db839-project-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-4a11f616705fadfa0cb9fb611d2db839-purpose">Purpose<a class="td-heading-self-link" href="#print-4a11f616705fadfa0cb9fb611d2db839-purpose" aria-label="Heading self-link"></a></h2><p>Provide this project&rsquo;s independently packaged Terraform DNS stage while preserving
+its canonical record declarations and explicit migration activation boundary.</p>
+<h2 id="print-4a11f616705fadfa0cb9fb611d2db839-requirements">Requirements<a class="td-heading-self-link" href="#print-4a11f616705fadfa0cb9fb611d2db839-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-4a11f616705fadfa0cb9fb611d2db839-requirement-project-owned-dns-stage">Requirement: Project-owned DNS stage<a class="td-heading-self-link" href="#print-4a11f616705fadfa0cb9fb611d2db839-requirement-project-owned-dns-stage" aria-label="Heading self-link"></a></h3><p>The project SHALL expose a Terraform stage consuming its existing DNS declaration
+and using its own Vault authentication and Terraform state.</p>
+<h4 id="print-4a11f616705fadfa0cb9fb611d2db839-scenario-package-the-project-stage">Scenario: Package the project stage<a class="td-heading-self-link" href="#print-4a11f616705fadfa0cb9fb611d2db839-scenario-package-the-project-stage" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the project&rsquo;s Terraform command is built</li>
+<li><strong>THEN</strong> its runfiles include the project declaration, shared DNS module, and
+the configured authentication, state, and provider injection plugins.</li>
+</ul>
+<h3 id="print-4a11f616705fadfa0cb9fb611d2db839-requirement-explicit-ownership-activation">Requirement: Explicit ownership activation<a class="td-heading-self-link" href="#print-4a11f616705fadfa0cb9fb611d2db839-requirement-explicit-ownership-activation" aria-label="Heading self-link"></a></h3><p>The DNS stage SHALL declare no managed records before explicit activation for
+authorized adoption and SHALL retain enabled ownership afterward. Its
+public-only integration SHALL require only Cloudflare, and operational commands
+SHALL select the existing stage&rsquo;s provider injection.</p>
+<h4 id="print-4a11f616705fadfa0cb9fb611d2db839-scenario-inspect-the-prepared-source-defaults">Scenario: Inspect the prepared source defaults<a class="td-heading-self-link" href="#print-4a11f616705fadfa0cb9fb611d2db839-scenario-inspect-the-prepared-source-defaults" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the project&rsquo;s prepared stage has not yet been activated for adoption</li>
+<li><strong>THEN</strong> record ownership is disabled and the zone input is optional, while
+operational provider setup and authentication require their Vault prerequisites.</li>
+</ul>
+<h4 id="print-4a11f616705fadfa0cb9fb611d2db839-scenario-adopt-existing-public-dns-records">Scenario: Adopt existing public DNS records<a class="td-heading-self-link" href="#print-4a11f616705fadfa0cb9fb611d2db839-scenario-adopt-existing-public-dns-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an authorized adoption freezes the old central writers and enables
+this project&rsquo;s record ownership</li>
+<li><strong>THEN</strong> the stage uses its project state and Cloudflare configuration to
+import existing records without a RouterOS dependency.</li>
+</ul>
+<h4 id="print-4a11f616705fadfa0cb9fb611d2db839-scenario-inspect-adopted-source-defaults">Scenario: Inspect adopted source defaults<a class="td-heading-self-link" href="#print-4a11f616705fadfa0cb9fb611d2db839-scenario-inspect-adopted-source-defaults" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the adopted project stage uses its checked-in source defaults</li>
+<li><strong>THEN</strong> record ownership is enabled and the zone input remains optional.</li>
+</ul>
+<h4 id="print-4a11f616705fadfa0cb9fb611d2db839-scenario-reconcile-existing-public-dns-records">Scenario: Reconcile existing public DNS records<a class="td-heading-self-link" href="#print-4a11f616705fadfa0cb9fb611d2db839-scenario-reconcile-existing-public-dns-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the project plans against its adopted state and unchanged declarations</li>
+<li><strong>THEN</strong> it proposes no record additions, changes, replacements, or deletions
+and does not require a RouterOS provider.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0cf7fa7f9192031ff3f37c466b55049d">2 - </h1>
+    
+	<h1 id="print-6320b40935466d9dd1c215f8f0e3ed8c-kustomization-specification">Kustomization Specification<a class="td-heading-self-link" href="#print-6320b40935466d9dd1c215f8f0e3ed8c-kustomization-specification" aria-label="Heading self-link"></a></h1><h2 id="print-6320b40935466d9dd1c215f8f0e3ed8c-purpose">Purpose<a class="td-heading-self-link" href="#print-6320b40935466d9dd1c215f8f0e3ed8c-purpose" aria-label="Heading self-link"></a></h2><p>Provide in-progress Kubernetes resource definitions for Flux, Traefik, and
 cert-manager. This baseline records declared resources at revision
 <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>, observed on 2026-09-08. It does not
 assert successful rendering, reconciliation, or a deployed cluster state.</p>
-<p>Sources: <a href="/docs/">project README</a>,
+<p>Sources: <a href="/docs/projects/kustomization/">project README</a>,
 <a href="../../../flux-repo/flux-git-src.yaml">Flux source</a>,
 <a href="../../../traefik/flux/release.yaml">Traefik release</a>,
 <a href="../../../traefik/remote/kustomization.yaml">Traefik remote resources</a>,
 and <a href="../../../cert-manager/flux/release.yaml">cert-manager release</a>.</p>
-<h2 id="print-13b8cd3db89aea8e91a34d7c28fecf86-requirements">Requirements<a class="td-heading-self-link" href="#print-13b8cd3db89aea8e91a34d7c28fecf86-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-13b8cd3db89aea8e91a34d7c28fecf86-requirement-scoped-flux-repository-source">Requirement: Scoped Flux repository source<a class="td-heading-self-link" href="#print-13b8cd3db89aea8e91a34d7c28fecf86-requirement-scoped-flux-repository-source" aria-label="Heading self-link"></a></h3><p>The Flux GitRepository declaration SHALL select the repository&rsquo;s <code>master</code>
+<h2 id="print-6320b40935466d9dd1c215f8f0e3ed8c-requirements">Requirements<a class="td-heading-self-link" href="#print-6320b40935466d9dd1c215f8f0e3ed8c-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-6320b40935466d9dd1c215f8f0e3ed8c-requirement-scoped-flux-repository-source">Requirement: Scoped Flux repository source<a class="td-heading-self-link" href="#print-6320b40935466d9dd1c215f8f0e3ed8c-requirement-scoped-flux-repository-source" aria-label="Heading self-link"></a></h3><p>The Flux GitRepository declaration SHALL select the repository&rsquo;s <code>master</code>
 branch, refer to the <code>flux-git-src</code> credential secret, and include only <code>infra</code>
 and <code>projects/kustomization</code> from the repository through its ignore rules.</p>
-<h4 id="print-13b8cd3db89aea8e91a34d7c28fecf86-scenario-inspect-repository-source-scope">Scenario: Inspect repository source scope<a class="td-heading-self-link" href="#print-13b8cd3db89aea8e91a34d7c28fecf86-scenario-inspect-repository-source-scope" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-6320b40935466d9dd1c215f8f0e3ed8c-scenario-inspect-repository-source-scope">Scenario: Inspect repository source scope<a class="td-heading-self-link" href="#print-6320b40935466d9dd1c215f8f0e3ed8c-scenario-inspect-repository-source-scope" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the checked-in Flux GitRepository is inspected</li>
 <li><strong>THEN</strong> its branch, secret reference, and inclusion paths SHALL match the
 declared source scope.</li>
 </ul>
-<h3 id="print-13b8cd3db89aea8e91a34d7c28fecf86-requirement-traefik-gateway-api-configuration">Requirement: Traefik Gateway API configuration<a class="td-heading-self-link" href="#print-13b8cd3db89aea8e91a34d7c28fecf86-requirement-traefik-gateway-api-configuration" aria-label="Heading self-link"></a></h3><p>The Traefik definitions SHALL declare an OCI chart source and HelmRelease that
+<h3 id="print-6320b40935466d9dd1c215f8f0e3ed8c-requirement-traefik-gateway-api-configuration">Requirement: Traefik Gateway API configuration<a class="td-heading-self-link" href="#print-6320b40935466d9dd1c215f8f0e3ed8c-requirement-traefik-gateway-api-configuration" aria-label="Heading self-link"></a></h3><p>The Traefik definitions SHALL declare an OCI chart source and HelmRelease that
 enable the Kubernetes Gateway provider, disable the Kubernetes Ingress provider,
 and configure HTTP redirection to HTTPS with a named TLS certificate secret.</p>
-<h4 id="print-13b8cd3db89aea8e91a34d7c28fecf86-scenario-inspect-gateway-configuration">Scenario: Inspect gateway configuration<a class="td-heading-self-link" href="#print-13b8cd3db89aea8e91a34d7c28fecf86-scenario-inspect-gateway-configuration" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-6320b40935466d9dd1c215f8f0e3ed8c-scenario-inspect-gateway-configuration">Scenario: Inspect gateway configuration<a class="td-heading-self-link" href="#print-6320b40935466d9dd1c215f8f0e3ed8c-scenario-inspect-gateway-configuration" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the Traefik HelmRelease values are inspected</li>
 <li><strong>THEN</strong> they SHALL enable HTTP and HTTPS gateway listeners and reference
 <code>traefik-gateway-websecure-tls</code> for HTTPS termination.</li>
 </ul>
-<h3 id="print-13b8cd3db89aea8e91a34d7c28fecf86-requirement-cert-manager-reconciliation-configuration">Requirement: cert-manager reconciliation configuration<a class="td-heading-self-link" href="#print-13b8cd3db89aea8e91a34d7c28fecf86-requirement-cert-manager-reconciliation-configuration" aria-label="Heading self-link"></a></h3><p>The cert-manager definitions SHALL declare an OCI chart source and HelmRelease
+<h3 id="print-6320b40935466d9dd1c215f8f0e3ed8c-requirement-cert-manager-reconciliation-configuration">Requirement: cert-manager reconciliation configuration<a class="td-heading-self-link" href="#print-6320b40935466d9dd1c215f8f0e3ed8c-requirement-cert-manager-reconciliation-configuration" aria-label="Heading self-link"></a></h3><p>The cert-manager definitions SHALL declare an OCI chart source and HelmRelease
 with Gateway API support, CRD installation, Helm tests, and drift detection
 enabled.</p>
-<h4 id="print-13b8cd3db89aea8e91a34d7c28fecf86-scenario-inspect-certificate-controller-configuration">Scenario: Inspect certificate controller configuration<a class="td-heading-self-link" href="#print-13b8cd3db89aea8e91a34d7c28fecf86-scenario-inspect-certificate-controller-configuration" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-6320b40935466d9dd1c215f8f0e3ed8c-scenario-inspect-certificate-controller-configuration">Scenario: Inspect certificate controller configuration<a class="td-heading-self-link" href="#print-6320b40935466d9dd1c215f8f0e3ed8c-scenario-inspect-certificate-controller-configuration" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the cert-manager HelmRelease is inspected</li>
 <li><strong>THEN</strong> its values SHALL enable Gateway API support and CRDs, and its release
 settings SHALL enable tests and drift detection.</li>
@@ -302,7 +379,7 @@ settings SHALL enable tests and drift detection.</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-80b951100af7b0bfe6e85972b4d7c244">2 - Releases</h1>
+	<h1 id="pg-80b951100af7b0bfe6e85972b4d7c244">3 - Releases</h1>
     <div class="lead">Releases</div>
 	
 
@@ -326,7 +403,7 @@ settings SHALL enable tests and drift detection.</li>
         data-bs-target="#print-0926f4a9c0c689981d491355e570dc61-release-f0b0c73438bbe0cda5c1058ee9990fcf-list-0_collapse"
         aria-expanded="false"
         aria-controls="print-0926f4a9c0c689981d491355e570dc61-release-f0b0c73438bbe0cda5c1058ee9990fcf-list-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">15</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">16</span>
 </button>
     </h3>
     <div
@@ -336,6 +413,78 @@ settings SHALL enable tests and drift detection.</li>
       data-bs-parent="#print-0926f4a9c0c689981d491355e570dc61-release-f0b0c73438bbe0cda5c1058ee9990fcf-list-0_accordion"
     >
       <div class="accordion-body"><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Deploy project DNS through Terraform modules</p>
+<p>Move DNS ownership into each project’s Terraform state using shared modules.
+Load dnsconfig.json files at runtime, reject conflicting domain ownership,
+and render their records as a table. Add missing project AppRoles and scoped
+DNS policies, and document grouping related Terraform resources in modules.</p>
+<p>Deploy all 45 owners sequentially: adopt 155 existing records and create 13
+missing OpenHands records. Preserve every pre-existing provider record and
+verify no-op follow-up plans and DNS answers. Add DNS-scoped plan/show/apply
+wrappers with a saved-plan guard for roots that also manage services.
+Allow bounded aggregate path inventories large enough to deliver this migration
+while retaining truncation refusal in the delivery tool.</p>
+<p>Validate runtime ownership, provider imports and preservation with isolated
+fixtures, Terraform formatting, wrapper builds, repository quality checks,
+semantic lint, and project documentation/specification builds.</p>
+<p>OpenSpec-Change: infra/dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">cc4f205bf73b49364ba3bd441b7f485b9872e742</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
           <li class="list-group-item my-auto">
             <p>Simplify OpenSpec workspace globs</p>
 <p>Collapse OpenSpec source globs to specs and changes, drop redundant
@@ -1539,7 +1688,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-0339c5af163875920ed3058e337bc9b0">2.1 - head</h1>
+	<h1 id="pg-0339c5af163875920ed3058e337bc9b0">3.1 - head</h1>
     <div class="lead">Release head</div>
 	
 
@@ -1555,7 +1704,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
         data-bs-target="#print-f0b0c73438bbe0cda5c1058ee9990fcf-release-f0b0c73438bbe0cda5c1058ee9990fcf-page-0_collapse"
         aria-expanded="true"
         aria-controls="print-f0b0c73438bbe0cda5c1058ee9990fcf-release-f0b0c73438bbe0cda5c1058ee9990fcf-page-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">15</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">16</span>
 </button>
     </h3>
     <div
@@ -1565,6 +1714,78 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
       data-bs-parent="#print-f0b0c73438bbe0cda5c1058ee9990fcf-release-f0b0c73438bbe0cda5c1058ee9990fcf-page-0_accordion"
     >
       <div class="accordion-body"><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Deploy project DNS through Terraform modules</p>
+<p>Move DNS ownership into each project’s Terraform state using shared modules.
+Load dnsconfig.json files at runtime, reject conflicting domain ownership,
+and render their records as a table. Add missing project AppRoles and scoped
+DNS policies, and document grouping related Terraform resources in modules.</p>
+<p>Deploy all 45 owners sequentially: adopt 155 existing records and create 13
+missing OpenHands records. Preserve every pre-existing provider record and
+verify no-op follow-up plans and DNS answers. Add DNS-scoped plan/show/apply
+wrappers with a saved-plan guard for roots that also manage services.
+Allow bounded aggregate path inventories large enough to deliver this migration
+while retaining truncation refusal in the delivery tool.</p>
+<p>Validate runtime ownership, provider imports and preservation with isolated
+fixtures, Terraform formatting, wrapper builds, repository quality checks,
+semantic lint, and project documentation/specification builds.</p>
+<p>OpenSpec-Change: infra/dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">cc4f205bf73b49364ba3bd441b7f485b9872e742</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
           <li class="list-group-item my-auto">
             <p>Simplify OpenSpec workspace globs</p>
 <p>Collapse OpenSpec source globs to specs and changes, drop redundant
@@ -2747,6 +2968,50 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
 
     
 	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b7d8fe59d559ead9a020f62a9a0d6b1d">4 - Terraform DNS</h1>
+    <div class="lead">Project-owned DNS configuration</div>
+	<p>This service stage consumes the <a href="../dnsconfig.json">project DNS declaration</a>
+through the <a href="/docs/projects/tf_modules/dns_records/global/">shared global DNS module</a>.
+AL selects the project&rsquo;s AppRole, HTTP state backend, and Cloudflare provider
+injection through the stage&rsquo;s <code>tf=main</code> label. This public-only module does not
+require RouterOS.</p>
+<p>Operational commands require the project AppRole and Vault provider fields in
+the <a href="../../../infra/dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/cutover.md#prepare-the-owner">migration prerequisites</a>.
+<code>dns_enabled</code> defaults to <code>true</code> after verified adoption. Keep it enabled to
+retain existing records; disabling it would propose deletion. The zone input
+remains optional.</p>
+<p>Follow the <a href="/docs/infra/dns/">DNS migration workflow</a> for continued
+reconciliation and recovery. The project&rsquo;s adoption change records its import,
+no-change plan, and verification evidence.</p>
+<p>Offline formatting is available through
+<code>//projects/kustomization/tf:tf_tests.fmt_test</code>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
   
 
     

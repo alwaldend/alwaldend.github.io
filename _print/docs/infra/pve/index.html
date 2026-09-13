@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="Pve">
 	<meta itemprop="description" content="Proxmox cluster pve.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
 	<meta itemprop="wordCount" content="92">
 	<meta itemprop="keywords" content="Ansible,Pve">
 	<meta name="twitter:card" content="summary">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -189,7 +189,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-58b41f4c3e98d7b9e35e301e2a0157da"></a></li>
+<li>1: <a href="#pg-3947b603777d539dd93f2fcdbab24f9e"></a></li>
 
 
     
@@ -197,7 +197,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-f2ca64eb6e8b88d953d4b1367c0a0df2">Ansible</a></li>
+<li>2: <a href="#pg-eb926d93af8c4824bab6617b9c239447"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-f2ca64eb6e8b88d953d4b1367c0a0df2">Ansible</a></li>
 
 
     
@@ -216,7 +224,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-77d854308dcf639524b72459ae4fe51a">Tf</a></li>
+<li>4: <a href="#pg-77d854308dcf639524b72459ae4fe51a">Tf</a></li>
 
 
     
@@ -288,54 +296,54 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-58b41f4c3e98d7b9e35e301e2a0157da">1 - </h1>
+	<h1 id="pg-3947b603777d539dd93f2fcdbab24f9e">1 - </h1>
     
-	<h1 id="print-95297c23f15e2f1231b4003b7fc7d92e-proxmox-infrastructure-specification">Proxmox infrastructure Specification<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-proxmox-infrastructure-specification" aria-label="Heading self-link"></a></h1><h2 id="print-95297c23f15e2f1231b4003b7fc7d92e-purpose">Purpose<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-purpose" aria-label="Heading self-link"></a></h2><p>Specify the Proxmox cluster configuration, resource pools, and bootstrap test
+	<h1 id="print-f2ebab15af42864005c5c748c28f51e0-proxmox-infrastructure-specification">Proxmox infrastructure Specification<a class="td-heading-self-link" href="#print-f2ebab15af42864005c5c748c28f51e0-proxmox-infrastructure-specification" aria-label="Heading self-link"></a></h1><h2 id="print-f2ebab15af42864005c5c748c28f51e0-purpose">Purpose<a class="td-heading-self-link" href="#print-f2ebab15af42864005c5c748c28f51e0-purpose" aria-label="Heading self-link"></a></h2><p>Specify the Proxmox cluster configuration, resource pools, and bootstrap test
 VM owned by <code>infra/pve</code>. The baseline is checked-in source at revision
 <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>, observed on 2026-09-08.
 It describes declared infrastructure and packaged operator entry points;
 deployment and cluster health have not been observed for this baseline.</p>
-<h2 id="print-95297c23f15e2f1231b4003b7fc7d92e-requirements">Requirements<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-95297c23f15e2f1231b4003b7fc7d92e-requirement-approle-resource-pools">Requirement: AppRole resource pools<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-requirement-approle-resource-pools" aria-label="Heading self-link"></a></h3><p>The Terraform configuration SHALL resolve the members of Vault&rsquo;s <code>approles</code>
+<h2 id="print-f2ebab15af42864005c5c748c28f51e0-requirements">Requirements<a class="td-heading-self-link" href="#print-f2ebab15af42864005c5c748c28f51e0-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-f2ebab15af42864005c5c748c28f51e0-requirement-approle-resource-pools">Requirement: AppRole resource pools<a class="td-heading-self-link" href="#print-f2ebab15af42864005c5c748c28f51e0-requirement-approle-resource-pools" aria-label="Heading self-link"></a></h3><p>The Terraform configuration SHALL resolve the members of Vault&rsquo;s <code>approles</code>
 identity group and declare one Proxmox pool per resolved entity, keyed and
 named by that entity&rsquo;s name. It SHALL also declare a separate <code>templates</code> pool.</p>
-<p>Sources: <a href="/docs/">project documentation</a> and
+<p>Sources: <a href="/docs/infra/pve/">project documentation</a> and
 <a href="../../../tf/pools.tf">resource pool definitions</a>.</p>
-<h4 id="print-95297c23f15e2f1231b4003b7fc7d92e-scenario-declare-pools-for-known-approles">Scenario: Declare pools for known AppRoles<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-scenario-declare-pools-for-known-approles" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-f2ebab15af42864005c5c748c28f51e0-scenario-declare-pools-for-known-approles">Scenario: Declare pools for known AppRoles<a class="td-heading-self-link" href="#print-f2ebab15af42864005c5c748c28f51e0-scenario-declare-pools-for-known-approles" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> Terraform resolves the entities in the Vault <code>approles</code> group</li>
 <li><strong>THEN</strong> the desired configuration includes a pool with each entity&rsquo;s name
 and the dedicated <code>templates</code> pool.</li>
 </ul>
-<h3 id="print-95297c23f15e2f1231b4003b7fc7d92e-requirement-packaged-host-and-snippet-configuration">Requirement: Packaged host and snippet configuration<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-requirement-packaged-host-and-snippet-configuration" aria-label="Heading self-link"></a></h3><p>The PVE Ansible entry point SHALL package the inventory and deployment playbook
+<h3 id="print-f2ebab15af42864005c5c748c28f51e0-requirement-packaged-host-and-snippet-configuration">Requirement: Packaged host and snippet configuration<a class="td-heading-self-link" href="#print-f2ebab15af42864005c5c748c28f51e0-requirement-packaged-host-and-snippet-configuration" aria-label="Heading self-link"></a></h3><p>The PVE Ansible entry point SHALL package the inventory and deployment playbook
 and apply the shared host and PVE roles to the <code>pve1</code> inventory group. It SHALL
 package the canonical shared cloud-init files under <code>files/cloud_init.yaml</code>
 and <code>files/cloud_init_min.yaml</code>, preserving the existing snippet update flow.</p>
 <p>Sources: <a href="../../../ansible/BUILD.bazel">deployment target</a>,
 <a href="../../../ansible/playbook_deploy.yaml">playbook</a>, and
 <a href="../../../ansible/group_vars/all.yaml">snippet variables</a>.</p>
-<h4 id="print-95297c23f15e2f1231b4003b7fc7d92e-scenario-assemble-the-pve-deployment-package">Scenario: Assemble the PVE deployment package<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-scenario-assemble-the-pve-deployment-package" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-f2ebab15af42864005c5c748c28f51e0-scenario-assemble-the-pve-deployment-package">Scenario: Assemble the PVE deployment package<a class="td-heading-self-link" href="#print-f2ebab15af42864005c5c748c28f51e0-scenario-assemble-the-pve-deployment-package" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the Ansible binary&rsquo;s source package is built</li>
 <li><strong>THEN</strong> it includes the playbook, inventory, shared role collection, and
 both shared cloud-init files under their established aliases.</li>
 </ul>
-<h3 id="print-95297c23f15e2f1231b4003b7fc7d92e-requirement-cloud-init-test-virtual-machine">Requirement: Cloud-init test virtual machine<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-requirement-cloud-init-test-virtual-machine" aria-label="Heading self-link"></a></h3><p>The Terraform configuration SHALL declare its cloud-init test VM through the
+<h3 id="print-f2ebab15af42864005c5c748c28f51e0-requirement-cloud-init-test-virtual-machine">Requirement: Cloud-init test virtual machine<a class="td-heading-self-link" href="#print-f2ebab15af42864005c5c748c28f51e0-requirement-cloud-init-test-virtual-machine" aria-label="Heading self-link"></a></h3><p>The Terraform configuration SHALL declare its cloud-init test VM through the
 shared <code>pve_vm_qemu</code> module, derive its hostname and address from the project&rsquo;s
 DNS configuration, and place it in the <code>src_infra_dc1_pve1</code> AppRole pool. The
 baseline declaration SHALL use VM ID 100, a 5G <code>scsi0</code> disk, and the <code>test</code> tag.</p>
 <p>Sources: <a href="../../../tf/vms.tf">VM definition</a> and
 <a href="../../../dnsconfig.json">DNS configuration</a>.</p>
-<h4 id="print-95297c23f15e2f1231b4003b7fc7d92e-scenario-resolve-the-test-vms-desired-configuration">Scenario: Resolve the test VM&rsquo;s desired configuration<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-scenario-resolve-the-test-vms-desired-configuration" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-f2ebab15af42864005c5c748c28f51e0-scenario-resolve-the-test-vms-desired-configuration">Scenario: Resolve the test VM&rsquo;s desired configuration<a class="td-heading-self-link" href="#print-f2ebab15af42864005c5c748c28f51e0-scenario-resolve-the-test-vms-desired-configuration" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> Terraform evaluates <code>module.vm_cloudinit_test</code></li>
 <li><strong>THEN</strong> its name and <code>/24</code> address derive from <code>cloudinit_test</code> DNS fields,
 and its pool resolves to the declared PVE AppRole pool.</li>
 </ul>
-<h3 id="print-95297c23f15e2f1231b4003b7fc7d92e-requirement-repository-managed-execution-inputs">Requirement: Repository-managed execution inputs<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-requirement-repository-managed-execution-inputs" aria-label="Heading self-link"></a></h3><p>PVE Terraform commands SHALL use the project&rsquo;s AL configuration and the
+<h3 id="print-f2ebab15af42864005c5c748c28f51e0-requirement-repository-managed-execution-inputs">Requirement: Repository-managed execution inputs<a class="td-heading-self-link" href="#print-f2ebab15af42864005c5c748c28f51e0-requirement-repository-managed-execution-inputs" aria-label="Heading self-link"></a></h3><p>PVE Terraform commands SHALL use the project&rsquo;s AL configuration and the
 declared Terraform, PVE-login, and Vault-environment plugins. The package SHALL
 include the lockfile, Terraform source, shared backend and VM modules, and
 required Vault helper targets. PVE Ansible commands SHALL likewise use the
 project AL configuration and packaged injector.</p>
 <p>Sources: <a href="../../../tf/BUILD.bazel">Terraform wrapper</a> and
 <a href="../../../ansible/BUILD.bazel">Ansible wrapper</a>.</p>
-<h4 id="print-95297c23f15e2f1231b4003b7fc7d92e-scenario-construct-a-pve-terraform-invocation">Scenario: Construct a PVE Terraform invocation<a class="td-heading-self-link" href="#print-95297c23f15e2f1231b4003b7fc7d92e-scenario-construct-a-pve-terraform-invocation" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-f2ebab15af42864005c5c748c28f51e0-scenario-construct-a-pve-terraform-invocation">Scenario: Construct a PVE Terraform invocation<a class="td-heading-self-link" href="#print-f2ebab15af42864005c5c748c28f51e0-scenario-construct-a-pve-terraform-invocation" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a repository Terraform command target is invoked with authorization
 for its operation</li>
 <li><strong>THEN</strong> the wrapper supplies the declared modules and helper inputs and
@@ -356,7 +364,78 @@ selects the <code>tf</code>, <code>pve_login</code>, and <code>vault_env=default
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f2ca64eb6e8b88d953d4b1367c0a0df2">2 - Ansible</h1>
+	<h1 id="pg-eb926d93af8c4824bab6617b9c239447">2 - </h1>
+    
+	<h1 id="print-173f55f59f4771cd3fb1b6de65cd0f6a-owned-dns-specification">owned-dns Specification<a class="td-heading-self-link" href="#print-173f55f59f4771cd3fb1b6de65cd0f6a-owned-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-173f55f59f4771cd3fb1b6de65cd0f6a-purpose">Purpose<a class="td-heading-self-link" href="#print-173f55f59f4771cd3fb1b6de65cd0f6a-purpose" aria-label="Heading self-link"></a></h2><p>Define Proxmox cluster DNS management through the owner&rsquo;s <code>tf</code> root,
+including canonical declarations, scoped credentials, and offline source checks
+before adopting live records.</p>
+<h2 id="print-173f55f59f4771cd3fb1b6de65cd0f6a-requirements">Requirements<a class="td-heading-self-link" href="#print-173f55f59f4771cd3fb1b6de65cd0f6a-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-173f55f59f4771cd3fb1b6de65cd0f6a-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-173f55f59f4771cd3fb1b6de65cd0f6a-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through
+the shared DNS Terraform module, preserving declared record identities and views.
+DNS resources SHALL default to disabled until the authorized adoption revision
+and SHALL retain enabled ownership after existing records are imported into the
+owner&rsquo;s state. Reconciliation against unchanged declarations and adopted state
+SHALL propose no record additions, changes, replacements, or deletions.</p>
+<h4 id="print-173f55f59f4771cd3fb1b6de65cd0f6a-scenario-inspect-the-preparatory-configuration">Scenario: Inspect the preparatory configuration<a class="td-heading-self-link" href="#print-173f55f59f4771cd3fb1b6de65cd0f6a-scenario-inspect-the-preparatory-configuration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the checked-in root is evaluated with default inputs before its
+authorized adoption revision</li>
+<li><strong>THEN</strong> it reads this owner&rsquo;s declaration and disables managed DNS records</li>
+<li><strong>AND</strong> the package contains the module and declaration inputs</li>
+</ul>
+<h4 id="print-173f55f59f4771cd3fb1b6de65cd0f6a-scenario-adopt-existing-dns-records">Scenario: Adopt existing DNS records<a class="td-heading-self-link" href="#print-173f55f59f4771cd3fb1b6de65cd0f6a-scenario-adopt-existing-dns-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the authorized adoption audits competing writers, keeps identified
+writers stopped within the recorded coverage, and enables owner record management</li>
+<li><strong>THEN</strong> the owning root imports existing records by exact provider ID into
+its state while preserving their declared identities and views</li>
+</ul>
+<h4 id="print-173f55f59f4771cd3fb1b6de65cd0f6a-scenario-inspect-adopted-source-defaults">Scenario: Inspect adopted source defaults<a class="td-heading-self-link" href="#print-173f55f59f4771cd3fb1b6de65cd0f6a-scenario-inspect-adopted-source-defaults" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the adopted root uses its checked-in source defaults</li>
+<li><strong>THEN</strong> DNS ownership remains enabled and the package retains the module
+and canonical declaration inputs</li>
+</ul>
+<h4 id="print-173f55f59f4771cd3fb1b6de65cd0f6a-scenario-reconcile-existing-dns-records">Scenario: Reconcile existing DNS records<a class="td-heading-self-link" href="#print-173f55f59f4771cd3fb1b6de65cd0f6a-scenario-reconcile-existing-dns-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the owning root plans against its adopted state and unchanged declarations</li>
+<li><strong>THEN</strong> it proposes no record additions, changes, replacements, or deletions</li>
+</ul>
+<h3 id="print-173f55f59f4771cd3fb1b6de65cd0f6a-requirement-scoped-dns-execution-and-offline-checks">Requirement: Scoped DNS execution and offline checks<a class="td-heading-self-link" href="#print-173f55f59f4771cd3fb1b6de65cd0f6a-requirement-scoped-dns-execution-and-offline-checks" aria-label="Heading self-link"></a></h3><p>The DNS wrappers SHALL select <code>src_infra_dc1_pve1</code> through the repository AL flow
+and keep secret values in injected variables. <code>dns.plan</code>, <code>dns.show</code>, and
+<code>dns.apply</code> SHALL select <code>dns=1</code> and operate on <code>module.dns</code> in the existing <code>tf</code>
+root and backend. Apply SHALL consume the reviewed saved plan. Required root
+inputs SHALL retain their existing Vault readers, while ordinary Proxmox
+authentication SHALL remain separate. Scoped DNS operations SHALL verify DNS
+and its dependencies without establishing overall PVE service health.
+Real DNS credentials and Vault policy grants SHALL be prerequisites for
+operational Terraform calls. RouterOS DNS credentials SHALL be isolated from
+unrelated RouterOS resources. The package SHALL expose a format test that does
+not authenticate to Vault or contact DNS providers.</p>
+<h4 id="print-173f55f59f4771cd3fb1b6de65cd0f6a-scenario-validate-the-terraform-source">Scenario: Validate the Terraform source<a class="td-heading-self-link" href="#print-173f55f59f4771cd3fb1b6de65cd0f6a-scenario-validate-the-terraform-source" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the package format test executes</li>
+<li><strong>THEN</strong> it checks the packaged Terraform configuration without live credentials</li>
+<li><strong>AND</strong> existing non-DNS authentication and backend paths remain unchanged</li>
+</ul>
+<h4 id="print-173f55f59f4771cd3fb1b6de65cd0f6a-scenario-prepare-an-operational-terraform-invocation">Scenario: Prepare an operational Terraform invocation<a class="td-heading-self-link" href="#print-173f55f59f4771cd3fb1b6de65cd0f6a-scenario-prepare-an-operational-terraform-invocation" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the scoped DNS wrapper selects <code>dns=1</code></li>
+<li><strong>THEN</strong> it selects DNS credential injection through the owner AppRole and uses
+the existing root and backend without starting Proxmox login</li>
+<li><strong>AND</strong> the targeted plan and saved-plan apply cover DNS and its dependencies,
+without proving PVE host or API health</li>
+<li><strong>AND</strong> disabled DNS resources do not imply offline provider configuration</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f2ca64eb6e8b88d953d4b1367c0a0df2">3 - Ansible</h1>
     <div class="lead">Ansible setup</div>
 	
 </div>
@@ -385,9 +464,21 @@ selects the <code>tf</code>, <code>pve_login</code>, and <code>vault_env=default
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-77d854308dcf639524b72459ae4fe51a">3 - Tf</h1>
+	<h1 id="pg-77d854308dcf639524b72459ae4fe51a">4 - Tf</h1>
     <div class="lead">Terraform config</div>
-	
+	<p>Use this package&rsquo;s <code>dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> targets for the
+<a href="/docs/infra/dns/">scoped DNS adoption workflow</a>.
+They select <code>dns=1</code> and target <code>module.dns</code> in this root, retaining the
+<code>src_infra_dc1_pve1</code> AppRole and existing backend. Use the
+<a href="../../dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/cutover.md#prepare-the-owner">owner preparation and import procedure</a>
+for declarative import maps and reviewed saved-plan apply.</p>
+<p><code>dns_enabled</code> defaults to <code>true</code> after the
+<a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">completed adoption</a>.
+Reconciliation against adopted state and unchanged declarations produces no DNS
+changes. DNS targeting covers DNS and its dependencies; it does not establish
+PVE host, API, or service health. Ordinary Terraform commands retain their
+existing Proxmox authentication.</p>
+
 </div>
 
 

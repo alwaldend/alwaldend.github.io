@@ -44,7 +44,8 @@
 
 	<meta itemprop="name" content="Tf setup">
 	<meta itemprop="description" content="Terraform setup">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="71">
 	<meta itemprop="keywords" content="Terraform,Pve,Yandex_cloud">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Tf setup">
@@ -141,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -190,7 +191,15 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p>Use this package&rsquo;s <code>dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> targets for the
+<a href="/docs/infra/dns/">scoped DNS adoption workflow</a>.</p>
+<p>DNS ownership is enabled by default after the verified 2026-09-13 adoption.
+The <a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">adoption evidence</a>
+records 12 imports, a no-change follow-up plan, and preserved provider inventories.
+The DNS wrappers select <code>dns=1</code> and <code>module.dns</code> within this setup root and
+backend; their validation covers DNS and its dependencies. Apply requires a
+reviewed saved plan, and ordinary service authentication remains separate.</p>
+
 </div>
 </div>
 

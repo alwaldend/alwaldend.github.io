@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Rules docs">
 	<meta itemprop="description" content="Bazel documentation packaging rules">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
-	<meta itemprop="wordCount" content="187">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="222">
 	<meta itemprop="keywords" content="Bzl_rules">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Rules docs">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -186,6 +186,25 @@ This is the multi-page printable view of this section.
   
 
   
+    
+    
+	
+<li>1: <a href="#pg-bb18699c9f015d3f2eb6dd1c24b60882">Project DNS Terraform</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
 
     </ul>
 
@@ -205,6 +224,10 @@ This is the multi-page printable view of this section.
 </span></span></code></pre></div><p>Relative dependency names without a colon are normalized to the child
 package&rsquo;s <code>docs</code> target. <code>prefix</code> defaults to the current package beneath
 <code>content/docs/</code>.</p>
+<p>Files are packaged at their basename by default. When a package&rsquo;s sources span
+subdirectories that hold identically named files, set <code>preserve_paths = True</code>
+so each source keeps its package-relative path and the destinations stay
+distinct.</p>
 <h2 id="print-e6c174bb142072605c246b94c11c3c68-gazelle-extension">Gazelle extension<a class="td-heading-self-link" href="#print-e6c174bb142072605c246b94c11c3c68-gazelle-extension" aria-label="Heading self-link"></a></h2><p>Generation support is packaged separately so consumers of the documentation
 rule do not inherit Gazelle and Go dependencies. Add it as a development-only
 module dependency:</p>
@@ -242,6 +265,53 @@ unrelated language plugins from its parent repository.</p>
   
   
 
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-bb18699c9f015d3f2eb6dd1c24b60882">1 - Project DNS Terraform</h1>
+    <div class="lead">Project-owned DNS root with repository operational packaging</div>
+	<p>This root reads the canonical <a href="../dnsconfig.json">DNS declarations</a> and calls
+the shared <a href="/docs/projects/tf_modules/dns_records/global/">DNS records module</a>.
+Its <a href="../al.lua">AL configuration</a> owns its Vault identity and HTTP state
+backend.</p>
+<p>Run the root-workspace commands
+<code>//infra/dns/projects:rules_docs_tf.&lt;operation&gt;</code> through <code>bazel_agent</code>.
+The offline formatting check is
+<code>//infra/dns/projects:rules_docs_tf_tests.fmt_test</code>.
+The <a href="/docs/infra/dns/projects/">operational adapter</a> imports this
+project&rsquo;s source filegroup; the reusable Bazel module does not depend on the
+monorepo.</p>
+<p>The operational root requires its deployed AppRole and DNS credential access
+described in the <a href="../../../infra/dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/cutover.md#prepare-the-owner">migration prerequisites</a>.
+<code>dns_enabled</code> defaults to <code>true</code> after verified adoption. Keep it enabled to
+retain existing records; disabling it would propose deletion. The
+<a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">adoption record</a>
+contains the import and verification evidence. Use the shared
+<a href="/docs/infra/dns/">DNS workflow</a> for reconciliation and recovery.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
   
 
 

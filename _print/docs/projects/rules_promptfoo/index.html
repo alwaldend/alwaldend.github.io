@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="Rules Promptfoo">
 	<meta itemprop="description" content="A pinned Bazel runner for Promptfoo skill evaluations">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
 	<meta itemprop="wordCount" content="1103">
 	<meta itemprop="keywords" content="Bzl_rules,Llm_evals">
 	<meta name="twitter:card" content="summary">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -186,6 +186,25 @@ This is the multi-page printable view of this section.
   
 
   
+    
+    
+	
+<li>1: <a href="#pg-42d95baa44a144d3b0074fe9cf530935">Project DNS Terraform</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
 
     </ul>
 
@@ -196,7 +215,7 @@ keeps dependency resolution reproducible in Bazel while deliberately running
 model calls only at test runtime.</p>
 <h2 id="print-87d71ee96c53f4289af4469986c9a648-setup">Setup<a class="td-heading-self-link" href="#print-87d71ee96c53f4289af4469986c9a648-setup" aria-label="Heading self-link"></a></h2><p>Add the module and its skill-provider dependency:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>bazel_dep(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rules_promptfoo&#34;</span>, version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;VERSION&gt;&#34;</span>)
-</span></span><span style="display:flex;"><span>bazel_dep(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rules_skill&#34;</span>, version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;VERSION&gt;&#34;</span>)
+</span></span><span style="display:flex;"><span>bazel_dep(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rules_skills&#34;</span>, version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;VERSION&gt;&#34;</span>)
 </span></span></code></pre></div><p>The development checkout uses sibling <code>local_path_override</code> declarations.
 Published releases must replace those local overrides with registry versions.</p>
 <h2 id="print-87d71ee96c53f4289af4469986c9a648-evaluate-a-skill">Evaluate a skill<a class="td-heading-self-link" href="#print-87d71ee96c53f4289af4469986c9a648-evaluate-a-skill" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_promptfoo//promptfoo:defs.bzl&#34;</span>, <span style="color:#e6db74">&#34;promptfoo_test&#34;</span>)
@@ -352,6 +371,52 @@ honor the runner&rsquo;s serialization setting.</p>
   
   
 
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-42d95baa44a144d3b0074fe9cf530935">1 - Project DNS Terraform</h1>
+    <div class="lead">Project-owned DNS root with repository operational packaging</div>
+	<p>This root reads the canonical <a href="../dnsconfig.json">DNS declarations</a> and calls
+the shared <a href="/docs/projects/tf_modules/dns_records/global/">DNS records module</a>.
+Its <a href="../al.lua">AL configuration</a> owns its Vault identity and HTTP state
+backend.</p>
+<p>Run the root-workspace commands
+<code>//infra/dns/projects:rules_promptfoo_tf.&lt;operation&gt;</code> through <code>bazel_agent</code>.
+The offline formatting check is
+<code>//infra/dns/projects:rules_promptfoo_tf_tests.fmt_test</code>.
+The <a href="/docs/infra/dns/projects/">operational adapter</a> imports this
+project&rsquo;s source filegroup; the reusable Bazel module does not depend on the
+monorepo.</p>
+<p>The operational root requires its deployed AppRole and DNS credential access.
+<code>dns_enabled</code> defaults to <code>true</code> after verified adoption. Keep it enabled to
+retain existing records; disabling it would propose deletion. The
+<a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">adoption record</a>
+contains the import and verification evidence. Use the shared
+<a href="/docs/infra/dns/">DNS workflow</a> for reconciliation and recovery.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
   
 
 

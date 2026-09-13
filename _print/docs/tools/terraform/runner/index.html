@@ -44,7 +44,8 @@
 
 	<meta itemprop="name" content="Runner">
 	<meta itemprop="description" content="Golang code for the terraform runner">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="104">
 	<meta itemprop="keywords" content="Tool,Go">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Runner">
@@ -141,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -190,7 +191,18 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p>The runner initializes the owning Terraform working directory before running
+the requested operation. <code>--direct</code> skips initialization.</p>
+<p>Wrappers can set <code>--require-saved-plan</code> before the Terraform command to accept
+only <code>apply &lt;saved-plan-file&gt;</code>. The runner rejects bare apply, other commands,
+flags, extra arguments, missing files, and directories before initializing
+Terraform. Relative plan paths resolve against <code>--chdir</code>; absolute paths remain
+absolute. Terraform validates the plan contents and applies its recorded scope.
+The guard also rejects nonempty <code>TF_CLI_ARGS</code> and <code>TF_CLI_ARGS_*</code> environment
+variables before initialization so injected flags cannot change the command&rsquo;s
+meaning. Diagnostics identify the variable name without displaying its value.
+The guard is disabled by default, preserving ordinary wrappers.</p>
+
 </div>
 </div>
 

@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Tf setup">
 	<meta itemprop="description" content="Terraform setup">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
-	<meta itemprop="wordCount" content="329">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="425">
 	<meta itemprop="keywords" content="Terraform,Xcp-Ng">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Tf setup">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -224,7 +224,18 @@ was removed without issuing a destroy. This package now uses only XO.
 There is no cross-provider state move or data restoration in this package.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/forgejo/tf_setup:tf_setup.plan
 </span></span><span style="display:flex;"><span>bazel_agent bazel run //infra/forgejo/tf_setup:tf_setup.apply
-</span></span></code></pre></div>
+</span></span></code></pre></div><p>Use this package&rsquo;s <code>dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> targets for the
+<a href="/docs/infra/dns/">scoped DNS workflow</a>. They select <code>dns=1</code>, retain the
+existing setup backend and <code>src_infra_dc1_forgejo1</code> AppRole, and target
+<code>module.dns</code> without starting unrelated service authentication. Inspect the
+saved plan through <code>dns.show</code> and pass only that reviewed file to <code>dns.apply</code>.</p>
+<p><code>dns_enabled</code> defaults to <code>true</code> after verified adoption. Keep it enabled to
+retain existing records; disabling it would propose deletion. Follow the
+<a href="../../dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/cutover.md#prepare-the-owner">cutover procedure</a>
+for prerequisites, reconciliation, and recovery. The owner adoption change
+records the historical import and DNS verification evidence; scoped DNS checks
+do not establish service or VM health.</p>
+
 </div>
 </div>
 

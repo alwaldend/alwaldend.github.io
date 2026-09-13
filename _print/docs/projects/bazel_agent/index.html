@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Bazel agent">
 	<meta itemprop="description" content="Bazel runner for repository agents">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
-	<meta itemprop="wordCount" content="509">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="288">
 	<meta itemprop="keywords" content="Bazel,Agent">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Bazel agent">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -186,6 +186,25 @@ This is the multi-page printable view of this section.
   
 
   
+    
+    
+	
+<li>1: <a href="#pg-00869c4b9b52ec2161b31c618b55e63e">Terraform DNS</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
 
     </ul>
 
@@ -214,25 +233,6 @@ test temporary-directory contract. Repository-updating host tools that need
 scratch must accept or derive an explicit task/run path under <code>out/&lt;task&gt;/</code>
 instead of relying on ambient <code>TMPDIR</code>, <code>TMP</code>, or <code>TEMP</code> values propagated to
 the whole build.</p>
-<h2 id="print-ee33c25d7d690729b48d9b2b99241ded-cached-repository-tools">Cached repository tools<a class="td-heading-self-link" href="#print-ee33c25d7d690729b48d9b2b99241ded-cached-repository-tools" aria-label="Heading self-link"></a></h2><p>Frequently used repository control tools can bypass Bazel analysis after one
-exact build:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent tool run repo_delivery -- provider
-</span></span><span style="display:flex;"><span>bazel_agent tool warm mcp_cordis repo_delivery
-</span></span><span style="display:flex;"><span>bazel_agent tool path repo_delivery
-</span></span></code></pre></div><p>The runner hashes its own binary plus each tool&rsquo;s declared source, dependency
-locks, Bazel pins, repository rc files, optional user and host rc files, their
-transitive imports, any <code>BAZELRC</code> environment files, and the platform. A cache
-miss takes an exclusive per-key lock, builds the target with runfiles enabled,
-and copies the complete runnable output into an atomically installed entry. A
-hit executes that entry directly without starting a Bazel client or loading a
-worktree graph. Concurrent misses for the same exact key share one build.
-Inputs are hashed again under the lock and after the build; an in-flight source
-change selects a new key instead of publishing stale output under the old one.</p>
-<p><code>BAZEL_AGENT_TOOL_CACHE</code> or <code>--cache-root</code> can select the cache. The default is
-<code>/var/cache/bazel/tool_cache</code> when that managed directory exists, otherwise
-the user&rsquo;s cache directory. Because entries contain executable code, the cache
-root must not be writable by group or others. Source changes select a new key,
-so a dirty relevant source file cannot silently reuse an older executable.</p>
 <p><code>bazel_agent doctor --workspace-root PATH --task-scratch out/&lt;task&gt;/&lt;run&gt;</code> is
 a read-only, bounded JSON diagnostic. It reports runner and built-source
 identity, Bazelisk pins, platform, rc/profile composition, task scratch
@@ -243,9 +243,7 @@ classification, and stale host-install state without dumping the environment.</p
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //projects/bazel_agent:install
 </span></span></code></pre></div><p>The install target atomically replaces <code>~/.local/bin/bazel_agent</code>. After every
 code update to this project, rerun the install target; the installed binary is
-not updated automatically. Repository launchers probe the installed runner&rsquo;s
-tool-cache support before using it, so an older host installation retains its
-documented Bazel fallback during rollout.</p>
+not updated automatically.</p>
 
 </div>
 </div>
@@ -259,6 +257,50 @@ documented Bazel fallback during rollout.</p>
   
   
 
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-00869c4b9b52ec2161b31c618b55e63e">1 - Terraform DNS</h1>
+    <div class="lead">Project-owned DNS configuration</div>
+	<p>This service stage consumes the <a href="../dnsconfig.json">project DNS declaration</a>
+through the <a href="/docs/projects/tf_modules/dns_records/global/">shared global DNS module</a>.
+AL selects the project&rsquo;s AppRole, HTTP state backend, and Cloudflare provider
+injection through the stage&rsquo;s <code>tf=main</code> label. This public-only module does not
+require RouterOS.</p>
+<p>Operational commands require the project AppRole and Vault provider fields in
+the <a href="../../../infra/dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/cutover.md#prepare-the-owner">migration prerequisites</a>.
+<code>dns_enabled</code> defaults to <code>true</code> after verified adoption. Keep it enabled to
+retain existing records; disabling it would propose deletion. The zone input
+remains optional.</p>
+<p>Follow the <a href="/docs/infra/dns/">DNS migration workflow</a> for continued
+reconciliation and recovery. The project&rsquo;s adoption change records its import,
+no-change plan, and verification evidence.</p>
+<p>Offline formatting is available through
+<code>//projects/bazel_agent/tf:tf_tests.fmt_test</code>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
   
 
 

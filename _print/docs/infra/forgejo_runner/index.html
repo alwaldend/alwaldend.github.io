@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="Forgejo runner">
 	<meta itemprop="description" content="Forgejo Actions runner deployment">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
 	<meta itemprop="wordCount" content="13">
 	<meta itemprop="keywords" content="Forgejo,Ansible,Pve">
 	<meta name="twitter:card" content="summary">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -189,7 +189,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-90863e7fdd14cf654bf683df9a8cba73"></a></li>
+<li>1: <a href="#pg-9abcd9986c5b24d182b4538a6c4cba88"></a></li>
 
 
     
@@ -197,7 +197,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-f066b695c0dd6eed475cb0158d9cb746">Ansible</a></li>
+<li>2: <a href="#pg-3bb8cb3d1c905f1f6075618f1ef69610"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-f066b695c0dd6eed475cb0158d9cb746">Ansible</a></li>
 
 
     
@@ -216,7 +224,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-f9ffc9e12b9f5551f238d6b09bbc9cc1">Terraform setup</a></li>
+<li>4: <a href="#pg-f9ffc9e12b9f5551f238d6b09bbc9cc1">Terraform setup</a></li>
 
 
     
@@ -260,43 +268,43 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-90863e7fdd14cf654bf683df9a8cba73">1 - </h1>
+	<h1 id="pg-9abcd9986c5b24d182b4538a6c4cba88">1 - </h1>
     
-	<h1 id="print-6e90898760752dbb2b924092d4a47ea8-forgejo-runner-infrastructure-specification">Forgejo runner infrastructure specification<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-forgejo-runner-infrastructure-specification" aria-label="Heading self-link"></a></h1><h2 id="print-6e90898760752dbb2b924092d4a47ea8-purpose">Purpose<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Forgejo Actions runner VM and deployment scaffold owned by
+	<h1 id="print-aa9fd2e826bb291d5e08428692924afd-forgejo-runner-infrastructure-specification">Forgejo runner infrastructure specification<a class="td-heading-self-link" href="#print-aa9fd2e826bb291d5e08428692924afd-forgejo-runner-infrastructure-specification" aria-label="Heading self-link"></a></h1><h2 id="print-aa9fd2e826bb291d5e08428692924afd-purpose">Purpose<a class="td-heading-self-link" href="#print-aa9fd2e826bb291d5e08428692924afd-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Forgejo Actions runner VM and deployment scaffold owned by
 <code>infra/forgejo_runner</code>. Its <code>tf_setup</code> and <code>ansible</code> packages are stages of
 this owner. The runner role is commented out in the baseline playbook;
 the checked-in configuration therefore does not establish a deployed or
 registered Actions worker. No live runner state was observed.</p>
 <p>Baseline revision: <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.
 Observed: 2026-09-08. Sources:
-<a href="/docs/">owner README</a>,
+<a href="/docs/infra/forgejo_runner/">owner README</a>,
 <a href="../../../BUILD.bazel">BUILD</a>, and the implementation
 links below.</p>
-<h2 id="print-6e90898760752dbb2b924092d4a47ea8-requirements">Requirements<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-6e90898760752dbb2b924092d4a47ea8-requirement-dedicated-runner-vm-allocation">Requirement: Dedicated runner VM allocation<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-requirement-dedicated-runner-vm-allocation" aria-label="Heading self-link"></a></h3><p>Setup SHALL declare <code>runner1</code> as Proxmox VM 1200 in the
+<h2 id="print-aa9fd2e826bb291d5e08428692924afd-requirements">Requirements<a class="td-heading-self-link" href="#print-aa9fd2e826bb291d5e08428692924afd-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-aa9fd2e826bb291d5e08428692924afd-requirement-dedicated-runner-vm-allocation">Requirement: Dedicated runner VM allocation<a class="td-heading-self-link" href="#print-aa9fd2e826bb291d5e08428692924afd-requirement-dedicated-runner-vm-allocation" aria-label="Heading self-link"></a></h3><p>Setup SHALL declare <code>runner1</code> as Proxmox VM 1200 in the
 <code>src_infra_forgejo_runner</code> pool, with eight cores, 16 GiB memory, a 20 GiB
 boot disk, and a 300 GiB runner disk on <code>ceph-ec</code> storage. Its hostname and
 address SHALL derive from the owner&rsquo;s DNS declaration.</p>
 <p>Source: <a href="../../../tf_setup/vms.tf">VM definition</a>.</p>
-<h4 id="print-6e90898760752dbb2b924092d4a47ea8-scenario-inspect-the-runner-capacity-definition">Scenario: Inspect the runner capacity definition<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-scenario-inspect-the-runner-capacity-definition" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-aa9fd2e826bb291d5e08428692924afd-scenario-inspect-the-runner-capacity-definition">Scenario: Inspect the runner capacity definition<a class="td-heading-self-link" href="#print-aa9fd2e826bb291d5e08428692924afd-scenario-inspect-the-runner-capacity-definition" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a maintainer evaluates the runner VM configuration</li>
 <li><strong>THEN</strong> the source declares the dedicated runner pool, compute allocation,
 and separate boot and runner disks</li>
 <li><strong>AND</strong> DNS source supplies the hostname and address</li>
 </ul>
-<h3 id="print-6e90898760752dbb2b924092d4a47ea8-requirement-explicit-host-only-deployment-baseline">Requirement: Explicit host-only deployment baseline<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-requirement-explicit-host-only-deployment-baseline" aria-label="Heading self-link"></a></h3><p>The baseline deployment playbook SHALL apply the shared host role to the
+<h3 id="print-aa9fd2e826bb291d5e08428692924afd-requirement-explicit-host-only-deployment-baseline">Requirement: Explicit host-only deployment baseline<a class="td-heading-self-link" href="#print-aa9fd2e826bb291d5e08428692924afd-requirement-explicit-host-only-deployment-baseline" aria-label="Heading self-link"></a></h3><p>The baseline deployment playbook SHALL apply the shared host role to the
 <code>forgejo_runner</code> inventory group. The specification MUST identify the
 commented-out Forgejo runner role as inactive and MUST NOT interpret the
 available runner variables as evidence that the worker is installed or
 registered.</p>
 <p>Sources: <a href="../../../ansible/playbook_deploy.yaml">deployment playbook</a>
 and <a href="../../../ansible/group_vars/all.yaml">runner variables</a>.</p>
-<h4 id="print-6e90898760752dbb2b924092d4a47ea8-scenario-determine-the-effect-of-the-current-playbook">Scenario: Determine the effect of the current playbook<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-scenario-determine-the-effect-of-the-current-playbook" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-aa9fd2e826bb291d5e08428692924afd-scenario-determine-the-effect-of-the-current-playbook">Scenario: Determine the effect of the current playbook<a class="td-heading-self-link" href="#print-aa9fd2e826bb291d5e08428692924afd-scenario-determine-the-effect-of-the-current-playbook" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the current playbook&rsquo;s active roles are inspected</li>
 <li><strong>THEN</strong> only the shared host role is enabled</li>
 <li><strong>AND</strong> runner installation and registration remain outside the behavior
 established by this source baseline</li>
 </ul>
-<h3 id="print-6e90898760752dbb2b924092d4a47ea8-requirement-packaged-setup-and-deployment-configuration">Requirement: Packaged setup and deployment configuration<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-requirement-packaged-setup-and-deployment-configuration" aria-label="Heading self-link"></a></h3><p>The owner SHALL expose Terraform setup and packaged Ansible entry points
+<h3 id="print-aa9fd2e826bb291d5e08428692924afd-requirement-packaged-setup-and-deployment-configuration">Requirement: Packaged setup and deployment configuration<a class="td-heading-self-link" href="#print-aa9fd2e826bb291d5e08428692924afd-requirement-packaged-setup-and-deployment-configuration" aria-label="Heading self-link"></a></h3><p>The owner SHALL expose Terraform setup and packaged Ansible entry points
 through its <code>al</code> configuration and Vault injection dependencies. The runner
 configuration SHALL reference <code>https://git.alwaldend.com</code>, <code>/dev/sdb</code>, and
 an environment-supplied <code>FORGEJO_RUNNER_TOKEN</code> rather than a checked-in
@@ -304,7 +312,7 @@ registration token.</p>
 <p>Sources: <a href="../../../tf_setup/BUILD.bazel">setup BUILD</a>,
 <a href="../../../ansible/BUILD.bazel">Ansible BUILD</a>, and
 <a href="../../../ansible/group_vars/all.yaml">runner variables</a>.</p>
-<h4 id="print-6e90898760752dbb2b924092d4a47ea8-scenario-resolve-the-registration-credential-source">Scenario: Resolve the registration credential source<a class="td-heading-self-link" href="#print-6e90898760752dbb2b924092d4a47ea8-scenario-resolve-the-registration-credential-source" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-aa9fd2e826bb291d5e08428692924afd-scenario-resolve-the-registration-credential-source">Scenario: Resolve the registration credential source<a class="td-heading-self-link" href="#print-aa9fd2e826bb291d5e08428692924afd-scenario-resolve-the-registration-credential-source" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a maintainer inspects the runner configuration scaffold</li>
 <li><strong>THEN</strong> its token value is an environment lookup and its instance URL is
 the canonical Forgejo service</li>
@@ -325,7 +333,78 @@ the canonical Forgejo service</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f066b695c0dd6eed475cb0158d9cb746">2 - Ansible</h1>
+	<h1 id="pg-3bb8cb3d1c905f1f6075618f1ef69610">2 - </h1>
+    
+	<h1 id="print-9fa054b557a948ef8431020aa21c7f40-owned-dns-specification">owned-dns Specification<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-owned-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-9fa054b557a948ef8431020aa21c7f40-purpose">Purpose<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-purpose" aria-label="Heading self-link"></a></h2><p>Define Forgejo Actions runner DNS management through the owner&rsquo;s <code>tf_setup</code> root,
+including canonical declarations, scoped execution, adoption of existing records,
+and offline source checks.</p>
+<h2 id="print-9fa054b557a948ef8431020aa21c7f40-requirements">Requirements<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-9fa054b557a948ef8431020aa21c7f40-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf_setup</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through
+the shared DNS Terraform module, preserving declared record identities and views.
+DNS resources SHALL default to disabled before adoption and SHALL remain enabled
+by default after authorized adoption. Adoption SHALL bind existing provider records
+to the owner&rsquo;s state without adding, changing, replacing, or deleting DNS records.
+Subsequent reconciliation of unchanged declarations SHALL preserve owned and
+unrelated records.</p>
+<h4 id="print-9fa054b557a948ef8431020aa21c7f40-scenario-inspect-the-preparatory-configuration">Scenario: Inspect the preparatory configuration<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-scenario-inspect-the-preparatory-configuration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the checked-in root is evaluated with default inputs before adoption</li>
+<li><strong>THEN</strong> it reads this owner&rsquo;s declaration and disables managed DNS records</li>
+<li><strong>AND</strong> the package contains the module and declaration inputs</li>
+</ul>
+<h4 id="print-9fa054b557a948ef8431020aa21c7f40-scenario-inspect-the-adopted-configuration">Scenario: Inspect the adopted configuration<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-scenario-inspect-the-adopted-configuration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the adopted root is evaluated with default inputs</li>
+<li><strong>THEN</strong> it reads this owner&rsquo;s declaration and enables managed DNS records</li>
+<li><strong>AND</strong> the package contains the module and declaration inputs</li>
+</ul>
+<h4 id="print-9fa054b557a948ef8431020aa21c7f40-scenario-adopt-existing-records">Scenario: Adopt existing records<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-scenario-adopt-existing-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the owner adopts matched existing provider records through
+<code>//infra/forgejo_runner/tf_setup:dns.plan</code>, <code>:dns.show</code>, and <code>:dns.apply</code></li>
+<li><strong>THEN</strong> the owner state binds each declared record to its existing provider identity</li>
+<li><strong>AND</strong> the reviewed adoption plan proposes no record additions, changes,
+replacements, or deletions</li>
+</ul>
+<h4 id="print-9fa054b557a948ef8431020aa21c7f40-scenario-reconcile-unchanged-declarations">Scenario: Reconcile unchanged declarations<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-scenario-reconcile-unchanged-declarations" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the adopted root plans and applies unchanged declarations through its
+scoped <code>//infra/forgejo_runner/tf_setup:dns</code> wrappers</li>
+<li><strong>THEN</strong> it makes no DNS resource changes</li>
+<li><strong>AND</strong> owned records retain their declared values and views while unrelated
+records remain unchanged</li>
+</ul>
+<h3 id="print-9fa054b557a948ef8431020aa21c7f40-requirement-scoped-dns-execution-and-offline-checks">Requirement: Scoped DNS execution and offline checks<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-requirement-scoped-dns-execution-and-offline-checks" aria-label="Heading self-link"></a></h3><p>The DNS wrapper SHALL select <code>src_infra_forgejo_runner</code> through the repository
+AL flow and keep secret values in injected variables. Dedicated DNS plan, show,
+and apply targets SHALL select <code>dns=1</code> alone and target <code>module.dns</code> while reusing
+the owning setup root and backend. DNS apply SHALL consume only a reviewed saved
+plan. Ordinary setup targets SHALL retain their existing <code>tf=setup</code> flow.
+Real DNS credentials and Vault policy grants SHALL be prerequisites for
+operational Terraform calls. RouterOS DNS credentials SHALL be isolated from
+unrelated RouterOS resources. The package SHALL expose a format test that does
+not authenticate to Vault or contact DNS providers.</p>
+<h4 id="print-9fa054b557a948ef8431020aa21c7f40-scenario-validate-the-terraform-source">Scenario: Validate the Terraform source<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-scenario-validate-the-terraform-source" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the package format test executes</li>
+<li><strong>THEN</strong> it checks the packaged Terraform configuration without live credentials</li>
+<li><strong>AND</strong> existing non-DNS authentication and backend paths remain unchanged</li>
+</ul>
+<h4 id="print-9fa054b557a948ef8431020aa21c7f40-scenario-prepare-an-operational-terraform-invocation">Scenario: Prepare an operational Terraform invocation<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-scenario-prepare-an-operational-terraform-invocation" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a dedicated DNS target selects its execution label</li>
+<li><strong>THEN</strong> it selects <code>dns=1</code> and DNS credential injection through the owner AppRole</li>
+<li><strong>AND</strong> it retains the setup backend while limiting reconciliation to <code>module.dns</code></li>
+<li><strong>AND</strong> disabled DNS resources do not imply offline provider configuration</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f066b695c0dd6eed475cb0158d9cb746">3 - Ansible</h1>
     <div class="lead">Forgejo runner configuration</div>
 	
 </div>
@@ -354,9 +433,22 @@ the canonical Forgejo service</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f9ffc9e12b9f5551f238d6b09bbc9cc1">3 - Terraform setup</h1>
+	<h1 id="pg-f9ffc9e12b9f5551f238d6b09bbc9cc1">4 - Terraform setup</h1>
     <div class="lead">Forgejo runner VM</div>
-	
+	<p>Use this package&rsquo;s <code>dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> targets for the
+<a href="/docs/infra/dns/">scoped DNS adoption workflow</a>.</p>
+<p>These targets select <code>dns=1</code> and target <code>module.dns</code> with the existing
+<code>src_infra_forgejo_runner</code> AppRole and setup backend. Plan declared imports,
+inspect the saved plan with <code>dns.show</code>, and apply only the reviewed file with
+<code>dns.apply</code>. Ordinary setup commands retain their <code>tf=setup</code> flow.</p>
+<p><code>dns_enabled</code> defaults to <code>true</code> after verified adoption. Keep it enabled to
+retain existing records; disabling it would propose deletion. The
+<a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">adoption record</a>
+contains the import, follow-up plan, inventory, and DNS verification evidence.
+The shared <a href="../../dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/cutover.md#prepare-the-owner">cutover procedure</a>
+owns prerequisites and recovery. Scoped DNS checks do not establish VM or runner
+service health.</p>
+
 </div>
 
 

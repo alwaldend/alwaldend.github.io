@@ -34,22 +34,22 @@
 <meta name="robots" content="noindex, nofollow">
 
 <title>Dns | Alwaldend</title>
-<meta name="description" content="Dns setup for alwaldend.com">
+<meta name="description" content="Project-owned DNS declarations for alwaldend.com">
 <meta property="og:url" content="https://alwaldend.com/docs/infra/dns/">
 	<meta property="og:site_name" content="Alwaldend">
 	<meta property="og:title" content="Dns">
-	<meta property="og:description" content="Dns setup for alwaldend.com">
+	<meta property="og:description" content="Project-owned DNS declarations for alwaldend.com">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="website">
 
 	<meta itemprop="name" content="Dns">
-	<meta itemprop="description" content="Dns setup for alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
-	<meta itemprop="wordCount" content="118">
-	<meta itemprop="keywords" content="Dns,Dnscontrol">
+	<meta itemprop="description" content="Project-owned DNS declarations for alwaldend.com">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="555">
+	<meta itemprop="keywords" content="Dns,Terraform">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Dns">
-	<meta name="twitter:description" content="Dns setup for alwaldend.com">
+	<meta name="twitter:description" content="Project-owned DNS declarations for alwaldend.com">
 <link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
 <script
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -173,7 +173,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Dns</h1>
-<div class="lead">Dns setup for alwaldend.com</div>
+<div class="lead">Project-owned DNS declarations for alwaldend.com</div>
 
 
 
@@ -197,7 +197,26 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-5182c83d4964c12536210ac055ef6ebd">Tf</a></li>
+<li>2: <a href="#pg-bf1b0fb6bca64ed0e49465febc46b58f">Nested project DNS commands</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-5182c83d4964c12536210ac055ef6ebd">Shared DNS Terraform</a></li>
 
 
     
@@ -218,31 +237,64 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-links">Links<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-links" aria-label="Heading self-link"></a></h2><ul>
-<li>Docs: <a href="https://docs.dnscontrol.org">https://docs.dnscontrol.org</a></li>
-<li>Rules: <a href="/docs/projects/rules_dnscontrol/">../../projects/rules_dnscontrol</a></li>
-</ul>
-<h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-deployment">Deployment<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-deployment" aria-label="Heading self-link"></a></h2><p><code>//infra/dns:config_test</code> validates the generated configuration with the pinned
-DNSControl <code>check</code> command. It requires no credentials and does not access DNS
+      <p>DNS records live in each owner&rsquo;s <code>dnsconfig.json</code>. Each owner manages its records
+through the reusable <a href="/docs/projects/tf_modules/dns_records/">Terraform DNS module</a>
+from its designated <code>tf_setup</code> or <code>tf</code> root. This component&rsquo;s
+<a href="dnsconfig.json">dnsconfig.json</a> owns shared apex and mail records.</p>
+<h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-inspect-and-lint-declarations">Inspect and lint declarations<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-inspect-and-lint-declarations" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/dns:lint
+</span></span></code></pre></div><p>The linter discovers <code>dnsconfig.json</code> files in the current workspace at runtime
+and prints their DNS declarations as a table. It includes nested project
+workspaces and excludes task scratch, tool caches, and generated directories.
+There is no central source registry to maintain when a project adds a file.</p>
+<p>A canonical domain name must belong to one source file. Multiple values, record
+types, and destination views within that file are valid. Duplicate JSON object
+keys and domains declared by different source files are errors. The command
+reads checked-in declarations without contacting Terraform backends or DNS
 providers.</p>
-<p>Operational wrappers pass <code>providers.json</code> explicitly. Its environment references
-are populated by the AL Vault injector; DNSControl reads the values directly
-without a rendered credentials file.</p>
-<p>Project landing records live next to their projects in
-<code>projects/&lt;project&gt;/dnsconfig.json</code>. Project files own their subdomain CNAMEs, which point directly to
-<code>alwaldend.github.io.</code> as required by GitHub Pages custom-domain setup.</p>
-<p>Interactive:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/dns
-</span></span></code></pre></div><p>Just preview:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/dns:dns.preview
-</span></span></code></pre></div><p>Just deploy:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/dns:dns.deploy
-</span></span></code></pre></div><div class="alert alert-primary" role="alert">
-Deploy modifies the bind file, which will cause
-//infra/alwaldend.com/dns:preview_test to fail
-</div>
-<h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-dc1-bind">dc1 BIND<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-dc1-bind" aria-label="Heading self-link"></a></h2><p>{{/<em>&lt; readfile file=&ldquo;zones/dc1/alwaldend.com.zone&rdquo; code=&ldquo;true&rdquo; lang=&ldquo;zone&rdquo; &gt;</em>/}}</p>
-<h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-global-bind">global BIND<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-global-bind" aria-label="Heading self-link"></a></h2><p>{{/<em>&lt; readfile file=&ldquo;zones/global/alwaldend.com.zone&rdquo; code=&ldquo;true&rdquo; lang=&ldquo;zone&rdquo; &gt;</em>/}}</p>
+<p><code>bazel_agent bazel test //infra/dns:config_test</code> runs the linter&rsquo;s fixture tests
+and checks every DNS declaration in the current checkout. The repository test
+resolves the root <code>MODULE.bazel</code> runfile to the checkout and runs without sandboxing
+or cached test results so newly added files and nested workspaces are included
+on every run. It only reads local files.</p>
+<h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-terraform-records">Terraform records<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-terraform-records" aria-label="Heading self-link"></a></h2><p>The <a href="/docs/projects/tf_modules/dns_records/normalize/">provider-free normalization module</a>
+owns the Terraform input schema, relative-name handling, TTL defaults, and stable
+resource keys. Each logical key can contain several record-type members; <code>dsp</code>
+selects <code>global</code>, <code>dc1</code>, or <code>all</code>. Explicit member TTLs preserve shared apex and
+mail settings. The normalization module remains an internal dependency of each
+owner&rsquo;s Terraform DNS module.</p>
+<p>Owner-local roots receive their provider credentials and Vault HTTP state
+backend through the existing AL configuration. The shared module resolves the
+Cloudflare zone by name when no optional zone ID is provided. DNS and ingress
+reuse the RouterOS endpoint declared in the <a href="../al_lib.lua">shared AL configuration</a>,
+while their separate credentials remain in Vault. Neither integration requires
+adding metadata fields to the existing credential entries.
+Validate their source with the
+owning package&rsquo;s offline checks. A live plan, import, apply, or state operation
+requires separate authorization for that owner and operation.</p>
+<p>Service roots expose <code>dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> alongside their
+ordinary Terraform commands. They retain the owning root, AppRole and backend,
+select the DNS AL calls, and plan <code>module.dns</code>. Required root inputs still load
+through the existing read-only Vault injectors. Unrelated service authentication
+is not selected. Apply accepts only a reviewed saved plan file and rejects
+Terraform CLI argument environment overrides. See the runbook for the optional
+import-ID maps and adoption checks.</p>
+<h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-migration-and-recovery">Migration and recovery<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-migration-and-recovery" aria-label="Heading self-link"></a></h2><p>The <a href="openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/">migration change</a> and
+<a href="openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/cutover.md">cutover runbook</a>
+describe adoption, imports, recovery, and retirement requirements. Each owner&rsquo;s
+adoption change records its verified live transfer; source implementation alone
+does not establish operational ownership. The completed coordination record
+links the operational acceptance evidence and its coverage limits.</p>
+<p>Current source no longer exposes the central DNSControl deployment commands.
+Before an owner begins Terraform reconciliation, stop central deployment jobs
+identified by the active and scheduled writer audit. Record coverage and
+unavailable observations, and coordinate one owner at a time. Adopt existing
+records into the owner&rsquo;s state with an exact-ID, no-change plan. Fresh complete
+inventories may establish missing declarations for a separately reviewed
+additions-only plan that preserves all existing records.
+Rollback requires stopping the affected Terraform writers and following the
+runbook&rsquo;s recorded prior revision and state-reconciliation procedure.</p>
+<p>Historical <code>zones/*.zone</code> files are deployment snapshots. They are not a current
+inventory or a declared-state export and must not be hand-edited.</p>
 
 </div>
 </div>
@@ -266,55 +318,119 @@ Deploy modifies the bind file, which will cause
     
 	<h1 id="pg-a2a8fb4565c12c951b85dedb4e2ccf6e">1 - </h1>
     
-	<h1 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-infrastructure-dns">Infrastructure DNS<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-infrastructure-dns" aria-label="Heading self-link"></a></h1><h2 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose">Purpose<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose" aria-label="Heading self-link"></a></h2><p>Describe the repository-owned DNSControl configuration for the global and dc1
-views of <code>alwaldend.com</code>, including project-owned landing records. This baseline
-describes checked-in configuration and wrappers; deployed records were not
-observed.</p>
-<p>Baseline source revision: <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.
-Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.</p>
+	<h1 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-infrastructure-dns">Infrastructure DNS<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-infrastructure-dns" aria-label="Heading self-link"></a></h1><h2 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose">Purpose<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose" aria-label="Heading self-link"></a></h2><p>Describe owner-local Terraform DNS declarations and runtime source-ownership
+validation for global and dc1 records. This contract describes checked-in
+source; it does not establish live adoption or authorize infrastructure writes.</p>
 <p>Sources: <a href="/docs/">component documentation</a>,
 <a href="../../../BUILD.bazel">target definitions</a>,
-<a href="../../../dnsconfig.js">DNSControl configuration</a>,
-<a href="../../../providers.json">provider configuration</a>, and
-<a href="../../../al.lua">credential injection</a>.</p>
-<h2 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirements">Requirements<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-aggregate-records-from-their-owning-components">Requirement: Aggregate records from their owning components<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-aggregate-records-from-their-owning-components" aria-label="Heading self-link"></a></h3><p>The DNS package SHALL assemble its record input manifest from the declared
-infrastructure sources and the project registry, including nested <code>rules_*</code>
-modules through their external Bazel repositories. Project landing CNAMEs SHALL
-remain owned by each project&rsquo;s <code>dnsconfig.json</code>.</p>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-registered-project-contributes-landing-records">Scenario: A registered project contributes landing records<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-registered-project-contributes-landing-records" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> the DNS configuration is assembled for a registered project</li>
-<li><strong>THEN</strong> its owning DNS target is included in the record manifest</li>
-<li><strong>AND</strong> the landing CNAME points directly to <code>alwaldend.github.io.</code> as required
-by the component documentation</li>
+<a href="../../../cmd/lint/main.go">runtime linter</a>, and
+<a href="../../../tf/dns.tf">Terraform root</a>.</p>
+<h2 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirements">Requirements<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-aggregate-records-from-their-owning-components">Requirement: Aggregate records from their owning components<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-aggregate-records-from-their-owning-components" aria-label="Heading self-link"></a></h3><p>DNS declarations SHALL remain in their owners&rsquo; <code>dnsconfig.json</code> files. Runtime
+inventory SHALL discover all canonical files, including nested modules and
+empty declarations, without a checked-in ownership registry. The inventory
+SHALL print a deterministic table of files, DNS names, types and views.</p>
+<p>Project landing declarations retain their declared direct targets.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-new-project-adds-a-canonical-declaration">Scenario: A new project adds a canonical declaration<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-new-project-adds-a-canonical-declaration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the runtime linter scans a workspace containing the new file</li>
+<li><strong>THEN</strong> it includes the file without requiring a registry update</li>
 </ul>
-<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-distinct-global-and-site-local-views">Requirement: Preserve distinct global and site-local views<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-distinct-global-and-site-local-views" aria-label="Heading self-link"></a></h3><p>The configuration SHALL combine common apex and mail records with records
-assigned to the <code>global</code> or <code>dc1</code> view. It SHALL reject a record that names an
-unknown destination view.</p>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-record-is-assigned-only-to-dc1">Scenario: A record is assigned only to dc1<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-record-is-assigned-only-to-dc1" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> a record declares <code>dsp: [&quot;dc1&quot;]</code></li>
-<li><strong>THEN</strong> its modifier is added to the dc1 domain configuration</li>
-<li><strong>AND</strong> it is not added to the global domain configuration by that declaration</li>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-distinct-global-and-site-local-views">Requirement: Preserve distinct global and site-local views<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-distinct-global-and-site-local-views" aria-label="Heading self-link"></a></h3><p>The Terraform module SHALL preserve Cloudflare global and MikroTik dc1 views.
+It SHALL retain every type member, expand and deduplicate destinations, reject
+unknown inputs and preserve effective values, TTLs, priorities and multiplicity.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-entry-declares-a-and-aaaa-in-all-views">Scenario: An entry declares A and AAAA in all views<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-entry-declares-a-and-aaaa-in-all-views" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the shared module normalizes the entry</li>
+<li><strong>THEN</strong> both types appear exactly once in each destination view</li>
 </ul>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-record-names-an-unsupported-destination">Scenario: A record names an unsupported destination<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-record-names-an-unsupported-destination" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> a record references a destination missing from the modifiers map</li>
-<li><strong>THEN</strong> DNSControl configuration evaluation fails with <code>invalid dsp</code></li>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-input-names-an-unsupported-destination">Scenario: An input names an unsupported destination<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-input-names-an-unsupported-destination" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a record names an unsupported destination</li>
+<li><strong>THEN</strong> normalization fails with an actionable diagnostic</li>
 </ul>
-<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-validate-configuration-without-provider-access">Requirement: Validate configuration without provider access<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-validate-configuration-without-provider-access" aria-label="Heading self-link"></a></h3><p>The <code>//infra/dns:config_test</code> target SHALL invoke the pinned DNSControl <code>check</code>
-command with the configuration and generated manifest, without requiring
-provider credentials or contacting DNS providers.</p>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-validate-a-proposed-record-change-locally">Scenario: Validate a proposed record change locally<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-validate-a-proposed-record-change-locally" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> the configuration test is run</li>
-<li><strong>THEN</strong> DNSControl checks the assembled configuration without a deployment</li>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-validate-configuration-without-provider-access">Requirement: Validate configuration without provider access<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-validate-configuration-without-provider-access" aria-label="Heading self-link"></a></h3><p>The linter and module tests SHALL validate source ownership, names, inputs,
+normalization and provider mappings without credentials or live provider access.
+Existing JSON-based VM consumers SHALL remain compatible.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-validate-a-changed-declaration">Scenario: Validate a changed declaration<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-validate-a-changed-declaration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> offline checks run</li>
+<li><strong>THEN</strong> they validate the declaration and fixtures without deploying records</li>
 </ul>
-<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-inject-credentials-into-operational-wrappers">Requirement: Inject credentials into operational wrappers<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-inject-credentials-into-operational-wrappers" aria-label="Heading self-link"></a></h3><p>The preview and push wrappers SHALL pass <code>providers.json</code> explicitly and obtain
-its environment references through the AL Vault injector. The provider mapping
-SHALL use Cloudflare for the global view, MikroTik for dc1, and BIND files for
-both views.</p>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-authorized-operator-previews-a-dns-change">Scenario: An authorized operator previews a DNS change<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-authorized-operator-previews-a-dns-change" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> <code>//infra/dns:dns.preview</code> is invoked with its injected environment</li>
-<li><strong>THEN</strong> DNSControl receives the declared configuration and provider mapping</li>
-<li><strong>AND</strong> credentials are read from environment references rather than a rendered
-credentials file</li>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-inject-credentials-into-operational-wrappers">Requirement: Inject credentials into operational wrappers<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-inject-credentials-into-operational-wrappers" aria-label="Heading self-link"></a></h3><p>Owner Terraform roots SHALL use the existing AL/Vault authentication, backend
+and credential injection workflow. They SHALL obtain only their required view
+credentials. Operational provider initialization may require live credentials
+even with resource creation disabled. Central DNSControl write entrypoints
+SHALL be removed from the candidate.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-global-only-owner-operates-its-root">Scenario: A global-only owner operates its root<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-global-only-owner-operates-its-root" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an authorized operator invokes the root after bootstrap</li>
+<li><strong>THEN</strong> it uses that owner&rsquo;s AppRole and Cloudflare credentials</li>
+<li><strong>AND</strong> RouterOS credentials and resources are not required</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-reconcile-dns-through-its-owners-terraform-state">Requirement: Reconcile DNS through its owner&rsquo;s Terraform state<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-reconcile-dns-through-its-owners-terraform-state" aria-label="Heading self-link"></a></h3><p>Each owner SHALL instantiate the shared module in <code>tf_setup</code> when present,
+otherwise in <code>tf</code>. Missing roots and AppRoles SHALL be added. Related
+AppRole resources SHALL be grouped in modules under
+<code>infra/vault/tf/approles/&lt;name&gt;</code>. Provider instance keys SHALL be stable across
+value-only changes; unrelated owners SHALL remain outside the state.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-has-both-stages">Scenario: An owner has both stages<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-has-both-stages" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the integration is prepared</li>
+<li><strong>THEN</strong> only its setup root declares the DNS module</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-one-declaration-file-owns-each-dns-name">Requirement: One declaration file owns each DNS name<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-one-declaration-file-owns-each-dns-name" aria-label="Heading self-link"></a></h3><p>The runtime linter SHALL reject different files managing the same canonical
+fully qualified DNS name, across types and views. Multiple records within one
+file SHALL be allowed. Diagnostics SHALL identify both files.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-different-files-split-a-name-across-types-or-views">Scenario: Different files split a name across types or views<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-different-files-split-a-name-across-types-or-views" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> one file declares an A record and another an AAAA record or a
+different view for the same name</li>
+<li><strong>THEN</strong> lint fails and identifies both source files</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-one-file-manages-multiple-records-for-a-name">Scenario: One file manages multiple records for a name<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-one-file-manages-multiple-records-for-a-name" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> one file declares several values, types or views for a name</li>
+<li><strong>THEN</strong> ownership lint accepts the sole source</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-live-records-during-transfer">Requirement: Preserve live records during transfer<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-live-records-during-transfer" aria-label="Heading self-link"></a></h3><p>Operational cutover SHALL audit active and scheduled central writers, stop
+identified competing writers, and coordinate one owner at a time. Evidence
+SHALL state the audit&rsquo;s coverage and unavailable observations. Each existing
+record SHALL be imported using its actual provider ID into exactly one owner
+state, followed by a no-change adoption plan before writes. Fresh complete
+inventories MAY establish missing declarations for an exact additions-only
+plan that preserves every existing record. Endpoint-owning batches SHALL
+verify an independent authenticated recovery path first.</p>
+<p>The shared apex and mail records owned by <code>infra/dns</code> SHALL remain disabled
+by default in its <code>tf</code> root before the authorized adoption revision and SHALL
+retain enabled ownership after import. Reconciliation against the adopted state
+and unchanged declarations SHALL propose no record additions, changes,
+replacements, or deletions and SHALL preserve unrelated provider records.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-is-adopted">Scenario: An owner is adopted<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-is-adopted" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> its authorized cutover runs</li>
+<li><strong>THEN</strong> exact-ID imports preserve existing records</li>
+<li><strong>AND</strong> the operator coordinates exclusive active writers and verifies
+unrelated records remain unchanged</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-deploy-verified-missing-declarations">Scenario: Deploy verified missing declarations<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-deploy-verified-missing-declarations" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> complete provider inventories establish that declared names are absent
+and conflict-free</li>
+<li><strong>THEN</strong> the reviewed DNS plan creates only those missing declarations</li>
+<li><strong>AND</strong> every existing provider identity and attribute remains unchanged</li>
+<li><strong>AND</strong> a follow-up DNS plan contains no changes</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-the-prepared-shared-record-defaults">Scenario: Inspect the prepared shared-record defaults<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-the-prepared-shared-record-defaults" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the shared <code>tf</code> root uses its checked-in defaults before its
+authorized adoption revision</li>
+<li><strong>THEN</strong> shared-record ownership is disabled and the root retains the
+canonical shared declaration and module inputs</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-adopted-shared-record-defaults">Scenario: Inspect adopted shared-record defaults<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-adopted-shared-record-defaults" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the adopted shared <code>tf</code> root uses its checked-in source defaults</li>
+<li><strong>THEN</strong> ownership is enabled for the shared apex and mail records in
+their declared views</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-reconcile-existing-shared-records">Scenario: Reconcile existing shared records<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-reconcile-existing-shared-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the shared <code>tf</code> root plans against adopted state and unchanged declarations</li>
+<li><strong>THEN</strong> it proposes no record additions, changes, replacements, or deletions</li>
+<li><strong>AND</strong> unrelated provider records remain unchanged</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-avoid-a-separate-dns-exporter">Requirement: Avoid a separate DNS exporter<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-avoid-a-separate-dns-exporter" aria-label="Heading self-link"></a></h3><p>The implementation SHALL expose runtime declaration tables rather than a
+normalized inventory or BIND exporter. Historical snapshots SHALL NOT be
+presented as current desired state.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-declared-ownership">Scenario: Inspect declared ownership<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-declared-ownership" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the runtime linter succeeds</li>
+<li><strong>THEN</strong> its table reports the discovered declarations without an export step</li>
 </ul>
 
 </div>
@@ -331,9 +447,74 @@ credentials file</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-5182c83d4964c12536210ac055ef6ebd">2 - Tf</h1>
-    <div class="lead">Terraform config</div>
+	<h1 id="pg-bf1b0fb6bca64ed0e49465febc46b58f">2 - Nested project DNS commands</h1>
+    <div class="lead">Repository operational wrappers for project-owned Terraform roots</div>
+	<p>This package exposes independent Terraform commands for DNS roots owned by
+nested Bazel projects. Each project&rsquo;s <code>tf/</code> directory owns its configuration,
+provider lockfile, and state boundary; its <code>al.lua</code> selects its own Vault
+AppRole and HTTP backend. Its existing <code>dnsconfig.json</code> remains the record
+source.</p>
+<p>For example, run <code>//infra/dns/projects:rules_docs_tf.plan</code> from the monorepo
+workspace when a live plan is authorized. The offline formatting check is
+<code>//infra/dns/projects:rules_docs_tf_tests.fmt_test</code>. Other owners use the
+same target naming with their module name.</p>
+<p>The nested modules export source filegroups. This adapter aliases those
+declared files into runfiles at their checkout paths and declares the one
+shared <code>//projects/tf_modules/dns_records/global:global</code> module dependency.
+Terraform&rsquo;s relative module and JSON paths therefore resolve in both the
+checkout and Bazel runfiles. The adapter does not copy source or introduce
+a dependency from reusable Bazel modules back to the monorepo.</p>
+<p>Each operational command selects the ordinary <code>tf=main</code> pipeline, including
+DNS credential injection. Deploy the owner&rsquo;s AppRole and credential access
+before running its operational root. The initial <code>dns_enabled = false</code>
+suppresses record creation while preparing adoption.</p>
+<p>Stop central deployments and prevent older central candidates from running
+before importing existing records or enabling owner reconciliation. Follow
+the <a href="/docs/infra/dns/">DNS migration runbook</a> for adoption and recovery.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
 	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-5182c83d4964c12536210ac055ef6ebd">3 - Shared DNS Terraform</h1>
+    <div class="lead">Owner state for common apex and mail records</div>
+	<p>This root consumes <a href="../dnsconfig.json">the canonical common declarations</a>
+through the reusable DNS module. It uses the <code>src_infra_dns</code> AppRole and its
+existing Vault-backed HTTP state. Both Cloudflare and RouterOS credentials
+are injected through the <code>tf=1</code> stage label.</p>
+<p>Shared apex and mail records were adopted on 2026-09-13. <code>dns_enabled</code> now
+defaults to <code>true</code>; reconciliation against the adopted state and unchanged
+declarations must propose no record changes. The <a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">adoption evidence</a>
+records 60 imports and preservation of both complete provider inventories.</p>
+<p>Operational calls require the AppRole policy and Vault credential fields
+described by <a href="../openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/cutover.md">the cutover procedure</a>.
+The module&rsquo;s <code>import_addresses</code> output gives addresses relative to <code>module.dns</code>;
+actual provider IDs come from the authorized adoption inventory.</p>
+<p>Build the wrappers or run <code>:tf_tests.fmt_test</code> for offline validation. Import,
+plan and apply follow the separately authorized adoption procedure.</p>
+
 </div>
 
 

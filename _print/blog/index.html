@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="Blog">
 	<meta itemprop="description" content="Blog">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Blog">
 	<meta name="twitter:description" content="Blog">
@@ -140,7 +140,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -192,6 +192,16 @@ This is the multi-page printable view of this section.
     
 	
 
+    <li><a href="#pg-4f88bb5d6b5d83c8039ee6a5ceeca1d7">DNS management in a monorepo</a></li>
+
+
+
+    
+  
+    
+    
+	
+
     <li><a href="#pg-79bf4a204ab93c4b5e17a9686fa780cc">Slop without a clear goal</a></li>
 
 
@@ -226,6 +236,92 @@ This is the multi-page printable view of this section.
   
 
 <div class="td-content" style="">
+    <h1 id="pg-4f88bb5d6b5d83c8039ee6a5ceeca1d7">DNS management in a monorepo</h1>
+	<div class="lead">Evolution of DNS management in my monorepo</div>
+	<div class="td-byline mb-4">
+		
+        
+		<time datetime="2026-09-13" class="text-body-secondary">Sunday, September 13, 2026</time>
+        
+	</div>
+	<p>Buying a domain is one of the best purchases you can make because they are very cheap and owning one offers you more independence - you can have your email not tied to a specific provider, you can have a site, etc.</p>
+<p>After I bought a domain, I needed a way to manage DNS of that domain. Since using the registrar&rsquo;s UI to do that is not the best idea, I searched for an IaC tool that can do that for me - I settled on <a href="https://dnscontrol.org/">DNSControl</a>.</p>
+<h2 id="single-file-config">Single-file config<a class="td-heading-self-link" href="#single-file-config" aria-label="Heading self-link"></a></h2><p>Initially, I just needed to set up email and GitHub Pages, so I used the most basic setup imaginable.</p>
+<pre tabindex="0"><code>infra/dns/
+├── dnsconfig.js # DNS config
+├── creds.json.tpl # Credential config
+└── zones/
+    └── alwaldend.com.zone # BIND file
+</code></pre><p>I just wrote records in DNSControl&rsquo;s subset of JavaScript and templated secrets from the environment using <code>envsubst</code>. It worked alright, and DNSControl rendered a BIND file so I could see the computed DNS records as text.</p>
+<h2 id="single-file-config-with-secret-injection">Single-file config with secret injection<a class="td-heading-self-link" href="#single-file-config-with-secret-injection" aria-label="Heading self-link"></a></h2><p>At some point, I migrated my secrets to HashiCorp Vault because storing secrets in environment variables is a big no-no. That didn&rsquo;t change the layout. The credential config just became a Go template that used secrets from Vault.</p>
+<h2 id="per-project-config">Per-project config<a class="td-heading-self-link" href="#per-project-config" aria-label="Heading self-link"></a></h2><p>Once I started setting up infrastructure, I hit an annoying limitation - extracting records from <code>.js</code> is extremely inconvenient, which means that you have to duplicate IPs for VMs instead of just extracting them from the config. And managing all DNS records in a single <code>.js</code> file is not very convenient either. To solve it, I split the main config into several static per-project configs and then just parsed them in the main <code>.js</code> file.</p>
+<p>The layout became like this:</p>
+<pre tabindex="0"><code>infra/dns/ # The main DNS project
+infra/project/ # Another infra project
+├── dnsconfig.json # Static DNS config
+</code></pre><p>And the config looked like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;domains&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;default&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;records&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;host1_a&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;A&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;host1.consul1.dc1&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;address&#34;</span>: <span style="color:#e6db74">&#34;192.168.10.20&#34;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This was a bad config design as will become clear later.</p>
+<h2 id="split-horizon-dns">Split-horizon DNS<a class="td-heading-self-link" href="#split-horizon-dns" aria-label="Heading self-link"></a></h2><p>Later, I decided to set up <a href="https://en.wikipedia.org/wiki/Split-horizon_DNS">Split-horizon DNS</a> so I can have different records for internal and external DNS servers. Thankfully, DNSControl supports this, so there were no problems from this side, but configs had to be redone because they grouped records by domains which did not translate well to DNSControl&rsquo;s DNS providers.</p>
+<p>I simplified the config and added <code>dsp</code> fields to select which DNS provider the record belongs to.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;records&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;host1&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;A&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;host1.threexui&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;address&#34;</span>: <span style="color:#e6db74">&#34;192.168.10.80&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;dsp&#34;</span>: [<span style="color:#e6db74">&#34;dc1&#34;</span>]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="terraform">Terraform<a class="td-heading-self-link" href="#terraform" aria-label="Heading self-link"></a></h2><p>That setup worked fine for a while, but then I stumbled upon an obvious flaw during a clanker session - there is no way to work in parallel (without mucking around with <code>IGNORE</code> and <code>NO_PURGE</code>). DNSControl controls the whole zone, so if you have different sessions applying different configs, then those changes override each other.</p>
+<p>That seems like an easy problem to fix - just split the domain into different zones, and it was easy for my local DNS (a MikroTik router) because DNSControl&rsquo;s provider has zone hints, but there is no way to split the domain on the external DNS (Cloudflare) without buying an Enterprise plan or without delegating to yet another DNS provider.</p>
+<p>I thought about my options and decided to just switch to Terraform because I already have a standard way of handling Terraform in the repo. This approach fixed the problem, because now projects own only their own DNS records, so you can work on them in parallel.</p>
+<p>To implement DNS control in Terraform, I wrote a Terraform module which parses the config and updates DNS, then used it in each project. I also added a linter that checks that projects do not overlap DNS records. The final layout looks like this:</p>
+<pre tabindex="0"><code>projects/
+├── project name/
+│   ├── dnsconfig.json # DNS config, unchanged
+│   └── tf/ # A Terraform directory
+└── tf_modules/dns_records/ # Reusable Terraform module
+
+infra/dns/
+├── dnsconfig.json # Generic DNS like email
+├── tf/ # A Terraform directory
+└── cmd/lint/ # A linter that checks configs for collisions
+</code></pre><h2 id="future">Future<a class="td-heading-self-link" href="#future" aria-label="Heading self-link"></a></h2><p>There are no restrictions on DNS management - each project uses the same API keys and can modify the whole domain. This is not ideal, of course, but it&rsquo;s not that big of a deal because I trust all developers involved (Me and clankers) to not fuck it up. I might revisit this problem in the future, but for now this setup is good enough.</p>
+
+</div>
+
+
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+
+  
+
+<div class="td-content" style="page-break-before: always">
     <h1 id="pg-79bf4a204ab93c4b5e17a9686fa780cc">Slop without a clear goal</h1>
 	<div class="lead">Imprecise goals without quality assurance lead to bad results, obviously.</div>
 	<div class="td-byline mb-4">

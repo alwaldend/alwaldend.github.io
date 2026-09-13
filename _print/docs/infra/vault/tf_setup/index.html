@@ -44,7 +44,8 @@
 
 	<meta itemprop="name" content="Tf setup">
 	<meta itemprop="description" content="Terraform setup">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="96">
 	<meta itemprop="keywords" content="Terraform,Pve">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Tf setup">
@@ -141,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -190,7 +191,20 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p>This root owns Vault&rsquo;s canonical <a href="../dnsconfig.json">DNS declaration</a> and
+retains its existing <code>src_infra_dc1_vault</code> AppRole and setup state backend.
+Use <code>//infra/vault/tf_setup:dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> for the
+<a href="/docs/infra/dns/">scoped DNS workflow</a>. They select <code>dns=1</code> and
+<code>module.dns</code>; apply requires a reviewed saved plan. Ordinary setup and service
+wrappers retain their existing authentication flow.</p>
+<p><code>dns_enabled</code> defaults to <code>true</code> after verified adoption. Keep it enabled to
+retain existing records; disabling it would propose deletion. The
+<a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">adoption record</a>
+contains the import and verification evidence. Targeted DNS checks do not
+establish the health of other resources in the root.</p>
+<p>Offline formatting is available through
+<code>//infra/vault/tf_setup:tf_tests.fmt_test</code>.</p>
+
 </div>
 </div>
 

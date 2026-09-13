@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="harbor">
 	<meta itemprop="description" content="Harbor deployment">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
 	<meta itemprop="wordCount" content="44">
 	<meta itemprop="keywords" content="Harbor,Ansible,Pve">
 	<meta name="twitter:card" content="summary">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -189,7 +189,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-a6cdb5c8426e0aa9031b561d46265ec6"></a></li>
+<li>1: <a href="#pg-92852cee7adcae90ab7d19d4188b4a7b"></a></li>
 
 
     
@@ -197,7 +197,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-37790ae5b68c8bca2b32394697f159d4">Ansible</a></li>
+<li>2: <a href="#pg-0f5dc2c95f5d72d6fd5a67ffe1b32d50"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-37790ae5b68c8bca2b32394697f159d4">Ansible</a></li>
 
 
     
@@ -216,7 +224,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-fe8f1dd506d136059144f407954fda31">cl</a></li>
+<li>4: <a href="#pg-fe8f1dd506d136059144f407954fda31">cl</a></li>
 
 
     
@@ -235,7 +243,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-48d0c8e49f891bda04241fb1931f3237">Tf</a></li>
+<li>5: <a href="#pg-48d0c8e49f891bda04241fb1931f3237">Tf</a></li>
 
 
     
@@ -254,7 +262,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5: <a href="#pg-6c096241e7882502d6144d2b151e4890">Tf setup</a></li>
+<li>6: <a href="#pg-6c096241e7882502d6144d2b151e4890">Tf setup</a></li>
 
 
     
@@ -316,18 +324,18 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-a6cdb5c8426e0aa9031b561d46265ec6">1 - </h1>
+	<h1 id="pg-92852cee7adcae90ab7d19d4188b4a7b">1 - </h1>
     
-	<h1 id="print-362faf89ff50624f8cb07b0226dc22b0-harbor-infrastructure-specification">Harbor infrastructure specification<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-harbor-infrastructure-specification" aria-label="Heading self-link"></a></h1><h2 id="print-362faf89ff50624f8cb07b0226dc22b0-purpose">Purpose<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Harbor registry infrastructure owned by <code>infra/harbor</code>, spanning
+	<h1 id="print-fdea4423ba18c7ba1cb59aaf1104c5ff-harbor-infrastructure-specification">Harbor infrastructure specification<a class="td-heading-self-link" href="#print-fdea4423ba18c7ba1cb59aaf1104c5ff-harbor-infrastructure-specification" aria-label="Heading self-link"></a></h1><h2 id="print-fdea4423ba18c7ba1cb59aaf1104c5ff-purpose">Purpose<a class="td-heading-self-link" href="#print-fdea4423ba18c7ba1cb59aaf1104c5ff-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Harbor registry infrastructure owned by <code>infra/harbor</code>, spanning
 Proxmox setup, K3s host configuration, Flux-managed chart declarations, and
 Harbor service Terraform. The <code>tf_setup</code>, <code>ansible</code>, <code>cl</code>, and <code>tf</code> packages
 are implementation stages of this owner. This is a checked-in source
 baseline, without an observation of live registry availability or deployment
 success.</p>
 <p>Baseline revision: <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.
-Observed: 2026-09-08. Sources: <a href="/docs/">owner README</a>,
+Observed: 2026-09-08. Sources: <a href="/docs/infra/harbor/">owner README</a>,
 <a href="../../../BUILD.bazel">BUILD</a>, and the implementation links below.</p>
-<h2 id="print-362faf89ff50624f8cb07b0226dc22b0-requirements">Requirements<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-362faf89ff50624f8cb07b0226dc22b0-requirement-dedicated-k3s-registry-host">Requirement: Dedicated K3s registry host<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-requirement-dedicated-k3s-registry-host" aria-label="Heading self-link"></a></h3><p>Setup SHALL declare a Proxmox VM in the <code>src_infra_harbor</code> pool with two
+<h2 id="print-fdea4423ba18c7ba1cb59aaf1104c5ff-requirements">Requirements<a class="td-heading-self-link" href="#print-fdea4423ba18c7ba1cb59aaf1104c5ff-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-fdea4423ba18c7ba1cb59aaf1104c5ff-requirement-dedicated-k3s-registry-host">Requirement: Dedicated K3s registry host<a class="td-heading-self-link" href="#print-fdea4423ba18c7ba1cb59aaf1104c5ff-requirement-dedicated-k3s-registry-host" aria-label="Heading self-link"></a></h3><p>Setup SHALL declare a Proxmox VM in the <code>src_infra_harbor</code> pool with two
 cores, 4096 MiB memory, and 20 GiB boot, 20 GiB K3s data, and 40 GiB K3s
 storage disks. Ansible SHALL apply the shared host and K3s roles with K3s
 secrets encryption enabled. Its firewall variables SHALL scope API port
@@ -336,26 +344,26 @@ secrets encryption enabled. Its firewall variables SHALL scope API port
 <a href="../../../ansible/playbook_deploy.yaml">deployment playbook</a>,
 <a href="../../../ansible/files/k3s.yaml">K3s configuration</a>, and
 <a href="../../../ansible/group_vars/all.yaml">host variables</a>.</p>
-<h4 id="print-362faf89ff50624f8cb07b0226dc22b0-scenario-inspect-management-api-access">Scenario: Inspect management API access<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-scenario-inspect-management-api-access" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-fdea4423ba18c7ba1cb59aaf1104c5ff-scenario-inspect-management-api-access">Scenario: Inspect management API access<a class="td-heading-self-link" href="#print-fdea4423ba18c7ba1cb59aaf1104c5ff-scenario-inspect-management-api-access" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the Harbor host configuration is evaluated</li>
 <li><strong>THEN</strong> the API-port firewall entry identifies the Flux source address</li>
 <li><strong>AND</strong> the K3s configuration enables secrets encryption and disables
 bundled Traefik</li>
 </ul>
-<h3 id="print-362faf89ff50624f8cb07b0226dc22b0-requirement-remote-flux-chart-reconciliation">Requirement: Remote Flux chart reconciliation<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-requirement-remote-flux-chart-reconciliation" aria-label="Heading self-link"></a></h3><p>The Harbor Flux manifests SHALL declare a remote-cluster Kustomization and
+<h3 id="print-fdea4423ba18c7ba1cb59aaf1104c5ff-requirement-remote-flux-chart-reconciliation">Requirement: Remote Flux chart reconciliation<a class="td-heading-self-link" href="#print-fdea4423ba18c7ba1cb59aaf1104c5ff-requirement-remote-flux-chart-reconciliation" aria-label="Heading self-link"></a></h3><p>The Harbor Flux manifests SHALL declare a remote-cluster Kustomization and
 HelmRelease using <code>src-infra-harbor-cl-kubeconfig</code>. The HelmRelease SHALL
 pin its chart version, enable Helm tests and drift detection, set
 <code>https://harbor.alwaldend.com</code> as the external URL, and use the <code>local-path</code>
 storage class for its declared persistent components.</p>
 <p>Source: <a href="../../../cl/flux/harbor.yaml">Harbor Flux manifests</a>.</p>
-<h4 id="print-362faf89ff50624f8cb07b0226dc22b0-scenario-inspect-the-harbor-release-declaration">Scenario: Inspect the Harbor release declaration<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-scenario-inspect-the-harbor-release-declaration" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-fdea4423ba18c7ba1cb59aaf1104c5ff-scenario-inspect-the-harbor-release-declaration">Scenario: Inspect the Harbor release declaration<a class="td-heading-self-link" href="#print-fdea4423ba18c7ba1cb59aaf1104c5ff-scenario-inspect-the-harbor-release-declaration" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a maintainer evaluates the Harbor HelmRelease</li>
 <li><strong>THEN</strong> the source selects a specific chart version and the remote Harbor
 cluster configuration</li>
 <li><strong>AND</strong> tests, drift detection, external URL, and persistent storage choices
 are explicit</li>
 </ul>
-<h3 id="print-362faf89ff50624f8cb07b0226dc22b0-requirement-vault-backed-registry-identity-configuration">Requirement: Vault-backed registry identity configuration<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-requirement-vault-backed-registry-identity-configuration" aria-label="Heading self-link"></a></h3><p>Harbor service Terraform SHALL configure Vault OIDC authentication using
+<h3 id="print-fdea4423ba18c7ba1cb59aaf1104c5ff-requirement-vault-backed-registry-identity-configuration">Requirement: Vault-backed registry identity configuration<a class="td-heading-self-link" href="#print-fdea4423ba18c7ba1cb59aaf1104c5ff-requirement-vault-backed-registry-identity-configuration" aria-label="Heading self-link"></a></h3><p>Harbor service Terraform SHALL configure Vault OIDC authentication using
 client credentials from the Vault provider, the <code>groups</code> claim, and the
 <code>src_infra_harbor_admins</code> administrator group. It SHALL enable automatic
 onboarding and use the <code>username</code> claim for users.</p>
@@ -363,20 +371,20 @@ onboarding and use the <code>username</code> claim for users.</p>
 The baseline sets <code>oidc_verify_cert = false</code> with a CA-issues comment; this
 specification does not claim that OIDC server certificate verification is
 enabled.</p>
-<h4 id="print-362faf89ff50624f8cb07b0226dc22b0-scenario-resolve-oidc-identity-settings">Scenario: Resolve OIDC identity settings<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-scenario-resolve-oidc-identity-settings" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-fdea4423ba18c7ba1cb59aaf1104c5ff-scenario-resolve-oidc-identity-settings">Scenario: Resolve OIDC identity settings<a class="td-heading-self-link" href="#print-fdea4423ba18c7ba1cb59aaf1104c5ff-scenario-resolve-oidc-identity-settings" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the service Terraform authentication resource is inspected</li>
 <li><strong>THEN</strong> it references Vault-provided client credentials and the configured
 user and group claims</li>
 <li><strong>AND</strong> its certificate-verification setting remains visible as a baseline
 limitation</li>
 </ul>
-<h3 id="print-362faf89ff50624f8cb07b0226dc22b0-requirement-registry-projects-and-guest-access">Requirement: Registry projects and guest access<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-requirement-registry-projects-and-guest-access" aria-label="Heading self-link"></a></h3><p>Service Terraform SHALL declare an <code>alwaldend</code> project with vulnerability
+<h3 id="print-fdea4423ba18c7ba1cb59aaf1104c5ff-requirement-registry-projects-and-guest-access">Requirement: Registry projects and guest access<a class="td-heading-self-link" href="#print-fdea4423ba18c7ba1cb59aaf1104c5ff-requirement-registry-projects-and-guest-access" aria-label="Heading self-link"></a></h3><p>Service Terraform SHALL declare an <code>alwaldend</code> project with vulnerability
 scanning and automatic SBOM generation, plus a <code>dockerhub</code> proxy-cache
 project linked to the Docker Hub registry. Both projects SHALL grant the
 configured <code>src_infra_harbor_users</code> OIDC group the guest role.</p>
 <p>Sources: <a href="../../../tf/alwaldend.tf">first-party project</a> and
 <a href="../../../tf/dockerhub.tf">Docker Hub proxy</a>.</p>
-<h4 id="print-362faf89ff50624f8cb07b0226dc22b0-scenario-inspect-registry-consumer-permissions">Scenario: Inspect registry consumer permissions<a class="td-heading-self-link" href="#print-362faf89ff50624f8cb07b0226dc22b0-scenario-inspect-registry-consumer-permissions" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-fdea4423ba18c7ba1cb59aaf1104c5ff-scenario-inspect-registry-consumer-permissions">Scenario: Inspect registry consumer permissions<a class="td-heading-self-link" href="#print-fdea4423ba18c7ba1cb59aaf1104c5ff-scenario-inspect-registry-consumer-permissions" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the managed registry projects are evaluated</li>
 <li><strong>THEN</strong> <code>alwaldend</code> enables scanning and SBOM generation, while <code>dockerhub</code>
 references the Docker Hub proxy registry</li>
@@ -397,7 +405,75 @@ references the Docker Hub proxy registry</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-37790ae5b68c8bca2b32394697f159d4">2 - Ansible</h1>
+	<h1 id="pg-0f5dc2c95f5d72d6fd5a67ffe1b32d50">2 - </h1>
+    
+	<h1 id="print-dc1291cc3e3aeb08367522495ac33108-owned-dns-specification">owned-dns Specification<a class="td-heading-self-link" href="#print-dc1291cc3e3aeb08367522495ac33108-owned-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-dc1291cc3e3aeb08367522495ac33108-purpose">Purpose<a class="td-heading-self-link" href="#print-dc1291cc3e3aeb08367522495ac33108-purpose" aria-label="Heading self-link"></a></h2><p>Define Harbor DNS management through the owner&rsquo;s <code>tf_setup</code> root,
+including canonical declarations, scoped credentials, and offline source checks
+before adopting live records.</p>
+<h2 id="print-dc1291cc3e3aeb08367522495ac33108-requirements">Requirements<a class="td-heading-self-link" href="#print-dc1291cc3e3aeb08367522495ac33108-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-dc1291cc3e3aeb08367522495ac33108-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-dc1291cc3e3aeb08367522495ac33108-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf_setup</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through
+the shared DNS Terraform module, preserving declared record identities and views.
+DNS resources SHALL default to disabled before adoption and SHALL default to
+enabled in the reviewed adoption revision and after adoption. Adoption SHALL
+import the exact existing provider records and require a scoped no-change import plan before saved-plan
+apply. Subsequent reconciliation with unchanged root inputs SHALL preserve
+adopted records, unrelated DNS records, and non-DNS resources in the root.</p>
+<h4 id="print-dc1291cc3e3aeb08367522495ac33108-scenario-inspect-the-preparatory-configuration">Scenario: Inspect the preparatory configuration<a class="td-heading-self-link" href="#print-dc1291cc3e3aeb08367522495ac33108-scenario-inspect-the-preparatory-configuration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the checked-in root is evaluated with default inputs before adoption</li>
+<li><strong>THEN</strong> it reads this owner&rsquo;s declaration and disables managed DNS records</li>
+<li><strong>AND</strong> the package contains the module and declaration inputs</li>
+</ul>
+<h4 id="print-dc1291cc3e3aeb08367522495ac33108-scenario-inspect-the-adopted-default">Scenario: Inspect the adopted default<a class="td-heading-self-link" href="#print-dc1291cc3e3aeb08367522495ac33108-scenario-inspect-the-adopted-default" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the reviewed adoption revision or an adopted root is evaluated with default inputs</li>
+<li><strong>THEN</strong> it reads this owner&rsquo;s declaration and enables managed DNS records</li>
+<li><strong>AND</strong> enabled ownership remains the default after import</li>
+</ul>
+<h4 id="print-dc1291cc3e3aeb08367522495ac33108-scenario-adopt-existing-records">Scenario: Adopt existing records<a class="td-heading-self-link" href="#print-dc1291cc3e3aeb08367522495ac33108-scenario-adopt-existing-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> this owner applies a reviewed saved import plan through
+<code>//infra/harbor/tf_setup:dns.apply</code></li>
+<li><strong>THEN</strong> each existing provider record is imported at its exact owner-local address</li>
+<li><strong>AND</strong> a reviewed adoption plan proposes no record additions, changes, replacements, or deletions before apply</li>
+</ul>
+<h4 id="print-dc1291cc3e3aeb08367522495ac33108-scenario-reconcile-unchanged-declarations">Scenario: Reconcile unchanged declarations<a class="td-heading-self-link" href="#print-dc1291cc3e3aeb08367522495ac33108-scenario-reconcile-unchanged-declarations" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the adopted root reconciles unchanged canonical declarations and root inputs</li>
+<li><strong>THEN</strong> the plan proposes no changes to the adopted DNS records</li>
+<li><strong>AND</strong> unrelated DNS records and non-DNS resources in the root remain unchanged</li>
+</ul>
+<h3 id="print-dc1291cc3e3aeb08367522495ac33108-requirement-scoped-dns-execution-and-offline-checks">Requirement: Scoped DNS execution and offline checks<a class="td-heading-self-link" href="#print-dc1291cc3e3aeb08367522495ac33108-requirement-scoped-dns-execution-and-offline-checks" aria-label="Heading self-link"></a></h3><p>The DNS wrappers SHALL select <code>src_infra_harbor</code> through the repository AL flow and
+keep secret values in injected variables. The <code>dns.plan</code>, <code>dns.show</code>, and
+<code>dns.apply</code> targets SHALL select <code>dns=1</code> and retain the owner&rsquo;s setup backend;
+plans SHALL target <code>module.dns</code> and apply SHALL require a reviewed saved plan.
+Ordinary setup wrappers SHALL retain their service authentication behavior.
+Real DNS credentials and Vault policy grants SHALL be prerequisites for operational
+Terraform calls. RouterOS DNS credentials SHALL remain isolated from unrelated
+RouterOS resources. The package SHALL expose a format test without live credentials.
+DNS-targeted validation SHALL NOT establish unrelated VM or service health.</p>
+<h4 id="print-dc1291cc3e3aeb08367522495ac33108-scenario-validate-the-terraform-source">Scenario: Validate the Terraform source<a class="td-heading-self-link" href="#print-dc1291cc3e3aeb08367522495ac33108-scenario-validate-the-terraform-source" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the package format test executes</li>
+<li><strong>THEN</strong> it checks the packaged Terraform configuration without live credentials</li>
+<li><strong>AND</strong> existing non-DNS authentication and backend paths remain unchanged</li>
+</ul>
+<h4 id="print-dc1291cc3e3aeb08367522495ac33108-scenario-prepare-an-operational-terraform-invocation">Scenario: Prepare an operational Terraform invocation<a class="td-heading-self-link" href="#print-dc1291cc3e3aeb08367522495ac33108-scenario-prepare-an-operational-terraform-invocation" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an authorized operator selects the owner&rsquo;s DNS wrapper</li>
+<li><strong>THEN</strong> it selects DNS credential injection through the owner AppRole and setup backend</li>
+<li><strong>AND</strong> its scoped plan and saved-plan apply cover DNS and its dependencies</li>
+<li><strong>AND</strong> disabled DNS resources do not imply offline provider configuration</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-37790ae5b68c8bca2b32394697f159d4">3 - Ansible</h1>
     <div class="lead">Ansible setup</div>
 	
 </div>
@@ -426,7 +502,7 @@ references the Docker Hub proxy registry</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-fe8f1dd506d136059144f407954fda31">3 - cl</h1>
+	<h1 id="pg-fe8f1dd506d136059144f407954fda31">4 - cl</h1>
     <div class="lead">Cluster manifests</div>
 	
 </div>
@@ -455,7 +531,7 @@ references the Docker Hub proxy registry</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-48d0c8e49f891bda04241fb1931f3237">4 - Tf</h1>
+	<h1 id="pg-48d0c8e49f891bda04241fb1931f3237">5 - Tf</h1>
     <div class="lead">Terraform config</div>
 	
 </div>
@@ -484,9 +560,20 @@ references the Docker Hub proxy registry</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-6c096241e7882502d6144d2b151e4890">5 - Tf setup</h1>
+	<h1 id="pg-6c096241e7882502d6144d2b151e4890">6 - Tf setup</h1>
     <div class="lead">Terraform setup</div>
-	
+	<p>This root owns the <a href="../dnsconfig.json">Harbor DNS declaration</a>. DNS ownership
+defaults to enabled after <a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">verified adoption</a>;
+keep it enabled to retain the managed records.</p>
+<p>Use <code>//infra/harbor/tf_setup:dns.plan</code>, <code>:dns.show</code>, and <code>:dns.apply</code> for
+<a href="../../dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform/cutover.md#prepare-the-owner">scoped DNS reconciliation</a>.
+These targets retain the setup backend and <code>src_infra_harbor</code> AppRole, select
+<code>dns=1</code>, and target <code>module.dns</code>. Apply requires a reviewed saved plan.
+Reconciliation of unchanged declarations must produce no DNS changes.</p>
+<p>The ordinary setup targets retain their service authentication behavior.
+DNS checks do not establish PVE VM or service health; current aggregate source
+validation remains part of repository delivery.</p>
+
 </div>
 
 

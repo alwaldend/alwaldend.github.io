@@ -44,7 +44,8 @@
 
 	<meta itemprop="name" content="Tf">
 	<meta itemprop="description" content="Terraform config">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="126">
 	<meta itemprop="keywords" content="Terraform">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Tf">
@@ -141,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -209,7 +210,22 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <h2 id="print-b7a2418aa7c39d2007559719295c342c-dns-identities">DNS identities<a class="td-heading-self-link" href="#print-b7a2418aa7c39d2007559719295c342c-dns-identities" aria-label="Heading self-link"></a></h2><p><a href="approles_dns.tf">Missing DNS-owner AppRoles</a> compose the existing reusable
+AppRole module with an owner-specific DNS policy in <code>approles/&lt;name&gt;/</code>.
+<a href="dns_access/main.tf">DNS access</a> grants read-only access to the existing
+provider credentials for the owner&rsquo;s views. Existing component identities
+receive these policies through their existing module declarations.</p>
+<p><a href="group_dns_approles.tf">DNS-only group membership</a> adds no policies. These
+identities retain their own state and named shared-secret access without
+joining the general infrastructure AppRole group or receiving cloud
+provisioning, SSH, or PKI permissions.</p>
+<p>The operator bootstrap membership follows the existing component pattern.
+An authorized Vault apply must create the roles and policies before their DNS
+stages can authenticate; source validation does not establish deployed access.
+Follow the <a href="/docs/infra/dns/">DNS migration</a> for the coordinated cutover and
+the <a href="../../../projects/agents/skills/repo-infra/references/vault.md">AppRole bootstrap procedure</a>
+when distinguishing missing deployment from insufficient operator access.</p>
+
 </div>
 </div>
 
@@ -228,7 +244,7 @@ This is the multi-page printable view of this section.
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-9f42dd3acd4ae40b5be7877c8f79052f">1 - Output</h1>
     <div class="lead">Output files</div>

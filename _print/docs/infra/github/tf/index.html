@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="GitHub Terraform">
 	<meta itemprop="description" content="GitHub Pages repositories for project landing sites">
-	<meta itemprop="dateModified" content="2026-09-12T03:04:23+03:00">
-	<meta itemprop="wordCount" content="141">
+	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="wordCount" content="287">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="GitHub Terraform">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.dadd5020a5134af116923f6cd6f9a5d1.json"
+    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -205,6 +205,21 @@ would remove its Pages configuration.</p>
 with the default empty <code>bootstrap_projects</code> to enable Pages. Keep all applies
 limited to reviewed, authorized repository and Pages changes. DNS is managed
 separately by <code>//infra/dns</code>; validate the public custom domain after rollout.</p>
+<h2 id="print-f0759d2140b0635b158a12ec47b41dcb-reprovision-a-landing-site-certificate">Reprovision a landing-site certificate<a class="td-heading-self-link" href="#print-f0759d2140b0635b158a12ec47b41dcb-reprovision-a-landing-site-certificate" aria-label="Heading self-link"></a></h2><p>GitHub issues the custom-domain certificate as part of its Pages build and
+offers no direct reissue action. To force a new certificate for one live site,
+plan and apply with only that project in <code>certificate_reprovision_projects</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/github/tf:tf.plan -- <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>  -var<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;certificate_reprovision_projects=[&#34;affected_project&#34;]&#39;</span>
+</span></span></code></pre></div><p>Inspect that the plan removes only that project&rsquo;s Pages block, then apply the
+reviewed changes. Restore the site with a second plan and apply that leaves both
+<code>bootstrap_projects</code> and <code>certificate_reprovision_projects</code> empty. GitHub
+schedules a new certificate once the custom domain returns.</p>
+<p>Republish the site with <code>//projects:deploy_landings</code> only if the first apply
+removed its <code>pages</code> branch content; normally the branch is unchanged. Verify the
+pushed revision, Pages build state, DNS, and the certificate served for the
+custom domain before closing the recovery.</p>
+<p>Keep this variable empty outside an active recovery. Never name an existing
+served site in <code>bootstrap_projects</code> to force a reissue.</p>
 
 </div>
 </div>
