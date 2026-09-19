@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Third party">
 	<meta itemprop="description" content="Third party tree">
-	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="dateModified" content="2026-09-19T12:11:30+03:00">
 	<meta itemprop="wordCount" content="100">
 	<meta itemprop="keywords" content="Third_party">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Third party">
 	<meta name="twitter:description" content="Third party tree">
-<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
-<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" as="style" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
+<link href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" rel="stylesheet" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
+    data-offline-search-index-json-src="/offline-search-index.fd87e0aec825ba7c822c0c9f8a1a5321.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -930,7 +930,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>39: <a href="#pg-ffa19397b7a256c9064297638e6f86ed">us_nasm_nasm</a></li>
+<li>39: <a href="#pg-65e5f9992988b148070f5355a19cdd15">Terraform dependencies</a></li>
 
 
     
@@ -949,7 +949,26 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>40: <a href="#pg-10fef7b2e565d1e52bf9eb7607ddaee9">Xen Orchestra OIDC plugin</a></li>
+<li>40: <a href="#pg-ffa19397b7a256c9064297638e6f86ed">us_nasm_nasm</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>41: <a href="#pg-10fef7b2e565d1e52bf9eb7607ddaee9">Xen Orchestra OIDC plugin</a></li>
 
 
     
@@ -2285,7 +2304,50 @@ provenance stay with the third-party tree.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ffa19397b7a256c9064297638e6f86ed">39 - us_nasm_nasm</h1>
+	<h1 id="pg-65e5f9992988b148070f5355a19cdd15">39 - Terraform dependencies</h1>
+    <div class="lead">Shared provider archive declarations for repository Terraform targets</div>
+	<p><code>include.MODULE.bazel</code> owns the repository&rsquo;s Terraform provider versions,
+immutable release URLs, and SHA256 integrity. Consumers select the generated
+provider labels through the public
+<a href="/docs/tools/rules_terraform/">rules_terraform</a> rules. One version is
+selected per provider source; the rule module&rsquo;s resolution boundary can support
+an explicit override policy later.</p>
+<p>The pins were verified against the publishers&rsquo; release checksums listed by the
+<a href="https://developer.hashicorp.com/terraform/internals/provider-registry-protocol">Terraform registry protocol</a>.
+Provider downloads use Bazel&rsquo;s verified downloader. Terraform installs only
+from the selected runfiles mirror and writes provider locks in runtime workspaces.</p>
+<p>The offline fixture in <code>test/</code> checks installation with the declared Local
+provider, failure without it, and isolation from inherited registry/cache settings.
+Updating a pin also requires checking consuming Terraform constraints and these
+provider integration tests.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ffa19397b7a256c9064297638e6f86ed">40 - us_nasm_nasm</h1>
     <div class="lead">NASM - The Netwide Assembler</div>
 	<h2 id="print-39c49e458b567ab40feb11e3dfe57b46-links">Links<a class="td-heading-self-link" href="#print-39c49e458b567ab40feb11e3dfe57b46-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://nasm.us/">https://nasm.us/</a></li>
@@ -2317,7 +2379,7 @@ provenance stay with the third-party tree.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-10fef7b2e565d1e52bf9eb7607ddaee9">40 - Xen Orchestra OIDC plugin</h1>
+	<h1 id="pg-10fef7b2e565d1e52bf9eb7607ddaee9">41 - Xen Orchestra OIDC plugin</h1>
     <div class="lead">Pinned upstream authentication plugin and runtime dependencies</div>
 	<p>This package supplies Xen Orchestra&rsquo;s AGPL-3.0-or-later <code>auth-oidc</code> 0.4.0
 from upstream commit <code>4bc614ffd1417d3e0563522aeb4a195fa494c57c</code>, including

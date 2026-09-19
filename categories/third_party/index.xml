@@ -285,6 +285,13 @@
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://helm.sh/&#34;&gt;https://helm.sh/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Releases: &lt;a href=&#34;https://github.com/helm/helm/releases&#34;&gt;https://github.com/helm/helm/releases&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
+				<title>Terraform dependencies</title>
+				<link>https://alwaldend.com/docs/third_party/terraform/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/terraform/</guid>
+				<description>&lt;p&gt;&lt;code&gt;include.MODULE.bazel&lt;/code&gt; owns the repository&amp;rsquo;s Terraform provider versions,&#xA;immutable release URLs, and SHA256 integrity. Consumers select the generated&#xA;provider labels through the public&#xA;&lt;a href=&#34;https://alwaldend.com/docs/tools/rules_terraform/&#34;&gt;rules_terraform&lt;/a&gt; rules. One version is&#xA;selected per provider source; the rule module&amp;rsquo;s resolution boundary can support&#xA;an explicit override policy later.&lt;/p&gt;&#xA;&lt;p&gt;The pins were verified against the publishers&amp;rsquo; release checksums listed by the&#xA;&lt;a href=&#34;https://developer.hashicorp.com/terraform/internals/provider-registry-protocol&#34;&gt;Terraform registry protocol&lt;/a&gt;.&#xA;Provider downloads use Bazel&amp;rsquo;s verified downloader. Terraform installs only&#xA;from the selected runfiles mirror and writes provider locks in runtime workspaces.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>Tf</title>
 				<link>https://alwaldend.com/docs/third_party/images/tf/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

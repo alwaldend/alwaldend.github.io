@@ -34,24 +34,24 @@
 <meta name="robots" content="noindex, nofollow">
 
 <title>GitHub Terraform | Alwaldend</title>
-<meta name="description" content="GitHub Pages repositories for project landing sites">
+<meta name="description" content="GitHub organization, repository, access, and Pages management">
 <meta property="og:url" content="https://alwaldend.com/docs/infra/github/tf/">
 	<meta property="og:site_name" content="Alwaldend">
 	<meta property="og:title" content="GitHub Terraform">
-	<meta property="og:description" content="GitHub Pages repositories for project landing sites">
+	<meta property="og:description" content="GitHub organization, repository, access, and Pages management">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="website">
 
 	<meta itemprop="name" content="GitHub Terraform">
-	<meta itemprop="description" content="GitHub Pages repositories for project landing sites">
-	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
-	<meta itemprop="wordCount" content="287">
+	<meta itemprop="description" content="GitHub organization, repository, access, and Pages management">
+	<meta itemprop="dateModified" content="2026-09-19T12:11:30+03:00">
+	<meta itemprop="wordCount" content="734">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="GitHub Terraform">
-	<meta name="twitter:description" content="GitHub Pages repositories for project landing sites">
-<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
-<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+	<meta name="twitter:description" content="GitHub organization, repository, access, and Pages management">
+<link rel="preload" href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" as="style" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
+<link href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" rel="stylesheet" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
+    data-offline-search-index-json-src="/offline-search-index.fd87e0aec825ba7c822c0c9f8a1a5321.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -173,7 +173,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">GitHub Terraform</h1>
-<div class="lead">GitHub Pages repositories for project landing sites</div>
+<div class="lead">GitHub organization, repository, access, and Pages management</div>
 
 
 
@@ -191,20 +191,69 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <p>This package creates the public repositories that host the project landing
-pages. Each repository receives its built Hugo site from the reusable deploy
-target <code>//projects:deploy_landings</code> in the root workspace. Terraform also manages
-the custom domain and Pages source (<code>pages</code>, <code>/</code>).</p>
+      <p>This package consumes the <a href="/docs/infra/repos/">shared repository catalog</a>
+through its provider-free Terraform module. The catalog supplies the GitHub
+owner, repositories, default branches, repository settings, organization
+administrators, and developers. This root supports one GitHub organization per
+provider instance and rejects multiple configured owners.</p>
+<p>Existing repositories are imported, including forks and published landing
+repositories whose source project has been retired. The <code>landing_project</code>
+catalog key preserves the existing Terraform addresses. Published repository names and Pages
+domains come directly from the catalog; they are not regenerated from the
+current build-project registry.</p>
+<h2 id="print-f0759d2140b0635b158a12ec47b41dcb-adoption-and-access">Adoption and access<a class="td-heading-self-link" href="#print-f0759d2140b0635b158a12ec47b41dcb-adoption-and-access" aria-label="Heading self-link"></a></h2><p>The checked-in import blocks adopt the organization, existing repositories,
+default branches, memberships, developer collaborators, and both existing
+<code>src</code> rulesets. A repository with an observed catalog <code>github.id</code> must retain
+that numeric identity. An import failure must be resolved before applying;
+never remove an import merely to create an existing object again. Repositories,
+memberships, access grants, environments, and rulesets have deletion guards.
+Review the complete plan and obtain explicit authorization for any deletion
+or replacement. Previously authorized retirement may proceed within its exact
+reviewed scope.</p>
+<p>Organization settings own only catalog-defined repository base permissions.
+Billing, profile fields, and other organization defaults remain controlled by
+GitHub and are explicitly ignored. The required empty <code>billing_email</code> argument
+is an import-only placeholder: the existing billing address is retained from
+state and must never be committed or exposed in plan output. Do not create
+this organization-settings resource without its import block. Dependabot alert
+settings for newly adopted non-landing repositories are similarly preserved;
+landing repositories retain their existing enabled-alert policy.</p>
+<p>Catalog administrators are organization owners. Developers receive explicit
+write access on every catalog repository, while organization base permissions
+remain at the catalog setting. The grants are non-authoritative, preserving
+other collaborators. Each repository has an active default-branch ruleset
+restricting creation, updates, deletion, and force pushes, with an organization
+administrator bypass. Developers can push other branches and open pull
+requests, but cannot directly push or merge into the default branch. Forks
+also disable the upstream fetch-and-merge exception. Catalog repositories
+permit merge commits only; squash and rebase merges are disabled, so an
+accepted pull request records a merge commit whose parents include the
+reviewed feature commit. Both pre-existing <code>src</code> rulesets retain their
+separate release-branch protections and bypass actors; the default-branch
+ruleset also applies alongside them. Repository rulesets are available for
+these public repositories on
+<a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets">GitHub Free</a>.</p>
+<p>Landing repositories use the catalog default branch independently of their
+Pages publication branch. Terraform creates a missing default branch from the
+existing Pages branch, then changes the default in place. It never renames or
+deletes the Pages branch. Default-branch rules protect <code>master</code>, while the bot
+retains write access to <code>pages</code> for the existing deployment workflow.</p>
+<h2 id="print-f0759d2140b0635b158a12ec47b41dcb-publish-a-landing-site">Publish a landing site<a class="td-heading-self-link" href="#print-f0759d2140b0635b158a12ec47b41dcb-publish-a-landing-site" aria-label="Heading self-link"></a></h2><p>Each landing repository receives its built Hugo site from
+<code>//projects:deploy_landings</code> in the root workspace. Terraform manages the
+catalog-defined custom domain and Pages source, plus the existing
+<code>github-pages</code> environment with custom branch policies.</p>
 <p>For a new site, first plan and apply with <code>bootstrap_projects</code> containing only
 the new projects whose <code>pages</code> branches do not yet exist. For example, pass
 <code>-var='bootstrap_projects=[&quot;new_project&quot;]'</code> to <code>//infra/github/tf:tf.plan</code> and
-the reviewed <code>tf.apply</code>. This creates the repository without trying to enable
-Pages on a nonexistent branch. Do not include an existing live site: doing so
+the reviewed <code>tf.apply</code>. This creates the repository without enabling Pages or
+creating its separate default branch before the Pages branch has been
+published. Do not include an existing live site: doing so
 would remove its Pages configuration.</p>
 <p>Publish the built site with <code>//projects:deploy_landings</code>, then plan and apply
 with the default empty <code>bootstrap_projects</code> to enable Pages. Keep all applies
 limited to reviewed, authorized repository and Pages changes. DNS is managed
-separately by <code>//infra/dns</code>; validate the public custom domain after rollout.</p>
+by each site&rsquo;s owning Terraform root; <a href="/docs/infra/dns/">DNS documentation</a>
+describes the workflow. Validate the public custom domain after rollout.</p>
 <h2 id="print-f0759d2140b0635b158a12ec47b41dcb-reprovision-a-landing-site-certificate">Reprovision a landing-site certificate<a class="td-heading-self-link" href="#print-f0759d2140b0635b158a12ec47b41dcb-reprovision-a-landing-site-certificate" aria-label="Heading self-link"></a></h2><p>GitHub issues the custom-domain certificate as part of its Pages build and
 offers no direct reissue action. To force a new certificate for one live site,
 plan and apply with only that project in <code>certificate_reprovision_projects</code>:</p>

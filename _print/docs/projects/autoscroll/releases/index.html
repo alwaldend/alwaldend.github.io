@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Releases">
 	<meta itemprop="description" content="Releases">
-	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
-	<meta itemprop="wordCount" content="1438">
+	<meta itemprop="dateModified" content="2026-09-19T12:11:30+03:00">
+	<meta itemprop="wordCount" content="1863">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Releases">
 	<meta name="twitter:description" content="Releases">
-<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
-<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" as="style" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
+<link href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" rel="stylesheet" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
+    data-offline-search-index-json-src="/offline-search-index.fd87e0aec825ba7c822c0c9f8a1a5321.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -221,7 +221,7 @@ This is the multi-page printable view of this section.
         data-bs-target="#print-aadba4fdd1f9174e5c1d42258ee8b089-release-e236f62bd548f180c3f821511077e20d-list-0_collapse"
         aria-expanded="false"
         aria-controls="print-aadba4fdd1f9174e5c1d42258ee8b089-release-e236f62bd548f180c3f821511077e20d-list-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">30</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">32</span>
 </button>
     </h3>
     <div
@@ -231,6 +231,93 @@ This is the multi-page printable view of this section.
       data-bs-parent="#print-aadba4fdd1f9174e5c1d42258ee8b089-release-e236f62bd548f180c3f821511077e20d-list-0_accordion"
     >
       <div class="accordion-body"><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Manage forge resources with hermetic Terraform rules</p>
+<p>Centralize organization, repository, and named access configuration in
+infra/repos. Adopt existing GitHub resources, protect master defaults while
+retaining Pages publication on pages, and preserve existing repository
+identities. Manage GitLab one-time imports, the F-Droid metadata fork, and
+default-branch protections through Vault-backed authentication. Forgejo
+consumes the same catalog. Ongoing repository synchronization is deferred.</p>
+<p>Retire the eleven Bazel rule landing sites through their owning Terraform
+workflows, removing their DNS records, Pages repositories, and landing
+configuration. Move all twelve existing standalone rule modules into tools/
+and retain their public interfaces and documentation on the main site.</p>
+<p>Add tools/rules_terraform with verified provider downloads, packed mirrors
+in runfiles, and reusable Terraform execution rules. Enforce one version per
+provider source at an extensible resolution boundary. Migrate every Terraform
+consumer to thirteen shared provider pins in third_party/terraform. Execution
+and command maps belong to rules_terraform; consumers explicitly select generic
+AL wrappers for authentication and Vault injection. Remove tools/terraform
+and all 43 checked-in Terraform provider locks.
+Validate installed providers against the declared archives before execution.</p>
+<p>Validation covers all fourteen workspace builds, all thirteen standalone
+test suites, Terraform consumers, offline real-provider regressions, rendered
+documentation, formatting, and semantic lint. The full root test run has
+295 passing tests and one skip; its only failure is the historical secret
+scan, reduced to four pre-existing synthetic fixture matches. Earlier live
+imports and the exact landing retirement scope have verified postconditions;
+the Terraform rules migration uses only offline implementation checks.</p>
+<p>OpenSpec-Change: infra/repos/openspec/changes/archive/2026-09-13-adopt-shared-repository-catalog
+OpenSpec-Change: infra/src/openspec/changes/archive/2026-09-13-retire-bazel-rule-landings
+OpenSpec-Change: tools/rules_terraform/openspec/changes/archive/2026-09-14-add-hermetic-terraform-rules
+OpenSpec-Change: tools/rules_terraform/openspec/changes/archive/2026-09-14-correct-terraform-ownership</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">6cb4d63c7b473cbff738332389c05168b9158cc4</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
           <li class="list-group-item my-auto">
             <p>Deploy project DNS through Terraform modules</p>
 <p>Move DNS ownership into each project’s Terraform state using shared modules.
@@ -2499,6 +2586,100 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
                 </li>
               </ul>
             </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Consolidate agent policy into owning skills</p>
+<p>Reduce the root AGENTS.md from 255 lines to 141 by keeping repository-wide
+constraints visible and moving execution detail to the skill that owns it.</p>
+<p>Make initial reads task-dependent, replace the absolute one-copy rule with one
+authoritative source, simplify the retry rule to its principle, and fix the
+generated-file delivery ambiguity. Add a single &ldquo;When to load a skill&rdquo; routing
+table ordered by task phase.</p>
+<p>Add the repo-workspace skill so worktree isolation and task-scratch placement
+are established before the first write rather than when repo-delivery loads.
+Transfer commit-subject and trailer conventions into a repo-delivery reference
+and the Go and Bazel-native automation rules into repo-bazel. Reconcile the
+git-rebase-remote and repo-delivery drift so a task-owned rewrite may change
+ancestry while preserving every previously remote commit&rsquo;s reachable progress.</p>
+<p>OpenSpec-Change: infra/src/openspec/changes/consolidate-agent-policy-into-skills</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">0c0ea39897339a3c510329278e47e23a6d29544e</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQCX1Mk&#43;XmokIRaRKGBv&#43;oAXkRDy&#43;bjEjksRaJIf6FDVVGgxuNiGy818s6pKWZy7asa
+aCkpgao3xx3ncsQX&#43;WLQ0=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
         </ul></div>
     </div>
   </div>
@@ -2658,7 +2839,7 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
         data-bs-target="#print-e236f62bd548f180c3f821511077e20d-release-e236f62bd548f180c3f821511077e20d-page-0_collapse"
         aria-expanded="true"
         aria-controls="print-e236f62bd548f180c3f821511077e20d-release-e236f62bd548f180c3f821511077e20d-page-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">30</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">32</span>
 </button>
     </h3>
     <div
@@ -2668,6 +2849,93 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
       data-bs-parent="#print-e236f62bd548f180c3f821511077e20d-release-e236f62bd548f180c3f821511077e20d-page-0_accordion"
     >
       <div class="accordion-body"><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Manage forge resources with hermetic Terraform rules</p>
+<p>Centralize organization, repository, and named access configuration in
+infra/repos. Adopt existing GitHub resources, protect master defaults while
+retaining Pages publication on pages, and preserve existing repository
+identities. Manage GitLab one-time imports, the F-Droid metadata fork, and
+default-branch protections through Vault-backed authentication. Forgejo
+consumes the same catalog. Ongoing repository synchronization is deferred.</p>
+<p>Retire the eleven Bazel rule landing sites through their owning Terraform
+workflows, removing their DNS records, Pages repositories, and landing
+configuration. Move all twelve existing standalone rule modules into tools/
+and retain their public interfaces and documentation on the main site.</p>
+<p>Add tools/rules_terraform with verified provider downloads, packed mirrors
+in runfiles, and reusable Terraform execution rules. Enforce one version per
+provider source at an extensible resolution boundary. Migrate every Terraform
+consumer to thirteen shared provider pins in third_party/terraform. Execution
+and command maps belong to rules_terraform; consumers explicitly select generic
+AL wrappers for authentication and Vault injection. Remove tools/terraform
+and all 43 checked-in Terraform provider locks.
+Validate installed providers against the declared archives before execution.</p>
+<p>Validation covers all fourteen workspace builds, all thirteen standalone
+test suites, Terraform consumers, offline real-provider regressions, rendered
+documentation, formatting, and semantic lint. The full root test run has
+295 passing tests and one skip; its only failure is the historical secret
+scan, reduced to four pre-existing synthetic fixture matches. Earlier live
+imports and the exact landing retirement scope have verified postconditions;
+the Terraform rules migration uses only offline implementation checks.</p>
+<p>OpenSpec-Change: infra/repos/openspec/changes/archive/2026-09-13-adopt-shared-repository-catalog
+OpenSpec-Change: infra/src/openspec/changes/archive/2026-09-13-retire-bazel-rule-landings
+OpenSpec-Change: tools/rules_terraform/openspec/changes/archive/2026-09-14-add-hermetic-terraform-rules
+OpenSpec-Change: tools/rules_terraform/openspec/changes/archive/2026-09-14-correct-terraform-ownership</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">6cb4d63c7b473cbff738332389c05168b9158cc4</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
           <li class="list-group-item my-auto">
             <p>Deploy project DNS through Terraform modules</p>
 <p>Move DNS ownership into each project’s Terraform state using shared modules.
@@ -4930,6 +5198,100 @@ U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
 AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
 99QQEo1a8VTCBw5ZM6YQs=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Consolidate agent policy into owning skills</p>
+<p>Reduce the root AGENTS.md from 255 lines to 141 by keeping repository-wide
+constraints visible and moving execution detail to the skill that owns it.</p>
+<p>Make initial reads task-dependent, replace the absolute one-copy rule with one
+authoritative source, simplify the retry rule to its principle, and fix the
+generated-file delivery ambiguity. Add a single &ldquo;When to load a skill&rdquo; routing
+table ordered by task phase.</p>
+<p>Add the repo-workspace skill so worktree isolation and task-scratch placement
+are established before the first write rather than when repo-delivery loads.
+Transfer commit-subject and trailer conventions into a repo-delivery reference
+and the Go and Bazel-native automation rules into repo-bazel. Reconcile the
+git-rebase-remote and repo-delivery drift so a task-owned rewrite may change
+ancestry while preserving every previously remote commit&rsquo;s reachable progress.</p>
+<p>OpenSpec-Change: infra/src/openspec/changes/consolidate-agent-policy-into-skills</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">0c0ea39897339a3c510329278e47e23a6d29544e</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQCX1Mk&#43;XmokIRaRKGBv&#43;oAXkRDy&#43;bjEjksRaJIf6FDVVGgxuNiGy818s6pKWZy7asa
+aCkpgao3xx3ncsQX&#43;WLQ0=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>

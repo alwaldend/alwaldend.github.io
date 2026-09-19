@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="DNS records">
 	<meta itemprop="description" content="Canonical DNS declarations for Cloudflare and RouterOS">
-	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="dateModified" content="2026-09-19T12:11:30+03:00">
 	<meta itemprop="wordCount" content="504">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="DNS records">
 	<meta name="twitter:description" content="Canonical DNS declarations for Cloudflare and RouterOS">
-<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
-<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" as="style" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
+<link href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" rel="stylesheet" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
+    data-offline-search-index-json-src="/offline-search-index.fd87e0aec825ba7c822c0c9f8a1a5321.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -399,20 +399,15 @@ Terraform writers and provider-free inspection consume this output.</p>
     
 	<h1 id="pg-add666eb82370d6f0c093864e9e702c9">2 - DNS test providers</h1>
     <div class="lead">Pinned provider packages for offline Terraform tests</div>
-	<p>These Linux AMD64 packages provide schemas to Terraform tests. Bazel
-downloads them from the publisher before test execution and verifies the
-publisher&rsquo;s release SHA-256 checksums. Terraform uses a local filesystem
-mirror with no direct registry fallback; tests do not download providers or
-contact live services.</p>
-<p>Pins match the existing DNS, ingress, and Proxmox Terraform roots:</p>
-<ul>
-<li><a href="https://github.com/cloudflare/terraform-provider-cloudflare/releases/tag/v5.22.0">Cloudflare 5.22.0 release</a>
-and its <a href="https://github.com/cloudflare/terraform-provider-cloudflare/releases/download/v5.22.0/terraform-provider-cloudflare_5.22.0_SHA256SUMS">checksums</a>.</li>
-<li><a href="https://github.com/terraform-routeros/terraform-provider-routeros/releases/tag/v1.99.1">RouterOS 1.99.1 release</a>
-and its <a href="https://github.com/terraform-routeros/terraform-provider-routeros/releases/download/v1.99.1/terraform-provider-routeros_1.99.1_SHA256SUMS">checksums</a>.</li>
-<li><a href="https://github.com/Telmate/terraform-provider-proxmox/releases/tag/v3.0.2-rc07">Proxmox 3.0.2-rc07 release</a>
-and its <a href="https://github.com/Telmate/terraform-provider-proxmox/releases/download/v3.0.2-rc07/terraform-provider-proxmox_3.0.2-rc07_SHA256SUMS">checksums</a>.</li>
-</ul>
+	<p>The <a href="../BUILD.bazel">test target</a> uses the public
+<a href="/docs/tools/rules_terraform/">rules_terraform</a> wrapper with
+the same Cloudflare, RouterOS, and Proxmox provider labels as infrastructure
+targets. The shared extension owns provider versions, release URLs, and
+checksums. Bazel fetches the declared archives before tests execute; Terraform
+uses the wrapper&rsquo;s packaged filesystem mirror without a registry fallback.</p>
+<p>Each regression runs Terraform in a caller-owned temporary module directory.
+Tests retain an explicit environment without inherited provider credentials;
+provider installation and mocked lifecycles require no network access.</p>
 <p>The targeted import regression matches the owning Proxmox provider block by
 omitting <code>pm_api_url</code>. It checks both empty state and existing Proxmox resource
 state with no credentials. Without <code>PM_API_URL</code>, provider validation fails

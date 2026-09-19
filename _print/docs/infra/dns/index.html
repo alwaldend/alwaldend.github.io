@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Dns">
 	<meta itemprop="description" content="Project-owned DNS declarations for alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
+	<meta itemprop="dateModified" content="2026-09-19T12:11:30+03:00">
 	<meta itemprop="wordCount" content="555">
 	<meta itemprop="keywords" content="Dns,Terraform">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Dns">
 	<meta name="twitter:description" content="Project-owned DNS declarations for alwaldend.com">
-<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
-<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" as="style" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
+<link href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" rel="stylesheet" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
+    data-offline-search-index-json-src="/offline-search-index.fd87e0aec825ba7c822c0c9f8a1a5321.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -197,26 +197,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-bf1b0fb6bca64ed0e49465febc46b58f">Nested project DNS commands</a></li>
-
-
-    
-    <ul>
-        
-  
-  
-  
-  
-
-  
-
-    </ul>
-    
-  
-    
-    
-	
-<li>3: <a href="#pg-5182c83d4964c12536210ac055ef6ebd">Shared DNS Terraform</a></li>
+<li>2: <a href="#pg-5182c83d4964c12536210ac055ef6ebd">Shared DNS Terraform</a></li>
 
 
     
@@ -447,58 +428,7 @@ presented as current desired state.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-bf1b0fb6bca64ed0e49465febc46b58f">2 - Nested project DNS commands</h1>
-    <div class="lead">Repository operational wrappers for project-owned Terraform roots</div>
-	<p>This package exposes independent Terraform commands for DNS roots owned by
-nested Bazel projects. Each project&rsquo;s <code>tf/</code> directory owns its configuration,
-provider lockfile, and state boundary; its <code>al.lua</code> selects its own Vault
-AppRole and HTTP backend. Its existing <code>dnsconfig.json</code> remains the record
-source.</p>
-<p>For example, run <code>//infra/dns/projects:rules_docs_tf.plan</code> from the monorepo
-workspace when a live plan is authorized. The offline formatting check is
-<code>//infra/dns/projects:rules_docs_tf_tests.fmt_test</code>. Other owners use the
-same target naming with their module name.</p>
-<p>The nested modules export source filegroups. This adapter aliases those
-declared files into runfiles at their checkout paths and declares the one
-shared <code>//projects/tf_modules/dns_records/global:global</code> module dependency.
-Terraform&rsquo;s relative module and JSON paths therefore resolve in both the
-checkout and Bazel runfiles. The adapter does not copy source or introduce
-a dependency from reusable Bazel modules back to the monorepo.</p>
-<p>Each operational command selects the ordinary <code>tf=main</code> pipeline, including
-DNS credential injection. Deploy the owner&rsquo;s AppRole and credential access
-before running its operational root. The initial <code>dns_enabled = false</code>
-suppresses record creation while preparing adoption.</p>
-<p>Stop central deployments and prevent older central candidates from running
-before importing existing records or enabling owner reconciliation. Follow
-the <a href="/docs/infra/dns/">DNS migration runbook</a> for adoption and recovery.</p>
-
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-5182c83d4964c12536210ac055ef6ebd">3 - Shared DNS Terraform</h1>
+	<h1 id="pg-5182c83d4964c12536210ac055ef6ebd">2 - Shared DNS Terraform</h1>
     <div class="lead">Owner state for common apex and mail records</div>
 	<p>This root consumes <a href="../dnsconfig.json">the canonical common declarations</a>
 through the reusable DNS module. It uses the <code>src_infra_dns</code> AppRole and its

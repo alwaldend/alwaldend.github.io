@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="forgejo">
 	<meta itemprop="description" content="git.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-13T20:22:19+03:00">
-	<meta itemprop="wordCount" content="281">
+	<meta itemprop="dateModified" content="2026-09-19T12:11:30+03:00">
+	<meta itemprop="wordCount" content="319">
 	<meta itemprop="keywords" content="Ansible,Xcp-Ng,Forgejo">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="forgejo">
 	<meta name="twitter:description" content="git.alwaldend.com">
-<link rel="preload" href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" as="style" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
-<link href="/scss/main.min.2396925a93fedeb186740f3d58a5b65d7f51224103ef2e08117e6a3022d64f01.css" rel="stylesheet" integrity="sha256-I5aSWpP&#43;3rGGdA89WKW2XX9RIkED7y4IEX5qMCLWTwE=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" as="style" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
+<link href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" rel="stylesheet" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.3376a235c9e66b613323cdb1bf2fecc9.json"
+    data-offline-search-index-json-src="/offline-search-index.fd87e0aec825ba7c822c0c9f8a1a5321.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -268,6 +268,11 @@ This is the multi-page printable view of this section.
 <li>Docs: <a href="https://forgejo.org/docs/latest/admin/installation/binary/">https://forgejo.org/docs/latest/admin/installation/binary/</a></li>
 <li>Config reference: <a href="https://forgejo.org/docs/latest/admin/config-cheat-sheet/">https://forgejo.org/docs/latest/admin/config-cheat-sheet/</a></li>
 </ul>
+<h2 id="print-0ffd6cbf558ebcb119cece8c34f2b34d-repository-configuration">Repository configuration<a class="td-heading-self-link" href="#print-0ffd6cbf558ebcb119cece8c34f2b34d-repository-configuration" aria-label="Heading self-link"></a></h2><p>Service Terraform consumes the shared <a href="/docs/infra/repos/">repository catalog</a>
+for organization-owned repositories and named administrator/developer roles.
+Vault continues to own OIDC login identities and service-specific access.
+See <a href="/docs/infra/forgejo/tf/">service Terraform</a> for identity validation, state adoption,
+and the preserved automation grants.</p>
 <h2 id="print-0ffd6cbf558ebcb119cece8c34f2b34d-deployment">Deployment<a class="td-heading-self-link" href="#print-0ffd6cbf558ebcb119cece8c34f2b34d-deployment" aria-label="Heading self-link"></a></h2><p>Forgejo is recreated on XCP-ng through Xen Orchestra, using the
 <code>src_infra_dc1_forgejo1</code> resource set provisioned by <code>infra/xcp_ng</code>.
 VM provisioning authenticates to XO through Vault OIDC as Forgejo&rsquo;s own
@@ -374,22 +379,46 @@ state is incompatible</li>
 <li><strong>THEN</strong> the bootstrap assertion fails rather than selecting or replacing
 an arbitrary source</li>
 </ul>
-<h3 id="print-104392a0061b18c209ca81aa609d73e8-requirement-vault-authoritative-account-and-repository-access">Requirement: Vault-authoritative account and repository access<a class="td-heading-self-link" href="#print-104392a0061b18c209ca81aa609d73e8-requirement-vault-authoritative-account-and-repository-access" aria-label="Heading self-link"></a></h3><p>Service Terraform SHALL require a verified positive integer Vault OAuth
+<h3 id="print-104392a0061b18c209ca81aa609d73e8-requirement-vault-identities-and-service-grants-with-catalog-named-roles">Requirement: Vault identities and service grants with catalog named roles<a class="td-heading-self-link" href="#print-104392a0061b18c209ca81aa609d73e8-requirement-vault-identities-and-service-grants-with-catalog-named-roles" aria-label="Heading self-link"></a></h3><p>Service Terraform SHALL require a verified positive integer Vault OAuth
 source ID, discover login users from the owning Vault group through at most
 two nested group levels, and use entity UUIDs as external login names.
-Managed accounts SHALL be protected from deletion. Access memberships SHALL
-belong to the discovered login population, and the <code>src</code> automation writer
-group SHALL resolve to exactly one user.</p>
+Managed accounts SHALL be protected from deletion. The shared repository
+catalog SHALL own named organization administrator and developer assignments
+and organization-owned repository identities. Catalog members and Vault
+access-group members SHALL belong to the discovered login population.
+Existing Vault service-administrator, package-writer, and automation-writer
+grants SHALL be retained; the <code>src</code> automation writer group SHALL resolve to
+exactly one user. A catalog developer SHALL NOT also receive administrator
+access through the retained Vault groups.</p>
 <p>Sources: <a href="/docs/infra/forgejo/tf/">service Terraform contract</a>,
 <a href="../../../tf/users.tf">users</a>,
 <a href="../../../tf/access.tf">access validation</a>, and
-<a href="../../../tf/alwaldend_repos.tf">repository access</a>.</p>
+<a href="../../../tf/alwaldend_repos.tf">repository access</a>.
+The <a href="/docs/infra/repos/">shared catalog contract</a> owns repository
+naming and named-role assignments; its
+<a href="../../../../repos/openspec/changes/archive/2026-09-13-adopt-shared-repository-catalog/design.md">adoption change</a>
+records the source migration and pending verification.</p>
 <h4 id="print-104392a0061b18c209ca81aa609d73e8-scenario-reject-unsupported-group-membership">Scenario: Reject unsupported group membership<a class="td-heading-self-link" href="#print-104392a0061b18c209ca81aa609d73e8-scenario-reject-unsupported-group-membership" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a login group extends beyond two nested levels, an access-group
 member is outside the login population, or the automation writer count is
 not one</li>
 <li><strong>THEN</strong> the corresponding Terraform condition rejects the configuration</li>
 <li><strong>AND</strong> Terraform does not silently omit the unsupported membership</li>
+</ul>
+<h4 id="print-104392a0061b18c209ca81aa609d73e8-scenario-resolve-a-catalog-member-through-vault">Scenario: Resolve a catalog member through Vault<a class="td-heading-self-link" href="#print-104392a0061b18c209ca81aa609d73e8-scenario-resolve-a-catalog-member-through-vault" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a catalog administrator or developer is assigned organization access</li>
+<li><strong>THEN</strong> that assignment uses the discovered account&rsquo;s existing Vault entity
+UUID and verified OAuth source mapping</li>
+<li><strong>AND</strong> the assignment does not create a password-based replacement account</li>
+</ul>
+<h4 id="print-104392a0061b18c209ca81aa609d73e8-scenario-retain-service-access-while-restricting-a-named-developer">Scenario: Retain service access while restricting a named developer<a class="td-heading-self-link" href="#print-104392a0061b18c209ca81aa609d73e8-scenario-retain-service-access-while-restricting-a-named-developer" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> shared named roles are adopted</li>
+<li><strong>THEN</strong> existing Vault service administration, package-writing, and
+automation-writer grants remain configured</li>
+<li><strong>AND</strong> the catalog developer receives feature-branch and pull-request
+access without a default-branch push or merge bypass</li>
+<li><strong>AND</strong> an overlapping administrator grant for that developer fails
+validation</li>
 </ul>
 
 </div>
@@ -509,8 +538,13 @@ test that does not authenticate to Vault or contact DNS providers.</p>
     
 	<h1 id="pg-f3cee4c8624cb7f2609ceabdfcf85a16">4 - Tf</h1>
     <div class="lead">Terraform config</div>
-	<p>This package configures Forgejo organizations, repositories, and access. Before
-applying, provision the Vault OIDC authentication source with Ansible and set
+	<p>This package configures Forgejo organizations, repositories, and access from
+the shared <a href="/docs/infra/repos/">repository catalog</a>. The catalog owns named
+administrators, developers, repository identities, and destination names.
+Its <a href="/docs/infra/repos/tf/">Terraform module</a> supplies the consumer&rsquo;s
+repository projection. First-party names remain stable across forges;
+external fork and mirror names retain their original upstream identity.</p>
+<p>Before applying, provision the Vault OIDC authentication source with Ansible and set
 <code>TF_VAR_vault_oauth_source_id</code> to its verified positive numeric ID. Obtain the
 ID from <code>forgejo admin auth list</code> on the instance using the service&rsquo;s config
 and work path; confirm that the <code>vault</code> source is active and uses OpenID
@@ -532,13 +566,29 @@ importing it; never replace an existing account to resolve a name collision.
 Resource addresses remain keyed by Vault entity name, preserving existing
 managed users. The Forgejo service identity may already exist from the first
 OIDC login: verify and import it before applying its newly discovered resource.</p>
-<p>Organization administrators come from <code>src_infra_dc1_forgejo1_admins</code> and its
-direct child groups. Package writers and the repository automation writer
-come from the corresponding <code>src_infra_dc1_forgejo1_package_writers</code> and
-<code>src_infra_dc1_forgejo1_src_writers</code> Vault groups. These dedicated groups avoid
-granting service permissions to AppRole credential issuers. The repository&rsquo;s
-existing singleton collaborator requires exactly one discovered writer.
-Access-group members outside the login population also fail validation.</p>
+<p>Named organization administrator and developer assignments come from the
+catalog and must resolve to the discovered Vault login population. The
+Developer team can read repositories, write feature branches, and open pull
+requests. Its members receive no default-branch push or merge bypass.</p>
+<p>Existing service administration remains sourced from
+<code>src_infra_dc1_forgejo1_admins</code> and its direct child groups. Those grants are
+retained for entities with a Vault AppRole alias, alongside catalog
+administrators. The separate instance-wide OIDC administrator claim remains
+owned by Vault. Validation rejects a catalog
+developer who also receives administrator access through those Vault groups.
+Package writers and the repository automation writer retain the grants from
+<code>src_infra_dc1_forgejo1_package_writers</code> and
+<code>src_infra_dc1_forgejo1_src_writers</code>. These dedicated groups avoid granting
+service permissions to AppRole credential issuers. The existing singleton
+collaborator still requires exactly one discovered writer. Access-group
+members outside the login population also fail validation.</p>
+<p>Repository adoption preserves remote IDs. The existing singleton repository
+address has an explicit move to its catalog key, while account and service
+access addresses remain stable. Import an existing untracked destination
+before applying; never recreate it to resolve a name collision. Review the
+full plan before execution and obtain separate approval for any deletion or
+replacement. The retained branch rules continue to own administrator and
+automation-writer exceptions.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/forgejo/tf:tf.plan
 </span></span><span style="display:flex;"><span>bazel_agent bazel run //infra/forgejo/tf:tf.apply
 </span></span></code></pre></div>

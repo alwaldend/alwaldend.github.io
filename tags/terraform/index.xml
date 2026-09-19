@@ -10,7 +10,7 @@
 		
 		
 		
-			<lastBuildDate>Sun, 13 Sep 2026 20:22:19 +0300</lastBuildDate>
+			<lastBuildDate>Sat, 19 Sep 2026 12:11:30 +0300</lastBuildDate>
 		
 			<atom:link href="https://alwaldend.com/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
 			<item>
@@ -67,7 +67,7 @@
 				<link>https://alwaldend.com/docs/infra/forgejo/tf/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/infra/forgejo/tf/</guid>
-				<description>&lt;p&gt;This package configures Forgejo organizations, repositories, and access. Before&#xA;applying, provision the Vault OIDC authentication source with Ansible and set&#xA;&lt;code&gt;TF_VAR_vault_oauth_source_id&lt;/code&gt; to its verified positive numeric ID. Obtain the&#xA;ID from &lt;code&gt;forgejo admin auth list&lt;/code&gt; on the instance using the service&amp;rsquo;s config&#xA;and work path; confirm that the &lt;code&gt;vault&lt;/code&gt; source is active and uses OpenID&#xA;Connect with the expected Vault issuer. Do not assume source IDs survive&#xA;instance recreation.&lt;/p&gt;&#xA;&lt;p&gt;Terraform discovers users from the authoritative Vault&#xA;&lt;code&gt;src_infra_dc1_forgejo1_users&lt;/code&gt; login group, then looks up their entities,&#xA;following the PVE Terraform pattern. Discovery includes direct members and&#xA;two levels of nested groups, covering the current administrator membership.&#xA;Deeper nesting fails validation rather than silently omitting accounts.&#xA;Each account uses its Vault entity UUID as the OIDC login name and its&#xA;canonical username/email metadata. No local password or user impersonation is&#xA;used. The Forgejo AppRole receives the existing group/entity lookup permissions,&#xA;as PVE does. Apply those Vault group memberships before running this package.&lt;/p&gt;</description>
+				<description>&lt;p&gt;This package configures Forgejo organizations, repositories, and access from&#xA;the shared &lt;a href=&#34;https://alwaldend.com/docs/infra/repos/&#34;&gt;repository catalog&lt;/a&gt;. The catalog owns named&#xA;administrators, developers, repository identities, and destination names.&#xA;Its &lt;a href=&#34;https://alwaldend.com/docs/infra/repos/tf/&#34;&gt;Terraform module&lt;/a&gt; supplies the consumer&amp;rsquo;s&#xA;repository projection. First-party names remain stable across forges;&#xA;external fork and mirror names retain their original upstream identity.&lt;/p&gt;&#xA;&lt;p&gt;Before applying, provision the Vault OIDC authentication source with Ansible and set&#xA;&lt;code&gt;TF_VAR_vault_oauth_source_id&lt;/code&gt; to its verified positive numeric ID. Obtain the&#xA;ID from &lt;code&gt;forgejo admin auth list&lt;/code&gt; on the instance using the service&amp;rsquo;s config&#xA;and work path; confirm that the &lt;code&gt;vault&lt;/code&gt; source is active and uses OpenID&#xA;Connect with the expected Vault issuer. Do not assume source IDs survive&#xA;instance recreation.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Tf</title>
