@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="GitHub">
 	<meta itemprop="description" content="GitHub organization, repositories, access, and Pages configuration">
-	<meta itemprop="dateModified" content="2026-09-19T12:11:30+03:00">
+	<meta itemprop="dateModified" content="2026-09-19T20:19:50+03:00">
 	<meta itemprop="wordCount" content="61">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="GitHub">
 	<meta name="twitter:description" content="GitHub organization, repositories, access, and Pages configuration">
-<link rel="preload" href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" as="style" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
-<link href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" rel="stylesheet" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -72,6 +72,9 @@
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/"><span>Projects</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
@@ -142,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.fd87e0aec825ba7c822c0c9f8a1a5321.json"
+    data-offline-search-index-json-src="/offline-search-index.1d98b3993a44afc81f241a27d55d8364.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -257,7 +260,6 @@ has been applied or that published sites are healthy.</p>
 <a href="../../../../repos/README.md">shared catalog</a>,
 <a href="../../../tf/BUILD.bazel">packaged inputs</a>,
 <a href="../../../tf/repositories.tf">repository resources</a>,
-<a href="../../../tf/alwaldend_pages_repos.tf">landing repositories</a>,
 <a href="../../../tf/organization.tf">organization access</a>,
 <a href="../../../tf/branch_rules.tf">branch rules</a>, and
 <a href="../../../tf/provider.tf">provider configuration</a>.</p>
@@ -266,16 +268,20 @@ lists, repository identity, default branches, repository settings, and Pages
 configuration through <code>infra/repos/tf</code>. It SHALL NOT generate a second inventory
 from the build-project registry. Its provider instance SHALL require exactly
 one configured GitHub organization.</p>
-<p>Landing resources SHALL retain their existing addresses, using the catalog&rsquo;s
-<code>landing_project</code> field. Retired projects SHALL retain their published
-repositories while their catalog entries remain. Explicitly retired landing
-repositories SHALL be removed from the catalog after the authorized retirement
-workflow has established their exact deletion scope.</p>
-<h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-preserve-a-published-identity-after-project-retirement">Scenario: Preserve a published identity after project retirement<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-preserve-a-published-identity-after-project-retirement" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> a source project leaves the build registry but remains in the
-repository catalog</li>
-<li><strong>THEN</strong> its landing repository and environment remain configured at their
-existing resource addresses</li>
+<h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-consume-a-catalog-repository">Scenario: Consume a catalog repository<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-consume-a-catalog-repository" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the package renders its repository resources</li>
+<li><strong>THEN</strong> every catalog GitHub repository is managed from its catalog record</li>
+</ul>
+<h3 id="print-cf248aee02ac4b94b7e64b84272f960a-requirement-publish-project-landings-from-the-apex-site">Requirement: Publish project landings from the apex site<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-requirement-publish-project-landings-from-the-apex-site" aria-label="Heading self-link"></a></h3><p>Dedicated per-project landing repositories SHALL NOT be managed. The main site
+publishes every project landing at <code>/projects/&lt;name&gt;/</code>, so the catalog carries
+no <code>landing_project</code> key and no per-project Pages repository, custom domain,
+<code>github-pages</code> environment, or landing default branch is declared.</p>
+<h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-publish-a-project-landing">Scenario: Publish a project landing<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-publish-a-project-landing" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a project&rsquo;s landing page is published</li>
+<li><strong>THEN</strong> it is served by the apex site at <code>/projects/&lt;name&gt;/</code> from the apex
+Pages repository</li>
+<li><strong>AND</strong> no per-project repository, Pages configuration, or custom domain is
+managed</li>
 </ul>
 <h3 id="print-cf248aee02ac4b94b7e64b84272f960a-requirement-adopt-existing-resources-without-recreating-them">Requirement: Adopt existing resources without recreating them<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-requirement-adopt-existing-resources-without-recreating-them" aria-label="Heading self-link"></a></h3><p>The package SHALL provide import blocks for existing organization settings,
 repositories, default branches, memberships, developer collaborators, and
@@ -286,7 +292,7 @@ any deletion or replacement SHALL require explicit user approval before apply.</
 repository access. Its mandatory billing argument SHALL be an import-only
 placeholder whose imported value is ignored; billing, profile, and other
 organization defaults SHALL remain outside this module&rsquo;s ownership. Existing
-non-landing Dependabot alert settings SHALL be preserved.</p>
+Dependabot alert settings SHALL be preserved.</p>
 <h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-an-existing-repository-cannot-be-imported">Scenario: An existing repository cannot be imported<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-an-existing-repository-cannot-be-imported" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> import cannot resolve an observed catalog repository</li>
 <li><strong>THEN</strong> the operation fails rather than creating a replacement repository</li>
@@ -306,65 +312,32 @@ rules and bypass actors alongside the new default-branch ruleset.</p>
 request</li>
 <li><strong>AND</strong> the developer cannot push or merge into the default branch</li>
 </ul>
-<h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-publish-to-a-landing-repositorys-pages-branch">Scenario: Publish to a landing repository&rsquo;s Pages branch<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-publish-to-a-landing-repositorys-pages-branch" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> a catalog developer publishes site content to the landing
-repository&rsquo;s <code>pages</code> branch</li>
+<h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-publish-the-main-site">Scenario: Publish the main site<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-publish-the-main-site" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the site publisher writes content to the apex repository&rsquo;s <code>pages</code>
+branch</li>
 <li><strong>THEN</strong> repository write access permits publication</li>
-<li><strong>AND</strong> its separate <code>master</code> default branch remains protected from developer
-pushes and merges</li>
+<li><strong>AND</strong> its <code>master</code> default branch remains protected from developer pushes
+and merges</li>
 </ul>
-<h3 id="print-cf248aee02ac4b94b7e64b84272f960a-requirement-separate-landing-defaults-from-pages-publication">Requirement: Separate landing defaults from Pages publication<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-requirement-separate-landing-defaults-from-pages-publication" aria-label="Heading self-link"></a></h3><p>Landing repositories SHALL use the catalog default branch independently of
-their Pages source branch. A missing default branch SHALL be created from the
-existing Pages branch before Terraform selects it as the default. Existing
-default branches SHALL be imported. The migration SHALL NOT rename or delete
-the Pages branch or change its content.</p>
-<h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-a-landing-repository-only-has-its-pages-branch">Scenario: A landing repository only has its Pages branch<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-a-landing-repository-only-has-its-pages-branch" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> Terraform changes its default branch from <code>pages</code> to <code>master</code></li>
-<li><strong>THEN</strong> it creates <code>master</code> from the current Pages branch tip</li>
-<li><strong>AND</strong> it selects <code>master</code> as the default after creation</li>
-<li><strong>AND</strong> Pages continues to publish from the original <code>pages</code> branch</li>
-</ul>
-<h3 id="print-cf248aee02ac4b94b7e64b84272f960a-requirement-enable-pages-only-after-its-source-branch-exists">Requirement: Enable Pages only after its source branch exists<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-requirement-enable-pages-only-after-its-source-branch-exists" aria-label="Heading self-link"></a></h3><p>Terraform SHALL configure landing Pages from the catalog, except for entries
-explicitly in <code>bootstrap_projects</code>. That set SHALL default to empty. New
-bootstrapping repositories SHALL omit default-branch creation and selection
-until their Pages branch has been published.</p>
-<h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-bootstrap-a-new-landing-repository">Scenario: Bootstrap a new landing repository<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-bootstrap-a-new-landing-repository" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> an authorized apply includes a new project in <code>bootstrap_projects</code></li>
-<li><strong>THEN</strong> the repository resource omits its Pages block</li>
-<li><strong>AND</strong> the documented workflow publishes the site before a later apply removes
-that project from the bootstrap set and enables Pages</li>
-</ul>
-<h3 id="print-cf248aee02ac4b94b7e64b84272f960a-requirement-keep-repository-provisioning-separate-from-site-and-dns-publication">Requirement: Keep repository provisioning separate from site and DNS publication<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-requirement-keep-repository-provisioning-separate-from-site-and-dns-publication" aria-label="Heading self-link"></a></h3><p>This package SHALL own repository resources, Pages settings, and the
-<code>github-pages</code> environment with custom branch policies. The documented workflow
-SHALL use <code>//projects:deploy_landings</code> for site content and <code>//infra/dns</code> for DNS
-records.</p>
-<h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-review-a-landing-site-rollout">Scenario: Review a landing-site rollout<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-review-a-landing-site-rollout" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> an operator prepares an authorized project landing rollout</li>
+<h3 id="print-cf248aee02ac4b94b7e64b84272f960a-requirement-keep-repository-provisioning-separate-from-site-and-dns-publication">Requirement: Keep repository provisioning separate from site and DNS publication<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-requirement-keep-repository-provisioning-separate-from-site-and-dns-publication" aria-label="Heading self-link"></a></h3><p>This package SHALL own repository resources and Pages settings. The documented
+workflow SHALL use <code>//projects/alwaldend.com:deploy</code> for site content and
+<code>//infra/dns</code> for DNS records.</p>
+<h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-review-a-site-rollout">Scenario: Review a site rollout<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-review-a-site-rollout" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an operator prepares an authorized site rollout</li>
 <li><strong>THEN</strong> repository and Pages changes are reviewed in the Terraform workflow</li>
 <li><strong>AND</strong> built content publication and DNS changes use their separately owned
 workflows</li>
 </ul>
-<h3 id="print-cf248aee02ac4b94b7e64b84272f960a-requirement-provide-an-explicit-certificate-reprovision-procedure">Requirement: Provide an explicit certificate reprovision procedure<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-requirement-provide-an-explicit-certificate-reprovision-procedure" aria-label="Heading self-link"></a></h3><p>GitHub issues the custom-domain certificate as part of its Pages build, so the
-package SHALL provide a supported, separately named way to omit a live site&rsquo;s
-Pages block and then restore it, forcing a new certificate. This intent SHALL
-NOT be expressed through <code>bootstrap_projects</code>, whose documented meaning remains
-projects whose <code>pages</code> branch does not yet exist. When a project is named in
-either set, its Pages block SHALL be omitted; an empty set for both SHALL enable
-Pages for every project. The documented procedure SHALL include the two filtered
-applies and an HTTPS verification step.</p>
-<h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-reprovision-a-live-sites-certificate">Scenario: Reprovision a live site&rsquo;s certificate<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-reprovision-a-live-sites-certificate" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> an authorized apply names one live site in the certificate
-reprovision set</li>
-<li><strong>THEN</strong> the plan removes only that project&rsquo;s Pages block</li>
-<li><strong>AND</strong> the documented procedure restores it with a later apply that leaves
-both sets empty</li>
+<h3 id="print-cf248aee02ac4b94b7e64b84272f960a-requirement-provide-an-explicit-certificate-reprovision-procedure">Requirement: Provide an explicit certificate reprovision procedure<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-requirement-provide-an-explicit-certificate-reprovision-procedure" aria-label="Heading self-link"></a></h3><p>GitHub issues the custom-domain certificate as part of its Pages build and
+offers no direct reissue action, so the package SHALL document a supported,
+separately reviewed way to omit the apex site&rsquo;s Pages block and then restore
+it, forcing a new certificate. The procedure SHALL use two filtered applies
+and SHALL include an HTTPS verification step.</p>
+<h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-reprovision-the-apex-site-certificate">Scenario: Reprovision the apex site certificate<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-reprovision-the-apex-site-certificate" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an authorized apply removes the apex site&rsquo;s Pages block</li>
+<li><strong>THEN</strong> the reviewed plan removes only that configuration</li>
+<li><strong>AND</strong> the documented procedure restores it with a later apply</li>
 <li><strong>AND</strong> the operator verifies the certificate served for the custom domain</li>
-</ul>
-<h4 id="print-cf248aee02ac4b94b7e64b84272f960a-scenario-bootstrap-a-new-site-without-affecting-served-sites">Scenario: Bootstrap a new site without affecting served sites<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-scenario-bootstrap-a-new-site-without-affecting-served-sites" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> a new project is named in <code>bootstrap_projects</code></li>
-<li><strong>THEN</strong> no project that is absent from both sets loses its Pages block</li>
-<li><strong>AND</strong> an already-served site is never named in <code>bootstrap_projects</code> to force
-recovery</li>
 </ul>
 
 </div>
@@ -388,11 +361,14 @@ through its provider-free Terraform module. The catalog supplies the GitHub
 owner, repositories, default branches, repository settings, organization
 administrators, and developers. This root supports one GitHub organization per
 provider instance and rejects multiple configured owners.</p>
-<p>Existing repositories are imported, including forks and published landing
-repositories whose source project has been retired. The <code>landing_project</code>
-catalog key preserves the existing Terraform addresses. Published repository names and Pages
-domains come directly from the catalog; they are not regenerated from the
+<p>Existing repositories are imported, including forks. The apex site repository
+keeps its Pages configuration and custom domain. Published repository names and
+Pages domains come directly from the catalog; they are not regenerated from the
 current build-project registry.</p>
+<p>Dedicated per-project landing repositories were retired: the main site now
+publishes every project landing at <code>/projects/&lt;name&gt;/</code>, so the catalog carries
+no <code>landing_project</code> key and this root manages no per-project Pages repository,
+custom domain, <code>github-pages</code> environment, or landing default branch.</p>
 <h2 id="print-f0759d2140b0635b158a12ec47b41dcb-adoption-and-access">Adoption and access<a class="td-heading-self-link" href="#print-f0759d2140b0635b158a12ec47b41dcb-adoption-and-access" aria-label="Heading self-link"></a></h2><p>The checked-in import blocks adopt the organization, existing repositories,
 default branches, memberships, developer collaborators, and both existing
 <code>src</code> rulesets. A repository with an observed catalog <code>github.id</code> must retain
@@ -408,8 +384,7 @@ GitHub and are explicitly ignored. The required empty <code>billing_email</code>
 is an import-only placeholder: the existing billing address is retained from
 state and must never be committed or exposed in plan output. Do not create
 this organization-settings resource without its import block. Dependabot alert
-settings for newly adopted non-landing repositories are similarly preserved;
-landing repositories retain their existing enabled-alert policy.</p>
+settings for newly adopted repositories are similarly preserved.</p>
 <p>Catalog administrators are organization owners. Developers receive explicit
 write access on every catalog repository, while organization base permissions
 remain at the catalog setting. The grants are non-authoritative, preserving
@@ -425,42 +400,18 @@ separate release-branch protections and bypass actors; the default-branch
 ruleset also applies alongside them. Repository rulesets are available for
 these public repositories on
 <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets">GitHub Free</a>.</p>
-<p>Landing repositories use the catalog default branch independently of their
-Pages publication branch. Terraform creates a missing default branch from the
-existing Pages branch, then changes the default in place. It never renames or
-deletes the Pages branch. Default-branch rules protect <code>master</code>, while the bot
-retains write access to <code>pages</code> for the existing deployment workflow.</p>
-<h2 id="print-f0759d2140b0635b158a12ec47b41dcb-publish-a-landing-site">Publish a landing site<a class="td-heading-self-link" href="#print-f0759d2140b0635b158a12ec47b41dcb-publish-a-landing-site" aria-label="Heading self-link"></a></h2><p>Each landing repository receives its built Hugo site from
-<code>//projects:deploy_landings</code> in the root workspace. Terraform manages the
-catalog-defined custom domain and Pages source, plus the existing
-<code>github-pages</code> environment with custom branch policies.</p>
-<p>For a new site, first plan and apply with <code>bootstrap_projects</code> containing only
-the new projects whose <code>pages</code> branches do not yet exist. For example, pass
-<code>-var='bootstrap_projects=[&quot;new_project&quot;]'</code> to <code>//infra/github/tf:tf.plan</code> and
-the reviewed <code>tf.apply</code>. This creates the repository without enabling Pages or
-creating its separate default branch before the Pages branch has been
-published. Do not include an existing live site: doing so
-would remove its Pages configuration.</p>
-<p>Publish the built site with <code>//projects:deploy_landings</code>, then plan and apply
-with the default empty <code>bootstrap_projects</code> to enable Pages. Keep all applies
-limited to reviewed, authorized repository and Pages changes. DNS is managed
-by each site&rsquo;s owning Terraform root; <a href="/docs/infra/dns/">DNS documentation</a>
-describes the workflow. Validate the public custom domain after rollout.</p>
-<h2 id="print-f0759d2140b0635b158a12ec47b41dcb-reprovision-a-landing-site-certificate">Reprovision a landing-site certificate<a class="td-heading-self-link" href="#print-f0759d2140b0635b158a12ec47b41dcb-reprovision-a-landing-site-certificate" aria-label="Heading self-link"></a></h2><p>GitHub issues the custom-domain certificate as part of its Pages build and
-offers no direct reissue action. To force a new certificate for one live site,
-plan and apply with only that project in <code>certificate_reprovision_projects</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/github/tf:tf.plan -- <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  -var<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;certificate_reprovision_projects=[&#34;affected_project&#34;]&#39;</span>
-</span></span></code></pre></div><p>Inspect that the plan removes only that project&rsquo;s Pages block, then apply the
-reviewed changes. Restore the site with a second plan and apply that leaves both
-<code>bootstrap_projects</code> and <code>certificate_reprovision_projects</code> empty. GitHub
-schedules a new certificate once the custom domain returns.</p>
-<p>Republish the site with <code>//projects:deploy_landings</code> only if the first apply
-removed its <code>pages</code> branch content; normally the branch is unchanged. Verify the
-pushed revision, Pages build state, DNS, and the certificate served for the
-custom domain before closing the recovery.</p>
-<p>Keep this variable empty outside an active recovery. Never name an existing
-served site in <code>bootstrap_projects</code> to force a reissue.</p>
+<h2 id="print-f0759d2140b0635b158a12ec47b41dcb-publish-the-main-site">Publish the main site<a class="td-heading-self-link" href="#print-f0759d2140b0635b158a12ec47b41dcb-publish-the-main-site" aria-label="Heading self-link"></a></h2><p>The apex site repository receives its built Hugo site from
+<code>//projects/alwaldend.com:deploy</code> in the root workspace. Terraform manages the
+catalog-defined custom domain and Pages source. Keep all applies limited to
+reviewed, authorized repository and Pages changes. DNS is managed by the
+owning Terraform root; <a href="/docs/infra/dns/">DNS documentation</a> describes the
+workflow. Validate the public custom domain after rollout.</p>
+<p>GitHub issues the custom-domain certificate as part of its Pages build. If a
+certificate must be reissued, remove the <code>pages</code> block from the apex catalog
+record in a reviewed plan, apply it, then restore it in a second plan; GitHub
+schedules a new certificate once the custom domain returns. Verify the pushed
+revision, Pages build state, DNS, and the served certificate before closing the
+recovery.</p>
 
 </div>
 

@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Repositories">
 	<meta itemprop="description" content="Shared organization, repository, and access configuration">
-	<meta itemprop="dateModified" content="2026-09-19T12:11:30+03:00">
-	<meta itemprop="wordCount" content="376">
+	<meta itemprop="dateModified" content="2026-09-19T20:19:50+03:00">
+	<meta itemprop="wordCount" content="385">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Repositories">
 	<meta name="twitter:description" content="Shared organization, repository, and access configuration">
-<link rel="preload" href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" as="style" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
-<link href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" rel="stylesheet" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -72,6 +72,9 @@
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/"><span>Projects</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
@@ -142,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.fd87e0aec825ba7c822c0c9f8a1a5321.json"
+    data-offline-search-index-json-src="/offline-search-index.1d98b3993a44afc81f241a27d55d8364.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -251,9 +254,10 @@ commits only: the shared defaults disable squash merges and rebase merges, and
 a catalog precondition rejects any repository record that enables them. Merging
 therefore keeps the reviewed feature commit as a parent of the default-branch
 commit instead of replacing it. GitLab and Forgejo merge methods are not owned
-here. Landing repositories use <code>master</code> as their protected default branch while
-their Pages source remains <code>pages</code>, allowing the developer&rsquo;s existing Pages
-deployment access to continue.</p>
+here. Dedicated per-project landing repositories are retired: the main site
+publishes every project landing at <code>/projects/&lt;name&gt;/</code>, so the catalog carries
+no landing repository. The apex site repository keeps the Pages configuration
+that serves it.</p>
 <p>Catalog targets are repository-internal infrastructure inputs. They are not
 production build dependencies or published artifacts.</p>
 <p>GitLab receives one-time repository imports and the configured upstream fork.
@@ -331,21 +335,12 @@ preserved and distinguished from named developer assignments.</p>
 open a pull or merge request</li>
 <li><strong>AND</strong> the developer cannot push or merge to its protected default branch</li>
 </ul>
-<h4 id="print-acc40b601934fff97691d69673e0c63a-scenario-deploy-a-landing-repository">Scenario: Deploy a landing repository<a class="td-heading-self-link" href="#print-acc40b601934fff97691d69673e0c63a-scenario-deploy-a-landing-repository" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> a GitHub landing repository is adopted</li>
-<li><strong>THEN</strong> its protected default branch is <code>master</code></li>
-<li><strong>AND</strong> its Pages source remains <code>pages</code> with its existing custom domain</li>
-<li><strong>AND</strong> the developer can continue deploying to <code>pages</code> without receiving
-push or merge access to <code>master</code></li>
-</ul>
 <h3 id="print-acc40b601934fff97691d69673e0c63a-requirement-adopt-existing-resources-without-recreation">Requirement: Adopt existing resources without recreation<a class="td-heading-self-link" href="#print-acc40b601934fff97691d69673e0c63a-requirement-adopt-existing-resources-without-recreation" aria-label="Heading self-link"></a></h3><p>Consumers SHALL adopt existing remote resources through imports and preserve
 their remote identities. Existing managed resource addresses SHALL remain
 stable or use explicit state-preserving moves. Existing GitHub repository
-settings and Pages configuration SHALL remain intact. Default branches SHALL
-remain unchanged except for the requested landing-repository migration to
-<code>master</code>; a missing destination branch SHALL be created from existing
-repository contents before changing the default. No deletion or replacement
-SHALL execute without separate user approval for its concrete scope.</p>
+settings and Pages configuration SHALL remain intact, and default branches
+SHALL remain unchanged. No deletion or replacement SHALL execute without
+separate user approval for its concrete scope.</p>
 <h4 id="print-acc40b601934fff97691d69673e0c63a-scenario-adopt-an-existing-repository">Scenario: Adopt an existing repository<a class="td-heading-self-link" href="#print-acc40b601934fff97691d69673e0c63a-scenario-adopt-an-existing-repository" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a catalog repository already exists remotely or in Terraform state</li>
 <li><strong>THEN</strong> its import or state move preserves the existing remote repository
@@ -356,12 +351,6 @@ ID and contents</li>
 <li><strong>WHEN</strong> any reviewed plan proposes a deletion or replacement</li>
 <li><strong>THEN</strong> execution of that operation stops pending the user&rsquo;s explicit
 approval for the identified operation and scope</li>
-</ul>
-<h4 id="print-acc40b601934fff97691d69673e0c63a-scenario-change-a-landing-default-without-changing-pages">Scenario: Change a landing default without changing Pages<a class="td-heading-self-link" href="#print-acc40b601934fff97691d69673e0c63a-scenario-change-a-landing-default-without-changing-pages" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> a landing repository has no <code>master</code> branch before adoption</li>
-<li><strong>THEN</strong> the migration creates it from existing repository contents before
-selecting it as the protected default branch</li>
-<li><strong>AND</strong> the existing <code>pages</code> branch and Pages configuration remain intact</li>
 </ul>
 <h3 id="print-acc40b601934fff97691d69673e0c63a-requirement-gitlab-copies-and-fork-preserve-their-source-identity">Requirement: GitLab copies and fork preserve their source identity<a class="td-heading-self-link" href="#print-acc40b601934fff97691d69673e0c63a-requirement-gitlab-copies-and-fork-preserve-their-source-identity" aria-label="Heading self-link"></a></h3><p>GitLab SHALL receive a one-time Git import of every catalog-selected GitHub
 repository and an organization-owned fork of the selected F-Droid metadata

@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Alwaldend">
 	<meta itemprop="description" content="ReleasesRelease packaging for the ActivityWatch ingester Android app.">
-	<meta itemprop="dateModified" content="2026-09-19T12:11:30+03:00">
+	<meta itemprop="dateModified" content="2026-09-19T20:19:50+03:00">
 	<meta itemprop="wordCount" content="8">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Alwaldend">
 	<meta name="twitter:description" content="ReleasesRelease packaging for the ActivityWatch ingester Android app.">
-<link rel="preload" href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" as="style" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
-<link href="/scss/main.min.d69d1130a81ade21bdff1835eb424adc7902c676fe9aca35b70027c3f549cef7.css" rel="stylesheet" integrity="sha256-1p0RMKga3iG9/xg160JK3HkCxnb&#43;mso1twAnw/VJzvc=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -72,6 +72,9 @@
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/"><span>Projects</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/docs/"><span>Docs</span></a>
@@ -142,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.fd87e0aec825ba7c822c0c9f8a1a5321.json"
+    data-offline-search-index-json-src="/offline-search-index.1d98b3993a44afc81f241a27d55d8364.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -237,7 +240,7 @@ This is the multi-page printable view of this section.
         data-bs-target="#print-09ed6f8d8f0f2c34f70d7c16459b7324-release-09ed6f8d8f0f2c34f70d7c16459b7324-page-0_collapse"
         aria-expanded="true"
         aria-controls="print-09ed6f8d8f0f2c34f70d7c16459b7324-release-09ed6f8d8f0f2c34f70d7c16459b7324-page-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">5</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">6</span>
 </button>
     </h3>
     <div
@@ -247,6 +250,117 @@ This is the multi-page printable view of this section.
       data-bs-parent="#print-09ed6f8d8f0f2c34f70d7c16459b7324-release-09ed6f8d8f0f2c34f70d7c16459b7324-page-0_accordion"
     >
       <div class="accordion-body"><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Move project landings into the main site</p>
+<p>Publish every registered project&rsquo;s visitor-facing landing page at
+/projects/<name>/ from the main site instead of a dedicated subdomain, and
+retire the per-project Pages repository, CNAME, and Terraform DNS stage that
+existed only to serve one page derived from the project README.</p>
+<p>Each project owns its landing content in projects/<name>/site/content/ as pure
+content: no layouts, styles, or build rules. The main site packages those
+directories into content/projects/<name>/ from the registry in
+projects/projects.bzl, so membership is declared once. The landing is a short
+hand-written page for visitors while the README keeps its /docs/projects/<name>/
+URL for repository reference documentation, and landing front matter now feeds
+the statuses, languages, and tags taxonomies.</p>
+<p>Merge the reusable hugo_landing project into the main site: its shared canvas
+and accent styles and its landing page rules move into the apex tree, and its
+landing macro, generated configuration, standalone publisher, and
+repository-relative rewrite layouts are removed. The theme keeps owning the
+taxonomy and term layouts, which are richer than the heading-only versions the
+reusable project carried. Remove the now-unused apex deploy_project.sh and
+deploy_all.sh landing publishers with it.</p>
+<p>Retire the per-project publication and DNS ownership: the project landing
+targets and the landing deployment command, each landing project&rsquo;s
+dnsconfig.json and Terraform root, the build plumbing that served only those
+stages, and the landing repository and Pages membership in the repository
+catalog. The apex Terraform root is retained because it also declares VM
+resources, and no Vault configuration is changed.</p>
+<p>Replace the provider-snapshot zone files with generated declaration pages, one
+per destination view, that project the checked-in declarations and are verified
+for freshness by the DNS offline check. The DNS linter, both destination pages,
+the apex site, the skills projection, and the repository quality suite pass, and
+the whole repository builds.</p>
+<p>OpenSpec-Change: projects/alwaldend.com/openspec/changes/consolidate-project-landings-into-apex</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">976a6a218ec8b3450fee44481674463b9c5115fd</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQFCTwf73FSK2HZgURFxfuGc1FDJ7ZDAaDQ&#43;pmJIIsu2gjTQrOQf22bMN0TWvMdhL6j
+YsCh424/NCqnhwVpaE6Qk=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
           <li class="list-group-item my-auto">
             <p>Manage forge resources with hermetic Terraform rules</p>
 <p>Centralize organization, repository, and named access configuration in
@@ -558,20 +672,20 @@ AAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Consolidate agent policy into owning skills</p>
-<p>Reduce the root AGENTS.md from 255 lines to 141 by keeping repository-wide
-constraints visible and moving execution detail to the skill that owns it.</p>
-<p>Make initial reads task-dependent, replace the absolute one-copy rule with one
-authoritative source, simplify the retry rule to its principle, and fix the
-generated-file delivery ambiguity. Add a single &ldquo;When to load a skill&rdquo; routing
-table ordered by task phase.</p>
-<p>Add the repo-workspace skill so worktree isolation and task-scratch placement
-are established before the first write rather than when repo-delivery loads.
-Transfer commit-subject and trailer conventions into a repo-delivery reference
-and the Go and Bazel-native automation rules into repo-bazel. Reconcile the
-git-rebase-remote and repo-delivery drift so a task-owned rewrite may change
-ancestry while preserving every previously remote commit&rsquo;s reachable progress.</p>
-<p>OpenSpec-Change: infra/src/openspec/changes/consolidate-agent-policy-into-skills</p>
+            <p>Restore light and dark site canvases and set the shared accent</p>
+<p>The shared Docsy canvas set the same Bootstrap dark palette and the same
+black page background on <code>:root</code>, <code>[data-bs-theme=&quot;light&quot;]</code>, and
+<code>[data-bs-theme=&quot;dark&quot;]</code>, so the light/dark toggle changed nothing. The site
+also rendered Bootstrap&rsquo;s stock blue instead of its intended accent.</p>
+<p>Split the shared palette so light mode uses a pure white canvas with the
+light-mode palette and dark mode uses a pure black canvas with the dark-mode
+palette, and keep the pre-stylesheet paint and footer on the active mode.
+Assign <code>$primary</code> to <code>#7c3aed</code> before Bootstrap compiles, so links, buttons,
+badges, focus rings, and the dark-mode link tint all derive from one value
+rather than from a site-local copy.</p>
+<p>Both files stay in the reusable shell; the apex site consumes them through
+the existing declared exports and no longer carries the footer&rsquo;s own blue.</p>
+<p>OpenSpec-Change: projects/hugo_landing/openspec/changes/restore-light-dark-canvas-and-accent</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -588,7 +702,7 @@ ancestry while preserving every previously remote commit&rsquo;s reachable progr
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">0c0ea39897339a3c510329278e47e23a6d29544e</pre>
+                    <pre class="my-auto">022861965f3e3407c0f630dd5827b54bb87ee779</pre>
                   </span>
                 </li>
               </ul>
@@ -642,8 +756,8 @@ ancestry while preserving every previously remote commit&rsquo;s reachable progr
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCX1Mk&#43;XmokIRaRKGBv&#43;oAXkRDy&#43;bjEjksRaJIf6FDVVGgxuNiGy818s6pKWZy7asa
-aCkpgao3xx3ncsQX&#43;WLQ0=
+AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
+0yeucLMBAFev0fFMYQigY=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
