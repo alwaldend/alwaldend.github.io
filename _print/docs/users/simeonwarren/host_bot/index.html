@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Host Bot">
 	<meta itemprop="description" content="host-bot.simeonwarren.users.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-19T22:52:56+03:00">
-	<meta itemprop="wordCount" content="998">
+	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="wordCount" content="1084">
 	<meta itemprop="keywords" content="Ansible,T3code,Traefik">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Host Bot">
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.53ae7d1c48cadef5da1396a063e76965.json"
+    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -192,7 +192,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-9035d64ba8b9ecebabdee908fca856e2"></a></li>
+<li>1: <a href="#pg-2e8541ce8eed2eac60a395888d741d2c"></a></li>
 
 
     
@@ -200,7 +200,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-0602a8eef66b5449a7b3aff1c99e4201"></a></li>
+<li>2: <a href="#pg-08fd53cc8af3ecaab17b45bcd0c68428"></a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-0602a8eef66b5449a7b3aff1c99e4201"></a></li>
 
 
     
@@ -219,7 +227,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-e80c05316e82a2eeb8214df5e2dc13af">Ansible</a></li>
+<li>4: <a href="#pg-e80c05316e82a2eeb8214df5e2dc13af">Ansible</a></li>
 
 
     
@@ -343,6 +351,16 @@ T3 Code, set its <code>CODEX_HOME path</code> to
 <p><code>T3_MCP_BEARER_TOKEN</code> authenticates the Codex app-server&rsquo;s loopback MCP
 connection to T3 Code at <code>/mcp</code>. Codex excludes it from model-spawned commands
 so those subprocesses do not inherit the credential.</p>
+<h2 id="print-022a323b2ebec21acaefdb4c00ac2008-architecture">Architecture<a class="td-heading-self-link" href="#print-022a323b2ebec21acaefdb4c00ac2008-architecture" aria-label="Heading self-link"></a></h2><p><a href="/docs/users/simeonwarren/host_bot/assets/t3code-architecture.svg"><img src="/docs/users/simeonwarren/host_bot/assets/t3code-architecture.svg" alt="Host Bot architecture diagram" loading="lazy"></a></p>
+<p>The diagram source is <a href="/docs/users/simeonwarren/host_bot/t3code-architecture.mmd"><code>t3code-architecture.mmd</code></a>,
+and the SVG beside this page is rendered from it at build time by
+<code>//users/simeonwarren/host_bot:rendered</code>. There is no committed copy to refresh:
+edit the <code>.mmd</code> and the next build renders the new diagram.</p>
+<p>Rendering uses the repository&rsquo;s pinned Mermaid, headless Chrome, and Liberation
+font inputs, so the maintained image does not depend on host fonts or a CDN.
+The shared <a href="https://github.com/alwaldend/src/blob/master/tools/mermaid/theme.json">Mermaid theme</a>
+owns the diagram appearance, so this diagram follows the same visual contract
+as the rest of the repository.</p>
 <h2 id="print-022a323b2ebec21acaefdb4c00ac2008-deployment">Deployment<a class="td-heading-self-link" href="#print-022a323b2ebec21acaefdb4c00ac2008-deployment" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //users/simeonwarren/host_bot/ansible
 </span></span></code></pre></div>
 </div>
@@ -365,45 +383,150 @@ so those subprocesses do not inherit the credential.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-9035d64ba8b9ecebabdee908fca856e2">1 - </h1>
+	<h1 id="pg-2e8541ce8eed2eac60a395888d741d2c">1 - </h1>
     
-	<h1 id="print-fb62021ea833772ac61b140c388335e3-owned-dns-specification">owned-dns Specification<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-owned-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-fb62021ea833772ac61b140c388335e3-purpose">Purpose<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-purpose" aria-label="Heading self-link"></a></h2><p>Define Host Bot DNS management through the owner&rsquo;s <code>tf</code> root,
+	<h1 id="print-47690216037de65d99a0ad48958e82ab-architecture-diagram-specification">architecture-diagram Specification<a class="td-heading-self-link" href="#print-47690216037de65d99a0ad48958e82ab-architecture-diagram-specification" aria-label="Heading self-link"></a></h1><h2 id="print-47690216037de65d99a0ad48958e82ab-purpose">Purpose<a class="td-heading-self-link" href="#print-47690216037de65d99a0ad48958e82ab-purpose" aria-label="Heading self-link"></a></h2><p>Describe the maintained architecture diagram owned by
+<code>users/simeonwarren/host_bot</code>. The diagram replaced the <code>T3code</code> page of the
+<code>infra/arch</code> Drawio document, which no longer renders or publishes that page.
+The diagram describes checked-in configuration; it is not a live inventory or
+health check.</p>
+<h2 id="print-47690216037de65d99a0ad48958e82ab-requirements">Requirements<a class="td-heading-self-link" href="#print-47690216037de65d99a0ad48958e82ab-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-47690216037de65d99a0ad48958e82ab-requirement-owner-local-mermaid-diagram-source">Requirement: Owner-local Mermaid diagram source<a class="td-heading-self-link" href="#print-47690216037de65d99a0ad48958e82ab-requirement-owner-local-mermaid-diagram-source" aria-label="Heading self-link"></a></h3><p>The project SHALL keep its architecture diagram as Mermaid source at
+<code>t3code-architecture.mmd</code> and SHALL render it through the repository&rsquo;s
+<code>mermaid_svg</code> rule at <code>//users/simeonwarren/host_bot:rendered</code>. The project
+SHALL NOT commit a rendered SVG: <code>//users/simeonwarren/host_bot:docs_assets</code>
+SHALL take its <code>srcs</code> from <code>:rendered</code> so the documentation site publishes the
+build output, and the README SHALL reference that published path. The diagram
+SHALL use the shared <code>//tools/mermaid:theme.json</code> appearance rather than a
+package-local copy.</p>
+<h4 id="print-47690216037de65d99a0ad48958e82ab-scenario-publish-the-diagram">Scenario: Publish the diagram<a class="td-heading-self-link" href="#print-47690216037de65d99a0ad48958e82ab-scenario-publish-the-diagram" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the documentation site is built</li>
+<li><strong>THEN</strong> <code>:docs_assets</code> packages the SVG produced by <code>:rendered</code></li>
+<li><strong>AND</strong> the README image reference resolves to that packaged file</li>
+<li><strong>AND</strong> no rendered SVG is tracked in the source tree</li>
+</ul>
+<h4 id="print-47690216037de65d99a0ad48958e82ab-scenario-render-without-host-or-network-inputs">Scenario: Render without host or network inputs<a class="td-heading-self-link" href="#print-47690216037de65d99a0ad48958e82ab-scenario-render-without-host-or-network-inputs" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the render action produces the SVG</li>
+<li><strong>THEN</strong> it uses the repository&rsquo;s pinned Mermaid, headless Chrome, and font
+inputs</li>
+<li><strong>AND</strong> it loads no stylesheet, script, or font from a CDN</li>
+<li><strong>AND</strong> the document embeds the pinned handwriting face, so a viewer that
+loads no webfont still lays the labels out at their measured widths</li>
+</ul>
+<h3 id="print-47690216037de65d99a0ad48958e82ab-requirement-diagram-content-reflects-the-deployed-topology">Requirement: Diagram content reflects the deployed topology<a class="td-heading-self-link" href="#print-47690216037de65d99a0ad48958e82ab-requirement-diagram-content-reflects-the-deployed-topology" aria-label="Heading self-link"></a></h3><p>The diagram SHALL group the remote actor and the shared <code>Ingress</code> in an
+<code>Internet</code> cluster, and SHALL show the remote actor reaching <code>Ingress</code> over
+HTTPS with mTLS. It SHALL nest the host-bot cluster inside the local
+infrastructure cluster, so the local actor, <code>Vault</code>, and the host&rsquo;s services
+sit inside <code>dc1.alwaldend.com</code> rather than beside it, and the two nested cluster
+titles SHALL carry the <code>dc1.alwaldend.com</code> and
+<code>host-bot.simeonwarren.users.alwaldend.com</code> names respectively. It SHALL group
+<code>Traefik</code>, <code>T3 Code</code>, and <code>Codex</code> in the host-bot cluster, SHALL show the local
+actor reaching <code>Traefik</code> directly over HTTPS, <code>Ingress</code> forwarding to <code>Traefik</code>
+over Wireguard, and <code>Traefik</code> obtaining ACME certificates from <code>Vault</code>. It
+SHALL show <code>T3 Code</code> reaching GitHub for source and <code>Codex</code> reaching OpenAI and
+OpenRouter for inference, with those providers in a second <code>Internet</code> cluster
+because they are off-host. Both actors SHALL be labelled <code>Actor</code>. External
+service nodes SHALL carry their own hostnames.</p>
+<p>Sources: <a href="/docs/users/simeonwarren/host_bot/t3code-architecture.mmd">diagram source</a> and
+<a href="/docs/users/simeonwarren/host_bot/">project documentation</a>.</p>
+<h4 id="print-47690216037de65d99a0ad48958e82ab-scenario-consult-the-host-bot-architecture">Scenario: Consult the host-bot architecture<a class="td-heading-self-link" href="#print-47690216037de65d99a0ad48958e82ab-scenario-consult-the-host-bot-architecture" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a reader opens the architecture section of the project README</li>
+<li><strong>THEN</strong> it displays the maintained diagram showing the ingress path, the
+in-host services, and the two external service dependencies</li>
+</ul>
+<h3 id="print-47690216037de65d99a0ad48958e82ab-requirement-legible-diagram-layout">Requirement: Legible diagram layout<a class="td-heading-self-link" href="#print-47690216037de65d99a0ad48958e82ab-requirement-legible-diagram-layout" aria-label="Heading self-link"></a></h3><p>The diagram SHALL keep node labels short by naming each host once, in the
+cluster title that owns it, and SHALL NOT restate a hostname in both a cluster
+title and the nodes it contains. Node labels SHALL NOT wrap mid-token. The
+diagram SHALL keep subgraph titles clear of node outlines and edges: Mermaid
+centers a cluster title on the cluster&rsquo;s top border, so a title that wraps
+extends into the cluster&rsquo;s node area. The diagram source SHALL describe topology
+only and SHALL let the shared theme own appearance and spacing; a per-diagram
+directive is warranted only for a specific geometry need the theme cannot
+express.</p>
+<p>Actors SHALL render as an ordinary rounded node carrying the shared theme&rsquo;s
+hand-drawn stick figure beside the label, rather than as a bare glyph, a pill
+outline, or a Mermaid <code>person</code> shape. Mermaid&rsquo;s <code>person</code> shape draws the head
+over the body box, so it is not used.</p>
+<p>Sources: <a href="/docs/users/simeonwarren/host_bot/t3code-architecture.mmd">diagram source</a> and
+<a href="../../../../../../tools/mermaid/theme.json">theme</a>.</p>
+<h4 id="print-47690216037de65d99a0ad48958e82ab-scenario-render-the-maintained-layout">Scenario: Render the maintained layout<a class="td-heading-self-link" href="#print-47690216037de65d99a0ad48958e82ab-scenario-render-the-maintained-layout" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the renderer draws the diagram</li>
+<li><strong>THEN</strong> every node outline is clear of headings, edges, and other nodes</li>
+<li><strong>AND</strong> no label is truncated or broken inside a hostname</li>
+</ul>
+<h3 id="print-47690216037de65d99a0ad48958e82ab-requirement-appearance-is-owned-by-the-shared-theme">Requirement: Appearance is owned by the shared theme<a class="td-heading-self-link" href="#print-47690216037de65d99a0ad48958e82ab-requirement-appearance-is-owned-by-the-shared-theme" aria-label="Heading self-link"></a></h3><p>Diagram appearance SHALL come from <code>//tools/mermaid:theme.json</code> rather than
+package-local copies or per-diagram appearance overrides, so node rounding and
+edge-label plates are consistent across every rendered diagram. The theme SHALL
+keep shapes semantic, so a rounded bracket node renders rounded while a square
+bracket node stays square; rounding SHALL NOT be forced on every node. The
+theme SHALL box edge labels by styling the label text, because Mermaid emits an
+empty label plate for unlabelled edges and styling that plate directly would
+draw a stray box.</p>
+<p>Source: <a href="../../../../../../tools/mermaid/theme.json">theme</a>.</p>
+<h4 id="print-47690216037de65d99a0ad48958e82ab-scenario-render-another-diagram-with-the-theme">Scenario: Render another diagram with the theme<a class="td-heading-self-link" href="#print-47690216037de65d99a0ad48958e82ab-scenario-render-another-diagram-with-the-theme" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> any diagram renders through <code>mermaid_svg</code> or the <code>mmdc</code> target</li>
+<li><strong>THEN</strong> a rounded node renders rounded and a square node stays square</li>
+<li><strong>AND</strong> its edge labels use bordered plates</li>
+</ul>
+<h4 id="print-47690216037de65d99a0ad48958e82ab-scenario-read-an-edge-annotation">Scenario: Read an edge annotation<a class="td-heading-self-link" href="#print-47690216037de65d99a0ad48958e82ab-scenario-read-an-edge-annotation" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the renderer draws an edge that carries a label</li>
+<li><strong>THEN</strong> the label renders on a bordered plate rather than directly on the
+edge line</li>
+<li><strong>AND</strong> an edge without a label draws no plate</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-08fd53cc8af3ecaab17b45bcd0c68428">2 - </h1>
+    
+	<h1 id="print-f72bee106976ad373b1c3bae0f9ae3dd-owned-dns-specification">owned-dns Specification<a class="td-heading-self-link" href="#print-f72bee106976ad373b1c3bae0f9ae3dd-owned-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-f72bee106976ad373b1c3bae0f9ae3dd-purpose">Purpose<a class="td-heading-self-link" href="#print-f72bee106976ad373b1c3bae0f9ae3dd-purpose" aria-label="Heading self-link"></a></h2><p>Define Host Bot DNS management through the owner&rsquo;s <code>tf</code> root,
 including canonical declarations, scoped credentials, and offline source checks
 before adopting live records.</p>
-<h2 id="print-fb62021ea833772ac61b140c388335e3-requirements">Requirements<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-fb62021ea833772ac61b140c388335e3-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through
+<h2 id="print-f72bee106976ad373b1c3bae0f9ae3dd-requirements">Requirements<a class="td-heading-self-link" href="#print-f72bee106976ad373b1c3bae0f9ae3dd-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-f72bee106976ad373b1c3bae0f9ae3dd-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-f72bee106976ad373b1c3bae0f9ae3dd-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through
 the shared DNS Terraform module, preserving declared record identities and views.
 DNS resources SHALL default to disabled until the shared migration adopts them
 and SHALL retain enabled ownership after authorized adoption into the owner&rsquo;s
 state. Reconciliation of adopted records with unchanged declarations SHALL
 propose no record additions, changes, replacements, or deletions.</p>
-<h4 id="print-fb62021ea833772ac61b140c388335e3-scenario-inspect-the-preparatory-configuration">Scenario: Inspect the preparatory configuration<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-scenario-inspect-the-preparatory-configuration" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-f72bee106976ad373b1c3bae0f9ae3dd-scenario-inspect-the-preparatory-configuration">Scenario: Inspect the preparatory configuration<a class="td-heading-self-link" href="#print-f72bee106976ad373b1c3bae0f9ae3dd-scenario-inspect-the-preparatory-configuration" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the checked-in root is evaluated with default inputs before authorized
 adoption</li>
 <li><strong>THEN</strong> it reads this owner&rsquo;s declaration and disables managed DNS records</li>
 <li><strong>AND</strong> the package contains the module and declaration inputs</li>
 </ul>
-<h4 id="print-fb62021ea833772ac61b140c388335e3-scenario-inspect-adopted-source-defaults">Scenario: Inspect adopted source defaults<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-scenario-inspect-adopted-source-defaults" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-f72bee106976ad373b1c3bae0f9ae3dd-scenario-inspect-adopted-source-defaults">Scenario: Inspect adopted source defaults<a class="td-heading-self-link" href="#print-f72bee106976ad373b1c3bae0f9ae3dd-scenario-inspect-adopted-source-defaults" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the adopted host root is evaluated with its checked-in source defaults</li>
 <li><strong>THEN</strong> record ownership is enabled for the owner&rsquo;s declared records and views</li>
 <li><strong>AND</strong> the package retains the canonical declaration and shared module inputs</li>
 </ul>
-<h4 id="print-fb62021ea833772ac61b140c388335e3-scenario-reconcile-existing-dns-records">Scenario: Reconcile existing DNS records<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-scenario-reconcile-existing-dns-records" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-f72bee106976ad373b1c3bae0f9ae3dd-scenario-reconcile-existing-dns-records">Scenario: Reconcile existing DNS records<a class="td-heading-self-link" href="#print-f72bee106976ad373b1c3bae0f9ae3dd-scenario-reconcile-existing-dns-records" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the host root plans against its adopted state and unchanged declarations</li>
 <li><strong>THEN</strong> it proposes no record additions, changes, replacements, or deletions</li>
 <li><strong>AND</strong> records outside this owner&rsquo;s declarations remain unchanged</li>
 </ul>
-<h3 id="print-fb62021ea833772ac61b140c388335e3-requirement-scoped-dns-execution-and-offline-checks">Requirement: Scoped DNS execution and offline checks<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-requirement-scoped-dns-execution-and-offline-checks" aria-label="Heading self-link"></a></h3><p>The DNS wrapper SHALL select <code>src_users_simeonwarren_host_bot</code> through the repository AL flow and keep
+<h3 id="print-f72bee106976ad373b1c3bae0f9ae3dd-requirement-scoped-dns-execution-and-offline-checks">Requirement: Scoped DNS execution and offline checks<a class="td-heading-self-link" href="#print-f72bee106976ad373b1c3bae0f9ae3dd-requirement-scoped-dns-execution-and-offline-checks" aria-label="Heading self-link"></a></h3><p>The DNS wrapper SHALL select <code>src_users_simeonwarren_host_bot</code> through the repository AL flow and keep
 secret values in injected variables. DNS injection SHALL select the root&rsquo;s existing
 Terraform stage label. Real DNS credentials and Vault policy grants SHALL be
 prerequisites for operational Terraform calls. RouterOS DNS credentials SHALL be isolated
 from unrelated RouterOS resources. The package SHALL expose a format test that
 does not authenticate to Vault or contact DNS providers.</p>
-<h4 id="print-fb62021ea833772ac61b140c388335e3-scenario-validate-the-terraform-source">Scenario: Validate the Terraform source<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-scenario-validate-the-terraform-source" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-f72bee106976ad373b1c3bae0f9ae3dd-scenario-validate-the-terraform-source">Scenario: Validate the Terraform source<a class="td-heading-self-link" href="#print-f72bee106976ad373b1c3bae0f9ae3dd-scenario-validate-the-terraform-source" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the package format test executes</li>
 <li><strong>THEN</strong> it checks the packaged Terraform configuration without live credentials</li>
 <li><strong>AND</strong> existing non-DNS authentication and backend paths remain unchanged</li>
 </ul>
-<h4 id="print-fb62021ea833772ac61b140c388335e3-scenario-prepare-an-operational-terraform-invocation">Scenario: Prepare an operational Terraform invocation<a class="td-heading-self-link" href="#print-fb62021ea833772ac61b140c388335e3-scenario-prepare-an-operational-terraform-invocation" aria-label="Heading self-link"></a></h4><ul>
+<h4 id="print-f72bee106976ad373b1c3bae0f9ae3dd-scenario-prepare-an-operational-terraform-invocation">Scenario: Prepare an operational Terraform invocation<a class="td-heading-self-link" href="#print-f72bee106976ad373b1c3bae0f9ae3dd-scenario-prepare-an-operational-terraform-invocation" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the wrapper selects its Terraform stage labels</li>
 <li><strong>THEN</strong> it selects DNS credential injection through the owner AppRole</li>
 <li><strong>AND</strong> disabled DNS resources do not imply offline provider configuration</li>
@@ -423,7 +546,7 @@ does not authenticate to Vault or contact DNS providers.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-0602a8eef66b5449a7b3aff1c99e4201">2 - </h1>
+	<h1 id="pg-0602a8eef66b5449a7b3aff1c99e4201">3 - </h1>
     
 	<h1 id="print-c881651d61a7b36b2a0dc6b851a56d3a-dns-terraform">DNS Terraform<a class="td-heading-self-link" href="#print-c881651d61a7b36b2a0dc6b851a56d3a-dns-terraform" aria-label="Heading self-link"></a></h1><p>This root packages the owner&rsquo;s canonical <a href="../dnsconfig.json">DNS declarations</a>
 through the shared DNS module and keeps state in the DNS AppRole&rsquo;s Vault HTTP
@@ -468,7 +591,7 @@ authentication require real credentials and live access.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-e80c05316e82a2eeb8214df5e2dc13af">3 - Ansible</h1>
+	<h1 id="pg-e80c05316e82a2eeb8214df5e2dc13af">4 - Ansible</h1>
     <div class="lead">Host Bot Traefik configuration</div>
 	
 </div>

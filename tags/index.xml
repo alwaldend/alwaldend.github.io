@@ -10,9 +10,30 @@
 		
 		
 		
-			<lastBuildDate>Sat, 19 Sep 2026 22:52:56 +0300</lastBuildDate>
+			<lastBuildDate>Sun, 20 Sep 2026 22:21:40 +0300</lastBuildDate>
 		
 			<atom:link href="https://alwaldend.com/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Drawio</title>
+				<link>https://alwaldend.com/tags/drawio/</link>
+				<pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/drawio/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Mermaid</title>
+				<link>https://alwaldend.com/tags/mermaid/</link>
+				<pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/mermaid/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Repo</title>
+				<link>https://alwaldend.com/tags/repo/</link>
+				<pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/repo/</guid>
+				<description></description>
+			</item>
 			<item>
 				<title>Dns</title>
 				<link>https://alwaldend.com/tags/dns/</link>
@@ -25,13 +46,6 @@
 				<link>https://alwaldend.com/tags/dnscontrol/</link>
 				<pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/tags/dnscontrol/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Repo</title>
-				<link>https://alwaldend.com/tags/repo/</link>
-				<pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/tags/repo/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -270,13 +284,6 @@
 				<link>https://alwaldend.com/tags/dotfiles/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/tags/dotfiles/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Drawio</title>
-				<link>https://alwaldend.com/tags/drawio/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/tags/drawio/</guid>
 				<description></description>
 			</item>
 			<item>

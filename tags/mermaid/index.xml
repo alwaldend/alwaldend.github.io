@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Mermaid on Alwaldend</title>
+		<link>https://alwaldend.com/tags/mermaid/</link>
+		<description>Recent content in Mermaid on Alwaldend</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Sun, 20 Sep 2026 22:21:40 +0300</lastBuildDate>
+		
+			<atom:link href="https://alwaldend.com/tags/mermaid/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Diagrams in the AC (After Clanker) era</title>
+				<link>https://alwaldend.com/blog/diagrams-in-ac-era/</link>
+				<pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/blog/diagrams-in-ac-era/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;https://alwaldend.com/blog/diagrams-in-ac-era/drawio-to-mermaid.svg&#34; alt=&#34;Drawio to Mermaid&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;I have some diagrams in the repo, as one naturally does. My diagrams do not look particularly pretty, but they display information, which is the whole point.&lt;/p&gt;&#xA;&lt;p&gt;In the BC (Before Clanker) era, I made them manually using Drawio&amp;rsquo;s desktop app. I used this approach because it requires no setup and no effort - you just fire up the app and then click things in the UI. Everything is local, and the diagrams themselves are XML, so you can version control them. It&amp;rsquo;s the AC (After Clanker) era now, so I need to be able to have clankers modify my diagrams, and I have more options in general, so I&amp;rsquo;ve decided to improve them.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

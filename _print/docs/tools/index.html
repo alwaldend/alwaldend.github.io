@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="Tools">
 	<meta itemprop="description" content="Tools tree">
-	<meta itemprop="dateModified" content="2026-09-19T22:52:56+03:00">
+	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
 	<meta itemprop="wordCount" content="200">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.53ae7d1c48cadef5da1396a063e76965.json"
+    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -8831,16 +8831,211 @@ al_md_data(<a href="#print-6ba762537e62bef8b97c97e107b31522-al_md_data-name">nam
 	<p>This package exposes the Mermaid CLI as a repository-wide Bazel tool. Bazel
 provisions the pinned Node toolchain, JavaScript dependency graph, Mermaid CLI,
 and Chrome-for-Testing browser used by Puppeteer. Rendering runs as a Bazel
-target or action; it does not use a host browser or download one during an npm
-lifecycle hook.</p>
+target or action; it does not use a host browser, download one during an npm
+lifecycle hook, or fetch scripts or fonts from a CDN.</p>
+<p><a href="theme.json"><code>theme.json</code></a> owns the diagram appearance. It applies a
+documentation palette, typography, layout, and the <code>handDrawn</code> look to every
+diagram, so rendered work shares one visual contract instead of Mermaid&rsquo;s
+built-in default. Shapes stay semantic: <code>()</code> and other inherently rounded
+shapes render rounded, while <code>[]</code> boxes render as sketched rectangles. Nothing
+forces every node into a rounded outline.</p>
+<p>The <code>mermaid_svg</code> rule and the <code>mmdc</code> target both apply the theme by default.
+A diagram can override any part of it with its own Mermaid directive, which
+Mermaid merges over the file config:</p>
+<pre class="mermaid">%%{init: {&#34;look&#34;: &#34;classic&#34;}}%%
+flowchart LR
+    a[Square] --&gt; b(Rounded)</pre>
+<p>Node label paragraphs have <code>2px</code> of horizontal padding. The pinned handwriting
+font can paint beyond a string&rsquo;s measured advance: <code>openai.com</code> measures 78px
+but its final glyph reaches 79px. Mermaid clips HTML labels to their measured
+<code>foreignObject</code>, so the padding reserves room for that overhang before layout.
+Label <code>foreignObject</code> elements also use <code>overflow: visible</code>: if an SVG viewer
+falls back to a wider font, its glyphs can extend into the node&rsquo;s existing
+padding instead of being cut off at the narrower measured frame. A fallback
+Arial render reproduces right-edge clipping on the hostname without this rule.
+The rule selects <code>.label &gt; *</code> because Mermaid lowercases element selectors;
+<code>foreignobject</code> would not match the case-sensitive SVG <code>foreignObject</code> name.</p>
+<p><code>themeCSS</code> boxes every edge label and every cluster title, so an annotation
+reads as a caption instead of sitting on the edge line. The rule styles the
+<code>&lt;p&gt;</code> inside a real label and leaves <code>.labelBkg</code> transparent; styling
+<code>.labelBkg</code> directly would draw a stray box wherever an edge carries no text.
+Mermaid emits an empty label plate for unlabelled edges under the dagre
+renderer but omits it under ELK, so the rule is what the test asserts rather
+than any particular empty element.</p>
+<p>Each boxed label carries a <code>3px</code> margin. Under the dagre renderer Mermaid sizes
+a label&rsquo;s <code>&lt;p&gt;</code> to the text only, so the frame clips the outer half of the 1px
+border and a label appears to have a missing right edge; the margin keeps the
+border inside the clip rect. Under ELK the frame already includes the margin,
+so the value there is breathing room rather than a correctness fix.</p>
+<p>The cluster title plate pins <code>font-size: 13px</code>. ELK sizes a container from the
+width of its own title plate, so a child container whose title is wider than
+its parent&rsquo;s escapes the parent on both sides. Nesting a hostname title inside
+a short parent title is the case that exposes this: at the inherited <code>16px</code>
+the child measured 333px against a 302px parent and escaped 20px per side,
+while <code>13px</code> fits it with 7px of clearance per side. The plate is a container
+label, not body text, so the smaller size also keeps it visually subordinate.</p>
+<p><code>flowchart.defaultRenderer</code> selects <code>dagre-wrapper</code>, Mermaid&rsquo;s Dagre renderer.
+Diagrams use left-to-right flow by default. Dagre&rsquo;s <code>nodeSpacing</code> and
+<code>rankSpacing</code> control spacing between nodes and ranks, while the title styling
+below keeps nested containers readable.</p>
+<p><code>flowchart.subGraphTitleMargin.top</code> is negative on purpose. Under dagre a
+nested cluster keeps a fixed 20px inset from its parent that does not grow with
+<code>nodeSpacing</code>, <code>rankSpacing</code>, <code>padding</code>, or this margin, so the parent title
+would be overlapped by the container nested inside it, and the negative margin
+is the only thing that lifts it clear. ELK does not need the lift, but both
+renderers share this one config, so the value stays and keeps the title on the
+cluster border. Remove it only after re-checking a diagram with nested
+subgraphs.</p>
+<p>The cluster title additionally forces <code>line-height: 1</code>, which keeps the plate
+short enough to sit on the border consistently instead of spilling past it.</p>
+<p><code>handDrawnSeed</code> is fixed, so the sketch jitter is stable rather than different
+on every render. Pass <code>theme</code> on the rule or a later <code>-c</code> argument to the CLI
+to replace the whole config for one diagram; because a second <code>-c</code> file
+replaces rather than merges, override only the specific keys you need with a
+directive.</p>
+<h2 id="print-08fd18d17e3d2debecdc29888874e2f4-paint-order">Paint order<a class="td-heading-self-link" href="#print-08fd18d17e3d2debecdc29888874e2f4-paint-order" aria-label="Heading self-link"></a></h2><p>Mermaid emits a container title in <code>&lt;g class=&quot;cluster-label&quot;&gt;</code> inside
+<code>&lt;g class=&quot;clusters&quot;&gt;</code>, and emits that group before the edges, the edge labels,
+and the nodes. SVG paints in document order and offers no other layer control:
+<code>z-index</code> needs a CSS-positioned box and does not reorder SVG elements, and
+<code>paint-order</code> only orders fill, stroke, and markers within a single element.
+An edge that crosses a container border therefore paints over the title plate
+and appears to run through the title text. Mermaid exposes no z-order, layer,
+or paint-order configuration key, so this is fixed by rewriting the SVG rather
+than by a theme setting.</p>
+<p>The current theme already does everything CSS can do here, so the remaining
+crossing is the one case CSS cannot reach. The title plate is the topmost paint
+at its own plate coordinates, and on the host_bot diagram one edge crosses the
+<code>External services</code> plate and two cross the <code>LLM BM</code> plate. A rasterised check
+draws a white plate and then a red line over it and reads the pixel at the
+crossing: reordering the document turns that pixel white, while <code>z-index</code>,
+<code>z-index</code> with <code>position:relative</code> or <code>position:absolute</code>, <code>isolation:isolate</code>,
+<code>paint-order</code>, <code>transform:translateZ(0)</code>, <code>will-change:transform</code>, a
+<code>filter:drop-shadow</code> stacking context, and <code>opacity:0.999</code> all leave it red.
+Only document order moves an SVG group above a later sibling, which is why the
+lift is a rewrite and not a rule.</p>
+<p><code>cmd/render/paint_order.mjs</code> moves every title group to the end of the outer
+root group after Mermaid writes the file. Dagre places nested containers in
+translated groups; the lift composes their ancestor transforms onto each title
+so its position stays unchanged. Empty, self-closing paint layers do not affect
+the group scan. A browser test checks both title coordinates and visible
+stacking. Both entry points apply the lift, so a diagram rendered through
+<code>mermaid_svg</code> and the same diagram rendered through <code>mmdc</code> paint identically.
+<code>mmdc</code> rewrites the file named by <code>-o</code> or <code>--output</code>; an SVG printed to stdout
+is not rewritten.</p>
+<h2 id="print-08fd18d17e3d2debecdc29888874e2f4-diagram-direction">Diagram direction<a class="td-heading-self-link" href="#print-08fd18d17e3d2debecdc29888874e2f4-diagram-direction" aria-label="Heading self-link"></a></h2><p>Write <code>flowchart LR</code> for left-to-right flow. Direction belongs to the diagram
+source; the shared theme selects Dagre but does not override an explicit
+diagram direction. Use another direction when the diagram or the user requires
+it.</p>
+<p>Subgraphs can declare <code>direction TB</code>, but Mermaid ignores that direction when
+their internal nodes connect outside the group. Both Dagre and ELK exhibit
+this limitation on the T3 Code graph, so verify the rendered arrangement rather
+than assuming a direction declaration took effect.</p>
+<h2 id="print-08fd18d17e3d2debecdc29888874e2f4-actors">Actors<a class="td-heading-self-link" href="#print-08fd18d17e3d2debecdc29888874e2f4-actors" aria-label="Heading self-link"></a></h2><p>An actor is an ordinary rounded node marked with the <code>actor</code> class. The theme
+owns the figure: a <code>.actor div</code> rule paints a hand-drawn stick figure as a
+<code>background-image</code> and reserves room with <code>padding-left</code>. A diagram therefore
+carries only its label text:</p>
+<pre tabindex="0"><code>remote(&#34;Actor&#34;)
+
+classDef actor font-style:normal;
+class remote,intranet actor
+</code></pre><p>The <code>classDef</code> is required even though the theme supplies the appearance.
+Mermaid emits a node&rsquo;s class attribute only when a <code>classDef</code> declares it, so a
+bare <code>class</code> statement leaves the node unstyled and the figure does not paint.</p>
+<p>Keeping the figure in the theme rather than in the diagram means the ~1.2 KB of
+base64 SVG is written once, every actor node shares it, and the diagram source
+states topology only. Sizing is fixed by the theme, so all actors match: the
+figure plus the renderer&rsquo;s padding lands an actor node at the same height as a
+single-line service node.</p>
+<p>The rule rides in every rendered document, including diagrams with no actor
+node, where it adds about 1.3 KB to the inline stylesheet. That is the cost of
+owning appearance centrally; it is acceptable because the rule is inert without
+an <code>actor</code> node and every diagram already carries a much larger stylesheet. The wobble is baked into the path coordinates with a
+fixed seed rather than applied through an SVG filter, so the shared figure
+carries no <code>&lt;defs&gt;</code> id that would collide when the background repeats.</p>
+<h2 id="print-08fd18d17e3d2debecdc29888874e2f4-branching-edges">Branching edges<a class="td-heading-self-link" href="#print-08fd18d17e3d2debecdc29888874e2f4-branching-edges" aria-label="Heading self-link"></a></h2><p>Use a visible junction node when several outgoing edges share one label:</p>
+<pre tabindex="0"><code>codex ---|&#34;Inference&#34;| inference@{ shape: junction }
+inference --&gt; openai
+inference --&gt; openrouter
+</code></pre><p>The incoming segment carries the shared label without an arrowhead, and the
+outgoing segments point to their respective targets. The junction is a real
+flowchart node and affects layout, so inspect the rendered spacing. This is
+the form used by the maintained T3 Code diagram. The separate
+<code>architecture-beta</code> diagram type has its own junction declaration syntax.</p>
+<h2 id="print-08fd18d17e3d2debecdc29888874e2f4-layout-width">Layout width<a class="td-heading-self-link" href="#print-08fd18d17e3d2debecdc29888874e2f4-layout-width" aria-label="Heading self-link"></a></h2><p>Dagre uses <code>nodeSpacing</code> between nodes in a rank and <code>rankSpacing</code> between
+ranks. For an LR diagram, rank spacing contributes to width and node spacing
+contributes to height. These settings do not impose a maximum canvas width;
+labels, topology, and nested groups also affect the result. Check the rendered
+diagram at its intended display size before adjusting spacing or direction.</p>
+<h2 id="print-08fd18d17e3d2debecdc29888874e2f4-plain-renders">Plain renders<a class="td-heading-self-link" href="#print-08fd18d17e3d2debecdc29888874e2f4-plain-renders" aria-label="Heading self-link"></a></h2><p><code>mermaid_svg(..., plain = True)</code> and <code>MERMAID_PLAIN=1</code> render with Mermaid&rsquo;s own
+defaults instead of the repository appearance: no theme, no paint-order
+post-processing, and no pinned fonts. The output is deliberately neither themed
+nor hermetic, and exists to compare a diagram against the upstream appearance.
+A plain action declares neither the theme nor the fonts as inputs, so it cannot
+depend on them by accident; <code>//users/simeonwarren/host_bot:rendered_plain</code> is a
+worked example. Plain output is not published and not committed.</p>
+<p><a href="upstream-theme.json"><code>upstream-theme.json</code></a> is the themed counterpart to that
+opt-out. It selects Mermaid&rsquo;s built-in <code>default</code> theme and pins the label family
+to a font the renderer already carries, so the result is hermetic like any other
+render and shows the upstream appearance rather than a host-dependent one. Use
+it when a consumer has to show the contrast between Mermaid&rsquo;s own look and the
+repository theme, as the blog post on this work does:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>mermaid_svg(
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;example_default&#34;</span>,
+</span></span><span style="display:flex;"><span>    src <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;example.mmd&#34;</span>,
+</span></span><span style="display:flex;"><span>    out <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rendered/example-default.svg&#34;</span>,
+</span></span><span style="display:flex;"><span>    theme <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;//tools/mermaid:upstream-theme.json&#34;</span>,
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>This is a comparison input, not a second appearance the repository maintains. It
+exists so a before-and-after pair renders from one source through the same
+pipeline; a diagram&rsquo;s own look still comes from <code>theme.json</code>.</p>
+<h2 id="print-08fd18d17e3d2debecdc29888874e2f4-tests">Tests<a class="td-heading-self-link" href="#print-08fd18d17e3d2debecdc29888874e2f4-tests" aria-label="Heading self-link"></a></h2><p><code>test/renderer/renderer_test.go</code> renders fixture diagrams through the
+<code>mermaid_svg</code> rule and asserts the contract of the theme: the documentation
+palette and hand-drawn node class survive, the built-in lavender colors do not,
+labels are measured through the pinned fonts, and the label plates keep their
+border slack. It also asserts that every container title is written after the
+nodes, which is the paint order <code>cmd/render/paint_order.mjs</code> produces and the
+property that keeps an edge from drawing over a title. <code>cmd/mmdc/mmdc_test.go</code>
+drives the interactive CLI and re-renders under a Fontconfig pointed at a
+monospace-only pool; a byte-identical result shows the CLI resolved text
+through the pinned fonts.</p>
+<h2 id="print-08fd18d17e3d2debecdc29888874e2f4-hermetic-rendering">Hermetic rendering<a class="td-heading-self-link" href="#print-08fd18d17e3d2debecdc29888874e2f4-hermetic-rendering" aria-label="Heading self-link"></a></h2><p>Mermaid measures label text through Fontconfig, so a renderer that follows the
+host would produce different canvas geometry on every machine. Both entry
+points instead expose only the repository&rsquo;s pinned fonts to Chrome:
+<code>cmd/render/fontconfig.mjs</code> writes a Fontconfig file whose sole <code>&lt;dir&gt;</code> values
+are the directory holding the pinned handwriting face and the directory holding
+the pinned Liberation set, and whose aliases map the families the theme requests
+onto them. The same file is applied by the build action and by an interactive
+<code>mmdc</code> run, so both resolve identical text metrics.</p>
+<p>The generated Fontconfig must use absolute paths. Chrome is a separate process
+from the launcher, and a relative <code>&lt;dir&gt;</code> resolves against whatever working
+directory it inherits rather than the action&rsquo;s execroot. Passing a caller&rsquo;s own
+<code>-p</code>/<code>--puppeteerConfigFile</code> hands full control of the browser launch, and
+including the font aliases in it, to that caller.</p>
+<p>Pinned fonts fix the metrics a render measures with, but not the metrics a
+consumer displays those glyphs with. A documentation page embeds an SVG through
+<code>&lt;img&gt;</code>, and an SVG loaded that way is an isolated document: it cannot see the
+page&rsquo;s webfonts, loads no network font, and falls back to whatever the viewer&rsquo;s
+system provides. A host font is wider than the pinned handwriting face, so
+<code>github.com</code> overflowed the label box Mermaid sized with the pinned font and
+appeared clipped, even though the file was correct. <code>cmd/render/embed_font.mjs</code>
+therefore inlines the pinned face as a <code>@font-face</code> data URI in every themed
+document, so the glyphs travel with the SVG and the label metrics match
+everywhere, including in a viewer that can load no webfont at all. The rule
+adds about 50 KB to a rendered diagram; that is the cost of an image that is
+correct wherever it is displayed. Its family name is read from the font&rsquo;s own
+<code>name</code> table rather than hard-coded, so a font swap cannot silently desync it
+from the theme.</p>
 <p>The JavaScript launcher runs from Bazel&rsquo;s output tree. Pass absolute paths when
 rendering source-tree files directly:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>repo_root<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>bazel_agent bazel run //tools/mermaid:mmdc -- <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span>  -i <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>repo_root<span style="color:#e6db74">}</span><span style="color:#e6db74">/path/to/diagram.mmd&#34;</span> <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span>  -o <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>repo_root<span style="color:#e6db74">}</span><span style="color:#e6db74">/path/to/diagram.svg&#34;</span>
-</span></span></code></pre></div><p>Prefer a <code>mermaid_svg</code> action plus <code>write_source_file</code> for maintained diagrams;
-those targets use declared Bazel paths and need no absolute-path handling.</p>
+</span></span></code></pre></div><p>Declare a maintained diagram as a <code>mermaid_svg</code> action and feed the output to
+its consumer, which uses declared Bazel paths and needs no absolute-path
+handling. The <a href="skills/mermaid-diagrams/SKILL.md">diagram skill</a> defines direct
+documentation consumption and checked-in publication assets for blog posts.
+The <code>.mmd</code> remains the authoritative diagram source in both cases.</p>
 
 </div>
 

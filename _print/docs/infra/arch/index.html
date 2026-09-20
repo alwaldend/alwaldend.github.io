@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Architecture">
 	<meta itemprop="description" content="Rendered infrastructure architecture diagrams">
-	<meta itemprop="dateModified" content="2026-09-19T22:52:56+03:00">
-	<meta itemprop="wordCount" content="173">
+	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="wordCount" content="172">
 	<meta itemprop="keywords" content="Arch,Drawio">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Architecture">
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.53ae7d1c48cadef5da1396a063e76965.json"
+    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -214,7 +214,6 @@ Open an image for its full-size SVG.</p>
 <h2 id="print-83945ffaa7d7202af900483275b11302-threexui">Threexui<a class="td-heading-self-link" href="#print-83945ffaa7d7202af900483275b11302-threexui" aria-label="Heading self-link"></a></h2><p><a href="/docs/infra/arch/assets/threexui.svg"><img src="/docs/infra/arch/assets/threexui.svg" alt="Threexui infrastructure diagram" loading="lazy"></a></p>
 <h2 id="print-83945ffaa7d7202af900483275b11302-dns">DNS<a class="td-heading-self-link" href="#print-83945ffaa7d7202af900483275b11302-dns" aria-label="Heading self-link"></a></h2><p><a href="/docs/infra/arch/assets/dns.svg"><img src="/docs/infra/arch/assets/dns.svg" alt="DNS infrastructure diagram" loading="lazy"></a></p>
 <h2 id="print-83945ffaa7d7202af900483275b11302-ingress">Ingress<a class="td-heading-self-link" href="#print-83945ffaa7d7202af900483275b11302-ingress" aria-label="Heading self-link"></a></h2><p><a href="/docs/infra/arch/assets/ingress.svg"><img src="/docs/infra/arch/assets/ingress.svg" alt="Ingress infrastructure diagram" loading="lazy"></a></p>
-<h2 id="print-83945ffaa7d7202af900483275b11302-t3code">T3code<a class="td-heading-self-link" href="#print-83945ffaa7d7202af900483275b11302-t3code" aria-label="Heading self-link"></a></h2><p><a href="/docs/infra/arch/assets/t3code.svg"><img src="/docs/infra/arch/assets/t3code.svg" alt="T3code infrastructure diagram" loading="lazy"></a></p>
 <h2 id="print-83945ffaa7d7202af900483275b11302-truenas">Truenas<a class="td-heading-self-link" href="#print-83945ffaa7d7202af900483275b11302-truenas" aria-label="Heading self-link"></a></h2><p><a href="/docs/infra/arch/assets/truenas.svg"><img src="/docs/infra/arch/assets/truenas.svg" alt="Truenas infrastructure diagram" loading="lazy"></a></p>
 <h2 id="print-83945ffaa7d7202af900483275b11302-archiveharvester">Archive/Harvester<a class="td-heading-self-link" href="#print-83945ffaa7d7202af900483275b11302-archiveharvester" aria-label="Heading self-link"></a></h2><p><a href="/docs/infra/arch/assets/archive-harvester.svg"><img src="/docs/infra/arch/assets/archive-harvester.svg" alt="Archive/Harvester infrastructure diagram" loading="lazy"></a></p>
 <h2 id="print-83945ffaa7d7202af900483275b11302-archiveopencode">Archive/Opencode<a class="td-heading-self-link" href="#print-83945ffaa7d7202af900483275b11302-archiveopencode" aria-label="Heading self-link"></a></h2><p><a href="/docs/infra/arch/assets/archive-opencode.svg"><img src="/docs/infra/arch/assets/archive-opencode.svg" alt="Archive/Opencode infrastructure diagram" loading="lazy"></a></p>
@@ -226,7 +225,7 @@ Open an image for its full-size SVG.</p>
 </span></span></code></pre></div><p>Regenerate the maintained SVGs after editing <code>arch.drawio</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/arch:update
 </span></span><span style="display:flex;"><span>bazel_agent bazel test //infra/arch:update_tests
-</span></span></code></pre></div><p>The update target renders all 15 named pages in Bazel sandboxes with Drawio
+</span></span></code></pre></div><p>The update target renders all 14 named pages in Bazel sandboxes with Drawio
 30.2.6 web assets from the <a href="https://github.com/alwaldend/src/blob/master/third_party/com_drawio_desktop_bin/binary_toolchain.json">pinned desktop archive</a>
 and the repository&rsquo;s <a href="https://github.com/alwaldend/src/blob/master/tools/mermaid/binary_toolchain.json">pinned headless Chrome</a>.
 A <a href="https://github.com/alwaldend/src/blob/master/tools/drawio/include.MODULE.bazel">pinned Liberation font set</a> and isolated
@@ -265,14 +264,16 @@ These diagrams describe their source document; they do not establish live
 inventory, deployment, or health.</p>
 <h2 id="print-8541fd3f1af4663b1bab72c973e257d5-requirements">Requirements<a class="td-heading-self-link" href="#print-8541fd3f1af4663b1bab72c973e257d5-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-8541fd3f1af4663b1bab72c973e257d5-requirement-canonical-multi-page-architecture-source">Requirement: Canonical multi-page architecture source<a class="td-heading-self-link" href="#print-8541fd3f1af4663b1bab72c973e257d5-requirement-canonical-multi-page-architecture-source" aria-label="Heading self-link"></a></h3><p>The project SHALL use <code>arch.drawio</code> as the canonical source for its maintained
 SVG diagrams and SHALL expose the source through the <code>//infra/arch</code> editor
-target. The named render mapping SHALL preserve all 15 source pages, including
-the five pages classified as archives.</p>
+target. The named render mapping SHALL preserve the 14 remaining source pages,
+including the five pages classified as archives. The <code>T3code</code> page moved to this
+owner&rsquo;s Mermaid diagram under <code>users/simeonwarren/host_bot</code>, so <code>infra/arch</code> no
+longer renders it.</p>
 <p>Sources: <a href="/docs/">project documentation</a>,
 <a href="../../../BUILD.bazel">target and page definitions</a>, and
 <a href="../../../arch.drawio">Drawio source</a>.</p>
 <h4 id="print-8541fd3f1af4663b1bab72c973e257d5-scenario-render-the-maintained-page-set">Scenario: Render the maintained page set<a class="td-heading-self-link" href="#print-8541fd3f1af4663b1bab72c973e257d5-scenario-render-the-maintained-page-set" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the <code>//infra/arch:rendered</code> target processes the canonical document</li>
-<li><strong>THEN</strong> it produces the SVG output mapped to each of the 15 named pages,
+<li><strong>THEN</strong> it produces the SVG output mapped to each of the 14 named pages,
 including separate outputs for archived pages.</li>
 </ul>
 <h3 id="print-8541fd3f1af4663b1bab72c973e257d5-requirement-reproducible-diagram-refresh">Requirement: Reproducible diagram refresh<a class="td-heading-self-link" href="#print-8541fd3f1af4663b1bab72c973e257d5-requirement-reproducible-diagram-refresh" aria-label="Heading self-link"></a></h3><p>The project SHALL render diagrams through the repository&rsquo;s pinned Drawio,

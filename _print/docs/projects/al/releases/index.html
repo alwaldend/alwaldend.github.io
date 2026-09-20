@@ -44,8 +44,8 @@
 
 	<meta itemprop="name" content="Releases">
 	<meta itemprop="description" content="Releases">
-	<meta itemprop="dateModified" content="2026-09-19T22:52:56+03:00">
-	<meta itemprop="wordCount" content="8258">
+	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="wordCount" content="9097">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Releases">
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.53ae7d1c48cadef5da1396a063e76965.json"
+    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -224,7 +224,7 @@ This is the multi-page printable view of this section.
         data-bs-target="#print-652226f353b09ab1409a7a9d983ce444-release-0a118e046f55db876bac8b68ea96694d-list-0_collapse"
         aria-expanded="false"
         aria-controls="print-652226f353b09ab1409a7a9d983ce444-release-0a118e046f55db876bac8b68ea96694d-list-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">143</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">149</span>
 </button>
     </h3>
     <div
@@ -235,80 +235,21 @@ This is the multi-page printable view of this section.
     >
       <div class="accordion-body"><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Center the project index on the documentation axis</p>
-<p>The section index resolved layouts/projects/list.html inside the default
-baseof, whose bare <main class="td-main"> gave it no grid column and no
-padding offset from the .td-main main rule, so it rendered full width at
-48px with a 128px heading.</p>
-<p>Give the section its own projects_index type with a baseof that keeps the
-documentation row and column but omits both asides. The index now starts
-at 88px and centers at 259px with a 771px column, matching /docs/ and
-/blog/ exactly.</p>
-
-          </li>
-          <li class="list-group-item"><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Hash
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">248c9e0bc2b857a4f0b390054a98e699fc571c70</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Author
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Committer
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
-                  </span>
-                </li>
-              </ul>
-            </div></li>
-        </ul><ul class="list-group">
-          <li class="list-group-item my-auto">
-            <p>Render the project index in the documentation column</p>
-<p>The index rendered in the layout&rsquo;s root wrapper, so its text spanned the full
-page width instead of the column the documentation and blog pages use. That
-made it read as a stray full-width list rather than a page of the site.</p>
-<p>Lay the index out like a documentation list page: the documentation column
-(<code>col-12 col-md-9 col-xl-8 ps-md-5</code>) inside a row, the section description as
-a lead, and the theme&rsquo;s <code>section-index</code> entries separated by a panel line. The
-documentation sidebars are deliberately absent, so the list stays a plain
-single-column page.</p>
+            <p>Render hermetic Mermaid diagrams and publish the migration post</p>
+<p>Render Mermaid diagrams with pinned Chrome and fonts, a shared hand-drawn
+theme, and Dagre left-to-right layouts. Preserve nested title coordinates
+while lifting titles above edges, embed the handwriting font, and prevent
+hostname labels from clipping. Apply the same rendering setup to the Bazel
+rule and interactive CLI, with regression coverage for fonts and title layout.</p>
+<p>Replace the Host Bot Drawio diagram with Mermaid and use one inference
+junction for OpenAI and OpenRouter. Publish Diagrams in the AC (After Clanker)
+era at /blog/diagrams-in-ac-era/ with the author&rsquo;s reviewed text, comparative
+figures, and matching source excerpt. Keep generated blog SVGs in the source
+bundle with freshness checks, while documentation consumes the same maintained
+render. Update the diagram skill and examples for Dagre and blog assets.</p>
+<p>Reconcile repository-wide Gazelle output and preserve hand-maintained tests
+and Blender-runtime sources. Validate the aggregate change with renderer,
+CLI, site, skill, repository quality, and semantic lint checks.</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -325,7 +266,7 @@ single-column page.</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">b3cc1fccfb7a27c5cf9b28ca657026c33e49b327</pre>
+                    <pre class="my-auto">85f3f3a8d3bb83dc87ab222d945ca7579f364def</pre>
                   </span>
                 </li>
               </ul>
@@ -379,8 +320,8 @@ single-column page.</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQFOgy7fVgdKpeOP&#43;2TrdMHQOB6LPH/8RDp0N47xpswOBosBR2ZGUhdusM21lHvn7/4
-f4Okk7vq4x89BFruoh&#43;gA=
+AAAAQGjbJStpHNP4B7mOHTj9zp&#43;MXrbDqZ4nl47dUtuxsJamXA&#43;WQLY7h3IQovPJZNDTDe
+clT0RiLH&#43;uBGRYXE3kuAc=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -389,15 +330,8 @@ f4Okk7vq4x89BFruoh&#43;gA=
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Lay the project index out as a single-column section list</p>
-<p>The card grid read as a separate component next to the rest of the site. The
-<code>/projects/</code> index now uses the same section list as the documentation index:
-one entry per project under the <code>Projects</code> heading, separated by panel lines,
-each entry carrying its description, status, and tags. The entries stay in
-alphabetical order.</p>
-<p>Wrap the list in a section so the theme&rsquo;s first-section offset applies; without
-it the <code>Projects</code> heading rendered underneath the fixed navbar.</p>
-<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+            <p>Merge pull request #95 from alwaldend/t3code/consolidate-project-landing-pages</p>
+<p>Move project landings into the main site</p>
 
           </li>
           <li class="list-group-item"><div class="btn-group me-2">
@@ -413,7 +347,7 @@ it the <code>Projects</code> heading rendered underneath the fixed navbar.</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8171b7d48dd2bac05737491e3006d709f32f0960</pre>
+                    <pre class="my-auto">a988d4c3561ca6d5e5c0f079f387a3ae8fd76160</pre>
                   </span>
                 </li>
               </ul>
@@ -430,7 +364,7 @@ it the <code>Projects</code> heading rendered underneath the fixed navbar.</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
                   </span>
                 </li>
               </ul>
@@ -447,7 +381,7 @@ it the <code>Projects</code> heading rendered underneath the fixed navbar.</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
                   </span>
                 </li>
               </ul>
@@ -464,225 +398,23 @@ it the <code>Projects</code> heading rendered underneath the fixed navbar.</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
-U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
-78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQIzTp0ycddGyUymtCuMewz5wTkMfj1IgAUWq4xGUDo&#43;HxHgMHlJc7JHfcrsi7ith8a
-hD&#43;q1mdCgFmgfqp0FInQQ=
------END SSH SIGNATURE-----
-</pre>
-                  </span>
-                </li>
-              </ul>
-            </div></li>
-        </ul><ul class="list-group">
-          <li class="list-group-item my-auto">
-            <p>Add a staging publication and refine the project index</p>
-<p>Verify the project landing replacement on its own hostname before the apex
-changes and before any per-project resource is retired, and make the landing
-index useful to a visitor.</p>
-<p><code>www-staging.alwaldend.com</code> gets a checked-in DNS declaration and a catalog
-repository, and the apex site gains a staging build that renders the same
-packaged source with the staging base URL plus a deployment command that
-publishes it. The publication command now takes its repository and branch as
-arguments, so staging and production share one publisher, and a repository
-whose publication branch does not exist yet is created as an orphan instead of
-failing on clone. A new repository receives a default branch at creation so the
-managed ruleset can protect it while site content publishes to a separate
-branch, and GitHub Pages configuration is deferred for a repository until its
-publication branch exists.</p>
-<p>The <code>/projects/</code> index no longer opens with explanatory prose, lists landings
-alphabetically, and shows each project&rsquo;s status and tags as links to their
-taxonomy term pages.</p>
-<p>Deploy the staging site, verify the landing, documentation, and taxonomy
-routes there, then deploy the accepted output to the apex and verify the same
-routes. The per-project hostnames, DNS records, and landing repositories remain
-in place until their retirement is requested.</p>
-<p>OpenSpec-Change: projects/alwaldend.com/openspec/changes/site-staging-environment</p>
-<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
 
-          </li>
-          <li class="list-group-item"><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Hash
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">e901c61bc9a209b3431af926e29f04ad4030bfaf</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Author
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Committer
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                PGP
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
-U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
-78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQNtViI9QY/lZN6pVfQQhFpsk0TrCBuq9xAnbT94SJEHBIA6RlMdA9BTEyoTnUoiFHF
-dV8d2WasTNK2G/DnoBgAg=
------END SSH SIGNATURE-----
-</pre>
-                  </span>
-                </li>
-              </ul>
-            </div></li>
-        </ul><ul class="list-group">
-          <li class="list-group-item my-auto">
-            <p>Move project landings into the main site</p>
-<p>Publish every registered project&rsquo;s visitor-facing landing page at
-/projects/<name>/ from the main site instead of a dedicated subdomain, and
-retire the per-project Pages repository, CNAME, and Terraform DNS stage that
-existed only to serve one page derived from the project README.</p>
-<p>Each project owns its landing content in projects/<name>/site/content/ as pure
-content: no layouts, styles, or build rules. The main site packages those
-directories into content/projects/<name>/ from the registry in
-projects/projects.bzl, so membership is declared once. The landing is a short
-hand-written page for visitors while the README keeps its /docs/projects/<name>/
-URL for repository reference documentation, and landing front matter now feeds
-the statuses, languages, and tags taxonomies.</p>
-<p>Merge the reusable hugo_landing project into the main site: its shared canvas
-and accent styles and its landing page rules move into the apex tree, and its
-landing macro, generated configuration, standalone publisher, and
-repository-relative rewrite layouts are removed. The theme keeps owning the
-taxonomy and term layouts, which are richer than the heading-only versions the
-reusable project carried. Remove the now-unused apex deploy_project.sh and
-deploy_all.sh landing publishers with it.</p>
-<p>Retire the per-project publication and DNS ownership: the project landing
-targets and the landing deployment command, each landing project&rsquo;s
-dnsconfig.json and Terraform root, the build plumbing that served only those
-stages, and the landing repository and Pages membership in the repository
-catalog. The apex Terraform root is retained because it also declares VM
-resources, and no Vault configuration is changed.</p>
-<p>Replace the provider-snapshot zone files with generated declaration pages, one
-per destination view, that project the checked-in declarations and are verified
-for freshness by the DNS offline check. The DNS linter, both destination pages,
-the apex site, the skills projection, and the repository quality suite pass, and
-the whole repository builds.</p>
-<p>OpenSpec-Change: projects/alwaldend.com/openspec/changes/consolidate-project-landings-into-apex</p>
-<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+wsFcBAABCAAQBQJqrwziCRC1aQ7uu5UhlAAA0qgQAKWaf/ehKSQH85SxgNGIsEVg
+IoudVQCfrdakNdIBREyR/hKCLk&#43;zSu7OWYPfybz/9i&#43;7/8DODPNUM7j&#43;5V5NJlLm
+ycNo741vUImLVcV71AG9DVuGwqpX3g4qvogmE&#43;H6vgTTlYjWE6XOpBMGZtVT1nAL
+FY42FVr4aAm4&#43;w6z5MaIrqQwaKZ85eW6fOWiKFFfHzp33D9dOIWck4P6xF16hCnw
+hC&#43;WijvwDj6xeke&#43;BdYo6NzLCbs6l2hk8eYbhsDr9d2QiHoVafPYfLkK7W5uYOG1
+7&#43;aXwGKj/hqy0rVCknSbRQTS4awYzwlxBaRt&#43;d9ZH94nn0uqYshR4aQ/V03l9RuH
+Bs7MeD228mU0R2BX9Bqrb2lY9i&#43;EAeBPTYb2d8T4JM19ntigC6voNHsw8/ktaNjy
+i&#43;mjZJFdyyyKdveKwhn//vcZK9kMwSb79ZcUIjbH4RMbRHqR3dyGivx&#43;dVqLJdZ9
+C33AyzmOZHgp2rYpWxEes0Jc65t2Ik5Qrsk8U3MfzAQAIYIAvmTaOJudBp3GkDYR
+Nu1OPQe6QB5HWPo2i3ZdE5SbMNt3qfYybfb1TrUBHdM8hhorNxECEHJ6PHTDzxVl
+17A2rLt/Ld1QwR&#43;w&#43;zuKug899JWip3rZ&#43;W4MAR661XqZVwmXkO6xZdv6IiMVQfJd
+IBNITq0Eia15xg4ncKhV
+=4aHs
+-----END PGP SIGNATURE-----
 
-          </li>
-          <li class="list-group-item"><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Hash
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">976a6a218ec8b3450fee44481674463b9c5115fd</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Author
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Committer
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                PGP
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
-U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
-78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQFCTwf73FSK2HZgURFxfuGc1FDJ7ZDAaDQ&#43;pmJIIsu2gjTQrOQf22bMN0TWvMdhL6j
-YsCh424/NCqnhwVpaE6Qk=
------END SSH SIGNATURE-----
 </pre>
                   </span>
                 </li>
@@ -11802,6 +11534,788 @@ U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
 AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
 0yeucLMBAFev0fFMYQigY=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Record the removal of the unowned goal DNS record</p>
+<p>The goal-landing repository, its catalog entry, and projects/goal/dnsconfig.json
+were deleted by fe25efac, but goal.alwaldend.com survived as a public CNAME to
+alwaldend.github.io. No dnsconfig.json declared it and no Terraform state
+contained it, so no owner could plan its deletion through the declared flow and
+it was not part of the 19 project roots this change retired.</p>
+<p>It was removed by a direct Cloudflare API delete, scoped to that one record in
+the public zone, under the explicit instruction to remove it. The record now
+returns no answer from either public resolver and its HTTPS request no longer
+completes a TLS handshake. A full comparison of the live zone against every
+declared global record finds no other undeclared name.</p>
+<p>Update the retirement evidence to record the removal and why the record was
+unmanaged, and drop the claim that it was left in place.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">959c2ec72d54911406aacdfdf9ec97907b1f86db</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQLv9qz/a1ar5aCQbUJmpF0bTxiAiykGYEEkECwt3d2Zz86M4qtxEF6BWzbVWRTxdUD
+At4ZeNt8t&#43;gfCiWPM&#43;rwQ=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Record the completed per-project landing teardown</p>
+<p>The retired project landings were torn down on 2026-09-20, after the apex
+deployment began serving their replacements. Every former route was verified
+first: /projects/, /projects/<name>/, /docs/projects/<name>/, and the
+taxonomy term pages returned 200 on both the apex and the staging hostname.</p>
+<p>The GitHub root destroyed 120 resources across 20 landing repositories. Its
+20 github_branch instances were removed from state first because GitHub
+refuses to delete a repository&rsquo;s default branch through the branch API, and
+deleting the repository removes the branch anyway. The GitLab root destroyed
+its 20 landing projects under a plan scoped to those projects so the
+unrelated www-staging mirror creation stayed out, and the 20 branch
+protections left pointing at deleted projects were removed from state.</p>
+<p>Each retired DNS root was operated from revision 83dfca7f in a task-owned
+worktree, because this change removed the roots and their Vault-backed states
+have no owning target in the delivered tree. Every root planned exactly one
+cloudflare_dns_record destroy and all 19 applied with no errors. None of the
+former 19 hostnames resolve now.</p>
+<p>The prevent_destroy guards on shared repositories, branches, collaborators,
+organization settings, the GitLab group, and memberships were relaxed only
+for the orphaned landing instances and restored immediately; verification
+plans for both forge roots and the shared DNS root report no changes.</p>
+<p>goal.alwaldend.com still resolves and returns 404. It is declared in no
+dnsconfig.json, appears in no Terraform state, and has no catalog entry, so
+it is the pre-existing drift this change already recorded and was left
+untouched rather than folded into the retirement.</p>
+<p>OpenSpec-Change: projects/alwaldend.com/openspec/changes/consolidate-project-landings-into-apex</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">4e12dbb1631aaa0c4739a8775eb519037b642857</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Record the project index requirement and close staging verification</p>
+<p>Add the documentation-axis requirement to the site-staging spec and mark
+the deploy and validation tasks complete. Record the lifecycle-ordering
+idea as a deferred task rather than leaving it unstated.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">6077a61b6effa9cfe0bbfb4fa58f3b313b2f97d9</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Center the project index on the documentation axis</p>
+<p>The section index resolved layouts/projects/list.html inside the default
+baseof, whose bare <main class="td-main"> gave it no grid column and no
+padding offset from the .td-main main rule, so it rendered full width at
+48px with a 128px heading.</p>
+<p>Give the section its own projects_index type with a baseof that keeps the
+documentation row and column but omits both asides. The index now starts
+at 88px and centers at 259px with a 771px column, matching /docs/ and
+/blog/ exactly.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">248c9e0bc2b857a4f0b390054a98e699fc571c70</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Render the project index in the documentation column</p>
+<p>The index rendered in the layout&rsquo;s root wrapper, so its text spanned the full
+page width instead of the column the documentation and blog pages use. That
+made it read as a stray full-width list rather than a page of the site.</p>
+<p>Lay the index out like a documentation list page: the documentation column
+(<code>col-12 col-md-9 col-xl-8 ps-md-5</code>) inside a row, the section description as
+a lead, and the theme&rsquo;s <code>section-index</code> entries separated by a panel line. The
+documentation sidebars are deliberately absent, so the list stays a plain
+single-column page.</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">b3cc1fccfb7a27c5cf9b28ca657026c33e49b327</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQFOgy7fVgdKpeOP&#43;2TrdMHQOB6LPH/8RDp0N47xpswOBosBR2ZGUhdusM21lHvn7/4
+f4Okk7vq4x89BFruoh&#43;gA=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Lay the project index out as a single-column section list</p>
+<p>The card grid read as a separate component next to the rest of the site. The
+<code>/projects/</code> index now uses the same section list as the documentation index:
+one entry per project under the <code>Projects</code> heading, separated by panel lines,
+each entry carrying its description, status, and tags. The entries stay in
+alphabetical order.</p>
+<p>Wrap the list in a section so the theme&rsquo;s first-section offset applies; without
+it the <code>Projects</code> heading rendered underneath the fixed navbar.</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">8171b7d48dd2bac05737491e3006d709f32f0960</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQIzTp0ycddGyUymtCuMewz5wTkMfj1IgAUWq4xGUDo&#43;HxHgMHlJc7JHfcrsi7ith8a
+hD&#43;q1mdCgFmgfqp0FInQQ=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Add a staging publication and refine the project index</p>
+<p>Verify the project landing replacement on its own hostname before the apex
+changes and before any per-project resource is retired, and make the landing
+index useful to a visitor.</p>
+<p><code>www-staging.alwaldend.com</code> gets a checked-in DNS declaration and a catalog
+repository, and the apex site gains a staging build that renders the same
+packaged source with the staging base URL plus a deployment command that
+publishes it. The publication command now takes its repository and branch as
+arguments, so staging and production share one publisher, and a repository
+whose publication branch does not exist yet is created as an orphan instead of
+failing on clone. A new repository receives a default branch at creation so the
+managed ruleset can protect it while site content publishes to a separate
+branch, and GitHub Pages configuration is deferred for a repository until its
+publication branch exists.</p>
+<p>The <code>/projects/</code> index no longer opens with explanatory prose, lists landings
+alphabetically, and shows each project&rsquo;s status and tags as links to their
+taxonomy term pages.</p>
+<p>Deploy the staging site, verify the landing, documentation, and taxonomy
+routes there, then deploy the accepted output to the apex and verify the same
+routes. The per-project hostnames, DNS records, and landing repositories remain
+in place until their retirement is requested.</p>
+<p>OpenSpec-Change: projects/alwaldend.com/openspec/changes/site-staging-environment</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">e901c61bc9a209b3431af926e29f04ad4030bfaf</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQNtViI9QY/lZN6pVfQQhFpsk0TrCBuq9xAnbT94SJEHBIA6RlMdA9BTEyoTnUoiFHF
+dV8d2WasTNK2G/DnoBgAg=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Move project landings into the main site</p>
+<p>Publish every registered project&rsquo;s visitor-facing landing page at
+/projects/<name>/ from the main site instead of a dedicated subdomain, and
+retire the per-project Pages repository, CNAME, and Terraform DNS stage that
+existed only to serve one page derived from the project README.</p>
+<p>Each project owns its landing content in projects/<name>/site/content/ as pure
+content: no layouts, styles, or build rules. The main site packages those
+directories into content/projects/<name>/ from the registry in
+projects/projects.bzl, so membership is declared once. The landing is a short
+hand-written page for visitors while the README keeps its /docs/projects/<name>/
+URL for repository reference documentation, and landing front matter now feeds
+the statuses, languages, and tags taxonomies.</p>
+<p>Merge the reusable hugo_landing project into the main site: its shared canvas
+and accent styles and its landing page rules move into the apex tree, and its
+landing macro, generated configuration, standalone publisher, and
+repository-relative rewrite layouts are removed. The theme keeps owning the
+taxonomy and term layouts, which are richer than the heading-only versions the
+reusable project carried. Remove the now-unused apex deploy_project.sh and
+deploy_all.sh landing publishers with it.</p>
+<p>Retire the per-project publication and DNS ownership: the project landing
+targets and the landing deployment command, each landing project&rsquo;s
+dnsconfig.json and Terraform root, the build plumbing that served only those
+stages, and the landing repository and Pages membership in the repository
+catalog. The apex Terraform root is retained because it also declares VM
+resources, and no Vault configuration is changed.</p>
+<p>Replace the provider-snapshot zone files with generated declaration pages, one
+per destination view, that project the checked-in declarations and are verified
+for freshness by the DNS offline check. The DNS linter, both destination pages,
+the apex site, the skills projection, and the repository quality suite pass, and
+the whole repository builds.</p>
+<p>OpenSpec-Change: projects/alwaldend.com/openspec/changes/consolidate-project-landings-into-apex</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">976a6a218ec8b3450fee44481674463b9c5115fd</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQFCTwf73FSK2HZgURFxfuGc1FDJ7ZDAaDQ&#43;pmJIIsu2gjTQrOQf22bMN0TWvMdhL6j
+YsCh424/NCqnhwVpaE6Qk=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Propose native Nexus deployment on XCP-ng</p>
+<p>Add an owner-local OpenSpec proposal, design, capability deltas, and
+implementation checklist for native Nexus 3 and PostgreSQL on one VM.
+Define PyPI, npm, and Docker Hub proxies with Vault-backed configuration
+and separate provisioning, Ansible, service Terraform, and Traefik ownership.</p>
+<p>This change contains planning artifacts only. Implementation and live
+deployment remain outside this handoff.
+Register the planning workspace for strict repository validation and document
+component ownership. Link a collection-owned PostgreSQL proposal that defines
+the reusable role&rsquo;s initialization, authentication, ownership, extension, and
+compatibility contracts with their own acceptance tasks.</p>
+<p>OpenSpec-Change: infra/nexus/openspec/changes/add-nexus-deployment</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">ae0a0104bcb29266c51a45e6128e1b2cfe6e6a93</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQLHXXU5gqRa3wHjjMm0l&#43;iQ6rhGw1hu/T5iWBsTaVw21bLR9MJeQKFxf3PGeFjJaC/
+D1ELWXDLvszYgYaT&#43;7bgc=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -11967,7 +12481,7 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
         data-bs-target="#print-0a118e046f55db876bac8b68ea96694d-release-0a118e046f55db876bac8b68ea96694d-page-0_collapse"
         aria-expanded="true"
         aria-controls="print-0a118e046f55db876bac8b68ea96694d-release-0a118e046f55db876bac8b68ea96694d-page-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">143</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">149</span>
 </button>
     </h3>
     <div
@@ -11978,80 +12492,21 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
     >
       <div class="accordion-body"><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Center the project index on the documentation axis</p>
-<p>The section index resolved layouts/projects/list.html inside the default
-baseof, whose bare <main class="td-main"> gave it no grid column and no
-padding offset from the .td-main main rule, so it rendered full width at
-48px with a 128px heading.</p>
-<p>Give the section its own projects_index type with a baseof that keeps the
-documentation row and column but omits both asides. The index now starts
-at 88px and centers at 259px with a 771px column, matching /docs/ and
-/blog/ exactly.</p>
-
-          </li>
-          <li class="list-group-item"><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Hash
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">248c9e0bc2b857a4f0b390054a98e699fc571c70</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Author
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Committer
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
-                  </span>
-                </li>
-              </ul>
-            </div></li>
-        </ul><ul class="list-group">
-          <li class="list-group-item my-auto">
-            <p>Render the project index in the documentation column</p>
-<p>The index rendered in the layout&rsquo;s root wrapper, so its text spanned the full
-page width instead of the column the documentation and blog pages use. That
-made it read as a stray full-width list rather than a page of the site.</p>
-<p>Lay the index out like a documentation list page: the documentation column
-(<code>col-12 col-md-9 col-xl-8 ps-md-5</code>) inside a row, the section description as
-a lead, and the theme&rsquo;s <code>section-index</code> entries separated by a panel line. The
-documentation sidebars are deliberately absent, so the list stays a plain
-single-column page.</p>
+            <p>Render hermetic Mermaid diagrams and publish the migration post</p>
+<p>Render Mermaid diagrams with pinned Chrome and fonts, a shared hand-drawn
+theme, and Dagre left-to-right layouts. Preserve nested title coordinates
+while lifting titles above edges, embed the handwriting font, and prevent
+hostname labels from clipping. Apply the same rendering setup to the Bazel
+rule and interactive CLI, with regression coverage for fonts and title layout.</p>
+<p>Replace the Host Bot Drawio diagram with Mermaid and use one inference
+junction for OpenAI and OpenRouter. Publish Diagrams in the AC (After Clanker)
+era at /blog/diagrams-in-ac-era/ with the author&rsquo;s reviewed text, comparative
+figures, and matching source excerpt. Keep generated blog SVGs in the source
+bundle with freshness checks, while documentation consumes the same maintained
+render. Update the diagram skill and examples for Dagre and blog assets.</p>
+<p>Reconcile repository-wide Gazelle output and preserve hand-maintained tests
+and Blender-runtime sources. Validate the aggregate change with renderer,
+CLI, site, skill, repository quality, and semantic lint checks.</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -12068,7 +12523,7 @@ single-column page.</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">b3cc1fccfb7a27c5cf9b28ca657026c33e49b327</pre>
+                    <pre class="my-auto">85f3f3a8d3bb83dc87ab222d945ca7579f364def</pre>
                   </span>
                 </li>
               </ul>
@@ -12122,8 +12577,8 @@ single-column page.</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQFOgy7fVgdKpeOP&#43;2TrdMHQOB6LPH/8RDp0N47xpswOBosBR2ZGUhdusM21lHvn7/4
-f4Okk7vq4x89BFruoh&#43;gA=
+AAAAQGjbJStpHNP4B7mOHTj9zp&#43;MXrbDqZ4nl47dUtuxsJamXA&#43;WQLY7h3IQovPJZNDTDe
+clT0RiLH&#43;uBGRYXE3kuAc=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -12132,15 +12587,8 @@ f4Okk7vq4x89BFruoh&#43;gA=
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Lay the project index out as a single-column section list</p>
-<p>The card grid read as a separate component next to the rest of the site. The
-<code>/projects/</code> index now uses the same section list as the documentation index:
-one entry per project under the <code>Projects</code> heading, separated by panel lines,
-each entry carrying its description, status, and tags. The entries stay in
-alphabetical order.</p>
-<p>Wrap the list in a section so the theme&rsquo;s first-section offset applies; without
-it the <code>Projects</code> heading rendered underneath the fixed navbar.</p>
-<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+            <p>Merge pull request #95 from alwaldend/t3code/consolidate-project-landing-pages</p>
+<p>Move project landings into the main site</p>
 
           </li>
           <li class="list-group-item"><div class="btn-group me-2">
@@ -12156,7 +12604,7 @@ it the <code>Projects</code> heading rendered underneath the fixed navbar.</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">8171b7d48dd2bac05737491e3006d709f32f0960</pre>
+                    <pre class="my-auto">a988d4c3561ca6d5e5c0f079f387a3ae8fd76160</pre>
                   </span>
                 </li>
               </ul>
@@ -12173,7 +12621,7 @@ it the <code>Projects</code> heading rendered underneath the fixed navbar.</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
                   </span>
                 </li>
               </ul>
@@ -12190,7 +12638,7 @@ it the <code>Projects</code> heading rendered underneath the fixed navbar.</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
                   </span>
                 </li>
               </ul>
@@ -12207,225 +12655,23 @@ it the <code>Projects</code> heading rendered underneath the fixed navbar.</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
-U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
-78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQIzTp0ycddGyUymtCuMewz5wTkMfj1IgAUWq4xGUDo&#43;HxHgMHlJc7JHfcrsi7ith8a
-hD&#43;q1mdCgFmgfqp0FInQQ=
------END SSH SIGNATURE-----
-</pre>
-                  </span>
-                </li>
-              </ul>
-            </div></li>
-        </ul><ul class="list-group">
-          <li class="list-group-item my-auto">
-            <p>Add a staging publication and refine the project index</p>
-<p>Verify the project landing replacement on its own hostname before the apex
-changes and before any per-project resource is retired, and make the landing
-index useful to a visitor.</p>
-<p><code>www-staging.alwaldend.com</code> gets a checked-in DNS declaration and a catalog
-repository, and the apex site gains a staging build that renders the same
-packaged source with the staging base URL plus a deployment command that
-publishes it. The publication command now takes its repository and branch as
-arguments, so staging and production share one publisher, and a repository
-whose publication branch does not exist yet is created as an orphan instead of
-failing on clone. A new repository receives a default branch at creation so the
-managed ruleset can protect it while site content publishes to a separate
-branch, and GitHub Pages configuration is deferred for a repository until its
-publication branch exists.</p>
-<p>The <code>/projects/</code> index no longer opens with explanatory prose, lists landings
-alphabetically, and shows each project&rsquo;s status and tags as links to their
-taxonomy term pages.</p>
-<p>Deploy the staging site, verify the landing, documentation, and taxonomy
-routes there, then deploy the accepted output to the apex and verify the same
-routes. The per-project hostnames, DNS records, and landing repositories remain
-in place until their retirement is requested.</p>
-<p>OpenSpec-Change: projects/alwaldend.com/openspec/changes/site-staging-environment</p>
-<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
 
-          </li>
-          <li class="list-group-item"><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Hash
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">e901c61bc9a209b3431af926e29f04ad4030bfaf</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Author
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Committer
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                PGP
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
-U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
-78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQNtViI9QY/lZN6pVfQQhFpsk0TrCBuq9xAnbT94SJEHBIA6RlMdA9BTEyoTnUoiFHF
-dV8d2WasTNK2G/DnoBgAg=
------END SSH SIGNATURE-----
-</pre>
-                  </span>
-                </li>
-              </ul>
-            </div></li>
-        </ul><ul class="list-group">
-          <li class="list-group-item my-auto">
-            <p>Move project landings into the main site</p>
-<p>Publish every registered project&rsquo;s visitor-facing landing page at
-/projects/<name>/ from the main site instead of a dedicated subdomain, and
-retire the per-project Pages repository, CNAME, and Terraform DNS stage that
-existed only to serve one page derived from the project README.</p>
-<p>Each project owns its landing content in projects/<name>/site/content/ as pure
-content: no layouts, styles, or build rules. The main site packages those
-directories into content/projects/<name>/ from the registry in
-projects/projects.bzl, so membership is declared once. The landing is a short
-hand-written page for visitors while the README keeps its /docs/projects/<name>/
-URL for repository reference documentation, and landing front matter now feeds
-the statuses, languages, and tags taxonomies.</p>
-<p>Merge the reusable hugo_landing project into the main site: its shared canvas
-and accent styles and its landing page rules move into the apex tree, and its
-landing macro, generated configuration, standalone publisher, and
-repository-relative rewrite layouts are removed. The theme keeps owning the
-taxonomy and term layouts, which are richer than the heading-only versions the
-reusable project carried. Remove the now-unused apex deploy_project.sh and
-deploy_all.sh landing publishers with it.</p>
-<p>Retire the per-project publication and DNS ownership: the project landing
-targets and the landing deployment command, each landing project&rsquo;s
-dnsconfig.json and Terraform root, the build plumbing that served only those
-stages, and the landing repository and Pages membership in the repository
-catalog. The apex Terraform root is retained because it also declares VM
-resources, and no Vault configuration is changed.</p>
-<p>Replace the provider-snapshot zone files with generated declaration pages, one
-per destination view, that project the checked-in declarations and are verified
-for freshness by the DNS offline check. The DNS linter, both destination pages,
-the apex site, the skills projection, and the repository quality suite pass, and
-the whole repository builds.</p>
-<p>OpenSpec-Change: projects/alwaldend.com/openspec/changes/consolidate-project-landings-into-apex</p>
-<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+wsFcBAABCAAQBQJqrwziCRC1aQ7uu5UhlAAA0qgQAKWaf/ehKSQH85SxgNGIsEVg
+IoudVQCfrdakNdIBREyR/hKCLk&#43;zSu7OWYPfybz/9i&#43;7/8DODPNUM7j&#43;5V5NJlLm
+ycNo741vUImLVcV71AG9DVuGwqpX3g4qvogmE&#43;H6vgTTlYjWE6XOpBMGZtVT1nAL
+FY42FVr4aAm4&#43;w6z5MaIrqQwaKZ85eW6fOWiKFFfHzp33D9dOIWck4P6xF16hCnw
+hC&#43;WijvwDj6xeke&#43;BdYo6NzLCbs6l2hk8eYbhsDr9d2QiHoVafPYfLkK7W5uYOG1
+7&#43;aXwGKj/hqy0rVCknSbRQTS4awYzwlxBaRt&#43;d9ZH94nn0uqYshR4aQ/V03l9RuH
+Bs7MeD228mU0R2BX9Bqrb2lY9i&#43;EAeBPTYb2d8T4JM19ntigC6voNHsw8/ktaNjy
+i&#43;mjZJFdyyyKdveKwhn//vcZK9kMwSb79ZcUIjbH4RMbRHqR3dyGivx&#43;dVqLJdZ9
+C33AyzmOZHgp2rYpWxEes0Jc65t2Ik5Qrsk8U3MfzAQAIYIAvmTaOJudBp3GkDYR
+Nu1OPQe6QB5HWPo2i3ZdE5SbMNt3qfYybfb1TrUBHdM8hhorNxECEHJ6PHTDzxVl
+17A2rLt/Ld1QwR&#43;w&#43;zuKug899JWip3rZ&#43;W4MAR661XqZVwmXkO6xZdv6IiMVQfJd
+IBNITq0Eia15xg4ncKhV
+=4aHs
+-----END PGP SIGNATURE-----
 
-          </li>
-          <li class="list-group-item"><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Hash
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">976a6a218ec8b3450fee44481674463b9c5115fd</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Author
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                Committer
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
-                  </span>
-                </li>
-              </ul>
-            </div><div class="btn-group me-2">
-              <button
-                class="btn btn-outline-primary btn-sm dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                data-bs-auto-close="outside"
-                aria-expanded="false"
-              >
-                PGP
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <span class="dropdown-item-text">
-                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
-U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
-78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQFCTwf73FSK2HZgURFxfuGc1FDJ7ZDAaDQ&#43;pmJIIsu2gjTQrOQf22bMN0TWvMdhL6j
-YsCh424/NCqnhwVpaE6Qk=
------END SSH SIGNATURE-----
 </pre>
                   </span>
                 </li>
@@ -23545,6 +23791,788 @@ U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
 AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
 0yeucLMBAFev0fFMYQigY=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Record the removal of the unowned goal DNS record</p>
+<p>The goal-landing repository, its catalog entry, and projects/goal/dnsconfig.json
+were deleted by fe25efac, but goal.alwaldend.com survived as a public CNAME to
+alwaldend.github.io. No dnsconfig.json declared it and no Terraform state
+contained it, so no owner could plan its deletion through the declared flow and
+it was not part of the 19 project roots this change retired.</p>
+<p>It was removed by a direct Cloudflare API delete, scoped to that one record in
+the public zone, under the explicit instruction to remove it. The record now
+returns no answer from either public resolver and its HTTPS request no longer
+completes a TLS handshake. A full comparison of the live zone against every
+declared global record finds no other undeclared name.</p>
+<p>Update the retirement evidence to record the removal and why the record was
+unmanaged, and drop the claim that it was left in place.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">959c2ec72d54911406aacdfdf9ec97907b1f86db</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQLv9qz/a1ar5aCQbUJmpF0bTxiAiykGYEEkECwt3d2Zz86M4qtxEF6BWzbVWRTxdUD
+At4ZeNt8t&#43;gfCiWPM&#43;rwQ=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Record the completed per-project landing teardown</p>
+<p>The retired project landings were torn down on 2026-09-20, after the apex
+deployment began serving their replacements. Every former route was verified
+first: /projects/, /projects/<name>/, /docs/projects/<name>/, and the
+taxonomy term pages returned 200 on both the apex and the staging hostname.</p>
+<p>The GitHub root destroyed 120 resources across 20 landing repositories. Its
+20 github_branch instances were removed from state first because GitHub
+refuses to delete a repository&rsquo;s default branch through the branch API, and
+deleting the repository removes the branch anyway. The GitLab root destroyed
+its 20 landing projects under a plan scoped to those projects so the
+unrelated www-staging mirror creation stayed out, and the 20 branch
+protections left pointing at deleted projects were removed from state.</p>
+<p>Each retired DNS root was operated from revision 83dfca7f in a task-owned
+worktree, because this change removed the roots and their Vault-backed states
+have no owning target in the delivered tree. Every root planned exactly one
+cloudflare_dns_record destroy and all 19 applied with no errors. None of the
+former 19 hostnames resolve now.</p>
+<p>The prevent_destroy guards on shared repositories, branches, collaborators,
+organization settings, the GitLab group, and memberships were relaxed only
+for the orphaned landing instances and restored immediately; verification
+plans for both forge roots and the shared DNS root report no changes.</p>
+<p>goal.alwaldend.com still resolves and returns 404. It is declared in no
+dnsconfig.json, appears in no Terraform state, and has no catalog entry, so
+it is the pre-existing drift this change already recorded and was left
+untouched rather than folded into the retirement.</p>
+<p>OpenSpec-Change: projects/alwaldend.com/openspec/changes/consolidate-project-landings-into-apex</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">4e12dbb1631aaa0c4739a8775eb519037b642857</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Record the project index requirement and close staging verification</p>
+<p>Add the documentation-axis requirement to the site-staging spec and mark
+the deploy and validation tasks complete. Record the lifecycle-ordering
+idea as a deferred task rather than leaving it unstated.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">6077a61b6effa9cfe0bbfb4fa58f3b313b2f97d9</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Center the project index on the documentation axis</p>
+<p>The section index resolved layouts/projects/list.html inside the default
+baseof, whose bare <main class="td-main"> gave it no grid column and no
+padding offset from the .td-main main rule, so it rendered full width at
+48px with a 128px heading.</p>
+<p>Give the section its own projects_index type with a baseof that keeps the
+documentation row and column but omits both asides. The index now starts
+at 88px and centers at 259px with a 771px column, matching /docs/ and
+/blog/ exactly.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">248c9e0bc2b857a4f0b390054a98e699fc571c70</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Render the project index in the documentation column</p>
+<p>The index rendered in the layout&rsquo;s root wrapper, so its text spanned the full
+page width instead of the column the documentation and blog pages use. That
+made it read as a stray full-width list rather than a page of the site.</p>
+<p>Lay the index out like a documentation list page: the documentation column
+(<code>col-12 col-md-9 col-xl-8 ps-md-5</code>) inside a row, the section description as
+a lead, and the theme&rsquo;s <code>section-index</code> entries separated by a panel line. The
+documentation sidebars are deliberately absent, so the list stays a plain
+single-column page.</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">b3cc1fccfb7a27c5cf9b28ca657026c33e49b327</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQFOgy7fVgdKpeOP&#43;2TrdMHQOB6LPH/8RDp0N47xpswOBosBR2ZGUhdusM21lHvn7/4
+f4Okk7vq4x89BFruoh&#43;gA=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Lay the project index out as a single-column section list</p>
+<p>The card grid read as a separate component next to the rest of the site. The
+<code>/projects/</code> index now uses the same section list as the documentation index:
+one entry per project under the <code>Projects</code> heading, separated by panel lines,
+each entry carrying its description, status, and tags. The entries stay in
+alphabetical order.</p>
+<p>Wrap the list in a section so the theme&rsquo;s first-section offset applies; without
+it the <code>Projects</code> heading rendered underneath the fixed navbar.</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">8171b7d48dd2bac05737491e3006d709f32f0960</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQIzTp0ycddGyUymtCuMewz5wTkMfj1IgAUWq4xGUDo&#43;HxHgMHlJc7JHfcrsi7ith8a
+hD&#43;q1mdCgFmgfqp0FInQQ=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Add a staging publication and refine the project index</p>
+<p>Verify the project landing replacement on its own hostname before the apex
+changes and before any per-project resource is retired, and make the landing
+index useful to a visitor.</p>
+<p><code>www-staging.alwaldend.com</code> gets a checked-in DNS declaration and a catalog
+repository, and the apex site gains a staging build that renders the same
+packaged source with the staging base URL plus a deployment command that
+publishes it. The publication command now takes its repository and branch as
+arguments, so staging and production share one publisher, and a repository
+whose publication branch does not exist yet is created as an orphan instead of
+failing on clone. A new repository receives a default branch at creation so the
+managed ruleset can protect it while site content publishes to a separate
+branch, and GitHub Pages configuration is deferred for a repository until its
+publication branch exists.</p>
+<p>The <code>/projects/</code> index no longer opens with explanatory prose, lists landings
+alphabetically, and shows each project&rsquo;s status and tags as links to their
+taxonomy term pages.</p>
+<p>Deploy the staging site, verify the landing, documentation, and taxonomy
+routes there, then deploy the accepted output to the apex and verify the same
+routes. The per-project hostnames, DNS records, and landing repositories remain
+in place until their retirement is requested.</p>
+<p>OpenSpec-Change: projects/alwaldend.com/openspec/changes/site-staging-environment</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">e901c61bc9a209b3431af926e29f04ad4030bfaf</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQNtViI9QY/lZN6pVfQQhFpsk0TrCBuq9xAnbT94SJEHBIA6RlMdA9BTEyoTnUoiFHF
+dV8d2WasTNK2G/DnoBgAg=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Move project landings into the main site</p>
+<p>Publish every registered project&rsquo;s visitor-facing landing page at
+/projects/<name>/ from the main site instead of a dedicated subdomain, and
+retire the per-project Pages repository, CNAME, and Terraform DNS stage that
+existed only to serve one page derived from the project README.</p>
+<p>Each project owns its landing content in projects/<name>/site/content/ as pure
+content: no layouts, styles, or build rules. The main site packages those
+directories into content/projects/<name>/ from the registry in
+projects/projects.bzl, so membership is declared once. The landing is a short
+hand-written page for visitors while the README keeps its /docs/projects/<name>/
+URL for repository reference documentation, and landing front matter now feeds
+the statuses, languages, and tags taxonomies.</p>
+<p>Merge the reusable hugo_landing project into the main site: its shared canvas
+and accent styles and its landing page rules move into the apex tree, and its
+landing macro, generated configuration, standalone publisher, and
+repository-relative rewrite layouts are removed. The theme keeps owning the
+taxonomy and term layouts, which are richer than the heading-only versions the
+reusable project carried. Remove the now-unused apex deploy_project.sh and
+deploy_all.sh landing publishers with it.</p>
+<p>Retire the per-project publication and DNS ownership: the project landing
+targets and the landing deployment command, each landing project&rsquo;s
+dnsconfig.json and Terraform root, the build plumbing that served only those
+stages, and the landing repository and Pages membership in the repository
+catalog. The apex Terraform root is retained because it also declares VM
+resources, and no Vault configuration is changed.</p>
+<p>Replace the provider-snapshot zone files with generated declaration pages, one
+per destination view, that project the checked-in declarations and are verified
+for freshness by the DNS offline check. The DNS linter, both destination pages,
+the apex site, the skills projection, and the repository quality suite pass, and
+the whole repository builds.</p>
+<p>OpenSpec-Change: projects/alwaldend.com/openspec/changes/consolidate-project-landings-into-apex</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">976a6a218ec8b3450fee44481674463b9c5115fd</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQFCTwf73FSK2HZgURFxfuGc1FDJ7ZDAaDQ&#43;pmJIIsu2gjTQrOQf22bMN0TWvMdhL6j
+YsCh424/NCqnhwVpaE6Qk=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Propose native Nexus deployment on XCP-ng</p>
+<p>Add an owner-local OpenSpec proposal, design, capability deltas, and
+implementation checklist for native Nexus 3 and PostgreSQL on one VM.
+Define PyPI, npm, and Docker Hub proxies with Vault-backed configuration
+and separate provisioning, Ansible, service Terraform, and Traefik ownership.</p>
+<p>This change contains planning artifacts only. Implementation and live
+deployment remain outside this handoff.
+Register the planning workspace for strict repository validation and document
+component ownership. Link a collection-owned PostgreSQL proposal that defines
+the reusable role&rsquo;s initialization, authentication, ownership, extension, and
+compatibility contracts with their own acceptance tasks.</p>
+<p>OpenSpec-Change: infra/nexus/openspec/changes/add-nexus-deployment</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">ae0a0104bcb29266c51a45e6128e1b2cfe6e6a93</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQLHXXU5gqRa3wHjjMm0l&#43;iQ6rhGw1hu/T5iWBsTaVw21bLR9MJeQKFxf3PGeFjJaC/
+D1ELWXDLvszYgYaT&#43;7bgc=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>

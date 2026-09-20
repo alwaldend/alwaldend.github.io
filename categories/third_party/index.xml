@@ -40,6 +40,13 @@
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://opencode.ai/&#34;&gt;https://opencode.ai/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Repo: &lt;a href=&#34;https://github.com/anomalyco/opencode&#34;&gt;https://github.com/anomalyco/opencode&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
+				<title>Architects Daughter</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_google_fonts_architects_daughter/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_google_fonts_architects_daughter/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;https://fonts.google.com/specimen/Architects&amp;#43;Daughter&#34;&gt;Architects Daughter&lt;/a&gt; by&#xA;Kimberly Geswein, licensed under the SIL Open Font License 1.1.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;tools/mermaid/theme.json&lt;/code&gt; requests this family so hand-drawn diagrams keep a&#xA;handwritten label voice. The renderer exposes it to Chrome through the pinned&#xA;Fontconfig alongside the repository&amp;rsquo;s Liberation fonts, so a render never&#xA;resolves the family from the host.&lt;/p&gt;&#xA;&lt;p&gt;Upstream source:&#xA;&lt;a href=&#34;https://github.com/google/fonts/tree/main/ofl/architectsdaughter&#34;&gt;&lt;code&gt;google/fonts&lt;/code&gt;&lt;/a&gt;.&#xA;The pin is the immutable commit that last changed the font file, and the SRI&#xA;digest is recorded in &lt;code&gt;include.MODULE.bazel&lt;/code&gt;.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>com_drawio_desktop_bin</title>
 				<link>https://alwaldend.com/docs/third_party/com_drawio_desktop_bin/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

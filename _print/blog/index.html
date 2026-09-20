@@ -44,7 +44,7 @@
 
 	<meta itemprop="name" content="Blog">
 	<meta itemprop="description" content="Blog">
-	<meta itemprop="dateModified" content="2026-09-19T22:52:56+03:00">
+	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Blog">
 	<meta name="twitter:description" content="Blog">
@@ -143,7 +143,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.53ae7d1c48cadef5da1396a063e76965.json"
+    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -195,6 +195,16 @@ This is the multi-page printable view of this section.
     
 	
 
+    <li><a href="#pg-06972c4c7c69b67b7924cd82a210f0ce">Diagrams in the AC (After Clanker) era</a></li>
+
+
+
+    
+  
+    
+    
+	
+
     <li><a href="#pg-4f88bb5d6b5d83c8039ee6a5ceeca1d7">DNS management in a monorepo</a></li>
 
 
@@ -239,6 +249,110 @@ This is the multi-page printable view of this section.
   
 
 <div class="td-content" style="">
+    <h1 id="pg-06972c4c7c69b67b7924cd82a210f0ce">Diagrams in the AC (After Clanker) era</h1>
+	<div class="lead">Replacing Drawio diagrams with Mermaid diagrams</div>
+	<div class="td-byline mb-4">
+		
+        
+		<time datetime="2026-09-18" class="text-body-secondary">Friday, September 18, 2026</time>
+        
+	</div>
+	<p><img src="/blog/diagrams-in-ac-era/drawio-to-mermaid.svg" alt="Drawio to Mermaid" loading="lazy"></p>
+<p>I have some diagrams in the repo, as one naturally does. My diagrams do not look particularly pretty, but they display information, which is the whole point.</p>
+<p>In the BC (Before Clanker) era, I made them manually using Drawio&rsquo;s desktop app. I used this approach because it requires no setup and no effort - you just fire up the app and then click things in the UI. Everything is local, and the diagrams themselves are XML, so you can version control them. It&rsquo;s the AC (After Clanker) era now, so I need to be able to have clankers modify my diagrams, and I have more options in general, so I&rsquo;ve decided to improve them.</p>
+<h2 id="new-tool">New tool<a class="td-heading-self-link" href="#new-tool" aria-label="Heading self-link"></a></h2><p>The first goal was, of course, to make them prettier - I wanted to see something pleasing to the eyes, not ugly boxes and straight arrows. Ideally, something like <a href="https://excalidraw.com/">Excalidraw</a> - hand-drawn look, rounded corners, curved edges, all the rage.</p>
+<p>The second goal was to simplify their source representation. Drawio diagrams are XML, so they can be version controlled and clanker-managed, but they are too complex and not readable. I wanted a simple DSL that allowed me to just describe the diagram itself - nodes, labels, edges, etc.</p>
+<p>The third goal was theme support. While every diagram was supposed to be as simple as possible, they all should look pretty and use one style without being a part of the same project.</p>
+<p>The fourth goal was hermeticity. All these diagrams should be rendered locally and hermetically through Bazel without a CDN or any other funny business.</p>
+<p>In the end, I&rsquo;ve settled on <a href="https://github.com/mermaid-js/mermaid">Mermaid</a> because it&rsquo;s the first big Open Source project I&rsquo;ve found that fit my criteria and I did not care enough to research other options. After all, we are in the AC era - I can just rewrite things.</p>
+<h2 id="rendering">Rendering<a class="td-heading-self-link" href="#rendering" aria-label="Heading self-link"></a></h2><p>I wrote some Bazel rules that hermetically render Mermaid diagrams using <a href="https://github.com/mermaid-js/mermaid">Mermaid</a> (duh), <a href="https://developer.chrome.com/docs/automation-and-testing/chrome-for-testing">Chrome for Testing</a> for actual rendering, and <a href="https://github.com/google/fonts/blob/main/ofl/architectsdaughter/METADATA.pb">Architects Daughter</a> as a font. Those rules had to generate a custom <a href="https://www.freedesktop.org/wiki/Software/fontconfig/">Fontconfig</a> configuration file because Chrome stubbornly tried to use host fonts.</p>
+<h2 id="style">Style<a class="td-heading-self-link" href="#style" aria-label="Heading self-link"></a></h2><p>The default Mermaid style is very bad, so I&rsquo;ve made a custom theme, which was pretty easy - it&rsquo;s just a config. Theming is not powerful enough, though - Mermaid 11&rsquo;s hand-drawn renderer hardcodes square corners for flowchart containers, for example, and I had to add post-processing for SVGs to embed my custom font inside of them.</p>
+<p>Default theme:</p>
+<p><img src="/blog/diagrams-in-ac-era/container-example-default.svg" alt="Container example with Mermaid’s default theme" loading="lazy"></p>
+<p>Custom theme:</p>
+<p><img src="/blog/diagrams-in-ac-era/container-example.svg" alt="Container example with the repository theme" loading="lazy"></p>
+<h2 id="layout">Layout<a class="td-heading-self-link" href="#layout" aria-label="Heading self-link"></a></h2><p>While styling was pretty straightforward, there were a lot of problems with the layout.</p>
+<p>In no particular order:</p>
+<ul>
+<li>No way to properly control width: The only real lever is the direction.</li>
+<li>The direction is not reliable: You can control the overall direction, but direction inside of groups is often ignored.</li>
+<li>Container titles: An edge can draw over a container title, and there is no way to avoid it, so I had to add postprocessing for this.</li>
+</ul>
+<h2 id="diagram-types">Diagram types<a class="td-heading-self-link" href="#diagram-types" aria-label="Heading self-link"></a></h2><p>I&rsquo;ve looked into diagram types other than flowchart, and there was nothing even remotely suitable except for an <a href="https://mermaid.js.org/syntax/architecture.html">architecture diagram</a>. A shame that it looks even worse than the default theme:</p>
+<p><img src="/blog/diagrams-in-ac-era/container-example-architecture.svg" alt="Architecture diagram example" loading="lazy"></p>
+<h2 id="final-look">Final look<a class="td-heading-self-link" href="#final-look" aria-label="Heading self-link"></a></h2><p>Here is the old Drawio diagram:</p>
+<p><img src="/blog/diagrams-in-ac-era/old_t3code_arch_diagram.svg" alt="The old Drawio diagram" loading="lazy"></p>
+<p>It looks bad and its source is unreadable and the diagram is unmaintainable without a GUI.</p>
+<p>Here is the new Mermaid diagram:</p>
+<p><img src="/blog/diagrams-in-ac-era/t3code-architecture.svg" alt="The new Mermaid diagram" loading="lazy"></p>
+<p>It&rsquo;s readable and looks pretty. I like it.</p>
+<p>Here is its source. It&rsquo;s also pretty and readable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>flowchart LR
+</span></span><span style="display:flex;"><span>    subgraph internet[&#34;Internet&#34;]
+</span></span><span style="display:flex;"><span>        direction TB
+</span></span><span style="display:flex;"><span>        remote(&#34;Actor&#34;)
+</span></span><span style="display:flex;"><span>        ingress(&#34;Ingress&#34;)
+</span></span><span style="display:flex;"><span>    end
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    subgraph dc1[&#34;Local infra&lt;br/&gt;dc1.alwaldend.com&#34;]
+</span></span><span style="display:flex;"><span>        direction TB
+</span></span><span style="display:flex;"><span>        intranet(&#34;Actor&#34;)
+</span></span><span style="display:flex;"><span>        vault(&#34;Vault&lt;br/&gt;vault.alwaldend.com&#34;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        subgraph host_bot[&#34;Bare metal host&lt;br/&gt;host-bot.simeonwarren.users.alwaldend.com&#34;]
+</span></span><span style="display:flex;"><span>            direction TB
+</span></span><span style="display:flex;"><span>            traefik(&#34;Traefik&#34;)
+</span></span><span style="display:flex;"><span>            t3code(&#34;T3 Code&#34;)
+</span></span><span style="display:flex;"><span>            codex(&#34;Codex&#34;)
+</span></span><span style="display:flex;"><span>        end
+</span></span><span style="display:flex;"><span>    end
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    subgraph external[&#34;Internet&#34;]
+</span></span><span style="display:flex;"><span>        direction TB
+</span></span><span style="display:flex;"><span>        github(&#34;GitHub&lt;br/&gt;github.com&#34;)
+</span></span><span style="display:flex;"><span>        openai(&#34;OpenAI&lt;br/&gt;openai.com&#34;)
+</span></span><span style="display:flex;"><span>        openrouter(&#34;OpenRouter&lt;br/&gt;openrouter.ai&#34;)
+</span></span><span style="display:flex;"><span>    end
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    remote --&gt;|&#34;HTTPS + mTLS&#34;| ingress
+</span></span><span style="display:flex;"><span>    intranet --&gt;|&#34;HTTPS&#34;| traefik
+</span></span><span style="display:flex;"><span>    ingress --&gt;|&#34;HTTPS over Wireguard&#34;| traefik
+</span></span><span style="display:flex;"><span>    traefik --&gt; t3code
+</span></span><span style="display:flex;"><span>    t3code --&gt; codex
+</span></span><span style="display:flex;"><span>    traefik &lt;--&gt;|&#34;ACME (HTTP)&#34;| vault
+</span></span><span style="display:flex;"><span>    t3code --&gt;|&#34;Source&#34;| github
+</span></span><span style="display:flex;"><span>    codex ---|&#34;Inference&#34;| inference@{ shape: junction }
+</span></span><span style="display:flex;"><span>    inference --&gt; openai
+</span></span><span style="display:flex;"><span>    inference --&gt; openrouter
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    classDef actor font-style:normal;
+</span></span><span style="display:flex;"><span>    class remote,intranet actor
+</span></span></code></pre></div><p>In the end:</p>
+<ul>
+<li>Diagrams are pretty, check. Although they still lack some pizzazz.</li>
+<li>Source is simple, check.</li>
+<li>Unified theme, check.</li>
+<li>Hermeticity, check.</li>
+</ul>
+
+</div>
+
+
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+
+  
+
+<div class="td-content" style="page-break-before: always">
     <h1 id="pg-4f88bb5d6b5d83c8039ee6a5ceeca1d7">DNS management in a monorepo</h1>
 	<div class="lead">Evolution of DNS management in my monorepo</div>
 	<div class="td-byline mb-4">
