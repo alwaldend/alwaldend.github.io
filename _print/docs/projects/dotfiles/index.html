@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Dotfiles">
 	<meta itemprop="description" content="Personal configuration files with installation and comparison commands">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="177">
 	<meta itemprop="keywords" content="Vial,Dotfiles,Make,Udev">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Dotfiles">
 	<meta name="twitter:description" content="Personal configuration files with installation and comparison commands">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -230,20 +230,20 @@ local system and install selected configurations.</p>
 <h2 id="print-84ad081b1a11d6c1fe9475122be9d168-features">Features<a class="td-heading-self-link" href="#print-84ad081b1a11d6c1fe9475122be9d168-features" aria-label="Heading self-link"></a></h2><ul>
 <li>Archive with dotfiles that can be installed using make</li>
 </ul>
-<h2 id="print-84ad081b1a11d6c1fe9475122be9d168-bazel-usage">Bazel usage<a class="td-heading-self-link" href="#print-84ad081b1a11d6c1fe9475122be9d168-bazel-usage" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //projects/dotfiles:help <span style="color:#75715e"># Show help</span>
-</span></span><span style="display:flex;"><span>bazel run //projects/dotfiles:diff <span style="color:#75715e"># Show diff</span>
-</span></span><span style="display:flex;"><span>bazel run //projects/dotfiles:install <span style="color:#75715e"># Install files</span>
-</span></span></code></pre></div><h2 id="print-84ad081b1a11d6c1fe9475122be9d168-archive-usage">Archive usage<a class="td-heading-self-link" href="#print-84ad081b1a11d6c1fe9475122be9d168-archive-usage" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oras pull --output <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> docker.io/alwaldend/src:projects_dotfiles_dotfiles_tar_head
-</span></span><span style="display:flex;"><span>cd releases/projects/dotfiles/head/files
-</span></span><span style="display:flex;"><span>tar -xf dotfiles.tar
-</span></span><span style="display:flex;"><span>cd dotfiles
-</span></span><span style="display:flex;"><span>make help <span style="color:#75715e"># Show help</span>
-</span></span><span style="display:flex;"><span>make diff <span style="color:#75715e"># Check diff between system files and those from the archive</span>
-</span></span><span style="display:flex;"><span>make diff/nvim <span style="color:#75715e"># Check diff for all nvim files</span>
-</span></span><span style="display:flex;"><span>make diff/nvim/.config/nvim/lazy-lock.json <span style="color:#75715e"># Diff specific file</span>
-</span></span><span style="display:flex;"><span>make install <span style="color:#75715e"># Install all files from the archive</span>
-</span></span><span style="display:flex;"><span>make install/nvim <span style="color:#75715e"># Install nvim files</span>
-</span></span><span style="display:flex;"><span>make install/nvim/.config/nvim/lazy-lock.json <span style="color:#75715e"># Install a specific file</span>
+<h2 id="print-84ad081b1a11d6c1fe9475122be9d168-bazel-usage">Bazel usage<a class="td-heading-self-link" href="#print-84ad081b1a11d6c1fe9475122be9d168-bazel-usage" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //projects/dotfiles:help <span class="c1"># Show help</span>
+</span></span><span class="line"><span class="cl">bazel run //projects/dotfiles:diff <span class="c1"># Show diff</span>
+</span></span><span class="line"><span class="cl">bazel run //projects/dotfiles:install <span class="c1"># Install files</span>
+</span></span></code></pre></div><h2 id="print-84ad081b1a11d6c1fe9475122be9d168-archive-usage">Archive usage<a class="td-heading-self-link" href="#print-84ad081b1a11d6c1fe9475122be9d168-archive-usage" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">oras pull --output <span class="s2">&#34;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">&#34;</span> docker.io/alwaldend/src:projects_dotfiles_dotfiles_tar_head
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> releases/projects/dotfiles/head/files
+</span></span><span class="line"><span class="cl">tar -xf dotfiles.tar
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> dotfiles
+</span></span><span class="line"><span class="cl">make <span class="nb">help</span> <span class="c1"># Show help</span>
+</span></span><span class="line"><span class="cl">make diff <span class="c1"># Check diff between system files and those from the archive</span>
+</span></span><span class="line"><span class="cl">make diff/nvim <span class="c1"># Check diff for all nvim files</span>
+</span></span><span class="line"><span class="cl">make diff/nvim/.config/nvim/lazy-lock.json <span class="c1"># Diff specific file</span>
+</span></span><span class="line"><span class="cl">make install <span class="c1"># Install all files from the archive</span>
+</span></span><span class="line"><span class="cl">make install/nvim <span class="c1"># Install nvim files</span>
+</span></span><span class="line"><span class="cl">make install/nvim/.config/nvim/lazy-lock.json <span class="c1"># Install a specific file</span>
 </span></span></code></pre></div><h2 id="print-84ad081b1a11d6c1fe9475122be9d168-help">Help<a class="td-heading-self-link" href="#print-84ad081b1a11d6c1fe9475122be9d168-help" aria-label="Heading self-link"></a></h2><pre tabindex="0"><code>help: Show help
 install: Install files from the archive
 diff: Show diff between archive files and system files
@@ -4270,18 +4270,13 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Propose native Nexus deployment on XCP-ng</p>
-<p>Add an owner-local OpenSpec proposal, design, capability deltas, and
-implementation checklist for native Nexus 3 and PostgreSQL on one VM.
-Define PyPI, npm, and Docker Hub proxies with Vault-backed configuration
-and separate provisioning, Ansible, service Terraform, and Traefik ownership.</p>
-<p>This change contains planning artifacts only. Implementation and live
-deployment remain outside this handoff.
-Register the planning workspace for strict repository validation and document
-component ownership. Link a collection-owned PostgreSQL proposal that defines
-the reusable role&rsquo;s initialization, authentication, ownership, extension, and
-compatibility contracts with their own acceptance tasks.</p>
-<p>OpenSpec-Change: infra/nexus/openspec/changes/add-nexus-deployment</p>
+            <p>Move agent tooling and binary dependencies to their owning trees</p>
+<p>Move repository-wide agent skills from projects/agents to tools/agents, update
+skill discovery and documentation, and remove the product landing registration.</p>
+<p>Place all 24 main-module binary toolchain dependencies under upstream-named
+third_party packages while keeping first-party wrappers and configuration under
+tools. Preserve dependency pins and standalone Bazel module independence.
+Update the layout and dependency skills to document this ownership policy.</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -4298,7 +4293,7 @@ compatibility contracts with their own acceptance tasks.</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">ae0a0104bcb29266c51a45e6128e1b2cfe6e6a93</pre>
+                    <pre class="my-auto">43baa6ea221071c40b37ef11fa5db7d65b9c9223</pre>
                   </span>
                 </li>
               </ul>
@@ -4352,8 +4347,8 @@ compatibility contracts with their own acceptance tasks.</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQLHXXU5gqRa3wHjjMm0l&#43;iQ6rhGw1hu/T5iWBsTaVw21bLR9MJeQKFxf3PGeFjJaC/
-D1ELWXDLvszYgYaT&#43;7bgc=
+AAAAQOYoPIcE2eVRj/wDYZV5cWm9RIb63LUnde/S7J3wrG/8XoZROc2kxYOmcwk6Gf7Cuc
+4ZGNKEvAnpg4ZmXoKbLgw=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -9122,18 +9117,13 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Propose native Nexus deployment on XCP-ng</p>
-<p>Add an owner-local OpenSpec proposal, design, capability deltas, and
-implementation checklist for native Nexus 3 and PostgreSQL on one VM.
-Define PyPI, npm, and Docker Hub proxies with Vault-backed configuration
-and separate provisioning, Ansible, service Terraform, and Traefik ownership.</p>
-<p>This change contains planning artifacts only. Implementation and live
-deployment remain outside this handoff.
-Register the planning workspace for strict repository validation and document
-component ownership. Link a collection-owned PostgreSQL proposal that defines
-the reusable role&rsquo;s initialization, authentication, ownership, extension, and
-compatibility contracts with their own acceptance tasks.</p>
-<p>OpenSpec-Change: infra/nexus/openspec/changes/add-nexus-deployment</p>
+            <p>Move agent tooling and binary dependencies to their owning trees</p>
+<p>Move repository-wide agent skills from projects/agents to tools/agents, update
+skill discovery and documentation, and remove the product landing registration.</p>
+<p>Place all 24 main-module binary toolchain dependencies under upstream-named
+third_party packages while keeping first-party wrappers and configuration under
+tools. Preserve dependency pins and standalone Bazel module independence.
+Update the layout and dependency skills to document this ownership policy.</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -9150,7 +9140,7 @@ compatibility contracts with their own acceptance tasks.</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">ae0a0104bcb29266c51a45e6128e1b2cfe6e6a93</pre>
+                    <pre class="my-auto">43baa6ea221071c40b37ef11fa5db7d65b9c9223</pre>
                   </span>
                 </li>
               </ul>
@@ -9204,8 +9194,8 @@ compatibility contracts with their own acceptance tasks.</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQLHXXU5gqRa3wHjjMm0l&#43;iQ6rhGw1hu/T5iWBsTaVw21bLR9MJeQKFxf3PGeFjJaC/
-D1ELWXDLvszYgYaT&#43;7bgc=
+AAAAQOYoPIcE2eVRj/wDYZV5cWm9RIb63LUnde/S7J3wrG/8XoZROc2kxYOmcwk6Gf7Cuc
+4ZGNKEvAnpg4ZmXoKbLgw=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>

@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="OpenHands canvas">
 	<meta itemprop="description" content="OpenHands Agent Canvas frontend">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="156">
 	<meta itemprop="keywords" content="Ansible_role,Openhands">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="OpenHands canvas">
 	<meta name="twitter:description" content="OpenHands Agent Canvas frontend">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -252,26 +252,26 @@ static server and browser assets.</p>
     
 	<h1 id="pg-f2c07c1b38af02b3779f42b821b6e0df">1 - Defaults</h1>
     <div class="lead">Defaults for openhands_canvas</div>
-	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_user</span>: <span style="color:#ae81ff">openhands</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_user_uid</span>: <span style="color:#ae81ff">8153</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_dir</span>: <span style="color:#ae81ff">/opt/openhands-canvas</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_home_dir</span>: <span style="color:#e6db74">&#34;{{ openhands_canvas_dir }}/home&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_work_dir</span>: <span style="color:#e6db74">&#34;{{ openhands_canvas_dir }}/work&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_state_dir</span>: <span style="color:#e6db74">&#34;{{ openhands_canvas_dir }}/state&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_package_dir</span>: <span style="color:#e6db74">&#34;{{ openhands_canvas_dir }}/lib/node_modules/@openhands/agent-canvas&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_disk</span>:
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_packages</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">nodejs24</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">nodejs24-npm</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_host</span>: <span style="color:#ae81ff">127.0.0.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_port</span>: <span style="color:#ae81ff">8000</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_version</span>: <span style="color:#e6db74">&#34;{{ undefined() }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_service_path</span>: <span style="color:#ae81ff">/lib/systemd/system/openhands-canvas.service</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_env_path</span>: <span style="color:#e6db74">&#34;{{ openhands_canvas_dir }}/.env&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_env</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">NODE_ENV</span>: <span style="color:#ae81ff">production</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_canvas_env_override</span>: {}
-</span></span></code></pre></div>
+	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">openhands_canvas_user</span><span class="p">:</span><span class="w"> </span><span class="l">openhands</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">8153</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/opt/openhands-canvas</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_home_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_canvas_dir }}/home&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_work_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_canvas_dir }}/work&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_state_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_canvas_dir }}/state&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_package_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_canvas_dir }}/lib/node_modules/@openhands/agent-canvas&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_disk</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_packages</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">nodejs24</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">nodejs24-npm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_host</span><span class="p">:</span><span class="w"> </span><span class="m">127.0.0.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_port</span><span class="p">:</span><span class="w"> </span><span class="m">8000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ undefined() }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_service_path</span><span class="p">:</span><span class="w"> </span><span class="l">/lib/systemd/system/openhands-canvas.service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_env_path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_canvas_dir }}/.env&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">NODE_ENV</span><span class="p">:</span><span class="w"> </span><span class="l">production</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_env_override</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
+</span></span></span></code></pre></div>
 </div>
 
 

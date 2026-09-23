@@ -114,7 +114,7 @@
 				<link>https://alwaldend.com/docs/projects/ansible_collection/roles/forgejo_runner/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/projects/ansible_collection/roles/forgejo_runner/</guid>
-				<description></description>
+				<description>&lt;p&gt;Installs the repository-pinned Linux x86-64 Forgejo runner, creates its service&#xA;account, registers it with Forgejo, and manages its systemd service. The binary&#xA;and configuration are root-owned. The home and work directories belong to the&#xA;runner account. Registration and the daemon use the same explicit configuration&#xA;and registration file, so repeated deployments reuse the existing runner.&lt;/p&gt;&#xA;&lt;p&gt;Supply &lt;code&gt;forgejo_runner_instance&lt;/code&gt; and &lt;code&gt;forgejo_runner_token&lt;/code&gt; for initial&#xA;registration. &lt;code&gt;forgejo_runner_name&lt;/code&gt; defaults to the inventory hostname. Inject&#xA;the token from Vault; the role passes it through standard input with logging&#xA;suppressed.&#xA;The registration file is mode &lt;code&gt;0600&lt;/code&gt;. Changing labels or capacity updates the&#xA;daemon configuration; changing a registered runner&amp;rsquo;s instance or identity&#xA;requires deliberate re-registration.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Gpg</title>

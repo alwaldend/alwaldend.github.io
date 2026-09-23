@@ -40,11 +40,53 @@
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://opencode.ai/&#34;&gt;https://opencode.ai/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Repo: &lt;a href=&#34;https://github.com/anomalyco/opencode&#34;&gt;https://github.com/anomalyco/opencode&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
+				<title>Android cmdtools</title>
+				<link>https://alwaldend.com/docs/third_party/com_android_commandlinetools/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_android_commandlinetools/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Upstream: &lt;a href=&#34;https://developer.android.com/tools&#34;&gt;https://developer.android.com/tools&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
 				<title>Architects Daughter</title>
 				<link>https://alwaldend.com/docs/third_party/com_github_google_fonts_architects_daughter/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/third_party/com_github_google_fonts_architects_daughter/</guid>
 				<description>&lt;p&gt;&lt;a href=&#34;https://fonts.google.com/specimen/Architects&amp;#43;Daughter&#34;&gt;Architects Daughter&lt;/a&gt; by&#xA;Kimberly Geswein, licensed under the SIL Open Font License 1.1.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;tools/mermaid/theme.json&lt;/code&gt; requests this family so hand-drawn diagrams keep a&#xA;handwritten label voice. The renderer exposes it to Chrome through the pinned&#xA;Fontconfig alongside the repository&amp;rsquo;s Liberation fonts, so a render never&#xA;resolves the family from the host.&lt;/p&gt;&#xA;&lt;p&gt;Upstream source:&#xA;&lt;a href=&#34;https://github.com/google/fonts/tree/main/ofl/architectsdaughter&#34;&gt;&lt;code&gt;google/fonts&lt;/code&gt;&lt;/a&gt;.&#xA;The pin is the immutable commit that last changed the font file, and the SRI&#xA;digest is recorded in &lt;code&gt;include.MODULE.bazel&lt;/code&gt;.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Ast-grep</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_ast_grep_ast_grep/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_ast_grep_ast_grep/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Repo: &lt;a href=&#34;https://github.com/ast-grep/ast-grep&#34;&gt;https://github.com/ast-grep/ast-grep&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Blender</title>
+				<link>https://alwaldend.com/docs/third_party/org_blender_blender/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/org_blender_blender/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://www.blender.org/&#34;&gt;https://www.blender.org/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Buf</title>
+				<link>https://alwaldend.com/docs/third_party/build_buf_buf/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/build_buf_buf/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://buf.build/home&#34;&gt;https://buf.build/home&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Chrome Headless Shell</title>
+				<link>https://alwaldend.com/docs/third_party/com_google_chrome_headless_shell/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_google_chrome_headless_shell/</guid>
+				<description>&lt;p&gt;The &lt;a href=&#34;binary_toolchain.json&#34;&gt;binary lock&lt;/a&gt; owns the upstream release and archive&#xA;integrity. Repository integration remains in &lt;a href=&#34;https://alwaldend.com/docs/tools/mermaid/&#34;&gt;&lt;code&gt;tools/mermaid&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;upstream&#34;&gt;Upstream&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#upstream&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/GoogleChromeLabs/chrome-for-testing&#34;&gt;Chrome Headless Shell&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Cloc</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_aldanial_cloc/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_aldanial_cloc/</guid>
+				<description>&lt;p&gt;The &lt;a href=&#34;binary_toolchain.json&#34;&gt;binary lock&lt;/a&gt; owns the upstream release and archive&#xA;integrity. Repository integration remains in &lt;a href=&#34;https://alwaldend.com/docs/tools/cloc/&#34;&gt;&lt;code&gt;tools/cloc&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;upstream&#34;&gt;Upstream&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#upstream&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/AlDanial/cloc&#34;&gt;Cloc&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
 				<title>com_drawio_desktop_bin</title>
@@ -96,11 +138,32 @@
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Download: &lt;a href=&#34;https://download.sys.truenas.net/TrueNAS-SCALE-Goldeye/25.10.6/&#34;&gt;https://download.sys.truenas.net/TrueNAS-SCALE-Goldeye/25.10.6/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
+				<title>Consul</title>
+				<link>https://alwaldend.com/docs/third_party/com_hashicorp_consul/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_hashicorp_consul/</guid>
+				<description>&lt;p&gt;The &lt;a href=&#34;binary_toolchain.json&#34;&gt;binary lock&lt;/a&gt; owns the upstream release and archive&#xA;integrity. Repository integration remains in &lt;a href=&#34;https://alwaldend.com/docs/tools/consul/&#34;&gt;&lt;code&gt;tools/consul&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;upstream&#34;&gt;Upstream&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#upstream&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://developer.hashicorp.com/consul&#34;&gt;Consul&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Dart Sass</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_sass_dart_sass/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_sass_dart_sass/</guid>
+				<description>&lt;p&gt;&lt;a href=&#34;https://sass-lang.com/dart-sass&#34;&gt;Dart Sass&lt;/a&gt; binary toolchain, used by Hugo&#xA;for &lt;code&gt;toCSS &amp;quot;dartsass&amp;quot;&lt;/code&gt; builds.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>dev_sanaei_3xui</title>
 				<link>https://alwaldend.com/docs/third_party/dev_sanaei_3xui/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/third_party/dev_sanaei_3xui/</guid>
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://docs.sanaei.dev/&#34;&gt;https://docs.sanaei.dev/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Releases: &lt;a href=&#34;https://github.com/MHSanaei/3x-ui/releases&#34;&gt;https://github.com/MHSanaei/3x-ui/releases&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Dnscontrol</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_stackexchange_dnscontrol/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_stackexchange_dnscontrol/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://github.com/StackExchange/dnscontrol&#34;&gt;https://github.com/StackExchange/dnscontrol&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
 				<title>flux</title>
@@ -110,6 +173,27 @@
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://fluxcd.io/flux/installation/&#34;&gt;https://fluxcd.io/flux/installation/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Releases: &lt;a href=&#34;https://github.com/fluxcd/flux2/releases&#34;&gt;https://github.com/fluxcd/flux2/releases&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
+				<title>Gh</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_cli_cli/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_cli_cli/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Repo: &lt;a href=&#34;https://github.com/cli/cli&#34;&gt;https://github.com/cli/cli&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Docs: &lt;a href=&#34;https://cli.github.com/&#34;&gt;https://cli.github.com/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Gitea</title>
+				<link>https://alwaldend.com/docs/third_party/com_gitea_gitea/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_gitea_gitea/</guid>
+				<description>&lt;p&gt;The &lt;a href=&#34;binary_toolchain.json&#34;&gt;binary lock&lt;/a&gt; owns the upstream release and archive&#xA;integrity. Repository integration remains in &lt;a href=&#34;https://alwaldend.com/docs/tools/gitea/&#34;&gt;&lt;code&gt;tools/gitea&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;upstream&#34;&gt;Upstream&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#upstream&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://about.gitea.com/&#34;&gt;Gitea&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Glab</title>
+				<link>https://alwaldend.com/docs/third_party/com_gitlab_gitlab_org_cli/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_gitlab_gitlab_org_cli/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Repo: &lt;a href=&#34;https://gitlab.com/gitlab-org/cli&#34;&gt;https://gitlab.com/gitlab-org/cli&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Docs: &lt;a href=&#34;https://docs.gitlab.com/cli/&#34;&gt;https://docs.gitlab.com/cli/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
 				<title>Gradle</title>
 				<link>https://alwaldend.com/docs/third_party/net_gradle_gradle/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -117,11 +201,18 @@
 				<description>&lt;p&gt;Pinned Gradle 8.13 binary distribution from the primary publisher.&lt;/p&gt;&#xA;&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Source code: &lt;a href=&#34;https://github.com/gradle/gradle/tree/v8.13.0&#34;&gt;https://github.com/gradle/gradle/tree/v8.13.0&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
+				<title>Hugo</title>
+				<link>https://alwaldend.com/docs/third_party/io_gohugo_hugo/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/io_gohugo_hugo/</guid>
+				<description>&lt;p&gt;Hugo binary toolchain for the repository. Build rules live in&#xA;&lt;a href=&#34;https://alwaldend.com/docs/tools/rules_hugo/&#34;&gt;&lt;code&gt;rules_hugo&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Upstream: &lt;a href=&#34;https://gohugo.io/&#34;&gt;https://gohugo.io/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
 				<title>Images</title>
 				<link>https://alwaldend.com/docs/third_party/images/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/third_party/images/</guid>
-				<description>&lt;h2 id=&#34;deploy-iso-to-proxmox&#34;&gt;Deploy ISO to Proxmox&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#deploy-iso-to-proxmox&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bazel run //third_party/images:deploy_proxmox&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deploy-iso-to-yandex-cloud&#34;&gt;Deploy ISO to Yandex Cloud&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#deploy-iso-to-yandex-cloud&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bazel run //third_party/images:deploy_yc&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+				<description>&lt;h2 id=&#34;deploy-iso-to-proxmox&#34;&gt;Deploy ISO to Proxmox&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#deploy-iso-to-proxmox&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel run //third_party/images:deploy_proxmox&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deploy-iso-to-yandex-cloud&#34;&gt;Deploy ISO to Yandex Cloud&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#deploy-iso-to-yandex-cloud&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel run //third_party/images:deploy_yc&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>io_cert_manager_cmctl</title>
@@ -201,6 +292,13 @@
 				<description>&lt;p&gt;This package supplies the Linux x86-64 build of&#xA;&lt;a href=&#34;https://github.com/go-acme/lego/releases/tag/v5.4.1&#34;&gt;Lego 5.4.1&lt;/a&gt;, licensed under&#xA;MIT. Its archive checksum matches both the publisher&amp;rsquo;s release checksum file&#xA;and GitHub release asset metadata. The binary is packaged by the XCP-ng&#xA;Ansible workflow; no package manager or lifecycle download runs on the host.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;code&gt;binary_toolchain.json&lt;/code&gt; file owns the immutable version and integrity pin.&lt;/p&gt;</description>
 			</item>
 			<item>
+				<title>Minisign</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_jedisct1_minisign/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_jedisct1_minisign/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Upstream: &lt;a href=&#34;https://github.com/jedisct1/minisign&#34;&gt;https://github.com/jedisct1/minisign&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
 				<title>net_zlib_zlib</title>
 				<link>https://alwaldend.com/docs/third_party/net_zlib_zlib/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -208,11 +306,25 @@
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://zlib.net/&#34;&gt;https://zlib.net/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Module: &lt;a href=&#34;https://registry.bazel.build/modules/zlib&#34;&gt;https://registry.bazel.build/modules/zlib&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
+				<title>openbao</title>
+				<link>https://alwaldend.com/docs/third_party/org_openbao_openbao/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/org_openbao_openbao/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://openbao.org/&#34;&gt;https://openbao.org/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
 				<title>OpenHands canvas UI compatibility module</title>
 				<link>https://alwaldend.com/docs/third_party/com_openhands_openhands_canvas_ui_tool/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/third_party/com_openhands_openhands_canvas_ui_tool/</guid>
 				<description>&lt;p&gt;&lt;code&gt;tools/canvas_ui_tool.py&lt;/code&gt; from &lt;code&gt;OpenHands/OpenHands&lt;/code&gt; at tag &lt;code&gt;v1.18.0&lt;/code&gt;&#xA;(commit &lt;code&gt;9120ff6cbbe23640f0e475661e5a9c9729cdbf1f&lt;/code&gt;). The OpenHands Agent&#xA;Canvas launchers import it into the agent server through&#xA;&lt;code&gt;--import-modules canvas_ui_tool&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;It is required because the automation preset builds its agent with a&#xA;&lt;code&gt;finish_tool_response_schema&lt;/code&gt;, which registers the SDK&amp;rsquo;s builtin &lt;code&gt;FinishTool&lt;/code&gt;&#xA;only inside the preset&amp;rsquo;s own process while advertising it to the agent server as&#xA;&lt;code&gt;openhands.sdk.tool.builtins.finish&lt;/code&gt;. That SDK module does not self-register, so&#xA;every automation-dispatched remote conversation fails to resolve &lt;code&gt;FinishTool&lt;/code&gt;&#xA;unless the compatibility module registers it in the agent server process first.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Oras</title>
+				<link>https://alwaldend.com/docs/third_party/land_oras_oras/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/land_oras_oras/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Repo: &lt;a href=&#34;https://github.com/oras-project/oras&#34;&gt;https://github.com/oras-project/oras&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Docs: &lt;a href=&#34;https://oras.land/docs&#34;&gt;https://oras.land/docs&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
 				<title>org_codeberg_forgejo</title>
@@ -240,7 +352,7 @@
 				<link>https://alwaldend.com/docs/third_party/org_codeberg_forgejo_runner_bin/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/third_party/org_codeberg_forgejo_runner_bin/</guid>
-				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://forgejo.org/&#34;&gt;https://forgejo.org/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Repo: &lt;a href=&#34;https://code.forgejo.org/forgejo/runner&#34;&gt;https://code.forgejo.org/forgejo/runner&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://forgejo.org/&#34;&gt;https://forgejo.org/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Repo: &lt;a href=&#34;https://code.forgejo.org/forgejo/runner&#34;&gt;https://code.forgejo.org/forgejo/runner&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;binary_toolchain.json&#34;&gt;binary lock&lt;/a&gt; pins the runner version and publisher&#xA;checksum. Native Forgejo Actions OIDC support is required by the&#xA;&lt;a href=&#34;https://alwaldend.com/docs/infra/forgejo_runner/&#34;&gt;runner deployment&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Validate a workflow without executing jobs:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel_agent bazel run //third_party/org_codeberg_forgejo_runner_bin -- validate --workflow --path &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PWD&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;/.forgejo/workflows/secure.yaml&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>org_fedora_cloud</title>
@@ -254,7 +366,7 @@
 				<link>https://alwaldend.com/docs/third_party/org_kernel_headers/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/third_party/org_kernel_headers/</guid>
-				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://www.kernel.org/&#34;&gt;https://www.kernel.org/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Header install: &lt;a href=&#34;https://www.kernel.org/doc/Documentation/kbuild/headers_install.txt&#34;&gt;https://www.kernel.org/doc/Documentation/kbuild/headers_install.txt&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Reference: &lt;a href=&#34;https://github.com/DanielEliad/rules_linux_kernel_headers/tree/main&#34;&gt;https://github.com/DanielEliad/rules_linux_kernel_headers/tree/main&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;generate-the-config&#34;&gt;Generate the config&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#generate-the-config&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;zcat /proc/config.gz &amp;gt;third_party/org_kernel_headers/config.txt&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://www.kernel.org/&#34;&gt;https://www.kernel.org/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Header install: &lt;a href=&#34;https://www.kernel.org/doc/Documentation/kbuild/headers_install.txt&#34;&gt;https://www.kernel.org/doc/Documentation/kbuild/headers_install.txt&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Reference: &lt;a href=&#34;https://github.com/DanielEliad/rules_linux_kernel_headers/tree/main&#34;&gt;https://github.com/DanielEliad/rules_linux_kernel_headers/tree/main&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;generate-the-config&#34;&gt;Generate the config&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#generate-the-config&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;zcat /proc/config.gz &amp;gt;third_party/org_kernel_headers/config.txt&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>org_nmap_nmap</title>
@@ -285,11 +397,53 @@
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Download: &lt;a href=&#34;https://updates.xcp-ng.org/isos/8.3/&#34;&gt;https://updates.xcp-ng.org/isos/8.3/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
+				<title>Rclone</title>
+				<link>https://alwaldend.com/docs/third_party/org_rclone_rclone/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/org_rclone_rclone/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://rclone.org/&#34;&gt;https://rclone.org/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Selene</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_kampfkarren_selene/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_kampfkarren_selene/</guid>
+				<description>&lt;p&gt;The &lt;a href=&#34;binary_toolchain.json&#34;&gt;binary lock&lt;/a&gt; owns the upstream release and archive&#xA;integrity. Repository integration remains in &lt;a href=&#34;https://alwaldend.com/docs/tools/selene/&#34;&gt;&lt;code&gt;tools/selene&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;upstream&#34;&gt;Upstream&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#upstream&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/Kampfkarren/selene&#34;&gt;Selene&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
 				<title>sh_helm_helm</title>
 				<link>https://alwaldend.com/docs/third_party/sh_helm_helm/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/third_party/sh_helm_helm/</guid>
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://helm.sh/&#34;&gt;https://helm.sh/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Releases: &lt;a href=&#34;https://github.com/helm/helm/releases&#34;&gt;https://github.com/helm/helm/releases&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Shellcheck</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_koalaman_shellcheck/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_koalaman_shellcheck/</guid>
+				<description>&lt;ul&gt;&#xA;&lt;li&gt;Repo: &lt;a href=&#34;https://github.com/koalaman/shellcheck&#34;&gt;https://github.com/koalaman/shellcheck&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Shfmt</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_mvdan_sh/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_mvdan_sh/</guid>
+				<description>&lt;p&gt;The &lt;a href=&#34;binary_toolchain.json&#34;&gt;binary lock&lt;/a&gt; owns the upstream release and archive&#xA;integrity. Repository integration remains in &lt;a href=&#34;https://alwaldend.com/docs/tools/shfmt/&#34;&gt;&lt;code&gt;tools/shfmt&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;upstream&#34;&gt;Upstream&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#upstream&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/mvdan/sh&#34;&gt;Shfmt&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>StyLua</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_johnnymorganz_stylua/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_johnnymorganz_stylua/</guid>
+				<description>&lt;p&gt;The &lt;a href=&#34;binary_toolchain.json&#34;&gt;binary lock&lt;/a&gt; owns the upstream release and archive&#xA;integrity. Repository integration remains in &lt;a href=&#34;https://alwaldend.com/docs/tools/stylua/&#34;&gt;&lt;code&gt;tools/stylua&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;upstream&#34;&gt;Upstream&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#upstream&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/JohnnyMorganz/StyLua&#34;&gt;StyLua&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Taplo</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_tamasfe_taplo/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_tamasfe_taplo/</guid>
+				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Repo: &lt;a href=&#34;https://github.com/tamasfe/taplo&#34;&gt;https://github.com/tamasfe/taplo&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://taplo.tamasfe.dev/&#34;&gt;https://taplo.tamasfe.dev/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
 				<title>Terraform dependencies</title>
@@ -306,11 +460,25 @@
 				<description></description>
 			</item>
 			<item>
+				<title>TruffleHog</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_trufflesecurity_trufflehog/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_trufflesecurity_trufflehog/</guid>
+				<description>&lt;p&gt;The &lt;a href=&#34;binary_toolchain.json&#34;&gt;binary lock&lt;/a&gt; owns the upstream release and archive&#xA;integrity. Repository integration remains in &lt;a href=&#34;https://alwaldend.com/docs/tools/trufflehog/&#34;&gt;&lt;code&gt;tools/trufflehog&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;upstream&#34;&gt;Upstream&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#upstream&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/trufflesecurity/trufflehog&#34;&gt;TruffleHog&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
 				<title>us_nasm_nasm</title>
 				<link>https://alwaldend.com/docs/third_party/us_nasm_nasm/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/third_party/us_nasm_nasm/</guid>
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://nasm.us/&#34;&gt;https://nasm.us/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Vault</title>
+				<link>https://alwaldend.com/docs/third_party/com_hashicorp_vault/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_hashicorp_vault/</guid>
+				<description>&lt;p&gt;The &lt;a href=&#34;binary_toolchain.json&#34;&gt;binary lock&lt;/a&gt; owns the upstream release and archive&#xA;integrity. Repository integration remains in &lt;a href=&#34;https://alwaldend.com/docs/tools/vault/&#34;&gt;&lt;code&gt;tools/vault&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;upstream&#34;&gt;Upstream&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#upstream&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/hashicorp/vault&#34;&gt;Vault&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
 				<title>Xen Orchestra OIDC plugin</title>

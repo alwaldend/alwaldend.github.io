@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Maven Install Gradle Converter">
 	<meta itemprop="description" content="Converts rules_jvm_external maven_install.json locks to Gradle build inputs">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="93">
 	<meta itemprop="keywords" content="Android,Gradle,Bazel">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Maven Install Gradle Converter">
 	<meta name="twitter:description" content="Converts rules_jvm_external maven_install.json locks to Gradle build inputs">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -199,18 +199,18 @@ version catalogs and dependency verification metadata so Bazel-built Android
 apps can maintain the parallel Gradle build required for F-Droid.</p>
 <h2 id="print-4e14a73d648727c2ad4dfb9c92e92608-usage">Usage<a class="td-heading-self-link" href="#print-4e14a73d648727c2ad4dfb9c92e92608-usage" aria-label="Heading self-link"></a></h2><p>Use the <code>al_gradle_lock</code> Starlark macro from
 <code>main/bzl/gradle_lock.bzl</code> in your app&rsquo;s <code>gradle/BUILD.bazel</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;//tools/maven_install_gradle_converter:defs.bzl&#34;</span>, <span style="color:#e6db74">&#34;al_gradle_lock&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>al_gradle_lock(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;update&#34;</span>,
-</span></span><span style="display:flex;"><span>    lock_file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;//projects/&lt;app&gt;:maven_lock.json&#34;</span>,
-</span></span><span style="display:flex;"><span>    tool <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;//tools/maven_install_gradle_converter/cmd/gradle_lock_gen&#34;</span>,
-</span></span><span style="display:flex;"><span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-starlark" data-lang="starlark"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;//tools/maven_install_gradle_converter:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;al_gradle_lock&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">al_gradle_lock</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;update&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lock_file</span> <span class="o">=</span> <span class="s2">&#34;//projects/&lt;app&gt;:maven_lock.json&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tool</span> <span class="o">=</span> <span class="s2">&#34;//tools/maven_install_gradle_converter/cmd/gradle_lock_gen&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span></code></pre></div><p>Run <code>bazel run :update_toml_write</code> to regenerate the checked-in version
 catalog. The corresponding <code>*_write_test</code> target fails when it goes stale.</p>
 <p>Gradle owns <code>verification-metadata.xml</code> because it must record the plugin
 classpath in addition to the Bazel lock. Regenerate it with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>projects/&lt;app&gt;/../../tools/gradle/gradle-wrapper --project-cache-dir out/gradle-wrapper/project-cache --write-verification-metadata sha256
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">projects/&lt;app&gt;/../../tools/gradle/gradle-wrapper --project-cache-dir out/gradle-wrapper/project-cache --write-verification-metadata sha256
 </span></span></code></pre></div>
 </div>
 </div>

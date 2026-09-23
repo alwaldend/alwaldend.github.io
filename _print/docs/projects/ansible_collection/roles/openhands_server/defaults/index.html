@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Defaults">
 	<meta itemprop="description" content="Defaults for openhands_server">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="111">
 	<meta itemprop="keywords" content="Generated">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Defaults">
 	<meta name="twitter:description" content="Defaults for openhands_server">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -194,45 +194,45 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">openhands_server_user</span>: <span style="color:#ae81ff">openhands</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_user_uid</span>: <span style="color:#ae81ff">8152</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_dir</span>: <span style="color:#ae81ff">/opt/openhands-server</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_home_dir</span>: <span style="color:#e6db74">&#34;{{ openhands_server_dir }}/home&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_work_dir</span>: <span style="color:#e6db74">&#34;{{ openhands_server_dir }}/work&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_state_dir</span>: <span style="color:#e6db74">&#34;{{ openhands_server_dir }}/state&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_conversations_dir</span>: <span style="color:#e6db74">&#34;{{ openhands_server_state_dir }}/conversations&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_persistence_dir</span>: <span style="color:#e6db74">&#34;{{ openhands_server_state_dir }}/persistence&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_workspace_dir</span>: <span style="color:#e6db74">&#34;{{ openhands_server_work_dir }}/project&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_bash_events_dir</span>: <span style="color:#e6db74">&#34;{{ openhands_server_state_dir }}/bash_events&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_tools_dir</span>: <span style="color:#e6db74">&#34;{{ openhands_server_dir }}/tools&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_disk</span>:
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_secure</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_install_packages</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_packages</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">python3.12</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">uv</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_host</span>: <span style="color:#ae81ff">127.0.0.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_port</span>: <span style="color:#ae81ff">18000</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_version</span>: <span style="color:#e6db74">&#34;{{ undefined() }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_session_api_key</span>: <span style="color:#e6db74">&#34;{{ undefined() }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_secret_key</span>: <span style="color:#e6db74">&#34;{{ undefined() }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_import_modules</span>: <span style="color:#ae81ff">canvas_ui_tool</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_vscode_port</span>: <span style="color:#ae81ff">8001</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_vscode_base_path</span>: <span style="color:#ae81ff">/vscode</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_venv_dir</span>: <span style="color:#e6db74">&#34;{{ openhands_server_dir }}/venv&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_venv_python</span>: <span style="color:#e6db74">&#34;{{ openhands_server_venv_dir }}/bin/python&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_service_path</span>: <span style="color:#ae81ff">/lib/systemd/system/openhands-server.service</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_env_path</span>: <span style="color:#e6db74">&#34;{{ openhands_server_dir }}/.env&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">openhands_server_env</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">LOG_JSON</span>: <span style="color:#e6db74">&#34;true&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">PYTHONUTF8</span>: <span style="color:#e6db74">&#34;1&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">OPENHANDS_REMOTE_WS_READY_REQUIRED</span>: <span style="color:#e6db74">&#34;false&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">OH_PERSISTENCE_DIR</span>: <span style="color:#e6db74">&#34;{{ openhands_server_persistence_dir }}&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">OH_CONVERSATIONS_PATH</span>: <span style="color:#e6db74">&#34;{{ openhands_server_conversations_dir }}&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">OH_WORKSPACE_PATH</span>: <span style="color:#e6db74">&#34;{{ openhands_server_workspace_dir }}&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">OH_BASH_EVENTS_DIR</span>: <span style="color:#e6db74">&#34;{{ openhands_server_bash_events_dir }}&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">OH_SECRET_KEY</span>: <span style="color:#e6db74">&#34;{{ openhands_server_secret_key }}&#34;</span>
-</span></span></code></pre></div>
+      <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">openhands_server_user</span><span class="p">:</span><span class="w"> </span><span class="l">openhands</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">8152</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/opt/openhands-server</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_home_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_dir }}/home&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_work_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_dir }}/work&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_state_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_dir }}/state&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_conversations_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_state_dir }}/conversations&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_persistence_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_state_dir }}/persistence&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_workspace_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_work_dir }}/project&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_bash_events_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_state_dir }}/bash_events&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_tools_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_dir }}/tools&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_disk</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_secure</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_install_packages</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_packages</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">python3.12</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">uv</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_host</span><span class="p">:</span><span class="w"> </span><span class="m">127.0.0.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_port</span><span class="p">:</span><span class="w"> </span><span class="m">18000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ undefined() }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_session_api_key</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ undefined() }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_secret_key</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ undefined() }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_import_modules</span><span class="p">:</span><span class="w"> </span><span class="l">canvas_ui_tool</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_vscode_port</span><span class="p">:</span><span class="w"> </span><span class="m">8001</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_vscode_base_path</span><span class="p">:</span><span class="w"> </span><span class="l">/vscode</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_venv_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_dir }}/venv&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_venv_python</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_venv_dir }}/bin/python&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_service_path</span><span class="p">:</span><span class="w"> </span><span class="l">/lib/systemd/system/openhands-server.service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_env_path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_dir }}/.env&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">LOG_JSON</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">PYTHONUTF8</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;1&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">OPENHANDS_REMOTE_WS_READY_REQUIRED</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;false&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">OH_PERSISTENCE_DIR</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_persistence_dir }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">OH_CONVERSATIONS_PATH</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_conversations_dir }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">OH_WORKSPACE_PATH</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_workspace_dir }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">OH_BASH_EVENTS_DIR</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_bash_events_dir }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">OH_SECRET_KEY</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ openhands_server_secret_key }}&#34;</span><span class="w">
+</span></span></span></code></pre></div>
 </div>
 </div>
 

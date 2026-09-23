@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Rules Promptfoo Gazelle">
 	<meta itemprop="description" content="Gazelle extension for offline Promptfoo validation tests">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="526">
 	<meta itemprop="keywords" content="Bzl_rules,Llm_evals">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Rules Promptfoo Gazelle">
 	<meta name="twitter:description" content="Gazelle extension for offline Promptfoo validation tests">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -200,39 +200,39 @@ This is the multi-page printable view of this section.
 live <code>promptfoo_test</code> targets.</p>
 <p>Add <code>rules_promptfoo</code> as a normal dependency and this generator as a
 development dependency:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>bazel_dep(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rules_promptfoo&#34;</span>, version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;VERSION&gt;&#34;</span>)
-</span></span><span style="display:flex;"><span>bazel_dep(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rules_promptfoo_gazelle&#34;</span>,
-</span></span><span style="display:flex;"><span>    version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;VERSION&gt;&#34;</span>,
-</span></span><span style="display:flex;"><span>    dev_dependency <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>,
-</span></span><span style="display:flex;"><span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-starlark" data-lang="starlark"><span class="line"><span class="cl"><span class="n">bazel_dep</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;rules_promptfoo&#34;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s2">&#34;&lt;VERSION&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bazel_dep</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;rules_promptfoo_gazelle&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">version</span> <span class="o">=</span> <span class="s2">&#34;&lt;VERSION&gt;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dev_dependency</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span></code></pre></div><p>For one-pass skill package creation, also add <code>rules_skills</code> as a normal
 dependency and <code>rules_skill_gazelle</code> as a development dependency:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>bazel_dep(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rules_skills&#34;</span>, version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;VERSION&gt;&#34;</span>)
-</span></span><span style="display:flex;"><span>bazel_dep(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rules_skill_gazelle&#34;</span>,
-</span></span><span style="display:flex;"><span>    version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;VERSION&gt;&#34;</span>,
-</span></span><span style="display:flex;"><span>    dev_dependency <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>,
-</span></span><span style="display:flex;"><span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-starlark" data-lang="starlark"><span class="line"><span class="cl"><span class="n">bazel_dep</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;rules_skills&#34;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s2">&#34;&lt;VERSION&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bazel_dep</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;rules_skill_gazelle&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">version</span> <span class="o">=</span> <span class="s2">&#34;&lt;VERSION&gt;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dev_dependency</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span></code></pre></div><p>Add both public language targets to the repository&rsquo;s custom Gazelle binary:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@gazelle//:def.bzl&#34;</span>, <span style="color:#e6db74">&#34;gazelle_binary&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>gazelle_binary(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gazelle_binary&#34;</span>,
-</span></span><span style="display:flex;"><span>    languages <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;@rules_promptfoo_gazelle//gazelle&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;@rules_skill_gazelle//gazelle&#34;</span>,
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-starlark" data-lang="starlark"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@gazelle//:def.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;gazelle_binary&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gazelle_binary</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;gazelle_binary&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">languages</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;@rules_promptfoo_gazelle//gazelle&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;@rules_skill_gazelle//gazelle&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span></code></pre></div><p>With both extensions installed, a fresh directory containing <code>SKILL.md</code> and a
 conventional Promptfoo configuration receives both <code>skill_library</code> and
 <code>promptfoo_validate_test</code> targets in one Gazelle run; it does not need an
 existing BUILD file.</p>
 <p>The extension recognizes these conventional configuration paths:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>evals/promptfooconfig.yaml
-</span></span><span style="display:flex;"><span>evals/promptfooconfig.&lt;variant&gt;.yaml
-</span></span><span style="display:flex;"><span>evals/promptfooconfig.yml
-</span></span><span style="display:flex;"><span>evals/promptfooconfig.&lt;variant&gt;.json
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">evals/promptfooconfig.yaml
+</span></span><span class="line"><span class="cl">evals/promptfooconfig.&lt;variant&gt;.yaml
+</span></span><span class="line"><span class="cl">evals/promptfooconfig.yml
+</span></span><span class="line"><span class="cl">evals/promptfooconfig.&lt;variant&gt;.json
 </span></span></code></pre></div><p>The default file produces <code>eval_config_test</code>; a variant produces
 <code>eval_&lt;sanitized_variant&gt;_config_test</code>. Variants are lowercased, and runs of
 characters other than ASCII letters and digits become underscores. Colliding

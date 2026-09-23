@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Defaults">
 	<meta itemprop="description" content="Defaults for adguard">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="58">
 	<meta itemprop="keywords" content="Generated">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Defaults">
 	<meta name="twitter:description" content="Defaults for adguard">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -194,23 +194,23 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">adguard_dir</span>: <span style="color:#ae81ff">/etc/adguard</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_work_dir</span>: <span style="color:#e6db74">&#34;{{ adguard_dir }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_gpg_key_url</span>: <span style="color:#ae81ff">https://keys.openpgp.org/vks/v1/by-fingerprint/28645AC9776EC4C00BCE2AFC0FE641E7235E2EC6</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_gpg_key_src</span>: <span style="color:#ae81ff">files/key.asc</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_gpg_key_path</span>: <span style="color:#e6db74">&#34;{{ adguard_dir }}/release-key.asc&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_gpg_key_checksum</span>: <span style="color:#e6db74">&#34;22d78dbacb461667861ee7d2dd13d13240ee003d&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_source_url</span>: <span style="color:#ae81ff">https://github.com/AdguardTeam/AdGuardHome/releases/download</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_version</span>: <span style="color:#ae81ff">v0.107.48</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_checksum</span>: <span style="color:#e6db74">&#34;sha512:c0a336212e3792ae6fc6b8de976befce0038c5d6ddde919a00994c43a929349958c7bd65f7fb7fdd471962afa20855ecbf5830cc7a1d26f3037a716db638c101&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_distrib</span>: <span style="color:#ae81ff">AdGuardHome_linux_amd64.tar.gz</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_url</span>: <span style="color:#e6db74">&#34;{{ adguard_release_source_url }}/{{ adguard_release_version }}/{{ adguard_release_distrib }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_archive_dest</span>: <span style="color:#e6db74">&#34;{{ adguard_dir }}/release-{{ adguard_release_version }}-{{ adguard_release_distrib }}&#34;</span> 
-</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_dest</span>: <span style="color:#e6db74">&#34;{{ adguard_dir }}/release-{{ adguard_release_version }}&#34;</span> 
-</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_dir</span>: <span style="color:#e6db74">&#34;{{ adguard_release_dest }}/AdGuardHome&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_bin</span>: <span style="color:#e6db74">&#34;{{ adguard_release_dir }}/AdGuardHome&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">adguard_release_sig</span>: <span style="color:#e6db74">&#34;{{ adguard_release_bin }}.sig&#34;</span>
-</span></span></code></pre></div>
+      <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">adguard_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/adguard</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">adguard_work_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ adguard_dir }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">adguard_gpg_key_url</span><span class="p">:</span><span class="w"> </span><span class="l">https://keys.openpgp.org/vks/v1/by-fingerprint/28645AC9776EC4C00BCE2AFC0FE641E7235E2EC6</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">adguard_gpg_key_src</span><span class="p">:</span><span class="w"> </span><span class="l">files/key.asc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">adguard_gpg_key_path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ adguard_dir }}/release-key.asc&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">adguard_gpg_key_checksum</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;22d78dbacb461667861ee7d2dd13d13240ee003d&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">adguard_release_source_url</span><span class="p">:</span><span class="w"> </span><span class="l">https://github.com/AdguardTeam/AdGuardHome/releases/download</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">adguard_release_version</span><span class="p">:</span><span class="w"> </span><span class="l">v0.107.48</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">adguard_release_checksum</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;sha512:c0a336212e3792ae6fc6b8de976befce0038c5d6ddde919a00994c43a929349958c7bd65f7fb7fdd471962afa20855ecbf5830cc7a1d26f3037a716db638c101&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">adguard_release_distrib</span><span class="p">:</span><span class="w"> </span><span class="l">AdGuardHome_linux_amd64.tar.gz</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">adguard_release_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ adguard_release_source_url }}/{{ adguard_release_version }}/{{ adguard_release_distrib }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">adguard_release_archive_dest</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ adguard_dir }}/release-{{ adguard_release_version }}-{{ adguard_release_distrib }}&#34;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="nt">adguard_release_dest</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ adguard_dir }}/release-{{ adguard_release_version }}&#34;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="nt">adguard_release_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ adguard_release_dest }}/AdGuardHome&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">adguard_release_bin</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ adguard_release_dir }}/AdGuardHome&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">adguard_release_sig</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ adguard_release_bin }}.sig&#34;</span><span class="w">
+</span></span></span></code></pre></div>
 </div>
 </div>
 

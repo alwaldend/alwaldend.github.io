@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Repository delivery">
 	<meta itemprop="description" content="Guarded Git and pull-request delivery">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="2867">
 	<meta itemprop="keywords" content="Git,Github">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Repository delivery">
 	<meta name="twitter:description" content="Guarded Git and pull-request delivery">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -203,7 +203,7 @@ files belong to a nested Bazel module: its workspace does not own the delivery
 target. Use the same feature worktree, not another checkout. The baseline works
 with older installed runners. Detect the provider without printing a
 credential-bearing remote URL:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/repo_delivery -- provider
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/repo_delivery -- provider
 </span></span></code></pre></div><p>The optional cached form is <code>al tool repo_delivery -- ...</code>. An execution
 failure or delivery refusal still requires diagnosis. All examples below use
 the baseline.</p>
@@ -217,48 +217,48 @@ task-local launcher once from the repository root. Ordinary <code>bazel run</cod
 retain the Bazel lock while its target runs; <code>--script_path</code> releases it before
 the generated launcher is executed. Refresh the launcher after changing the
 delivery tool. This requires no installed runner update:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run --script_path<span style="color:#f92672">=</span>out/task/repo_delivery <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  //tools/repo_delivery
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run --script_path<span class="o">=</span>out/task/repo_delivery <span class="se">\
+</span></span></span><span class="line"><span class="cl">  //tools/repo_delivery
 </span></span></code></pre></div><p>For the supported GitHub adapter, the normal workflow is:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/repo_delivery -- inspect --base master
-</span></span><span style="display:flex;"><span>bazel_agent bazel run //tools/repo_delivery -- prepare <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --base master <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --message-file out/task/commit.md <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --receipt-file out/task/prepare.json <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --path path/to/task/file <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --rewrite &lt;inspect.local_head_oid&gt; <span style="color:#75715e"># omit when the range has no commit</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># For an explicitly reviewed task-owned multi-commit range, use</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># --consolidate &lt;inspect.local_head_oid&gt; instead of --rewrite.</span>
-</span></span><span style="display:flex;"><span>out/task/repo_delivery validate <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --receipt-file out/task/prepare.json --plan-file out/task/checks.json
-</span></span><span style="display:flex;"><span>out/task/repo_delivery <span style="color:#66d9ef">continue</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --receipt-file out/task/prepare.json --publish
-</span></span><span style="display:flex;"><span>out/task/repo_delivery <span style="color:#66d9ef">continue</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --receipt-file out/task/prepare.json
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/repo_delivery -- inspect --base master
+</span></span><span class="line"><span class="cl">bazel_agent bazel run //tools/repo_delivery -- prepare <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --base master <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --message-file out/task/commit.md <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --receipt-file out/task/prepare.json <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --path path/to/task/file <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --rewrite &lt;inspect.local_head_oid&gt; <span class="c1"># omit when the range has no commit</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># For an explicitly reviewed task-owned multi-commit range, use</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># --consolidate &lt;inspect.local_head_oid&gt; instead of --rewrite.</span>
+</span></span><span class="line"><span class="cl">out/task/repo_delivery validate <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --receipt-file out/task/prepare.json --plan-file out/task/checks.json
+</span></span><span class="line"><span class="cl">out/task/repo_delivery <span class="k">continue</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --receipt-file out/task/prepare.json --publish
+</span></span><span class="line"><span class="cl">out/task/repo_delivery <span class="k">continue</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --receipt-file out/task/prepare.json
 </span></span></code></pre></div><p><code>checks.json</code> is an explicitly selected validation plan. Keep it mode 0600 in
 the same ignored <code>out/&lt;task&gt;/</code> directory as the preparation receipt. For
 example, a change confined to the delivery Go package can use:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;schema&#34;</span>: <span style="color:#e6db74">&#34;repo_delivery/validation_plan/v1&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;checks&#34;</span>: [
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;workspace&#34;</span>: <span style="color:#e6db74">&#34;.&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;kind&#34;</span>: <span style="color:#e6db74">&#34;test&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;targets&#34;</span>: [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;//tools/repo_delivery/cmd/repo_delivery:go_test&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;//:repo_quality_test&#34;</span>
-</span></span><span style="display:flex;"><span>      ],
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;timeout_seconds&#34;</span>: <span style="color:#ae81ff">3600</span>
-</span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;workspace&#34;</span>: <span style="color:#e6db74">&#34;.&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;kind&#34;</span>: <span style="color:#e6db74">&#34;lint&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;targets&#34;</span>: [<span style="color:#e6db74">&#34;//tools/repo_delivery/cmd/repo_delivery:all&#34;</span>],
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;timeout_seconds&#34;</span>: <span style="color:#ae81ff">3600</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  ],
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;gap_decisions&#34;</span>: []
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;schema&#34;</span><span class="p">:</span> <span class="s2">&#34;repo_delivery/validation_plan/v1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;checks&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;workspace&#34;</span><span class="p">:</span> <span class="s2">&#34;.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;kind&#34;</span><span class="p">:</span> <span class="s2">&#34;test&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;targets&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;//tools/repo_delivery/cmd/repo_delivery:go_test&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;//:repo_quality_test&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;timeout_seconds&#34;</span><span class="p">:</span> <span class="mi">3600</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;workspace&#34;</span><span class="p">:</span> <span class="s2">&#34;.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;kind&#34;</span><span class="p">:</span> <span class="s2">&#34;lint&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;targets&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;//tools/repo_delivery/cmd/repo_delivery:all&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;timeout_seconds&#34;</span><span class="p">:</span> <span class="mi">3600</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;gap_decisions&#34;</span><span class="p">:</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Allowed kinds are <code>test</code>, <code>build</code>, and <code>lint</code> (build with <code>--config=lint</code>).
 The plan accepts 1–32 sequential checks, 1–128 explicit local labels per check,
 and a 1–3600 second deadline per check. Package <code>:all</code> is supported outside the
@@ -308,7 +308,7 @@ semantic correctness for BUILD, MODULE, or configuration changes. Run semantic
 lint for the selected affected targets in addition to that mandatory gate.</p>
 <p>To synchronize a prepared, task-owned, single-commit feature branch with an
 advanced base before <code>prepare</code>, use the guarded adapter workflow:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/repo_delivery -- rebase --base master
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/repo_delivery -- rebase --base master
 </span></span></code></pre></div><p>The command refuses dirty trees, divergent remote feature tips, multi-commit
 or merge-containing ranges, and pull-request metadata changes. It fetches
 fresh refs, replays the commit in an isolated worktree, preserves signature
@@ -440,46 +440,46 @@ window, the feature ref may be visible briefly before the tool detects the
 race and attempts an exact guarded rollback. Coordinate consumers that react
 immediately to branch-update webhooks.</p>
 <h2 id="print-e5d718520ef5395ddf24170568b5cb5a-review-workflow">Review workflow<a class="td-heading-self-link" href="#print-e5d718520ef5395ddf24170568b5cb5a-review-workflow" aria-label="Heading self-link"></a></h2><p>Start with a bounded structured inventory:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/repo_delivery -- review inspect
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/repo_delivery -- review inspect
 </span></span></code></pre></div><p>Carry values from the latest inspection literally. All mutations require the
 pull-request node ID, expected head, and pull-request expectation digest. A
 top-level reply also requires the
 reported last-comment sentinel and top-level inventory digest:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/repo_delivery -- review comment <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --pull-request-id &lt;pull_request.id&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --expected-head &lt;pull_request.head_ref_oid&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --expected-pull-request-digest &lt;pull_request_expectation_digest&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --expected-last-top-level-comment <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    &lt;expected_last_top_level_comment&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --expected-top-level-comments-digest <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    &lt;expected_top_level_comments_digest&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --body-file out/task/comment.md
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/repo_delivery -- review comment <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --pull-request-id &lt;pull_request.id&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --expected-head &lt;pull_request.head_ref_oid&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --expected-pull-request-digest &lt;pull_request_expectation_digest&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --expected-last-top-level-comment <span class="se">\
+</span></span></span><span class="line"><span class="cl">    &lt;expected_last_top_level_comment&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --expected-top-level-comments-digest <span class="se">\
+</span></span></span><span class="line"><span class="cl">    &lt;expected_top_level_comments_digest&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --body-file out/task/comment.md
 </span></span></code></pre></div><p>Thread replies and resolutions additionally bind the thread, its last comment,
 and its complete expectation digest:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/repo_delivery -- review reply <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --pull-request-id &lt;pull_request.id&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --expected-head &lt;pull_request.head_ref_oid&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --expected-pull-request-digest &lt;pull_request_expectation_digest&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --thread-id &lt;review_threads<span style="color:#f92672">[</span>index<span style="color:#f92672">]</span>.id&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --expected-last-comment-id &lt;review_threads<span style="color:#f92672">[</span>index<span style="color:#f92672">]</span>.comments<span style="color:#f92672">[</span>-1<span style="color:#f92672">]</span>.id&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --expected-thread-digest &lt;review_threads<span style="color:#f92672">[</span>index<span style="color:#f92672">]</span>.expectation_digest&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --body-file out/task/reply.md <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --reply-receipt-file out/task/reply.json
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>bazel_agent bazel run //tools/repo_delivery -- review resolve <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --pull-request-id &lt;pull_request.id&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --expected-head &lt;pull_request.head_ref_oid&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --expected-pull-request-digest &lt;pull_request_expectation_digest&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --thread-id &lt;review_threads<span style="color:#f92672">[</span>index<span style="color:#f92672">]</span>.id&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --expected-last-comment-id &lt;review_threads<span style="color:#f92672">[</span>index<span style="color:#f92672">]</span>.comments<span style="color:#f92672">[</span>-1<span style="color:#f92672">]</span>.id&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --expected-thread-digest &lt;review_threads<span style="color:#f92672">[</span>index<span style="color:#f92672">]</span>.expectation_digest&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --reply-receipt-file out/task/reply.json
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>bazel_agent bazel run //tools/repo_delivery -- review request <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --pull-request-id &lt;pull_request.id&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --expected-head &lt;pull_request.head_ref_oid&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --expected-pull-request-digest &lt;pull_request_expectation_digest&gt; <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --reviewer &lt;login&gt;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/repo_delivery -- review reply <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --pull-request-id &lt;pull_request.id&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --expected-head &lt;pull_request.head_ref_oid&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --expected-pull-request-digest &lt;pull_request_expectation_digest&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --thread-id &lt;review_threads<span class="o">[</span>index<span class="o">]</span>.id&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --expected-last-comment-id &lt;review_threads<span class="o">[</span>index<span class="o">]</span>.comments<span class="o">[</span>-1<span class="o">]</span>.id&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --expected-thread-digest &lt;review_threads<span class="o">[</span>index<span class="o">]</span>.expectation_digest&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --body-file out/task/reply.md <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --reply-receipt-file out/task/reply.json
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bazel_agent bazel run //tools/repo_delivery -- review resolve <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --pull-request-id &lt;pull_request.id&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --expected-head &lt;pull_request.head_ref_oid&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --expected-pull-request-digest &lt;pull_request_expectation_digest&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --thread-id &lt;review_threads<span class="o">[</span>index<span class="o">]</span>.id&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --expected-last-comment-id &lt;review_threads<span class="o">[</span>index<span class="o">]</span>.comments<span class="o">[</span>-1<span class="o">]</span>.id&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --expected-thread-digest &lt;review_threads<span class="o">[</span>index<span class="o">]</span>.expectation_digest&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --reply-receipt-file out/task/reply.json
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bazel_agent bazel run //tools/repo_delivery -- review request <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --pull-request-id &lt;pull_request.id&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --expected-head &lt;pull_request.head_ref_oid&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --expected-pull-request-digest &lt;pull_request_expectation_digest&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --reviewer &lt;login&gt;
 </span></span></code></pre></div><p>Comment and reply bodies must be ignored files under <code>out/&lt;task&gt;/</code>; the tool
 adds the exact comment disclaimer. Resolution requires the strict reply
 receipt written by <code>review reply</code>, and the receipt must still match the exact

@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Pve">
 	<meta itemprop="description" content="Proxmox cluster pve.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="92">
 	<meta itemprop="keywords" content="Ansible,Pve">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Pve">
 	<meta name="twitter:description" content="Proxmox cluster pve.alwaldend.com">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -251,13 +251,13 @@ This is the multi-page printable view of this section.
       <h2 id="print-cf1407a5a11f935a7972527e91fd6211-links">Links<a class="td-heading-self-link" href="#print-cf1407a5a11f935a7972527e91fd6211-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Docs: <a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview">https://www.proxmox.com/en/products/proxmox-virtual-environment/overview</a></li>
 </ul>
-<h2 id="print-cf1407a5a11f935a7972527e91fd6211-deployment">Deployment<a class="td-heading-self-link" href="#print-cf1407a5a11f935a7972527e91fd6211-deployment" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/pve/ansible <span style="color:#75715e"># host setup</span>
-</span></span><span style="display:flex;"><span>bazel run //infra/pve/tf/tf.apply <span style="color:#75715e"># tf setup</span>
-</span></span></code></pre></div><h2 id="print-cf1407a5a11f935a7972527e91fd6211-recreate-the-test-vm">Recreate the test VM<a class="td-heading-self-link" href="#print-cf1407a5a11f935a7972527e91fd6211-recreate-the-test-vm" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/pve/tf:tf.apply -- --replace module.vm_cloudinit_test.proxmox_vm_qemu.vm
-</span></span></code></pre></div><h2 id="print-cf1407a5a11f935a7972527e91fd6211-cloud-init-snippet-update">Cloud-init snippet update<a class="td-heading-self-link" href="#print-cf1407a5a11f935a7972527e91fd6211-cloud-init-snippet-update" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/pve/ansible -- --tags pve_snippets
+<h2 id="print-cf1407a5a11f935a7972527e91fd6211-deployment">Deployment<a class="td-heading-self-link" href="#print-cf1407a5a11f935a7972527e91fd6211-deployment" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/pve/ansible <span class="c1"># host setup</span>
+</span></span><span class="line"><span class="cl">bazel run //infra/pve/tf/tf.apply <span class="c1"># tf setup</span>
+</span></span></code></pre></div><h2 id="print-cf1407a5a11f935a7972527e91fd6211-recreate-the-test-vm">Recreate the test VM<a class="td-heading-self-link" href="#print-cf1407a5a11f935a7972527e91fd6211-recreate-the-test-vm" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/pve/tf:tf.apply -- --replace module.vm_cloudinit_test.proxmox_vm_qemu.vm
+</span></span></code></pre></div><h2 id="print-cf1407a5a11f935a7972527e91fd6211-cloud-init-snippet-update">Cloud-init snippet update<a class="td-heading-self-link" href="#print-cf1407a5a11f935a7972527e91fd6211-cloud-init-snippet-update" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/pve/ansible -- --tags pve_snippets
 </span></span></code></pre></div><h2 id="print-cf1407a5a11f935a7972527e91fd6211-update-acme-account">Update ACME account<a class="td-heading-self-link" href="#print-cf1407a5a11f935a7972527e91fd6211-update-acme-account" aria-label="Heading self-link"></a></h2><ul>
 <li>Create an EAB:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/dc1/vault -- write -f pki/ica_servers/roles/src_infra_dc1_pve1_pki_server/acme/new-eab
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/dc1/vault -- write -f pki/ica_servers/roles/src_infra_dc1_pve1_pki_server/acme/new-eab
 </span></span></code></pre></div></li>
 <li>Login as <code>root@pam</code></li>
 <li>Go to Datacenter -&gt; ACME</li>
@@ -269,13 +269,13 @@ This is the multi-page printable view of this section.
 <li>Create a token with Privilege Separation</li>
 <li>Grant it required roles</li>
 <li>Create json:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;token_id&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;token_secret&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;token_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;token_secret&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></li>
 <li>Write the data:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/pve:vault.kv_put alwaldend.com/vault1/approles/src_infra_dc1_pve1/pve_token @<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">/data.json&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/pve:vault.kv_put alwaldend.com/vault1/approles/src_infra_dc1_pve1/pve_token @<span class="s2">&#34;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">/data.json&#34;</span>
 </span></span></code></pre></div></li>
 </ul>
 

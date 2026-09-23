@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="ingress">
 	<meta itemprop="description" content="ingress">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="162">
 	<meta itemprop="keywords" content="Ingress,Public,Traefik">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="ingress">
 	<meta name="twitter:description" content="ingress">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -248,42 +248,42 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <h2 id="print-cd9b6d20f7f2a57b1163b6b622a2a9f8-run-ansible">Run ansible<a class="td-heading-self-link" href="#print-cd9b6d20f7f2a57b1163b6b622a2a9f8-run-ansible" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/ingress/ansible
+      <h2 id="print-cd9b6d20f7f2a57b1163b6b622a2a9f8-run-ansible">Run ansible<a class="td-heading-self-link" href="#print-cd9b6d20f7f2a57b1163b6b622a2a9f8-run-ansible" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/ingress/ansible
 </span></span></code></pre></div><p>Services in <code>traefik_services</code> must use a backend <code>target</code> that resolves from
 the ingress hosts without resolving back to ingress. Define a dedicated
 site-local address, conventionally prefixed with <code>dc1.</code>, in the owning
 service&rsquo;s DNS configuration and use that address as the target.</p>
-<h2 id="print-cd9b6d20f7f2a57b1163b6b622a2a9f8-apply-terraform">Apply terraform<a class="td-heading-self-link" href="#print-cd9b6d20f7f2a57b1163b6b622a2a9f8-apply-terraform" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/ingress/tf
+<h2 id="print-cd9b6d20f7f2a57b1163b6b622a2a9f8-apply-terraform">Apply terraform<a class="td-heading-self-link" href="#print-cd9b6d20f7f2a57b1163b6b622a2a9f8-apply-terraform" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/ingress/tf
 </span></span></code></pre></div><h2 id="print-cd9b6d20f7f2a57b1163b6b622a2a9f8-update-signed-image-url">Update signed image url<a class="td-heading-self-link" href="#print-cd9b6d20f7f2a57b1163b6b622a2a9f8-update-signed-image-url" aria-label="Heading self-link"></a></h2><ul>
 <li>Create a signed url: <a href="https://yandex.cloud/ru/docs/storage/operations/objects/link-for-download">https://yandex.cloud/ru/docs/storage/operations/objects/link-for-download</a></li>
 <li>Update the secret: <code>alwaldend.com/vault1/approles/src_infra_ingress/image</code></li>
 </ul>
-<h2 id="print-cd9b6d20f7f2a57b1163b6b622a2a9f8-recreate-vms">Recreate VMs<a class="td-heading-self-link" href="#print-cd9b6d20f7f2a57b1163b6b622a2a9f8-recreate-vms" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run infra/ingress/tf -- -replace <span style="color:#e6db74">&#39;yandex_compute_disk.vpc[&#34;*&#34;]&#39;</span>
+<h2 id="print-cd9b6d20f7f2a57b1163b6b622a2a9f8-recreate-vms">Recreate VMs<a class="td-heading-self-link" href="#print-cd9b6d20f7f2a57b1163b6b622a2a9f8-recreate-vms" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run infra/ingress/tf -- -replace <span class="s1">&#39;yandex_compute_disk.vpc[&#34;*&#34;]&#39;</span>
 </span></span></code></pre></div><h2 id="print-cd9b6d20f7f2a57b1163b6b622a2a9f8-regenerate-wireguard-keys">Regenerate wireguard keys<a class="td-heading-self-link" href="#print-cd9b6d20f7f2a57b1163b6b622a2a9f8-regenerate-wireguard-keys" aria-label="Heading self-link"></a></h2><ul>
 <li>Regenerate private and public keys:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>wg genkey | tee host1.privatekey.txt | wg pubkey &gt;host1.publickey.txt
-</span></span><span style="display:flex;"><span>wg genkey | tee host2.privatekey.txt | wg pubkey &gt;host2.publickey.txt
-</span></span><span style="display:flex;"><span>wg genkey | tee router.privatekey.txt | wg pubkey &gt;router.publickey.txt
-</span></span><span style="display:flex;"><span>cat - &gt;data.json <span style="color:#e6db74">&lt;&lt;EOF
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;wg_public_keys&#34;: {
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;host1&#34;: &#34;$(cat host1.publickey.txt)&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;host2&#34;: &#34;$(cat host2.publickey.txt)&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;router&#34;: &#34;$(cat router.publickey.txt)&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  },
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;wg_private_keys&#34;: {
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;host1&#34;: &#34;$(cat host1.privatekey.txt)&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;host2&#34;: &#34;$(cat host2.privatekey.txt)&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;router&#34;: &#34;$(cat router.privatekey.txt)&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  },
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  &#34;wg_preshared_keys&#34;: {
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;host1&#34;: &#34;$(openssl rand 32 | base64)&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;host2&#34;: &#34;$(openssl rand 32 | base64)&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  }
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
-</span></span><span style="display:flex;"><span>bazel run infra/ingress:vault.kv_put -- -format json alwaldend.com/vault1/approles/src_infra_ingress/wireguard <span style="color:#e6db74">&#34;@</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">/data.json&#34;</span>
-</span></span><span style="display:flex;"><span>rm data.json *.privatekey.txt *.publickey.txt
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wg genkey <span class="p">|</span> tee host1.privatekey.txt <span class="p">|</span> wg pubkey &gt;host1.publickey.txt
+</span></span><span class="line"><span class="cl">wg genkey <span class="p">|</span> tee host2.privatekey.txt <span class="p">|</span> wg pubkey &gt;host2.publickey.txt
+</span></span><span class="line"><span class="cl">wg genkey <span class="p">|</span> tee router.privatekey.txt <span class="p">|</span> wg pubkey &gt;router.publickey.txt
+</span></span><span class="line"><span class="cl">cat - &gt;data.json <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">{
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;wg_public_keys&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;host1&#34;: &#34;$(cat host1.publickey.txt)&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;host2&#34;: &#34;$(cat host2.publickey.txt)&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;router&#34;: &#34;$(cat router.publickey.txt)&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">  },
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;wg_private_keys&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;host1&#34;: &#34;$(cat host1.privatekey.txt)&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;host2&#34;: &#34;$(cat host2.privatekey.txt)&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;router&#34;: &#34;$(cat router.privatekey.txt)&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">  },
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;wg_preshared_keys&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;host1&#34;: &#34;$(openssl rand 32 | base64)&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;host2&#34;: &#34;$(openssl rand 32 | base64)&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">  }
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">bazel run infra/ingress:vault.kv_put -- -format json alwaldend.com/vault1/approles/src_infra_ingress/wireguard <span class="s2">&#34;@</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">/data.json&#34;</span>
+</span></span><span class="line"><span class="cl">rm data.json *.privatekey.txt *.publickey.txt
 </span></span></code></pre></div></li>
 </ul>
 

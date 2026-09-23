@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="XCP-ng">
 	<meta itemprop="description" content="XCP-ng infrastructure">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="910">
 	<meta itemprop="keywords" content="Terraform,Xcp-Ng">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="XCP-ng">
 	<meta name="twitter:description" content="XCP-ng infrastructure">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -318,15 +318,15 @@ renewal briefly interrupt XO management access, not running guest VMs.</p>
 <h2 id="print-a5f61c6f77b362000863e6095dc97a9a-commands">Commands<a class="td-heading-self-link" href="#print-a5f61c6f77b362000863e6095dc97a9a-commands" aria-label="Heading self-link"></a></h2><p>The XO server must be connected to an XCP-ng host before discovering
 templates or creating VMs. <code>xo_inspect</code> prints selected operational metadata
 without credentials or plugin configuration:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>XOA_URL<span style="color:#f92672">=</span>wss://xoa.xcp-ng.alwaldend.com bazel_agent bazel run //infra/xcp_ng:xo_inspect
-</span></span><span style="display:flex;"><span>bazel_agent bazel run //infra/xcp_ng/tf:tf.plan
-</span></span><span style="display:flex;"><span>bazel_agent bazel run //infra/xcp_ng/tf:tf.apply
-</span></span><span style="display:flex;"><span>bazel_agent bazel test //infra/xcp_ng/tf:tf_tests.fmt_test //infra/xcp_ng/cmd/xo_config:xo_config_test
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">XOA_URL</span><span class="o">=</span>wss://xoa.xcp-ng.alwaldend.com bazel_agent bazel run //infra/xcp_ng:xo_inspect
+</span></span><span class="line"><span class="cl">bazel_agent bazel run //infra/xcp_ng/tf:tf.plan
+</span></span><span class="line"><span class="cl">bazel_agent bazel run //infra/xcp_ng/tf:tf.apply
+</span></span><span class="line"><span class="cl">bazel_agent bazel <span class="nb">test</span> //infra/xcp_ng/tf:tf_tests.fmt_test //infra/xcp_ng/cmd/xo_config:xo_config_test
 </span></span></code></pre></div><p>Formatting and helper tests run without live authentication. See
 <a href="/docs/infra/forgejo/tf_setup/">Forgejo provisioning</a> for VM prerequisites.</p>
 <p>To register <code>host1</code>, store its <code>xcpng_username</code> and <code>xcpng_password</code> fields
 in <code>secrets/alwaldend.com/vault1/approles/src_infra_xcp_ng/host1</code>, then run:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>XOA_URL<span style="color:#f92672">=</span>wss://xoa.xcp-ng.alwaldend.com XCPNG_HOST<span style="color:#f92672">=</span>192.168.1.213 bazel_agent bazel run //infra/xcp_ng:xo_register_host
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">XOA_URL</span><span class="o">=</span>wss://xoa.xcp-ng.alwaldend.com <span class="nv">XCPNG_HOST</span><span class="o">=</span>192.168.1.213 bazel_agent bazel run //infra/xcp_ng:xo_register_host
 </span></span></code></pre></div><p>The command uses the XOA token to register the host and supplies its separate
 host credentials through AL. It waits for a connected pool and leaves an
 already connected host unchanged. Duplicate registrations are rejected.
@@ -627,8 +627,8 @@ external account binding; its registration file is removed after issuance.</p>
 the controller must provide <code>sshpass</code> and a verified SSH host key. Passwords
 are runtime environment inputs and are not stored in inventory.</p>
 <p>Run the read-only inspection target before deploying a different appliance:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/xcp_ng/ansible:ansible.inspect
-</span></span><span style="display:flex;"><span>bazel_agent bazel run //infra/xcp_ng/ansible:ansible
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //infra/xcp_ng/ansible:ansible.inspect
+</span></span><span class="line"><span class="cl">bazel_agent bazel run //infra/xcp_ng/ansible:ansible
 </span></span></code></pre></div><p>The checked-in settings match the inspected appliance: <code>xo-server</code> runs as
 root and listens on HTTPS with <code>/etc/ssl/cert.pem</code> and <code>/etc/ssl/key.pem</code>.
 Native <code>autoCert</code> is disabled. The deployment preserves these listener paths.

@@ -44,13 +44,14 @@
 
 	<meta itemprop="name" content="Forgejo runner">
 	<meta itemprop="description" content="Install and register a Forgejo Actions runner">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
+	<meta itemprop="wordCount" content="245">
 	<meta itemprop="keywords" content="Ansible_role">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Forgejo runner">
 	<meta name="twitter:description" content="Install and register a Forgejo Actions runner">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -144,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -212,7 +213,33 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p>Installs the repository-pinned Linux x86-64 Forgejo runner, creates its service
+account, registers it with Forgejo, and manages its systemd service. The binary
+and configuration are root-owned. The home and work directories belong to the
+runner account. Registration and the daemon use the same explicit configuration
+and registration file, so repeated deployments reuse the existing runner.</p>
+<p>Supply <code>forgejo_runner_instance</code> and <code>forgejo_runner_token</code> for initial
+registration. <code>forgejo_runner_name</code> defaults to the inventory hostname. Inject
+the token from Vault; the role passes it through standard input with logging
+suppressed.
+The registration file is mode <code>0600</code>. Changing labels or capacity updates the
+daemon configuration; changing a registered runner&rsquo;s instance or identity
+requires deliberate re-registration.</p>
+<p>Set <code>forgejo_runner_install_packages: false</code> when the calling deployment supplies
+all <a href="defaults/main.yaml">runner packages</a>, including on RPM-OSTree hosts.
+Node.js is required for JavaScript actions such as checkout.
+The <code>acl</code> package must be available for Ansible to execute registration as the
+unprivileged runner account; both roles include it in their package defaults.
+Complete any required reboot before starting this role. Container runtime
+configuration remains the caller&rsquo;s responsibility. The default installation
+and service paths are writable on OSTree hosts.</p>
+<p>Host executor labels run jobs as the runner account without job isolation.
+Restrict registration to trusted repositories and keep deployment credentials
+out of the runner environment. The role does not grant sudo access. The Actions
+cache service is disabled by default; enable it only after configuring its
+network reachability. Configuration, binary, and service changes trigger a
+handler to reload systemd and restart the runner.</p>
+
 </div>
 </div>
 
@@ -231,25 +258,39 @@ This is the multi-page printable view of this section.
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-fa5d4818ace6c148648578af161fe013">1 - Defaults</h1>
     <div class="lead">Defaults for forgejo_runner</div>
-	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">forgejo_runner_user</span>: <span style="color:#ae81ff">forgejo-runner</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">forgejo_runner_user_uid</span>: <span style="color:#ae81ff">5721</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">forgejo_runner_dir</span>: <span style="color:#ae81ff">/opt/forgejo-runner</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">forgejo_runner_disk</span>:
-</span></span><span style="display:flex;"><span><span style="color:#f92672">forgejo_runner_home_dir</span>: <span style="color:#ae81ff">/opt/forgejo-runner/home</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">forgejo_runner_work_dir</span>: <span style="color:#ae81ff">/opt/forgejo-runner/work</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">forgejo_runner_bin_local_path</span>: <span style="color:#e6db74">&#34;{{ role_path }}/files/forgejo-runner&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">forgejo_runner_bin_path</span>: <span style="color:#ae81ff">/usr/bin/forgejo-runner</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">forgejo_runner_service_path</span>: <span style="color:#ae81ff">/lib/systemd/system/forgejo-runner.service</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">forgejo_runner_instance</span>: <span style="color:#e6db74">&#34;{{ undefined() }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">forgejo_runner_token</span>: <span style="color:#e6db74">&#34;{{ undefined() }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">forgejo_runner_name</span>: <span style="color:#e6db74">&#34;{{ inventory_hostname }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">forgejo_runner_labels</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#e6db74">&#34;self-hosted:host&#34;</span>
-</span></span></code></pre></div>
+	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_user</span><span class="p">:</span><span class="w"> </span><span class="l">forgejo-runner</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">5721</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/opt/forgejo-runner</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_home_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ forgejo_runner_dir }}/home&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_work_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ forgejo_runner_dir }}/work&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_bin_local_path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ role_path }}/files/forgejo-runner&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_bin_path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ forgejo_runner_dir }}/forgejo-runner&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_service_path</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/systemd/system/forgejo-runner.service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_config_path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ forgejo_runner_dir }}/config.yaml&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_registration_path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ forgejo_runner_work_dir }}/.runner&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_install_packages</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_packages</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">acl</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">git</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">nodejs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">podman</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_instance</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ undefined() }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_token</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ undefined() }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ inventory_hostname }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="s2">&#34;self-hosted:host&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_capacity</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_timeout</span><span class="p">:</span><span class="w"> </span><span class="l">3h</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_shutdown_timeout</span><span class="p">:</span><span class="w"> </span><span class="l">30s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_service_stop_timeout</span><span class="p">:</span><span class="w"> </span><span class="l">60s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_registration_timeout</span><span class="p">:</span><span class="w"> </span><span class="m">120</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_cache_enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span></code></pre></div>
 </div>
 
 

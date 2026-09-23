@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Source repository">
 	<meta itemprop="description" content="Repository evolution specifications and workflow history">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="85">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Source repository">
 	<meta name="twitter:description" content="Repository evolution specifications and workflow history">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -246,7 +246,7 @@ configuration. This directory owns repository development specifications;
 adding or changing them does not provision infrastructure.</p>
 <p>Run the <a href="../../tools/openspec/README.md">pinned CLI</a> from the repository root.
 It selects this project by default:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/openspec -- list --specs
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/openspec -- list --specs
 </span></span></code></pre></div>
 </div>
 </div>
@@ -288,16 +288,16 @@ keeps each affected contract with its owner and links related changes.
 Component READMEs and build declarations retain their existing authority.</p>
 <h2 id="print-7e33ab7c282b877266711b62eeedc88f-run-openspec">Run OpenSpec<a class="td-heading-self-link" href="#print-7e33ab7c282b877266711b62eeedc88f-run-openspec" aria-label="Heading self-link"></a></h2><p>The <a href="/docs/tools/rules_openspec/">pinned CLI</a> runs from the Git worktree
 root. It selects <code>infra/src</code> by default; use <code>OPENSPEC_PROJECT</code> for a component:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/openspec -- list --specs
-</span></span><span style="display:flex;"><span>OPENSPEC_PROJECT<span style="color:#f92672">=</span>projects/agents bazel_agent bazel run //tools/openspec -- list
-</span></span><span style="display:flex;"><span>OPENSPEC_PROJECT<span style="color:#f92672">=</span>infra/vault bazel_agent bazel run //tools/openspec -- list --specs
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/openspec -- list --specs
+</span></span><span class="line"><span class="cl"><span class="nv">OPENSPEC_PROJECT</span><span class="o">=</span>tools/agents bazel_agent bazel run //tools/openspec -- list
+</span></span><span class="line"><span class="cl"><span class="nv">OPENSPEC_PROJECT</span><span class="o">=</span>infra/vault bazel_agent bazel run //tools/openspec -- list --specs
 </span></span></code></pre></div><p>Use <code>new change</code>, <code>status</code>, <code>instructions</code>, <code>validate</code>, and <code>archive</code> with the
-same owner selection. The packaged <a href="../../../projects/agents/skills/openspec/SKILL.md">OpenSpec skill</a>
+same owner selection. The packaged <a href="../../../tools/agents/skills/openspec/SKILL.md">OpenSpec skill</a>
 documents continuation and acceptance. No global install or assistant
 configuration rewrite is needed. The CLI isolates configuration and disables
 telemetry.</p>
 <p>Repository validation checks every component workspace as well as this one:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel test //infra/src/openspec/validation:validate_test //infra/src/openspec/validation:archive_test
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel <span class="nb">test</span> //infra/src/openspec/validation:validate_test //infra/src/openspec/validation:archive_test
 </span></span></code></pre></div><p>Validation checks artifact structure and, for archives, task completion.
 Requirement acceptance still needs evidence from the owning implementation.
 Infrastructure specs describe checked-in definitions, not observed deployment.</p>
@@ -361,43 +361,43 @@ preserves the historical record.</p>
 	<tbody>
 			<tr>
 					<td><code>projects/agents/goals/agent-system-phase-1</code></td>
-					<td><a href="../../../projects/agents/openspec/changes/archive/2026-09-08-agent-system-phase-1/proposal.md">agent-system-phase-1</a></td>
+					<td><a href="../../../tools/agents/openspec/changes/archive/2026-09-08-agent-system-phase-1/proposal.md">agent-system-phase-1</a></td>
 					<td>achieved</td>
 					<td>paused</td>
 			</tr>
 			<tr>
 					<td><code>projects/agents/goals/agent-system-phase-2</code></td>
-					<td><a href="../../../projects/agents/openspec/changes/archive/2026-09-08-agent-system-phase-2/proposal.md">agent-system-phase-2</a></td>
+					<td><a href="../../../tools/agents/openspec/changes/archive/2026-09-08-agent-system-phase-2/proposal.md">agent-system-phase-2</a></td>
 					<td>achieved</td>
 					<td>paused</td>
 			</tr>
 			<tr>
 					<td><code>projects/agents/goals/agent-system-phase-3</code></td>
-					<td><a href="../../../projects/agents/openspec/changes/archive/2026-09-08-agent-system-phase-3/proposal.md">agent-system-phase-3</a></td>
+					<td><a href="../../../tools/agents/openspec/changes/archive/2026-09-08-agent-system-phase-3/proposal.md">agent-system-phase-3</a></td>
 					<td>achieved</td>
 					<td>paused</td>
 			</tr>
 			<tr>
 					<td><code>projects/agents/goals/agent-system-phase-4</code></td>
-					<td><a href="../../../projects/agents/openspec/changes/archive/2026-09-08-agent-system-phase-4/proposal.md">agent-system-phase-4</a></td>
+					<td><a href="../../../tools/agents/openspec/changes/archive/2026-09-08-agent-system-phase-4/proposal.md">agent-system-phase-4</a></td>
 					<td>achieved</td>
 					<td>paused</td>
 			</tr>
 			<tr>
 					<td><code>projects/agents/goals/agent-system-phase-five-followup</code></td>
-					<td><a href="../../../projects/agents/openspec/changes/archive/2026-09-08-agent-system-phase-five-followup/proposal.md">agent-system-phase-five-followup</a></td>
+					<td><a href="../../../tools/agents/openspec/changes/archive/2026-09-08-agent-system-phase-five-followup/proposal.md">agent-system-phase-five-followup</a></td>
 					<td>achieved</td>
 					<td>paused</td>
 			</tr>
 			<tr>
 					<td><code>projects/agents/goals/agent-system-phase-six-ergonomics</code></td>
-					<td><a href="../../../projects/agents/openspec/changes/archive/2026-09-08-agent-system-phase-six-ergonomics/proposal.md">agent-system-phase-six-ergonomics</a></td>
+					<td><a href="../../../tools/agents/openspec/changes/archive/2026-09-08-agent-system-phase-six-ergonomics/proposal.md">agent-system-phase-six-ergonomics</a></td>
 					<td>achieved</td>
 					<td>paused</td>
 			</tr>
 			<tr>
 					<td><code>projects/agents/goals/repo-agent-system</code></td>
-					<td><a href="../../../projects/agents/openspec/changes/archive/2026-09-08-repo-agent-system/proposal.md">repo-agent-system</a></td>
+					<td><a href="../../../tools/agents/openspec/changes/archive/2026-09-08-repo-agent-system/proposal.md">repo-agent-system</a></td>
 					<td>achieved</td>
 					<td>paused</td>
 			</tr>
@@ -647,6 +647,41 @@ authorized retirement scope</li>
 <li><strong>THEN</strong> the selected Pages repository and matching DNS record are removed</li>
 <li><strong>AND</strong> the reviewed plans and postconditions show no unrelated deletion or
 replacement</li>
+</ul>
+<h3 id="print-c378dc05c1ccc435141658b0f6b0a137-requirement-thin-ci-workflow-wrappers">Requirement: Thin CI workflow wrappers<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-requirement-thin-ci-workflow-wrappers" aria-label="Heading self-link"></a></h3><p>Repository CI workflows MUST be maximally thin wrappers. Executable logic SHALL
+be implemented in <code>bazel run</code> targets or committed scripts; workflow YAML SHALL
+contain only declarative orchestration and short command invocations. The
+discoverable <code>repo-ci</code> skill SHALL document this rule and link owning sources.</p>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-a-workflow-needs-executable-job-logic">Scenario: A workflow needs executable job logic<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-a-workflow-needs-executable-job-logic" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a workflow requires resource checks, authentication, parsing, loops,
+or other executable behavior</li>
+<li><strong>THEN</strong> that behavior resides in a committed implementation invoked by the
+workflow, preferably through <code>bazel run</code></li>
+<li><strong>AND</strong> inline programs, heredocs, and composite-action YAML do not substitute
+for the implementation</li>
+</ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-an-agent-changes-repository-ci">Scenario: An agent changes repository CI<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-an-agent-changes-repository-ci" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an agent discovers the repository skills for CI work</li>
+<li><strong>THEN</strong> <code>repo-ci</code> explains the workflow and command boundaries, authentication
+constraints, and applicable offline and live validation entry points</li>
+</ul>
+<h3 id="print-c378dc05c1ccc435141658b0f6b0a137-requirement-shared-repository-ci-entry-point">Requirement: Shared repository CI entry point<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-requirement-shared-repository-ci-entry-point" aria-label="Heading self-link"></a></h3><p>Every repository CI workflow SHALL use the local <code>tools/ci/action</code> action
+after checkout. The action SHALL launch <code>bazel run --config=ci //tools/ci</code>
+without a shell and propagate its failure.
+The entry point SHALL build and test all normal targets in the root and nested
+Bazel workspaces, continuing to attempt both phases and remaining workspaces
+after a failure and returning failure if any command fails. It SHALL discover
+nested workspace boundaries from the root <code>.bazelignore</code> and <code>MODULE.bazel</code>
+files. Runner infrastructure acceptance probes SHALL NOT be part of normal CI.</p>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-run-normal-ci">Scenario: Run normal CI<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-run-normal-ci" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a repository CI workflow runs</li>
+<li><strong>THEN</strong> the shared command builds and tests each workspace with the CI profile</li>
+<li><strong>AND</strong> normal Bazel exclusions for manual and incompatible targets apply</li>
+</ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-one-build-fails">Scenario: One build fails<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-one-build-fails" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> one workspace&rsquo;s build phase fails</li>
+<li><strong>THEN</strong> its test phase and the remaining workspaces are still attempted</li>
+<li><strong>AND</strong> the entry point reports failure</li>
 </ul>
 
 </div>

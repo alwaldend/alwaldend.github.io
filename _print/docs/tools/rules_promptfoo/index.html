@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Rules Promptfoo">
 	<meta itemprop="description" content="A pinned Bazel runner for Promptfoo skill evaluations">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="1103">
 	<meta itemprop="keywords" content="Bzl_rules,Llm_evals">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Rules Promptfoo">
 	<meta name="twitter:description" content="A pinned Bazel runner for Promptfoo skill evaluations">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -198,43 +198,43 @@ This is the multi-page printable view of this section.
 keeps dependency resolution reproducible in Bazel while deliberately running
 model calls only at test runtime.</p>
 <h2 id="print-44cee6e281f02983f8e79279282bb869-setup">Setup<a class="td-heading-self-link" href="#print-44cee6e281f02983f8e79279282bb869-setup" aria-label="Heading self-link"></a></h2><p>Add the module and its skill-provider dependency:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>bazel_dep(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rules_promptfoo&#34;</span>, version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;VERSION&gt;&#34;</span>)
-</span></span><span style="display:flex;"><span>bazel_dep(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rules_skills&#34;</span>, version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;VERSION&gt;&#34;</span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-starlark" data-lang="starlark"><span class="line"><span class="cl"><span class="n">bazel_dep</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;rules_promptfoo&#34;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s2">&#34;&lt;VERSION&gt;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bazel_dep</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;rules_skills&#34;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s2">&#34;&lt;VERSION&gt;&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>The development checkout uses sibling <code>local_path_override</code> declarations.
 Published releases must replace those local overrides with registry versions.</p>
-<h2 id="print-44cee6e281f02983f8e79279282bb869-evaluate-a-skill">Evaluate a skill<a class="td-heading-self-link" href="#print-44cee6e281f02983f8e79279282bb869-evaluate-a-skill" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_promptfoo//promptfoo:defs.bzl&#34;</span>, <span style="color:#e6db74">&#34;promptfoo_test&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>promptfoo_test(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;answer_question_eval&#34;</span>,
-</span></span><span style="display:flex;"><span>    config <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;promptfooconfig.yaml&#34;</span>,
-</span></span><span style="display:flex;"><span>    skills <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;//projects/agents/skills/answer-question:skill&#34;</span>],
-</span></span><span style="display:flex;"><span>    env_inherit <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;CODEX_HOME&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;CODEX_PATH_OVERRIDE&#34;</span>,
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>    reuse_codex_login <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>,
-</span></span><span style="display:flex;"><span>)
+<h2 id="print-44cee6e281f02983f8e79279282bb869-evaluate-a-skill">Evaluate a skill<a class="td-heading-self-link" href="#print-44cee6e281f02983f8e79279282bb869-evaluate-a-skill" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-starlark" data-lang="starlark"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_promptfoo//promptfoo:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;promptfoo_test&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">promptfoo_test</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;answer_question_eval&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">config</span> <span class="o">=</span> <span class="s2">&#34;promptfooconfig.yaml&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">skills</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;//tools/agents/skills/answer-question:skill&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="n">env_inherit</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;CODEX_HOME&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;CODEX_PATH_OVERRIDE&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="n">reuse_codex_login</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span></code></pre></div><p>The runner physically copies each selected <code>SkillInfo.files_by_path</code> bundle
 to an isolated Bazel test-temporary
 <code>workspace/.agents/skills/&lt;name&gt;/</code> tree. Point the Codex SDK provider at the
 exported workspace and, when using a compatible host Codex executable, at the
 exported executable path:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">prompts</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#e6db74">&#34;{{ question }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">providers</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">id</span>: <span style="color:#ae81ff">openai:codex-sdk</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">config</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">codex_path_override</span>: <span style="color:#e6db74">&#34;{{ env.CODEX_PATH_OVERRIDE }}&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">working_dir</span>: <span style="color:#e6db74">&#34;{{ env.PROMPTFOO_SKILL_WORKSPACE }}&#34;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cli_env</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">CODEX_HOME</span>: <span style="color:#e6db74">&#34;{{ env.PROMPTFOO_SUBJECT_CODEX_HOME }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">tests</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">vars</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">question</span>: <span style="color:#ae81ff">Why is the sky blue?</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">assert</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">type</span>: <span style="color:#ae81ff">skill-used</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">value</span>: <span style="color:#ae81ff">answer-question</span>
-</span></span></code></pre></div><p>Live eval targets are tagged <code>manual</code>, <code>requires-network</code>, <code>no-cache</code>,
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">prompts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="s2">&#34;{{ question }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">providers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">openai:codex-sdk</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">codex_path_override</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ env.CODEX_PATH_OVERRIDE }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">working_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ env.PROMPTFOO_SKILL_WORKSPACE }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">cli_env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">CODEX_HOME</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ env.PROMPTFOO_SUBJECT_CODEX_HOME }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">tests</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">vars</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">question</span><span class="p">:</span><span class="w"> </span><span class="l">Why is the sky blue?</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">assert</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">skill-used</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l">answer-question</span><span class="w">
+</span></span></span></code></pre></div><p>Live eval targets are tagged <code>manual</code>, <code>requires-network</code>, <code>no-cache</code>,
 <code>no-remote</code>, and <code>local</code>. They also pass <code>--no-cache</code>, <code>--no-write</code>, and
 <code>--no-share</code> to Promptfoo; <code>local</code> prevents sandboxed or remote execution when
 the caller opts into host Codex credentials. The runner exports a separate
@@ -261,10 +261,10 @@ as potentially sensitive even though the target is <code>no-cache</code> and <co
 login and a compatible host Codex executable through the test environment,
 never credential contents through <code>env</code> or a checked-in config. Set the
 provider&rsquo;s <code>codex_path_override</code> from <code>CODEX_PATH_OVERRIDE</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel test //path/to:answer_question_eval <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --test_env<span style="color:#f92672">=</span>CODEX_HOME<span style="color:#f92672">=</span>/absolute/path/to/.codex <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --test_env<span style="color:#f92672">=</span>CODEX_PATH_OVERRIDE<span style="color:#f92672">=</span>/absolute/path/to/codex <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --test_output<span style="color:#f92672">=</span>errors
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel <span class="nb">test</span> //path/to:answer_question_eval <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --test_env<span class="o">=</span><span class="nv">CODEX_HOME</span><span class="o">=</span>/absolute/path/to/.codex <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --test_env<span class="o">=</span><span class="nv">CODEX_PATH_OVERRIDE</span><span class="o">=</span>/absolute/path/to/codex <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --test_output<span class="o">=</span>errors
 </span></span></code></pre></div><p>If that Codex installation reaches OpenAI through host proxy variables, pass
 only the needed names as well (for example, <code>--test_env=HTTPS_PROXY</code> and
 <code>--test_env=NO_PROXY</code>) and declare the same names in the rule&rsquo;s <code>env_inherit</code>.
@@ -314,15 +314,15 @@ Promptfoo prompt and dataset files beside the config and list them in <code>data
 so Promptfoo&rsquo;s own config-relative path resolution remains portable.
 The <code>env</code> and <code>env_inherit</code> attributes cannot override Bazel&rsquo;s test temporary
 directories or the runner-owned <code>TMPDIR</code>, <code>TMP</code>, and <code>TEMP</code> values.</p>
-<h2 id="print-44cee6e281f02983f8e79279282bb869-validate-without-a-model-call">Validate without a model call<a class="td-heading-self-link" href="#print-44cee6e281f02983f8e79279282bb869-validate-without-a-model-call" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>load(
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;@rules_promptfoo//promptfoo:defs.bzl&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;promptfoo_validate_test&#34;</span>,
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>promptfoo_validate_test(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;promptfoo_config_test&#34;</span>,
-</span></span><span style="display:flex;"><span>    config <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;promptfooconfig.yaml&#34;</span>,
-</span></span><span style="display:flex;"><span>)
+<h2 id="print-44cee6e281f02983f8e79279282bb869-validate-without-a-model-call">Validate without a model call<a class="td-heading-self-link" href="#print-44cee6e281f02983f8e79279282bb869-validate-without-a-model-call" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-starlark" data-lang="starlark"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;@rules_promptfoo//promptfoo:defs.bzl&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;promptfoo_validate_test&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">promptfoo_validate_test</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;promptfoo_config_test&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">config</span> <span class="o">=</span> <span class="s2">&#34;promptfooconfig.yaml&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span></code></pre></div><p>Validation is an ordinary offline Bazel test and does not receive the live
 eval tags. It rejects <code>env_inherit</code> so validation cannot accidentally receive
 host credentials.</p>

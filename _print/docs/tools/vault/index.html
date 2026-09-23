@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Vault">
 	<meta itemprop="description" content="Vault">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
-	<meta itemprop="wordCount" content="29">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
+	<meta itemprop="wordCount" content="37">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Vault">
 	<meta name="twitter:description" content="Vault">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -430,6 +430,8 @@ This is the multi-page printable view of this section.
 <p>The root <code>//:vault</code> and <code>//:vault.*</code> labels delegate to wrappers in
 <code>//tools/vault/cmd/workspace</code>, using <code>//tools/al:config</code>. <code>//tools/vault:vault</code>
 is the standalone CLI; the wrappers add the existing AL environment injection.</p>
+<p>The pinned upstream binary is owned by
+<a href="/docs/third_party/com_hashicorp_vault/"><code>third_party/com_hashicorp_vault</code></a>.</p>
 
 </div>
 </div>
@@ -482,7 +484,13 @@ is the standalone CLI; the wrappers add the existing AL environment injection.</
     
 	<h1 id="pg-e2ef3e755f2b9b82043c74dead7c06cd">2 - Forgejo login</h1>
     <div class="lead">Get a short-lived Forgejo token using OIDC</div>
-	<p>The plugin registers token removal before issuance, using a unique token name.
+	<p>Plugin data supplies the default Forgejo URL, OIDC source, Vault connection,
+and Vault authentication. One selected <code>plugin_call</code> may override nonempty
+configuration fields, for example <code>vault_auth = &quot;forgejo_registration&quot;</code>,
+while inheriting the remaining defaults. Calls without overrides preserve
+the defaults. Multiple calls with overrides and malformed configuration are
+rejected before authentication; configuration values are omitted from errors.</p>
+<p>The plugin registers token removal before issuance, using a unique token name.
 Startup failure and normal shutdown attempt removal through the authenticated
 Forgejo browser session, including when creation did not return a usable token.
 Cleanup parses the complete applications settings page and verifies token absence
@@ -522,34 +530,34 @@ do not acquire an expiry merely because this plugin created them.</p>
     
 	<h1 id="pg-016c3d67c6aa8c5306c267b2e2d94e0c">2.1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>
-	<h2 id="print-b32f4a08b5e8fab0b98fb771d4f90473-java">Java<a class="td-heading-self-link" href="#print-b32f4a08b5e8fab0b98fb771d4f90473-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bzl" data-lang="bzl"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_java//java:defs.bzl&#34;</span>, <span style="color:#e6db74">&#34;java_library&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>java_library(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>,
-</span></span><span style="display:flex;"><span>    deps <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;@com_alwaldend_src//tools/vault/forgejo_login:api_java_library&#34;</span>,
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><h2 id="print-b32f4a08b5e8fab0b98fb771d4f90473-golang">Golang<a class="td-heading-self-link" href="#print-b32f4a08b5e8fab0b98fb771d4f90473-golang" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bzl" data-lang="bzl"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_go//go:def.bzl&#34;</span>, <span style="color:#e6db74">&#34;go_library&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>go_library(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>,
-</span></span><span style="display:flex;"><span>    deps <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;@com_alwaldend_src//tools/vault/forgejo_login:forgejo_login&#34;</span>,
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><h2 id="print-b32f4a08b5e8fab0b98fb771d4f90473-proto">Proto<a class="td-heading-self-link" href="#print-b32f4a08b5e8fab0b98fb771d4f90473-proto" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-proto" data-lang="proto"><span style="display:flex;"><span><span style="color:#66d9ef">syntax</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;proto3&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.alwaldend.src.tools.vault.forgejo_login.forgejo_login_proto;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">option</span> go_package <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;git.alwaldend.com/alwaldend/src/tools/vault/forgejo_login/forgejo_login_proto&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Config</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> forgejo_url <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> forgejo_oauth_name <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> vault_conn <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> vault_auth <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
-</span></span><span style="display:flex;"><span>}
+	<h2 id="print-b32f4a08b5e8fab0b98fb771d4f90473-java">Java<a class="td-heading-self-link" href="#print-b32f4a08b5e8fab0b98fb771d4f90473-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_java//java:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;java_library&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">java_library</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;@com_alwaldend_src//tools/vault/forgejo_login:api_java_library&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="print-b32f4a08b5e8fab0b98fb771d4f90473-golang">Golang<a class="td-heading-self-link" href="#print-b32f4a08b5e8fab0b98fb771d4f90473-golang" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_go//go:def.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;go_library&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">go_library</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;@com_alwaldend_src//tools/vault/forgejo_login:forgejo_login&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="print-b32f4a08b5e8fab0b98fb771d4f90473-proto">Proto<a class="td-heading-self-link" href="#print-b32f4a08b5e8fab0b98fb771d4f90473-proto" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-proto" data-lang="proto"><span class="line"><span class="cl"><span class="k">syntax</span> <span class="o">=</span> <span class="s">&#34;proto3&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.alwaldend.src.tools.vault.forgejo_login.forgejo_login_proto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">option</span> <span class="n">go_package</span> <span class="o">=</span> <span class="s">&#34;git.alwaldend.com/alwaldend/src/tools/vault/forgejo_login/forgejo_login_proto&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">Config</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">forgejo_url</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">forgejo_oauth_name</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">vault_conn</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">vault_auth</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
 </div>
 
@@ -663,33 +671,33 @@ Vault tokens created by the invocation are revoked after session cleanup.</p>
     
 	<h1 id="pg-4c7e7d1be66da6d50952f158f23c17f0">5.1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>
-	<h2 id="print-dead1f87438882a26b409663e3b60c38-java">Java<a class="td-heading-self-link" href="#print-dead1f87438882a26b409663e3b60c38-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bzl" data-lang="bzl"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_java//java:defs.bzl&#34;</span>, <span style="color:#e6db74">&#34;java_library&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>java_library(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>,
-</span></span><span style="display:flex;"><span>    deps <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;@com_alwaldend_src//tools/vault/harbor_login:api_java_library&#34;</span>,
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><h2 id="print-dead1f87438882a26b409663e3b60c38-golang">Golang<a class="td-heading-self-link" href="#print-dead1f87438882a26b409663e3b60c38-golang" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bzl" data-lang="bzl"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_go//go:def.bzl&#34;</span>, <span style="color:#e6db74">&#34;go_library&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>go_library(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>,
-</span></span><span style="display:flex;"><span>    deps <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;@com_alwaldend_src//tools/vault/harbor_login:harbor_login&#34;</span>,
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><h2 id="print-dead1f87438882a26b409663e3b60c38-proto">Proto<a class="td-heading-self-link" href="#print-dead1f87438882a26b409663e3b60c38-proto" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-proto" data-lang="proto"><span style="display:flex;"><span><span style="color:#66d9ef">syntax</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;proto3&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.alwaldend.src.tools.vault.harbor_login.harbor_login_proto;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">option</span> go_package <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;git.alwaldend.com/alwaldend/src/tools/vault/harbor_login/harbor_login_proto&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Config</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> harbor_url <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> vault_conn <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> vault_auth <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-</span></span><span style="display:flex;"><span>}
+	<h2 id="print-dead1f87438882a26b409663e3b60c38-java">Java<a class="td-heading-self-link" href="#print-dead1f87438882a26b409663e3b60c38-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_java//java:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;java_library&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">java_library</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;@com_alwaldend_src//tools/vault/harbor_login:api_java_library&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="print-dead1f87438882a26b409663e3b60c38-golang">Golang<a class="td-heading-self-link" href="#print-dead1f87438882a26b409663e3b60c38-golang" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_go//go:def.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;go_library&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">go_library</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;@com_alwaldend_src//tools/vault/harbor_login:harbor_login&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="print-dead1f87438882a26b409663e3b60c38-proto">Proto<a class="td-heading-self-link" href="#print-dead1f87438882a26b409663e3b60c38-proto" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-proto" data-lang="proto"><span class="line"><span class="cl"><span class="k">syntax</span> <span class="o">=</span> <span class="s">&#34;proto3&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.alwaldend.src.tools.vault.harbor_login.harbor_login_proto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">option</span> <span class="n">go_package</span> <span class="o">=</span> <span class="s">&#34;git.alwaldend.com/alwaldend/src/tools/vault/harbor_login/harbor_login_proto&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">Config</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">harbor_url</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">vault_conn</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">vault_auth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
 </div>
 
@@ -747,109 +755,109 @@ OIDC requests honor cancellation and do not follow redirects.</p>
     
 	<h1 id="pg-b69ec13422b4f7b5373308f2b8516e28">6.1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>
-	<h2 id="print-84caa4ff8b915b6d2a3aeac05bc89204-java">Java<a class="td-heading-self-link" href="#print-84caa4ff8b915b6d2a3aeac05bc89204-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bzl" data-lang="bzl"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_java//java:defs.bzl&#34;</span>, <span style="color:#e6db74">&#34;java_library&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>java_library(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>,
-</span></span><span style="display:flex;"><span>    deps <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;@com_alwaldend_src//tools/vault/injector:api_java_library&#34;</span>,
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><h2 id="print-84caa4ff8b915b6d2a3aeac05bc89204-golang">Golang<a class="td-heading-self-link" href="#print-84caa4ff8b915b6d2a3aeac05bc89204-golang" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bzl" data-lang="bzl"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_go//go:def.bzl&#34;</span>, <span style="color:#e6db74">&#34;go_library&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>go_library(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>,
-</span></span><span style="display:flex;"><span>    deps <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;@com_alwaldend_src//tools/vault/injector:injector&#34;</span>,
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><h2 id="print-84caa4ff8b915b6d2a3aeac05bc89204-proto">Proto<a class="td-heading-self-link" href="#print-84caa4ff8b915b6d2a3aeac05bc89204-proto" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-proto" data-lang="proto"><span style="display:flex;"><span><span style="color:#66d9ef">syntax</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;proto3&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.alwaldend.src.tools.vault.injector.injector_proto;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">option</span> go_package <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;git.alwaldend.com/alwaldend/src/tools/vault/injector/injector_proto&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">File</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> value <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> from_file <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">map</span>&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">string</span>&gt; extra <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Env</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> value <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Kv</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Secret path
-</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> path <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Secret mount
-</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> mount <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Op</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> method <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> path <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">map</span>&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">string</span>&gt; data <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">VaultSsh</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> backend <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int64</span> ttl <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Process</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> name <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">repeated</span> <span style="color:#66d9ef">string</span> args <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Oidc</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> name <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> scope <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> client_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> redirect_uri <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">VaultEnv</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Vault connection
-</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> conn <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Vault auth
-</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> auth <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Resource</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Resource name
-</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> name <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Vault connection for the resource
-</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> vault_conn <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Vault auth for the resource
-</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> vault_auth <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Dependencies
-</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">repeated</span> <span style="color:#66d9ef">string</span> deps <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">oneof</span> res {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Vault operation
-</span></span></span><span style="display:flex;"><span>    Op op <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Vault KV secret
-</span></span></span><span style="display:flex;"><span>    Kv kv <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Environment variable
-</span></span></span><span style="display:flex;"><span>    Env env <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// File
-</span></span></span><span style="display:flex;"><span>    File file <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Vault environment variables
-</span></span></span><span style="display:flex;"><span>    VaultEnv vault_env <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Ssh key signed by Vautl
-</span></span></span><span style="display:flex;"><span>    VaultSsh vault_ssh <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Run a cmd
-</span></span></span><span style="display:flex;"><span>    Process process <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Create an OIDC token
-</span></span></span><span style="display:flex;"><span>    Oidc oidc <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Config</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Resources
-</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">repeated</span> Resource res <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>}
+	<h2 id="print-84caa4ff8b915b6d2a3aeac05bc89204-java">Java<a class="td-heading-self-link" href="#print-84caa4ff8b915b6d2a3aeac05bc89204-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_java//java:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;java_library&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">java_library</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;@com_alwaldend_src//tools/vault/injector:api_java_library&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="print-84caa4ff8b915b6d2a3aeac05bc89204-golang">Golang<a class="td-heading-self-link" href="#print-84caa4ff8b915b6d2a3aeac05bc89204-golang" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_go//go:def.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;go_library&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">go_library</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;@com_alwaldend_src//tools/vault/injector:injector&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="print-84caa4ff8b915b6d2a3aeac05bc89204-proto">Proto<a class="td-heading-self-link" href="#print-84caa4ff8b915b6d2a3aeac05bc89204-proto" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-proto" data-lang="proto"><span class="line"><span class="cl"><span class="k">syntax</span> <span class="o">=</span> <span class="s">&#34;proto3&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.alwaldend.src.tools.vault.injector.injector_proto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">option</span> <span class="n">go_package</span> <span class="o">=</span> <span class="s">&#34;git.alwaldend.com/alwaldend/src/tools/vault/injector/injector_proto&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">File</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">from_file</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">map</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">extra</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">Env</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">Kv</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Secret path
+</span></span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">path</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Secret mount
+</span></span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">mount</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">Op</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">method</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">path</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">map</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">VaultSsh</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">backend</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int64</span> <span class="n">ttl</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">Process</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">repeated</span> <span class="kt">string</span> <span class="n">args</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">Oidc</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">scope</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">client_id</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">redirect_uri</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">VaultEnv</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Vault connection
+</span></span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">conn</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Vault auth
+</span></span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">auth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">Resource</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Resource name
+</span></span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Vault connection for the resource
+</span></span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">vault_conn</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Vault auth for the resource
+</span></span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">vault_auth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Dependencies
+</span></span></span><span class="line"><span class="cl">  <span class="k">repeated</span> <span class="kt">string</span> <span class="n">deps</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">oneof</span> <span class="n">res</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Vault operation
+</span></span></span><span class="line"><span class="cl">    <span class="n">Op</span> <span class="n">op</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Vault KV secret
+</span></span></span><span class="line"><span class="cl">    <span class="n">Kv</span> <span class="n">kv</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Environment variable
+</span></span></span><span class="line"><span class="cl">    <span class="n">Env</span> <span class="n">env</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// File
+</span></span></span><span class="line"><span class="cl">    <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Vault environment variables
+</span></span></span><span class="line"><span class="cl">    <span class="n">VaultEnv</span> <span class="n">vault_env</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Ssh key signed by Vautl
+</span></span></span><span class="line"><span class="cl">    <span class="n">VaultSsh</span> <span class="n">vault_ssh</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Run a cmd
+</span></span></span><span class="line"><span class="cl">    <span class="n">Process</span> <span class="n">process</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Create an OIDC token
+</span></span></span><span class="line"><span class="cl">    <span class="n">Oidc</span> <span class="n">oidc</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">Config</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Resources
+</span></span></span><span class="line"><span class="cl">  <span class="k">repeated</span> <span class="n">Resource</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
 </div>
 
@@ -871,7 +879,7 @@ OIDC requests honor cancellation and do not follow redirects.</p>
     
 	<h1 id="pg-12ad066a35d8e1cfe5f119141e8f9336">7 - Login</h1>
     <div class="lead">Login to vault using the yubikey</div>
-	<h2 id="print-41438ab395f66d814b96b7d2d1760e45-usage">Usage<a class="td-heading-self-link" href="#print-41438ab395f66d814b96b7d2d1760e45-usage" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //tools/vault/login
+	<h2 id="print-41438ab395f66d814b96b7d2d1760e45-usage">Usage<a class="td-heading-self-link" href="#print-41438ab395f66d814b96b7d2d1760e45-usage" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //tools/vault/login
 </span></span></code></pre></div>
 </div>
 
@@ -934,35 +942,35 @@ revoked. Vault tokens created by the invocation are revoked after token cleanup.
     
 	<h1 id="pg-5e6863d3330b5c4ee495b8207b4a1ee8">8.1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>
-	<h2 id="print-d61478c2d3a8fba7db43010c6390c082-java">Java<a class="td-heading-self-link" href="#print-d61478c2d3a8fba7db43010c6390c082-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bzl" data-lang="bzl"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_java//java:defs.bzl&#34;</span>, <span style="color:#e6db74">&#34;java_library&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>java_library(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>,
-</span></span><span style="display:flex;"><span>    deps <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;@com_alwaldend_src//tools/vault/pve_login:api_java_library&#34;</span>,
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><h2 id="print-d61478c2d3a8fba7db43010c6390c082-golang">Golang<a class="td-heading-self-link" href="#print-d61478c2d3a8fba7db43010c6390c082-golang" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bzl" data-lang="bzl"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_go//go:def.bzl&#34;</span>, <span style="color:#e6db74">&#34;go_library&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>go_library(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>,
-</span></span><span style="display:flex;"><span>    deps <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;@com_alwaldend_src//tools/vault/pve_login:pve_login&#34;</span>,
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><h2 id="print-d61478c2d3a8fba7db43010c6390c082-proto">Proto<a class="td-heading-self-link" href="#print-d61478c2d3a8fba7db43010c6390c082-proto" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-proto" data-lang="proto"><span style="display:flex;"><span><span style="color:#66d9ef">syntax</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;proto3&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.alwaldend.src.tools.vault.pve_login.pve_login_proto;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">option</span> go_package <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;git.alwaldend.com/alwaldend/src/tools/vault/pve_login/pve_login_proto&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Config</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> pve_base_url <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> pve_redirect_url <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> pve_realm <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> vault_conn <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> vault_auth <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
-</span></span><span style="display:flex;"><span>}
+	<h2 id="print-d61478c2d3a8fba7db43010c6390c082-java">Java<a class="td-heading-self-link" href="#print-d61478c2d3a8fba7db43010c6390c082-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_java//java:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;java_library&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">java_library</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;@com_alwaldend_src//tools/vault/pve_login:api_java_library&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="print-d61478c2d3a8fba7db43010c6390c082-golang">Golang<a class="td-heading-self-link" href="#print-d61478c2d3a8fba7db43010c6390c082-golang" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_go//go:def.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;go_library&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">go_library</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;@com_alwaldend_src//tools/vault/pve_login:pve_login&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="print-d61478c2d3a8fba7db43010c6390c082-proto">Proto<a class="td-heading-self-link" href="#print-d61478c2d3a8fba7db43010c6390c082-proto" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-proto" data-lang="proto"><span class="line"><span class="cl"><span class="k">syntax</span> <span class="o">=</span> <span class="s">&#34;proto3&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.alwaldend.src.tools.vault.pve_login.pve_login_proto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">option</span> <span class="n">go_package</span> <span class="o">=</span> <span class="s">&#34;git.alwaldend.com/alwaldend/src/tools/vault/pve_login/pve_login_proto&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">Config</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">pve_base_url</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">pve_redirect_url</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">pve_realm</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">vault_conn</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">vault_auth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
 </div>
 
@@ -1014,34 +1022,34 @@ closure is not an error. Vault requests use their incoming request context.</p>
     
 	<h1 id="pg-32190bc37a299fdcd2fb9acc6abc6cbf">9.1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>
-	<h2 id="print-85aedcda6e51eb8c4b74bebbc6c7a0e9-java">Java<a class="td-heading-self-link" href="#print-85aedcda6e51eb8c4b74bebbc6c7a0e9-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bzl" data-lang="bzl"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_java//java:defs.bzl&#34;</span>, <span style="color:#e6db74">&#34;java_library&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>java_library(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>,
-</span></span><span style="display:flex;"><span>    deps <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;@com_alwaldend_src//tools/vault/tf_backend:api_java_library&#34;</span>,
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><h2 id="print-85aedcda6e51eb8c4b74bebbc6c7a0e9-golang">Golang<a class="td-heading-self-link" href="#print-85aedcda6e51eb8c4b74bebbc6c7a0e9-golang" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bzl" data-lang="bzl"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_go//go:def.bzl&#34;</span>, <span style="color:#e6db74">&#34;go_library&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>go_library(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>,
-</span></span><span style="display:flex;"><span>    deps <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;@com_alwaldend_src//tools/vault/tf_backend:tf_backend&#34;</span>,
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><h2 id="print-85aedcda6e51eb8c4b74bebbc6c7a0e9-proto">Proto<a class="td-heading-self-link" href="#print-85aedcda6e51eb8c4b74bebbc6c7a0e9-proto" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-proto" data-lang="proto"><span style="display:flex;"><span><span style="color:#66d9ef">syntax</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;proto3&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> com.alwaldend.src.tools.vault.tf_backend.tf_backend_proto;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">option</span> go_package <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;git.alwaldend.com/alwaldend/src/tools/vault/tf_backend/tf_backend_proto&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Config</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> vault_conn <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> vault_auth <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> vault_secret <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> vault_secret_mount <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
-</span></span><span style="display:flex;"><span>}
+	<h2 id="print-85aedcda6e51eb8c4b74bebbc6c7a0e9-java">Java<a class="td-heading-self-link" href="#print-85aedcda6e51eb8c4b74bebbc6c7a0e9-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_java//java:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;java_library&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">java_library</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;@com_alwaldend_src//tools/vault/tf_backend:api_java_library&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="print-85aedcda6e51eb8c4b74bebbc6c7a0e9-golang">Golang<a class="td-heading-self-link" href="#print-85aedcda6e51eb8c4b74bebbc6c7a0e9-golang" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_go//go:def.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;go_library&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">go_library</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;@com_alwaldend_src//tools/vault/tf_backend:tf_backend&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="print-85aedcda6e51eb8c4b74bebbc6c7a0e9-proto">Proto<a class="td-heading-self-link" href="#print-85aedcda6e51eb8c4b74bebbc6c7a0e9-proto" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-proto" data-lang="proto"><span class="line"><span class="cl"><span class="k">syntax</span> <span class="o">=</span> <span class="s">&#34;proto3&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">package</span> <span class="nn">com.alwaldend.src.tools.vault.tf_backend.tf_backend_proto</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">option</span> <span class="n">go_package</span> <span class="o">=</span> <span class="s">&#34;git.alwaldend.com/alwaldend/src/tools/vault/tf_backend/tf_backend_proto&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">Config</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">vault_conn</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">vault_auth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">vault_secret</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">vault_secret_mount</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
 </div>
 

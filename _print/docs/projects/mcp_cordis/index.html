@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="MCP Cordis">
 	<meta itemprop="description" content="Workspace-local runtime packages behind a stable MCP server">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="1119">
 	<meta itemprop="keywords" content="Project,Active">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="MCP Cordis">
 	<meta name="twitter:description" content="Workspace-local runtime packages behind a stable MCP server">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -234,10 +234,10 @@ produces no session context, ignores failure, and never queries the whole
 workspace graph. Cordis itself is already warmed by its MCP launch path, so the
 hook does not start a duplicate Cordis build.</p>
 <p>To build and run the server directly from the repository root:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //projects/mcp_cordis:mcp_cordis -- <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --workspace-root <span style="color:#e6db74">&#34;</span>$PWD<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --task-id example-task <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --run-id example-run
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //projects/mcp_cordis:mcp_cordis -- <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --workspace-root <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --task-id example-task <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --run-id example-run
 </span></span></code></pre></div><p>The workspace root is mandatory unless <code>BUILD_WORKSPACE_DIRECTORY</code> is
 present. The checked-in launcher resolves the current Git worktree explicitly
 and supplies that path to the server.</p>
@@ -246,30 +246,30 @@ remove, and promote packages without reconnecting the MCP client. Package
 handlers are called through <code>cordis_invoke</code>; this remains reliable even when
 an MCP client caches its initial tool list.</p>
 <h2 id="print-a451f10117562d9adb1c7bea81b4dbac-cordis-configuration-and-plugin-format">Cordis configuration and plugin format<a class="td-heading-self-link" href="#print-a451f10117562d9adb1c7bea81b4dbac-cordis-configuration-and-plugin-format" aria-label="Heading self-link"></a></h2><p><code>cordis.yaml</code> uses the standard Cordis Include entry-list format:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#f92672">id</span>: <span style="color:#ae81ff">hello</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">./plugins/hello.mjs</span>
-</span></span></code></pre></div><p>The referenced file is a normal ESM Cordis plugin:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">plugin</span> <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Provide a greeting.&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">apply</span>(<span style="color:#a6e22e">ctx</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">tool</span>(
-</span></span><span style="display:flex;"><span>      {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;hello_world&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Return a greeting.&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">inputSchema</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;object&#34;</span>,
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">properties</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;string&#34;</span> } },
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">additionalProperties</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
-</span></span><span style="display:flex;"><span>        },
-</span></span><span style="display:flex;"><span>      },
-</span></span><span style="display:flex;"><span>      ({ <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;world&#34;</span> }) =&gt; ({ <span style="color:#a6e22e">greeting</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`Hello, </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">!`</span> }),
-</span></span><span style="display:flex;"><span>    );
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">plugin</span>.<span style="color:#a6e22e">apply</span>.<span style="color:#a6e22e">description</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">plugin</span>.<span style="color:#a6e22e">description</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">plugin</span>;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl">- <span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">hello</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">./plugins/hello.mjs</span><span class="w">
+</span></span></span></code></pre></div><p>The referenced file is a normal ESM Cordis plugin:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">plugin</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">description</span><span class="o">:</span> <span class="s2">&#34;Provide a greeting.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">apply</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ctx</span><span class="p">.</span><span class="nx">tool</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;hello_world&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">description</span><span class="o">:</span> <span class="s2">&#34;Return a greeting.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">inputSchema</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;object&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">properties</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span> <span class="p">}</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">additionalProperties</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">({</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;world&#34;</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">({</span> <span class="nx">greeting</span><span class="o">:</span> <span class="sb">`Hello, </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">!`</span> <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">plugin</span><span class="p">.</span><span class="nx">apply</span><span class="p">.</span><span class="nx">description</span> <span class="o">=</span> <span class="nx">plugin</span><span class="p">.</span><span class="nx">description</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">plugin</span><span class="p">;</span>
 </span></span></code></pre></div><p>Cordis normalizes an object plugin to its <code>apply</code> callback. Attaching the
 optional package description to that callback exposes it through
 <code>cordis_list</code> and <code>cordis_inspect</code>; tool descriptions remain part of each

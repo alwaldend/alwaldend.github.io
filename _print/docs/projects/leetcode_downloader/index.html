@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Leetcode downloader">
 	<meta itemprop="description" content="LeetCode submission export and documentation tools">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="101">
 	<meta itemprop="keywords" content="Tampermonkey,Bzl_rules,Proto">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Leetcode downloader">
 	<meta name="twitter:description" content="LeetCode submission export and documentation tools">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -287,10 +287,10 @@ LeetCode bot protection.</p>
 <li><a href="https://www.tampermonkey.net/">Tampermonkey</a> script to download submissions</li>
 <li>CLI to download submissions (Doesn&rsquo;t work because of bot protection)</li>
 </ul>
-<h2 id="print-a7f1d18789d73f0ebb8026866538bcc5-usage">Usage<a class="td-heading-self-link" href="#print-a7f1d18789d73f0ebb8026866538bcc5-usage" aria-label="Heading self-link"></a></h2><h3 id="print-a7f1d18789d73f0ebb8026866538bcc5-generate-submission-from-a-submission-file">Generate submission from a submission file<a class="td-heading-self-link" href="#print-a7f1d18789d73f0ebb8026866538bcc5-generate-submission-from-a-submission-file" aria-label="Heading self-link"></a></h3><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //projects/leetcode_downloader -- <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --submissions-file <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">/out/submissions.json&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --root-dir <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    generate
+<h2 id="print-a7f1d18789d73f0ebb8026866538bcc5-usage">Usage<a class="td-heading-self-link" href="#print-a7f1d18789d73f0ebb8026866538bcc5-usage" aria-label="Heading self-link"></a></h2><h3 id="print-a7f1d18789d73f0ebb8026866538bcc5-generate-submission-from-a-submission-file">Generate submission from a submission file<a class="td-heading-self-link" href="#print-a7f1d18789d73f0ebb8026866538bcc5-generate-submission-from-a-submission-file" aria-label="Heading self-link"></a></h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //projects/leetcode_downloader -- <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --submissions-file <span class="s2">&#34;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">/out/submissions.json&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --root-dir <span class="s2">&#34;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    generate
 </span></span></code></pre></div><h2 id="print-a7f1d18789d73f0ebb8026866538bcc5-help">Help<a class="td-heading-self-link" href="#print-a7f1d18789d73f0ebb8026866538bcc5-help" aria-label="Heading self-link"></a></h2><pre tabindex="0"><code>Usage of flags:
   -base_url string
     	 (default &#34;https://leetcode.com&#34;)
@@ -437,81 +437,81 @@ al_leetcode_submissions(<a href="#print-5efabb8210ed71b39f13ff3f8ea8acf0-al_leet
     
 	<h1 id="pg-bf9516ab0470f9110502450f14e75251">2.1 - contracts</h1>
     <div class="lead">Proto docs for contracts.proto</div>
-	<h2 id="print-7692abbaf3b501598bb7e06bf45747cd-java">Java<a class="td-heading-self-link" href="#print-7692abbaf3b501598bb7e06bf45747cd-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bzl" data-lang="bzl"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_java//java:defs.bzl&#34;</span>, <span style="color:#e6db74">&#34;java_library&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>java_library(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>,
-</span></span><span style="display:flex;"><span>    deps <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;@com_alwaldend_src//projects/leetcode_downloader/main/proto/contracts:contracts_java_library&#34;</span>,
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><h2 id="print-7692abbaf3b501598bb7e06bf45747cd-golang">Golang<a class="td-heading-self-link" href="#print-7692abbaf3b501598bb7e06bf45747cd-golang" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bzl" data-lang="bzl"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_go//go:def.bzl&#34;</span>, <span style="color:#e6db74">&#34;go_library&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>go_library(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;name&#34;</span>,
-</span></span><span style="display:flex;"><span>    deps <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;@com_alwaldend_src//projects/leetcode_downloader/main/proto/contracts:contracts&#34;</span>,
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>)
-</span></span></code></pre></div><h2 id="print-7692abbaf3b501598bb7e06bf45747cd-proto">Proto<a class="td-heading-self-link" href="#print-7692abbaf3b501598bb7e06bf45747cd-proto" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-proto" data-lang="proto"><span style="display:flex;"><span><span style="color:#66d9ef">syntax</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;proto3&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">option</span> go_package <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;git.alwaldend.com/alwaldend/src/projects/leetcode_downloader/main/proto/contracts&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> CliAction {
-</span></span><span style="display:flex;"><span>  DOWNLOAD <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>  GENERATE <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  UPDATE <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Config</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> base_url <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> cookie <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">repeated</span> <span style="color:#66d9ef">string</span> action_args <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
-</span></span><span style="display:flex;"><span>  CliAction action <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint64</span> offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint64</span> limit <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">map</span>&lt;<span style="color:#66d9ef">string</span>, SubmissionConfig&gt; submissions <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> root_dir <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">map</span>&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">string</span>&gt; headers <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> submissions_file <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">bool</span> write_code <span style="color:#f92672">=</span> <span style="color:#ae81ff">13</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">SubmissionConfig</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> dir <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> extension <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">repeated</span> <span style="color:#66d9ef">string</span> types <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">Submission</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint64</span> id <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> status_display <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> lang <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint64</span> question_id <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> title_slug <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> code <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> title <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> url <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> lang_name <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// string time = 10;
-</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint64</span> timestamp <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint64</span> status <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> runtime <span style="color:#f92672">=</span> <span style="color:#ae81ff">13</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> is_pending <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> memory <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> compare_result <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">bool</span> has_notes <span style="color:#f92672">=</span> <span style="color:#ae81ff">17</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint64</span> flag_type <span style="color:#f92672">=</span> <span style="color:#ae81ff">18</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">SubmissonsResponse</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">repeated</span> Submission submissions_dump <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">bool</span> has_next <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">string</span> last_key <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">message</span> <span style="color:#a6e22e">SubmissonsStorage</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">repeated</span> Submission submissions <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>}
+	<h2 id="print-7692abbaf3b501598bb7e06bf45747cd-java">Java<a class="td-heading-self-link" href="#print-7692abbaf3b501598bb7e06bf45747cd-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_java//java:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;java_library&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">java_library</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;@com_alwaldend_src//projects/leetcode_downloader/main/proto/contracts:contracts_java_library&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="print-7692abbaf3b501598bb7e06bf45747cd-golang">Golang<a class="td-heading-self-link" href="#print-7692abbaf3b501598bb7e06bf45747cd-golang" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_go//go:def.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;go_library&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">go_library</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">deps</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;@com_alwaldend_src//projects/leetcode_downloader/main/proto/contracts:contracts&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h2 id="print-7692abbaf3b501598bb7e06bf45747cd-proto">Proto<a class="td-heading-self-link" href="#print-7692abbaf3b501598bb7e06bf45747cd-proto" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-proto" data-lang="proto"><span class="line"><span class="cl"><span class="k">syntax</span> <span class="o">=</span> <span class="s">&#34;proto3&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">option</span> <span class="n">go_package</span> <span class="o">=</span> <span class="s">&#34;git.alwaldend.com/alwaldend/src/projects/leetcode_downloader/main/proto/contracts&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">enum</span> <span class="n">CliAction</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">DOWNLOAD</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">GENERATE</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">UPDATE</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">Config</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">base_url</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">cookie</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">repeated</span> <span class="kt">string</span> <span class="n">action_args</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">CliAction</span> <span class="n">action</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">uint64</span> <span class="n">offset</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">uint64</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">map</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">SubmissionConfig</span><span class="p">&gt;</span> <span class="n">submissions</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">root_dir</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">map</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">headers</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">submissions_file</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">bool</span> <span class="n">write_code</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">SubmissionConfig</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">dir</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">extension</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">repeated</span> <span class="kt">string</span> <span class="n">types</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">Submission</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">uint64</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">status_display</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">lang</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">uint64</span> <span class="n">question_id</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">title_slug</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">code</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">title</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">url</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">lang_name</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// string time = 10;
+</span></span></span><span class="line"><span class="cl">  <span class="kt">uint64</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">uint64</span> <span class="n">status</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">runtime</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">is_pending</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">memory</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">compare_result</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">bool</span> <span class="n">has_notes</span> <span class="o">=</span> <span class="mi">17</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">uint64</span> <span class="n">flag_type</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">SubmissonsResponse</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">repeated</span> <span class="n">Submission</span> <span class="n">submissions_dump</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">bool</span> <span class="n">has_next</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">last_key</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">SubmissonsStorage</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">repeated</span> <span class="n">Submission</span> <span class="n">submissions</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div>
 </div>
 
@@ -4486,18 +4486,13 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Propose native Nexus deployment on XCP-ng</p>
-<p>Add an owner-local OpenSpec proposal, design, capability deltas, and
-implementation checklist for native Nexus 3 and PostgreSQL on one VM.
-Define PyPI, npm, and Docker Hub proxies with Vault-backed configuration
-and separate provisioning, Ansible, service Terraform, and Traefik ownership.</p>
-<p>This change contains planning artifacts only. Implementation and live
-deployment remain outside this handoff.
-Register the planning workspace for strict repository validation and document
-component ownership. Link a collection-owned PostgreSQL proposal that defines
-the reusable role&rsquo;s initialization, authentication, ownership, extension, and
-compatibility contracts with their own acceptance tasks.</p>
-<p>OpenSpec-Change: infra/nexus/openspec/changes/add-nexus-deployment</p>
+            <p>Move agent tooling and binary dependencies to their owning trees</p>
+<p>Move repository-wide agent skills from projects/agents to tools/agents, update
+skill discovery and documentation, and remove the product landing registration.</p>
+<p>Place all 24 main-module binary toolchain dependencies under upstream-named
+third_party packages while keeping first-party wrappers and configuration under
+tools. Preserve dependency pins and standalone Bazel module independence.
+Update the layout and dependency skills to document this ownership policy.</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -4514,7 +4509,7 @@ compatibility contracts with their own acceptance tasks.</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">ae0a0104bcb29266c51a45e6128e1b2cfe6e6a93</pre>
+                    <pre class="my-auto">43baa6ea221071c40b37ef11fa5db7d65b9c9223</pre>
                   </span>
                 </li>
               </ul>
@@ -4568,8 +4563,8 @@ compatibility contracts with their own acceptance tasks.</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQLHXXU5gqRa3wHjjMm0l&#43;iQ6rhGw1hu/T5iWBsTaVw21bLR9MJeQKFxf3PGeFjJaC/
-D1ELWXDLvszYgYaT&#43;7bgc=
+AAAAQOYoPIcE2eVRj/wDYZV5cWm9RIb63LUnde/S7J3wrG/8XoZROc2kxYOmcwk6Gf7Cuc
+4ZGNKEvAnpg4ZmXoKbLgw=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -8848,18 +8843,13 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Propose native Nexus deployment on XCP-ng</p>
-<p>Add an owner-local OpenSpec proposal, design, capability deltas, and
-implementation checklist for native Nexus 3 and PostgreSQL on one VM.
-Define PyPI, npm, and Docker Hub proxies with Vault-backed configuration
-and separate provisioning, Ansible, service Terraform, and Traefik ownership.</p>
-<p>This change contains planning artifacts only. Implementation and live
-deployment remain outside this handoff.
-Register the planning workspace for strict repository validation and document
-component ownership. Link a collection-owned PostgreSQL proposal that defines
-the reusable role&rsquo;s initialization, authentication, ownership, extension, and
-compatibility contracts with their own acceptance tasks.</p>
-<p>OpenSpec-Change: infra/nexus/openspec/changes/add-nexus-deployment</p>
+            <p>Move agent tooling and binary dependencies to their owning trees</p>
+<p>Move repository-wide agent skills from projects/agents to tools/agents, update
+skill discovery and documentation, and remove the product landing registration.</p>
+<p>Place all 24 main-module binary toolchain dependencies under upstream-named
+third_party packages while keeping first-party wrappers and configuration under
+tools. Preserve dependency pins and standalone Bazel module independence.
+Update the layout and dependency skills to document this ownership policy.</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -8876,7 +8866,7 @@ compatibility contracts with their own acceptance tasks.</p>
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">ae0a0104bcb29266c51a45e6128e1b2cfe6e6a93</pre>
+                    <pre class="my-auto">43baa6ea221071c40b37ef11fa5db7d65b9c9223</pre>
                   </span>
                 </li>
               </ul>
@@ -8930,8 +8920,8 @@ compatibility contracts with their own acceptance tasks.</p>
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQLHXXU5gqRa3wHjjMm0l&#43;iQ6rhGw1hu/T5iWBsTaVw21bLR9MJeQKFxf3PGeFjJaC/
-D1ELWXDLvszYgYaT&#43;7bgc=
+AAAAQOYoPIcE2eVRj/wDYZV5cWm9RIb63LUnde/S7J3wrG/8XoZROc2kxYOmcwk6Gf7Cuc
+4ZGNKEvAnpg4ZmXoKbLgw=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>

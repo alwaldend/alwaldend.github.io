@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Rules skill">
 	<meta itemprop="description" content="Bazel rules and validation for Codex skills">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="586">
 	<meta itemprop="keywords" content="Bzl_rules">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Rules skill">
 	<meta name="twitter:description" content="Bazel rules and validation for Codex skills">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -197,23 +197,23 @@ This is the multi-page printable view of this section.
       <p><code>rules_skills</code> packages all files belonging to a Codex skill and validates its
 instructions and optional OpenAI metadata with a hermetic Bazel aspect.</p>
 <h2 id="print-2ad7f5461c1ed7ee7ed76c6b87e2c711-getting-started">Getting started<a class="td-heading-self-link" href="#print-2ad7f5461c1ed7ee7ed76c6b87e2c711-getting-started" aria-label="Heading self-link"></a></h2><p>Add the module and register the validation aspect:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>bazel_dep(name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rules_skills&#34;</span>, version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&lt;VERSION&gt;&#34;</span>)
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>build --aspects @rules_skills//skill:defs.bzl%skill_validation_aspect
-</span></span><span style="display:flex;"><span>build --output_groups=+skill_validation
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-starlark" data-lang="starlark"><span class="line"><span class="cl"><span class="n">bazel_dep</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;rules_skills&#34;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s2">&#34;&lt;VERSION&gt;&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">build --aspects @rules_skills//skill:defs.bzl%skill_validation_aspect
+</span></span><span class="line"><span class="cl">build --output_groups=+skill_validation
 </span></span></code></pre></div><p>Declare one library in the skill&rsquo;s named, non-root package:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_skills//skill:defs.bzl&#34;</span>, <span style="color:#e6db74">&#34;skill_library&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>skill_library(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;skill&#34;</span>,
-</span></span><span style="display:flex;"><span>    srcs <span style="color:#f92672">=</span> glob(
-</span></span><span style="display:flex;"><span>        [<span style="color:#e6db74">&#34;**&#34;</span>],
-</span></span><span style="display:flex;"><span>        exclude <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;BUILD.bazel&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;BUILD&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;evals/**&#34;</span>,
-</span></span><span style="display:flex;"><span>        ],
-</span></span><span style="display:flex;"><span>    ),
-</span></span><span style="display:flex;"><span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-starlark" data-lang="starlark"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_skills//skill:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;skill_library&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">skill_library</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;skill&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">srcs</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="s2">&#34;**&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="n">exclude</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;BUILD.bazel&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;BUILD&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;evals/**&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span></code></pre></div><p>The package&rsquo;s final path segment is the skill name, so a <code>skill_library</code>
 cannot be declared in a repository root package. Move a root-level skill into
 a named subpackage before declaring it.</p>
@@ -222,18 +222,18 @@ aspect checks <code>SKILL.md</code>, verifies that the frontmatter name matches 
 package directory, and validates <code>agents/openai.yaml</code> when it is present.</p>
 <h2 id="print-2ad7f5461c1ed7ee7ed76c6b87e2c711-consuming-a-skill">Consuming a skill<a class="td-heading-self-link" href="#print-2ad7f5461c1ed7ee7ed76c6b87e2c711-consuming-a-skill" aria-label="Heading self-link"></a></h2><p>Rules that install or evaluate skills can require the public <code>SkillInfo</code>
 provider:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_skills//skill:defs.bzl&#34;</span>, <span style="color:#e6db74">&#34;SkillInfo&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>attrs <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;skill&#34;</span>: attr<span style="color:#f92672">.</span>label(providers <span style="color:#f92672">=</span> [SkillInfo]),
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-starlark" data-lang="starlark"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_skills//skill:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;SkillInfo&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;skill&#34;</span><span class="p">:</span> <span class="n">attr</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">providers</span> <span class="o">=</span> <span class="p">[</span><span class="n">SkillInfo</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p><code>SkillInfo</code> exposes these fields:</p>
 <ul>
 <li><code>name</code> is the logical skill name derived from the final segment of <code>root</code>.
 The validation aspect verifies that the <code>SKILL.md</code> frontmatter uses the same
 name.</li>
 <li><code>root</code> is the owning Bazel package path within the skill&rsquo;s repository, such
-as <code>projects/agents/skills/answer-question</code>. It has no repository,
+as <code>tools/agents/skills/answer-question</code>. It has no repository,
 execution-path, or runfiles prefix. It is always non-empty because
 repository root packages are unsupported.</li>
 <li><code>files_by_path</code> maps slash-separated paths relative to <code>root</code> to Bazel
@@ -249,15 +249,15 @@ package, and duplicate logical paths are rejected during analysis.</p>
 <h2 id="print-2ad7f5461c1ed7ee7ed76c6b87e2c711-packaging-skills-from-an-external-archive">Packaging skills from an external archive<a class="td-heading-self-link" href="#print-2ad7f5461c1ed7ee7ed76c6b87e2c711-packaging-skills-from-an-external-archive" aria-label="Heading self-link"></a></h2><p>Use <code>skill_archives</code> when skills are maintained upstream and consumed as a
 pinned archive. The external repository&rsquo;s <code>BUILD</code> file derives one target per
 skill directory from a wildcard, so a new upstream skill needs no edit here:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_skills//skill:defs.bzl&#34;</span>, <span style="color:#e6db74">&#34;skill_archives&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>skill_archives(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;skills&#34;</span>,
-</span></span><span style="display:flex;"><span>    roots <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>        manifest<span style="color:#f92672">.</span>rsplit(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#ae81ff">1</span>)[<span style="color:#ae81ff">0</span>]
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> manifest <span style="color:#f92672">in</span> glob([<span style="color:#e6db74">&#34;skills/*/SKILL.md&#34;</span>])
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-starlark" data-lang="starlark"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_skills//skill:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;skill_archives&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">skill_archives</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;skills&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">roots</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="n">manifest</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&#34;/&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">manifest</span> <span class="ow">in</span> <span class="n">glob</span><span class="p">([</span><span class="s2">&#34;skills/*/SKILL.md&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span></code></pre></div><p><code>skill_archives</code> is a macro over the <code>skill_archive</code> rule. Each generated
 target&rsquo;s name is its skill directory&rsquo;s final segment, <code>root</code> is the skill
 directory inside the package, and its packaged logical paths are relative to
@@ -267,19 +267,19 @@ directory inside the package, and its packaged logical paths are relative to
 <code>symlinks</code> label is installed as a direct relative symlink to its canonical
 root; each <code>archives</code> label is copied in as regular files, which is how archive
 skills are materialized into the consuming repository:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>load(<span style="color:#e6db74">&#34;@rules_skills//skill:defs.bzl&#34;</span>, <span style="color:#e6db74">&#34;skills_write&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>skills_write(
-</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;write_skills&#34;</span>,
-</span></span><span style="display:flex;"><span>    archives <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;@org_fissionai_openspec//:openspec-propose&#34;</span>],
-</span></span><span style="display:flex;"><span>    discovery_dir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.agents/skills&#34;</span>,
-</span></span><span style="display:flex;"><span>    symlinks <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;//projects/agents/skills/answer-question:skill&#34;</span>],
-</span></span><span style="display:flex;"><span>    workspace_marker <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;//:AGENTS.md&#34;</span>,
-</span></span><span style="display:flex;"><span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-starlark" data-lang="starlark"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_skills//skill:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;skills_write&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">skills_write</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;write_skills&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">archives</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;@org_fissionai_openspec//:openspec-propose&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="n">discovery_dir</span> <span class="o">=</span> <span class="s2">&#34;.agents/skills&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">symlinks</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;//tools/agents/skills/answer-question:skill&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="n">workspace_marker</span> <span class="o">=</span> <span class="s2">&#34;//:AGENTS.md&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span></code></pre></div><p><code>workspace_marker</code> is a source file in the consuming repository used to
 resolve the workspace root from test runfiles. Reconcile and verify:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //.agents:write_skills
-</span></span><span style="display:flex;"><span>bazel test //.agents:write_skills_test
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //.agents:write_skills
+</span></span><span class="line"><span class="cl">bazel <span class="nb">test</span> //.agents:write_skills_test
 </span></span></code></pre></div><p>The generated check requires exactly the declared names: missing, extra, or
 stale entries fail, and a written entry must match its declared source
 byte-for-byte. The updater holds a sibling <code>&lt;discovery_dir&gt;.lock</code> directory

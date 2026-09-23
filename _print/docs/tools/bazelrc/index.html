@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Bazelrc">
 	<meta itemprop="description" content="Bazelrc files">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
-	<meta itemprop="wordCount" content="135">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
+	<meta itemprop="wordCount" content="209">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Bazelrc">
 	<meta name="twitter:description" content="Bazelrc files">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -194,7 +194,7 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <h2 id="print-fcd8d261d05886ef7cc7283fd902afb8-usage">Usage<a class="td-heading-self-link" href="#print-fcd8d261d05886ef7cc7283fd902afb8-usage" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //tools/bazelrc:preset.update
+      <h2 id="print-fcd8d261d05886ef7cc7283fd902afb8-usage">Usage<a class="td-heading-self-link" href="#print-fcd8d261d05886ef7cc7283fd902afb8-usage" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //tools/bazelrc:preset.update
 </span></span></code></pre></div><p>The <code>agent</code> profile must not propagate ambient <code>TEMP</code>, <code>TMP</code>, or <code>TMPDIR</code>
 values into repository rules, actions, host actions, or tests. Those execution
 contexts use Bazel-managed temporary storage; host tools own any explicit
@@ -204,6 +204,9 @@ workspace files must opt out with the <code>no-cache</code> tag.</p>
 <p>Agent commands use Bazel&rsquo;s default lockfile update mode. Review and commit
 generated lockfile changes with dependency changes. CI retains strict lockfile
 checking; use <code>--lockfile_mode=error</code> for an explicit reproducibility check.</p>
+<p>The shared CI profile works in root and nested workspaces. The root-only
+<code>//tools/bazel_configs:ci_flag</code> belongs in <code>root.bazelrc</code>; nested workspaces
+import the common CI flags without resolving that root package.</p>
 <p>In the root workspace, lint actions fail on violations. Their failure setting
 is identical across normal and lint configurations to preserve the analysis
 cache when switching modes. <code>--config=lint</code> enables the linter aspects and
@@ -211,6 +214,10 @@ requests only lint reports and skill validation, not ordinary target outputs.</p
 <h2 id="print-fcd8d261d05886ef7cc7283fd902afb8-links">Links<a class="td-heading-self-link" href="#print-fcd8d261d05886ef7cc7283fd902afb8-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Rules: <a href="https://github.com/bazel-contrib/bazelrc-preset.bzl/">https://github.com/bazel-contrib/bazelrc-preset.bzl/</a></li>
 </ul>
+<p>The generated preset omits the optional Cloudflare module mirror because it
+slow-stalls on the CI network. Bazel uses the source URLs and mirrors declared
+by each registry entry. Configure this omission in <code>BUILD.bazel</code>, then regenerate
+<code>preset.bazelrc</code>; a later empty flag does not clear an accumulated mirror.</p>
 
 </div>
 </div>

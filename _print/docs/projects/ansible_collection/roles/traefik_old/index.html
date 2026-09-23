@@ -44,13 +44,13 @@
 
 	<meta itemprop="name" content="Traefik (old)">
 	<meta itemprop="description" content="Old traefik role">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="keywords" content="Ansible_role">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Traefik (old)">
 	<meta name="twitter:description" content="Old traefik role">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -144,7 +144,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -235,34 +235,34 @@ This is the multi-page printable view of this section.
     
 	<h1 id="pg-097cf66cf2e33f82f65b95df93467657">1 - Defaults</h1>
     <div class="lead">Defaults for traefik_old</div>
-	<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">traefik_user</span>: <span style="color:#ae81ff">traefik</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_user_uid</span>: <span style="color:#ae81ff">3653</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_env</span>: {}
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_data_dir</span>: <span style="color:#ae81ff">/mnt/traefik</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_log_dir</span>: <span style="color:#e6db74">&#34;/var/log/traefik&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_certificates_dir</span>: <span style="color:#e6db74">&#34;{{ traefik_data_dir }}/certificates&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_configs_dir</span>: <span style="color:#e6db74">&#34;{{ traefik_data_dir }}/configs&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_configs_version</span>: <span style="color:#e6db74">&#34;{{ lookup(&#39;ansible.builtin.pipe&#39;, &#39;git rev-parse HEAD&#39;) }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_configs_dynamic_dir</span>: <span style="color:#e6db74">&#34;{{ traefik_configs_cur_dir }}/dynamic&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_configs_dynamic_dir_symlink</span>: <span style="color:#e6db74">&#34;{{ traefik_configs_symlink }}/dynamic&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_configs_cur_dir_name</span>: <span style="color:#e6db74">&#34;{{ traefik_configs_version }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_configs_cur_dir</span>: <span style="color:#e6db74">&#34;{{ traefik_configs_dir }}/{{ traefik_configs_cur_dir_name }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_configs_symlink</span>: <span style="color:#e6db74">&#34;{{ traefik_configs_dir }}/current&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_static_config_path</span>: <span style="color:#e6db74">&#34;{{ traefik_configs_symlink }}/traefik.yaml&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_releases_dir</span>: <span style="color:#ae81ff">/opt/traefik/releases</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_static_config</span>:
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_dynamic_configs</span>: []
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_version</span>: <span style="color:#ae81ff">v3.3.1</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_dir_name</span>: <span style="color:#e6db74">&#34;{{ traefik_release_version }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_dir</span>: <span style="color:#e6db74">&#34;{{ traefik_releases_dir }}/{{ traefik_release_dir_name }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_symlink</span>: <span style="color:#e6db74">&#34;{{ traefik_releases_dir }}/current&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_symlink_bin</span>: <span style="color:#e6db74">&#34;{{ traefik_release_symlink }}/traefik&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_archive_name</span>: <span style="color:#e6db74">&#34;traefik_{{ traefik_release_version }}_linux_amd64&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_archive_full</span>: <span style="color:#e6db74">&#34;traefik_{{ traefik_release_version }}_linux_amd64.tar.gz&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_bin_path</span>: <span style="color:#e6db74">&#34;{{ traefik_release_dir }}/traefik&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_download_url</span>: <span style="color:#e6db74">&#34;https://github.com/traefik/traefik/releases/download/{{ traefik_release_version }}/{{ traefik_release_archive_full }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">traefik_release_download_checksum</span>: <span style="color:#ae81ff">sha256:27fd502a8d80fc81b97faf5cebd7a1cbc1a2c5369d18e0f4471a66d1a8c139ce</span>
-</span></span></code></pre></div>
+	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">traefik_user</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">3653</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_env</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_data_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/mnt/traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_log_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/var/log/traefik&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_certificates_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ traefik_data_dir }}/certificates&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_configs_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ traefik_data_dir }}/configs&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_configs_version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ lookup(&#39;ansible.builtin.pipe&#39;, &#39;git rev-parse HEAD&#39;) }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_configs_dynamic_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ traefik_configs_cur_dir }}/dynamic&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_configs_dynamic_dir_symlink</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ traefik_configs_symlink }}/dynamic&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_configs_cur_dir_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ traefik_configs_version }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_configs_cur_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ traefik_configs_dir }}/{{ traefik_configs_cur_dir_name }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_configs_symlink</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ traefik_configs_dir }}/current&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_static_config_path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ traefik_configs_symlink }}/traefik.yaml&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_releases_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/opt/traefik/releases</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_static_config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_dynamic_configs</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_release_version</span><span class="p">:</span><span class="w"> </span><span class="l">v3.3.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_release_dir_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ traefik_release_version }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_release_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ traefik_releases_dir }}/{{ traefik_release_dir_name }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_release_symlink</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ traefik_releases_dir }}/current&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_release_symlink_bin</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ traefik_release_symlink }}/traefik&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_release_archive_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik_{{ traefik_release_version }}_linux_amd64&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_release_archive_full</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik_{{ traefik_release_version }}_linux_amd64.tar.gz&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_release_bin_path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ traefik_release_dir }}/traefik&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_release_download_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://github.com/traefik/traefik/releases/download/{{ traefik_release_version }}/{{ traefik_release_archive_full }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">traefik_release_download_checksum</span><span class="p">:</span><span class="w"> </span><span class="l">sha256:27fd502a8d80fc81b97faf5cebd7a1cbc1a2c5369d18e0f4471a66d1a8c139ce</span><span class="w">
+</span></span></span></code></pre></div>
 </div>
 
 

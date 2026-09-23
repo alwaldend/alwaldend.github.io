@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Defaults">
 	<meta itemprop="description" content="Defaults for consul_envoy">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="61">
 	<meta itemprop="keywords" content="Generated">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Defaults">
 	<meta name="twitter:description" content="Defaults for consul_envoy">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -194,22 +194,22 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_dir</span>: <span style="color:#e6db74">&#34;/opt/consul_envoy&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_deployments_dir</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_dir }}/deployments&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_releases_dir</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_dir }}/releases&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_deployment_dir</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_deployments_dir }}/{{ consul_envoy_deployment_version }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_release_dir</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_releases_dir }}/{{ consul_envoy_release_version }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_configs_dir</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_deployment_dir }}/configs&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_bootstrap_config_path</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_configs_dir }}/bootstrap.json&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_deployment_version</span>: <span style="color:#e6db74">&#34;{{ lookup(&#39;ansible.builtin.pipe&#39;, &#39;git rev-parse HEAD&#39;) }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_user_name</span>: <span style="color:#ae81ff">consul_envoy</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_release_version</span>: <span style="color:#ae81ff">1.31.0</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_release_archive_fullname</span>: <span style="color:#e6db74">&#34;envoy_{{ consul_envoy_release_version }}_linux_amd64.zip&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_release_url</span>: <span style="color:#e6db74">&#34;https://releases.hashicorp.com/envoy/{{ consul_envoy_release_version }}/{{ consul_envoy_release_archive_fullname }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_release_bin_path</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_release_dir }}/envoy&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_release_symlink_path</span>: <span style="color:#e6db74">&#34;{{ consul_envoy_releases_dir }}/current&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">consul_envoy_release_checksum</span>: <span style="color:#e6db74">&#34;sha256:350782275de0fe50699844b4f9096d77a0193a5bcf205e14b8ad964ec429d45e&#34;</span>
-</span></span></code></pre></div>
+      <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">consul_envoy_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/opt/consul_envoy&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_deployments_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ consul_envoy_dir }}/deployments&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_releases_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ consul_envoy_dir }}/releases&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_deployment_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ consul_envoy_deployments_dir }}/{{ consul_envoy_deployment_version }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_release_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ consul_envoy_releases_dir }}/{{ consul_envoy_release_version }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_configs_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ consul_envoy_deployment_dir }}/configs&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_bootstrap_config_path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ consul_envoy_configs_dir }}/bootstrap.json&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_deployment_version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ lookup(&#39;ansible.builtin.pipe&#39;, &#39;git rev-parse HEAD&#39;) }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_user_name</span><span class="p">:</span><span class="w"> </span><span class="l">consul_envoy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_release_version</span><span class="p">:</span><span class="w"> </span><span class="m">1.31.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_release_archive_fullname</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;envoy_{{ consul_envoy_release_version }}_linux_amd64.zip&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_release_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://releases.hashicorp.com/envoy/{{ consul_envoy_release_version }}/{{ consul_envoy_release_archive_fullname }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_release_bin_path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ consul_envoy_release_dir }}/envoy&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_release_symlink_path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ consul_envoy_releases_dir }}/current&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_release_checksum</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;sha256:350782275de0fe50699844b4f9096d77a0193a5bcf205e14b8ad964ec429d45e&#34;</span><span class="w">
+</span></span></span></code></pre></div>
 </div>
 </div>
 

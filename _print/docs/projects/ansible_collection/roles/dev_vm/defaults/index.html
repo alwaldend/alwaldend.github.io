@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Defaults">
 	<meta itemprop="description" content="Defaults for dev_vm">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
-	<meta itemprop="wordCount" content="78">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
+	<meta itemprop="wordCount" content="98">
 	<meta itemprop="keywords" content="Generated">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Defaults">
 	<meta name="twitter:description" content="Defaults for dev_vm">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -194,44 +194,50 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
-</span></span><span style="display:flex;"><span><span style="color:#f92672">dev_vm_install_packages</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">dev_vm_package_backend</span>: <span style="color:#ae81ff">auto</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">dev_vm_rpm_ostree_apply_live</span>: <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">dev_vm_packages</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">clang</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">clang-tools-extra</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">java-latest-openjdk-devel</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">rust</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">cargo</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">mesa-libGL-devel</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">go</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">Xvfb</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">python3</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">gmp-devel</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">patch</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">podman</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">git</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">git-lfs</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">fuse</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">fuse-libs</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">pcsc-lite</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">pcsc-lite-devel</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">openssl</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">gnutls-utils</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">opensc</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">openssl-pkcs11</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">libdnet</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">qemu-kvm</span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#ae81ff">qemu-img</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">dev_vm_bazel_user</span>: <span style="color:#e6db74">&#34;{{ undefined() }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">dev_vm_bazel_group</span>: <span style="color:#e6db74">&#34;{{ dev_vm_bazel_user }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">dev_vm_bazel_home</span>: <span style="color:#e6db74">&#34;{{ undefined() }}&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">dev_vm_bazelrc_src</span>: <span style="color:#ae81ff">bazelrc</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">dev_vm_bazelisk_src</span>: <span style="color:#ae81ff">bazelisk</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">dev_vm_bazel_agent_src</span>: <span style="color:#ae81ff">bazel_agent</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">dev_vm_selinux_android_emulation</span>: <span style="color:#66d9ef">true</span>
-</span></span></code></pre></div>
+      <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_install_packages</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_package_backend</span><span class="p">:</span><span class="w"> </span><span class="l">auto</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_rpm_ostree_apply_live</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_packages</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">acl</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">clang</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">clang-tools-extra</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">java-latest-openjdk-devel</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">rust</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">cargo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">mesa-libGL-devel</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">go</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">Xvfb</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">python3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">gmp-devel</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">patch</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">podman</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">git</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">git-lfs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">fuse</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">fuse-libs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">pcsc-lite</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">pcsc-lite-devel</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">openssl</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">gnutls-utils</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">opensc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">openssl-pkcs11</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">libdnet</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">qemu-kvm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">qemu-img</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_bazel_user</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ undefined() }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_bazel_group</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ dev_vm_bazel_user }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_bazel_home</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ undefined() }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_bazelrc_src</span><span class="p">:</span><span class="w"> </span><span class="l">bazelrc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_bazelisk_src</span><span class="p">:</span><span class="w"> </span><span class="l">bazelisk</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_bazel_agent_src</span><span class="p">:</span><span class="w"> </span><span class="l">bazel_agent</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_selinux_android_emulation</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_android_sdk_root</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ dev_vm_bazel_home }}/Android/Sdk&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_android_installer_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ dev_vm_bazel_home }}/.local/lib/android-installer&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_android_installer_src</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ undefined() }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_android_packages_src</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ undefined() }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_android_install_timeout</span><span class="p">:</span><span class="w"> </span><span class="m">1800</span><span class="w">
+</span></span></span></code></pre></div>
 </div>
 </div>
 

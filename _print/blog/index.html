@@ -44,12 +44,12 @@
 
 	<meta itemprop="name" content="Blog">
 	<meta itemprop="description" content="Blog">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Blog">
 	<meta name="twitter:description" content="Blog">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -143,7 +143,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -287,46 +287,46 @@ This is the multi-page printable view of this section.
 <p><img src="/blog/diagrams-in-ac-era/t3code-architecture.svg" alt="The new Mermaid diagram" loading="lazy"></p>
 <p>It&rsquo;s readable and looks pretty. I like it.</p>
 <p>Here is its source. It&rsquo;s also pretty and readable:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>flowchart LR
-</span></span><span style="display:flex;"><span>    subgraph internet[&#34;Internet&#34;]
-</span></span><span style="display:flex;"><span>        direction TB
-</span></span><span style="display:flex;"><span>        remote(&#34;Actor&#34;)
-</span></span><span style="display:flex;"><span>        ingress(&#34;Ingress&#34;)
-</span></span><span style="display:flex;"><span>    end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    subgraph dc1[&#34;Local infra&lt;br/&gt;dc1.alwaldend.com&#34;]
-</span></span><span style="display:flex;"><span>        direction TB
-</span></span><span style="display:flex;"><span>        intranet(&#34;Actor&#34;)
-</span></span><span style="display:flex;"><span>        vault(&#34;Vault&lt;br/&gt;vault.alwaldend.com&#34;)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        subgraph host_bot[&#34;Bare metal host&lt;br/&gt;host-bot.simeonwarren.users.alwaldend.com&#34;]
-</span></span><span style="display:flex;"><span>            direction TB
-</span></span><span style="display:flex;"><span>            traefik(&#34;Traefik&#34;)
-</span></span><span style="display:flex;"><span>            t3code(&#34;T3 Code&#34;)
-</span></span><span style="display:flex;"><span>            codex(&#34;Codex&#34;)
-</span></span><span style="display:flex;"><span>        end
-</span></span><span style="display:flex;"><span>    end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    subgraph external[&#34;Internet&#34;]
-</span></span><span style="display:flex;"><span>        direction TB
-</span></span><span style="display:flex;"><span>        github(&#34;GitHub&lt;br/&gt;github.com&#34;)
-</span></span><span style="display:flex;"><span>        openai(&#34;OpenAI&lt;br/&gt;openai.com&#34;)
-</span></span><span style="display:flex;"><span>        openrouter(&#34;OpenRouter&lt;br/&gt;openrouter.ai&#34;)
-</span></span><span style="display:flex;"><span>    end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    remote --&gt;|&#34;HTTPS + mTLS&#34;| ingress
-</span></span><span style="display:flex;"><span>    intranet --&gt;|&#34;HTTPS&#34;| traefik
-</span></span><span style="display:flex;"><span>    ingress --&gt;|&#34;HTTPS over Wireguard&#34;| traefik
-</span></span><span style="display:flex;"><span>    traefik --&gt; t3code
-</span></span><span style="display:flex;"><span>    t3code --&gt; codex
-</span></span><span style="display:flex;"><span>    traefik &lt;--&gt;|&#34;ACME (HTTP)&#34;| vault
-</span></span><span style="display:flex;"><span>    t3code --&gt;|&#34;Source&#34;| github
-</span></span><span style="display:flex;"><span>    codex ---|&#34;Inference&#34;| inference@{ shape: junction }
-</span></span><span style="display:flex;"><span>    inference --&gt; openai
-</span></span><span style="display:flex;"><span>    inference --&gt; openrouter
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    classDef actor font-style:normal;
-</span></span><span style="display:flex;"><span>    class remote,intranet actor
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">flowchart LR
+</span></span><span class="line"><span class="cl">    subgraph internet[&#34;Internet&#34;]
+</span></span><span class="line"><span class="cl">        direction TB
+</span></span><span class="line"><span class="cl">        remote(&#34;Actor&#34;)
+</span></span><span class="line"><span class="cl">        ingress(&#34;Ingress&#34;)
+</span></span><span class="line"><span class="cl">    end
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    subgraph dc1[&#34;Local infra&lt;br/&gt;dc1.alwaldend.com&#34;]
+</span></span><span class="line"><span class="cl">        direction TB
+</span></span><span class="line"><span class="cl">        intranet(&#34;Actor&#34;)
+</span></span><span class="line"><span class="cl">        vault(&#34;Vault&lt;br/&gt;vault.alwaldend.com&#34;)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        subgraph host_bot[&#34;Bare metal host&lt;br/&gt;host-bot.simeonwarren.users.alwaldend.com&#34;]
+</span></span><span class="line"><span class="cl">            direction TB
+</span></span><span class="line"><span class="cl">            traefik(&#34;Traefik&#34;)
+</span></span><span class="line"><span class="cl">            t3code(&#34;T3 Code&#34;)
+</span></span><span class="line"><span class="cl">            codex(&#34;Codex&#34;)
+</span></span><span class="line"><span class="cl">        end
+</span></span><span class="line"><span class="cl">    end
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    subgraph external[&#34;Internet&#34;]
+</span></span><span class="line"><span class="cl">        direction TB
+</span></span><span class="line"><span class="cl">        github(&#34;GitHub&lt;br/&gt;github.com&#34;)
+</span></span><span class="line"><span class="cl">        openai(&#34;OpenAI&lt;br/&gt;openai.com&#34;)
+</span></span><span class="line"><span class="cl">        openrouter(&#34;OpenRouter&lt;br/&gt;openrouter.ai&#34;)
+</span></span><span class="line"><span class="cl">    end
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    remote --&gt;|&#34;HTTPS + mTLS&#34;| ingress
+</span></span><span class="line"><span class="cl">    intranet --&gt;|&#34;HTTPS&#34;| traefik
+</span></span><span class="line"><span class="cl">    ingress --&gt;|&#34;HTTPS over Wireguard&#34;| traefik
+</span></span><span class="line"><span class="cl">    traefik --&gt; t3code
+</span></span><span class="line"><span class="cl">    t3code --&gt; codex
+</span></span><span class="line"><span class="cl">    traefik &lt;--&gt;|&#34;ACME (HTTP)&#34;| vault
+</span></span><span class="line"><span class="cl">    t3code --&gt;|&#34;Source&#34;| github
+</span></span><span class="line"><span class="cl">    codex ---|&#34;Inference&#34;| inference@{ shape: junction }
+</span></span><span class="line"><span class="cl">    inference --&gt; openai
+</span></span><span class="line"><span class="cl">    inference --&gt; openrouter
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    classDef actor font-style:normal;
+</span></span><span class="line"><span class="cl">    class remote,intranet actor
 </span></span></code></pre></div><p>In the end:</p>
 <ul>
 <li>Diagrams are pretty, check. Although they still lack some pizzazz.</li>
@@ -377,34 +377,34 @@ This is the multi-page printable view of this section.
 infra/project/ # Another infra project
 ├── dnsconfig.json # Static DNS config
 </code></pre><p>And the config looked like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;domains&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;default&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;records&#34;</span>: {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;host1_a&#34;</span>: {
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;A&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;host1.consul1.dc1&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;address&#34;</span>: <span style="color:#e6db74">&#34;192.168.10.20&#34;</span>
-</span></span><span style="display:flex;"><span>          }
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;domains&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;default&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;records&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;host1_a&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;A&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;host1.consul1.dc1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;address&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.10.20&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>This was a bad config design as will become clear later.</p>
 <h2 id="split-horizon-dns">Split-horizon DNS<a class="td-heading-self-link" href="#split-horizon-dns" aria-label="Heading self-link"></a></h2><p>Later, I decided to set up <a href="https://en.wikipedia.org/wiki/Split-horizon_DNS">Split-horizon DNS</a> so I can have different records for internal and external DNS servers. Thankfully, DNSControl supports this, so there were no problems from this side, but configs had to be redone because they grouped records by domains which did not translate well to DNSControl&rsquo;s DNS providers.</p>
 <p>I simplified the config and added <code>dsp</code> fields to select which DNS provider the record belongs to.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;records&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;host1&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;A&#34;</span>: {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;host1.threexui&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;address&#34;</span>: <span style="color:#e6db74">&#34;192.168.10.80&#34;</span>
-</span></span><span style="display:flex;"><span>      },
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;dsp&#34;</span>: [<span style="color:#e6db74">&#34;dc1&#34;</span>]
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;records&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;host1&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;A&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;host1.threexui&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;address&#34;</span><span class="p">:</span> <span class="s2">&#34;192.168.10.80&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;dsp&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;dc1&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="terraform">Terraform<a class="td-heading-self-link" href="#terraform" aria-label="Heading self-link"></a></h2><p>That setup worked fine for a while, but then I stumbled upon an obvious flaw during a clanker session - there is no way to work in parallel (without mucking around with <code>IGNORE</code> and <code>NO_PURGE</code>). DNSControl controls the whole zone, so if you have different sessions applying different configs, then those changes override each other.</p>
 <p>That seems like an easy problem to fix - just split the domain into different zones, and it was easy for my local DNS (a MikroTik router) because DNSControl&rsquo;s provider has zone hints, but there is no way to split the domain on the external DNS (Cloudflare) without buying an Enterprise plan or without delegating to yet another DNS provider.</p>
 <p>I thought about my options and decided to just switch to Terraform because I already have a standard way of handling Terraform in the repo. This approach fixed the problem, because now projects own only their own DNS records, so you can work on them in parallel.</p>

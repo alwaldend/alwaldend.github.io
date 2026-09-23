@@ -44,13 +44,13 @@
 
 	<meta itemprop="name" content="Rfc">
 	<meta itemprop="description" content="Some useful rfcs">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="keywords" content="Rfc">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Rfc">
 	<meta name="twitter:description" content="Some useful rfcs">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -144,7 +144,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -242,177 +242,177 @@ This is the multi-page printable view of this section.
 <li>Original: <a href="https://www.rfc-editor.org/rfc/rfc2119.txt">https://www.rfc-editor.org/rfc/rfc2119.txt</a></li>
 <li>Local: <a href="/docs/misc/rfc/rfc2119/rfc.txt">./rfc.txt</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Network Working Group                                         S. Bradner
-</span></span><span style="display:flex;"><span>Request for Comments: 2119                            Harvard University
-</span></span><span style="display:flex;"><span>BCP: 14                                                       March 1997
-</span></span><span style="display:flex;"><span>Category: Best Current Practice
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        Key words for use in RFCs to Indicate Requirement Levels
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Status of this Memo
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>   This document specifies an Internet Best Current Practices for the
-</span></span><span style="display:flex;"><span>   Internet Community, and requests discussion and suggestions for
-</span></span><span style="display:flex;"><span>   improvements.  Distribution of this memo is unlimited.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Abstract
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>   In many standards track documents several words are used to signify
-</span></span><span style="display:flex;"><span>   the requirements in the specification.  These words are often
-</span></span><span style="display:flex;"><span>   capitalized.  This document defines these words as they should be
-</span></span><span style="display:flex;"><span>   interpreted in IETF documents.  Authors who follow these guidelines
-</span></span><span style="display:flex;"><span>   should incorporate this phrase near the beginning of their document:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      The key words &#34;MUST&#34;, &#34;MUST NOT&#34;, &#34;REQUIRED&#34;, &#34;SHALL&#34;, &#34;SHALL
-</span></span><span style="display:flex;"><span>      NOT&#34;, &#34;SHOULD&#34;, &#34;SHOULD NOT&#34;, &#34;RECOMMENDED&#34;,  &#34;MAY&#34;, and
-</span></span><span style="display:flex;"><span>      &#34;OPTIONAL&#34; in this document are to be interpreted as described in
-</span></span><span style="display:flex;"><span>      RFC 2119.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>   Note that the force of these words is modified by the requirement
-</span></span><span style="display:flex;"><span>   level of the document in which they are used.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>1. MUST   This word, or the terms &#34;REQUIRED&#34; or &#34;SHALL&#34;, mean that the
-</span></span><span style="display:flex;"><span>   definition is an absolute requirement of the specification.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>2. MUST NOT   This phrase, or the phrase &#34;SHALL NOT&#34;, mean that the
-</span></span><span style="display:flex;"><span>   definition is an absolute prohibition of the specification.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>3. SHOULD   This word, or the adjective &#34;RECOMMENDED&#34;, mean that there
-</span></span><span style="display:flex;"><span>   may exist valid reasons in particular circumstances to ignore a
-</span></span><span style="display:flex;"><span>   particular item, but the full implications must be understood and
-</span></span><span style="display:flex;"><span>   carefully weighed before choosing a different course.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>4. SHOULD NOT   This phrase, or the phrase &#34;NOT RECOMMENDED&#34; mean that
-</span></span><span style="display:flex;"><span>   there may exist valid reasons in particular circumstances when the
-</span></span><span style="display:flex;"><span>   particular behavior is acceptable or even useful, but the full
-</span></span><span style="display:flex;"><span>   implications should be understood and the case carefully weighed
-</span></span><span style="display:flex;"><span>   before implementing any behavior described with this label.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Bradner                  Best Current Practice                  [Page 1]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RFC 2119                     RFC Key Words                    March 1997
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>5. MAY   This word, or the adjective &#34;OPTIONAL&#34;, mean that an item is
-</span></span><span style="display:flex;"><span>   truly optional.  One vendor may choose to include the item because a
-</span></span><span style="display:flex;"><span>   particular marketplace requires it or because the vendor feels that
-</span></span><span style="display:flex;"><span>   it enhances the product while another vendor may omit the same item.
-</span></span><span style="display:flex;"><span>   An implementation which does not include a particular option MUST be
-</span></span><span style="display:flex;"><span>   prepared to interoperate with another implementation which does
-</span></span><span style="display:flex;"><span>   include the option, though perhaps with reduced functionality. In the
-</span></span><span style="display:flex;"><span>   same vein an implementation which does include a particular option
-</span></span><span style="display:flex;"><span>   MUST be prepared to interoperate with another implementation which
-</span></span><span style="display:flex;"><span>   does not include the option (except, of course, for the feature the
-</span></span><span style="display:flex;"><span>   option provides.)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>6. Guidance in the use of these Imperatives
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>   Imperatives of the type defined in this memo must be used with care
-</span></span><span style="display:flex;"><span>   and sparingly.  In particular, they MUST only be used where it is
-</span></span><span style="display:flex;"><span>   actually required for interoperation or to limit behavior which has
-</span></span><span style="display:flex;"><span>   potential for causing harm (e.g., limiting retransmisssions)  For
-</span></span><span style="display:flex;"><span>   example, they must not be used to try to impose a particular method
-</span></span><span style="display:flex;"><span>   on implementors where the method is not required for
-</span></span><span style="display:flex;"><span>   interoperability.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>7. Security Considerations
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>   These terms are frequently used to specify behavior with security
-</span></span><span style="display:flex;"><span>   implications.  The effects on security of not implementing a MUST or
-</span></span><span style="display:flex;"><span>   SHOULD, or doing something the specification says MUST NOT or SHOULD
-</span></span><span style="display:flex;"><span>   NOT be done may be very subtle. Document authors should take the time
-</span></span><span style="display:flex;"><span>   to elaborate the security implications of not following
-</span></span><span style="display:flex;"><span>   recommendations or requirements as most implementors will not have
-</span></span><span style="display:flex;"><span>   had the benefit of the experience and discussion that produced the
-</span></span><span style="display:flex;"><span>   specification.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>8. Acknowledgments
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>   The definitions of these terms are an amalgam of definitions taken
-</span></span><span style="display:flex;"><span>   from a number of RFCs.  In addition, suggestions have been
-</span></span><span style="display:flex;"><span>   incorporated from a number of people including Robert Ullmann, Thomas
-</span></span><span style="display:flex;"><span>   Narten, Neal McBurnett, and Robert Elz.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Bradner                  Best Current Practice                  [Page 2]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RFC 2119                     RFC Key Words                    March 1997
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>9. Author&#39;s Address
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      Scott Bradner
-</span></span><span style="display:flex;"><span>      Harvard University
-</span></span><span style="display:flex;"><span>      1350 Mass. Ave.
-</span></span><span style="display:flex;"><span>      Cambridge, MA 02138
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      phone - +1 617 495 3864
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      email - sob@harvard.edu
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Bradner                  Best Current Practice                  [Page 3]
-</span></span><span style="display:flex;"><span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Network Working Group                                         S. Bradner
+</span></span><span class="line"><span class="cl">Request for Comments: 2119                            Harvard University
+</span></span><span class="line"><span class="cl">BCP: 14                                                       March 1997
+</span></span><span class="line"><span class="cl">Category: Best Current Practice
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        Key words for use in RFCs to Indicate Requirement Levels
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Status of this Memo
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   This document specifies an Internet Best Current Practices for the
+</span></span><span class="line"><span class="cl">   Internet Community, and requests discussion and suggestions for
+</span></span><span class="line"><span class="cl">   improvements.  Distribution of this memo is unlimited.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Abstract
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   In many standards track documents several words are used to signify
+</span></span><span class="line"><span class="cl">   the requirements in the specification.  These words are often
+</span></span><span class="line"><span class="cl">   capitalized.  This document defines these words as they should be
+</span></span><span class="line"><span class="cl">   interpreted in IETF documents.  Authors who follow these guidelines
+</span></span><span class="line"><span class="cl">   should incorporate this phrase near the beginning of their document:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      The key words &#34;MUST&#34;, &#34;MUST NOT&#34;, &#34;REQUIRED&#34;, &#34;SHALL&#34;, &#34;SHALL
+</span></span><span class="line"><span class="cl">      NOT&#34;, &#34;SHOULD&#34;, &#34;SHOULD NOT&#34;, &#34;RECOMMENDED&#34;,  &#34;MAY&#34;, and
+</span></span><span class="line"><span class="cl">      &#34;OPTIONAL&#34; in this document are to be interpreted as described in
+</span></span><span class="line"><span class="cl">      RFC 2119.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   Note that the force of these words is modified by the requirement
+</span></span><span class="line"><span class="cl">   level of the document in which they are used.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1. MUST   This word, or the terms &#34;REQUIRED&#34; or &#34;SHALL&#34;, mean that the
+</span></span><span class="line"><span class="cl">   definition is an absolute requirement of the specification.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">2. MUST NOT   This phrase, or the phrase &#34;SHALL NOT&#34;, mean that the
+</span></span><span class="line"><span class="cl">   definition is an absolute prohibition of the specification.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">3. SHOULD   This word, or the adjective &#34;RECOMMENDED&#34;, mean that there
+</span></span><span class="line"><span class="cl">   may exist valid reasons in particular circumstances to ignore a
+</span></span><span class="line"><span class="cl">   particular item, but the full implications must be understood and
+</span></span><span class="line"><span class="cl">   carefully weighed before choosing a different course.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">4. SHOULD NOT   This phrase, or the phrase &#34;NOT RECOMMENDED&#34; mean that
+</span></span><span class="line"><span class="cl">   there may exist valid reasons in particular circumstances when the
+</span></span><span class="line"><span class="cl">   particular behavior is acceptable or even useful, but the full
+</span></span><span class="line"><span class="cl">   implications should be understood and the case carefully weighed
+</span></span><span class="line"><span class="cl">   before implementing any behavior described with this label.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Bradner                  Best Current Practice                  [Page 1]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">RFC 2119                     RFC Key Words                    March 1997
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">5. MAY   This word, or the adjective &#34;OPTIONAL&#34;, mean that an item is
+</span></span><span class="line"><span class="cl">   truly optional.  One vendor may choose to include the item because a
+</span></span><span class="line"><span class="cl">   particular marketplace requires it or because the vendor feels that
+</span></span><span class="line"><span class="cl">   it enhances the product while another vendor may omit the same item.
+</span></span><span class="line"><span class="cl">   An implementation which does not include a particular option MUST be
+</span></span><span class="line"><span class="cl">   prepared to interoperate with another implementation which does
+</span></span><span class="line"><span class="cl">   include the option, though perhaps with reduced functionality. In the
+</span></span><span class="line"><span class="cl">   same vein an implementation which does include a particular option
+</span></span><span class="line"><span class="cl">   MUST be prepared to interoperate with another implementation which
+</span></span><span class="line"><span class="cl">   does not include the option (except, of course, for the feature the
+</span></span><span class="line"><span class="cl">   option provides.)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">6. Guidance in the use of these Imperatives
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   Imperatives of the type defined in this memo must be used with care
+</span></span><span class="line"><span class="cl">   and sparingly.  In particular, they MUST only be used where it is
+</span></span><span class="line"><span class="cl">   actually required for interoperation or to limit behavior which has
+</span></span><span class="line"><span class="cl">   potential for causing harm (e.g., limiting retransmisssions)  For
+</span></span><span class="line"><span class="cl">   example, they must not be used to try to impose a particular method
+</span></span><span class="line"><span class="cl">   on implementors where the method is not required for
+</span></span><span class="line"><span class="cl">   interoperability.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">7. Security Considerations
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   These terms are frequently used to specify behavior with security
+</span></span><span class="line"><span class="cl">   implications.  The effects on security of not implementing a MUST or
+</span></span><span class="line"><span class="cl">   SHOULD, or doing something the specification says MUST NOT or SHOULD
+</span></span><span class="line"><span class="cl">   NOT be done may be very subtle. Document authors should take the time
+</span></span><span class="line"><span class="cl">   to elaborate the security implications of not following
+</span></span><span class="line"><span class="cl">   recommendations or requirements as most implementors will not have
+</span></span><span class="line"><span class="cl">   had the benefit of the experience and discussion that produced the
+</span></span><span class="line"><span class="cl">   specification.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">8. Acknowledgments
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   The definitions of these terms are an amalgam of definitions taken
+</span></span><span class="line"><span class="cl">   from a number of RFCs.  In addition, suggestions have been
+</span></span><span class="line"><span class="cl">   incorporated from a number of people including Robert Ullmann, Thomas
+</span></span><span class="line"><span class="cl">   Narten, Neal McBurnett, and Robert Elz.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Bradner                  Best Current Practice                  [Page 2]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">RFC 2119                     RFC Key Words                    March 1997
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">9. Author&#39;s Address
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      Scott Bradner
+</span></span><span class="line"><span class="cl">      Harvard University
+</span></span><span class="line"><span class="cl">      1350 Mass. Ave.
+</span></span><span class="line"><span class="cl">      Cambridge, MA 02138
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      phone - +1 617 495 3864
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      email - sob@harvard.edu
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Bradner                  Best Current Practice                  [Page 3]
+</span></span><span class="line"><span class="cl">
 </span></span></code></pre></div>
 
 </div>

@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="Versioning">
 	<meta itemprop="description" content="Global repository and project versioning">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="376">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Versioning">
 	<meta name="twitter:description" content="Global repository and project versioning">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -215,12 +215,12 @@ commit. For an untagged detached commit from a release branch, pass
 <code>--release YYYY.W</code> so the tool can calculate its patch from the correct
 branch-point tag.</p>
 <p>Build and inspect the tool with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/versioning/cmd/versioning -- show
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/versioning/cmd/versioning -- show
 </span></span></code></pre></div><p>For a stamped build, use the bootstrap entry point. It generates a
 source-current Bazel launcher under <code>out/versioning/</code>, then the Go tool runs
 Bazel with itself as workspace status:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>tools/versioning/cmd/versioning/versioning.sh bazel -- <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  build --config<span style="color:#f92672">=</span>release //path/to:artifact
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">tools/versioning/cmd/versioning/versioning.sh bazel -- <span class="se">\
+</span></span></span><span class="line"><span class="cl">  build --config<span class="o">=</span>release //path/to:artifact
 </span></span></code></pre></div><p>Read <code>$versioning</code> for the guarded nightly, release, and Bazel stamping
 workflows.</p>
 <h2 id="print-fe605e942b1ea8e4244ca5ca624b96be-guarded-release-ref-publication">Guarded release-ref publication<a class="td-heading-self-link" href="#print-fe605e942b1ea8e4244ca5ca624b96be-guarded-release-ref-publication" aria-label="Heading self-link"></a></h2><p><code>versioning</code> also owns a typed, reviewed release-ref plan and a
@@ -228,16 +228,16 @@ provider-neutral guarded publisher for the generated nightly and release
 tags. It never merges versioning, delivery, or goal authority; the tool
 retains its own <code>release-refs</code> authority.</p>
 <p>Generate a deterministic plan from the resolved version state:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/versioning/cmd/versioning -- release-plan <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --plan out/delivery/release-plan.json
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/versioning/cmd/versioning -- release-plan <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --plan out/delivery/release-plan.json
 </span></span></code></pre></div><p>The plan records the exact version, channel, commit, tree state, target refs
 (tag-only for nightly, branch-plus-tag for release), the expected remote
 preconditions, and whether atomic multi-ref publication is required. It is
 reviewed before consumption and is not an authorization.</p>
 <p>Publish the reviewed plan only after explicit release scope:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //tools/versioning/cmd/versioning -- release-publish <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --plan out/delivery/release-plan.json <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  --receipt out/delivery/release-ref-receipt.json
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/versioning/cmd/versioning -- release-publish <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --plan out/delivery/release-plan.json <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --receipt out/delivery/release-ref-receipt.json
 </span></span></code></pre></div><p>The guarded publisher fetches expected remote state, acquires a distinct
 <code>release-refs</code> lease, publishes the refs (atomically when required and
 supported), and verifies the remote before emitting a <code>ReleaseRefReceipt</code>.

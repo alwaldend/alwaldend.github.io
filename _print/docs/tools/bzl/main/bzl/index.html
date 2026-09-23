@@ -44,13 +44,13 @@
 
 	<meta itemprop="name" content="Bzl">
 	<meta itemprop="description" content="Bazel code">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Bzl">
 	<meta name="twitter:description" content="Bazel code">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -144,7 +144,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -486,25 +486,25 @@ al_genquery_write_to_source_file(<a href="#print-898ffb8a31e9c0bbd6ef4744f642ce9
 </pre>
 <p>Write genquery result to a bzl file</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-starlark" data-lang="starlark"><span style="display:flex;"><span>    al_genquery_write_to_source_file(
-</span></span><span style="display:flex;"><span>        name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;al_bzl_libs&#34;</span>,
-</span></span><span style="display:flex;"><span>        expression <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            filter(
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                &#34;^//&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                attr(
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                    &#34;srcs&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                    &#34;.{3,}&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                    kind(
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                        &#34;bzl_library&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                        deps(&#34;//bzl&#34;)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                    )
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                )
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            )
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>,
-</span></span><span style="display:flex;"><span>        out_file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;al_bzl_libs.bzl&#34;</span>,
-</span></span><span style="display:flex;"><span>        scope <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;//bzl&#34;</span>],
-</span></span><span style="display:flex;"><span>        var_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;AL_BZL_LIBS&#34;</span>,
-</span></span><span style="display:flex;"><span>    )
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-starlark" data-lang="starlark"><span class="line"><span class="cl">    <span class="n">al_genquery_write_to_source_file</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;al_bzl_libs&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">expression</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">            filter(
+</span></span></span><span class="line"><span class="cl"><span class="s2">                &#34;^//&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">                attr(
+</span></span></span><span class="line"><span class="cl"><span class="s2">                    &#34;srcs&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">                    &#34;.{3,}&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">                    kind(
+</span></span></span><span class="line"><span class="cl"><span class="s2">                        &#34;bzl_library&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s2">                        deps(&#34;//bzl&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="s2">                    )
+</span></span></span><span class="line"><span class="cl"><span class="s2">                )
+</span></span></span><span class="line"><span class="cl"><span class="s2">            )
+</span></span></span><span class="line"><span class="cl"><span class="s2">        &#34;&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">out_file</span> <span class="o">=</span> <span class="s2">&#34;al_bzl_libs.bzl&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scope</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;//bzl&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="n">var_name</span> <span class="o">=</span> <span class="s2">&#34;AL_BZL_LIBS&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
 </span></span></code></pre></div><p><strong>PARAMETERS</strong></p>
 <table>
 	<thead>

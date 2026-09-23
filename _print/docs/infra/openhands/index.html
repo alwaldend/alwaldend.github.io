@@ -44,14 +44,14 @@
 
 	<meta itemprop="name" content="OpenHands">
 	<meta itemprop="description" content="openhands.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-20T22:21:40+03:00">
+	<meta itemprop="dateModified" content="2026-09-23T22:28:24+03:00">
 	<meta itemprop="wordCount" content="490">
 	<meta itemprop="keywords" content="Openhands,Traefik,Terraform,Ansible">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="OpenHands">
 	<meta name="twitter:description" content="openhands.alwaldend.com">
-<link rel="preload" href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" as="style" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
-<link href="/scss/main.min.adf4bad97a73ff494b7de11b003afe008151a29a48e90085b5dec494fb91f9d3.css" rel="stylesheet" integrity="sha256-rfS62Xpz/0lLfeEbADr&#43;AIFRoppI6QCFtd7ElPuR&#43;dM=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" as="style" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
+<link href="/scss/main.min.53fe4ac56b63366fc387d071bda6877510d3f2e8982510aa0bfd3f3d82d45a6a.css" rel="stylesheet" integrity="sha256-U/5KxWtjNm/Dh9BxvaaHdRDT8uiYJRCqC/0/PYLUWmo=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec7567233e663b9e5ba861ab5529df55.json"
+    data-offline-search-index-json-src="/offline-search-index.a5fa28316ad2b6b2787aaa46ecf67a91.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -301,23 +301,23 @@ server, and the browser because all three authenticate the same
 <p>The unsecured host-bot server has a separate <code>secret_key</code> reference owned by
 <a href="../../users/simeonwarren/host_bot/al.lua">its host&rsquo;s AL configuration</a>.</p>
 <p>Prepare one private JSON input for each path through the
-<a href="../../projects/agents/skills/repo-secrets/SKILL.md">secret-handling workflow</a>.
+<a href="../../tools/agents/skills/repo-secrets/SKILL.md">secret-handling workflow</a>.
 Set <code>OPENHANDS_AGENT_SERVER_JSON</code>, <code>OPENHANDS_AUTOMATION_JSON</code>, and
 <code>OPENHANDS_HOST_BOT_JSON</code> to those input file paths. Each JSON object contains
 the fields listed above for its path. Initialize the paths through standard
 input; <code>-cas=0</code> prevents overwriting existing data:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/openhands:vault.kv_put -- -cas<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  alwaldend.com/vault1/approles/src_infra_openhands/agent_server <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  - &lt; <span style="color:#e6db74">&#34;</span>$OPENHANDS_AGENT_SERVER_JSON<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>bazel_agent bazel run //infra/openhands:vault.kv_put -- -cas<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  alwaldend.com/vault1/approles/src_infra_openhands/automation <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  - &lt; <span style="color:#e6db74">&#34;</span>$OPENHANDS_AUTOMATION_JSON<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>bazel_agent bazel run //users/simeonwarren:vault.kv_put -- -cas<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  alwaldend.com/vault1/approles/user_simeonwarren/openhands <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>  - &lt; <span style="color:#e6db74">&#34;</span>$OPENHANDS_HOST_BOT_JSON<span style="color:#e6db74">&#34;</span>
-</span></span></code></pre></div><h2 id="print-72989d7304f81104d5bc8b8297343a70-deployment">Deployment<a class="td-heading-self-link" href="#print-72989d7304f81104d5bc8b8297343a70-deployment" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel run //infra/openhands/tf_setup:tf_setup.plan
-</span></span><span style="display:flex;"><span>bazel run //infra/openhands/tf_setup:tf_setup.apply
-</span></span><span style="display:flex;"><span>bazel run //infra/openhands/ansible
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //infra/openhands:vault.kv_put -- -cas<span class="o">=</span><span class="m">0</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  alwaldend.com/vault1/approles/src_infra_openhands/agent_server <span class="se">\
+</span></span></span><span class="line"><span class="cl">  - &lt; <span class="s2">&#34;</span><span class="nv">$OPENHANDS_AGENT_SERVER_JSON</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">bazel_agent bazel run //infra/openhands:vault.kv_put -- -cas<span class="o">=</span><span class="m">0</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  alwaldend.com/vault1/approles/src_infra_openhands/automation <span class="se">\
+</span></span></span><span class="line"><span class="cl">  - &lt; <span class="s2">&#34;</span><span class="nv">$OPENHANDS_AUTOMATION_JSON</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">bazel_agent bazel run //users/simeonwarren:vault.kv_put -- -cas<span class="o">=</span><span class="m">0</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  alwaldend.com/vault1/approles/user_simeonwarren/openhands <span class="se">\
+</span></span></span><span class="line"><span class="cl">  - &lt; <span class="s2">&#34;</span><span class="nv">$OPENHANDS_HOST_BOT_JSON</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><h2 id="print-72989d7304f81104d5bc8b8297343a70-deployment">Deployment<a class="td-heading-self-link" href="#print-72989d7304f81104d5bc8b8297343a70-deployment" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/openhands/tf_setup:tf_setup.plan
+</span></span><span class="line"><span class="cl">bazel run //infra/openhands/tf_setup:tf_setup.apply
+</span></span><span class="line"><span class="cl">bazel run //infra/openhands/ansible
 </span></span></code></pre></div><p>The component AppRole must first exist in Vault. Follow the
 <a href="/docs/infra/xcp_ng/tf/">XO authentication and resource-set workflow</a> to
 synchronize its OIDC identity and apply its resource-set assignment before
@@ -541,8 +541,8 @@ user and CA configuration through the repository template rule. Terraform adds
 the hostname and static network configuration from <code>../dnsconfig.json</code>. After
 cloud-init completes, verify that <code>/dev/xvda</code> is the boot disk before running
 Ansible.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>bazel_agent bazel run //infra/openhands/tf_setup:tf_setup.plan
-</span></span><span style="display:flex;"><span>bazel_agent bazel run //infra/openhands/tf_setup:tf_setup.apply
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //infra/openhands/tf_setup:tf_setup.plan
+</span></span><span class="line"><span class="cl">bazel_agent bazel run //infra/openhands/tf_setup:tf_setup.apply
 </span></span></code></pre></div><p>Use this package&rsquo;s <code>dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> targets for the
 <a href="/docs/infra/dns/">scoped DNS adoption workflow</a>.
 They select <code>dns=1</code> and target <code>module.dns</code> in the same root, AppRole, and
