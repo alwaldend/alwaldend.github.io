@@ -45,14 +45,14 @@
 
 	<meta itemprop="name" content="Dns">
 	<meta itemprop="description" content="Project-owned DNS declarations for alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-23T23:12:26+03:00">
+	<meta itemprop="dateModified" content="2026-09-24T00:17:33+03:00">
 	<meta itemprop="wordCount" content="610">
 	<meta itemprop="keywords" content="Dns,Terraform">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Dns">
 	<meta name="twitter:description" content="Project-owned DNS declarations for alwaldend.com">
-<link rel="preload" href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" as="style" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
-<link href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" rel="stylesheet" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" as="style" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
+<link href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" rel="stylesheet" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.cf47526d4c6c1c1919b1d4822be25ace.json"
+    data-offline-search-index-json-src="/offline-search-index.ec74568dd22c53d1312543116c075635.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -193,7 +193,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-a2a8fb4565c12c951b85dedb4e2ccf6e"></a></li>
+<li>1: <a href="#pg-22ddd334842ae4d7e35d0a79ed454ba4">Cloudflare DNS</a></li>
 
 
     
@@ -201,7 +201,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-22ddd334842ae4d7e35d0a79ed454ba4">Cloudflare DNS</a></li>
+<li>2: <a href="#pg-af9794ad8c53e916c92bc2cabd8f5748">Mikrotik DNS</a></li>
 
 
     
@@ -209,9 +209,28 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-af9794ad8c53e916c92bc2cabd8f5748">Mikrotik DNS</a></li>
+<li>3: <a href="#pg-a392853747a757fa005d3892e126e2ef">OpenSpec</a></li>
 
 
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>3.1: <a href="#pg-a2a8fb4565c12c951b85dedb4e2ccf6e">Infrastructure DNS</a></li>
+
+
+    
+  
+
+    </ul>
     
   
     
@@ -324,153 +343,7 @@ inventory.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-a2a8fb4565c12c951b85dedb4e2ccf6e">1 - </h1>
-    
-	<h1 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-infrastructure-dns">Infrastructure DNS<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-infrastructure-dns" aria-label="Heading self-link"></a></h1><h2 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose">Purpose<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose" aria-label="Heading self-link"></a></h2><p>Describe owner-local Terraform DNS declarations and runtime source-ownership
-validation for global and dc1 records. This contract describes checked-in
-source; it does not establish live adoption or authorize infrastructure writes.</p>
-<p>Sources: <a href="/docs/">component documentation</a>,
-<a href="../../../BUILD.bazel">target definitions</a>,
-<a href="../../../cmd/lint/main.go">runtime linter</a>, and
-<a href="../../../tf/dns.tf">Terraform root</a>.</p>
-<h2 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirements">Requirements<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-aggregate-records-from-their-owning-components">Requirement: Aggregate records from their owning components<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-aggregate-records-from-their-owning-components" aria-label="Heading self-link"></a></h3><p>DNS declarations SHALL remain in their owners&rsquo; <code>dnsconfig.json</code> files. Runtime
-inventory SHALL discover all canonical files, including nested modules and
-empty declarations, without a checked-in ownership registry. The inventory
-SHALL print a deterministic table of files, DNS names, types and views.</p>
-<p>Project landing declarations retain their declared direct targets.</p>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-new-project-adds-a-canonical-declaration">Scenario: A new project adds a canonical declaration<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-new-project-adds-a-canonical-declaration" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> the runtime linter scans a workspace containing the new file</li>
-<li><strong>THEN</strong> it includes the file without requiring a registry update</li>
-</ul>
-<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-distinct-global-and-site-local-views">Requirement: Preserve distinct global and site-local views<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-distinct-global-and-site-local-views" aria-label="Heading self-link"></a></h3><p>The Terraform module SHALL preserve Cloudflare global and MikroTik dc1 views.
-It SHALL retain every type member, expand and deduplicate destinations, reject
-unknown inputs and preserve effective values, TTLs, priorities and multiplicity.</p>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-entry-declares-a-and-aaaa-in-all-views">Scenario: An entry declares A and AAAA in all views<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-entry-declares-a-and-aaaa-in-all-views" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> the shared module normalizes the entry</li>
-<li><strong>THEN</strong> both types appear exactly once in each destination view</li>
-</ul>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-input-names-an-unsupported-destination">Scenario: An input names an unsupported destination<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-input-names-an-unsupported-destination" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> a record names an unsupported destination</li>
-<li><strong>THEN</strong> normalization fails with an actionable diagnostic</li>
-</ul>
-<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-validate-configuration-without-provider-access">Requirement: Validate configuration without provider access<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-validate-configuration-without-provider-access" aria-label="Heading self-link"></a></h3><p>The linter and module tests SHALL validate source ownership, names, inputs,
-normalization and provider mappings without credentials or live provider access.
-Existing JSON-based VM consumers SHALL remain compatible.</p>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-validate-a-changed-declaration">Scenario: Validate a changed declaration<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-validate-a-changed-declaration" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> offline checks run</li>
-<li><strong>THEN</strong> they validate the declaration and fixtures without deploying records</li>
-</ul>
-<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-inject-credentials-into-operational-wrappers">Requirement: Inject credentials into operational wrappers<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-inject-credentials-into-operational-wrappers" aria-label="Heading self-link"></a></h3><p>Owner Terraform roots SHALL use the existing AL/Vault authentication, backend
-and credential injection workflow. They SHALL obtain only their required view
-credentials. Operational provider initialization may require live credentials
-even with resource creation disabled. Central DNSControl write entrypoints
-SHALL be removed from the candidate.</p>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-global-only-owner-operates-its-root">Scenario: A global-only owner operates its root<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-global-only-owner-operates-its-root" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> an authorized operator invokes the root after bootstrap</li>
-<li><strong>THEN</strong> it uses that owner&rsquo;s AppRole and Cloudflare credentials</li>
-<li><strong>AND</strong> RouterOS credentials and resources are not required</li>
-</ul>
-<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-reconcile-dns-through-its-owners-terraform-state">Requirement: Reconcile DNS through its owner&rsquo;s Terraform state<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-reconcile-dns-through-its-owners-terraform-state" aria-label="Heading self-link"></a></h3><p>Each owner SHALL instantiate the shared module in <code>tf_setup</code> when present,
-otherwise in <code>tf</code>. Missing roots and AppRoles SHALL be added. Related
-AppRole resources SHALL be grouped in modules under
-<code>infra/vault/tf/approles/&lt;name&gt;</code>. Provider instance keys SHALL be stable across
-value-only changes; unrelated owners SHALL remain outside the state.</p>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-has-both-stages">Scenario: An owner has both stages<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-has-both-stages" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> the integration is prepared</li>
-<li><strong>THEN</strong> only its setup root declares the DNS module</li>
-</ul>
-<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-one-declaration-file-owns-each-dns-name">Requirement: One declaration file owns each DNS name<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-one-declaration-file-owns-each-dns-name" aria-label="Heading self-link"></a></h3><p>The runtime linter SHALL reject different files managing the same canonical
-fully qualified DNS name, across types and views. Multiple records within one
-file SHALL be allowed. Diagnostics SHALL identify both files.</p>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-different-files-split-a-name-across-types-or-views">Scenario: Different files split a name across types or views<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-different-files-split-a-name-across-types-or-views" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> one file declares an A record and another an AAAA record or a
-different view for the same name</li>
-<li><strong>THEN</strong> lint fails and identifies both source files</li>
-</ul>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-one-file-manages-multiple-records-for-a-name">Scenario: One file manages multiple records for a name<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-one-file-manages-multiple-records-for-a-name" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> one file declares several values, types or views for a name</li>
-<li><strong>THEN</strong> ownership lint accepts the sole source</li>
-</ul>
-<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-live-records-during-transfer">Requirement: Preserve live records during transfer<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-live-records-during-transfer" aria-label="Heading self-link"></a></h3><p>Operational cutover SHALL audit active and scheduled central writers, stop
-identified competing writers, and coordinate one owner at a time. Evidence
-SHALL state the audit&rsquo;s coverage and unavailable observations. Each existing
-record SHALL be imported using its actual provider ID into exactly one owner
-state, followed by a no-change adoption plan before writes. Fresh complete
-inventories MAY establish missing declarations for an exact additions-only
-plan that preserves every existing record. Endpoint-owning batches SHALL
-verify an independent authenticated recovery path first.</p>
-<p>The shared apex and mail records owned by <code>infra/dns</code> SHALL remain disabled
-by default in its <code>tf</code> root before the authorized adoption revision and SHALL
-retain enabled ownership after import. Reconciliation against the adopted state
-and unchanged declarations SHALL propose no record additions, changes,
-replacements, or deletions and SHALL preserve unrelated provider records.</p>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-is-adopted">Scenario: An owner is adopted<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-is-adopted" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> its authorized cutover runs</li>
-<li><strong>THEN</strong> exact-ID imports preserve existing records</li>
-<li><strong>AND</strong> the operator coordinates exclusive active writers and verifies
-unrelated records remain unchanged</li>
-</ul>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-deploy-verified-missing-declarations">Scenario: Deploy verified missing declarations<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-deploy-verified-missing-declarations" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> complete provider inventories establish that declared names are absent
-and conflict-free</li>
-<li><strong>THEN</strong> the reviewed DNS plan creates only those missing declarations</li>
-<li><strong>AND</strong> every existing provider identity and attribute remains unchanged</li>
-<li><strong>AND</strong> a follow-up DNS plan contains no changes</li>
-</ul>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-the-prepared-shared-record-defaults">Scenario: Inspect the prepared shared-record defaults<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-the-prepared-shared-record-defaults" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> the shared <code>tf</code> root uses its checked-in defaults before its
-authorized adoption revision</li>
-<li><strong>THEN</strong> shared-record ownership is disabled and the root retains the
-canonical shared declaration and module inputs</li>
-</ul>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-adopted-shared-record-defaults">Scenario: Inspect adopted shared-record defaults<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-adopted-shared-record-defaults" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> the adopted shared <code>tf</code> root uses its checked-in source defaults</li>
-<li><strong>THEN</strong> ownership is enabled for the shared apex and mail records in
-their declared views</li>
-</ul>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-reconcile-existing-shared-records">Scenario: Reconcile existing shared records<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-reconcile-existing-shared-records" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> the shared <code>tf</code> root plans against adopted state and unchanged declarations</li>
-<li><strong>THEN</strong> it proposes no record additions, changes, replacements, or deletions</li>
-<li><strong>AND</strong> unrelated provider records remain unchanged</li>
-</ul>
-<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-avoid-a-separate-dns-exporter">Requirement: Avoid a separate DNS exporter<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-avoid-a-separate-dns-exporter" aria-label="Heading self-link"></a></h3><p>The implementation SHALL derive its declaration views from the owning
-<code>dnsconfig.json</code> files rather than maintaining a normalized inventory or BIND
-exporter. Historical provider snapshots SHALL NOT be presented as current
-desired state, and no provider snapshot SHALL be committed as a declaration
-source.</p>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-declared-ownership">Scenario: Inspect declared ownership<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-declared-ownership" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> the runtime linter succeeds</li>
-<li><strong>THEN</strong> its table reports the discovered declarations without an export step</li>
-</ul>
-<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-publish-declaration-pages-per-destination-view">Requirement: Publish declaration pages per destination view<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-publish-declaration-pages-per-destination-view" aria-label="Heading self-link"></a></h3><p>The implementation SHALL render one documentation page per destination view
-from the declared records, with the owning declaration for every record, and
-SHALL fail its offline check when a checked-in page differs from the
-declarations it projects.</p>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-regenerate-a-declaration-page">Scenario: Regenerate a declaration page<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-regenerate-a-declaration-page" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> an owner changes a declaration and the generation command runs</li>
-<li><strong>THEN</strong> the affected view&rsquo;s page lists the declared records with their owner</li>
-<li><strong>AND</strong> the check passes against the regenerated page</li>
-</ul>
-<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-declaration-page-is-stale">Scenario: A declaration page is stale<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-declaration-page-is-stale" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> a checked-in page no longer matches the declarations</li>
-<li><strong>THEN</strong> the offline check fails rather than serving a stale inventory</li>
-</ul>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-22ddd334842ae4d7e35d0a79ed454ba4">2 - Cloudflare DNS</h1>
+	<h1 id="pg-22ddd334842ae4d7e35d0a79ed454ba4">1 - Cloudflare DNS</h1>
     <div class="lead">Records declared for the public zone served by Cloudflare</div>
 	<p>Every record this repository declares for the public zone, which Cloudflare serves.</p>
 <p>This page is generated from the declarations; run <code>bazel run //infra/dns/cmd/dump -- --write</code> after changing them. The authoritative source is each owner&rsquo;s <code>dnsconfig.json</code>.</p>
@@ -880,7 +753,7 @@ declarations it projects.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-af9794ad8c53e916c92bc2cabd8f5748">3 - Mikrotik DNS</h1>
+	<h1 id="pg-af9794ad8c53e916c92bc2cabd8f5748">2 - Mikrotik DNS</h1>
     <div class="lead">Records declared for the internal dc1 view served by RouterOS</div>
 	<p>Every record this repository declares for the internal <code>dc1</code> view, which RouterOS serves for that network.</p>
 <p>This page is generated from the declarations; run <code>bazel run //infra/dns/cmd/dump -- --write</code> after changing them. The authoritative source is each owner&rsquo;s <code>dnsconfig.json</code>.</p>
@@ -1514,6 +1387,181 @@ declarations it projects.</p>
 
 <div class="td-content" style="page-break-before: always">
     
+	<h1 id="pg-a392853747a757fa005d3892e126e2ef">3 - OpenSpec</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-a2a8fb4565c12c951b85dedb4e2ccf6e">3.1 - Infrastructure DNS</h1>
+    
+	<span id="print-26cd59c7e44d32ec3ca3f4e479c54e54-infrastructure-dns"></span><h2 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose">Purpose<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose" aria-label="Heading self-link"></a></h2><p>Describe owner-local Terraform DNS declarations and runtime source-ownership
+validation for global and dc1 records. This contract describes checked-in
+source; it does not establish live adoption or authorize infrastructure writes.</p>
+<p>Sources: <a href="/docs/">component documentation</a>,
+<a href="../../../BUILD.bazel">target definitions</a>,
+<a href="../../../cmd/lint/main.go">runtime linter</a>, and
+<a href="../../../tf/dns.tf">Terraform root</a>.</p>
+<h2 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirements">Requirements<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-aggregate-records-from-their-owning-components">Requirement: Aggregate records from their owning components<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-aggregate-records-from-their-owning-components" aria-label="Heading self-link"></a></h3><p>DNS declarations SHALL remain in their owners&rsquo; <code>dnsconfig.json</code> files. Runtime
+inventory SHALL discover all canonical files, including nested modules and
+empty declarations, without a checked-in ownership registry. The inventory
+SHALL print a deterministic table of files, DNS names, types and views.</p>
+<p>Project landing declarations retain their declared direct targets.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-new-project-adds-a-canonical-declaration">Scenario: A new project adds a canonical declaration<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-new-project-adds-a-canonical-declaration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the runtime linter scans a workspace containing the new file</li>
+<li><strong>THEN</strong> it includes the file without requiring a registry update</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-distinct-global-and-site-local-views">Requirement: Preserve distinct global and site-local views<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-distinct-global-and-site-local-views" aria-label="Heading self-link"></a></h3><p>The Terraform module SHALL preserve Cloudflare global and MikroTik dc1 views.
+It SHALL retain every type member, expand and deduplicate destinations, reject
+unknown inputs and preserve effective values, TTLs, priorities and multiplicity.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-entry-declares-a-and-aaaa-in-all-views">Scenario: An entry declares A and AAAA in all views<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-entry-declares-a-and-aaaa-in-all-views" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the shared module normalizes the entry</li>
+<li><strong>THEN</strong> both types appear exactly once in each destination view</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-input-names-an-unsupported-destination">Scenario: An input names an unsupported destination<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-input-names-an-unsupported-destination" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a record names an unsupported destination</li>
+<li><strong>THEN</strong> normalization fails with an actionable diagnostic</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-validate-configuration-without-provider-access">Requirement: Validate configuration without provider access<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-validate-configuration-without-provider-access" aria-label="Heading self-link"></a></h3><p>The linter and module tests SHALL validate source ownership, names, inputs,
+normalization and provider mappings without credentials or live provider access.
+Existing JSON-based VM consumers SHALL remain compatible.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-validate-a-changed-declaration">Scenario: Validate a changed declaration<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-validate-a-changed-declaration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> offline checks run</li>
+<li><strong>THEN</strong> they validate the declaration and fixtures without deploying records</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-inject-credentials-into-operational-wrappers">Requirement: Inject credentials into operational wrappers<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-inject-credentials-into-operational-wrappers" aria-label="Heading self-link"></a></h3><p>Owner Terraform roots SHALL use the existing AL/Vault authentication, backend
+and credential injection workflow. They SHALL obtain only their required view
+credentials. Operational provider initialization may require live credentials
+even with resource creation disabled. Central DNSControl write entrypoints
+SHALL be removed from the candidate.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-global-only-owner-operates-its-root">Scenario: A global-only owner operates its root<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-global-only-owner-operates-its-root" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an authorized operator invokes the root after bootstrap</li>
+<li><strong>THEN</strong> it uses that owner&rsquo;s AppRole and Cloudflare credentials</li>
+<li><strong>AND</strong> RouterOS credentials and resources are not required</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-reconcile-dns-through-its-owners-terraform-state">Requirement: Reconcile DNS through its owner&rsquo;s Terraform state<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-reconcile-dns-through-its-owners-terraform-state" aria-label="Heading self-link"></a></h3><p>Each owner SHALL instantiate the shared module in <code>tf_setup</code> when present,
+otherwise in <code>tf</code>. Missing roots and AppRoles SHALL be added. Related
+AppRole resources SHALL be grouped in modules under
+<code>infra/vault/tf/approles/&lt;name&gt;</code>. Provider instance keys SHALL be stable across
+value-only changes; unrelated owners SHALL remain outside the state.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-has-both-stages">Scenario: An owner has both stages<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-has-both-stages" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the integration is prepared</li>
+<li><strong>THEN</strong> only its setup root declares the DNS module</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-one-declaration-file-owns-each-dns-name">Requirement: One declaration file owns each DNS name<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-one-declaration-file-owns-each-dns-name" aria-label="Heading self-link"></a></h3><p>The runtime linter SHALL reject different files managing the same canonical
+fully qualified DNS name, across types and views. Multiple records within one
+file SHALL be allowed. Diagnostics SHALL identify both files.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-different-files-split-a-name-across-types-or-views">Scenario: Different files split a name across types or views<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-different-files-split-a-name-across-types-or-views" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> one file declares an A record and another an AAAA record or a
+different view for the same name</li>
+<li><strong>THEN</strong> lint fails and identifies both source files</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-one-file-manages-multiple-records-for-a-name">Scenario: One file manages multiple records for a name<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-one-file-manages-multiple-records-for-a-name" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> one file declares several values, types or views for a name</li>
+<li><strong>THEN</strong> ownership lint accepts the sole source</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-live-records-during-transfer">Requirement: Preserve live records during transfer<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-live-records-during-transfer" aria-label="Heading self-link"></a></h3><p>Operational cutover SHALL audit active and scheduled central writers, stop
+identified competing writers, and coordinate one owner at a time. Evidence
+SHALL state the audit&rsquo;s coverage and unavailable observations. Each existing
+record SHALL be imported using its actual provider ID into exactly one owner
+state, followed by a no-change adoption plan before writes. Fresh complete
+inventories MAY establish missing declarations for an exact additions-only
+plan that preserves every existing record. Endpoint-owning batches SHALL
+verify an independent authenticated recovery path first.</p>
+<p>The shared apex and mail records owned by <code>infra/dns</code> SHALL remain disabled
+by default in its <code>tf</code> root before the authorized adoption revision and SHALL
+retain enabled ownership after import. Reconciliation against the adopted state
+and unchanged declarations SHALL propose no record additions, changes,
+replacements, or deletions and SHALL preserve unrelated provider records.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-is-adopted">Scenario: An owner is adopted<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-is-adopted" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> its authorized cutover runs</li>
+<li><strong>THEN</strong> exact-ID imports preserve existing records</li>
+<li><strong>AND</strong> the operator coordinates exclusive active writers and verifies
+unrelated records remain unchanged</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-deploy-verified-missing-declarations">Scenario: Deploy verified missing declarations<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-deploy-verified-missing-declarations" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> complete provider inventories establish that declared names are absent
+and conflict-free</li>
+<li><strong>THEN</strong> the reviewed DNS plan creates only those missing declarations</li>
+<li><strong>AND</strong> every existing provider identity and attribute remains unchanged</li>
+<li><strong>AND</strong> a follow-up DNS plan contains no changes</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-the-prepared-shared-record-defaults">Scenario: Inspect the prepared shared-record defaults<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-the-prepared-shared-record-defaults" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the shared <code>tf</code> root uses its checked-in defaults before its
+authorized adoption revision</li>
+<li><strong>THEN</strong> shared-record ownership is disabled and the root retains the
+canonical shared declaration and module inputs</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-adopted-shared-record-defaults">Scenario: Inspect adopted shared-record defaults<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-adopted-shared-record-defaults" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the adopted shared <code>tf</code> root uses its checked-in source defaults</li>
+<li><strong>THEN</strong> ownership is enabled for the shared apex and mail records in
+their declared views</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-reconcile-existing-shared-records">Scenario: Reconcile existing shared records<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-reconcile-existing-shared-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the shared <code>tf</code> root plans against adopted state and unchanged declarations</li>
+<li><strong>THEN</strong> it proposes no record additions, changes, replacements, or deletions</li>
+<li><strong>AND</strong> unrelated provider records remain unchanged</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-avoid-a-separate-dns-exporter">Requirement: Avoid a separate DNS exporter<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-avoid-a-separate-dns-exporter" aria-label="Heading self-link"></a></h3><p>The implementation SHALL derive its declaration views from the owning
+<code>dnsconfig.json</code> files rather than maintaining a normalized inventory or BIND
+exporter. Historical provider snapshots SHALL NOT be presented as current
+desired state, and no provider snapshot SHALL be committed as a declaration
+source.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-declared-ownership">Scenario: Inspect declared ownership<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-declared-ownership" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the runtime linter succeeds</li>
+<li><strong>THEN</strong> its table reports the discovered declarations without an export step</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-publish-declaration-pages-per-destination-view">Requirement: Publish declaration pages per destination view<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-publish-declaration-pages-per-destination-view" aria-label="Heading self-link"></a></h3><p>The implementation SHALL render one documentation page per destination view
+from the declared records, with the owning declaration for every record, and
+SHALL fail its offline check when a checked-in page differs from the
+declarations it projects.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-regenerate-a-declaration-page">Scenario: Regenerate a declaration page<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-regenerate-a-declaration-page" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an owner changes a declaration and the generation command runs</li>
+<li><strong>THEN</strong> the affected view&rsquo;s page lists the declared records with their owner</li>
+<li><strong>AND</strong> the check passes against the regenerated page</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-declaration-page-is-stale">Scenario: A declaration page is stale<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-declaration-page-is-stale" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a checked-in page no longer matches the declarations</li>
+<li><strong>THEN</strong> the offline check fails rather than serving a stale inventory</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
 	<h1 id="pg-5182c83d4964c12536210ac055ef6ebd">4 - Shared DNS Terraform</h1>
     <div class="lead">Owner state for common apex and mail records</div>
 	<p>This root consumes <a href="../dnsconfig.json">the canonical common declarations</a>
@@ -1574,6 +1622,7 @@ plan and apply follow the separately authorized adoption procedure.</p>
     <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
 
   </body>
 </html>

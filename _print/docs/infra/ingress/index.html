@@ -45,14 +45,14 @@
 
 	<meta itemprop="name" content="ingress">
 	<meta itemprop="description" content="ingress">
-	<meta itemprop="dateModified" content="2026-09-23T23:12:26+03:00">
+	<meta itemprop="dateModified" content="2026-09-24T00:17:33+03:00">
 	<meta itemprop="wordCount" content="162">
 	<meta itemprop="keywords" content="Ingress,Public,Traefik">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="ingress">
 	<meta name="twitter:description" content="ingress">
-<link rel="preload" href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" as="style" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
-<link href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" rel="stylesheet" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" as="style" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
+<link href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" rel="stylesheet" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.cf47526d4c6c1c1919b1d4822be25ace.json"
+    data-offline-search-index-json-src="/offline-search-index.ec74568dd22c53d1312543116c075635.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -193,23 +193,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-0c61ccddac5fa9264004a4851f4b297d"></a></li>
-
-
-    
-  
-    
-    
-	
-<li>2: <a href="#pg-f231f6727025d74ee9de7baa3a29eafa"></a></li>
-
-
-    
-  
-    
-    
-	
-<li>3: <a href="#pg-155b678b86d897031198e5c4ab49f084">Ansible</a></li>
+<li>1: <a href="#pg-155b678b86d897031198e5c4ab49f084">Ansible</a></li>
 
 
     
@@ -228,7 +212,99 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-e965813ffff72b80df3981a2f7b45885">Tf</a></li>
+<li>2: <a href="#pg-44764e1c74f4421737138dec4d6d1bba">OpenSpec</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1: <a href="#pg-5d754deeb0ff6924f43d2175297e61f1">Specifications</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.1: <a href="#pg-08423cb7de190ea8428516097e5403d1">Infra ingress</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.1.1: <a href="#pg-0c61ccddac5fa9264004a4851f4b297d">Infrastructure ingress</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.1.2: <a href="#pg-1e997c44b51c9a2d92087206451e215d">Owned dns</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.2.1: <a href="#pg-f231f6727025d74ee9de7baa3a29eafa">owned-dns Specification</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-e965813ffff72b80df3981a2f7b45885">Tf</a></li>
 
 
     
@@ -308,9 +384,113 @@ service&rsquo;s DNS configuration and use that address as the target.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-0c61ccddac5fa9264004a4851f4b297d">1 - </h1>
+	<h1 id="pg-155b678b86d897031198e5c4ab49f084">1 - Ansible</h1>
+    <div class="lead">Ansible setup</div>
+	
+</div>
+
+
+
     
-	<h1 id="print-0ed34d059e4567c05bfaba0306f0f8f3-infrastructure-ingress">Infrastructure ingress<a class="td-heading-self-link" href="#print-0ed34d059e4567c05bfaba0306f0f8f3-infrastructure-ingress" aria-label="Heading self-link"></a></h1><h2 id="print-0ed34d059e4567c05bfaba0306f0f8f3-purpose">Purpose<a class="td-heading-self-link" href="#print-0ed34d059e4567c05bfaba0306f0f8f3-purpose" aria-label="Heading self-link"></a></h2><p>Describe Yandex Cloud ingress provisioning, the RouterOS WireGuard connection,
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-44764e1c74f4421737138dec4d6d1bba">2 - OpenSpec</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-5d754deeb0ff6924f43d2175297e61f1">2.1 - Specifications</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-08423cb7de190ea8428516097e5403d1">2.1.1 - Infra ingress</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-0c61ccddac5fa9264004a4851f4b297d">2.1.1.1 - Infrastructure ingress</h1>
+    
+	<span id="print-0ed34d059e4567c05bfaba0306f0f8f3-infrastructure-ingress"></span><h2 id="print-0ed34d059e4567c05bfaba0306f0f8f3-purpose">Purpose<a class="td-heading-self-link" href="#print-0ed34d059e4567c05bfaba0306f0f8f3-purpose" aria-label="Heading self-link"></a></h2><p>Describe Yandex Cloud ingress provisioning, the RouterOS WireGuard connection,
 and the Ansible-managed Traefik configuration. The baseline covers checked-in
 desired state, not a live routing or availability observation.</p>
 <p>Baseline source revision: <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.
@@ -369,6 +549,10 @@ configured client CA</li>
     
 	
   
+
+    
+	
+  
     
     
 	
@@ -376,9 +560,34 @@ configured client CA</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f231f6727025d74ee9de7baa3a29eafa">2 - </h1>
+	<h1 id="pg-1e997c44b51c9a2d92087206451e215d">2.1.2 - Owned dns</h1>
     
-	<h1 id="print-cffd0352d09a5ca20a3d932570d11afb-owned-dns-specification">owned-dns Specification<a class="td-heading-self-link" href="#print-cffd0352d09a5ca20a3d932570d11afb-owned-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-cffd0352d09a5ca20a3d932570d11afb-purpose">Purpose<a class="td-heading-self-link" href="#print-cffd0352d09a5ca20a3d932570d11afb-purpose" aria-label="Heading self-link"></a></h2><p>Define retained ingress DNS ownership through the owner&rsquo;s <code>tf</code> root,
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-f231f6727025d74ee9de7baa3a29eafa">2.1.2.1 - owned-dns Specification</h1>
+    
+	<span id="print-cffd0352d09a5ca20a3d932570d11afb-owned-dns-specification"></span><h2 id="print-cffd0352d09a5ca20a3d932570d11afb-purpose">Purpose<a class="td-heading-self-link" href="#print-cffd0352d09a5ca20a3d932570d11afb-purpose" aria-label="Heading self-link"></a></h2><p>Define retained ingress DNS ownership through the owner&rsquo;s <code>tf</code> root,
 including canonical declarations, scoped execution, and offline source checks.</p>
 <h2 id="print-cffd0352d09a5ca20a3d932570d11afb-requirements">Requirements<a class="td-heading-self-link" href="#print-cffd0352d09a5ca20a3d932570d11afb-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-cffd0352d09a5ca20a3d932570d11afb-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-cffd0352d09a5ca20a3d932570d11afb-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through
 the shared DNS Terraform module, preserving declared record identities and views.
@@ -435,30 +644,13 @@ without Vault authentication or DNS provider access.</p>
     
 	
   
-    
+
     
 	
-    
+  
 
-<div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-155b678b86d897031198e5c4ab49f084">3 - Ansible</h1>
-    <div class="lead">Ansible setup</div>
 	
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
   
 
     
@@ -471,7 +663,7 @@ without Vault authentication or DNS provider access.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-e965813ffff72b80df3981a2f7b45885">4 - Tf</h1>
+	<h1 id="pg-e965813ffff72b80df3981a2f7b45885">3 - Tf</h1>
     <div class="lead">Terraform config</div>
 	<p>Use this package&rsquo;s <code>dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> targets for the
 <a href="/docs/infra/dns/">scoped DNS adoption workflow</a>.</p>
@@ -525,6 +717,7 @@ saved plan, and ordinary ingress service authentication remains separate.</p>
     <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
 
   </body>
 </html>

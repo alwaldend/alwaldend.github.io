@@ -12,13 +12,6 @@
 		
 			<atom:link href="https://alwaldend.com/docs/infra/dns/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/dns/openspec/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/dns/openspec/spec/</guid>
-				<description>&lt;h1 id=&#34;infrastructure-dns&#34;&gt;Infrastructure DNS&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#infrastructure-dns&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe owner-local Terraform DNS declarations and runtime source-ownership&#xA;validation for global and dc1 records. This contract describes checked-in&#xA;source; it does not establish live adoption or authorize infrastructure writes.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/&#34;&gt;component documentation&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;target definitions&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../cmd/lint/main.go&#34;&gt;runtime linter&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../tf/dns.tf&#34;&gt;Terraform root&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-aggregate-records-from-their-owning-components&#34;&gt;Requirement: Aggregate records from their owning components&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-aggregate-records-from-their-owning-components&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;DNS declarations SHALL remain in their owners&amp;rsquo; &lt;code&gt;dnsconfig.json&lt;/code&gt; files. Runtime&#xA;inventory SHALL discover all canonical files, including nested modules and&#xA;empty declarations, without a checked-in ownership registry. The inventory&#xA;SHALL print a deterministic table of files, DNS names, types and views.&lt;/p&gt;</description>
-			</item>
-			<item>
 				<title>Cloudflare DNS</title>
 				<link>https://alwaldend.com/docs/infra/dns/cloudflare_dns/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

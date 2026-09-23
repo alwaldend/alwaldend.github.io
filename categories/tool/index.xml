@@ -19,76 +19,6 @@
 				<description>&lt;p&gt;This tree contains developer tools and reusable Bazel rule modules. All tracked&#xA;content follows the repository&amp;rsquo;s public-source policy. Standalone &lt;code&gt;rules_*&lt;/code&gt;&#xA;modules retain their own Bzlmod names and public build APIs, with documentation&#xA;on the main repository site. They do not own separate landing sites.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Bazel targets MUST use repository-internal visibility except for standalone&#xA;Bazel rule modules and toolchain types whose owner explicitly exposes a public&#xA;build API.&lt;/li&gt;&#xA;&lt;li&gt;Tool artifacts MUST NOT be published as first-party product artifacts.&lt;/li&gt;&#xA;&lt;li&gt;Standalone Bazel rule modules MAY publish their reusable build APIs through&#xA;their explicit module release workflow.&lt;/li&gt;&#xA;&lt;li&gt;Production build targets MAY consume the public build APIs of standalone&#xA;Bazel rule modules and toolchains. Other tool targets MUST NOT be dependencies&#xA;of production build targets.&lt;/li&gt;&#xA;&lt;li&gt;Tool targets intended for repository-wide use MUST use&#xA;&lt;code&gt;visibility = [&amp;quot;//:__subpackages__&amp;quot;]&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Tool targets MAY be used in tests and explicit source-generation/update&#xA;targets.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;An explicit source-generation/update target is a developer workflow, not part&#xA;of the production build graph. It may depend on a tool from this tree and use&#xA;&lt;code&gt;write_source_file&lt;/code&gt; to update a checked-in source artifact. Normal production&#xA;and documentation targets must consume that checked-in artifact directly;&#xA;they must not depend on the generator, its tool, or an action-generated copy.&lt;/p&gt;</description>
 			</item>
 			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/tools/bazel_session_cleanup/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/tools/bazel_session_cleanup/</guid>
-				<description>&lt;h1 id=&#34;bazel-session-cleanup&#34;&gt;Bazel session cleanup&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#bazel-session-cleanup&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;The repository&amp;rsquo;s &lt;code&gt;.codex/config.toml&lt;/code&gt; queues asynchronous Bazel expunge when a&#xA;Codex session ends. Review and trust the hook with &lt;code&gt;/hooks&lt;/code&gt; in Codex; project&#xA;hooks do not run until trusted. A completed assistant turn does not trigger&#xA;cleanup.&lt;/p&gt;&#xA;&lt;p&gt;If &lt;code&gt;/hooks&lt;/code&gt; is empty in a linked Git worktree, check the primary checkout&amp;rsquo;s&#xA;&lt;code&gt;.codex/config.toml&lt;/code&gt;. In Codex CLI 0.153.4, observed on 2026-09-06, &lt;code&gt;config/read&lt;/code&gt;&#xA;returned the primary checkout&amp;rsquo;s configuration even though its project-layer&#xA;metadata named the linked worktree. That primary configuration had no hooks,&#xA;so &lt;code&gt;hooks/list&lt;/code&gt; returned an empty list. The exact worktree TOML listed both&#xA;hooks in an isolated normal checkout; separate user-config probes also accepted&#xA;both TOML and JSON. Changing formats is therefore not an established fix.&#xA;Merge the hook configuration and update the primary checkout, then start a new&#xA;CLI session and check &lt;code&gt;/hooks&lt;/code&gt; to trust it. Recheck configuration resolution&#xA;after upgrading Codex; this is an observed version-specific behavior, not a&#xA;guarantee for every release.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/tools/gradle/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/tools/gradle/</guid>
-				<description>&lt;h1 id=&#34;gradle-wrapper&#34;&gt;Gradle wrapper&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#gradle-wrapper&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;code&gt;//tools/gradle:gradle-wrapper&lt;/code&gt; runs the pinned Gradle distribution from&#xA;&lt;code&gt;third_party/net_gradle_gradle&lt;/code&gt; with the Java runtime selected by the existing&#xA;&lt;code&gt;rules_java&lt;/code&gt; toolchain. It does not download anything at run time.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel_agent bazel run //tools/gradle:gradle-wrapper -- --version&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Gradle caches remain under ignored &lt;code&gt;out/gradle/&lt;/code&gt;. Set &lt;code&gt;GRADLE_CACHE_ROOT&lt;/code&gt; to&#xA;redirect them for a task.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/specs/project-dns/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/specs/project-dns/spec/</guid>
-				<description>&lt;h1 id=&#34;project-dns-specification&#34;&gt;project-dns Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#project-dns-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Record the retirement of &lt;code&gt;rules_binary_toolchain&lt;/code&gt; landing infrastructure while preserving&#xA;its reusable Bazel module.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-keep-landing-infrastructure-retired&#34;&gt;Requirement: Keep landing infrastructure retired&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-keep-landing-infrastructure-retired&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The module SHALL follow the &lt;a href=&#34;https://alwaldend.com/docs/tools/&#34;&gt;tools boundary&lt;/a&gt; and SHALL&#xA;have no dedicated landing DNS declarations, Terraform root, or operational&#xA;source exports.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-inspect-the-module-after-landing-retirement&#34;&gt;Scenario: Inspect the module after landing retirement&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-inspect-the-module-after-landing-retirement&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; the module is consumed from &lt;code&gt;tools/rules_binary_toolchain&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; its reusable Bazel rules remain available without landing infrastructure.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/specs/project-rules-binary-toolchain/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/specs/project-rules-binary-toolchain/spec/</guid>
-				<description>&lt;h1 id=&#34;rules-binary-toolchain&#34;&gt;Rules binary toolchain&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#rules-binary-toolchain&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Provide Bazel toolchains and runnable targets for packaged executable binaries,&#xA;including their runtime files. This source baseline was observed on 2026-09-08&#xA;at revision &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/tools/rules_binary_toolchain/&#34;&gt;project description&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../main/bzl/binary_toolchain_lock.bzl&#34;&gt;lock parsing&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../main/bzl/binary_toolchain_extension.bzl&#34;&gt;module extension&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../main/bzl/binary_toolchain_repo.bzl&#34;&gt;archive repositories&lt;/a&gt;,&#xA;and &lt;a href=&#34;../../../main/bzl/binary_toolchain_binary.bzl&#34;&gt;runnable wrapper&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-select-archives-from-the-declared-toolchain-lock&#34;&gt;Requirement: Select archives from the declared toolchain lock&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-select-archives-from-the-declared-toolchain-lock&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The module extension SHALL resolve a requested toolchain by name and version&#xA;from its JSON lock and create repositories for the matching archives.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/tools/rules_hugo/openspec/specs/project-dns/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/tools/rules_hugo/openspec/specs/project-dns/spec/</guid>
-				<description>&lt;h1 id=&#34;project-dns-specification&#34;&gt;project-dns Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#project-dns-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Record the retirement of &lt;code&gt;rules_hugo&lt;/code&gt; landing infrastructure while preserving&#xA;its reusable Bazel module.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-keep-landing-infrastructure-retired&#34;&gt;Requirement: Keep landing infrastructure retired&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-keep-landing-infrastructure-retired&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The module SHALL follow the &lt;a href=&#34;https://alwaldend.com/docs/tools/&#34;&gt;tools boundary&lt;/a&gt; and SHALL&#xA;have no dedicated landing DNS declarations, Terraform root, or operational&#xA;source exports.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-inspect-the-module-after-landing-retirement&#34;&gt;Scenario: Inspect the module after landing retirement&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-inspect-the-module-after-landing-retirement&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; the module is consumed from &lt;code&gt;tools/rules_hugo&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; its reusable Bazel rules remain available without landing infrastructure.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/tools/rules_hugo/openspec/specs/project-rules-hugo/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/tools/rules_hugo/openspec/specs/project-rules-hugo/spec/</guid>
-				<description>&lt;h1 id=&#34;rules-hugo&#34;&gt;Rules Hugo&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#rules-hugo&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Build and run Hugo sites with registered Bazel toolchains, site source archives,&#xA;and declared PostCSS tooling. This source baseline was observed on 2026-09-08&#xA;at revision &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/tools/rules_hugo/&#34;&gt;project description&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../pkg/bzl/al_hugo_site.bzl&#34;&gt;site provider rule&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../pkg/bzl/al_hugo_run_binary.bzl&#34;&gt;build rule&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../pkg/bzl/al_hugo_extension.bzl&#34;&gt;toolchain extension&lt;/a&gt;,&#xA;and &lt;a href=&#34;../../../pkg/bzl/al_hugo_worker.bzl&#34;&gt;worker rule&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-separate-site-inputs-from-execution-tools&#34;&gt;Requirement: Separate site inputs from execution tools&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-separate-site-inputs-from-execution-tools&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;code&gt;al_hugo_site&lt;/code&gt; SHALL retain the &lt;code&gt;.tar&lt;/code&gt; site archive in the target configuration&#xA;and resolve its executable PostCSS dependency in the execution configuration.&#xA;Build rules SHALL obtain Hugo from the registered Hugo toolchain.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/tools/rules_openspec/openspec/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/tools/rules_openspec/openspec/spec/</guid>
-				<description>&lt;h1 id=&#34;project-rules-openspec-specification&#34;&gt;project-rules-openspec Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#project-rules-openspec-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define reusable Bazel validation and execution behavior for owner-local OpenSpec workspaces.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;openspec-validation&#34;&gt;OpenSpec validation&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#openspec-validation&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The system SHALL validate one owner-local OpenSpec workspace in a sandbox using the pinned OpenSpec CLI.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-current-validation&#34;&gt;Scenario: current validation&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-current-validation&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; a caller runs the validation target&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; OpenSpec validates current specifications and active changes with strict mode&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;scenario-archived-validation&#34;&gt;Scenario: archived validation&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-archived-validation&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; a caller requests archived validation&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; OpenSpec validates completed archived changes with strict mode&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/tools/rules_template/openspec/specs/project-dns/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/tools/rules_template/openspec/specs/project-dns/spec/</guid>
-				<description>&lt;h1 id=&#34;project-dns-specification&#34;&gt;project-dns Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#project-dns-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Record the retirement of &lt;code&gt;rules_template&lt;/code&gt; landing infrastructure while preserving&#xA;its reusable Bazel module.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-keep-landing-infrastructure-retired&#34;&gt;Requirement: Keep landing infrastructure retired&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-keep-landing-infrastructure-retired&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The module SHALL follow the &lt;a href=&#34;https://alwaldend.com/docs/tools/&#34;&gt;tools boundary&lt;/a&gt; and SHALL&#xA;have no dedicated landing DNS declarations, Terraform root, or operational&#xA;source exports.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-inspect-the-module-after-landing-retirement&#34;&gt;Scenario: Inspect the module after landing retirement&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-inspect-the-module-after-landing-retirement&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; the module is consumed from &lt;code&gt;tools/rules_template&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; its reusable Bazel rules remain available without landing infrastructure.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/tools/rules_template/openspec/specs/project-rules-template/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/tools/rules_template/openspec/specs/project-rules-template/spec/</guid>
-				<description>&lt;h1 id=&#34;rules-template&#34;&gt;Rules template&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#rules-template&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Render Go text templates from declared data files through a command and a Bazel&#xA;toolchain rule. This source baseline was observed on 2026-09-08 at revision&#xA;&lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;. The command operates on one template&#xA;and output per invocation; the rule&amp;rsquo;s list attributes do not establish a&#xA;multi-template rendering guarantee.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/tools/rules_template/&#34;&gt;project description&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../main/go/cmd.go&#34;&gt;command flags&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../main/go/templater.go&#34;&gt;templater&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../main/go/templater_func_map.go&#34;&gt;template functions&lt;/a&gt;,&#xA;and &lt;a href=&#34;../../../main/bzl/template_run_binary.bzl&#34;&gt;Bazel action&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-load-supported-data-formats-into-template-context&#34;&gt;Requirement: Load supported data formats into template context&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-load-supported-data-formats-into-template-context&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;template&lt;/code&gt; command SHALL load data files in argument order into &lt;code&gt;DataFiles&lt;/code&gt;,&#xA;decode &lt;code&gt;.toml&lt;/code&gt;, &lt;code&gt;.json&lt;/code&gt;, &lt;code&gt;.ndjson&lt;/code&gt;, and &lt;code&gt;.yaml&lt;/code&gt; data, and expose &lt;code&gt;.txt&lt;/code&gt; files as&#xA;lines without structured decoding. &lt;code&gt;--extension&lt;/code&gt; SHALL override extension&#xA;selection for the supplied data files.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/tools/rules_terraform/openspec/specs/terraform-execution/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/tools/rules_terraform/openspec/specs/terraform-execution/spec/</guid>
-				<description>&lt;h1 id=&#34;terraform-execution-specification&#34;&gt;terraform-execution Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#terraform-execution-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Provide reusable Bazel rules that acquire pinned Terraform providers and run&#xA;Terraform with declared configuration, executable, and provider inputs.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-verified-provider-acquisition&#34;&gt;Requirement: Verified provider acquisition&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-verified-provider-acquisition&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The provider module extension SHALL download immutable HTTPS archives with&#xA;mandatory SHA256 integrity through Bazel repository fetching. It SHALL select&#xA;one version for each canonical provider source across the extension graph.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-conflicting-provider-versions&#34;&gt;Scenario: Conflicting provider versions&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-conflicting-provider-versions&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; declarations select different versions of the same provider source&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; extension resolution fails before provider repositories are created.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;scenario-verified-archive&#34;&gt;Scenario: Verified archive&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-verified-archive&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; a provider archive is fetched&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; Bazel verifies the declared integrity and exposes its canonical source,&#xA;version, platform, and packed filesystem-mirror path.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;requirement-declared-provider-execution&#34;&gt;Requirement: Declared provider execution&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-declared-provider-execution&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Terraform rules SHALL place selected provider archives in runfiles using the&#xA;packed filesystem-mirror layout. The runner SHALL configure only that mirror&#xA;for provider installation and SHALL preserve the declared Terraform executable.&lt;/p&gt;</description>
-			</item>
-			<item>
 				<title>Agents</title>
 				<link>https://alwaldend.com/docs/tools/agents/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -670,6 +600,13 @@
 				<description>&lt;h2 id=&#34;harbor&#34;&gt;Harbor&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#harbor&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Targets that pull from the private Harbor registry are disabled by default so&#xA;repository-wide builds work while Harbor is unavailable. Enable them with&#xA;&lt;code&gt;--config=harbor&lt;/code&gt; when the registry is reachable.&lt;/p&gt;</description>
 			</item>
 			<item>
+				<title>Bazel session cleanup</title>
+				<link>https://alwaldend.com/docs/tools/bazel_session_cleanup/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/bazel_session_cleanup/</guid>
+				<description>&lt;span id=&#34;bazel-session-cleanup&#34;&gt;&lt;/span&gt;&lt;p&gt;The repository&amp;rsquo;s &lt;code&gt;.codex/config.toml&lt;/code&gt; queues asynchronous Bazel expunge when a&#xA;Codex session ends. Review and trust the hook with &lt;code&gt;/hooks&lt;/code&gt; in Codex; project&#xA;hooks do not run until trusted. A completed assistant turn does not trigger&#xA;cleanup.&lt;/p&gt;&#xA;&lt;p&gt;If &lt;code&gt;/hooks&lt;/code&gt; is empty in a linked Git worktree, check the primary checkout&amp;rsquo;s&#xA;&lt;code&gt;.codex/config.toml&lt;/code&gt;. In Codex CLI 0.153.4, observed on 2026-09-06, &lt;code&gt;config/read&lt;/code&gt;&#xA;returned the primary checkout&amp;rsquo;s configuration even though its project-layer&#xA;metadata named the linked worktree. That primary configuration had no hooks,&#xA;so &lt;code&gt;hooks/list&lt;/code&gt; returned an empty list. The exact worktree TOML listed both&#xA;hooks in an isolated normal checkout; separate user-config probes also accepted&#xA;both TOML and JSON. Changing formats is therefore not an established fix.&#xA;Merge the hook configuration and update the primary checkout, then start a new&#xA;CLI session and check &lt;code&gt;/hooks&lt;/code&gt; to trust it. Recheck configuration resolution&#xA;after upgrading Codex; this is an observed version-specific behavior, not a&#xA;guarantee for every release.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>Bazel shell worker</title>
 				<link>https://alwaldend.com/docs/tools/shell_worker/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1097,6 +1034,13 @@
 				<description>&lt;h1 id=&#34;go_mod&#34;&gt;go_mod&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#go_mod&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;code&gt;go_mod&lt;/code&gt; keeps every tracked &lt;code&gt;go.mod&lt;/code&gt; file on the Go version configured in&#xA;&lt;code&gt;tools/go_mod/cmd/go_mod/BUILD.bazel&lt;/code&gt;. It discovers files with Git, so ignored&#xA;scratch files are excluded.&lt;/p&gt;&#xA;&lt;p&gt;Update all module files:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel run //tools/go_mod/cmd/go_mod:update&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check without writing:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt; //tools/go_mod/cmd/go_mod:test&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The check target is part of &lt;code&gt;//:repo_quality_test&lt;/code&gt;.&lt;/p&gt;</description>
 			</item>
 			<item>
+				<title>Gradle wrapper</title>
+				<link>https://alwaldend.com/docs/tools/gradle/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/gradle/</guid>
+				<description>&lt;span id=&#34;gradle-wrapper&#34;&gt;&lt;/span&gt;&lt;p&gt;&lt;code&gt;//tools/gradle:gradle-wrapper&lt;/code&gt; runs the pinned Gradle distribution from&#xA;&lt;code&gt;third_party/net_gradle_gradle&lt;/code&gt; with the Java runtime selected by the existing&#xA;&lt;code&gt;rules_java&lt;/code&gt; toolchain. It does not download anything at run time.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel_agent bazel run //tools/gradle:gradle-wrapper -- --version&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Gradle caches remain under ignored &lt;code&gt;out/gradle/&lt;/code&gt;. Set &lt;code&gt;GRADLE_CACHE_ROOT&lt;/code&gt; to&#xA;redirect them for a task.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>Gzip</title>
 				<link>https://alwaldend.com/docs/tools/gzip/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1280,10 +1224,45 @@
 			</item>
 			<item>
 				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/tools/rules_hugo/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_hugo/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
 				<link>https://alwaldend.com/docs/tools/rules_openspec/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/tools/rules_openspec/</guid>
 				<description>&lt;p&gt;This package runs the upstream &lt;a href=&#34;https://openspec.dev/&#34;&gt;OpenSpec&lt;/a&gt; CLI with&#xA;Bazel&amp;rsquo;s pinned Node toolchain. &lt;code&gt;tools/package.json&lt;/code&gt; pins&#xA;&lt;code&gt;@fission-ai/openspec&lt;/code&gt; to 1.11.0; &lt;code&gt;tools/pnpm-lock.yaml&lt;/code&gt; records the package&#xA;integrities and transitive dependency versions. Package lifecycle scripts are&#xA;disabled. No global npm installation is needed.&lt;/p&gt;&#xA;&lt;p&gt;Each component owns an OpenSpec workspace at &lt;code&gt;&amp;lt;owner&amp;gt;/openspec/&lt;/code&gt;. The&#xA;repository&amp;rsquo;s evolution belongs to &lt;a href=&#34;https://alwaldend.com/docs/infra/src/openspec/&#34;&gt;&lt;code&gt;infra/src/openspec/&lt;/code&gt;&lt;/a&gt;,&#xA;which is the default for the runnable target. Run commands from the enclosing&#xA;repository root; &lt;code&gt;OPENSPEC_PROJECT&lt;/code&gt; selects a different owner directory:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/tools/rules_openspec/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_openspec/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/tools/rules_template/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_template/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/tools/rules_terraform/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_terraform/openspec/</guid>
+				<description></description>
 			</item>
 			<item>
 				<title>Ops</title>
@@ -1340,6 +1319,76 @@
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/tools/print_deps/</guid>
 				<description></description>
+			</item>
+			<item>
+				<title>Project dns</title>
+				<link>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/specs/project-dns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/specs/project-dns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Project dns</title>
+				<link>https://alwaldend.com/docs/tools/rules_hugo/openspec/specs/project-dns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_hugo/openspec/specs/project-dns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Project dns</title>
+				<link>https://alwaldend.com/docs/tools/rules_template/openspec/specs/project-dns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_template/openspec/specs/project-dns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Project rules binary toolchain</title>
+				<link>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/specs/project-rules-binary-toolchain/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/specs/project-rules-binary-toolchain/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Project rules hugo</title>
+				<link>https://alwaldend.com/docs/tools/rules_hugo/openspec/specs/project-rules-hugo/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_hugo/openspec/specs/project-rules-hugo/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Project rules template</title>
+				<link>https://alwaldend.com/docs/tools/rules_template/openspec/specs/project-rules-template/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_template/openspec/specs/project-rules-template/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>project-dns Specification</title>
+				<link>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/specs/project-dns/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/specs/project-dns/spec/</guid>
+				<description>&lt;span id=&#34;project-dns-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Record the retirement of &lt;code&gt;rules_binary_toolchain&lt;/code&gt; landing infrastructure while preserving&#xA;its reusable Bazel module.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-keep-landing-infrastructure-retired&#34;&gt;Requirement: Keep landing infrastructure retired&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-keep-landing-infrastructure-retired&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The module SHALL follow the &lt;a href=&#34;https://alwaldend.com/docs/tools/&#34;&gt;tools boundary&lt;/a&gt; and SHALL&#xA;have no dedicated landing DNS declarations, Terraform root, or operational&#xA;source exports.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-inspect-the-module-after-landing-retirement&#34;&gt;Scenario: Inspect the module after landing retirement&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-inspect-the-module-after-landing-retirement&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; the module is consumed from &lt;code&gt;tools/rules_binary_toolchain&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; its reusable Bazel rules remain available without landing infrastructure.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>project-dns Specification</title>
+				<link>https://alwaldend.com/docs/tools/rules_hugo/openspec/specs/project-dns/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_hugo/openspec/specs/project-dns/spec/</guid>
+				<description>&lt;span id=&#34;project-dns-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Record the retirement of &lt;code&gt;rules_hugo&lt;/code&gt; landing infrastructure while preserving&#xA;its reusable Bazel module.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-keep-landing-infrastructure-retired&#34;&gt;Requirement: Keep landing infrastructure retired&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-keep-landing-infrastructure-retired&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The module SHALL follow the &lt;a href=&#34;https://alwaldend.com/docs/tools/&#34;&gt;tools boundary&lt;/a&gt; and SHALL&#xA;have no dedicated landing DNS declarations, Terraform root, or operational&#xA;source exports.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-inspect-the-module-after-landing-retirement&#34;&gt;Scenario: Inspect the module after landing retirement&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-inspect-the-module-after-landing-retirement&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; the module is consumed from &lt;code&gt;tools/rules_hugo&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; its reusable Bazel rules remain available without landing infrastructure.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>project-dns Specification</title>
+				<link>https://alwaldend.com/docs/tools/rules_template/openspec/specs/project-dns/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_template/openspec/specs/project-dns/spec/</guid>
+				<description>&lt;span id=&#34;project-dns-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Record the retirement of &lt;code&gt;rules_template&lt;/code&gt; landing infrastructure while preserving&#xA;its reusable Bazel module.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-keep-landing-infrastructure-retired&#34;&gt;Requirement: Keep landing infrastructure retired&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-keep-landing-infrastructure-retired&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The module SHALL follow the &lt;a href=&#34;https://alwaldend.com/docs/tools/&#34;&gt;tools boundary&lt;/a&gt; and SHALL&#xA;have no dedicated landing DNS declarations, Terraform root, or operational&#xA;source exports.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-inspect-the-module-after-landing-retirement&#34;&gt;Scenario: Inspect the module after landing retirement&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-inspect-the-module-after-landing-retirement&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; the module is consumed from &lt;code&gt;tools/rules_template&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; its reusable Bazel rules remain available without landing infrastructure.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>project-rules-openspec Specification</title>
+				<link>https://alwaldend.com/docs/tools/rules_openspec/openspec/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_openspec/openspec/spec/</guid>
+				<description>&lt;span id=&#34;project-rules-openspec-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define reusable Bazel validation and execution behavior for owner-local OpenSpec workspaces.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;openspec-validation&#34;&gt;OpenSpec validation&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#openspec-validation&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The system SHALL validate one owner-local OpenSpec workspace in a sandbox using the pinned OpenSpec CLI.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-current-validation&#34;&gt;Scenario: current validation&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-current-validation&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; a caller runs the validation target&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; OpenSpec validates current specifications and active changes with strict mode&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;scenario-archived-validation&#34;&gt;Scenario: archived validation&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-archived-validation&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; a caller requests archived validation&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; OpenSpec validates completed archived changes with strict mode&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
 				<title>Proto</title>
@@ -1468,6 +1517,13 @@
 				<description>&lt;p&gt;&lt;code&gt;rules_binary_toolchain&lt;/code&gt; creates Bazel toolchains and runnable targets for&#xA;packaged executable binaries. Archive entries can include runtime files,&#xA;which the generated binary targets expose through Bazel runfiles.&lt;/p&gt;</description>
 			</item>
 			<item>
+				<title>Rules binary toolchain</title>
+				<link>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/specs/project-rules-binary-toolchain/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/specs/project-rules-binary-toolchain/spec/</guid>
+				<description>&lt;span id=&#34;rules-binary-toolchain&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Provide Bazel toolchains and runnable targets for packaged executable binaries,&#xA;including their runtime files. This source baseline was observed on 2026-09-08&#xA;at revision &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/tools/rules_binary_toolchain/&#34;&gt;project description&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../main/bzl/binary_toolchain_lock.bzl&#34;&gt;lock parsing&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../main/bzl/binary_toolchain_extension.bzl&#34;&gt;module extension&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../main/bzl/binary_toolchain_repo.bzl&#34;&gt;archive repositories&lt;/a&gt;,&#xA;and &lt;a href=&#34;../../../main/bzl/binary_toolchain_binary.bzl&#34;&gt;runnable wrapper&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-select-archives-from-the-declared-toolchain-lock&#34;&gt;Requirement: Select archives from the declared toolchain lock&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-select-archives-from-the-declared-toolchain-lock&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The module extension SHALL resolve a requested toolchain by name and version&#xA;from its JSON lock and create repositories for the matching archives.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-a-requested-toolchain-has-no-matching-archive&#34;&gt;Scenario: A requested toolchain has no matching archive&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-a-requested-toolchain-has-no-matching-archive&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; the requested toolchain is absent or has no archive matching its locked version&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; extension evaluation fails with a diagnostic instead of selecting another version.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;requirement-verify-downloaded-archive-integrity&#34;&gt;Requirement: Verify downloaded archive integrity&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-verify-downloaded-archive-integrity&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Archive repository download and download-and-extract actions SHALL compare the&#xA;reported integrity against the action&amp;rsquo;s declared integrity and fail on mismatch.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>Rules Dnscontrol</title>
 				<link>https://alwaldend.com/docs/tools/rules_dnscontrol/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1494,6 +1550,13 @@
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/tools/rules_hugo/</guid>
 				<description>&lt;p&gt;&lt;code&gt;rules_hugo&lt;/code&gt; builds Hugo sites with a registered Hugo toolchain. It keeps the&#xA;site archive in the target configuration and the Hugo binary in the execution&#xA;configuration so site sources are not rebuilt for the execution platform.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;al_hugo_site&lt;/code&gt; wraps a site source archive and its PostCSS tooling.&#xA;&lt;code&gt;al_hugo_run_binary&lt;/code&gt; builds the site with the registered Hugo toolchain and&#xA;&lt;code&gt;al_hugo_binary&lt;/code&gt; exposes a runnable Hugo command for a site. The optional&#xA;&lt;code&gt;al_hugo_worker&lt;/code&gt; rule runs the build through a persistent worker.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Rules Hugo</title>
+				<link>https://alwaldend.com/docs/tools/rules_hugo/openspec/specs/project-rules-hugo/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_hugo/openspec/specs/project-rules-hugo/spec/</guid>
+				<description>&lt;span id=&#34;rules-hugo&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Build and run Hugo sites with registered Bazel toolchains, site source archives,&#xA;and declared PostCSS tooling. This source baseline was observed on 2026-09-08&#xA;at revision &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/tools/rules_hugo/&#34;&gt;project description&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../pkg/bzl/al_hugo_site.bzl&#34;&gt;site provider rule&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../pkg/bzl/al_hugo_run_binary.bzl&#34;&gt;build rule&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../pkg/bzl/al_hugo_extension.bzl&#34;&gt;toolchain extension&lt;/a&gt;,&#xA;and &lt;a href=&#34;../../../pkg/bzl/al_hugo_worker.bzl&#34;&gt;worker rule&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-separate-site-inputs-from-execution-tools&#34;&gt;Requirement: Separate site inputs from execution tools&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-separate-site-inputs-from-execution-tools&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;code&gt;al_hugo_site&lt;/code&gt; SHALL retain the &lt;code&gt;.tar&lt;/code&gt; site archive in the target configuration&#xA;and resolve its executable PostCSS dependency in the execution configuration.&#xA;Build rules SHALL obtain Hugo from the registered Hugo toolchain.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Rules Promptfoo</title>
@@ -1529,6 +1592,13 @@
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/tools/rules_template/</guid>
 				<description>&lt;p&gt;&lt;code&gt;rules_template&lt;/code&gt; provides Bazel rules and a Go command for rendering template&#xA;files. A registered toolchain supplies the templating executable to build&#xA;actions.&lt;/p&gt;&#xA;&lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#getting-started&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;code&gt;MODULE.bazel&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;bazel_dep&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;rules_template&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;version&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;lt;VERSION&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;register_toolchains&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;@rules_template//main/bzl:all&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;BUILD.bazel&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-py&#34; data-lang=&#34;py&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+			</item>
+			<item>
+				<title>Rules template</title>
+				<link>https://alwaldend.com/docs/tools/rules_template/openspec/specs/project-rules-template/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_template/openspec/specs/project-rules-template/spec/</guid>
+				<description>&lt;span id=&#34;rules-template&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Render Go text templates from declared data files through a command and a Bazel&#xA;toolchain rule. This source baseline was observed on 2026-09-08 at revision&#xA;&lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;. The command operates on one template&#xA;and output per invocation; the rule&amp;rsquo;s list attributes do not establish a&#xA;multi-template rendering guarantee.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/tools/rules_template/&#34;&gt;project description&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../main/go/cmd.go&#34;&gt;command flags&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../main/go/templater.go&#34;&gt;templater&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../main/go/templater_func_map.go&#34;&gt;template functions&lt;/a&gt;,&#xA;and &lt;a href=&#34;../../../main/bzl/template_run_binary.bzl&#34;&gt;Bazel action&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-load-supported-data-formats-into-template-context&#34;&gt;Requirement: Load supported data formats into template context&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-load-supported-data-formats-into-template-context&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;template&lt;/code&gt; command SHALL load data files in argument order into &lt;code&gt;DataFiles&lt;/code&gt;,&#xA;decode &lt;code&gt;.toml&lt;/code&gt;, &lt;code&gt;.json&lt;/code&gt;, &lt;code&gt;.ndjson&lt;/code&gt;, and &lt;code&gt;.yaml&lt;/code&gt; data, and expose &lt;code&gt;.txt&lt;/code&gt; files as&#xA;lines without structured decoding. &lt;code&gt;--extension&lt;/code&gt; SHALL override extension&#xA;selection for the supplied data files.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Rules Terraform</title>
@@ -1580,6 +1650,34 @@
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://getsops.io/&#34;&gt;https://getsops.io/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_binary_toolchain/openspec/specs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/tools/rules_hugo/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_hugo/openspec/specs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/tools/rules_template/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_template/openspec/specs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/tools/rules_terraform/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_terraform/openspec/specs/</guid>
+				<description></description>
+			</item>
+			<item>
 				<title>Stylua</title>
 				<link>https://alwaldend.com/docs/tools/stylua/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1587,11 +1685,25 @@
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Repo: &lt;a href=&#34;https://github.com/JohnnyMorganz/StyLua&#34;&gt;https://github.com/JohnnyMorganz/StyLua&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The pinned upstream binary is owned by&#xA;&lt;a href=&#34;https://alwaldend.com/docs/third_party/com_github_johnnymorganz_stylua/&#34;&gt;&lt;code&gt;third_party/com_github_johnnymorganz_stylua&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;</description>
 			</item>
 			<item>
+				<title>Terraform execution</title>
+				<link>https://alwaldend.com/docs/tools/rules_terraform/openspec/specs/terraform-execution/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_terraform/openspec/specs/terraform-execution/</guid>
+				<description></description>
+			</item>
+			<item>
 				<title>Terraform launcher</title>
 				<link>https://alwaldend.com/docs/tools/rules_terraform/cmd/terraform/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/tools/rules_terraform/cmd/terraform/</guid>
 				<description>&lt;p&gt;This implementation launcher reads the generated target sidecar and resolves&#xA;Terraform, configuration inputs, and provider archives through Bazel runfiles.&#xA;Consumer targets use the public Terraform rules instead of invoking this binary&#xA;directly.&lt;/p&gt;&#xA;&lt;p&gt;The launcher selects the target&amp;rsquo;s working directory inside the runfiles tree.&#xA;Source files can remain symlinks, so formatting retains its existing source&#xA;behavior. Initialization writes lockfiles and Terraform metadata in that runfiles&#xA;directory. Saved plans and local state retain their normal paths relative to&#xA;the working directory; the launcher never removes them.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>terraform-execution Specification</title>
+				<link>https://alwaldend.com/docs/tools/rules_terraform/openspec/specs/terraform-execution/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/rules_terraform/openspec/specs/terraform-execution/spec/</guid>
+				<description>&lt;span id=&#34;terraform-execution-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Provide reusable Bazel rules that acquire pinned Terraform providers and run&#xA;Terraform with declared configuration, executable, and provider inputs.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-verified-provider-acquisition&#34;&gt;Requirement: Verified provider acquisition&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-verified-provider-acquisition&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The provider module extension SHALL download immutable HTTPS archives with&#xA;mandatory SHA256 integrity through Bazel repository fetching. It SHALL select&#xA;one version for each canonical provider source across the extension graph.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-conflicting-provider-versions&#34;&gt;Scenario: Conflicting provider versions&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-conflicting-provider-versions&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; declarations select different versions of the same provider source&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; extension resolution fails before provider repositories are created.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;scenario-verified-archive&#34;&gt;Scenario: Verified archive&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-verified-archive&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; a provider archive is fetched&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; Bazel verifies the declared integrity and exposes its canonical source,&#xA;version, platform, and packed filesystem-mirror path.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;requirement-declared-provider-execution&#34;&gt;Requirement: Declared provider execution&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-declared-provider-execution&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Terraform rules SHALL place selected provider archives in runfiles using the&#xA;packed filesystem-mirror layout. The runner SHALL configure only that mirror&#xA;for provider installation and SHALL preserve the declared Terraform executable.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Tf backend</title>

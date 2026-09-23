@@ -34,29 +34,29 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/svg+xml" sizes="any" href="/icons/favicon.846429df84fbe4763a8f707e5373b0ab1ec9987218da2237106ab713ed7ff972.svg">
 
-<title>Alwaldend</title>
-<meta name="description" content="Bazel session cleanupThe repository’s .codex/config.toml queues asynchronous Bazel expunge when a Codex session ends. Review and trust the hook with /hooks in Codex; project hooks do not run until trusted. A completed assistant turn does not trigger cleanup.
+<title>Bazel session cleanup | Alwaldend</title>
+<meta name="description" content="The repository’s .codex/config.toml queues asynchronous Bazel expunge when a Codex session ends. Review and trust the hook with /hooks in Codex; project hooks do not run until trusted. A completed assistant turn does not trigger cleanup.
 If /hooks is empty in a linked Git worktree, check the primary checkout’s .codex/config.toml. In Codex CLI 0.153.4, observed on 2026-09-06, config/read returned the primary checkout’s configuration even though its project-layer metadata named the linked worktree. That primary configuration had no hooks, so hooks/list returned an empty list. The exact worktree TOML listed both hooks in an isolated normal checkout; separate user-config probes also accepted both TOML and JSON. Changing formats is therefore not an established fix. Merge the hook configuration and update the primary checkout, then start a new CLI session and check /hooks to trust it. Recheck configuration resolution after upgrading Codex; this is an observed version-specific behavior, not a guarantee for every release.">
 <meta property="og:url" content="https://alwaldend.com/docs/tools/bazel_session_cleanup/">
 	<meta property="og:site_name" content="Alwaldend">
-	<meta property="og:title" content="Alwaldend">
-	<meta property="og:description" content="Bazel session cleanupThe repository’s .codex/config.toml queues asynchronous Bazel expunge when a Codex session ends. Review and trust the hook with /hooks in Codex; project hooks do not run until trusted. A completed assistant turn does not trigger cleanup.
+	<meta property="og:title" content="Bazel session cleanup">
+	<meta property="og:description" content="The repository’s .codex/config.toml queues asynchronous Bazel expunge when a Codex session ends. Review and trust the hook with /hooks in Codex; project hooks do not run until trusted. A completed assistant turn does not trigger cleanup.
 If /hooks is empty in a linked Git worktree, check the primary checkout’s .codex/config.toml. In Codex CLI 0.153.4, observed on 2026-09-06, config/read returned the primary checkout’s configuration even though its project-layer metadata named the linked worktree. That primary configuration had no hooks, so hooks/list returned an empty list. The exact worktree TOML listed both hooks in an isolated normal checkout; separate user-config probes also accepted both TOML and JSON. Changing formats is therefore not an established fix. Merge the hook configuration and update the primary checkout, then start a new CLI session and check /hooks to trust it. Recheck configuration resolution after upgrading Codex; this is an observed version-specific behavior, not a guarantee for every release.">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="website">
 
-	<meta itemprop="name" content="Alwaldend">
-	<meta itemprop="description" content="Bazel session cleanupThe repository’s .codex/config.toml queues asynchronous Bazel expunge when a Codex session ends. Review and trust the hook with /hooks in Codex; project hooks do not run until trusted. A completed assistant turn does not trigger cleanup.
+	<meta itemprop="name" content="Bazel session cleanup">
+	<meta itemprop="description" content="The repository’s .codex/config.toml queues asynchronous Bazel expunge when a Codex session ends. Review and trust the hook with /hooks in Codex; project hooks do not run until trusted. A completed assistant turn does not trigger cleanup.
 If /hooks is empty in a linked Git worktree, check the primary checkout’s .codex/config.toml. In Codex CLI 0.153.4, observed on 2026-09-06, config/read returned the primary checkout’s configuration even though its project-layer metadata named the linked worktree. That primary configuration had no hooks, so hooks/list returned an empty list. The exact worktree TOML listed both hooks in an isolated normal checkout; separate user-config probes also accepted both TOML and JSON. Changing formats is therefore not an established fix. Merge the hook configuration and update the primary checkout, then start a new CLI session and check /hooks to trust it. Recheck configuration resolution after upgrading Codex; this is an observed version-specific behavior, not a guarantee for every release.">
-	<meta itemprop="dateModified" content="2026-09-23T23:12:26+03:00">
-	<meta itemprop="wordCount" content="393">
+	<meta itemprop="dateModified" content="2026-09-24T00:17:33+03:00">
+	<meta itemprop="wordCount" content="391">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
-	<meta name="twitter:title" content="Alwaldend">
-	<meta name="twitter:description" content="Bazel session cleanupThe repository’s .codex/config.toml queues asynchronous Bazel expunge when a Codex session ends. Review and trust the hook with /hooks in Codex; project hooks do not run until trusted. A completed assistant turn does not trigger cleanup.
+	<meta name="twitter:title" content="Bazel session cleanup">
+	<meta name="twitter:description" content="The repository’s .codex/config.toml queues asynchronous Bazel expunge when a Codex session ends. Review and trust the hook with /hooks in Codex; project hooks do not run until trusted. A completed assistant turn does not trigger cleanup.
 If /hooks is empty in a linked Git worktree, check the primary checkout’s .codex/config.toml. In Codex CLI 0.153.4, observed on 2026-09-06, config/read returned the primary checkout’s configuration even though its project-layer metadata named the linked worktree. That primary configuration had no hooks, so hooks/list returned an empty list. The exact worktree TOML listed both hooks in an isolated normal checkout; separate user-config probes also accepted both TOML and JSON. Changing formats is therefore not an established fix. Merge the hook configuration and update the primary checkout, then start a new CLI session and check /hooks to trust it. Recheck configuration resolution after upgrading Codex; this is an observed version-specific behavior, not a guarantee for every release.">
-<link rel="preload" href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" as="style" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
-<link href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" rel="stylesheet" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" as="style" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
+<link href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" rel="stylesheet" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -150,7 +150,7 @@ If /hooks is empty in a linked Git worktree, check the primary checkout’s .cod
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.cf47526d4c6c1c1919b1d4822be25ace.json"
+    data-offline-search-index-json-src="/offline-search-index.ec74568dd22c53d1312543116c075635.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -180,7 +180,7 @@ This is the multi-page printable view of this section.
 
 
 
-<h1 class="title"></h1>
+<h1 class="title">Bazel session cleanup</h1>
 
 
 
@@ -199,7 +199,7 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <h1 id="print-1d6474287550643b90bd0417c9ca8688-bazel-session-cleanup">Bazel session cleanup<a class="td-heading-self-link" href="#print-1d6474287550643b90bd0417c9ca8688-bazel-session-cleanup" aria-label="Heading self-link"></a></h1><p>The repository&rsquo;s <code>.codex/config.toml</code> queues asynchronous Bazel expunge when a
+      <span id="print-1d6474287550643b90bd0417c9ca8688-bazel-session-cleanup"></span><p>The repository&rsquo;s <code>.codex/config.toml</code> queues asynchronous Bazel expunge when a
 Codex session ends. Review and trust the hook with <code>/hooks</code> in Codex; project
 hooks do not run until trusted. A completed assistant turn does not trigger
 cleanup.</p>
@@ -274,6 +274,7 @@ not wait for it. See the <a href="https://learn.chatgpt.com/docs/hooks">Codex ho
     <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
 
   </body>
 </html>

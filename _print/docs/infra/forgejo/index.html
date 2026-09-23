@@ -45,14 +45,14 @@
 
 	<meta itemprop="name" content="forgejo">
 	<meta itemprop="description" content="git.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-23T23:12:26+03:00">
+	<meta itemprop="dateModified" content="2026-09-24T00:17:33+03:00">
 	<meta itemprop="wordCount" content="319">
 	<meta itemprop="keywords" content="Ansible,Xcp-Ng,Forgejo">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="forgejo">
 	<meta name="twitter:description" content="git.alwaldend.com">
-<link rel="preload" href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" as="style" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
-<link href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" rel="stylesheet" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" as="style" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
+<link href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" rel="stylesheet" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.cf47526d4c6c1c1919b1d4822be25ace.json"
+    data-offline-search-index-json-src="/offline-search-index.ec74568dd22c53d1312543116c075635.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -193,23 +193,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-3d897c628782fb475c1ed365d5d2cbad"></a></li>
-
-
-    
-  
-    
-    
-	
-<li>2: <a href="#pg-e1c572e5bbd518221d622301b3fc717f"></a></li>
-
-
-    
-  
-    
-    
-	
-<li>3: <a href="#pg-4631e4abd1138ca67304d2dacb44d29f">Ansible</a></li>
+<li>1: <a href="#pg-4631e4abd1138ca67304d2dacb44d29f">Ansible</a></li>
 
 
     
@@ -228,7 +212,99 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-f3cee4c8624cb7f2609ceabdfcf85a16">Tf</a></li>
+<li>2: <a href="#pg-48476f40b6cef33e5177711ffc000c4f">OpenSpec</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1: <a href="#pg-5a545e6d4a4f5d58c3212174e00873a9">Specifications</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.1: <a href="#pg-8700c7b81f92f98688344b3d0d871e88">Infra forgejo</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.1.1: <a href="#pg-3d897c628782fb475c1ed365d5d2cbad">Forgejo infrastructure specification</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.1.2: <a href="#pg-22bd19ac2879d66c37ec268e24d45a88">Owned dns</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.2.1: <a href="#pg-e1c572e5bbd518221d622301b3fc717f">owned-dns Specification</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-f3cee4c8624cb7f2609ceabdfcf85a16">Tf</a></li>
 
 
     
@@ -247,7 +323,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5: <a href="#pg-23e19713f3783652b8b451d0e26fbe6f">Tf setup</a></li>
+<li>4: <a href="#pg-23e19713f3783652b8b451d0e26fbe6f">Tf setup</a></li>
 
 
     
@@ -328,9 +404,113 @@ client route caches must be resolved before relying on LAN access.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-3d897c628782fb475c1ed365d5d2cbad">1 - </h1>
+	<h1 id="pg-4631e4abd1138ca67304d2dacb44d29f">1 - Ansible</h1>
+    <div class="lead">Ansible setup</div>
+	
+</div>
+
+
+
     
-	<h1 id="print-104392a0061b18c209ca81aa609d73e8-forgejo-infrastructure-specification">Forgejo infrastructure specification<a class="td-heading-self-link" href="#print-104392a0061b18c209ca81aa609d73e8-forgejo-infrastructure-specification" aria-label="Heading self-link"></a></h1><h2 id="print-104392a0061b18c209ca81aa609d73e8-purpose">Purpose<a class="td-heading-self-link" href="#print-104392a0061b18c209ca81aa609d73e8-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Forgejo service owned by <code>infra/forgejo</code>, including Xen
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-48476f40b6cef33e5177711ffc000c4f">2 - OpenSpec</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-5a545e6d4a4f5d58c3212174e00873a9">2.1 - Specifications</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-8700c7b81f92f98688344b3d0d871e88">2.1.1 - Infra forgejo</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-3d897c628782fb475c1ed365d5d2cbad">2.1.1.1 - Forgejo infrastructure specification</h1>
+    
+	<span id="print-104392a0061b18c209ca81aa609d73e8-forgejo-infrastructure-specification"></span><h2 id="print-104392a0061b18c209ca81aa609d73e8-purpose">Purpose<a class="td-heading-self-link" href="#print-104392a0061b18c209ca81aa609d73e8-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Forgejo service owned by <code>infra/forgejo</code>, including Xen
 Orchestra provisioning, Ansible service configuration, and Terraform account
 and repository management. The <code>tf_setup</code>, <code>ansible</code>, and <code>tf</code> packages are
 implementation stages of this owner. This baseline records source guarantees
@@ -432,6 +612,10 @@ validation</li>
     
 	
   
+
+    
+	
+  
     
     
 	
@@ -439,9 +623,34 @@ validation</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-e1c572e5bbd518221d622301b3fc717f">2 - </h1>
+	<h1 id="pg-22bd19ac2879d66c37ec268e24d45a88">2.1.2 - Owned dns</h1>
     
-	<h1 id="print-7bc1604caa4e256030a625215dd30531-owned-dns-specification">owned-dns Specification<a class="td-heading-self-link" href="#print-7bc1604caa4e256030a625215dd30531-owned-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-7bc1604caa4e256030a625215dd30531-purpose">Purpose<a class="td-heading-self-link" href="#print-7bc1604caa4e256030a625215dd30531-purpose" aria-label="Heading self-link"></a></h2><p>Define Forgejo DNS management through the owner&rsquo;s <code>tf_setup</code> root,
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-e1c572e5bbd518221d622301b3fc717f">2.1.2.1 - owned-dns Specification</h1>
+    
+	<span id="print-7bc1604caa4e256030a625215dd30531-owned-dns-specification"></span><h2 id="print-7bc1604caa4e256030a625215dd30531-purpose">Purpose<a class="td-heading-self-link" href="#print-7bc1604caa4e256030a625215dd30531-purpose" aria-label="Heading self-link"></a></h2><p>Define Forgejo DNS management through the owner&rsquo;s <code>tf_setup</code> root,
 including canonical declarations, scoped credentials, and offline source checks
 before adopting live records.</p>
 <h2 id="print-7bc1604caa4e256030a625215dd30531-requirements">Requirements<a class="td-heading-self-link" href="#print-7bc1604caa4e256030a625215dd30531-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-7bc1604caa4e256030a625215dd30531-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-7bc1604caa4e256030a625215dd30531-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf_setup</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through
@@ -504,30 +713,13 @@ test that does not authenticate to Vault or contact DNS providers.</p>
     
 	
   
-    
+
     
 	
-    
+  
 
-<div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-4631e4abd1138ca67304d2dacb44d29f">3 - Ansible</h1>
-    <div class="lead">Ansible setup</div>
 	
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
   
 
     
@@ -540,7 +732,7 @@ test that does not authenticate to Vault or contact DNS providers.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f3cee4c8624cb7f2609ceabdfcf85a16">4 - Tf</h1>
+	<h1 id="pg-f3cee4c8624cb7f2609ceabdfcf85a16">3 - Tf</h1>
     <div class="lead">Terraform config</div>
 	<p>This package configures Forgejo organizations, repositories, and access from
 the shared <a href="/docs/infra/repos/">repository catalog</a>. The catalog owns named
@@ -622,7 +814,7 @@ automation-writer exceptions.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-23e19713f3783652b8b451d0e26fbe6f">5 - Tf setup</h1>
+	<h1 id="pg-23e19713f3783652b8b451d0e26fbe6f">4 - Tf setup</h1>
     <div class="lead">Terraform setup</div>
 	<p>This package creates a Xen Orchestra VM in the <code>src_infra_dc1_forgejo1</code>
 resource set. <code>infra/forgejo/al.lua</code> authenticates with Forgejo&rsquo;s own Vault
@@ -712,6 +904,7 @@ do not establish service or VM health.</p>
     <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
 
   </body>
 </html>

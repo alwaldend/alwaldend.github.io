@@ -1,0 +1,389 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js" data-theme-init>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#000000">
+
+<style>
+  html { background: Canvas; color: CanvasText; }
+  @media (prefers-color-scheme: dark) {
+    html { background: #0b0d12; color: #e6e6e6; }
+  }
+  html[data-theme-init] * { transition: none !important; }
+</style>
+
+<script>
+  (function() {
+    const themeKey = 'td-color-theme';
+    const storedTheme = localStorage.getItem(themeKey);
+    let theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    if (theme === 'auto') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  })();
+</script>
+<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/infra/dns/openspec/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/infra/dns/openspec/index.xml">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" sizes="any" href="/icons/favicon.846429df84fbe4763a8f707e5373b0ab1ec9987218da2237106ab713ed7ff972.svg">
+
+<title>OpenSpec | Alwaldend</title>
+<meta name="description" content="">
+<meta property="og:url" content="https://alwaldend.com/docs/infra/dns/openspec/">
+	<meta property="og:site_name" content="Alwaldend">
+	<meta property="og:title" content="OpenSpec">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="OpenSpec">
+	<meta itemprop="dateModified" content="2026-09-24T00:17:34+03:00">
+	<meta itemprop="keywords" content="Infra">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="OpenSpec">
+<link rel="preload" href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" as="style" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
+<link href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" rel="stylesheet" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll">
+<div class="td-navbar-container container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Alwaldend</span></a>
+  <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
+    <div class="scroll-indicator scroll-left"></div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/"><span>Projects</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Docs</span></a>
+      </li>
+      <li class="nav-item td-navbar__light-dark-menu">
+        <div class="td-light-dark-menu dropdown"><svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check2" viewBox="0 0 16 16">
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+  <symbol id="circle-half" viewBox="0 0 16 16">
+    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+  </symbol>
+  <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+  </symbol>
+  <symbol id="sun-fill" viewBox="0 0 16 16">
+    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+  </symbol>
+</svg>
+<button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        title="Toggle theme (Auto)"
+        aria-label="Toggle theme (Auto)">
+  <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+  <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+</button>
+<ul class="dropdown-menu" aria-labelledby="bd-theme">
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#sun-fill"></use></svg>
+      Light
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#moon-stars-fill"></use></svg>
+      Dark
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+      <svg class="bi me-2 opacity-50"><use href="#circle-half"></use></svg>
+      Auto
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+</ul>
+</div>
+
+      </li>
+      </ul>
+    <div class="scroll-indicator scroll-right"></div>
+  </div>
+  <div class="td-navbar__search d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon" aria-hidden="true"></div>
+  <input
+    type="search"
+    name="q"
+    class="td-search__input form-control"
+    placeholder='Search this site…'
+    aria-label='Search this site…'
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.ec74568dd22c53d1312543116c075635.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/infra/dns/openspec/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">OpenSpec</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-a2a8fb4565c12c951b85dedb4e2ccf6e">Infrastructure DNS</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-a2a8fb4565c12c951b85dedb4e2ccf6e">1 - Infrastructure DNS</h1>
+    
+	<span id="print-26cd59c7e44d32ec3ca3f4e479c54e54-infrastructure-dns"></span><h2 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose">Purpose<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose" aria-label="Heading self-link"></a></h2><p>Describe owner-local Terraform DNS declarations and runtime source-ownership
+validation for global and dc1 records. This contract describes checked-in
+source; it does not establish live adoption or authorize infrastructure writes.</p>
+<p>Sources: <a href="/docs/">component documentation</a>,
+<a href="../../../BUILD.bazel">target definitions</a>,
+<a href="../../../cmd/lint/main.go">runtime linter</a>, and
+<a href="../../../tf/dns.tf">Terraform root</a>.</p>
+<h2 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirements">Requirements<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-aggregate-records-from-their-owning-components">Requirement: Aggregate records from their owning components<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-aggregate-records-from-their-owning-components" aria-label="Heading self-link"></a></h3><p>DNS declarations SHALL remain in their owners&rsquo; <code>dnsconfig.json</code> files. Runtime
+inventory SHALL discover all canonical files, including nested modules and
+empty declarations, without a checked-in ownership registry. The inventory
+SHALL print a deterministic table of files, DNS names, types and views.</p>
+<p>Project landing declarations retain their declared direct targets.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-new-project-adds-a-canonical-declaration">Scenario: A new project adds a canonical declaration<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-new-project-adds-a-canonical-declaration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the runtime linter scans a workspace containing the new file</li>
+<li><strong>THEN</strong> it includes the file without requiring a registry update</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-distinct-global-and-site-local-views">Requirement: Preserve distinct global and site-local views<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-distinct-global-and-site-local-views" aria-label="Heading self-link"></a></h3><p>The Terraform module SHALL preserve Cloudflare global and MikroTik dc1 views.
+It SHALL retain every type member, expand and deduplicate destinations, reject
+unknown inputs and preserve effective values, TTLs, priorities and multiplicity.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-entry-declares-a-and-aaaa-in-all-views">Scenario: An entry declares A and AAAA in all views<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-entry-declares-a-and-aaaa-in-all-views" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the shared module normalizes the entry</li>
+<li><strong>THEN</strong> both types appear exactly once in each destination view</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-input-names-an-unsupported-destination">Scenario: An input names an unsupported destination<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-input-names-an-unsupported-destination" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a record names an unsupported destination</li>
+<li><strong>THEN</strong> normalization fails with an actionable diagnostic</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-validate-configuration-without-provider-access">Requirement: Validate configuration without provider access<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-validate-configuration-without-provider-access" aria-label="Heading self-link"></a></h3><p>The linter and module tests SHALL validate source ownership, names, inputs,
+normalization and provider mappings without credentials or live provider access.
+Existing JSON-based VM consumers SHALL remain compatible.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-validate-a-changed-declaration">Scenario: Validate a changed declaration<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-validate-a-changed-declaration" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> offline checks run</li>
+<li><strong>THEN</strong> they validate the declaration and fixtures without deploying records</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-inject-credentials-into-operational-wrappers">Requirement: Inject credentials into operational wrappers<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-inject-credentials-into-operational-wrappers" aria-label="Heading self-link"></a></h3><p>Owner Terraform roots SHALL use the existing AL/Vault authentication, backend
+and credential injection workflow. They SHALL obtain only their required view
+credentials. Operational provider initialization may require live credentials
+even with resource creation disabled. Central DNSControl write entrypoints
+SHALL be removed from the candidate.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-global-only-owner-operates-its-root">Scenario: A global-only owner operates its root<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-global-only-owner-operates-its-root" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an authorized operator invokes the root after bootstrap</li>
+<li><strong>THEN</strong> it uses that owner&rsquo;s AppRole and Cloudflare credentials</li>
+<li><strong>AND</strong> RouterOS credentials and resources are not required</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-reconcile-dns-through-its-owners-terraform-state">Requirement: Reconcile DNS through its owner&rsquo;s Terraform state<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-reconcile-dns-through-its-owners-terraform-state" aria-label="Heading self-link"></a></h3><p>Each owner SHALL instantiate the shared module in <code>tf_setup</code> when present,
+otherwise in <code>tf</code>. Missing roots and AppRoles SHALL be added. Related
+AppRole resources SHALL be grouped in modules under
+<code>infra/vault/tf/approles/&lt;name&gt;</code>. Provider instance keys SHALL be stable across
+value-only changes; unrelated owners SHALL remain outside the state.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-has-both-stages">Scenario: An owner has both stages<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-has-both-stages" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the integration is prepared</li>
+<li><strong>THEN</strong> only its setup root declares the DNS module</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-one-declaration-file-owns-each-dns-name">Requirement: One declaration file owns each DNS name<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-one-declaration-file-owns-each-dns-name" aria-label="Heading self-link"></a></h3><p>The runtime linter SHALL reject different files managing the same canonical
+fully qualified DNS name, across types and views. Multiple records within one
+file SHALL be allowed. Diagnostics SHALL identify both files.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-different-files-split-a-name-across-types-or-views">Scenario: Different files split a name across types or views<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-different-files-split-a-name-across-types-or-views" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> one file declares an A record and another an AAAA record or a
+different view for the same name</li>
+<li><strong>THEN</strong> lint fails and identifies both source files</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-one-file-manages-multiple-records-for-a-name">Scenario: One file manages multiple records for a name<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-one-file-manages-multiple-records-for-a-name" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> one file declares several values, types or views for a name</li>
+<li><strong>THEN</strong> ownership lint accepts the sole source</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-live-records-during-transfer">Requirement: Preserve live records during transfer<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-preserve-live-records-during-transfer" aria-label="Heading self-link"></a></h3><p>Operational cutover SHALL audit active and scheduled central writers, stop
+identified competing writers, and coordinate one owner at a time. Evidence
+SHALL state the audit&rsquo;s coverage and unavailable observations. Each existing
+record SHALL be imported using its actual provider ID into exactly one owner
+state, followed by a no-change adoption plan before writes. Fresh complete
+inventories MAY establish missing declarations for an exact additions-only
+plan that preserves every existing record. Endpoint-owning batches SHALL
+verify an independent authenticated recovery path first.</p>
+<p>The shared apex and mail records owned by <code>infra/dns</code> SHALL remain disabled
+by default in its <code>tf</code> root before the authorized adoption revision and SHALL
+retain enabled ownership after import. Reconciliation against the adopted state
+and unchanged declarations SHALL propose no record additions, changes,
+replacements, or deletions and SHALL preserve unrelated provider records.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-is-adopted">Scenario: An owner is adopted<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-an-owner-is-adopted" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> its authorized cutover runs</li>
+<li><strong>THEN</strong> exact-ID imports preserve existing records</li>
+<li><strong>AND</strong> the operator coordinates exclusive active writers and verifies
+unrelated records remain unchanged</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-deploy-verified-missing-declarations">Scenario: Deploy verified missing declarations<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-deploy-verified-missing-declarations" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> complete provider inventories establish that declared names are absent
+and conflict-free</li>
+<li><strong>THEN</strong> the reviewed DNS plan creates only those missing declarations</li>
+<li><strong>AND</strong> every existing provider identity and attribute remains unchanged</li>
+<li><strong>AND</strong> a follow-up DNS plan contains no changes</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-the-prepared-shared-record-defaults">Scenario: Inspect the prepared shared-record defaults<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-the-prepared-shared-record-defaults" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the shared <code>tf</code> root uses its checked-in defaults before its
+authorized adoption revision</li>
+<li><strong>THEN</strong> shared-record ownership is disabled and the root retains the
+canonical shared declaration and module inputs</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-adopted-shared-record-defaults">Scenario: Inspect adopted shared-record defaults<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-adopted-shared-record-defaults" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the adopted shared <code>tf</code> root uses its checked-in source defaults</li>
+<li><strong>THEN</strong> ownership is enabled for the shared apex and mail records in
+their declared views</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-reconcile-existing-shared-records">Scenario: Reconcile existing shared records<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-reconcile-existing-shared-records" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the shared <code>tf</code> root plans against adopted state and unchanged declarations</li>
+<li><strong>THEN</strong> it proposes no record additions, changes, replacements, or deletions</li>
+<li><strong>AND</strong> unrelated provider records remain unchanged</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-avoid-a-separate-dns-exporter">Requirement: Avoid a separate DNS exporter<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-avoid-a-separate-dns-exporter" aria-label="Heading self-link"></a></h3><p>The implementation SHALL derive its declaration views from the owning
+<code>dnsconfig.json</code> files rather than maintaining a normalized inventory or BIND
+exporter. Historical provider snapshots SHALL NOT be presented as current
+desired state, and no provider snapshot SHALL be committed as a declaration
+source.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-declared-ownership">Scenario: Inspect declared ownership<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-inspect-declared-ownership" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the runtime linter succeeds</li>
+<li><strong>THEN</strong> its table reports the discovered declarations without an export step</li>
+</ul>
+<h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-publish-declaration-pages-per-destination-view">Requirement: Publish declaration pages per destination view<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-publish-declaration-pages-per-destination-view" aria-label="Heading self-link"></a></h3><p>The implementation SHALL render one documentation page per destination view
+from the declared records, with the owning declaration for every record, and
+SHALL fail its offline check when a checked-in page differs from the
+declarations it projects.</p>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-regenerate-a-declaration-page">Scenario: Regenerate a declaration page<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-regenerate-a-declaration-page" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an owner changes a declaration and the generation command runs</li>
+<li><strong>THEN</strong> the affected view&rsquo;s page lists the declared records with their owner</li>
+<li><strong>AND</strong> the check passes against the regenerated page</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-declaration-page-is-stale">Scenario: A declaration page is stale<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-declaration-page-is-stale" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a checked-in page no longer matches the declarations</li>
+<li><strong>THEN</strong> the offline check fails rather than serving a stale inventory</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        Built with <a href="https://gohugo.io/">Hugo 0.165.0</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

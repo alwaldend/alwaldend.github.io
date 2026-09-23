@@ -19,251 +19,6 @@
 				<description>&lt;p&gt;This tree contains&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/Infrastructure_as_code&#34;&gt;infrastructure as code&lt;/a&gt;.&#xA;Tracked source follows the repository&amp;rsquo;s public-source policy. Infrastructure&#xA;facts are not confidential merely because they are operational, generated, or&#xA;live. Reports may include them unless they contain credentials, other secrets,&#xA;or personal information. Inspect raw state, plans, inventories, and decrypted&#xA;configuration because those artifacts can contain prohibited content; do not&#xA;track the artifacts themselves.&lt;/p&gt;&#xA;&lt;p&gt;Each infrastructure project owns its specifications and maintained changes&#xA;in &lt;code&gt;&amp;lt;project&amp;gt;/openspec/&lt;/code&gt;. Use the &lt;a href=&#34;../tools/openspec/README.md&#34;&gt;pinned OpenSpec workflow&lt;/a&gt;&#xA;with that project selected. These specifications describe checked-in definitions;&#xA;they do not establish deployed state or authorize infrastructure operations.&lt;/p&gt;</description>
 			</item>
 			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/arch/openspec/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/arch/openspec/spec/</guid>
-				<description>&lt;h1 id=&#34;infrastructure-architecture-specification&#34;&gt;Infrastructure architecture Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#infrastructure-architecture-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the maintained infrastructure diagrams owned by &lt;code&gt;infra/arch&lt;/code&gt;.&#xA;The baseline is checked-in source at revision&#xA;&lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;, observed on 2026-09-08.&#xA;These diagrams describe their source document; they do not establish live&#xA;inventory, deployment, or health.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-canonical-multi-page-architecture-source&#34;&gt;Requirement: Canonical multi-page architecture source&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-canonical-multi-page-architecture-source&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The project SHALL use &lt;code&gt;arch.drawio&lt;/code&gt; as the canonical source for its maintained&#xA;SVG diagrams and SHALL expose the source through the &lt;code&gt;//infra/arch&lt;/code&gt; editor&#xA;target. The named render mapping SHALL preserve the 14 remaining source pages,&#xA;including the five pages classified as archives. The &lt;code&gt;T3code&lt;/code&gt; page moved to this&#xA;owner&amp;rsquo;s Mermaid diagram under &lt;code&gt;users/simeonwarren/host_bot&lt;/code&gt;, so &lt;code&gt;infra/arch&lt;/code&gt; no&#xA;longer renders it.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/ceph/openspec/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/ceph/openspec/spec/</guid>
-				<description>&lt;h1 id=&#34;ceph-infrastructure-specification&#34;&gt;Ceph infrastructure specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#ceph-infrastructure-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the single-host Ceph CRUSH map maintained by &lt;code&gt;infra/ceph&lt;/code&gt; and its&#xA;documented operator workflow. This owner contains a map and documentation;&#xA;its BUILD file exposes documentation, not a Ceph deployment target. The&#xA;baseline describes checked-in source, not an observed running cluster.&lt;/p&gt;&#xA;&lt;p&gt;Baseline revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observed: 2026-09-08. Sources: &lt;a href=&#34;https://alwaldend.com/docs/&#34;&gt;owner README&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;BUILD&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../crush_map.txt&#34;&gt;CRUSH map&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-single-host-crush-topology&#34;&gt;Requirement: Single-host CRUSH topology&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-single-host-crush-topology&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The maintained CRUSH map SHALL place four HDD devices, &lt;code&gt;osd.0&lt;/code&gt; through&#xA;&lt;code&gt;osd.3&lt;/code&gt;, in the &lt;code&gt;host1&lt;/code&gt; bucket beneath the &lt;code&gt;default&lt;/code&gt; root, using the declared&#xA;device weights and &lt;code&gt;straw2&lt;/code&gt; bucket algorithm.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/dns/openspec/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/dns/openspec/spec/</guid>
-				<description>&lt;h1 id=&#34;infrastructure-dns&#34;&gt;Infrastructure DNS&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#infrastructure-dns&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe owner-local Terraform DNS declarations and runtime source-ownership&#xA;validation for global and dc1 records. This contract describes checked-in&#xA;source; it does not establish live adoption or authorize infrastructure writes.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/&#34;&gt;component documentation&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;target definitions&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../cmd/lint/main.go&#34;&gt;runtime linter&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../tf/dns.tf&#34;&gt;Terraform root&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-aggregate-records-from-their-owning-components&#34;&gt;Requirement: Aggregate records from their owning components&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-aggregate-records-from-their-owning-components&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;DNS declarations SHALL remain in their owners&amp;rsquo; &lt;code&gt;dnsconfig.json&lt;/code&gt; files. Runtime&#xA;inventory SHALL discover all canonical files, including nested modules and&#xA;empty declarations, without a checked-in ownership registry. The inventory&#xA;SHALL print a deterministic table of files, DNS names, types and views.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/flux/openspec/specs/infra-flux/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/flux/openspec/specs/infra-flux/spec/</guid>
-				<description>&lt;h1 id=&#34;flux-infrastructure-specification&#34;&gt;Flux infrastructure specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#flux-infrastructure-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the Flux management cluster&amp;rsquo;s VM definition, K3s configuration,&#xA;and Git reconciliation entry points owned by &lt;code&gt;infra/flux&lt;/code&gt;. The &lt;code&gt;tf_setup&lt;/code&gt;,&#xA;&lt;code&gt;ansible&lt;/code&gt;, and &lt;code&gt;cl&lt;/code&gt; packages implement stages of this owner. This is a&#xA;checked-in source baseline; no cluster health or successful deployment was&#xA;observed for this specification.&lt;/p&gt;&#xA;&lt;p&gt;Baseline revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observed: 2026-09-08. Sources: &lt;a href=&#34;https://alwaldend.com/docs/infra/flux/&#34;&gt;owner README&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;BUILD&lt;/a&gt;, and the implementation links below.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-dedicated-k3s-management-host&#34;&gt;Requirement: Dedicated K3s management host&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-dedicated-k3s-management-host&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Terraform setup SHALL declare a Proxmox VM in the &lt;code&gt;src_infra_flux&lt;/code&gt; pool with&#xA;two cores, 4096 MiB memory, and separate 20 GiB boot, K3s data, and K3s&#xA;storage disks. The deployment playbook SHALL apply the shared host and K3s&#xA;roles, and the K3s configuration SHALL enable secrets encryption and disable&#xA;the bundled Traefik component.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/flux/openspec/specs/owned-dns/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/flux/openspec/specs/owned-dns/spec/</guid>
-				<description>&lt;h1 id=&#34;owned-dns-specification&#34;&gt;owned-dns Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#owned-dns-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define Flux DNS management through the owner&amp;rsquo;s &lt;code&gt;tf_setup&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf_setup&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled before adoption and SHALL remain enabled&#xA;by default after authorized adoption. Adoption SHALL bind existing provider records&#xA;to the owner&amp;rsquo;s state without adding, changing, replacing, or deleting DNS records.&#xA;Subsequent reconciliation of unchanged declarations SHALL preserve owned and&#xA;unrelated records.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/forgejo/openspec/specs/infra-forgejo/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/forgejo/openspec/specs/infra-forgejo/spec/</guid>
-				<description>&lt;h1 id=&#34;forgejo-infrastructure-specification&#34;&gt;Forgejo infrastructure specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#forgejo-infrastructure-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the Forgejo service owned by &lt;code&gt;infra/forgejo&lt;/code&gt;, including Xen&#xA;Orchestra provisioning, Ansible service configuration, and Terraform account&#xA;and repository management. The &lt;code&gt;tf_setup&lt;/code&gt;, &lt;code&gt;ansible&lt;/code&gt;, and &lt;code&gt;tf&lt;/code&gt; packages are&#xA;implementation stages of this owner. This baseline records source guarantees&#xA;and prerequisites; it does not verify live service health or restore earlier&#xA;Forgejo data.&lt;/p&gt;&#xA;&lt;p&gt;Baseline revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observed: 2026-09-08. Sources: &lt;a href=&#34;https://alwaldend.com/docs/infra/forgejo/&#34;&gt;owner README&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;BUILD&lt;/a&gt;, and the implementation links below.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-scoped-xen-orchestra-provisioning-and-disk-checks&#34;&gt;Requirement: Scoped Xen Orchestra provisioning and disk checks&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-scoped-xen-orchestra-provisioning-and-disk-checks&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Setup SHALL provision Forgejo through Xen Orchestra in the&#xA;&lt;code&gt;src_infra_dc1_forgejo1&lt;/code&gt; resource set using the owner&amp;rsquo;s Vault AppRole and&#xA;packaged XO OIDC login flow. The VM SHALL declare 20 GiB boot, 40 GiB&#xA;Forgejo, and 5 GiB Traefik disks. Ansible SHALL verify the expected sizes&#xA;of &lt;code&gt;xvdb&lt;/code&gt; and &lt;code&gt;xvdc&lt;/code&gt; before applying the service roles that use them.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/forgejo/openspec/specs/owned-dns/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/forgejo/openspec/specs/owned-dns/spec/</guid>
-				<description>&lt;h1 id=&#34;owned-dns-specification&#34;&gt;owned-dns Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#owned-dns-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define Forgejo DNS management through the owner&amp;rsquo;s &lt;code&gt;tf_setup&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf_setup&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled before adoption and SHALL remain enabled&#xA;by default after authorized adoption. Adoption SHALL bind existing provider records&#xA;to the owner&amp;rsquo;s state without adding, changing, replacing, or deleting DNS records.&#xA;Subsequent reconciliation of unchanged declarations SHALL preserve owned and&#xA;unrelated records.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/forgejo_runner/openspec/specs/infra-forgejo-runner/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/forgejo_runner/openspec/specs/infra-forgejo-runner/spec/</guid>
-				<description>&lt;h1 id=&#34;forgejo-runner-infrastructure-specification&#34;&gt;Forgejo runner infrastructure specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#forgejo-runner-infrastructure-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the Forgejo Actions runner VM and deployment scaffold owned by&#xA;&lt;code&gt;infra/forgejo_runner&lt;/code&gt;. Its &lt;code&gt;tf_setup&lt;/code&gt; and &lt;code&gt;ansible&lt;/code&gt; packages are stages of&#xA;this owner. The runner role is commented out in the baseline playbook;&#xA;the checked-in configuration therefore does not establish a deployed or&#xA;registered Actions worker. No live runner state was observed.&lt;/p&gt;&#xA;&lt;p&gt;Baseline revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observed: 2026-09-08. Sources:&#xA;&lt;a href=&#34;https://alwaldend.com/docs/infra/forgejo_runner/&#34;&gt;owner README&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;BUILD&lt;/a&gt;, and the implementation&#xA;links below.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/forgejo_runner/openspec/specs/owned-dns/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/forgejo_runner/openspec/specs/owned-dns/spec/</guid>
-				<description>&lt;h1 id=&#34;owned-dns-specification&#34;&gt;owned-dns Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#owned-dns-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define Forgejo Actions runner DNS management through the owner&amp;rsquo;s &lt;code&gt;tf_setup&lt;/code&gt; root,&#xA;including canonical declarations, scoped execution, adoption of existing records,&#xA;and offline source checks.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf_setup&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled before adoption and SHALL remain enabled&#xA;by default after authorized adoption. Adoption SHALL bind existing provider records&#xA;to the owner&amp;rsquo;s state without adding, changing, replacing, or deleting DNS records.&#xA;Subsequent reconciliation of unchanged declarations SHALL preserve owned and&#xA;unrelated records.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/github/openspec/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/github/openspec/spec/</guid>
-				<description>&lt;h1 id=&#34;infrastructure-github&#34;&gt;Infrastructure GitHub&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#infrastructure-github&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe Terraform ownership of the catalog-defined GitHub organization,&#xA;repositories, member access, default-branch restrictions, and Pages settings.&#xA;These requirements describe source guarantees; they do not assert that a plan&#xA;has been applied or that published sites are healthy.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/&#34;&gt;component documentation&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/README.md&#34;&gt;Terraform workflow&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../../repos/README.md&#34;&gt;shared catalog&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/BUILD.bazel&#34;&gt;packaged inputs&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/repositories.tf&#34;&gt;repository resources&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/organization.tf&#34;&gt;organization access&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/branch_rules.tf&#34;&gt;branch rules&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../tf/provider.tf&#34;&gt;provider configuration&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-consume-the-shared-organization-and-repository-catalog&#34;&gt;Requirement: Consume the shared organization and repository catalog&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-consume-the-shared-organization-and-repository-catalog&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The package SHALL consume organization identity, administrator and developer&#xA;lists, repository identity, default branches, repository settings, and Pages&#xA;configuration through &lt;code&gt;infra/repos/tf&lt;/code&gt;. It SHALL NOT generate a second inventory&#xA;from the build-project registry. Its provider instance SHALL require exactly&#xA;one configured GitHub organization.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/harbor/openspec/specs/infra-harbor/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/harbor/openspec/specs/infra-harbor/spec/</guid>
-				<description>&lt;h1 id=&#34;harbor-infrastructure-specification&#34;&gt;Harbor infrastructure specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#harbor-infrastructure-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the Harbor registry infrastructure owned by &lt;code&gt;infra/harbor&lt;/code&gt;, spanning&#xA;Proxmox setup, K3s host configuration, Flux-managed chart declarations, and&#xA;Harbor service Terraform. The &lt;code&gt;tf_setup&lt;/code&gt;, &lt;code&gt;ansible&lt;/code&gt;, &lt;code&gt;cl&lt;/code&gt;, and &lt;code&gt;tf&lt;/code&gt; packages&#xA;are implementation stages of this owner. This is a checked-in source&#xA;baseline, without an observation of live registry availability or deployment&#xA;success.&lt;/p&gt;&#xA;&lt;p&gt;Baseline revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observed: 2026-09-08. Sources: &lt;a href=&#34;https://alwaldend.com/docs/infra/harbor/&#34;&gt;owner README&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;BUILD&lt;/a&gt;, and the implementation links below.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-dedicated-k3s-registry-host&#34;&gt;Requirement: Dedicated K3s registry host&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-dedicated-k3s-registry-host&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Setup SHALL declare a Proxmox VM in the &lt;code&gt;src_infra_harbor&lt;/code&gt; pool with two&#xA;cores, 4096 MiB memory, and 20 GiB boot, 20 GiB K3s data, and 40 GiB K3s&#xA;storage disks. Ansible SHALL apply the shared host and K3s roles with K3s&#xA;secrets encryption enabled. Its firewall variables SHALL scope API port&#xA;6443 access to the declared Flux host address.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/harbor/openspec/specs/owned-dns/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/harbor/openspec/specs/owned-dns/spec/</guid>
-				<description>&lt;h1 id=&#34;owned-dns-specification&#34;&gt;owned-dns Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#owned-dns-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define Harbor DNS management through the owner&amp;rsquo;s &lt;code&gt;tf_setup&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf_setup&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled before adoption and SHALL default to&#xA;enabled in the reviewed adoption revision and after adoption. Adoption SHALL&#xA;import the exact existing provider records and require a scoped no-change import plan before saved-plan&#xA;apply. Subsequent reconciliation with unchanged root inputs SHALL preserve&#xA;adopted records, unrelated DNS records, and non-DNS resources in the root.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/ingress/openspec/specs/infra-ingress/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/ingress/openspec/specs/infra-ingress/spec/</guid>
-				<description>&lt;h1 id=&#34;infrastructure-ingress&#34;&gt;Infrastructure ingress&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#infrastructure-ingress&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe Yandex Cloud ingress provisioning, the RouterOS WireGuard connection,&#xA;and the Ansible-managed Traefik configuration. The baseline covers checked-in&#xA;desired state, not a live routing or availability observation.&lt;/p&gt;&#xA;&lt;p&gt;Baseline source revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/infra/ingress/&#34;&gt;component contract&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/vms.tf&#34;&gt;VM resources&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/wireguard.tf&#34;&gt;WireGuard resources&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../ansible/playbook_deploy.yaml&#34;&gt;deployment playbook&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../ansible/files/traefik.toml&#34;&gt;Traefik entry points&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../ansible/files/traefik_dynamic.toml&#34;&gt;Traefik routes&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-provision-ingress-hosts-from-the-declared-host-map&#34;&gt;Requirement: Provision ingress hosts from the declared host map&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-provision-ingress-hosts-from-the-declared-host-map&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Terraform SHALL create addresses, encrypted boot disks, and instances for the&#xA;active &lt;code&gt;local.vpc&lt;/code&gt; entries, using the shared cloud-init source. The baseline&#xA;active map SHALL contain &lt;code&gt;host1&lt;/code&gt; in &lt;code&gt;ru-central1-d&lt;/code&gt;; the commented &lt;code&gt;host2&lt;/code&gt; entry&#xA;SHALL NOT be treated as an enabled resource declaration.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/ingress/openspec/specs/owned-dns/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/ingress/openspec/specs/owned-dns/spec/</guid>
-				<description>&lt;h1 id=&#34;owned-dns-specification&#34;&gt;owned-dns Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#owned-dns-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define retained ingress DNS ownership through the owner&amp;rsquo;s &lt;code&gt;tf&lt;/code&gt; root,&#xA;including canonical declarations, scoped execution, and offline source checks.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled until the authorized adoption revision&#xA;and SHALL retain enabled ownership after existing records are imported into the&#xA;owner&amp;rsquo;s state. Reconciliation against unchanged declarations and adopted state&#xA;SHALL propose no record additions, changes, replacements, or deletions.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/mikrotik/openspec/specs/infra-mikrotik/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/mikrotik/openspec/specs/infra-mikrotik/spec/</guid>
-				<description>&lt;h1 id=&#34;infrastructure-mikrotik&#34;&gt;Infrastructure MikroTik&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#infrastructure-mikrotik&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the checked-in RouterOS export snapshots and site DNS declarations for&#xA;the dc1 routers. This package is a documentation and record-input owner: its&#xA;BUILD file declares no router deployment executable. Export contents are&#xA;historical source evidence, not a verification of current device configuration.&lt;/p&gt;&#xA;&lt;p&gt;Baseline source revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/infra/mikrotik/&#34;&gt;export workflow&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;package targets&lt;/a&gt;,&#xA;&lt;a href=&#34;https://alwaldend.com/docs/infra/mikrotik/router1.rsc&#34;&gt;router1 snapshot&lt;/a&gt;,&#xA;&lt;a href=&#34;https://alwaldend.com/docs/infra/mikrotik/router2.rsc&#34;&gt;router2 snapshot&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../dnsconfig.json&#34;&gt;DNS declarations&lt;/a&gt;.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/mikrotik/openspec/specs/owned-dns/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/mikrotik/openspec/specs/owned-dns/spec/</guid>
-				<description>&lt;h1 id=&#34;owned-dns-specification&#34;&gt;owned-dns Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#owned-dns-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define MikroTik router DNS management through the owner&amp;rsquo;s &lt;code&gt;tf&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled until the authorized adoption revision&#xA;and SHALL retain enabled ownership after existing records are imported into the&#xA;owner&amp;rsquo;s state. Reconciliation against unchanged declarations and adopted state&#xA;SHALL propose no record additions, changes, replacements, or deletions.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/mikrotik/tf/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/mikrotik/tf/</guid>
-				<description>&lt;h1 id=&#34;dns-terraform&#34;&gt;DNS Terraform&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#dns-terraform&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;This root packages the owner&amp;rsquo;s canonical &lt;a href=&#34;../dnsconfig.json&#34;&gt;DNS declaration&lt;/a&gt;&#xA;through the shared DNS module and keeps state in the owner AppRole&amp;rsquo;s Vault HTTP&#xA;backend. The root contains DNS resources only. &lt;code&gt;dns_enabled&lt;/code&gt; defaults to &lt;code&gt;true&lt;/code&gt;&#xA;after verified adoption. Keep it enabled to retain existing records; disabling&#xA;it would propose deletion.&lt;/p&gt;&#xA;&lt;p&gt;Use the normal &lt;code&gt;//infra/mikrotik/tf:tf.&amp;lt;operation&amp;gt;&lt;/code&gt; wrappers for this DNS-only&#xA;root. The &lt;a href=&#34;https://alwaldend.com/docs/infra/dns/&#34;&gt;DNS migration procedure&lt;/a&gt; owns credential&#xA;provisioning, reconciliation, and recovery. The&#xA;&lt;a href=&#34;../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md&#34;&gt;adoption record&lt;/a&gt;&#xA;contains the import and inventory-preservation evidence. The package exposes&#xA;&lt;code&gt;//infra/mikrotik/tf:tf_tests.fmt_test&lt;/code&gt; for offline formatting checks.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/nas/openspec/specs/infra-nas/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/nas/openspec/specs/infra-nas/spec/</guid>
-				<description>&lt;h1 id=&#34;nas-infrastructure-specification&#34;&gt;NAS infrastructure Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#nas-infrastructure-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the TrueNAS-related configuration surface currently owned by&#xA;&lt;code&gt;infra/nas&lt;/code&gt;. The baseline is checked-in source at revision&#xA;&lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;, observed on 2026-09-08.&#xA;The directory contains an AL configuration, DNS declarations, Vault wrappers,&#xA;and brief documentation. It does not contain a TrueNAS provisioning playbook&#xA;or Terraform configuration, and this baseline makes no claim about live NAS&#xA;configuration or availability.&lt;/p&gt;&#xA;&lt;p&gt;Source baseline limitation: the owning BUILD file restricts the AL target&amp;rsquo;s&#xA;visibility to &lt;code&gt;//infra/harvester:__subpackages__&lt;/code&gt;, although &lt;code&gt;infra/harvester&lt;/code&gt;&#xA;does not exist in this revision. This declaration does not establish a working&#xA;consumer integration.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/nas/openspec/specs/owned-dns/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/nas/openspec/specs/owned-dns/spec/</guid>
-				<description>&lt;h1 id=&#34;owned-dns-specification&#34;&gt;owned-dns Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#owned-dns-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define NAS DNS management through the owner&amp;rsquo;s &lt;code&gt;tf&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled until the authorized adoption revision&#xA;and SHALL retain enabled ownership after existing records are imported into the&#xA;owner&amp;rsquo;s state. Reconciliation against unchanged declarations and adopted state&#xA;SHALL propose no record additions, changes, replacements, or deletions.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/nas/tf/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/nas/tf/</guid>
-				<description>&lt;h1 id=&#34;dns-terraform&#34;&gt;DNS Terraform&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#dns-terraform&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;This root packages the owner&amp;rsquo;s canonical &lt;a href=&#34;../dnsconfig.json&#34;&gt;DNS declarations&lt;/a&gt;&#xA;through the shared DNS module and keeps state in the owner AppRole&amp;rsquo;s Vault HTTP&#xA;backend. The root contains DNS resources only. &lt;code&gt;dns_enabled&lt;/code&gt; defaults to &lt;code&gt;true&lt;/code&gt;&#xA;after verified adoption. Keep it enabled to retain existing records; disabling&#xA;it would propose deletion.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;https://alwaldend.com/docs/infra/dns/&#34;&gt;DNS migration procedure&lt;/a&gt; owns credential provisioning,&#xA;reconciliation, and recovery. The &lt;a href=&#34;../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md&#34;&gt;adoption record&lt;/a&gt;&#xA;contains import and verification evidence. Use the &lt;code&gt;//infra/nas/tf:tf&lt;/code&gt; wrappers&#xA;for operational commands and &lt;code&gt;//infra/nas/tf:tf_tests.fmt_test&lt;/code&gt; for offline&#xA;source validation.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/openhands/openspec/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/openhands/openspec/spec/</guid>
-				<description>&lt;h1 id=&#34;owned-dns-specification&#34;&gt;owned-dns Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#owned-dns-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define OpenHands DNS management through the owner&amp;rsquo;s &lt;code&gt;tf_setup&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf_setup&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled before adoption and SHALL default to&#xA;enabled in the reviewed adoption revision. Adoption SHALL bind existing records&#xA;to their exact provider identities and SHALL preserve their declared attributes.&#xA;Existing-record adoption SHALL contain no DNS record additions, changes,&#xA;replacements, or deletions. Verified missing declarations MAY be provisioned&#xA;through an exact additions-only DNS plan that preserves every existing record&#xA;and excludes non-DNS managed-resource changes. After deployment, default DNS&#xA;reconciliation SHALL retain the bindings and preserve unrelated provider records.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/pve/openspec/specs/infra-pve/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/pve/openspec/specs/infra-pve/spec/</guid>
-				<description>&lt;h1 id=&#34;proxmox-infrastructure-specification&#34;&gt;Proxmox infrastructure Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#proxmox-infrastructure-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Specify the Proxmox cluster configuration, resource pools, and bootstrap test&#xA;VM owned by &lt;code&gt;infra/pve&lt;/code&gt;. The baseline is checked-in source at revision&#xA;&lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;, observed on 2026-09-08.&#xA;It describes declared infrastructure and packaged operator entry points;&#xA;deployment and cluster health have not been observed for this baseline.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-approle-resource-pools&#34;&gt;Requirement: AppRole resource pools&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-approle-resource-pools&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The Terraform configuration SHALL resolve the members of Vault&amp;rsquo;s &lt;code&gt;approles&lt;/code&gt;&#xA;identity group and declare one Proxmox pool per resolved entity, keyed and&#xA;named by that entity&amp;rsquo;s name. It SHALL also declare a separate &lt;code&gt;templates&lt;/code&gt; pool.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/pve/openspec/specs/owned-dns/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/pve/openspec/specs/owned-dns/spec/</guid>
-				<description>&lt;h1 id=&#34;owned-dns-specification&#34;&gt;owned-dns Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#owned-dns-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define Proxmox cluster DNS management through the owner&amp;rsquo;s &lt;code&gt;tf&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled until the authorized adoption revision&#xA;and SHALL retain enabled ownership after existing records are imported into the&#xA;owner&amp;rsquo;s state. Reconciliation against unchanged declarations and adopted state&#xA;SHALL propose no record additions, changes, replacements, or deletions.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/repos/openspec/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/repos/openspec/spec/</guid>
-				<description>&lt;h1 id=&#34;repository-catalog-specification&#34;&gt;repository-catalog Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#repository-catalog-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define shared organization, repository identity, naming, and named access&#xA;configuration for the GitHub, GitLab, and Forgejo infrastructure consumers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-authoritative-organization-and-repository-inventory&#34;&gt;Requirement: Authoritative organization and repository inventory&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-authoritative-organization-and-repository-inventory&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The repository catalog SHALL store shared defaults and schema version at its&#xA;root, one configuration file per organization, and one configuration file per&#xA;repository beneath its organization. Those records SHALL own the configured&#xA;organizations, repositories, named administrators, and named developers.&#xA;Each forge consumer SHALL use&#xA;that catalog for its selected repositories and named roles, preserving&#xA;forge-specific settings without maintaining another copy of the inventory.&#xA;Authentication and service-specific grants SHALL remain with their existing&#xA;owners.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/src/openspec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/src/openspec/</guid>
-				<description>&lt;h1 id=&#34;repository-evolution&#34;&gt;Repository evolution&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#repository-evolution&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;This OpenSpec workspace describes evolution of the alwaldend/src repository&#xA;itself: its shared structure, build system and development workflows.&#xA;&lt;a href=&#34;https://alwaldend.com/docs/infra/src/openspec/specs/repository/spec/&#34;&gt;&lt;code&gt;specs/repository/spec.md&lt;/code&gt;&lt;/a&gt; records that contract;&#xA;&lt;code&gt;changes/&lt;/code&gt; records proposed and completed changes to it.&lt;/p&gt;&#xA;&lt;p&gt;Each component owns a separate OpenSpec workspace beside its source:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;projects/&amp;lt;project&amp;gt;/openspec/&lt;/code&gt; holds that project&amp;rsquo;s specs and changes.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;tools/&amp;lt;project&amp;gt;/openspec/&lt;/code&gt; holds that tool project&amp;rsquo;s specs and changes.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;infra/&amp;lt;project&amp;gt;/openspec/&lt;/code&gt; holds that infrastructure project&amp;rsquo;s specs and changes.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;infra/src/openspec/&lt;/code&gt; holds the repository&amp;rsquo;s own specs and changes.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Select the narrowest owner of the requested behavior. A project change belongs&#xA;in that project&amp;rsquo;s workspace, including when it has a standalone Bazel module.&#xA;Changes to shared repository structure belong here. Work spanning owners&#xA;keeps each affected contract with its owner and links related changes.&#xA;Component READMEs and build declarations retain their existing authority.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/src/openspec/migration/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/src/openspec/migration/</guid>
-				<description>&lt;h1 id=&#34;goal-migration-to-openspec&#34;&gt;Goal migration to OpenSpec&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#goal-migration-to-openspec&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;On 2026-09-08, all nine tracked maintained project goal records at source commit &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt; were migrated into native OpenSpec changes. Each change now lives in its owning project’s &lt;code&gt;openspec/&lt;/code&gt; workspace. Eight completed records are imported as archived history. The Reimu Fumo change remains open with blocked execution and no accepted candidate.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;migration.json&#34;&gt;machine-readable inventory&lt;/a&gt; maps all 222 tracked source files (834,320 bytes) to byte-identical provenance snapshots. Test fixtures and ignored task scratch are outside the maintained-record inventory.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/src/openspec/specs/go-mod-version/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/src/openspec/specs/go-mod-version/spec/</guid>
-				<description>&lt;h1 id=&#34;go-mod-version-specification&#34;&gt;go-mod-version Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#go-mod-version-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Keep tracked &lt;code&gt;go.mod&lt;/code&gt; files on the Go version configured for&#xA;&lt;a href=&#34;https://alwaldend.com/docs/tools/go_mod/&#34;&gt;&lt;code&gt;tools/go_mod&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/tools/go_mod/&#34;&gt;tool README&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../../../tools/go_mod/cmd/go_mod/BUILD.bazel&#34;&gt;tool BUILD&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../changes/archive/2026-09-12-add-go-mod-version-tool/proposal.md&#34;&gt;archive&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-configured-gomod-version&#34;&gt;Requirement: Configured go.mod version&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-configured-gomod-version&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The repository SHALL provide a &lt;code&gt;tools/go_mod&lt;/code&gt; command that discovers every&#xA;tracked &lt;code&gt;go.mod&lt;/code&gt; file and sets its &lt;code&gt;go&lt;/code&gt; directive to the version configured in&#xA;the tool&amp;rsquo;s BUILD file. The command MUST offer an update mode and a check mode.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-update-module-files&#34;&gt;Scenario: Update module files&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-update-module-files&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; a user runs the update target&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; every tracked &lt;code&gt;go.mod&lt;/code&gt; file whose &lt;code&gt;go&lt;/code&gt; directive differs from the&#xA;configured version is rewritten to that version&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;AND&lt;/strong&gt; files already on the configured version remain unchanged&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;scenario-check-module-files&#34;&gt;Scenario: Check module files&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-check-module-files&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; the check test runs&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; it fails if any tracked &lt;code&gt;go.mod&lt;/code&gt; file has a &lt;code&gt;go&lt;/code&gt; directive&#xA;different from the configured version&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;AND&lt;/strong&gt; it passes when every tracked &lt;code&gt;go.mod&lt;/code&gt; file matches&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;requirement-repository-quality-integration&#34;&gt;Requirement: Repository quality integration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-repository-quality-integration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The go.mod version check MUST run as part of &lt;code&gt;//:repo_quality_test&lt;/code&gt; so a&#xA;version mismatch fails repository quality.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/src/openspec/specs/repository/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/src/openspec/specs/repository/spec/</guid>
-				<description>&lt;h1 id=&#34;repository-evolution-specification&#34;&gt;Repository Evolution Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#repository-evolution-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define how the alwaldend/src monorepo evolves its shared structure, build&#xA;system and development workflows. Component behavior is specified in each&#xA;owner&amp;rsquo;s local OpenSpec workspace. This baseline was inspected at source revision&#xA;&lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt; on 2026-09-08 and incorporates the&#xA;OpenSpec migration delivered with this specification. Changes in &lt;code&gt;infra/src&lt;/code&gt;&#xA;record repository evolution; they do not collect unrelated component work or claim&#xA;runtime health or deployed infrastructure.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/&#34;&gt;repository map&lt;/a&gt;, &lt;a href=&#34;../../../../../AGENTS.md&#34;&gt;agent policy&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../../../BUILD.bazel&#34;&gt;root build&lt;/a&gt;, &lt;a href=&#34;https://alwaldend.com/docs/projects/&#34;&gt;project boundary&lt;/a&gt;,&#xA;&lt;a href=&#34;https://alwaldend.com/docs/infra/&#34;&gt;infrastructure boundary&lt;/a&gt;,&#xA;&lt;a href=&#34;https://alwaldend.com/docs/tools/&#34;&gt;tool boundary&lt;/a&gt;, and &lt;a href=&#34;https://alwaldend.com/docs/infra/src/openspec/&#34;&gt;OpenSpec workflow&lt;/a&gt;.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/threexui/openspec/specs/infra-threexui/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/threexui/openspec/specs/infra-threexui/spec/</guid>
-				<description>&lt;h1 id=&#34;infrastructure-3x-ui&#34;&gt;Infrastructure 3x-ui&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#infrastructure-3x-ui&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe 3x-ui provisioning, host deployment, node routing configuration, and&#xA;the subscription URL transformer. This baseline describes checked-in source,&#xA;not verified live node access. The advertised host-only subscription command&#xA;has a source limitation: &lt;code&gt;sub/main.go&lt;/code&gt; also attempts to read &lt;code&gt;sub_file&lt;/code&gt; when it&#xA;is empty, so successful host-only operation is not a baseline guarantee.&lt;/p&gt;&#xA;&lt;p&gt;Baseline source revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/threexui/openspec/specs/owned-dns/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/threexui/openspec/specs/owned-dns/spec/</guid>
-				<description>&lt;h1 id=&#34;owned-dns-specification&#34;&gt;owned-dns Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#owned-dns-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define retained 3x-ui DNS ownership through the owner&amp;rsquo;s &lt;code&gt;tf_setup&lt;/code&gt; root,&#xA;including canonical declarations, scoped execution, and offline source checks.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf_setup&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled before the adoption revision and SHALL&#xA;retain enabled ownership after authorized adoption into the owner&amp;rsquo;s state.&#xA;Reconciliation against adopted state and unchanged declarations SHALL propose&#xA;no record additions, changes, replacements, or deletions.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/vault/openspec/specs/infra-vault/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/vault/openspec/specs/infra-vault/spec/</guid>
-				<description>&lt;h1 id=&#34;infrastructure-vault&#34;&gt;Infrastructure Vault&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#infrastructure-vault&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the Vault host configuration, authentication and certificate services,&#xA;and packaged recovery entry points. This baseline concerns checked-in desired&#xA;state and supported wrapper structure; it does not establish live unsealed&#xA;state, successful backups, quorum, or certificate freshness.&lt;/p&gt;&#xA;&lt;p&gt;Baseline source revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/infra/vault/&#34;&gt;operator documentation&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;operational wrappers&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../ansible/BUILD.bazel&#34;&gt;Ansible entry points&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../ansible/files/vault.hcl&#34;&gt;Vault host template&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/auth.tf&#34;&gt;authentication backends&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/mounts.tf&#34;&gt;storage engines&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/pki_servers.tf&#34;&gt;server PKI&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/pki_clients.tf&#34;&gt;client PKI&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../tf/outputs.tf&#34;&gt;public CA outputs&lt;/a&gt;.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/vault/openspec/specs/owned-dns/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/vault/openspec/specs/owned-dns/spec/</guid>
-				<description>&lt;h1 id=&#34;owned-dns-specification&#34;&gt;owned-dns Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#owned-dns-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define Vault service DNS management through the owner&amp;rsquo;s &lt;code&gt;tf_setup&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf_setup&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled until the authorized adoption revision&#xA;and SHALL retain enabled ownership after existing records are imported into the&#xA;owner&amp;rsquo;s state. Reconciliation against unchanged declarations and adopted state&#xA;SHALL propose no record additions, changes, replacements, or deletions.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/xcp_ng/openspec/specs/infra-xcp-ng/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/xcp_ng/openspec/specs/infra-xcp-ng/spec/</guid>
-				<description>&lt;h1 id=&#34;xcp-ng-infrastructure-specification&#34;&gt;XCP-ng infrastructure Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#xcp-ng-infrastructure-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Specify Xen Orchestra resource delegation, scoped authentication, and&#xA;certificate deployment owned by &lt;code&gt;infra/xcp_ng&lt;/code&gt;. The baseline is checked-in&#xA;source at revision &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;, observed on&#xA;2026-09-08. Existing operational observations in project documentation are&#xA;historical context; this baseline does not verify current deployment, edition,&#xA;identity synchronization, or service health.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-approle-resource-sets-with-named-inventory&#34;&gt;Requirement: AppRole resource sets with named inventory&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-approle-resource-sets-with-named-inventory&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Terraform SHALL declare one Xen Orchestra resource set per entity in Vault&amp;rsquo;s&#xA;&lt;code&gt;approles&lt;/code&gt; group. Each set SHALL contain its explicitly assigned template,&#xA;storage repository, and network resolved by names within the selected pool;&#xA;unassigned sets SHALL contain no inventory objects. Each set SHALL have a&#xA;positive integer CPU quota, defaulting to 32. These resource sets SHALL&#xA;represent delegation groups rather than new physical host pools.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/xcp_ng/openspec/specs/owned-dns/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/xcp_ng/openspec/specs/owned-dns/spec/</guid>
-				<description>&lt;h1 id=&#34;owned-dns-specification&#34;&gt;owned-dns Specification&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#owned-dns-specification&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define XCP-ng infrastructure DNS management through the owner&amp;rsquo;s &lt;code&gt;tf&lt;/code&gt; root,&#xA;including canonical declarations, scoped execution, and offline source checks&#xA;through preparation, adoption, and ongoing reconciliation.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled until the authorized adoption revision&#xA;and SHALL retain enabled ownership after existing records are imported into the&#xA;owner&amp;rsquo;s state. Reconciliation against unchanged declarations and adopted state&#xA;SHALL propose no record additions, changes, replacements, or deletions.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/infra/yandex_cloud/openspec/spec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/infra/yandex_cloud/openspec/spec/</guid>
-				<description>&lt;h1 id=&#34;infrastructure-yandex-cloud&#34;&gt;Infrastructure Yandex Cloud&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#infrastructure-yandex-cloud&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe organization-level Yandex Cloud folder provisioning derived from Vault&#xA;AppRole identities. The direct &lt;code&gt;infra/yandex_cloud&lt;/code&gt; owner currently contains one&#xA;concrete organization package, &lt;code&gt;org1&lt;/code&gt;, covered here. This baseline does not&#xA;assert that the cloud organization or its folders were inspected live.&lt;/p&gt;&#xA;&lt;p&gt;Baseline source revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/&#34;&gt;top-level documentation&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../org1/README.md&#34;&gt;organization package&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../org1/BUILD.bazel&#34;&gt;organization targets&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../org1/tf/BUILD.bazel&#34;&gt;Terraform packaging&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../org1/tf/folders.tf&#34;&gt;folder derivation&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../org1/tf/provider.tf&#34;&gt;provider configuration&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../org1/al.lua&#34;&gt;credential injection&lt;/a&gt;.&lt;/p&gt;</description>
-			</item>
-			<item>
 				<title>Ansible</title>
 				<link>https://alwaldend.com/docs/infra/flux/ansible/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -341,6 +96,13 @@
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Proxmox docs: &lt;a href=&#34;https://pve.proxmox.com/wiki/Deploy_Hyper-Converged_Ceph_Cluster&#34;&gt;https://pve.proxmox.com/wiki/Deploy_Hyper-Converged_Ceph_Cluster&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Single node crushmap: &lt;a href=&#34;https://imanudin.net/2025/05/12/proxmox-ceph-single-node-installation-for-test-lab-or-home-setup/&#34;&gt;https://imanudin.net/2025/05/12/proxmox-ceph-single-node-installation-for-test-lab-or-home-setup/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;see-current-crush-map&#34;&gt;See current crush map&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#see-current-crush-map&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Go to Nodes -&amp;gt; Host -&amp;gt; Ceph -&amp;gt; Configuration&lt;/p&gt;&#xA;&lt;h2 id=&#34;crush-map-update&#34;&gt;Crush map update&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#crush-map-update&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Ssh to the PVE host and update the map:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo ceph osd getcrushmap -o crushmap.cm&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo crushtool --decompile crushmap.cm -o crushmap.txt&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo vim crushmap.txt&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo crushtool --compile crushmap.txt -o new_crushmap.cm&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo ceph osd setcrushmap -i new_crushmap.cm&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo ceph -s&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
 			</item>
 			<item>
+				<title>Ceph infrastructure specification</title>
+				<link>https://alwaldend.com/docs/infra/ceph/openspec/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/ceph/openspec/spec/</guid>
+				<description>&lt;span id=&#34;ceph-infrastructure-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the single-host Ceph CRUSH map maintained by &lt;code&gt;infra/ceph&lt;/code&gt; and its&#xA;documented operator workflow. This owner contains a map and documentation;&#xA;its BUILD file exposes documentation, not a Ceph deployment target. The&#xA;baseline describes checked-in source, not an observed running cluster.&lt;/p&gt;&#xA;&lt;p&gt;Baseline revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observed: 2026-09-08. Sources: &lt;a href=&#34;https://alwaldend.com/docs/&#34;&gt;owner README&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;BUILD&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../crush_map.txt&#34;&gt;CRUSH map&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-single-host-crush-topology&#34;&gt;Requirement: Single-host CRUSH topology&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-single-host-crush-topology&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The maintained CRUSH map SHALL place four HDD devices, &lt;code&gt;osd.0&lt;/code&gt; through&#xA;&lt;code&gt;osd.3&lt;/code&gt;, in the &lt;code&gt;host1&lt;/code&gt; bucket beneath the &lt;code&gt;default&lt;/code&gt; root, using the declared&#xA;device weights and &lt;code&gt;straw2&lt;/code&gt; bucket algorithm.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>cl</title>
 				<link>https://alwaldend.com/docs/infra/flux/cl/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -376,11 +138,32 @@
 				<description>&lt;p&gt;DNS records live in each owner&amp;rsquo;s &lt;code&gt;dnsconfig.json&lt;/code&gt;. Each owner manages its records&#xA;through the reusable &lt;a href=&#34;https://alwaldend.com/docs/projects/tf_modules/dns_records/&#34;&gt;Terraform DNS module&lt;/a&gt;&#xA;from its designated &lt;code&gt;tf_setup&lt;/code&gt; or &lt;code&gt;tf&lt;/code&gt; root. This component&amp;rsquo;s&#xA;&lt;a href=&#34;dnsconfig.json&#34;&gt;dnsconfig.json&lt;/a&gt; owns shared apex and mail records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;declaration-pages&#34;&gt;Declaration pages&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#declaration-pages&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://alwaldend.com/docs/infra/dns/cloudflare_dns/&#34;&gt;Cloudflare DNS&lt;/a&gt; and &lt;a href=&#34;https://alwaldend.com/docs/infra/dns/mikrotik_dns/&#34;&gt;Mikrotik DNS&lt;/a&gt; list the&#xA;records this repository declares for each destination view, with the owning&#xA;declaration for every record. They are generated from &lt;code&gt;dnsconfig.json&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel_agent bazel run //infra/dns/cmd/dump -- --write&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;//infra/dns:config_test&lt;/code&gt; fails when a checked-in page is out of date, so the&#xA;pages cannot drift from the declarations they project.&lt;/p&gt;</description>
 			</item>
 			<item>
+				<title>DNS Terraform</title>
+				<link>https://alwaldend.com/docs/infra/mikrotik/tf/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/mikrotik/tf/</guid>
+				<description>&lt;span id=&#34;dns-terraform&#34;&gt;&lt;/span&gt;&lt;p&gt;This root packages the owner&amp;rsquo;s canonical &lt;a href=&#34;../dnsconfig.json&#34;&gt;DNS declaration&lt;/a&gt;&#xA;through the shared DNS module and keeps state in the owner AppRole&amp;rsquo;s Vault HTTP&#xA;backend. The root contains DNS resources only. &lt;code&gt;dns_enabled&lt;/code&gt; defaults to &lt;code&gt;true&lt;/code&gt;&#xA;after verified adoption. Keep it enabled to retain existing records; disabling&#xA;it would propose deletion.&lt;/p&gt;&#xA;&lt;p&gt;Use the normal &lt;code&gt;//infra/mikrotik/tf:tf.&amp;lt;operation&amp;gt;&lt;/code&gt; wrappers for this DNS-only&#xA;root. The &lt;a href=&#34;https://alwaldend.com/docs/infra/dns/&#34;&gt;DNS migration procedure&lt;/a&gt; owns credential&#xA;provisioning, reconciliation, and recovery. The&#xA;&lt;a href=&#34;../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md&#34;&gt;adoption record&lt;/a&gt;&#xA;contains the import and inventory-preservation evidence. The package exposes&#xA;&lt;code&gt;//infra/mikrotik/tf:tf_tests.fmt_test&lt;/code&gt; for offline formatting checks.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>DNS Terraform</title>
+				<link>https://alwaldend.com/docs/infra/nas/tf/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/nas/tf/</guid>
+				<description>&lt;span id=&#34;dns-terraform&#34;&gt;&lt;/span&gt;&lt;p&gt;This root packages the owner&amp;rsquo;s canonical &lt;a href=&#34;../dnsconfig.json&#34;&gt;DNS declarations&lt;/a&gt;&#xA;through the shared DNS module and keeps state in the owner AppRole&amp;rsquo;s Vault HTTP&#xA;backend. The root contains DNS resources only. &lt;code&gt;dns_enabled&lt;/code&gt; defaults to &lt;code&gt;true&lt;/code&gt;&#xA;after verified adoption. Keep it enabled to retain existing records; disabling&#xA;it would propose deletion.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;https://alwaldend.com/docs/infra/dns/&#34;&gt;DNS migration procedure&lt;/a&gt; owns credential provisioning,&#xA;reconciliation, and recovery. The &lt;a href=&#34;../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md&#34;&gt;adoption record&lt;/a&gt;&#xA;contains import and verification evidence. Use the &lt;code&gt;//infra/nas/tf:tf&lt;/code&gt; wrappers&#xA;for operational commands and &lt;code&gt;//infra/nas/tf:tf_tests.fmt_test&lt;/code&gt; for offline&#xA;source validation.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>flux</title>
 				<link>https://alwaldend.com/docs/infra/flux/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/infra/flux/</guid>
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://fluxcd.io/&#34;&gt;https://fluxcd.io/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;set-up-port-forwarding&#34;&gt;Set up port forwarding&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#set-up-port-forwarding&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh -L 6443:127.0.0.1:6443 -N flux.alwaldend.com&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;run-flux-cli&#34;&gt;Run flux CLI&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#run-flux-cli&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel run //infra/flux/cl:flux&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;show-flux-status&#34;&gt;Show flux status&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#show-flux-status&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel run infra/flux/cl:flux -- get all -A&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;run-bootstrap&#34;&gt;Run bootstrap&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#run-bootstrap&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel run //infra/flux/cl:flux.bootstrap&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;run-flux-operator&#34;&gt;Run flux operator&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#run-flux-operator&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel run //infra/flux/cl:op&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;show-oidc-info&#34;&gt;Show oidc info&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#show-oidc-info&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel run //infra/flux/cl:oidc&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;renew-certificate&#34;&gt;Renew certificate&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#renew-certificate&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel run //infra/flux/cl:cmctl -- renew traefik-gateway-websecure-tls -n traefik&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;update-secrets&#34;&gt;Update secrets&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#update-secrets&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Generate secret id and the token:&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;SECRET_ID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;bazel run //infra/flux/cl:vault.secret_id &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; jq -r .data.secret_id&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;TOKEN&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;SECRET_ID&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; bazel run //infra/flux/cl:vault.ops_token &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; jq -r .auth.client_token&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Secret id: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;SECRET_ID&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;, Token: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;TOKEN&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;Patch secret-id in &lt;a href=&#34;https://github.com/alwaldend/src/blob/master/infra/flux/cl/cert-manager/issuer-approle.yaml&#34;&gt;./cl/cert-manager/issuer-approle.yaml&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Patch token in &lt;a href=&#34;https://github.com/alwaldend/src/blob/master/projects/kustomization/flux-repo/flux-sops-secret.yaml&#34;&gt;projects/kustomization/flux-repo/flux-sops-secret.yaml&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Encrypt:&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel run //infra/flux/cl:sops.encrypt infra/flux/cl/cert-manager/issuer-approle.yaml&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel run //infra/flux/cl:sops.encrypt projects/kustomization/flux-repo/flux-sops-secret.yaml&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel run //infra/flux/cl:sops.encrypt projects/kustomization/flux-repo/flux-git-src-secret.yaml&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Flux infrastructure specification</title>
+				<link>https://alwaldend.com/docs/infra/flux/openspec/specs/infra-flux/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/flux/openspec/specs/infra-flux/spec/</guid>
+				<description>&lt;span id=&#34;flux-infrastructure-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the Flux management cluster&amp;rsquo;s VM definition, K3s configuration,&#xA;and Git reconciliation entry points owned by &lt;code&gt;infra/flux&lt;/code&gt;. The &lt;code&gt;tf_setup&lt;/code&gt;,&#xA;&lt;code&gt;ansible&lt;/code&gt;, and &lt;code&gt;cl&lt;/code&gt; packages implement stages of this owner. This is a&#xA;checked-in source baseline; no cluster health or successful deployment was&#xA;observed for this specification.&lt;/p&gt;&#xA;&lt;p&gt;Baseline revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observed: 2026-09-08. Sources: &lt;a href=&#34;https://alwaldend.com/docs/infra/flux/&#34;&gt;owner README&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;BUILD&lt;/a&gt;, and the implementation links below.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-dedicated-k3s-management-host&#34;&gt;Requirement: Dedicated K3s management host&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-dedicated-k3s-management-host&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Terraform setup SHALL declare a Proxmox VM in the &lt;code&gt;src_infra_flux&lt;/code&gt; pool with&#xA;two cores, 4096 MiB memory, and separate 20 GiB boot, K3s data, and K3s&#xA;storage disks. The deployment playbook SHALL apply the shared host and K3s&#xA;roles, and the K3s configuration SHALL enable secrets encryption and disable&#xA;the bundled Traefik component.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>forgejo</title>
@@ -390,11 +173,25 @@
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Docs: &lt;a href=&#34;https://forgejo.org/docs/latest/admin/installation/binary/&#34;&gt;https://forgejo.org/docs/latest/admin/installation/binary/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Config reference: &lt;a href=&#34;https://forgejo.org/docs/latest/admin/config-cheat-sheet/&#34;&gt;https://forgejo.org/docs/latest/admin/config-cheat-sheet/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;repository-configuration&#34;&gt;Repository configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#repository-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Service Terraform consumes the shared &lt;a href=&#34;https://alwaldend.com/docs/infra/repos/&#34;&gt;repository catalog&lt;/a&gt;&#xA;for organization-owned repositories and named administrator/developer roles.&#xA;Vault continues to own OIDC login identities and service-specific access.&#xA;See &lt;a href=&#34;https://alwaldend.com/docs/infra/forgejo/tf/&#34;&gt;service Terraform&lt;/a&gt; for identity validation, state adoption,&#xA;and the preserved automation grants.&lt;/p&gt;&#xA;&lt;h2 id=&#34;deployment&#34;&gt;Deployment&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#deployment&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Forgejo is recreated on XCP-ng through Xen Orchestra, using the&#xA;&lt;code&gt;src_infra_dc1_forgejo1&lt;/code&gt; resource set provisioned by &lt;code&gt;infra/xcp_ng&lt;/code&gt;.&#xA;VM provisioning authenticates to XO through Vault OIDC as Forgejo&amp;rsquo;s own&#xA;AppRole. Its exact synchronized user receives the resource-set membership&#xA;and an explicit administration ACL on the existing Forgejo VM; it does not&#xA;use the shared infrastructure administrator token. These bindings must be&#xA;applied by &lt;code&gt;infra/xcp_ng/tf&lt;/code&gt; before Forgejo&amp;rsquo;s setup Terraform runs.&lt;/p&gt;</description>
 			</item>
 			<item>
+				<title>Forgejo infrastructure specification</title>
+				<link>https://alwaldend.com/docs/infra/forgejo/openspec/specs/infra-forgejo/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/forgejo/openspec/specs/infra-forgejo/spec/</guid>
+				<description>&lt;span id=&#34;forgejo-infrastructure-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the Forgejo service owned by &lt;code&gt;infra/forgejo&lt;/code&gt;, including Xen&#xA;Orchestra provisioning, Ansible service configuration, and Terraform account&#xA;and repository management. The &lt;code&gt;tf_setup&lt;/code&gt;, &lt;code&gt;ansible&lt;/code&gt;, and &lt;code&gt;tf&lt;/code&gt; packages are&#xA;implementation stages of this owner. This baseline records source guarantees&#xA;and prerequisites; it does not verify live service health or restore earlier&#xA;Forgejo data.&lt;/p&gt;&#xA;&lt;p&gt;Baseline revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observed: 2026-09-08. Sources: &lt;a href=&#34;https://alwaldend.com/docs/infra/forgejo/&#34;&gt;owner README&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;BUILD&lt;/a&gt;, and the implementation links below.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-scoped-xen-orchestra-provisioning-and-disk-checks&#34;&gt;Requirement: Scoped Xen Orchestra provisioning and disk checks&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-scoped-xen-orchestra-provisioning-and-disk-checks&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Setup SHALL provision Forgejo through Xen Orchestra in the&#xA;&lt;code&gt;src_infra_dc1_forgejo1&lt;/code&gt; resource set using the owner&amp;rsquo;s Vault AppRole and&#xA;packaged XO OIDC login flow. The VM SHALL declare 20 GiB boot, 40 GiB&#xA;Forgejo, and 5 GiB Traefik disks. Ansible SHALL verify the expected sizes&#xA;of &lt;code&gt;xvdb&lt;/code&gt; and &lt;code&gt;xvdc&lt;/code&gt; before applying the service roles that use them.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>Forgejo runner</title>
 				<link>https://alwaldend.com/docs/infra/forgejo_runner/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/infra/forgejo_runner/</guid>
 				<description>&lt;h2 id=&#34;deploy-vms&#34;&gt;Deploy VMs&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#deploy-vms&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel run //infra/forgejo_runner/tf_setup &lt;span class=&#34;c1&#34;&gt;# Create VMs&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel run //infra/forgejo_runner/ansible &lt;span class=&#34;c1&#34;&gt;# Configure VMs&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+			</item>
+			<item>
+				<title>Forgejo runner infrastructure specification</title>
+				<link>https://alwaldend.com/docs/infra/forgejo_runner/openspec/specs/infra-forgejo-runner/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/forgejo_runner/openspec/specs/infra-forgejo-runner/spec/</guid>
+				<description>&lt;span id=&#34;forgejo-runner-infrastructure-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the Forgejo Actions runner VM and deployment scaffold owned by&#xA;&lt;code&gt;infra/forgejo_runner&lt;/code&gt;. Its &lt;code&gt;tf_setup&lt;/code&gt; and &lt;code&gt;ansible&lt;/code&gt; packages are stages of&#xA;this owner. The runner role is commented out in the baseline playbook;&#xA;the checked-in configuration therefore does not establish a deployed or&#xA;registered Actions worker. No live runner state was observed.&lt;/p&gt;&#xA;&lt;p&gt;Baseline revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observed: 2026-09-08. Sources:&#xA;&lt;a href=&#34;https://alwaldend.com/docs/infra/forgejo_runner/&#34;&gt;owner README&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;BUILD&lt;/a&gt;, and the implementation&#xA;links below.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-dedicated-runner-vm-allocation&#34;&gt;Requirement: Dedicated runner VM allocation&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-dedicated-runner-vm-allocation&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Setup SHALL declare &lt;code&gt;runner1&lt;/code&gt; as Proxmox VM 1200 in the&#xA;&lt;code&gt;src_infra_forgejo_runner&lt;/code&gt; pool, with eight cores, 16 GiB memory, a 20 GiB&#xA;boot disk, and a 300 GiB runner disk on &lt;code&gt;ceph-ec&lt;/code&gt; storage. Its hostname and&#xA;address SHALL derive from the owner&amp;rsquo;s DNS declaration.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>GitHub</title>
@@ -425,11 +222,172 @@
 				<description>&lt;p&gt;This module manages the GitLab groups, memberships, repository imports, and&#xA;forks declared in the shared &lt;a href=&#34;https://alwaldend.com/docs/infra/repos/&#34;&gt;repository catalog&lt;/a&gt;.&#xA;Its &lt;a href=&#34;https://alwaldend.com/docs/infra/repos/tf/&#34;&gt;catalog module&lt;/a&gt; supplies names, source URLs,&#xA;and repository settings. Provider versions and checksums are recorded in the shared&#xA;&lt;a href=&#34;../../../third_party/terraform/include.MODULE.bazel&#34;&gt;provider declarations&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Catalog administrators receive the Owner role; catalog users receive the&#xA;Developer role. Group defaults permit Maintainers and Owners to push and&#xA;merge into default branches, with force pushes and developer initial pushes&#xA;disabled. Developers can read repositories, create feature branches, and&#xA;open merge requests. Existing higher direct or inherited grants must be&#xA;reviewed separately because GitLab retains a user&amp;rsquo;s highest access level.&lt;/p&gt;</description>
 			</item>
 			<item>
+				<title>Go mod version</title>
+				<link>https://alwaldend.com/docs/infra/src/openspec/specs/go-mod-version/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/src/openspec/specs/go-mod-version/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>go-mod-version Specification</title>
+				<link>https://alwaldend.com/docs/infra/src/openspec/specs/go-mod-version/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/src/openspec/specs/go-mod-version/spec/</guid>
+				<description>&lt;span id=&#34;go-mod-version-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Keep tracked &lt;code&gt;go.mod&lt;/code&gt; files on the Go version configured for&#xA;&lt;a href=&#34;https://alwaldend.com/docs/tools/go_mod/&#34;&gt;&lt;code&gt;tools/go_mod&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/tools/go_mod/&#34;&gt;tool README&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../../../tools/go_mod/cmd/go_mod/BUILD.bazel&#34;&gt;tool BUILD&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../changes/archive/2026-09-12-add-go-mod-version-tool/proposal.md&#34;&gt;archive&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-configured-gomod-version&#34;&gt;Requirement: Configured go.mod version&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-configured-gomod-version&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The repository SHALL provide a &lt;code&gt;tools/go_mod&lt;/code&gt; command that discovers every&#xA;tracked &lt;code&gt;go.mod&lt;/code&gt; file and sets its &lt;code&gt;go&lt;/code&gt; directive to the version configured in&#xA;the tool&amp;rsquo;s BUILD file. The command MUST offer an update mode and a check mode.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-update-module-files&#34;&gt;Scenario: Update module files&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-update-module-files&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; a user runs the update target&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; every tracked &lt;code&gt;go.mod&lt;/code&gt; file whose &lt;code&gt;go&lt;/code&gt; directive differs from the&#xA;configured version is rewritten to that version&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;AND&lt;/strong&gt; files already on the configured version remain unchanged&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;scenario-check-module-files&#34;&gt;Scenario: Check module files&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-check-module-files&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; the check test runs&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; it fails if any tracked &lt;code&gt;go.mod&lt;/code&gt; file has a &lt;code&gt;go&lt;/code&gt; directive&#xA;different from the configured version&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;AND&lt;/strong&gt; it passes when every tracked &lt;code&gt;go.mod&lt;/code&gt; file matches&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;requirement-repository-quality-integration&#34;&gt;Requirement: Repository quality integration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-repository-quality-integration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The go.mod version check MUST run as part of &lt;code&gt;//:repo_quality_test&lt;/code&gt; so a&#xA;version mismatch fails repository quality.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Goal migration to OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/src/openspec/migration/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/src/openspec/migration/</guid>
+				<description>&lt;span id=&#34;goal-migration-to-openspec&#34;&gt;&lt;/span&gt;&lt;p&gt;On 2026-09-08, all nine tracked maintained project goal records at source commit &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt; were migrated into native OpenSpec changes. Each change now lives in its owning project’s &lt;code&gt;openspec/&lt;/code&gt; workspace. Eight completed records are imported as archived history. The Reimu Fumo change remains open with blocked execution and no accepted candidate.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;migration.json&#34;&gt;machine-readable inventory&lt;/a&gt; maps all 222 tracked source files (834,320 bytes) to byte-identical provenance snapshots. Test fixtures and ignored task scratch are outside the maintained-record inventory.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>harbor</title>
 				<link>https://alwaldend.com/docs/infra/harbor/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/infra/harbor/</guid>
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://goharbor.io/&#34;&gt;https://goharbor.io/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Releases: &lt;a href=&#34;https://github.com/goharbor/harbor/releases&#34;&gt;https://github.com/goharbor/harbor/releases&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;ce-login&#34;&gt;CE Login&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#ce-login&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Go to User Profile, copy CLI secret&lt;/li&gt;&#xA;&lt;li&gt;Run:&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;podman login harbor.alwaldend.com&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;update-secrets&#34;&gt;Update secrets&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#update-secrets&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Generate approle secret id:&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;SECRET_ID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;bazel run //infra/harbor/cl:vault.secret_id &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; jq -r .data.secret_id&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Secret id: &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;SECRET_ID&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;Patch secret-id in &lt;a href=&#34;https://github.com/alwaldend/src/blob/master/infra/harbor/cl/cert-manager/issuer-approle.yaml&#34;&gt;./cl/cert-manager/issuer-approle.yaml&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Encrypt:&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel run //infra/flux/cl:sops.encrypt infra/harbor/cl/cert-manager/issuer-approle.yaml&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Harbor infrastructure specification</title>
+				<link>https://alwaldend.com/docs/infra/harbor/openspec/specs/infra-harbor/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/harbor/openspec/specs/infra-harbor/spec/</guid>
+				<description>&lt;span id=&#34;harbor-infrastructure-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the Harbor registry infrastructure owned by &lt;code&gt;infra/harbor&lt;/code&gt;, spanning&#xA;Proxmox setup, K3s host configuration, Flux-managed chart declarations, and&#xA;Harbor service Terraform. The &lt;code&gt;tf_setup&lt;/code&gt;, &lt;code&gt;ansible&lt;/code&gt;, &lt;code&gt;cl&lt;/code&gt;, and &lt;code&gt;tf&lt;/code&gt; packages&#xA;are implementation stages of this owner. This is a checked-in source&#xA;baseline, without an observation of live registry availability or deployment&#xA;success.&lt;/p&gt;&#xA;&lt;p&gt;Baseline revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observed: 2026-09-08. Sources: &lt;a href=&#34;https://alwaldend.com/docs/infra/harbor/&#34;&gt;owner README&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;BUILD&lt;/a&gt;, and the implementation links below.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-dedicated-k3s-registry-host&#34;&gt;Requirement: Dedicated K3s registry host&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-dedicated-k3s-registry-host&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Setup SHALL declare a Proxmox VM in the &lt;code&gt;src_infra_harbor&lt;/code&gt; pool with two&#xA;cores, 4096 MiB memory, and 20 GiB boot, 20 GiB K3s data, and 40 GiB K3s&#xA;storage disks. Ansible SHALL apply the shared host and K3s roles with K3s&#xA;secrets encryption enabled. Its firewall variables SHALL scope API port&#xA;6443 access to the declared Flux host address.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Infra flux</title>
+				<link>https://alwaldend.com/docs/infra/flux/openspec/specs/infra-flux/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/flux/openspec/specs/infra-flux/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Infra forgejo</title>
+				<link>https://alwaldend.com/docs/infra/forgejo/openspec/specs/infra-forgejo/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/forgejo/openspec/specs/infra-forgejo/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Infra forgejo runner</title>
+				<link>https://alwaldend.com/docs/infra/forgejo_runner/openspec/specs/infra-forgejo-runner/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/forgejo_runner/openspec/specs/infra-forgejo-runner/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Infra harbor</title>
+				<link>https://alwaldend.com/docs/infra/harbor/openspec/specs/infra-harbor/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/harbor/openspec/specs/infra-harbor/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Infra ingress</title>
+				<link>https://alwaldend.com/docs/infra/ingress/openspec/specs/infra-ingress/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/ingress/openspec/specs/infra-ingress/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Infra mikrotik</title>
+				<link>https://alwaldend.com/docs/infra/mikrotik/openspec/specs/infra-mikrotik/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/mikrotik/openspec/specs/infra-mikrotik/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Infra nas</title>
+				<link>https://alwaldend.com/docs/infra/nas/openspec/specs/infra-nas/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/nas/openspec/specs/infra-nas/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Infra pve</title>
+				<link>https://alwaldend.com/docs/infra/pve/openspec/specs/infra-pve/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/pve/openspec/specs/infra-pve/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Infra threexui</title>
+				<link>https://alwaldend.com/docs/infra/threexui/openspec/specs/infra-threexui/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/threexui/openspec/specs/infra-threexui/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Infra vault</title>
+				<link>https://alwaldend.com/docs/infra/vault/openspec/specs/infra-vault/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/vault/openspec/specs/infra-vault/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Infra xcp ng</title>
+				<link>https://alwaldend.com/docs/infra/xcp_ng/openspec/specs/infra-xcp-ng/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/xcp_ng/openspec/specs/infra-xcp-ng/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Infrastructure 3x-ui</title>
+				<link>https://alwaldend.com/docs/infra/threexui/openspec/specs/infra-threexui/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/threexui/openspec/specs/infra-threexui/spec/</guid>
+				<description>&lt;span id=&#34;infrastructure-3x-ui&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe 3x-ui provisioning, host deployment, node routing configuration, and&#xA;the subscription URL transformer. This baseline describes checked-in source,&#xA;not verified live node access. The advertised host-only subscription command&#xA;has a source limitation: &lt;code&gt;sub/main.go&lt;/code&gt; also attempts to read &lt;code&gt;sub_file&lt;/code&gt; when it&#xA;is empty, so successful host-only operation is not a baseline guarantee.&lt;/p&gt;&#xA;&lt;p&gt;Baseline source revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/infra/threexui/&#34;&gt;component documentation&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;root wrappers&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf_setup/BUILD.bazel&#34;&gt;provisioning package&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/BUILD.bazel&#34;&gt;configuration package&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../ansible/playbook_deploy.yaml&#34;&gt;host playbook&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../ansible/files/traefik_dynamic.toml&#34;&gt;Traefik routes&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/nodes.tf&#34;&gt;node definitions&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/node/inbounds.tf&#34;&gt;node inbounds&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/node/routing.tf&#34;&gt;node routing&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../sub/main.go&#34;&gt;subscription transformer&lt;/a&gt;.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Infrastructure architecture Specification</title>
+				<link>https://alwaldend.com/docs/infra/arch/openspec/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/arch/openspec/spec/</guid>
+				<description>&lt;span id=&#34;infrastructure-architecture-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the maintained infrastructure diagrams owned by &lt;code&gt;infra/arch&lt;/code&gt;.&#xA;The baseline is checked-in source at revision&#xA;&lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;, observed on 2026-09-08.&#xA;These diagrams describe their source document; they do not establish live&#xA;inventory, deployment, or health.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-canonical-multi-page-architecture-source&#34;&gt;Requirement: Canonical multi-page architecture source&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-canonical-multi-page-architecture-source&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The project SHALL use &lt;code&gt;arch.drawio&lt;/code&gt; as the canonical source for its maintained&#xA;SVG diagrams and SHALL expose the source through the &lt;code&gt;//infra/arch&lt;/code&gt; editor&#xA;target. The named render mapping SHALL preserve the 14 remaining source pages,&#xA;including the five pages classified as archives. The &lt;code&gt;T3code&lt;/code&gt; page moved to this&#xA;owner&amp;rsquo;s Mermaid diagram under &lt;code&gt;users/simeonwarren/host_bot&lt;/code&gt;, so &lt;code&gt;infra/arch&lt;/code&gt; no&#xA;longer renders it.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Infrastructure DNS</title>
+				<link>https://alwaldend.com/docs/infra/dns/openspec/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/dns/openspec/spec/</guid>
+				<description>&lt;span id=&#34;infrastructure-dns&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe owner-local Terraform DNS declarations and runtime source-ownership&#xA;validation for global and dc1 records. This contract describes checked-in&#xA;source; it does not establish live adoption or authorize infrastructure writes.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/&#34;&gt;component documentation&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;target definitions&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../cmd/lint/main.go&#34;&gt;runtime linter&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../tf/dns.tf&#34;&gt;Terraform root&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-aggregate-records-from-their-owning-components&#34;&gt;Requirement: Aggregate records from their owning components&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-aggregate-records-from-their-owning-components&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;DNS declarations SHALL remain in their owners&amp;rsquo; &lt;code&gt;dnsconfig.json&lt;/code&gt; files. Runtime&#xA;inventory SHALL discover all canonical files, including nested modules and&#xA;empty declarations, without a checked-in ownership registry. The inventory&#xA;SHALL print a deterministic table of files, DNS names, types and views.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Infrastructure GitHub</title>
+				<link>https://alwaldend.com/docs/infra/github/openspec/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/github/openspec/spec/</guid>
+				<description>&lt;span id=&#34;infrastructure-github&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe Terraform ownership of the catalog-defined GitHub organization,&#xA;repositories, member access, default-branch restrictions, and Pages settings.&#xA;These requirements describe source guarantees; they do not assert that a plan&#xA;has been applied or that published sites are healthy.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/&#34;&gt;component documentation&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/README.md&#34;&gt;Terraform workflow&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../../repos/README.md&#34;&gt;shared catalog&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/BUILD.bazel&#34;&gt;packaged inputs&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/repositories.tf&#34;&gt;repository resources&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/organization.tf&#34;&gt;organization access&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/branch_rules.tf&#34;&gt;branch rules&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../tf/provider.tf&#34;&gt;provider configuration&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-consume-the-shared-organization-and-repository-catalog&#34;&gt;Requirement: Consume the shared organization and repository catalog&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-consume-the-shared-organization-and-repository-catalog&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The package SHALL consume organization identity, administrator and developer&#xA;lists, repository identity, default branches, repository settings, and Pages&#xA;configuration through &lt;code&gt;infra/repos/tf&lt;/code&gt;. It SHALL NOT generate a second inventory&#xA;from the build-project registry. Its provider instance SHALL require exactly&#xA;one configured GitHub organization.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Infrastructure ingress</title>
+				<link>https://alwaldend.com/docs/infra/ingress/openspec/specs/infra-ingress/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/ingress/openspec/specs/infra-ingress/spec/</guid>
+				<description>&lt;span id=&#34;infrastructure-ingress&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe Yandex Cloud ingress provisioning, the RouterOS WireGuard connection,&#xA;and the Ansible-managed Traefik configuration. The baseline covers checked-in&#xA;desired state, not a live routing or availability observation.&lt;/p&gt;&#xA;&lt;p&gt;Baseline source revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/infra/ingress/&#34;&gt;component contract&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/vms.tf&#34;&gt;VM resources&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/wireguard.tf&#34;&gt;WireGuard resources&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../ansible/playbook_deploy.yaml&#34;&gt;deployment playbook&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../ansible/files/traefik.toml&#34;&gt;Traefik entry points&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../ansible/files/traefik_dynamic.toml&#34;&gt;Traefik routes&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-provision-ingress-hosts-from-the-declared-host-map&#34;&gt;Requirement: Provision ingress hosts from the declared host map&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-provision-ingress-hosts-from-the-declared-host-map&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Terraform SHALL create addresses, encrypted boot disks, and instances for the&#xA;active &lt;code&gt;local.vpc&lt;/code&gt; entries, using the shared cloud-init source. The baseline&#xA;active map SHALL contain &lt;code&gt;host1&lt;/code&gt; in &lt;code&gt;ru-central1-d&lt;/code&gt;; the commented &lt;code&gt;host2&lt;/code&gt; entry&#xA;SHALL NOT be treated as an enabled resource declaration.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Infrastructure MikroTik</title>
+				<link>https://alwaldend.com/docs/infra/mikrotik/openspec/specs/infra-mikrotik/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/mikrotik/openspec/specs/infra-mikrotik/spec/</guid>
+				<description>&lt;span id=&#34;infrastructure-mikrotik&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the checked-in RouterOS export snapshots and site DNS declarations for&#xA;the dc1 routers. This package is a documentation and record-input owner: its&#xA;BUILD file declares no router deployment executable. Export contents are&#xA;historical source evidence, not a verification of current device configuration.&lt;/p&gt;&#xA;&lt;p&gt;Baseline source revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/infra/mikrotik/&#34;&gt;export workflow&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;package targets&lt;/a&gt;,&#xA;&lt;a href=&#34;https://alwaldend.com/docs/infra/mikrotik/router1.rsc&#34;&gt;router1 snapshot&lt;/a&gt;,&#xA;&lt;a href=&#34;https://alwaldend.com/docs/infra/mikrotik/router2.rsc&#34;&gt;router2 snapshot&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../dnsconfig.json&#34;&gt;DNS declarations&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-preserve-export-snapshots-as-the-packages-documented-interface&#34;&gt;Requirement: Preserve export snapshots as the package&amp;rsquo;s documented interface&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-preserve-export-snapshots-as-the-packages-documented-interface&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The package SHALL retain the router export files as documentation inputs and&#xA;describe the RouterOS &lt;code&gt;/export&lt;/code&gt; collection workflow. Documentation SHALL&#xA;distinguish these snapshots from automatically applied desired state. The&#xA;Terraform root SHALL manage DNS records only and SHALL NOT apply router exports.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Infrastructure Vault</title>
+				<link>https://alwaldend.com/docs/infra/vault/openspec/specs/infra-vault/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/vault/openspec/specs/infra-vault/spec/</guid>
+				<description>&lt;span id=&#34;infrastructure-vault&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the Vault host configuration, authentication and certificate services,&#xA;and packaged recovery entry points. This baseline concerns checked-in desired&#xA;state and supported wrapper structure; it does not establish live unsealed&#xA;state, successful backups, quorum, or certificate freshness.&lt;/p&gt;&#xA;&lt;p&gt;Baseline source revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/infra/vault/&#34;&gt;operator documentation&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../BUILD.bazel&#34;&gt;operational wrappers&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../ansible/BUILD.bazel&#34;&gt;Ansible entry points&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../ansible/files/vault.hcl&#34;&gt;Vault host template&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/auth.tf&#34;&gt;authentication backends&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/mounts.tf&#34;&gt;storage engines&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/pki_servers.tf&#34;&gt;server PKI&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../tf/pki_clients.tf&#34;&gt;client PKI&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../tf/outputs.tf&#34;&gt;public CA outputs&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-separate-host-provisioning-from-vault-configuration&#34;&gt;Requirement: Separate host provisioning from Vault configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-separate-host-provisioning-from-vault-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The documented workflow SHALL separate &lt;code&gt;tf_setup&lt;/code&gt; VM provisioning, Ansible host&#xA;setup, and the &lt;code&gt;tf&lt;/code&gt; Vault configuration stage. Ansible SHALL expose combined,&#xA;VM-only, and bare-metal-only setup entry points using the shared host and Vault&#xA;roles.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Infrastructure Yandex Cloud</title>
+				<link>https://alwaldend.com/docs/infra/yandex_cloud/openspec/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/yandex_cloud/openspec/spec/</guid>
+				<description>&lt;span id=&#34;infrastructure-yandex-cloud&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe organization-level Yandex Cloud folder provisioning derived from Vault&#xA;AppRole identities. The direct &lt;code&gt;infra/yandex_cloud&lt;/code&gt; owner currently contains one&#xA;concrete organization package, &lt;code&gt;org1&lt;/code&gt;, covered here. This baseline does not&#xA;assert that the cloud organization or its folders were inspected live.&lt;/p&gt;&#xA;&lt;p&gt;Baseline source revision: &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;.&#xA;Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/&#34;&gt;top-level documentation&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../org1/README.md&#34;&gt;organization package&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../org1/BUILD.bazel&#34;&gt;organization targets&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../org1/tf/BUILD.bazel&#34;&gt;Terraform packaging&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../org1/tf/folders.tf&#34;&gt;folder derivation&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../org1/tf/provider.tf&#34;&gt;provider configuration&lt;/a&gt;, and&#xA;&lt;a href=&#34;../../../org1/al.lua&#34;&gt;credential injection&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-keep-organization-configuration-under-its-owner&#34;&gt;Requirement: Keep organization configuration under its owner&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-keep-organization-configuration-under-its-owner&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The Yandex Cloud tree SHALL expose its documentation through the infrastructure&#xA;documentation boundary and keep &lt;code&gt;org1&lt;/code&gt;&amp;rsquo;s AL configuration and Terraform package&#xA;under &lt;code&gt;infra/yandex_cloud/org1&lt;/code&gt;.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>ingress</title>
@@ -460,6 +418,13 @@
 				<description>&lt;p&gt;The &lt;a href=&#34;https://alwaldend.com/docs/infra/nas/tf/&#34;&gt;Terraform package&lt;/a&gt; prepares this owner&amp;rsquo;s DNS records through&#xA;its dedicated Vault AppRole. NAS service provisioning remains outside that root.&lt;/p&gt;&#xA;&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Docs: &lt;a href=&#34;https://www.truenas.com/&#34;&gt;https://www.truenas.com/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
+				<title>NAS infrastructure Specification</title>
+				<link>https://alwaldend.com/docs/infra/nas/openspec/specs/infra-nas/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/nas/openspec/specs/infra-nas/spec/</guid>
+				<description>&lt;span id=&#34;nas-infrastructure-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Describe the TrueNAS-related configuration surface currently owned by&#xA;&lt;code&gt;infra/nas&lt;/code&gt;. The baseline is checked-in source at revision&#xA;&lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;, observed on 2026-09-08.&#xA;The directory contains an AL configuration, DNS declarations, Vault wrappers,&#xA;and brief documentation. It does not contain a TrueNAS provisioning playbook&#xA;or Terraform configuration, and this baseline makes no claim about live NAS&#xA;configuration or availability.&lt;/p&gt;&#xA;&lt;p&gt;Source baseline limitation: the owning BUILD file restricts the AL target&amp;rsquo;s&#xA;visibility to &lt;code&gt;//infra/harvester:__subpackages__&lt;/code&gt;, although &lt;code&gt;infra/harvester&lt;/code&gt;&#xA;does not exist in this revision. This declaration does not establish a working&#xA;consumer integration.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>Nexus</title>
 				<link>https://alwaldend.com/docs/infra/nexus/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -472,6 +437,132 @@
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/infra/openhands/</guid>
 				<description>&lt;p&gt;OpenHands deploys as separate components because each owns a distinct&#xA;responsibility and trust boundary:&lt;/p&gt;&#xA;&lt;table&gt;&#xA;&#x9;&lt;thead&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;Component&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;th&gt;Responsibility&lt;/th&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&lt;/thead&gt;&#xA;&#x9;&lt;tbody&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Agent Canvas&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Browser client for conversations, files, settings, backends, automations&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Agent Server&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Runs conversations, agents, tools, and workspace operations&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&#x9;&#x9;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Automation Server&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;td&gt;Stores schedules and triggers, tracks runs, dispatches conversations&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&lt;/tr&gt;&#xA;&#x9;&lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;The agent server runs directly on the host with the service account&amp;rsquo;s&#xA;permissions. Its workspace is a working directory; operating-system account&#xA;permissions define its access to the host. Treat the agent server host as&#xA;trusted infrastructure.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/arch/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/arch/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/ceph/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/ceph/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/dns/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/dns/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/flux/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/flux/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/forgejo/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/forgejo/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/forgejo_runner/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/forgejo_runner/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/github/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/github/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/harbor/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/harbor/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/ingress/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/ingress/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/mikrotik/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/mikrotik/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/nas/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/nas/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/openhands/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/openhands/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/pve/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/pve/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/repos/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/repos/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/threexui/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/threexui/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/vault/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/vault/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/xcp_ng/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/xcp_ng/openspec/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/infra/yandex_cloud/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/yandex_cloud/openspec/</guid>
+				<description></description>
 			</item>
 			<item>
 				<title>Org1</title>
@@ -488,6 +579,174 @@
 				<description></description>
 			</item>
 			<item>
+				<title>Owned dns</title>
+				<link>https://alwaldend.com/docs/infra/flux/openspec/specs/owned-dns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/flux/openspec/specs/owned-dns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Owned dns</title>
+				<link>https://alwaldend.com/docs/infra/forgejo/openspec/specs/owned-dns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/forgejo/openspec/specs/owned-dns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Owned dns</title>
+				<link>https://alwaldend.com/docs/infra/forgejo_runner/openspec/specs/owned-dns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/forgejo_runner/openspec/specs/owned-dns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Owned dns</title>
+				<link>https://alwaldend.com/docs/infra/harbor/openspec/specs/owned-dns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/harbor/openspec/specs/owned-dns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Owned dns</title>
+				<link>https://alwaldend.com/docs/infra/ingress/openspec/specs/owned-dns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/ingress/openspec/specs/owned-dns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Owned dns</title>
+				<link>https://alwaldend.com/docs/infra/mikrotik/openspec/specs/owned-dns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/mikrotik/openspec/specs/owned-dns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Owned dns</title>
+				<link>https://alwaldend.com/docs/infra/nas/openspec/specs/owned-dns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/nas/openspec/specs/owned-dns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Owned dns</title>
+				<link>https://alwaldend.com/docs/infra/pve/openspec/specs/owned-dns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/pve/openspec/specs/owned-dns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Owned dns</title>
+				<link>https://alwaldend.com/docs/infra/threexui/openspec/specs/owned-dns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/threexui/openspec/specs/owned-dns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Owned dns</title>
+				<link>https://alwaldend.com/docs/infra/vault/openspec/specs/owned-dns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/vault/openspec/specs/owned-dns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Owned dns</title>
+				<link>https://alwaldend.com/docs/infra/xcp_ng/openspec/specs/owned-dns/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/xcp_ng/openspec/specs/owned-dns/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>owned-dns Specification</title>
+				<link>https://alwaldend.com/docs/infra/flux/openspec/specs/owned-dns/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/flux/openspec/specs/owned-dns/spec/</guid>
+				<description>&lt;span id=&#34;owned-dns-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define Flux DNS management through the owner&amp;rsquo;s &lt;code&gt;tf_setup&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf_setup&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled before adoption and SHALL remain enabled&#xA;by default after authorized adoption. Adoption SHALL bind existing provider records&#xA;to the owner&amp;rsquo;s state without adding, changing, replacing, or deleting DNS records.&#xA;Subsequent reconciliation of unchanged declarations SHALL preserve owned and&#xA;unrelated records.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>owned-dns Specification</title>
+				<link>https://alwaldend.com/docs/infra/forgejo/openspec/specs/owned-dns/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/forgejo/openspec/specs/owned-dns/spec/</guid>
+				<description>&lt;span id=&#34;owned-dns-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define Forgejo DNS management through the owner&amp;rsquo;s &lt;code&gt;tf_setup&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf_setup&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled before adoption and SHALL remain enabled&#xA;by default after authorized adoption. Adoption SHALL bind existing provider records&#xA;to the owner&amp;rsquo;s state without adding, changing, replacing, or deleting DNS records.&#xA;Subsequent reconciliation of unchanged declarations SHALL preserve owned and&#xA;unrelated records.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>owned-dns Specification</title>
+				<link>https://alwaldend.com/docs/infra/forgejo_runner/openspec/specs/owned-dns/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/forgejo_runner/openspec/specs/owned-dns/spec/</guid>
+				<description>&lt;span id=&#34;owned-dns-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define Forgejo Actions runner DNS management through the owner&amp;rsquo;s &lt;code&gt;tf_setup&lt;/code&gt; root,&#xA;including canonical declarations, scoped execution, adoption of existing records,&#xA;and offline source checks.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf_setup&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled before adoption and SHALL remain enabled&#xA;by default after authorized adoption. Adoption SHALL bind existing provider records&#xA;to the owner&amp;rsquo;s state without adding, changing, replacing, or deleting DNS records.&#xA;Subsequent reconciliation of unchanged declarations SHALL preserve owned and&#xA;unrelated records.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>owned-dns Specification</title>
+				<link>https://alwaldend.com/docs/infra/harbor/openspec/specs/owned-dns/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/harbor/openspec/specs/owned-dns/spec/</guid>
+				<description>&lt;span id=&#34;owned-dns-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define Harbor DNS management through the owner&amp;rsquo;s &lt;code&gt;tf_setup&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf_setup&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled before adoption and SHALL default to&#xA;enabled in the reviewed adoption revision and after adoption. Adoption SHALL&#xA;import the exact existing provider records and require a scoped no-change import plan before saved-plan&#xA;apply. Subsequent reconciliation with unchanged root inputs SHALL preserve&#xA;adopted records, unrelated DNS records, and non-DNS resources in the root.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>owned-dns Specification</title>
+				<link>https://alwaldend.com/docs/infra/ingress/openspec/specs/owned-dns/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/ingress/openspec/specs/owned-dns/spec/</guid>
+				<description>&lt;span id=&#34;owned-dns-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define retained ingress DNS ownership through the owner&amp;rsquo;s &lt;code&gt;tf&lt;/code&gt; root,&#xA;including canonical declarations, scoped execution, and offline source checks.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled until the authorized adoption revision&#xA;and SHALL retain enabled ownership after existing records are imported into the&#xA;owner&amp;rsquo;s state. Reconciliation against unchanged declarations and adopted state&#xA;SHALL propose no record additions, changes, replacements, or deletions.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>owned-dns Specification</title>
+				<link>https://alwaldend.com/docs/infra/mikrotik/openspec/specs/owned-dns/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/mikrotik/openspec/specs/owned-dns/spec/</guid>
+				<description>&lt;span id=&#34;owned-dns-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define MikroTik router DNS management through the owner&amp;rsquo;s &lt;code&gt;tf&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled until the authorized adoption revision&#xA;and SHALL retain enabled ownership after existing records are imported into the&#xA;owner&amp;rsquo;s state. Reconciliation against unchanged declarations and adopted state&#xA;SHALL propose no record additions, changes, replacements, or deletions.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>owned-dns Specification</title>
+				<link>https://alwaldend.com/docs/infra/nas/openspec/specs/owned-dns/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/nas/openspec/specs/owned-dns/spec/</guid>
+				<description>&lt;span id=&#34;owned-dns-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define NAS DNS management through the owner&amp;rsquo;s &lt;code&gt;tf&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled until the authorized adoption revision&#xA;and SHALL retain enabled ownership after existing records are imported into the&#xA;owner&amp;rsquo;s state. Reconciliation against unchanged declarations and adopted state&#xA;SHALL propose no record additions, changes, replacements, or deletions.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>owned-dns Specification</title>
+				<link>https://alwaldend.com/docs/infra/openhands/openspec/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/openhands/openspec/spec/</guid>
+				<description>&lt;span id=&#34;owned-dns-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define OpenHands DNS management through the owner&amp;rsquo;s &lt;code&gt;tf_setup&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf_setup&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled before adoption and SHALL default to&#xA;enabled in the reviewed adoption revision. Adoption SHALL bind existing records&#xA;to their exact provider identities and SHALL preserve their declared attributes.&#xA;Existing-record adoption SHALL contain no DNS record additions, changes,&#xA;replacements, or deletions. Verified missing declarations MAY be provisioned&#xA;through an exact additions-only DNS plan that preserves every existing record&#xA;and excludes non-DNS managed-resource changes. After deployment, default DNS&#xA;reconciliation SHALL retain the bindings and preserve unrelated provider records.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>owned-dns Specification</title>
+				<link>https://alwaldend.com/docs/infra/pve/openspec/specs/owned-dns/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/pve/openspec/specs/owned-dns/spec/</guid>
+				<description>&lt;span id=&#34;owned-dns-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define Proxmox cluster DNS management through the owner&amp;rsquo;s &lt;code&gt;tf&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled until the authorized adoption revision&#xA;and SHALL retain enabled ownership after existing records are imported into the&#xA;owner&amp;rsquo;s state. Reconciliation against unchanged declarations and adopted state&#xA;SHALL propose no record additions, changes, replacements, or deletions.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>owned-dns Specification</title>
+				<link>https://alwaldend.com/docs/infra/threexui/openspec/specs/owned-dns/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/threexui/openspec/specs/owned-dns/spec/</guid>
+				<description>&lt;span id=&#34;owned-dns-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define retained 3x-ui DNS ownership through the owner&amp;rsquo;s &lt;code&gt;tf_setup&lt;/code&gt; root,&#xA;including canonical declarations, scoped execution, and offline source checks.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf_setup&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled before the adoption revision and SHALL&#xA;retain enabled ownership after authorized adoption into the owner&amp;rsquo;s state.&#xA;Reconciliation against adopted state and unchanged declarations SHALL propose&#xA;no record additions, changes, replacements, or deletions.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>owned-dns Specification</title>
+				<link>https://alwaldend.com/docs/infra/vault/openspec/specs/owned-dns/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/vault/openspec/specs/owned-dns/spec/</guid>
+				<description>&lt;span id=&#34;owned-dns-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define Vault service DNS management through the owner&amp;rsquo;s &lt;code&gt;tf_setup&lt;/code&gt; root,&#xA;including canonical declarations, scoped credentials, and offline source checks&#xA;before adopting live records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf_setup&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled until the authorized adoption revision&#xA;and SHALL retain enabled ownership after existing records are imported into the&#xA;owner&amp;rsquo;s state. Reconciliation against unchanged declarations and adopted state&#xA;SHALL propose no record additions, changes, replacements, or deletions.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>owned-dns Specification</title>
+				<link>https://alwaldend.com/docs/infra/xcp_ng/openspec/specs/owned-dns/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/xcp_ng/openspec/specs/owned-dns/spec/</guid>
+				<description>&lt;span id=&#34;owned-dns-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define XCP-ng infrastructure DNS management through the owner&amp;rsquo;s &lt;code&gt;tf&lt;/code&gt; root,&#xA;including canonical declarations, scoped execution, and offline source checks&#xA;through preparation, adoption, and ongoing reconciliation.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-owner-local-dns-configuration&#34;&gt;Requirement: Owner-local DNS configuration&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-owner-local-dns-configuration&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;tf&lt;/code&gt; root SHALL consume this owner&amp;rsquo;s canonical &lt;code&gt;dnsconfig.json&lt;/code&gt; through&#xA;the shared DNS Terraform module, preserving declared record identities and views.&#xA;DNS resources SHALL default to disabled until the authorized adoption revision&#xA;and SHALL retain enabled ownership after existing records are imported into the&#xA;owner&amp;rsquo;s state. Reconciliation against unchanged declarations and adopted state&#xA;SHALL propose no record additions, changes, replacements, or deletions.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Proxmox infrastructure Specification</title>
+				<link>https://alwaldend.com/docs/infra/pve/openspec/specs/infra-pve/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/pve/openspec/specs/infra-pve/spec/</guid>
+				<description>&lt;span id=&#34;proxmox-infrastructure-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Specify the Proxmox cluster configuration, resource pools, and bootstrap test&#xA;VM owned by &lt;code&gt;infra/pve&lt;/code&gt;. The baseline is checked-in source at revision&#xA;&lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;, observed on 2026-09-08.&#xA;It describes declared infrastructure and packaged operator entry points;&#xA;deployment and cluster health have not been observed for this baseline.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-approle-resource-pools&#34;&gt;Requirement: AppRole resource pools&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-approle-resource-pools&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The Terraform configuration SHALL resolve the members of Vault&amp;rsquo;s &lt;code&gt;approles&lt;/code&gt;&#xA;identity group and declare one Proxmox pool per resolved entity, keyed and&#xA;named by that entity&amp;rsquo;s name. It SHALL also declare a separate &lt;code&gt;templates&lt;/code&gt; pool.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>Pve</title>
 				<link>https://alwaldend.com/docs/infra/pve/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -502,11 +761,39 @@
 				<description>&lt;p&gt;This project owns the organization and repository catalog consumed by&#xA;&lt;a href=&#34;https://alwaldend.com/docs/infra/github/tf/&#34;&gt;GitHub&lt;/a&gt;, &lt;a href=&#34;https://alwaldend.com/docs/infra/gitlab/tf/&#34;&gt;GitLab&lt;/a&gt;, and&#xA;&lt;a href=&#34;https://alwaldend.com/docs/infra/forgejo/tf/&#34;&gt;Forgejo&lt;/a&gt;. Named organization administrators and&#xA;developers belong in this catalog. &lt;a href=&#34;config.json&#34;&gt;Root configuration&lt;/a&gt; owns&#xA;the schema version and defaults. Each organization owns&#xA;&lt;code&gt;orgs/&amp;lt;organization&amp;gt;/org.json&lt;/code&gt; and one&#xA;&lt;code&gt;orgs/&amp;lt;organization&amp;gt;/repos/&amp;lt;repository&amp;gt;.json&lt;/code&gt; file per repository. Vault&#xA;continues to own Forgejo login identities and service-specific access.&lt;/p&gt;&#xA;&lt;p&gt;First-party means owned by us, regardless of forge. Our repositories retain&#xA;their chosen names across GitHub, GitLab, and Forgejo: &lt;code&gt;alwaldend/src&lt;/code&gt; stays&#xA;&lt;code&gt;alwaldend/src&lt;/code&gt;, including when copied or synchronized between those forges.&lt;/p&gt;</description>
 			</item>
 			<item>
+				<title>Repository</title>
+				<link>https://alwaldend.com/docs/infra/src/openspec/specs/repository/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/src/openspec/specs/repository/</guid>
+				<description></description>
+			</item>
+			<item>
 				<title>Repository catalog module</title>
 				<link>https://alwaldend.com/docs/infra/repos/tf/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/infra/repos/tf/</guid>
 				<description>&lt;p&gt;This provider-free Terraform module reads the &lt;a href=&#34;https://alwaldend.com/docs/infra/repos/&#34;&gt;catalog files&lt;/a&gt;, merges&#xA;forge defaults, and projects organization-owned repository names and settings&#xA;for each consumer. It creates no resources and uses no credentials.&lt;/p&gt;&#xA;&lt;p&gt;Fork and mirror names follow the &lt;a href=&#34;https://alwaldend.com/docs/infra/repos/&#34;&gt;catalog naming contract&lt;/a&gt;.&#xA;Output keys retain the organization and catalog key, independently of the&#xA;derived destination name. The consumers retain their existing state addresses&#xA;where resources were already managed.&lt;/p&gt;&#xA;&lt;p&gt;The catalog test runs without network access or provider initialization:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Repository evolution</title>
+				<link>https://alwaldend.com/docs/infra/src/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/src/openspec/</guid>
+				<description>&lt;span id=&#34;repository-evolution&#34;&gt;&lt;/span&gt;&lt;p&gt;This OpenSpec workspace describes evolution of the alwaldend/src repository&#xA;itself: its shared structure, build system and development workflows.&#xA;&lt;a href=&#34;https://alwaldend.com/docs/infra/src/openspec/specs/repository/spec/&#34;&gt;&lt;code&gt;specs/repository/spec.md&lt;/code&gt;&lt;/a&gt; records that contract;&#xA;&lt;code&gt;changes/&lt;/code&gt; records proposed and completed changes to it.&lt;/p&gt;&#xA;&lt;p&gt;Each component owns a separate OpenSpec workspace beside its source:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;projects/&amp;lt;project&amp;gt;/openspec/&lt;/code&gt; holds that project&amp;rsquo;s specs and changes.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;tools/&amp;lt;project&amp;gt;/openspec/&lt;/code&gt; holds that tool project&amp;rsquo;s specs and changes.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;infra/&amp;lt;project&amp;gt;/openspec/&lt;/code&gt; holds that infrastructure project&amp;rsquo;s specs and changes.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;infra/src/openspec/&lt;/code&gt; holds the repository&amp;rsquo;s own specs and changes.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Select the narrowest owner of the requested behavior. A project change belongs&#xA;in that project&amp;rsquo;s workspace, including when it has a standalone Bazel module.&#xA;Changes to shared repository structure belong here. Work spanning owners&#xA;keeps each affected contract with its owner and links related changes.&#xA;Component READMEs and build declarations retain their existing authority.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Repository Evolution Specification</title>
+				<link>https://alwaldend.com/docs/infra/src/openspec/specs/repository/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/src/openspec/specs/repository/spec/</guid>
+				<description>&lt;span id=&#34;repository-evolution-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define how the alwaldend/src monorepo evolves its shared structure, build&#xA;system and development workflows. Component behavior is specified in each&#xA;owner&amp;rsquo;s local OpenSpec workspace. This baseline was inspected at source revision&#xA;&lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt; on 2026-09-08 and incorporates the&#xA;OpenSpec migration delivered with this specification. Changes in &lt;code&gt;infra/src&lt;/code&gt;&#xA;record repository evolution; they do not collect unrelated component work or claim&#xA;runtime health or deployed infrastructure.&lt;/p&gt;&#xA;&lt;p&gt;Sources: &lt;a href=&#34;https://alwaldend.com/docs/&#34;&gt;repository map&lt;/a&gt;, &lt;a href=&#34;../../../../../AGENTS.md&#34;&gt;agent policy&lt;/a&gt;,&#xA;&lt;a href=&#34;../../../../../BUILD.bazel&#34;&gt;root build&lt;/a&gt;, &lt;a href=&#34;https://alwaldend.com/docs/projects/&#34;&gt;project boundary&lt;/a&gt;,&#xA;&lt;a href=&#34;https://alwaldend.com/docs/infra/&#34;&gt;infrastructure boundary&lt;/a&gt;,&#xA;&lt;a href=&#34;https://alwaldend.com/docs/tools/&#34;&gt;tool boundary&lt;/a&gt;, and &lt;a href=&#34;https://alwaldend.com/docs/infra/src/openspec/&#34;&gt;OpenSpec workflow&lt;/a&gt;.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>repository-catalog Specification</title>
+				<link>https://alwaldend.com/docs/infra/repos/openspec/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/repos/openspec/spec/</guid>
+				<description>&lt;span id=&#34;repository-catalog-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Define shared organization, repository identity, naming, and named access&#xA;configuration for the GitHub, GitLab, and Forgejo infrastructure consumers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-authoritative-organization-and-repository-inventory&#34;&gt;Requirement: Authoritative organization and repository inventory&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-authoritative-organization-and-repository-inventory&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The repository catalog SHALL store shared defaults and schema version at its&#xA;root, one configuration file per organization, and one configuration file per&#xA;repository beneath its organization. Those records SHALL own the configured&#xA;organizations, repositories, named administrators, and named developers.&#xA;Each forge consumer SHALL use&#xA;that catalog for its selected repositories and named roles, preserving&#xA;forge-specific settings without maintaining another copy of the inventory.&#xA;Authentication and service-specific grants SHALL remain with their existing&#xA;owners.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Shared DNS Terraform</title>
@@ -521,6 +808,90 @@
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/infra/src/</guid>
 				<description>&lt;p&gt;This project owns the &lt;a href=&#34;https://alwaldend.com/docs/infra/src/openspec/&#34;&gt;OpenSpec workspace&lt;/a&gt; describing&#xA;evolution of the alwaldend/src monorepo: its shared structure, build system&#xA;and development workflows. It also retains the index of the goal-to-OpenSpec&#xA;migration. Individual projects own their own specifications and change history.&lt;/p&gt;&#xA;&lt;p&gt;The repository root remains the Bazel workspace and owns shared executable&#xA;configuration. This directory owns repository development specifications;&#xA;adding or changing them does not provision infrastructure.&lt;/p&gt;&#xA;&lt;p&gt;Run the &lt;a href=&#34;../../tools/openspec/README.md&#34;&gt;pinned CLI&lt;/a&gt; from the repository root.&#xA;It selects this project by default:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/infra/flux/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/flux/openspec/specs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/infra/forgejo/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/forgejo/openspec/specs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/infra/forgejo_runner/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/forgejo_runner/openspec/specs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/infra/harbor/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/harbor/openspec/specs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/infra/ingress/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/ingress/openspec/specs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/infra/mikrotik/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/mikrotik/openspec/specs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/infra/nas/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/nas/openspec/specs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/infra/pve/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/pve/openspec/specs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/infra/src/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/src/openspec/specs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/infra/threexui/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/threexui/openspec/specs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/infra/vault/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/vault/openspec/specs/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Specifications</title>
+				<link>https://alwaldend.com/docs/infra/xcp_ng/openspec/specs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/xcp_ng/openspec/specs/</guid>
+				<description></description>
 			</item>
 			<item>
 				<title>sub</title>
@@ -654,6 +1025,13 @@
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/infra/xcp_ng/</guid>
 				<description>&lt;p&gt;Terraform in &lt;code&gt;tf&lt;/code&gt; manages a Xen Orchestra resource set for every&#xA;entity in Vault&amp;rsquo;s &lt;code&gt;approles&lt;/code&gt; group, following &lt;code&gt;infra/pve/tf&lt;/code&gt;. Resource sets&#xA;are the XO grouping and delegation mechanism; XCP-ng host pools represent&#xA;physical clusters and are not created per AppRole.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;resource_set_inventory&lt;/code&gt; assigns a pool, template, storage repository and&#xA;network by name to each AppRole. Native provider lookups resolve their IDs&#xA;and reject ambiguous matches. Forgejo and OpenHands have assignments by default;&#xA;other sets remain empty. Subjects are the exact synchronized OIDC users&#xA;selected by Vault issuer and immutable AppRole entity UUID. Bootstrap has&#xA;synchronized the 18 AppRole users; new AppRoles need their first OIDC login&#xA;before Terraform can bind their sets. &lt;code&gt;resource_set_cpu_limit&lt;/code&gt; defaults to&#xA;32 CPUs per set. Creating a set does not allocate CPUs or storage.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>XCP-ng infrastructure Specification</title>
+				<link>https://alwaldend.com/docs/infra/xcp_ng/openspec/specs/infra-xcp-ng/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/xcp_ng/openspec/specs/infra-xcp-ng/spec/</guid>
+				<description>&lt;span id=&#34;xcp-ng-infrastructure-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Specify Xen Orchestra resource delegation, scoped authentication, and&#xA;certificate deployment owned by &lt;code&gt;infra/xcp_ng&lt;/code&gt;. The baseline is checked-in&#xA;source at revision &lt;code&gt;550d7e79b1f5fdbc2b6017b75178471d6914082f&lt;/code&gt;, observed on&#xA;2026-09-08. Existing operational observations in project documentation are&#xA;historical context; this baseline does not verify current deployment, edition,&#xA;identity synchronization, or service health.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-approle-resource-sets-with-named-inventory&#34;&gt;Requirement: AppRole resource sets with named inventory&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-approle-resource-sets-with-named-inventory&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Terraform SHALL declare one Xen Orchestra resource set per entity in Vault&amp;rsquo;s&#xA;&lt;code&gt;approles&lt;/code&gt; group. Each set SHALL contain its explicitly assigned template,&#xA;storage repository, and network resolved by names within the selected pool;&#xA;unassigned sets SHALL contain no inventory objects. Each set SHALL have a&#xA;positive integer CPU quota, defaulting to 32. These resource sets SHALL&#xA;represent delegation groups rather than new physical host pools.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Xen Orchestra certificates</title>

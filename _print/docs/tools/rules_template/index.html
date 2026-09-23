@@ -45,14 +45,14 @@
 
 	<meta itemprop="name" content="Rules template">
 	<meta itemprop="description" content="Bazel rules and a Go command for rendering template files">
-	<meta itemprop="dateModified" content="2026-09-23T23:12:26+03:00">
+	<meta itemprop="dateModified" content="2026-09-24T00:17:33+03:00">
 	<meta itemprop="wordCount" content="32">
 	<meta itemprop="keywords" content="Bzl_rules">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Rules template">
 	<meta name="twitter:description" content="Bazel rules and a Go command for rendering template files">
-<link rel="preload" href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" as="style" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
-<link href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" rel="stylesheet" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" as="style" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
+<link href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" rel="stylesheet" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.cf47526d4c6c1c1919b1d4822be25ace.json"
+    data-offline-search-index-json-src="/offline-search-index.ec74568dd22c53d1312543116c075635.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -193,23 +193,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-ca401e2907366b909add6c0b25a53270"></a></li>
-
-
-    
-  
-    
-    
-	
-<li>2: <a href="#pg-a3a4c0e22d0654513f6f96c83b71e721"></a></li>
-
-
-    
-  
-    
-    
-	
-<li>3: <a href="#pg-ec2ab33970b2e18aab1824a1efc53c2e">Bzl</a></li>
+<li>1: <a href="#pg-ec2ab33970b2e18aab1824a1efc53c2e">Bzl</a></li>
 
 
     
@@ -220,6 +204,98 @@ This is the multi-page printable view of this section.
   
   
 
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-374b17693576d566cedc26f68a6a635b">OpenSpec</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1: <a href="#pg-4dafc71e16a0df6734852a4166f602df">Specifications</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.1: <a href="#pg-5fcd730741764a303e689fadcce28f45">Project dns</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.1.1: <a href="#pg-ca401e2907366b909add6c0b25a53270">project-dns Specification</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.1.2: <a href="#pg-f0f7a77bcdb2a0d3f79214b7339b8f91">Project rules template</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.2.1: <a href="#pg-a3a4c0e22d0654513f6f96c83b71e721">Rules template</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
   
 
     </ul>
@@ -258,9 +334,113 @@ actions.</p>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-ca401e2907366b909add6c0b25a53270">1 - </h1>
+	<h1 id="pg-ec2ab33970b2e18aab1824a1efc53c2e">1 - Bzl</h1>
+    <div class="lead">Bazel code</div>
+	
+</div>
+
+
+
     
-	<h1 id="print-d2fc924aaf0bf18a476ece095e342c42-project-dns-specification">project-dns Specification<a class="td-heading-self-link" href="#print-d2fc924aaf0bf18a476ece095e342c42-project-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-d2fc924aaf0bf18a476ece095e342c42-purpose">Purpose<a class="td-heading-self-link" href="#print-d2fc924aaf0bf18a476ece095e342c42-purpose" aria-label="Heading self-link"></a></h2><p>Record the retirement of <code>rules_template</code> landing infrastructure while preserving
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-374b17693576d566cedc26f68a6a635b">2 - OpenSpec</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-4dafc71e16a0df6734852a4166f602df">2.1 - Specifications</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-5fcd730741764a303e689fadcce28f45">2.1.1 - Project dns</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-ca401e2907366b909add6c0b25a53270">2.1.1.1 - project-dns Specification</h1>
+    
+	<span id="print-d2fc924aaf0bf18a476ece095e342c42-project-dns-specification"></span><h2 id="print-d2fc924aaf0bf18a476ece095e342c42-purpose">Purpose<a class="td-heading-self-link" href="#print-d2fc924aaf0bf18a476ece095e342c42-purpose" aria-label="Heading self-link"></a></h2><p>Record the retirement of <code>rules_template</code> landing infrastructure while preserving
 its reusable Bazel module.</p>
 <h2 id="print-d2fc924aaf0bf18a476ece095e342c42-requirements">Requirements<a class="td-heading-self-link" href="#print-d2fc924aaf0bf18a476ece095e342c42-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-d2fc924aaf0bf18a476ece095e342c42-requirement-keep-landing-infrastructure-retired">Requirement: Keep landing infrastructure retired<a class="td-heading-self-link" href="#print-d2fc924aaf0bf18a476ece095e342c42-requirement-keep-landing-infrastructure-retired" aria-label="Heading self-link"></a></h3><p>The module SHALL follow the <a href="/docs/tools/">tools boundary</a> and SHALL
 have no dedicated landing DNS declarations, Terraform root, or operational
@@ -277,6 +457,10 @@ source exports.</p>
     
 	
   
+
+    
+	
+  
     
     
 	
@@ -284,9 +468,34 @@ source exports.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-a3a4c0e22d0654513f6f96c83b71e721">2 - </h1>
+	<h1 id="pg-f0f7a77bcdb2a0d3f79214b7339b8f91">2.1.2 - Project rules template</h1>
     
-	<h1 id="print-b72bf554184196b452266a9cd0a8d8f9-rules-template">Rules template<a class="td-heading-self-link" href="#print-b72bf554184196b452266a9cd0a8d8f9-rules-template" aria-label="Heading self-link"></a></h1><h2 id="print-b72bf554184196b452266a9cd0a8d8f9-purpose">Purpose<a class="td-heading-self-link" href="#print-b72bf554184196b452266a9cd0a8d8f9-purpose" aria-label="Heading self-link"></a></h2><p>Render Go text templates from declared data files through a command and a Bazel
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-a3a4c0e22d0654513f6f96c83b71e721">2.1.2.1 - Rules template</h1>
+    
+	<span id="print-b72bf554184196b452266a9cd0a8d8f9-rules-template"></span><h2 id="print-b72bf554184196b452266a9cd0a8d8f9-purpose">Purpose<a class="td-heading-self-link" href="#print-b72bf554184196b452266a9cd0a8d8f9-purpose" aria-label="Heading self-link"></a></h2><p>Render Go text templates from declared data files through a command and a Bazel
 toolchain rule. This source baseline was observed on 2026-09-08 at revision
 <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>. The command operates on one template
 and output per invocation; the rule&rsquo;s list attributes do not establish a
@@ -333,30 +542,13 @@ forward additional rule arguments.</p>
     
 	
   
-    
+
     
 	
-    
+  
 
-<div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ec2ab33970b2e18aab1824a1efc53c2e">3 - Bzl</h1>
-    <div class="lead">Bazel code</div>
 	
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
   
 
     
@@ -386,6 +578,7 @@ forward additional rule arguments.</p>
     <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
 
   </body>
 </html>

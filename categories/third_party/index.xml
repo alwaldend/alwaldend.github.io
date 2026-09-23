@@ -19,20 +19,6 @@
 				<description>&lt;p&gt;This tree contains vendored and externally sourced code. All tracked content&#xA;follows the repository&amp;rsquo;s public-source policy and retains its upstream license&#xA;and provenance requirements.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Bazel targets MUST use repository-internal visibility unless an owning&#xA;toolchain contract requires otherwise.&lt;/li&gt;&#xA;&lt;li&gt;Third-party content MUST NOT be represented or published as first-party&#xA;source or artifacts.&lt;/li&gt;&#xA;&lt;li&gt;Third-party content MAY be used in builds.&lt;/li&gt;&#xA;&lt;li&gt;An explicit repackaging or mirroring target MAY publish an upstream artifact&#xA;under its owner and license policy.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;publish-vendored-helm&#34;&gt;Publish vendored helm&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#publish-vendored-helm&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This is a state-changing operator example. An agent needs explicit publication&#xA;authority and must invoke the target through &lt;code&gt;bazel_agent&lt;/code&gt;.&lt;/p&gt;</description>
 			</item>
 			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/third_party/openspec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/third_party/openspec/</guid>
-				<description>&lt;h1 id=&#34;openspec&#34;&gt;OpenSpec&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#openspec&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;The pinned OpenSpec CLI wrapper lives at &lt;code&gt;//tools/openspec&lt;/code&gt;. Its generated&#xA;&lt;code&gt;openspec-*&lt;/code&gt; agent skills are materialized from the pinned upstream release&#xA;archive declared in &lt;code&gt;third_party/org_fissionai_openspec/&lt;/code&gt;; the resulting&#xA;&lt;code&gt;.agents/skills/openspec-*&lt;/code&gt; entries are written as regular files by&#xA;&lt;code&gt;//.agents:write_skills&lt;/code&gt; and verified by &lt;code&gt;//.agents:write_skills_test&lt;/code&gt;.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title></title>
-				<link>https://alwaldend.com/docs/third_party/org_fissionai_openspec/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/third_party/org_fissionai_openspec/</guid>
-				<description>&lt;h1 id=&#34;openspec&#34;&gt;OpenSpec&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#openspec&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Upstream OpenSpec release archive pinned by tag. &lt;code&gt;//third_party/openspec&lt;/code&gt;&#xA;materializes the &lt;code&gt;skills/openspec-*&lt;/code&gt; instructions from this archive into the&#xA;consuming repository.&lt;/p&gt;</description>
-			</item>
-			<item>
 				<title>ai_opencode_opencode</title>
 				<link>https://alwaldend.com/docs/third_party/ai_opencode_opencode/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -318,6 +304,20 @@
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/third_party/com_openhands_openhands_canvas_ui_tool/</guid>
 				<description>&lt;p&gt;&lt;code&gt;tools/canvas_ui_tool.py&lt;/code&gt; from &lt;code&gt;OpenHands/OpenHands&lt;/code&gt; at tag &lt;code&gt;v1.18.0&lt;/code&gt;&#xA;(commit &lt;code&gt;9120ff6cbbe23640f0e475661e5a9c9729cdbf1f&lt;/code&gt;). The OpenHands Agent&#xA;Canvas launchers import it into the agent server through&#xA;&lt;code&gt;--import-modules canvas_ui_tool&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;It is required because the automation preset builds its agent with a&#xA;&lt;code&gt;finish_tool_response_schema&lt;/code&gt;, which registers the SDK&amp;rsquo;s builtin &lt;code&gt;FinishTool&lt;/code&gt;&#xA;only inside the preset&amp;rsquo;s own process while advertising it to the agent server as&#xA;&lt;code&gt;openhands.sdk.tool.builtins.finish&lt;/code&gt;. That SDK module does not self-register, so&#xA;every automation-dispatched remote conversation fails to resolve &lt;code&gt;FinishTool&lt;/code&gt;&#xA;unless the compatibility module registers it in the agent server process first.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/third_party/openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/openspec/</guid>
+				<description>&lt;span id=&#34;openspec&#34;&gt;&lt;/span&gt;&lt;p&gt;The pinned OpenSpec CLI wrapper lives at &lt;code&gt;//tools/openspec&lt;/code&gt;. Its generated&#xA;&lt;code&gt;openspec-*&lt;/code&gt; agent skills are materialized from the pinned upstream release&#xA;archive declared in &lt;code&gt;third_party/org_fissionai_openspec/&lt;/code&gt;; the resulting&#xA;&lt;code&gt;.agents/skills/openspec-*&lt;/code&gt; entries are written as regular files by&#xA;&lt;code&gt;//.agents:write_skills&lt;/code&gt; and verified by &lt;code&gt;//.agents:write_skills_test&lt;/code&gt;.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>OpenSpec</title>
+				<link>https://alwaldend.com/docs/third_party/org_fissionai_openspec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/org_fissionai_openspec/</guid>
+				<description>&lt;span id=&#34;openspec&#34;&gt;&lt;/span&gt;&lt;p&gt;Upstream OpenSpec release archive pinned by tag. &lt;code&gt;//third_party/openspec&lt;/code&gt;&#xA;materializes the &lt;code&gt;skills/openspec-*&lt;/code&gt; instructions from this archive into the&#xA;consuming repository.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Oras</title>

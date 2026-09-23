@@ -45,14 +45,14 @@
 
 	<meta itemprop="name" content="Kustomization">
 	<meta itemprop="description" content="Kubernetes resources for Flux, Traefik, and cert-manager">
-	<meta itemprop="dateModified" content="2026-09-23T23:12:26+03:00">
+	<meta itemprop="dateModified" content="2026-09-24T00:17:33+03:00">
 	<meta itemprop="wordCount" content="19">
 	<meta itemprop="keywords" content="K8s,Flux">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Kustomization">
 	<meta name="twitter:description" content="Kubernetes resources for Flux, Traefik, and cert-manager">
-<link rel="preload" href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" as="style" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
-<link href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" rel="stylesheet" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" as="style" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
+<link href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" rel="stylesheet" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.cf47526d4c6c1c1919b1d4822be25ace.json"
+    data-offline-search-index-json-src="/offline-search-index.ec74568dd22c53d1312543116c075635.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -193,23 +193,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-1932435aaa76239f3f20ef3770a9b110"></a></li>
-
-
-    
-  
-    
-    
-	
-<li>2: <a href="#pg-0cf7fa7f9192031ff3f37c466b55049d"></a></li>
-
-
-    
-  
-    
-    
-	
-<li>3: <a href="#pg-80b951100af7b0bfe6e85972b4d7c244">Releases</a></li>
+<li>1: <a href="#pg-0a3a1a6ad0d259ef3d77d6943ba30327">OpenSpec</a></li>
 
 
     
@@ -224,7 +208,99 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.1: <a href="#pg-0339c5af163875920ed3058e337bc9b0">head</a></li>
+<li>1.1: <a href="#pg-acb053132889863644a635eaa0729ad6">Specifications</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1.1.1: <a href="#pg-b010c9ce526dd56b3771913f739441d0">Project dns</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1.1.1.1: <a href="#pg-1932435aaa76239f3f20ef3770a9b110">project-dns Specification</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>1.1.2: <a href="#pg-95685165f4efafb94ee6dbade7d3c6fa">Project kustomization</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1.1.2.1: <a href="#pg-0cf7fa7f9192031ff3f37c466b55049d">Kustomization Specification</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-80b951100af7b0bfe6e85972b4d7c244">Releases</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1: <a href="#pg-0339c5af163875920ed3058e337bc9b0">head</a></li>
 
 
     
@@ -264,9 +340,84 @@ and cert-manager. It is still in progress.</p>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-1932435aaa76239f3f20ef3770a9b110">1 - </h1>
+	<h1 id="pg-0a3a1a6ad0d259ef3d77d6943ba30327">1 - OpenSpec</h1>
     
-	<h1 id="print-4a11f616705fadfa0cb9fb611d2db839-project-dns-specification">project-dns Specification<a class="td-heading-self-link" href="#print-4a11f616705fadfa0cb9fb611d2db839-project-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-4a11f616705fadfa0cb9fb611d2db839-purpose">Purpose<a class="td-heading-self-link" href="#print-4a11f616705fadfa0cb9fb611d2db839-purpose" aria-label="Heading self-link"></a></h2><p>Record the retirement of this project&rsquo;s landing DNS infrastructure while
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-acb053132889863644a635eaa0729ad6">1.1 - Specifications</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-b010c9ce526dd56b3771913f739441d0">1.1.1 - Project dns</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-1932435aaa76239f3f20ef3770a9b110">1.1.1.1 - project-dns Specification</h1>
+    
+	<span id="print-4a11f616705fadfa0cb9fb611d2db839-project-dns-specification"></span><h2 id="print-4a11f616705fadfa0cb9fb611d2db839-purpose">Purpose<a class="td-heading-self-link" href="#print-4a11f616705fadfa0cb9fb611d2db839-purpose" aria-label="Heading self-link"></a></h2><p>Record the retirement of this project&rsquo;s landing DNS infrastructure while
 preserving its repository documentation and builds.</p>
 <h2 id="print-4a11f616705fadfa0cb9fb611d2db839-requirements">Requirements<a class="td-heading-self-link" href="#print-4a11f616705fadfa0cb9fb611d2db839-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-4a11f616705fadfa0cb9fb611d2db839-requirement-keep-landing-infrastructure-retired">Requirement: Keep landing infrastructure retired<a class="td-heading-self-link" href="#print-4a11f616705fadfa0cb9fb611d2db839-requirement-keep-landing-infrastructure-retired" aria-label="Heading self-link"></a></h3><p>The project SHALL have no dedicated landing DNS declaration, Terraform root, or
 operational source export. Its landing page SHALL be published by the main site
@@ -284,6 +435,10 @@ landing build target, and the main site owns its landing page.</li>
     
 	
   
+
+    
+	
+  
     
     
 	
@@ -291,9 +446,34 @@ landing build target, and the main site owns its landing page.</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-0cf7fa7f9192031ff3f37c466b55049d">2 - </h1>
+	<h1 id="pg-95685165f4efafb94ee6dbade7d3c6fa">1.1.2 - Project kustomization</h1>
     
-	<h1 id="print-6320b40935466d9dd1c215f8f0e3ed8c-kustomization-specification">Kustomization Specification<a class="td-heading-self-link" href="#print-6320b40935466d9dd1c215f8f0e3ed8c-kustomization-specification" aria-label="Heading self-link"></a></h1><h2 id="print-6320b40935466d9dd1c215f8f0e3ed8c-purpose">Purpose<a class="td-heading-self-link" href="#print-6320b40935466d9dd1c215f8f0e3ed8c-purpose" aria-label="Heading self-link"></a></h2><p>Provide in-progress Kubernetes resource definitions for Flux, Traefik, and
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-0cf7fa7f9192031ff3f37c466b55049d">1.1.2.1 - Kustomization Specification</h1>
+    
+	<span id="print-6320b40935466d9dd1c215f8f0e3ed8c-kustomization-specification"></span><h2 id="print-6320b40935466d9dd1c215f8f0e3ed8c-purpose">Purpose<a class="td-heading-self-link" href="#print-6320b40935466d9dd1c215f8f0e3ed8c-purpose" aria-label="Heading self-link"></a></h2><p>Provide in-progress Kubernetes resource definitions for Flux, Traefik, and
 cert-manager. This baseline records declared resources at revision
 <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>, observed on 2026-09-08. It does not
 assert successful rendering, reconciliation, or a deployed cluster state.</p>
@@ -334,6 +514,18 @@ settings SHALL enable tests and drift detection.</li>
     
 	
   
+
+    
+	
+  
+
+    
+	
+  
+
+    
+	
+  
     
     
 	
@@ -341,7 +533,7 @@ settings SHALL enable tests and drift detection.</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-80b951100af7b0bfe6e85972b4d7c244">3 - Releases</h1>
+	<h1 id="pg-80b951100af7b0bfe6e85972b4d7c244">2 - Releases</h1>
     <div class="lead">Releases</div>
 	
 
@@ -2010,7 +2202,7 @@ AAAAQOYoPIcE2eVRj/wDYZV5cWm9RIb63LUnde/S7J3wrG/8XoZROc2kxYOmcwk6Gf7Cuc
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-0339c5af163875920ed3058e337bc9b0">3.1 - head</h1>
+	<h1 id="pg-0339c5af163875920ed3058e337bc9b0">2.1 - head</h1>
     <div class="lead">Release head</div>
 	
 
@@ -3679,6 +3871,7 @@ AAAAQOYoPIcE2eVRj/wDYZV5cWm9RIb63LUnde/S7J3wrG/8XoZROc2kxYOmcwk6Gf7Cuc
     <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
 
   </body>
 </html>

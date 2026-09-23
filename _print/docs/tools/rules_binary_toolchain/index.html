@@ -45,14 +45,14 @@
 
 	<meta itemprop="name" content="Rules binary toolchain">
 	<meta itemprop="description" content="Bazel toolchains for packaged executable binaries">
-	<meta itemprop="dateModified" content="2026-09-23T23:12:26+03:00">
+	<meta itemprop="dateModified" content="2026-09-24T00:17:33+03:00">
 	<meta itemprop="wordCount" content="26">
 	<meta itemprop="keywords" content="Bzl_rules">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Rules binary toolchain">
 	<meta name="twitter:description" content="Bazel toolchains for packaged executable binaries">
-<link rel="preload" href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" as="style" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
-<link href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" rel="stylesheet" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" as="style" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
+<link href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" rel="stylesheet" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.cf47526d4c6c1c1919b1d4822be25ace.json"
+    data-offline-search-index-json-src="/offline-search-index.ec74568dd22c53d1312543116c075635.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -193,23 +193,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-b0601f89e56b84760f7c8c81aee58a29"></a></li>
-
-
-    
-  
-    
-    
-	
-<li>2: <a href="#pg-d49603390d4613129ed4ec47e79fb4b8"></a></li>
-
-
-    
-  
-    
-    
-	
-<li>3: <a href="#pg-53e026c40faedfd9afd6e06d171335c3">Bzl</a></li>
+<li>1: <a href="#pg-53e026c40faedfd9afd6e06d171335c3">Bzl</a></li>
 
 
     
@@ -220,6 +204,98 @@ This is the multi-page printable view of this section.
   
   
 
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-7591704ad260581eb98946dbe20d0986">OpenSpec</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1: <a href="#pg-f93714964544addbd1c63fbc748ea3b7">Specifications</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.1: <a href="#pg-cfb7e6ac2ee6df6d4e93d8355da5082d">Project dns</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.1.1: <a href="#pg-b0601f89e56b84760f7c8c81aee58a29">project-dns Specification</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.1.2: <a href="#pg-6a81eaef2174cf08a228c9e6f3f6c9bf">Project rules binary toolchain</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.2.1: <a href="#pg-d49603390d4613129ed4ec47e79fb4b8">Rules binary toolchain</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
   
 
     </ul>
@@ -254,9 +330,118 @@ which the generated binary targets expose through Bazel runfiles.</p>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-b0601f89e56b84760f7c8c81aee58a29">1 - </h1>
+	<h1 id="pg-53e026c40faedfd9afd6e06d171335c3">1 - Bzl</h1>
+    <div class="lead">Bazel code</div>
+	<h2 id="print-9a8ff04ed013893d61b0042fa424f8ed-archive-binaries">Archive binaries<a class="td-heading-self-link" href="#print-9a8ff04ed013893d61b0042fa424f8ed-archive-binaries" aria-label="Heading self-link"></a></h2><p>Each archive <code>binaries</code> entry requires a <code>name</code> and <code>path</code>. It can also set
+<code>runtime_files</code> to a list of Bazel glob patterns relative to the unpacked
+archive. The generated <code>&lt;name&gt;_native_binary</code> exposes matching files as
+runfiles; <code>&lt;name&gt;_filegroup</code> exposes the binary and those same files.</p>
+<p>Omit <code>runtime_files</code> when the binary needs no extra runtime files.</p>
+
+</div>
+
+
+
     
-	<h1 id="print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-project-dns-specification">project-dns Specification<a class="td-heading-self-link" href="#print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-project-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-purpose">Purpose<a class="td-heading-self-link" href="#print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-purpose" aria-label="Heading self-link"></a></h2><p>Record the retirement of <code>rules_binary_toolchain</code> landing infrastructure while preserving
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7591704ad260581eb98946dbe20d0986">2 - OpenSpec</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-f93714964544addbd1c63fbc748ea3b7">2.1 - Specifications</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-cfb7e6ac2ee6df6d4e93d8355da5082d">2.1.1 - Project dns</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-b0601f89e56b84760f7c8c81aee58a29">2.1.1.1 - project-dns Specification</h1>
+    
+	<span id="print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-project-dns-specification"></span><h2 id="print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-purpose">Purpose<a class="td-heading-self-link" href="#print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-purpose" aria-label="Heading self-link"></a></h2><p>Record the retirement of <code>rules_binary_toolchain</code> landing infrastructure while preserving
 its reusable Bazel module.</p>
 <h2 id="print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-requirements">Requirements<a class="td-heading-self-link" href="#print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-requirement-keep-landing-infrastructure-retired">Requirement: Keep landing infrastructure retired<a class="td-heading-self-link" href="#print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-requirement-keep-landing-infrastructure-retired" aria-label="Heading self-link"></a></h3><p>The module SHALL follow the <a href="/docs/tools/">tools boundary</a> and SHALL
 have no dedicated landing DNS declarations, Terraform root, or operational
@@ -273,6 +458,10 @@ source exports.</p>
     
 	
   
+
+    
+	
+  
     
     
 	
@@ -280,9 +469,34 @@ source exports.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-d49603390d4613129ed4ec47e79fb4b8">2 - </h1>
+	<h1 id="pg-6a81eaef2174cf08a228c9e6f3f6c9bf">2.1.2 - Project rules binary toolchain</h1>
     
-	<h1 id="print-76bd64c637126d5d93d9a61a1d930a3b-rules-binary-toolchain">Rules binary toolchain<a class="td-heading-self-link" href="#print-76bd64c637126d5d93d9a61a1d930a3b-rules-binary-toolchain" aria-label="Heading self-link"></a></h1><h2 id="print-76bd64c637126d5d93d9a61a1d930a3b-purpose">Purpose<a class="td-heading-self-link" href="#print-76bd64c637126d5d93d9a61a1d930a3b-purpose" aria-label="Heading self-link"></a></h2><p>Provide Bazel toolchains and runnable targets for packaged executable binaries,
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-d49603390d4613129ed4ec47e79fb4b8">2.1.2.1 - Rules binary toolchain</h1>
+    
+	<span id="print-76bd64c637126d5d93d9a61a1d930a3b-rules-binary-toolchain"></span><h2 id="print-76bd64c637126d5d93d9a61a1d930a3b-purpose">Purpose<a class="td-heading-self-link" href="#print-76bd64c637126d5d93d9a61a1d930a3b-purpose" aria-label="Heading self-link"></a></h2><p>Provide Bazel toolchains and runnable targets for packaged executable binaries,
 including their runtime files. This source baseline was observed on 2026-09-08
 at revision <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.</p>
 <p>Sources: <a href="/docs/tools/rules_binary_toolchain/">project description</a>,
@@ -325,35 +539,13 @@ append invocation arguments, and expose the declared <code>env</code> through
     
 	
   
-    
+
     
 	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-53e026c40faedfd9afd6e06d171335c3">3 - Bzl</h1>
-    <div class="lead">Bazel code</div>
-	<h2 id="print-9a8ff04ed013893d61b0042fa424f8ed-archive-binaries">Archive binaries<a class="td-heading-self-link" href="#print-9a8ff04ed013893d61b0042fa424f8ed-archive-binaries" aria-label="Heading self-link"></a></h2><p>Each archive <code>binaries</code> entry requires a <code>name</code> and <code>path</code>. It can also set
-<code>runtime_files</code> to a list of Bazel glob patterns relative to the unpacked
-archive. The generated <code>&lt;name&gt;_native_binary</code> exposes matching files as
-runfiles; <code>&lt;name&gt;_filegroup</code> exposes the binary and those same files.</p>
-<p>Omit <code>runtime_files</code> when the binary needs no extra runtime files.</p>
-
-</div>
-
-
+  
 
     
-      
-  
-  
-  
-  
-
-  
-  
-
+	
   
 
     
@@ -383,6 +575,7 @@ runfiles; <code>&lt;name&gt;_filegroup</code> exposes the binary and those same 
     <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
 
   </body>
 </html>

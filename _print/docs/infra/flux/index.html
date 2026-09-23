@@ -45,14 +45,14 @@
 
 	<meta itemprop="name" content="flux">
 	<meta itemprop="description" content="Fluxcd deployment">
-	<meta itemprop="dateModified" content="2026-09-23T23:12:26+03:00">
+	<meta itemprop="dateModified" content="2026-09-24T00:17:33+03:00">
 	<meta itemprop="wordCount" content="100">
 	<meta itemprop="keywords" content="Flux,Ansible,Pve,K3s">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="flux">
 	<meta name="twitter:description" content="Fluxcd deployment">
-<link rel="preload" href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" as="style" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
-<link href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" rel="stylesheet" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" as="style" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
+<link href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" rel="stylesheet" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.cf47526d4c6c1c1919b1d4822be25ace.json"
+    data-offline-search-index-json-src="/offline-search-index.ec74568dd22c53d1312543116c075635.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -193,23 +193,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-b4f8b763632dafb9253d5de4d0a62163"></a></li>
-
-
-    
-  
-    
-    
-	
-<li>2: <a href="#pg-b6f415fdbda930a78d6f2df1f71d654f"></a></li>
-
-
-    
-  
-    
-    
-	
-<li>3: <a href="#pg-de0be9c9f29bd0e4867d85c05c90675b">Ansible</a></li>
+<li>1: <a href="#pg-de0be9c9f29bd0e4867d85c05c90675b">Ansible</a></li>
 
 
     
@@ -228,7 +212,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-d382b2bcb1a61644d1a6e144f7ad0f24">cl</a></li>
+<li>2: <a href="#pg-d382b2bcb1a61644d1a6e144f7ad0f24">cl</a></li>
 
 
     
@@ -247,7 +231,99 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5: <a href="#pg-c22a494ac2efe6ac7a34589eb0ec7c9b">Tf setup</a></li>
+<li>3: <a href="#pg-d9f7580b805b37704720c23a6eb72ae7">OpenSpec</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>3.1: <a href="#pg-40db637bc8ffe5572340bccffb3d2153">Specifications</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>3.1.1: <a href="#pg-c28abe2d36515a2809ef2e40d21f0e1e">Infra flux</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>3.1.1.1: <a href="#pg-b4f8b763632dafb9253d5de4d0a62163">Flux infrastructure specification</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3.1.2: <a href="#pg-b710880ff87e8d8d1e894b0016dd2749">Owned dns</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>3.1.2.1: <a href="#pg-b6f415fdbda930a78d6f2df1f71d654f">owned-dns Specification</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-c22a494ac2efe6ac7a34589eb0ec7c9b">Tf setup</a></li>
 
 
     
@@ -313,9 +389,145 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-b4f8b763632dafb9253d5de4d0a62163">1 - </h1>
+	<h1 id="pg-de0be9c9f29bd0e4867d85c05c90675b">1 - Ansible</h1>
+    <div class="lead">Ansible setup</div>
+	
+</div>
+
+
+
     
-	<h1 id="print-d1bd8ac5f87f418fdfaaab7e376fec50-flux-infrastructure-specification">Flux infrastructure specification<a class="td-heading-self-link" href="#print-d1bd8ac5f87f418fdfaaab7e376fec50-flux-infrastructure-specification" aria-label="Heading self-link"></a></h1><h2 id="print-d1bd8ac5f87f418fdfaaab7e376fec50-purpose">Purpose<a class="td-heading-self-link" href="#print-d1bd8ac5f87f418fdfaaab7e376fec50-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Flux management cluster&rsquo;s VM definition, K3s configuration,
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-d382b2bcb1a61644d1a6e144f7ad0f24">2 - cl</h1>
+    <div class="lead">Cluster manifests</div>
+	<h2 id="print-c5fcc52468d494f5a7ae68c1e7490717-links">Links<a class="td-heading-self-link" href="#print-c5fcc52468d494f5a7ae68c1e7490717-links" aria-label="Heading self-link"></a></h2><ul>
+<li>Cert manager charts: <a href="https://artifacthub.io/packages/helm/cert-manager/cert-manager">https://artifacthub.io/packages/helm/cert-manager/cert-manager</a></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-d9f7580b805b37704720c23a6eb72ae7">3 - OpenSpec</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-40db637bc8ffe5572340bccffb3d2153">3.1 - Specifications</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-c28abe2d36515a2809ef2e40d21f0e1e">3.1.1 - Infra flux</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-b4f8b763632dafb9253d5de4d0a62163">3.1.1.1 - Flux infrastructure specification</h1>
+    
+	<span id="print-d1bd8ac5f87f418fdfaaab7e376fec50-flux-infrastructure-specification"></span><h2 id="print-d1bd8ac5f87f418fdfaaab7e376fec50-purpose">Purpose<a class="td-heading-self-link" href="#print-d1bd8ac5f87f418fdfaaab7e376fec50-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Flux management cluster&rsquo;s VM definition, K3s configuration,
 and Git reconciliation entry points owned by <code>infra/flux</code>. The <code>tf_setup</code>,
 <code>ansible</code>, and <code>cl</code> packages implement stages of this owner. This is a
 checked-in source baseline; no cluster health or successful deployment was
@@ -374,6 +586,10 @@ asserting that they are currently available in a live cluster</li>
     
 	
   
+
+    
+	
+  
     
     
 	
@@ -381,9 +597,34 @@ asserting that they are currently available in a live cluster</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-b6f415fdbda930a78d6f2df1f71d654f">2 - </h1>
+	<h1 id="pg-b710880ff87e8d8d1e894b0016dd2749">3.1.2 - Owned dns</h1>
     
-	<h1 id="print-046a6e6ad5187e98a76cf80927cdcf33-owned-dns-specification">owned-dns Specification<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-owned-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-046a6e6ad5187e98a76cf80927cdcf33-purpose">Purpose<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-purpose" aria-label="Heading self-link"></a></h2><p>Define Flux DNS management through the owner&rsquo;s <code>tf_setup</code> root,
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-b6f415fdbda930a78d6f2df1f71d654f">3.1.2.1 - owned-dns Specification</h1>
+    
+	<span id="print-046a6e6ad5187e98a76cf80927cdcf33-owned-dns-specification"></span><h2 id="print-046a6e6ad5187e98a76cf80927cdcf33-purpose">Purpose<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-purpose" aria-label="Heading self-link"></a></h2><p>Define Flux DNS management through the owner&rsquo;s <code>tf_setup</code> root,
 including canonical declarations, scoped credentials, and offline source checks
 before adopting live records.</p>
 <h2 id="print-046a6e6ad5187e98a76cf80927cdcf33-requirements">Requirements<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-046a6e6ad5187e98a76cf80927cdcf33-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf_setup</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through
@@ -445,30 +686,13 @@ DNS-targeted validation SHALL NOT establish unrelated VM or service health.</p>
     
 	
   
-    
+
     
 	
-    
+  
 
-<div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-de0be9c9f29bd0e4867d85c05c90675b">3 - Ansible</h1>
-    <div class="lead">Ansible setup</div>
 	
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
   
 
     
@@ -481,39 +705,7 @@ DNS-targeted validation SHALL NOT establish unrelated VM or service health.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-d382b2bcb1a61644d1a6e144f7ad0f24">4 - cl</h1>
-    <div class="lead">Cluster manifests</div>
-	<h2 id="print-c5fcc52468d494f5a7ae68c1e7490717-links">Links<a class="td-heading-self-link" href="#print-c5fcc52468d494f5a7ae68c1e7490717-links" aria-label="Heading self-link"></a></h2><ul>
-<li>Cert manager charts: <a href="https://artifacthub.io/packages/helm/cert-manager/cert-manager">https://artifacthub.io/packages/helm/cert-manager/cert-manager</a></li>
-</ul>
-
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-c22a494ac2efe6ac7a34589eb0ec7c9b">5 - Tf setup</h1>
+	<h1 id="pg-c22a494ac2efe6ac7a34589eb0ec7c9b">4 - Tf setup</h1>
     <div class="lead">Terraform setup</div>
 	<p>This root owns the <a href="../dnsconfig.json">Flux DNS declaration</a>. DNS ownership
 defaults to enabled after <a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">verified adoption</a>;
@@ -570,6 +762,7 @@ validation remains part of repository delivery.</p>
     <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
 
   </body>
 </html>

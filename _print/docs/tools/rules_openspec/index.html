@@ -45,14 +45,14 @@
 
 	<meta itemprop="name" content="OpenSpec">
 	<meta itemprop="description" content="Pinned OpenSpec CLI and repository specification validation">
-	<meta itemprop="dateModified" content="2026-09-23T23:12:26+03:00">
+	<meta itemprop="dateModified" content="2026-09-24T00:17:33+03:00">
 	<meta itemprop="wordCount" content="429">
 	<meta itemprop="keywords" content="Tool,Active">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="OpenSpec">
 	<meta name="twitter:description" content="Pinned OpenSpec CLI and repository specification validation">
-<link rel="preload" href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" as="style" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
-<link href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" rel="stylesheet" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" as="style" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
+<link href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" rel="stylesheet" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.cf47526d4c6c1c1919b1d4822be25ace.json"
+    data-offline-search-index-json-src="/offline-search-index.ec74568dd22c53d1312543116c075635.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -193,9 +193,28 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-0e3434494172cbd6438454b963b27ec7"></a></li>
+<li>1: <a href="#pg-704a7fb352db51cf1e03fd00fefa9228">OpenSpec</a></li>
 
 
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1.1: <a href="#pg-0e3434494172cbd6438454b963b27ec7">project-rules-openspec Specification</a></li>
+
+
+    
+  
+
+    </ul>
     
   
 
@@ -274,9 +293,34 @@ upgrading.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-0e3434494172cbd6438454b963b27ec7">1 - </h1>
+	<h1 id="pg-704a7fb352db51cf1e03fd00fefa9228">1 - OpenSpec</h1>
     
-	<h1 id="print-d6738a511520745c46f0e237c6b31ce8-project-rules-openspec-specification">project-rules-openspec Specification<a class="td-heading-self-link" href="#print-d6738a511520745c46f0e237c6b31ce8-project-rules-openspec-specification" aria-label="Heading self-link"></a></h1><h2 id="print-d6738a511520745c46f0e237c6b31ce8-purpose">Purpose<a class="td-heading-self-link" href="#print-d6738a511520745c46f0e237c6b31ce8-purpose" aria-label="Heading self-link"></a></h2><p>Define reusable Bazel validation and execution behavior for owner-local OpenSpec workspaces.</p>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-0e3434494172cbd6438454b963b27ec7">1.1 - project-rules-openspec Specification</h1>
+    
+	<span id="print-d6738a511520745c46f0e237c6b31ce8-project-rules-openspec-specification"></span><h2 id="print-d6738a511520745c46f0e237c6b31ce8-purpose">Purpose<a class="td-heading-self-link" href="#print-d6738a511520745c46f0e237c6b31ce8-purpose" aria-label="Heading self-link"></a></h2><p>Define reusable Bazel validation and execution behavior for owner-local OpenSpec workspaces.</p>
 <h2 id="print-d6738a511520745c46f0e237c6b31ce8-requirements">Requirements<a class="td-heading-self-link" href="#print-d6738a511520745c46f0e237c6b31ce8-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-d6738a511520745c46f0e237c6b31ce8-openspec-validation">OpenSpec validation<a class="td-heading-self-link" href="#print-d6738a511520745c46f0e237c6b31ce8-openspec-validation" aria-label="Heading self-link"></a></h3><p>The system SHALL validate one owner-local OpenSpec workspace in a sandbox using the pinned OpenSpec CLI.</p>
 <h4 id="print-d6738a511520745c46f0e237c6b31ce8-scenario-current-validation">Scenario: current validation<a class="td-heading-self-link" href="#print-d6738a511520745c46f0e237c6b31ce8-scenario-current-validation" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a caller runs the validation target</li>
@@ -290,6 +334,10 @@ upgrading.</p>
 </div>
 
 
+
+    
+	
+  
 
     
 	
@@ -318,6 +366,7 @@ upgrading.</p>
     <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
 
   </body>
 </html>

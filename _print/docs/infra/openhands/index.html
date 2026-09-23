@@ -45,14 +45,14 @@
 
 	<meta itemprop="name" content="OpenHands">
 	<meta itemprop="description" content="openhands.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-23T23:12:26+03:00">
+	<meta itemprop="dateModified" content="2026-09-24T00:17:33+03:00">
 	<meta itemprop="wordCount" content="490">
 	<meta itemprop="keywords" content="Openhands,Traefik,Terraform,Ansible">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="OpenHands">
 	<meta name="twitter:description" content="openhands.alwaldend.com">
-<link rel="preload" href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" as="style" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
-<link href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" rel="stylesheet" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" as="style" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
+<link href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" rel="stylesheet" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.cf47526d4c6c1c1919b1d4822be25ace.json"
+    data-offline-search-index-json-src="/offline-search-index.ec74568dd22c53d1312543116c075635.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -193,15 +193,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-16ac8598b912ab872f5988b6ff5a261d"></a></li>
-
-
-    
-  
-    
-    
-	
-<li>2: <a href="#pg-89791524f15a8b6f60e56e61e12d2ef9">Ansible</a></li>
+<li>1: <a href="#pg-89791524f15a8b6f60e56e61e12d2ef9">Ansible</a></li>
 
 
     
@@ -212,6 +204,33 @@ This is the multi-page printable view of this section.
   
   
 
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-81dd6021af57efa57f1fa284d5a6b4f4">OpenSpec</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1: <a href="#pg-16ac8598b912ab872f5988b6ff5a261d">owned-dns Specification</a></li>
+
+
+    
   
 
     </ul>
@@ -349,9 +368,110 @@ use, so no separate state bucket is required.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-16ac8598b912ab872f5988b6ff5a261d">1 - </h1>
+	<h1 id="pg-89791524f15a8b6f60e56e61e12d2ef9">1 - Ansible</h1>
+    <div class="lead">OpenHands deployment</div>
+	<p>Deploys the OpenHands components. The inventory has three hosts in three
+groups, and the playbook applies one component role per group:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Group</th>
+					<th>Host</th>
+					<th>Component</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>openhands_canvas</code></td>
+					<td><code>host1.canvas.openhands.alwaldend.com</code></td>
+					<td>Agent Canvas</td>
+			</tr>
+			<tr>
+					<td><code>openhands_server_secure</code></td>
+					<td><code>host1.server.openhands.alwaldend.com</code></td>
+					<td>Agent server (secured)</td>
+			</tr>
+			<tr>
+					<td><code>openhands_automation</code></td>
+					<td><code>host1.automation.openhands.alwaldend.com</code></td>
+					<td>Automation server</td>
+			</tr>
+	</tbody>
+</table>
+<p>The three XCP-ng VMs exist only for the secured agent server and for the
+components that must not share a trust boundary with host-bot. The secured
+group sets <code>openhands_server_session_api_key</code> and hands the same value to the
+automation server so the automation dispatcher can authenticate its
+dispatched conversations.</p>
+<p>Every component applies <code>host</code> and <code>traefik</code>. Canvas runs the published
+package&rsquo;s static server directly on loopback. The operator configures the
+browser backend with the canvas origin and the shared session key.</p>
+<p>The canvas host routes <code>/api/automation</code> to the automation host and the agent
+server API prefixes to the secured agent server. These routes take precedence
+over the frontend route, so the configured browser reaches one origin.
+Downstream routers accept the original canvas Host header.</p>
+<p>The unsecured agent server runs on host-bot and is deployed by
+<a href="/docs/users/simeonwarren/host_bot/">the host-bot project</a>, which
+owns that host entirely. It omits <code>OH_SESSION_API_KEYS_0</code> and binds to loopback
+without a session API key. Access is local to host-bot; its Traefik and firewall
+configuration add no route for this server.</p>
+<p>The group variables read the session key, secret key, and automation KV secret
+from the environment the AL Vault injector populates.</p>
+
+</div>
+
+
+
     
-	<h1 id="print-f89ca4b71cc1c0aace91c4551d444375-owned-dns-specification">owned-dns Specification<a class="td-heading-self-link" href="#print-f89ca4b71cc1c0aace91c4551d444375-owned-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-f89ca4b71cc1c0aace91c4551d444375-purpose">Purpose<a class="td-heading-self-link" href="#print-f89ca4b71cc1c0aace91c4551d444375-purpose" aria-label="Heading self-link"></a></h2><p>Define OpenHands DNS management through the owner&rsquo;s <code>tf_setup</code> root,
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-81dd6021af57efa57f1fa284d5a6b4f4">2 - OpenSpec</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-16ac8598b912ab872f5988b6ff5a261d">2.1 - owned-dns Specification</h1>
+    
+	<span id="print-f89ca4b71cc1c0aace91c4551d444375-owned-dns-specification"></span><h2 id="print-f89ca4b71cc1c0aace91c4551d444375-purpose">Purpose<a class="td-heading-self-link" href="#print-f89ca4b71cc1c0aace91c4551d444375-purpose" aria-label="Heading self-link"></a></h2><p>Define OpenHands DNS management through the owner&rsquo;s <code>tf_setup</code> root,
 including canonical declarations, scoped credentials, and offline source checks
 before adopting live records.</p>
 <h2 id="print-f89ca4b71cc1c0aace91c4551d444375-requirements">Requirements<a class="td-heading-self-link" href="#print-f89ca4b71cc1c0aace91c4551d444375-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-f89ca4b71cc1c0aace91c4551d444375-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-f89ca4b71cc1c0aace91c4551d444375-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf_setup</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through
@@ -426,78 +546,6 @@ without establishing VM or service health</li>
 
     
 	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-89791524f15a8b6f60e56e61e12d2ef9">2 - Ansible</h1>
-    <div class="lead">OpenHands deployment</div>
-	<p>Deploys the OpenHands components. The inventory has three hosts in three
-groups, and the playbook applies one component role per group:</p>
-<table>
-	<thead>
-			<tr>
-					<th>Group</th>
-					<th>Host</th>
-					<th>Component</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td><code>openhands_canvas</code></td>
-					<td><code>host1.canvas.openhands.alwaldend.com</code></td>
-					<td>Agent Canvas</td>
-			</tr>
-			<tr>
-					<td><code>openhands_server_secure</code></td>
-					<td><code>host1.server.openhands.alwaldend.com</code></td>
-					<td>Agent server (secured)</td>
-			</tr>
-			<tr>
-					<td><code>openhands_automation</code></td>
-					<td><code>host1.automation.openhands.alwaldend.com</code></td>
-					<td>Automation server</td>
-			</tr>
-	</tbody>
-</table>
-<p>The three XCP-ng VMs exist only for the secured agent server and for the
-components that must not share a trust boundary with host-bot. The secured
-group sets <code>openhands_server_session_api_key</code> and hands the same value to the
-automation server so the automation dispatcher can authenticate its
-dispatched conversations.</p>
-<p>Every component applies <code>host</code> and <code>traefik</code>. Canvas runs the published
-package&rsquo;s static server directly on loopback. The operator configures the
-browser backend with the canvas origin and the shared session key.</p>
-<p>The canvas host routes <code>/api/automation</code> to the automation host and the agent
-server API prefixes to the secured agent server. These routes take precedence
-over the frontend route, so the configured browser reaches one origin.
-Downstream routers accept the original canvas Host header.</p>
-<p>The unsecured agent server runs on host-bot and is deployed by
-<a href="/docs/users/simeonwarren/host_bot/">the host-bot project</a>, which
-owns that host entirely. It omits <code>OH_SESSION_API_KEYS_0</code> and binds to loopback
-without a session API key. Access is local to host-bot; its Traefik and firewall
-configuration add no route for this server.</p>
-<p>The group variables read the session key, secret key, and automation KV secret
-from the environment the AL Vault injector populates.</p>
-
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
   
 
     
@@ -601,6 +649,7 @@ retains that acceptance work.</p>
     <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
 
   </body>
 </html>

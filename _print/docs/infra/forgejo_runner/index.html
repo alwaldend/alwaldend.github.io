@@ -45,14 +45,14 @@
 
 	<meta itemprop="name" content="Forgejo runner">
 	<meta itemprop="description" content="Forgejo Actions runner deployment">
-	<meta itemprop="dateModified" content="2026-09-23T23:12:26+03:00">
+	<meta itemprop="dateModified" content="2026-09-24T00:17:33+03:00">
 	<meta itemprop="wordCount" content="13">
 	<meta itemprop="keywords" content="Forgejo,Ansible,Pve">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Forgejo runner">
 	<meta name="twitter:description" content="Forgejo Actions runner deployment">
-<link rel="preload" href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" as="style" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
-<link href="/scss/main.min.8a9104cf06ad254ed4f8821d54934f823d8bfe10ead6d99a4c18cc4bd24b2e55.css" rel="stylesheet" integrity="sha256-ipEEzwatJU7U&#43;IIdVJNPgj2L/hDq1tmaTBjMS9JLLlU=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" as="style" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
+<link href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" rel="stylesheet" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.cf47526d4c6c1c1919b1d4822be25ace.json"
+    data-offline-search-index-json-src="/offline-search-index.ec74568dd22c53d1312543116c075635.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -193,23 +193,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-9abcd9986c5b24d182b4538a6c4cba88"></a></li>
-
-
-    
-  
-    
-    
-	
-<li>2: <a href="#pg-3bb8cb3d1c905f1f6075618f1ef69610"></a></li>
-
-
-    
-  
-    
-    
-	
-<li>3: <a href="#pg-f066b695c0dd6eed475cb0158d9cb746">Ansible</a></li>
+<li>1: <a href="#pg-f066b695c0dd6eed475cb0158d9cb746">Ansible</a></li>
 
 
     
@@ -228,7 +212,99 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-f9ffc9e12b9f5551f238d6b09bbc9cc1">Terraform setup</a></li>
+<li>2: <a href="#pg-daef4d86265c5d7e86da875c9be9c418">OpenSpec</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1: <a href="#pg-d43dc6331425a7f7cd548804201a4787">Specifications</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.1: <a href="#pg-c1db96d9c65d77fb35c9d77df5c2c1dd">Infra forgejo runner</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.1.1: <a href="#pg-9abcd9986c5b24d182b4538a6c4cba88">Forgejo runner infrastructure specification</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.1.2: <a href="#pg-70bd61b668f9851ca915d18ad89e6db6">Owned dns</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.2.1: <a href="#pg-3bb8cb3d1c905f1f6075618f1ef69610">owned-dns Specification</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-f9ffc9e12b9f5551f238d6b09bbc9cc1">Terraform setup</a></li>
 
 
     
@@ -272,9 +348,113 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-9abcd9986c5b24d182b4538a6c4cba88">1 - </h1>
+	<h1 id="pg-f066b695c0dd6eed475cb0158d9cb746">1 - Ansible</h1>
+    <div class="lead">Forgejo runner configuration</div>
+	
+</div>
+
+
+
     
-	<h1 id="print-aa9fd2e826bb291d5e08428692924afd-forgejo-runner-infrastructure-specification">Forgejo runner infrastructure specification<a class="td-heading-self-link" href="#print-aa9fd2e826bb291d5e08428692924afd-forgejo-runner-infrastructure-specification" aria-label="Heading self-link"></a></h1><h2 id="print-aa9fd2e826bb291d5e08428692924afd-purpose">Purpose<a class="td-heading-self-link" href="#print-aa9fd2e826bb291d5e08428692924afd-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Forgejo Actions runner VM and deployment scaffold owned by
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-daef4d86265c5d7e86da875c9be9c418">2 - OpenSpec</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-d43dc6331425a7f7cd548804201a4787">2.1 - Specifications</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-c1db96d9c65d77fb35c9d77df5c2c1dd">2.1.1 - Infra forgejo runner</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-9abcd9986c5b24d182b4538a6c4cba88">2.1.1.1 - Forgejo runner infrastructure specification</h1>
+    
+	<span id="print-aa9fd2e826bb291d5e08428692924afd-forgejo-runner-infrastructure-specification"></span><h2 id="print-aa9fd2e826bb291d5e08428692924afd-purpose">Purpose<a class="td-heading-self-link" href="#print-aa9fd2e826bb291d5e08428692924afd-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Forgejo Actions runner VM and deployment scaffold owned by
 <code>infra/forgejo_runner</code>. Its <code>tf_setup</code> and <code>ansible</code> packages are stages of
 this owner. The runner role is commented out in the baseline playbook;
 the checked-in configuration therefore does not establish a deployed or
@@ -330,6 +510,10 @@ the canonical Forgejo service</li>
     
 	
   
+
+    
+	
+  
     
     
 	
@@ -337,9 +521,34 @@ the canonical Forgejo service</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-3bb8cb3d1c905f1f6075618f1ef69610">2 - </h1>
+	<h1 id="pg-70bd61b668f9851ca915d18ad89e6db6">2.1.2 - Owned dns</h1>
     
-	<h1 id="print-9fa054b557a948ef8431020aa21c7f40-owned-dns-specification">owned-dns Specification<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-owned-dns-specification" aria-label="Heading self-link"></a></h1><h2 id="print-9fa054b557a948ef8431020aa21c7f40-purpose">Purpose<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-purpose" aria-label="Heading self-link"></a></h2><p>Define Forgejo Actions runner DNS management through the owner&rsquo;s <code>tf_setup</code> root,
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-3bb8cb3d1c905f1f6075618f1ef69610">2.1.2.1 - owned-dns Specification</h1>
+    
+	<span id="print-9fa054b557a948ef8431020aa21c7f40-owned-dns-specification"></span><h2 id="print-9fa054b557a948ef8431020aa21c7f40-purpose">Purpose<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-purpose" aria-label="Heading self-link"></a></h2><p>Define Forgejo Actions runner DNS management through the owner&rsquo;s <code>tf_setup</code> root,
 including canonical declarations, scoped execution, adoption of existing records,
 and offline source checks.</p>
 <h2 id="print-9fa054b557a948ef8431020aa21c7f40-requirements">Requirements<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-9fa054b557a948ef8431020aa21c7f40-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf_setup</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through
@@ -401,30 +610,13 @@ not authenticate to Vault or contact DNS providers.</p>
     
 	
   
-    
+
     
 	
-    
+  
 
-<div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f066b695c0dd6eed475cb0158d9cb746">3 - Ansible</h1>
-    <div class="lead">Forgejo runner configuration</div>
 	
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
   
 
     
@@ -437,7 +629,7 @@ not authenticate to Vault or contact DNS providers.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f9ffc9e12b9f5551f238d6b09bbc9cc1">4 - Terraform setup</h1>
+	<h1 id="pg-f9ffc9e12b9f5551f238d6b09bbc9cc1">3 - Terraform setup</h1>
     <div class="lead">Forgejo runner VM</div>
 	<p>Use this package&rsquo;s <code>dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> targets for the
 <a href="/docs/infra/dns/">scoped DNS adoption workflow</a>.</p>
@@ -496,6 +688,7 @@ service health.</p>
     <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
 
   </body>
 </html>
