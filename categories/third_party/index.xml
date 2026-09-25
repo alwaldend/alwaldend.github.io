@@ -278,6 +278,13 @@
 				<description>&lt;p&gt;This package supplies the Linux x86-64 build of&#xA;&lt;a href=&#34;https://github.com/go-acme/lego/releases/tag/v5.4.1&#34;&gt;Lego 5.4.1&lt;/a&gt;, licensed under&#xA;MIT. Its archive checksum matches both the publisher&amp;rsquo;s release checksum file&#xA;and GitHub release asset metadata. The binary is packaged by the XCP-ng&#xA;Ansible workflow; no package manager or lifecycle download runs on the host.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;code&gt;binary_toolchain.json&lt;/code&gt; file owns the immutable version and integrity pin.&lt;/p&gt;</description>
 			</item>
 			<item>
+				<title>Mermaid dependency patch</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_mermaid_js_mermaid/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_mermaid_js_mermaid/</guid>
+				<description>&lt;p&gt;The JavaScript manifest and lock in &lt;code&gt;tools/&lt;/code&gt; pin the Mermaid dependency graph.&#xA;&lt;code&gt;tools/js/include.MODULE.bazel&lt;/code&gt; applies &lt;code&gt;edge-spacing.patch&lt;/code&gt; to Mermaid 11.17.2&#xA;through &lt;code&gt;npm_translate_lock&lt;/code&gt;. No version or downloaded package is duplicated here.&lt;/p&gt;&#xA;&lt;p&gt;The patch forwards &lt;code&gt;flowchart.edgeSpacing&lt;/code&gt; to Dagre&amp;rsquo;s &lt;code&gt;edgesep&lt;/code&gt; option, including&#xA;recursively rendered subgraphs. Dagre uses that separation for edge placeholders&#xA;and nested container borders. Unconfigured consumers retain the default 20;&#xA;historical blog rendering must remain byte-identical.&lt;/p&gt;&#xA;&lt;p&gt;It patches the non-minified ESM Dagre module loaded by Mermaid CLI&amp;rsquo;s&#xA;&lt;code&gt;mermaid.esm.mjs&lt;/code&gt; entry point. Other distribution formats are not extended.&#xA;Reconcile the patch and rerun the site browser and blog freshness tests on a&#xA;Mermaid upgrade. Remove it when upstream exposes this spacing option.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>Minisign</title>
 				<link>https://alwaldend.com/docs/third_party/com_github_jedisct1_minisign/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

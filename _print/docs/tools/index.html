@@ -45,14 +45,14 @@
 
 	<meta itemprop="name" content="Tools">
 	<meta itemprop="description" content="Tools tree">
-	<meta itemprop="dateModified" content="2026-09-24T00:17:33+03:00">
+	<meta itemprop="dateModified" content="2026-09-25T08:46:55+03:00">
 	<meta itemprop="wordCount" content="200">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Tools">
 	<meta name="twitter:description" content="Tools tree">
-<link rel="preload" href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" as="style" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
-<link href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" rel="stylesheet" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.d06534881c16bca07bda98c19394cc9746749390f55deea07cc17adbee58bda0.css" as="style" integrity="sha256-0GU0iBwWvKB72pjBk5TMl0Z0k5D1Xe6gfMF62&#43;5YvaA=" crossorigin="anonymous">
+<link href="/scss/main.min.d06534881c16bca07bda98c19394cc9746749390f55deea07cc17adbee58bda0.css" rel="stylesheet" integrity="sha256-0GU0iBwWvKB72pjBk5TMl0Z0k5D1Xe6gfMF62&#43;5YvaA=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec74568dd22c53d1312543116c075635.json"
+    data-offline-search-index-json-src="/offline-search-index.1a788f745b482059bcdba9e2f7639055.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -8718,10 +8718,10 @@ forces every node into a rounded outline.</p>
 <p>The <code>mermaid_svg</code> rule and the <code>mmdc</code> target both apply the theme by default.
 A diagram can override any part of it with its own Mermaid directive, which
 Mermaid merges over the file config:</p>
-<pre class="mermaid">%%{init: {&#34;look&#34;: &#34;classic&#34;}}%%
-flowchart LR
-    a[Square] --&gt; b(Rounded)</pre>
-<p>Node label paragraphs have <code>2px</code> of horizontal padding. The pinned handwriting
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">%%{init: {&#34;look&#34;: &#34;classic&#34;}}%%
+</span></span><span class="line"><span class="cl">flowchart LR
+</span></span><span class="line"><span class="cl">    a[Square] --&gt; b(Rounded)
+</span></span></code></pre></div><p>Node label paragraphs have <code>2px</code> of horizontal padding. The pinned handwriting
 font can paint beyond a string&rsquo;s measured advance: <code>openai.com</code> measures 78px
 but its final glyph reaches 79px. Mermaid clips HTML labels to their measured
 <code>foreignObject</code>, so the padding reserves room for that overhang before layout.
@@ -8864,6 +8864,27 @@ repository theme, as the blog post on this work does:</p>
 </span></span></code></pre></div><p>This is a comparison input, not a second appearance the repository maintains. It
 exists so a before-and-after pair renders from one source through the same
 pipeline; a diagram&rsquo;s own look still comes from <code>theme.json</code>.</p>
+<h2 id="print-08fd18d17e3d2debecdc29888874e2f4-native-site-diagrams">Native site diagrams<a class="td-heading-self-link" href="#print-08fd18d17e3d2debecdc29888874e2f4-native-site-diagrams" aria-label="Heading self-link"></a></h2><p>The main site&rsquo;s <code>mermaid_site_svg</code> macro lives in
+<a href="../../projects/alwaldend.com/pkg/mermaid/defs.bzl"><code>projects/alwaldend.com/pkg/mermaid/defs.bzl</code></a>.
+It selects <code>mermaid_svg(native = True)</code> with the site&rsquo;s own configuration,
+compiled palette, and pinned Liberation Sans font. It does not inherit the
+historical theme or actor decoration. Its own preset restores rounded caption
+plates using Mermaid&rsquo;s <code>themeCSS</code> and flowchart settings. The site&rsquo;s compact
+preset uses basis curves and <code>flowchart.edgeSpacing</code>; the
+<a href="/docs/third_party/com_github_mermaid_js_mermaid/">pinned dependency patch</a>
+passes the latter through to Dagre before layout, including nested subgraphs.</p>
+<p>Native mode requires a <code>palette</code> CSS input and <code>dark_out</code> SVG output. The
+stylesheet exposes <code>--mermaid-*</code> custom properties named after Mermaid theme
+variables. Chrome resolves them in light and dark media, and the renderer
+passes the resulting values to Mermaid&rsquo;s native configuration and exposes the
+same <code>--mermaid-*</code> properties on its diagram root for input <code>themeCSS</code>. Font embedding
+uses the CLI&rsquo;s CSS input. The returned SVG bytes are written directly: there
+is no color rewriting, paint-order change, or stylesheet insertion afterwards.</p>
+<p>Both outputs are packaged beside each other. The site selects the <code>.dark.svg</code>
+sibling using its existing theme attribute and always prints the light image.
+A diagram used by documentation and a historical blog post can expose both
+render targets from one authoritative <code>.mmd</code> source. Blog consumers keep their
+original <code>mermaid_svg</code> target and its existing appearance.</p>
 <h2 id="print-08fd18d17e3d2debecdc29888874e2f4-tests">Tests<a class="td-heading-self-link" href="#print-08fd18d17e3d2debecdc29888874e2f4-tests" aria-label="Heading self-link"></a></h2><p><code>test/renderer/renderer_test.go</code> renders fixture diagrams through the
 <code>mermaid_svg</code> rule and asserts the contract of the theme: the documentation
 palette and hand-drawn node class survive, the built-in lavender colors do not,

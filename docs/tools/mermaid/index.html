@@ -45,14 +45,14 @@
 
 	<meta itemprop="name" content="Mermaid">
 	<meta itemprop="description" content="Bazel-managed Mermaid diagram renderer">
-	<meta itemprop="dateModified" content="2026-09-24T00:17:33+03:00">
-	<meta itemprop="wordCount" content="2200">
+	<meta itemprop="dateModified" content="2026-09-25T08:46:55+03:00">
+	<meta itemprop="wordCount" content="2408">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Mermaid">
 	<meta name="twitter:description" content="Bazel-managed Mermaid diagram renderer">
-<link rel="preload" href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" as="style" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
-<link href="/scss/main.min.8ee7cc8df8f36a211961ae01baca1d181adc6e5fc395ef09eb78787f02ad0ab5.css" rel="stylesheet" integrity="sha256-jufMjfjzaiEZYa4BusodGBrcbl/Dle8J63h4fwKtCrU=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.d06534881c16bca07bda98c19394cc9746749390f55deea07cc17adbee58bda0.css" as="style" integrity="sha256-0GU0iBwWvKB72pjBk5TMl0Z0k5D1Xe6gfMF62&#43;5YvaA=" crossorigin="anonymous">
+<link href="/scss/main.min.d06534881c16bca07bda98c19394cc9746749390f55deea07cc17adbee58bda0.css" rel="stylesheet" integrity="sha256-0GU0iBwWvKB72pjBk5TMl0Z0k5D1Xe6gfMF62&#43;5YvaA=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec74568dd22c53d1312543116c075635.json"
+    data-offline-search-index-json-src="/offline-search-index.1a788f745b482059bcdba9e2f7639055.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -171,7 +171,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec74568dd22c53d1312543116c075635.json"
+    data-offline-search-index-json-src="/offline-search-index.1a788f745b482059bcdba9e2f7639055.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -3553,6 +3553,10 @@
     <input type="checkbox" id="m-docsthird_partycom_github_go_acme_lego_bin-check"/>
     <label for="m-docsthird_partycom_github_go_acme_lego_bin-check"><a href="/docs/third_party/com_github_go_acme_lego_bin/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsthird_partycom_github_go_acme_lego_bin"><span class="">Lego ACME client</span></a></label>
     
+  </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsthird_partycom_github_mermaid_js_mermaid-li">
+    <input type="checkbox" id="m-docsthird_partycom_github_mermaid_js_mermaid-check"/>
+    <label for="m-docsthird_partycom_github_mermaid_js_mermaid-check"><a href="/docs/third_party/com_github_mermaid_js_mermaid/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsthird_partycom_github_mermaid_js_mermaid"><span class="">Mermaid dependency patch</span></a></label>
+    
   </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsthird_partycom_github_jedisct1_minisign-li">
     <input type="checkbox" id="m-docsthird_partycom_github_jedisct1_minisign-check"/>
     <label for="m-docsthird_partycom_github_jedisct1_minisign-check"><a href="/docs/third_party/com_github_jedisct1_minisign/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsthird_partycom_github_jedisct1_minisign"><span class="">Minisign</span></a></label>
@@ -3786,6 +3790,7 @@
     <li><a href="#branching-edges">Branching edges</a></li>
     <li><a href="#layout-width">Layout width</a></li>
     <li><a href="#plain-renders">Plain renders</a></li>
+    <li><a href="#native-site-diagrams">Native site diagrams</a></li>
     <li><a href="#tests">Tests</a></li>
     <li><a href="#hermetic-rendering">Hermetic rendering</a></li>
   </ul>
@@ -3799,7 +3804,7 @@
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/infra/" data-taxonomy-term="infra"><span class="taxonomy-label">Infra</span><span class="taxonomy-count">148</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/misc/" data-taxonomy-term="misc"><span class="taxonomy-label">Misc</span><span class="taxonomy-count">22</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/project/" data-taxonomy-term="project"><span class="taxonomy-label">Project</span><span class="taxonomy-count">189</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/categories/third_party/" data-taxonomy-term="third_party"><span class="taxonomy-label">Third_party</span><span class="taxonomy-count">68</span></a></li>
+        <li><a class="taxonomy-term" href="https://alwaldend.com/categories/third_party/" data-taxonomy-term="third_party"><span class="taxonomy-label">Third_party</span><span class="taxonomy-count">69</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/tool/" data-taxonomy-term="tool"><span class="taxonomy-label">Tool</span><span class="taxonomy-count">257</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/user/" data-taxonomy-term="user"><span class="taxonomy-label">User</span><span class="taxonomy-count">13</span></a></li>
         </ul>
@@ -4010,10 +4015,10 @@ forces every node into a rounded outline.</p>
 <p>The <code>mermaid_svg</code> rule and the <code>mmdc</code> target both apply the theme by default.
 A diagram can override any part of it with its own Mermaid directive, which
 Mermaid merges over the file config:</p>
-<pre class="mermaid">%%{init: {&#34;look&#34;: &#34;classic&#34;}}%%
-flowchart LR
-    a[Square] --&gt; b(Rounded)</pre>
-<p>Node label paragraphs have <code>2px</code> of horizontal padding. The pinned handwriting
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">%%{init: {&#34;look&#34;: &#34;classic&#34;}}%%
+</span></span><span class="line"><span class="cl">flowchart LR
+</span></span><span class="line"><span class="cl">    a[Square] --&gt; b(Rounded)
+</span></span></code></pre></div><p>Node label paragraphs have <code>2px</code> of horizontal padding. The pinned handwriting
 font can paint beyond a string&rsquo;s measured advance: <code>openai.com</code> measures 78px
 but its final glyph reaches 79px. Mermaid clips HTML labels to their measured
 <code>foreignObject</code>, so the padding reserves room for that overhang before layout.
@@ -4156,6 +4161,27 @@ repository theme, as the blog post on this work does:</p>
 </span></span></code></pre></div><p>This is a comparison input, not a second appearance the repository maintains. It
 exists so a before-and-after pair renders from one source through the same
 pipeline; a diagram&rsquo;s own look still comes from <code>theme.json</code>.</p>
+<h2 id="native-site-diagrams">Native site diagrams<a class="td-heading-self-link" href="#native-site-diagrams" aria-label="Heading self-link"></a></h2><p>The main site&rsquo;s <code>mermaid_site_svg</code> macro lives in
+<a href="../../projects/alwaldend.com/pkg/mermaid/defs.bzl"><code>projects/alwaldend.com/pkg/mermaid/defs.bzl</code></a>.
+It selects <code>mermaid_svg(native = True)</code> with the site&rsquo;s own configuration,
+compiled palette, and pinned Liberation Sans font. It does not inherit the
+historical theme or actor decoration. Its own preset restores rounded caption
+plates using Mermaid&rsquo;s <code>themeCSS</code> and flowchart settings. The site&rsquo;s compact
+preset uses basis curves and <code>flowchart.edgeSpacing</code>; the
+<a href="/docs/third_party/com_github_mermaid_js_mermaid/">pinned dependency patch</a>
+passes the latter through to Dagre before layout, including nested subgraphs.</p>
+<p>Native mode requires a <code>palette</code> CSS input and <code>dark_out</code> SVG output. The
+stylesheet exposes <code>--mermaid-*</code> custom properties named after Mermaid theme
+variables. Chrome resolves them in light and dark media, and the renderer
+passes the resulting values to Mermaid&rsquo;s native configuration and exposes the
+same <code>--mermaid-*</code> properties on its diagram root for input <code>themeCSS</code>. Font embedding
+uses the CLI&rsquo;s CSS input. The returned SVG bytes are written directly: there
+is no color rewriting, paint-order change, or stylesheet insertion afterwards.</p>
+<p>Both outputs are packaged beside each other. The site selects the <code>.dark.svg</code>
+sibling using its existing theme attribute and always prints the light image.
+A diagram used by documentation and a historical blog post can expose both
+render targets from one authoritative <code>.mmd</code> source. Blog consumers keep their
+original <code>mermaid_svg</code> target and its existing appearance.</p>
 <h2 id="tests">Tests<a class="td-heading-self-link" href="#tests" aria-label="Heading self-link"></a></h2><p><code>test/renderer/renderer_test.go</code> renders fixture diagrams through the
 <code>mermaid_svg</code> rule and asserts the contract of the theme: the documentation
 palette and hand-drawn node class survive, the built-in lavender colors do not,
@@ -4231,63 +4257,7 @@ The <code>.mmd</code> remains the authoritative diagram source in both cases.</p
   </div>
 </footer>
     </div>
-    <script type="module" async>
-  import mermaid from "https:\/\/cdn.jsdelivr.net\/npm\/mermaid@11.17.0\/dist\/mermaid.esm.min.mjs";
-
-  (function ($) {
-    if ($('.mermaid').length == 0) {
-      mermaid.initialize({ startOnLoad: false });
-      return;
-    }
-
-    var params = {"version":"11.17.0"};
-
-    
-    
-    var norm = function (defaultConfig, params) {
-      var result = {};
-      for (const key in defaultConfig) {
-        const keyLower = key.toLowerCase();
-        if (defaultConfig.hasOwnProperty(key) && params.hasOwnProperty(keyLower)) {
-          if (typeof defaultConfig[key] === "object") {
-            result[key] = norm(defaultConfig[key], params[keyLower]);
-          } else {
-            result[key] = params[keyLower];
-          }
-        }
-      }
-      return result;
-    };
-
-    var settings = norm(mermaid.mermaidAPI.defaultConfig, params);
-    settings.startOnLoad = true;
-    if ($('html[data-bs-theme="dark"]').length) {
-      settings.theme = 'dark';
-    }
-    mermaid.initialize(settings);
-
-    
-    const lightDarkModeThemeChangeHandler = function (mutationsList, observer) {
-      for (const mutation of mutationsList) {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'data-bs-theme') {
-          
-          
-          
-          location.reload();
-        }
-      }
-    };
-
-    const observer = new MutationObserver(lightDarkModeThemeChangeHandler);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-bs-theme']
-    });
-    
-
-  })(jQuery);
-</script>
-<script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
+    <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
 <script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
 <script src='/js/tabpane-persist.js'></script>
 <script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
