@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Proto">
 	<meta itemprop="description" content="Protobuf contracts">
-	<meta itemprop="dateModified" content="2026-09-25T08:46:55+03:00">
+	<meta itemprop="dateModified" content="2026-10-02T00:23:20+03:00">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Proto">
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.1a788f745b482059bcdba9e2f7639055.json"
+    data-offline-search-index-json-src="/offline-search-index.2f72bc8877a5150d7f3035a0da9b1703.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -305,6 +305,18 @@ This is the multi-page printable view of this section.
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">ReleaseDeployment</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="n">ReleaseDeploymentOci</span> <span class="n">oci</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ReleaseDeploymentSsh</span> <span class="n">ssh</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">ReleaseDeploymentSsh</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">environment</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">host</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">user</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">root</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">project</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">site_archive</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">publish_user</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">public_url</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">Release</span> <span class="p">{</span>

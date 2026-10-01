@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>X article uploader build on Alwaldend</title>
+		<link>https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/x-article-uploader-build/</link>
+		<description>Recent content in X article uploader build on Alwaldend</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<atom:link href="https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/x-article-uploader-build/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>x-article-uploader-build Specification</title>
+				<link>https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/x-article-uploader-build/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/x-article-uploader-build/spec/</guid>
+				<description>&lt;span id=&#34;x-article-uploader-build-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Build the X Article uploader from pinned, hermetic inputs so conversion and its&#xA;tests run reproducibly in the repository&amp;rsquo;s Bazel workflow without network access&#xA;or credentials.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-bazel-targets-for-the-uploader&#34;&gt;Requirement: Bazel targets for the uploader&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-bazel-targets-for-the-uploader&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The project SHALL expose Bazel targets for its converter library, its&#xA;conversion command, and its draft-creation command, with tests declared beside&#xA;the sources they cover. Targets MUST follow the repository&amp;rsquo;s role-based source&#xA;layout using &lt;code&gt;internal/&lt;/code&gt; for implementation and &lt;code&gt;cmd/&lt;/code&gt; for entry points.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

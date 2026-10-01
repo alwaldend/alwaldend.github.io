@@ -1,0 +1,697 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js" data-theme-init>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#000000">
+
+<style>
+  html { background: Canvas; color: CanvasText; }
+  @media (prefers-color-scheme: dark) {
+    html { background: #0b0d12; color: #e6e6e6; }
+  }
+  html[data-theme-init] * { transition: none !important; }
+</style>
+
+<script>
+  (function() {
+    const themeKey = 'td-color-theme';
+    const storedTheme = localStorage.getItem(themeKey);
+    let theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    if (theme === 'auto') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  })();
+</script>
+<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/infra/download/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/infra/download/index.xml">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" sizes="any" href="/icons/favicon.846429df84fbe4763a8f707e5373b0ab1ec9987218da2237106ab713ed7ff972.svg">
+
+<title>Download | Alwaldend</title>
+<meta name="description" content="Public static files and websites on XCP-ng and Yandex Cloud">
+<meta property="og:url" content="https://alwaldend.com/docs/infra/download/">
+	<meta property="og:site_name" content="Alwaldend">
+	<meta property="og:title" content="Download">
+	<meta property="og:description" content="Public static files and websites on XCP-ng and Yandex Cloud">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="Download">
+	<meta itemprop="description" content="Public static files and websites on XCP-ng and Yandex Cloud">
+	<meta itemprop="dateModified" content="2026-10-02T00:23:20+03:00">
+	<meta itemprop="wordCount" content="1186">
+	<meta itemprop="keywords" content="Infra">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Download">
+	<meta name="twitter:description" content="Public static files and websites on XCP-ng and Yandex Cloud">
+<link rel="preload" href="/scss/main.min.d06534881c16bca07bda98c19394cc9746749390f55deea07cc17adbee58bda0.css" as="style" integrity="sha256-0GU0iBwWvKB72pjBk5TMl0Z0k5D1Xe6gfMF62&#43;5YvaA=" crossorigin="anonymous">
+<link href="/scss/main.min.d06534881c16bca07bda98c19394cc9746749390f55deea07cc17adbee58bda0.css" rel="stylesheet" integrity="sha256-0GU0iBwWvKB72pjBk5TMl0Z0k5D1Xe6gfMF62&#43;5YvaA=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll">
+<div class="td-navbar-container container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Alwaldend</span></a>
+  <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
+    <div class="scroll-indicator scroll-left"></div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/"><span>Projects</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Docs</span></a>
+      </li>
+      <li class="nav-item td-navbar__light-dark-menu">
+        <div class="td-light-dark-menu dropdown"><svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check2" viewBox="0 0 16 16">
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+  <symbol id="circle-half" viewBox="0 0 16 16">
+    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+  </symbol>
+  <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+  </symbol>
+  <symbol id="sun-fill" viewBox="0 0 16 16">
+    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+  </symbol>
+</svg>
+<button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        title="Toggle theme (Auto)"
+        aria-label="Toggle theme (Auto)">
+  <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+  <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+</button>
+<ul class="dropdown-menu" aria-labelledby="bd-theme">
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#sun-fill"></use></svg>
+      Light
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#moon-stars-fill"></use></svg>
+      Dark
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+      <svg class="bi me-2 opacity-50"><use href="#circle-half"></use></svg>
+      Auto
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+</ul>
+</div>
+
+      </li>
+      </ul>
+    <div class="scroll-indicator scroll-right"></div>
+  </div>
+  <div class="td-navbar__search d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon" aria-hidden="true"></div>
+  <input
+    type="search"
+    name="q"
+    class="td-search__input form-control"
+    placeholder='Search this site…'
+    aria-label='Search this site…'
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.2f72bc8877a5150d7f3035a0da9b1703.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/infra/download/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Download</h1>
+<div class="lead">Public static files and websites on XCP-ng and Yandex Cloud</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-0d440f28260f447b5de29af295c4a728">Download DNS</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-8621bfee504865114de35893ac61f6ff">Host configuration</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-a4e4b4bab5c8d5d40e4398639a8cf375">XCP-ng</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-a9e2df2b0cf2cec5c2ffe62753521e56">Yandex Cloud</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p><img src="/docs/infra/download/assets/architecture.svg" alt="Static hosting architecture" loading="lazy"></p>
+<p>One VM per environment runs the shared Traefik service in front of native
+Nginx. Clients connect directly on ports 80/443; Nginx listens only on
+<code>127.0.0.1:8008</code>. Public DNS selects Yandex and dc1 DNS selects XCP-ng.
+These are independent stores with no replication, failover, or backups.</p>
+<h2 id="print-8300bb851b78c38e4301ec15a2927e25-content-and-publication">Content and publication<a class="td-heading-self-link" href="#print-8300bb851b78c38e4301ec15a2927e25-content-and-publication" aria-label="Heading self-link"></a></h2><p>Each VM has a 100 GiB Btrfs content disk mounted at <code>/srv/download</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">projects/&lt;project&gt;/releases/&lt;version&gt;/&lt;uploaded files&gt;
+</span></span><span class="line"><span class="cl">sites/alwaldend.com/releases/&lt;version&gt;/&lt;extracted website&gt;
+</span></span><span class="line"><span class="cl">sites/alwaldend.com/current -&gt; releases/&lt;version&gt;
+</span></span><span class="line"><span class="cl">staging/
+</span></span><span class="line"><span class="cl">state/
+</span></span></code></pre></div><p><code>download.alwaldend.com/projects/</code> returns JSON directory listings and serves
+file bytes, including website archives. <code>alwaldend.com</code> serves the selected
+extracted website. <code>www.alwaldend.com</code> redirects permanently to the apex,
+preserving the path and query. Staging and service state have no public route.
+Directory listings never use a release&rsquo;s <code>index.html</code> as an index page.</p>
+<p>The <code>download</code> account owns content and staging; Ansible does not configure
+its <code>authorized_keys</code>. Administrators use existing SSH access and sudo to run
+publication as this account. The host role installs rsync. Nginx reads content
+and cannot write it. Ansible never publishes or selects a release.</p>
+<p>The release tool and component publishing targets are delivered in
+<a href="https://github.com/alwaldend/src/pull/113">PR #113</a>, independently against
+<code>master</code>. Their commands and transfer behavior belong
+to the <a href="/docs/tools/release/">release tool documentation</a>. The
+<a href="../../projects/alwaldend.com/openspec/changes/add-download-browser-and-ssh-hosting/proposal.md">website browser change</a>
+also remains separate implementation work.</p>
+<h2 id="print-8300bb851b78c38e4301ec15a2927e25-deduplication">Deduplication<a class="td-heading-self-link" href="#print-8300bb851b78c38e4301ec15a2927e25-deduplication" aria-label="Heading self-link"></a></h2><p>A daily <code>download-deduplicate.timer</code> runs <code>duperemove</code> over <code>projects/</code> and
+<code>sites/</code> on each VM. It shares identical extents while retaining independent
+files, paths, permissions, and copy-on-write behavior. Repeated website assets
+can share storage; separately compressed archives may have fewer identical
+extents. Savings are workload-dependent and stay within each environment.</p>
+<p>A private hash database under <code>state/deduplication/</code> makes subsequent runs
+incremental. Staging, ACME state, and the database are outside the scan roots.
+The job runs with one I/O and one CPU thread, idle I/O priority, a half-core
+CPU limit, and a 512 MiB memory limit. Systemd serializes runs; the timer makes
+up a missed run after downtime. The service requires the content mount.</p>
+<p>The job never deletes or activates releases. Its result is available through
+<code>systemctl status download-deduplicate.service</code> and the service journal.
+<code>btrfs filesystem du</code> reports shared/exclusive allocation; ordinary file sizes
+and download responses remain their logical sizes. The declared filesystem
+setup does not force formatting over an existing filesystem.</p>
+<h2 id="print-8300bb851b78c38e4301ec15a2927e25-infrastructure-ownership">Infrastructure ownership<a class="td-heading-self-link" href="#print-8300bb851b78c38e4301ec15a2927e25-infrastructure-ownership" aria-label="Heading self-link"></a></h2><p>Terraform provisioning, provider assignments, and DNS declarations are merged
+through <a href="https://github.com/alwaldend/src/pull/108">PR #108</a>. Host configuration
+connects by unique inventory FQDNs and needs no packaged DNS inputs. The shared
+AL configuration selects provisioning or host credentials by stage. DNS
+snapshots are regenerated only on manual request.</p>
+<p><code>local</code>, <code>yandex</code>, and <code>dns</code> are separate Terraform roots directly under this
+project. Their separate state keys are
+<code>alwaldend.com/vault1/approles/src_infra_download/tf_backend/&lt;stage&gt;</code>.
+Selecting one root cannot plan deletion of another root&rsquo;s resources, and no
+root reads another root&rsquo;s complete Terraform state.</p>
+<ul>
+<li><code>local</code> owns the XCP-ng VM and two disks. <code>prevent_destroy</code> blocks
+VM replacement because the pinned provider cannot retain and reattach its
+data disk separately. Replacement needs a future reviewed storage workflow.</li>
+<li><code>yandex</code> owns the cloud VM, network, firewall, reserved public
+address, retained content disk, and its Yandex DNS zone and host record.
+VM replacement reuses the content disk and reserved address.</li>
+<li><code>dns</code> owns only this component&rsquo;s Cloudflare/RouterOS aliases and
+delegation. Each stage has its own Vault HTTP state key.</li>
+<li><code>infra/dns</code> retains apex, mail, and <code>www</code> ownership. Its public apex follows
+<code>download.alwaldend.com</code>; that stable service name follows the component&rsquo;s
+Yandex host. Its local apex A record is the canonical VM address consumed by
+Terraform. The unique local host CNAME and download alias follow that local
+apex. Endpoint changes therefore have one maintained input per environment.
+Ansible connects by inventory FQDN, without parsing DNS source.
+Old Pages A/AAAA records are removed through staged owner cutovers;
+unrelated mail and staging records remain.</li>
+<li><code>ansible</code> mounts storage, configures SSH and service access, labels static
+content for SELinux, and deploys the shared Traefik and Nginx roles.</li>
+</ul>
+<p>The local address <code>192.168.10.66</code> is unclaimed in checked-in DNS declarations;
+confirm its availability and the named XCP-ng template/resource-set inventory
+before deployment. The cloud image defaults to the immutable Fedora 43 image
+already used by <code>infra/threexui</code>; local provisioning uses Fedora 44.</p>
+<h2 id="print-8300bb851b78c38e4301ec15a2927e25-credentials-and-bootstrap">Credentials and bootstrap<a class="td-heading-self-link" href="#print-8300bb851b78c38e4301ec15a2927e25-credentials-and-bootstrap" aria-label="Heading self-link"></a></h2><p>The merged <code>infra/vault/approles/src_infra_download</code> root owns the component
+identity. Its applied identity and core memberships are documented by the
+Vault owner. <code>infra/xcp_ng/tf</code> owns the XO resource-set assignment;
+<code>infra/yandex_cloud/org1/tf</code> owns the folder and its standard folder-scoped
+<code>admin</code> service account.
+AL selects only the chosen stage&rsquo;s provider credentials and state backend.</p>
+<p>AL reads the existing Cloudflare/RouterOS credentials for DNS provisioning,
+and the component Yandex account from Vault. Traefik uses
+HTTP-01 in both environments: Let&rsquo;s Encrypt on Yandex, and the existing Vault
+ACME service with role-scoped EAB on XCP-ng. The component&rsquo;s Vault PKI role
+permits only the apex, download, and <code>www</code> names. Local clients must trust the
+repository CA; neither environment requires a client certificate or login.
+Traefik configuration and private ACME state stay on the system disk under
+<code>/opt/traefik</code>, independent of the content mount. DNS provider credentials
+are not installed on either host.</p>
+<p>The shared host role installs the CA needed to reach Vault. Each inventory key
+is the unique host FQDN used for connection and SSH host-key checks. The
+shared SSH role includes <code>inventory_hostname</code> when signing keys; no host-key
+alias or address override is needed.</p>
+<h2 id="print-8300bb851b78c38e4301ec15a2927e25-deployment-sequence">Deployment sequence<a class="td-heading-self-link" href="#print-8300bb851b78c38e4301ec15a2927e25-deployment-sequence" aria-label="Heading self-link"></a></h2><p>The following are operator entry points, not evidence of a deployed service.
+Confirm the local address, named XO inventory, template disk/interface
+layout, and cloud image before deployment. Each live operation requires its
+own approved scope.</p>
+<ol>
+<li>
+<p>Complete the Vault prerequisite and ensure the existing XO OIDC service is
+configured through its <a href="/docs/infra/xcp_ng/tf/">owner</a>. Obtain explicit
+authorization for the first-login bootstrap of <code>src_infra_download</code>:
+it creates the external XO identity/groups. Run the existing
+<a href="../xcp_ng/cmd/xo_login/README.md">bootstrap target</a> and record its result:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">XO_BOOTSTRAP_APPROLE</span><span class="o">=</span>src_infra_download bazel_agent bazel run //infra/xcp_ng/cmd/xo_login:bootstrap
+</span></span></code></pre></div></li>
+<li>
+<p>After that login, review/apply the XO resource-set assignment through
+<code>infra/xcp_ng/tf</code> to reconcile the identity&rsquo;s bindings in IaC. Confirm the
+AppRole is absent from <code>approles_pending_oidc_login</code> and its resource set
+has the intended subject before planning the local VM. Review/apply the
+Yandex folder assignment through <code>infra/yandex_cloud/org1/tf</code> as well.</p>
+</li>
+<li>
+<p>Review and apply <code>//infra/download/local:tf.plan</code>/<code>tf.apply</code> and
+<code>//infra/download/yandex:tf.plan</code>/<code>tf.apply</code> independently.</p>
+</li>
+<li>
+<p>Prepare the dc1 apex A record through <code>infra/dns/tf</code> while preserving
+public Pages records, following the <a href="/docs/infra/download/dns/#local-dns-preparation">local DNS procedure</a>.
+Apply <code>//infra/download/dns:tf.plan</code>/<code>tf.apply</code> to establish cloud delegation
+and host/service aliases. Verify both inventory FQDNs before Ansible. The
+local website is in maintenance until host configuration and publication.</p>
+</li>
+<li>
+<p>Run <code>//infra/download/ansible:ansible.local</code> or <code>:ansible.yandex</code>. There
+is deliberately no unqualified command that configures both environments.
+Bootstrap host-key trust through the existing SSH procedure before the
+first connection; subsequent host certificates use the component role.</p>
+</li>
+<li>
+<p>Publish the site content and verify HTTP routing with address overrides.
+Follow the <a href="/docs/infra/download/dns/#staged-public-apex-cutover">two-phase apex cutover</a>
+through <code>//infra/dns/tf:tf.plan</code>/<code>tf.apply</code>.
+HTTP-01 requires public DNS/port 80 to reach Yandex and Vault&rsquo;s DNS view/port
+80 to reach XCP-ng before either issuer can validate the three names.</p>
+</li>
+<li>
+<p>Exercise Let&rsquo;s Encrypt staging with an explicit directory override and
+separate ACME storage, then select production; test Vault issuance locally.
+This sequence has a certificate-bootstrap interval after DNS cutover.
+Verify both trust chains, renewal, <code>www</code> redirects, downloads, and reboot
+persistence. Keep the previous deployment available for a reviewed recovery.</p>
+</li>
+</ol>
+<p>Use <code>bazel_agent bazel run &lt;target&gt;</code> for these commands. Provider credentials
+and backend state are injected by AL; no host-installed Terraform or Ansible
+is required. See the <a href="openspec/changes/add-static-hosting/acceptance.md">acceptance matrix</a>
+for isolated checks and the remaining live acceptance cases.
+<a href="openspec/changes/add-static-hosting/terraform-evidence.md">Provisioning evidence</a>
+retains the Terraform validation and review history.</p>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0d440f28260f447b5de29af295c4a728">1 - Download DNS</h1>
+    <div class="lead">Cloudflare and RouterOS aliases for static hosting</div>
+	<p>Owns the component&rsquo;s <code>dnsconfig.json</code> through the shared DNS module. Public
+download requests follow the delegated Yandex host. The local host CNAME
+follows the apex owner&rsquo;s canonical local A record. The apex and <code>www</code> keep
+their existing owner; DNS cutover is a separately reviewed live operation.</p>
+<p>This root selects only DNS credential injection and its own state backend.
+It does not authenticate with either VM provider or require either VM&rsquo;s state.</p>
+<h2 id="print-d4c62f63e73be2254f7cd5563d6ad99c-local-dns-preparation">Local DNS preparation<a class="td-heading-self-link" href="#print-d4c62f63e73be2254f7cd5563d6ad99c-local-dns-preparation" aria-label="Heading self-link"></a></h2><p>Before configuring the local host by its inventory FQDN, prepare and commit a
+reviewed intermediate <code>infra/dns/dnsconfig.json</code> revision that installs the
+final <code>download_dc1</code> A record in the dc1 view and removes the old dc1 Pages
+A/AAAA members. Keep the old public Pages A/AAAA records and all unrelated
+records unchanged; split prior <code>dsp: [&quot;all&quot;]</code> declarations by view as needed.
+Plan and apply that exact revision through <code>infra/dns/tf</code>, after separately
+authorizing this local DNS change. Review that only the intended dc1 apex
+records change and verify the local answer before continuing.</p>
+<p>Apply this component&rsquo;s aliases after that preparation, then confirm
+<code>host1.dc1.download.alwaldend.com</code> resolves to the address used by the VM.
+Ansible connects using that unique hostname. The local website is in a
+maintenance interval until host configuration and content publication finish;
+the public website continues using Pages during this local preparation.</p>
+<p>The local VM consumes the same apex A value from source. The host CNAME and
+local download alias follow it, so renumbering has one maintained address.
+The public apex follows <code>download.alwaldend.com</code>, which in turn follows the
+component-owned Yandex host. Renaming that host therefore requires no copied
+endpoint edit in the apex owner.</p>
+<h2 id="print-d4c62f63e73be2254f7cd5563d6ad99c-staged-public-apex-cutover">Staged public apex cutover<a class="td-heading-self-link" href="#print-d4c62f63e73be2254f7cd5563d6ad99c-staged-public-apex-cutover" aria-label="Heading self-link"></a></h2><p>The apex belongs to <code>infra/dns/tf</code>, separately from this component DNS root.
+Its old GitHub Pages A/AAAA records and the new public CNAME have different
+Terraform instance keys. Applying the final declaration directly can race
+CNAME creation against address-record deletion. Cloudflare rejects that
+coexistence; use two sequential, reviewed IaC revisions and saved plans.</p>
+<p>Before either phase, complete the DNS owner&rsquo;s
+<a href="/docs/infra/dns/#migration-and-recovery">adoption procedure</a>, verify both
+hosts and content using address overrides, configure certificate issuers, and
+authorize the apex cutover explicitly.
+Record the prior source revision and recovery plan. Schedule a maintenance
+window: the public apex has an intentional address gap between the phases,
+and resolver caches can extend that interval.</p>
+<ol>
+<li>Prepare and commit a reviewed intermediate <code>infra/dns/dnsconfig.json</code>
+revision with the old public apex A/AAAA members removed from the global view and
+<code>records.download_global</code> absent. Keep local records, <code>www</code>, mail, TXT,
+and unrelated records at their prior values. Through
+<code>//infra/dns/tf:tf.plan</code>, save and review a plan that deletes only the old
+public apex A/AAAA instances and creates no apex CNAME. Apply that exact
+saved plan through <code>//infra/dns/tf:tf.apply</code>. Verify completion and the
+authoritative Cloudflare inventory shows those A/AAAA records are gone.</li>
+<li>Only after phase 1 succeeds, select the reviewed final declaration from
+this change, including <code>records.download_global</code>. Create a fresh saved
+plan through the same owner; review the CNAME creation and intended local
+apex changes while preserving mail/TXT/<code>www</code> and unrelated records. Apply
+that plan, then verify authoritative records and both DNS views, website
+responses, and redirects.</li>
+</ol>
+<p>Keep all source/input files unchanged between each saved plan and its apply.
+If a phase fails, stop and inspect the actual record/state inventory before
+planning recovery. Restore the recorded prior declaration only through a
+reviewed owning-root plan; remove any conflicting CNAME first if returning
+to the old A/AAAA records. Never begin phase 2 based only on a planned deletion.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8621bfee504865114de35893ac61f6ff">2 - Host configuration</h1>
+    <div class="lead">Shared native Traefik and Nginx deployment</div>
+	<p>Build <code>:ansible_bin</code> to package the playbook and shared collection. The play
+uses <a href="/docs/projects/ansible_collection/roles/download_host/"><code>alwaldend.main.download_host</code></a>
+for storage, the publisher account, rsync, service setup, and deduplication.
+The role does not configure publisher authorized keys; administrators use their
+existing SSH access and run publication through sudo as <code>download</code>. Inventory,
+Vault injection, and routing templates belong to this deployment. Both inventories connect
+using their unique host FQDNs, with the same names for SSH host-key checks.
+Host DNS must resolve before configuration; no IP override or HostKeyAlias
+is configured. Run <code>:ansible.local</code> or <code>:ansible.yandex</code> only with explicit live
+authorization. Before configuring the host, Ansible requires the content path
+to resolve to a block device. The role creates the filesystem without forcing
+an overwrite and mounts it before enabling the services. The shared roles
+manage the service units. Traefik keeps its configuration and ACME data on the
+system disk at <code>/opt/traefik</code> and has no content-mount dependency. The role creates
+publication roots; publishers create individual project/site directories and
+select releases. It never uploads or selects releases.</p>
+<p><code>nginx_config_template</code> supplies the complete configuration to the reusable
+Nginx role. JSON listings allow credential-free cross-origin reads and normal
+HEAD/range downloads. Site requests follow the <code>current</code> link. Port 8008 is
+loopback-only and uses the Fedora SELinux HTTP port type. Public content has
+read-only HTTP labels; the SSH publisher needs readable file modes and must
+preserve those labels when activating staged content.</p>
+<p>Yandex uses Let&rsquo;s Encrypt HTTP-01 without EAB; XCP-ng uses the existing Vault
+HTTP-01 directory with EAB generated by the shared Traefik role. Local browsers
+need the repository CA. Neither host stores a DNS provider credential.</p>
+<p>For public ACME staging, override both <code>download_acme_directory</code> and
+<code>traefik_data_dir</code> (for example a separate <code>acme-staging</code> directory under the
+Traefik root). Switching back preserves separate staging/production accounts
+and prevents staging certificates from becoming the production selection.</p>
+<p>The content filesystem is Btrfs. The native <code>duperemove</code> package and daily
+systemd timer share duplicate extents across published files and extracted
+sites. Its private hash database lives outside both scan roots. The maintenance
+service waits for the mount and has bounded CPU/memory and low I/O priority;
+a failed run leaves the release layout and active website selection intact.</p>
+<p>The play forces notified handlers after later task failures. Successfully
+installed configuration therefore still triggers its pending handlers if a
+later task fails. Unreachable hosts can still prevent handler execution.
+Nginx configuration validation before installation is unchanged. See <a href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_error_handling.html#handlers-and-failure">Ansible&rsquo;s handler failure behavior</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a4e4b4bab5c8d5d40e4398639a8cf375">3 - XCP-ng</h1>
+    <div class="lead">Protected local static-hosting VM</div>
+	<p>Provisions one Fedora 44 VM in <code>src_infra_download</code>, using named inventory
+from the existing XCP-ng deployment: two CPUs, 2 GiB RAM, a 20 GiB boot disk,
+and a 100 GiB content disk. The local address comes from the apex DNS owner, whose local A record is
+also the target of the unique host CNAME.
+The cloud template must have one boot disk and the expected <code>enX0</code> interface;
+Ansible formats and mounts the second disk at <code>/srv/download</code> without force.</p>
+<p><code>prevent_destroy</code> rejects replacements and destruction because the pinned XO
+provider owns disks with the VM. There is no automatic retained-disk replacement
+workflow on XCP-ng. Do not remove that guard as a routine upgrade step.</p>
+<p><code>tf.plan</code> and <code>tf.apply</code> are live operations. <code>tf_tests.fmt_test</code> and the
+<code>offline</code> entry point with backend-disabled initialization validate source.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a9e2df2b0cf2cec5c2ffe62753521e56">4 - Yandex Cloud</h1>
+    <div class="lead">Static-hosting VM with retained local content storage</div>
+	<p>Provisions one Fedora VM in its component folder: two CPUs, 2 GiB RAM, a
+20 GiB boot disk, and a separate 100 GiB content disk. The disk and reserved
+IPv4 address have destruction guards and survive replacement of the VM.
+The instance firewall permits TCP 22/80/443; Nginx has no public listener.</p>
+<p>The delegated Yandex DNS zone&rsquo;s A record follows the reserved address.
+Cloudflare delegation and service aliases belong to the sibling DNS root.
+AL injects the folder ID and folder-scoped service account; no credentials
+or allocated addresses are copied into checked-in variables.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        Built with <a href="https://gohugo.io/">Hugo 0.165.0</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

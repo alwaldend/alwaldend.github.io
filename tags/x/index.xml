@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>X on Alwaldend</title>
+		<link>https://alwaldend.com/tags/x/</link>
+		<description>Recent content in X on Alwaldend</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 02 Oct 2026 00:23:20 +0300</lastBuildDate>
+		
+			<atom:link href="https://alwaldend.com/tags/x/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>This X Article was generated from Markdown</title>
+				<link>https://alwaldend.com/blog/this-x-article-was-generated-from-markdown/</link>
+				<pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/blog/this-x-article-was-generated-from-markdown/</guid>
+				<description>&lt;p&gt;I&amp;rsquo;ve had the displeasure of using X&amp;rsquo;s Article editor and it has left me unsatisfied - it&amp;rsquo;s utter dogshit. Naturally, I&amp;rsquo;ve decided to avoid it altogether. There probably exists a ready-made solution, but I&amp;rsquo;ve decided to just write it myself. After all, how hard can it be?&lt;/p&gt;&#xA;&lt;p&gt;Not that hard, to be honest. X exposes an API to upload articles in &lt;a href=&#34;https://draftjs.org/&#34;&gt;DraftJS&lt;/a&gt; format, so that leaves two tasks:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Construct DraftJS&lt;/li&gt;&#xA;&lt;li&gt;Upload it&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;construct-draftjs&#34;&gt;Construct DraftJS&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#construct-draftjs&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Since I use Hugo to build my blog posts, I wanted to just render DraftJS using it - that did not work. Hugo does not expose the Markdown AST to templates and without it you are left with hooks, which are too limited, and raw-dogging RawContent in templates which is insane. After that, I moved on to the boring option of just parsing Markdown. I chose &lt;a href=&#34;https://github.com/yuin/goldmark/&#34;&gt;Goldmark&lt;/a&gt; since it&amp;rsquo;s the parser Hugo uses, then wrote a tool that walks through the Markdown AST and emits DraftJS.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>X Article uploader</title>
+				<link>https://alwaldend.com/docs/projects/x_article_uploader/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/x_article_uploader/</guid>
+				<description>&lt;p&gt;This project compiles a blog post into an X Article draft. It has two&#xA;operations with different inputs, outputs, and trust requirements:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Conversion&lt;/strong&gt; compiles a post&amp;rsquo;s Markdown body into the DraftJS&#xA;&lt;code&gt;content_state&lt;/code&gt; document the X Articles draft endpoint accepts. It is&#xA;offline, deterministic, and credential-free; it performs no network access.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Draft creation&lt;/strong&gt; resolves the body images and article banner through the&#xA;media upload endpoint, then creates an X Article draft. It is the only&#xA;operation that performs network calls, and the only one that needs&#xA;credentials. The uploader creates drafts only and never publishes.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Splitting the two lets a draft be produced and diffed offline before anything&#xA;reaches X, and keeping the tool to draft creation means no invocation of it can&#xA;make a post publicly visible.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>X Article uploader</title>
+				<link>https://alwaldend.com/projects/x_article_uploader/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/projects/x_article_uploader/</guid>
+				<description>&lt;p&gt;The X Article uploader creates an X Article draft from a blog post. It compiles&#xA;a post&amp;rsquo;s Markdown body into the DraftJS &lt;code&gt;content_state&lt;/code&gt; the Articles endpoint&#xA;accepts, then creates a draft from it; it never publishes.&lt;/p&gt;&#xA;&lt;h2 id=&#34;features&#34;&gt;Features&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#features&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Offline, deterministic Markdown-to-&lt;code&gt;content_state&lt;/code&gt; conversion&lt;/li&gt;&#xA;&lt;li&gt;Drafts only: no invocation can publish an article&lt;/li&gt;&#xA;&lt;li&gt;Images resolved through the media upload endpoint by content digest&lt;/li&gt;&#xA;&lt;li&gt;OAuth 1.0a credentials injected through the repository&amp;rsquo;s Vault flow&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+	</channel>
+</rss>

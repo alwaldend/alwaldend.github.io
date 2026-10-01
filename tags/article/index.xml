@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Article on Alwaldend</title>
+		<link>https://alwaldend.com/tags/article/</link>
+		<description>Recent content in Article on Alwaldend</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<atom:link href="https://alwaldend.com/tags/article/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>X Article uploader</title>
+				<link>https://alwaldend.com/docs/projects/x_article_uploader/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/x_article_uploader/</guid>
+				<description>&lt;p&gt;This project compiles a blog post into an X Article draft. It has two&#xA;operations with different inputs, outputs, and trust requirements:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Conversion&lt;/strong&gt; compiles a post&amp;rsquo;s Markdown body into the DraftJS&#xA;&lt;code&gt;content_state&lt;/code&gt; document the X Articles draft endpoint accepts. It is&#xA;offline, deterministic, and credential-free; it performs no network access.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Draft creation&lt;/strong&gt; resolves the body images and article banner through the&#xA;media upload endpoint, then creates an X Article draft. It is the only&#xA;operation that performs network calls, and the only one that needs&#xA;credentials. The uploader creates drafts only and never publishes.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Splitting the two lets a draft be produced and diffed offline before anything&#xA;reaches X, and keeping the tool to draft creation means no invocation of it can&#xA;make a post publicly visible.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

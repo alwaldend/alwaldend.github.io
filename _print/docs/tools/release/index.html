@@ -45,7 +45,8 @@
 
 	<meta itemprop="name" content="Release">
 	<meta itemprop="description" content="Release rules">
-	<meta itemprop="dateModified" content="2026-09-25T08:46:55+03:00">
+	<meta itemprop="dateModified" content="2026-10-02T00:23:20+03:00">
+	<meta itemprop="wordCount" content="782">
 	<meta itemprop="keywords" content="Proto,Releases,Bzl_rules">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Release">
@@ -145,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.1a788f745b482059bcdba9e2f7639055.json"
+    data-offline-search-index-json-src="/offline-search-index.2f72bc8877a5150d7f3035a0da9b1703.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -223,7 +224,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.3: <a href="#pg-68c6d7c0cebac97c53399f3922456b1b">al_release_deployment</a></li>
+<li>1.3: <a href="#pg-a8b48addae8e2e18fcaed6fa0b7cf84b">al_release_bundle</a></li>
 
 
     
@@ -231,7 +232,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.4: <a href="#pg-51fcde7fea35f6885e23c36f97c12e17">al_release_deployment_info</a></li>
+<li>1.4: <a href="#pg-68c6d7c0cebac97c53399f3922456b1b">al_release_deployment</a></li>
 
 
     
@@ -239,7 +240,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.5: <a href="#pg-957b8b2fb088eaf2ddf5ae9e8fa3374c">al_release_deps</a></li>
+<li>1.5: <a href="#pg-51fcde7fea35f6885e23c36f97c12e17">al_release_deployment_info</a></li>
 
 
     
@@ -247,7 +248,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.6: <a href="#pg-db802b1d7e4918f37d0833684a6399cd">al_release_files</a></li>
+<li>1.6: <a href="#pg-957b8b2fb088eaf2ddf5ae9e8fa3374c">al_release_deps</a></li>
 
 
     
@@ -255,7 +256,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.7: <a href="#pg-037d82a9d2f66cf7b294c018b4ec16be">al_release_files_info</a></li>
+<li>1.7: <a href="#pg-db802b1d7e4918f37d0833684a6399cd">al_release_files</a></li>
 
 
     
@@ -263,7 +264,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.8: <a href="#pg-1a3ba228d9b81016eb58f87e07a1015f">al_release_info</a></li>
+<li>1.8: <a href="#pg-037d82a9d2f66cf7b294c018b4ec16be">al_release_files_info</a></li>
+
+
+    
+  
+    
+    
+	
+<li>1.9: <a href="#pg-1a3ba228d9b81016eb58f87e07a1015f">al_release_info</a></li>
 
 
     
@@ -275,7 +284,26 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-f654f2b8636388720f346b3780320753">Proto</a></li>
+<li>2: <a href="#pg-08ca49244b20509a15654ed8275926d4">Go</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-f654f2b8636388720f346b3780320753">Proto</a></li>
 
 
     
@@ -290,7 +318,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.1: <a href="#pg-9caedc9dadce8921346c6dcb0e744173">contracts</a></li>
+<li>3.1: <a href="#pg-9caedc9dadce8921346c6dcb0e744173">contracts</a></li>
 
 
     
@@ -304,7 +332,102 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p>The release tool generates release manifests/pages and deploys their files.
+OCI deployment uses Soras. SSH deployment uses the operator&rsquo;s OpenSSH and
+rsync executables and requires rsync on the destination; it needs neither
+Soras nor Ansible. No custom receiver or upload service is installed.</p>
+<h2 id="print-2f5330bf4b2f37358fdfb6127cf9b4b6-build-a-portable-release-bundle">Build a portable release bundle<a class="td-heading-self-link" href="#print-2f5330bf4b2f37358fdfb6127cf9b4b6-build-a-portable-release-bundle" aria-label="Heading self-link"></a></h2><p><code>al_release_bundle</code> packages declared payloads as <code>release.json</code> and
+<code>files/&lt;filename&gt;</code> in a Bazel directory output. It reuses the manifest
+generator for file sizes and hashes and reads <code>STABLE_VERSION</code> from the
+versioning owner&rsquo;s workspace status. Run its build through
+<code>tools/versioning/cmd/versioning/versioning.sh bazel -- build --config=release</code>.
+It does not contact deployment destinations or calculate another version.</p>
+<p>The CLI equivalent is <code>generate --project projects/&lt;name&gt; --version_file &lt;status-file&gt; --add_file &lt;payload&gt; --output_dir &lt;empty-directory&gt;</code>. Repeat
+<code>--add_file</code> for multiple payloads. Missing or duplicate version values,
+unsafe path components, missing payloads, colliding filenames, and empty
+bundles fail. The output directory must be absent or empty. A completed
+manifest is written only after payload copying finishes.</p>
+<p>The website&rsquo;s <code>//projects/alwaldend.com:release</code> target consumes this rule;
+its owner documents the complete build and SSH publication commands.</p>
+<h2 id="print-2f5330bf4b2f37358fdfb6127cf9b4b6-publish-over-ssh">Publish over SSH<a class="td-heading-self-link" href="#print-2f5330bf4b2f37358fdfb6127cf9b4b6-publish-over-ssh" aria-label="Heading self-link"></a></h2><p>A release directory contains <code>release.json</code> and <code>files/&lt;filename&gt;</code>. The
+manifest owns the version, project, and payload names. Pass an explicit
+SSH environment and destination, or a deployment JSON containing an <code>ssh</code>
+object. The download component provides preconfigured targets. These default
+to the existing <code>ansible</code> administrator and use <code>sudo -n -u download</code> for
+content operations. Host configuration from merged
+<a href="https://github.com/alwaldend/src/pull/102">PR #102</a> provides the content account,
+storage, and server rsync package. Configure the selected host before publishing.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //infra/download:publish.local -- <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --release_dir <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">/out/release&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bazel_agent bazel run //infra/download:publish.yandex -- <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --release_dir <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">/out/site-release&#34;</span> --site_archive website.tar.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --steps upload,extract,link
+</span></span></code></pre></div><p>For other SSH destinations:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/release -- deploy <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --release_dir <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">/out/release&#34;</span> --environment <span class="nb">local</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --ssh_host download-host --ssh_user admin --publish_user download <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --ssh_root /srv/download
+</span></span></code></pre></div><p><code>--ssh_deployment</code> or <code>--ssh_host</code> publishes all manifest files through that
+SSH destination, regardless of their original OCI metadata. Otherwise,
+<code>--environment</code> selects matching SSH metadata attached to individual items.
+Omitting the environment selects existing OCI deployments and requires
+<code>--soras_path</code>. An empty selection fails.</p>
+<p>Host trust and authentication use normal OpenSSH configuration, with strict
+host-key checks and noninteractive authentication. <code>--ssh_config</code>,
+<code>--ssh_identity</code>, <code>--ssh_known_hosts</code>, <code>--ssh_port</code>, and <code>--ssh_user</code> allow
+explicit local overrides. Credentials are not written into manifests.
+<code>--ssh_path</code> and <code>--rsync_path</code> select installed executables. The default
+deployment deadline is 30 minutes; <code>--timeout</code> overrides it.</p>
+<p>The public project defaults to the manifest project after removing a leading
+<code>projects/</code>; <code>--project</code> overrides it. The tool validates each path component
+and uses the remote layout
+<code>&lt;root&gt;/projects/&lt;project&gt;/releases/&lt;version&gt;/&lt;filename&gt;</code>.
+Rsync updates matching filenames using checksums, normalizes directories to
+<code>0755</code> and files to <code>0644</code>, and never deletes other files. A failed multi-file
+transfer can leave completed files published; rsync&rsquo;s error and itemized
+output describe the transfer. Files are transferred through private staging
+on the same content filesystem, using rsync&rsquo;s normal temporary-file rename.</p>
+<p>Remote shell arguments use POSIX single-quote escaping to preserve literal values.</p>
+<h2 id="print-2f5330bf4b2f37358fdfb6127cf9b4b6-choose-publication-steps">Choose publication steps<a class="td-heading-self-link" href="#print-2f5330bf4b2f37358fdfb6127cf9b4b6-choose-publication-steps" aria-label="Heading self-link"></a></h2><p><code>--steps</code> selects an ordered subset of <code>upload,extract,link</code>; it defaults to
+<code>upload</code>. Each step can run alone. Unknown, repeated, empty, or out-of-order
+steps fail before a remote change. A release manifest still supplies the
+project and version for every step.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Upload files only; archives remain ordinary downloadable files.</span>
+</span></span><span class="line"><span class="cl">bazel_agent bazel run //infra/download:publish.yandex -- <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --release_dir <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">/out/site-release&#34;</span> --steps upload
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Extract an already-published archive without changing current.</span>
+</span></span><span class="line"><span class="cl">bazel_agent bazel run //infra/download:publish.yandex -- <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --release_dir <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">/out/site-release&#34;</span> --steps extract <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --site_archive website.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Select an existing extracted release; no local payload or archive is needed.</span>
+</span></span><span class="line"><span class="cl">bazel_agent bazel run //infra/download:publish.yandex -- <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --release_dir <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">/out/site-release&#34;</span> --steps link
+</span></span></code></pre></div><p>Extraction accepts a published <code>.tar.gz</code> or <code>.zip</code> filename. It retrieves the
+archive into a private local temporary directory, validates and extracts it,
+then copies the site into private remote staging and promotes the completed
+directory to <code>sites/&lt;project&gt;/releases/&lt;version&gt;</code>. Local free space must hold
+both the archive and its extracted content. No archive helper is installed on
+the host. Existing completed site versions are retained without retransferring
+or reextracting their content.</p>
+<p>The extractor rejects traversal, absolute paths, links, device entries,
+duplicate file names, and missing root <code>index.html</code>. Archives may contain at
+most 100,000 entries. Archive ownership, executable bits, and extended
+attributes are not preserved. Server-created content inherits the destination&rsquo;s
+configured SELinux labels.</p>
+<p>Linking atomically replaces <code>sites/&lt;project&gt;/current</code> after checking the
+selected directory and its root index. A short <code>flock</code> serializes promotion
+and link changes. A failure in an earlier step leaves the current site
+unchanged, although completed ordinary uploads may already be public. Use a
+new version for changed website content; select an earlier retained version
+with <code>--steps link</code>. There is no separate rollback command or automatic deletion.</p>
+<p><code>al_release_deployment</code> accepts <code>ssh_*</code> metadata alongside its existing OCI
+variant. <code>ssh_public_url</code> supplies generated artifact URLs with the public
+project/version layout. <code>al_release_binary</code> can package a fixed SSH destination
+with <code>oras = None</code>, while taking <code>--release_dir</code> at runtime.</p>
+
 </div>
 </div>
 
@@ -323,7 +446,7 @@ This is the multi-page printable view of this section.
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c5e7d3e0f262a77185c653db31edd2af">1 - Bzl</h1>
     <div class="lead">Bazel bindings for the release tool</div>
@@ -460,9 +583,62 @@ al_release(<a href="#print-ad9cd7f35e114a1767fba5d543348693-al_release-name">nam
 <h2>al_release_binary<a class="td-heading-self-link" href="#print-78d91e3e301be73d29284b97497b92ee-al_release_binary" aria-label="Heading self-link"></a></h2><pre>
 load("@com_alwaldend_src//tools/release/main/bzl:al_release_binary.bzl", "al_release_binary")
 
-al_release_binary(<a href="#print-78d91e3e301be73d29284b97497b92ee-al_release_binary-name">name</a>, <a href="#print-78d91e3e301be73d29284b97497b92ee-al_release_binary-srcs">srcs</a>, <a href="#print-78d91e3e301be73d29284b97497b92ee-al_release_binary-arguments">arguments</a>, <a href="#print-78d91e3e301be73d29284b97497b92ee-al_release_binary-cmd">cmd</a>, <a href="#print-78d91e3e301be73d29284b97497b92ee-al_release_binary-oras">oras</a>, <a href="#print-78d91e3e301be73d29284b97497b92ee-al_release_binary-release_tool">release_tool</a>)
+al_release_binary(<a href="#print-78d91e3e301be73d29284b97497b92ee-al_release_binary-name">name</a>, <a href="#print-78d91e3e301be73d29284b97497b92ee-al_release_binary-oras">oras</a>, <a href="#print-78d91e3e301be73d29284b97497b92ee-al_release_binary-kwargs">**kwargs</a>)
 </pre>
-<p>Release binary</p>
+<p>Create a release command; oras=None omits the OCI executable.</p>
+<p><strong>PARAMETERS</strong></p>
+<table>
+	<thead>
+			<tr>
+					<th style="text-align: left">Name</th>
+					<th style="text-align: left">Description</th>
+					<th style="text-align: left">Default Value</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: left"><a id="print-78d91e3e301be73d29284b97497b92ee-al_release_binary-name"></a>name</td>
+					<td style="text-align: left">Target name.</td>
+					<td style="text-align: left">none</td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><a id="print-78d91e3e301be73d29284b97497b92ee-al_release_binary-oras"></a>oras</td>
+					<td style="text-align: left">OCI executable, or None for an SSH-only command.</td>
+					<td style="text-align: left"><code>&quot;//third_party/land_oras_oras:oras&quot;</code></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><a id="print-78d91e3e301be73d29284b97497b92ee-al_release_binary-kwargs"></a>kwargs</td>
+					<td style="text-align: left">Remaining release rule attributes.</td>
+					<td style="text-align: left">none</td>
+			</tr>
+	</tbody>
+</table>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-a8b48addae8e2e18fcaed6fa0b7cf84b">1.3 - al_release_bundle</h1>
+    
+	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
+<p>Package declared payloads and versioning metadata for the release publisher.</p>
+<p><a id="print-77a3111d2cd913075d5bed1f074e10b4-al_release_bundle"></a></p>
+<h2>al_release_bundle<a class="td-heading-self-link" href="#print-77a3111d2cd913075d5bed1f074e10b4-al_release_bundle" aria-label="Heading self-link"></a></h2><pre>
+load("@com_alwaldend_src//tools/release/main/bzl:al_release_bundle.bzl", "al_release_bundle")
+
+al_release_bundle(<a href="#print-77a3111d2cd913075d5bed1f074e10b4-al_release_bundle-name">name</a>, <a href="#print-77a3111d2cd913075d5bed1f074e10b4-al_release_bundle-srcs">srcs</a>, <a href="#print-77a3111d2cd913075d5bed1f074e10b4-al_release_bundle-project">project</a>, <a href="#print-77a3111d2cd913075d5bed1f074e10b4-al_release_bundle-release_tool">release_tool</a>)
+</pre>
+<p>Emit release.json and files/ using STABLE_VERSION from the versioning bootstrap.</p>
 <p><strong>ATTRIBUTES</strong></p>
 <table>
 	<thead>
@@ -476,43 +652,29 @@ al_release_binary(<a href="#print-78d91e3e301be73d29284b97497b92ee-al_release_bi
 	</thead>
 	<tbody>
 			<tr>
-					<td style="text-align: left"><a id="print-78d91e3e301be73d29284b97497b92ee-al_release_binary-name"></a>name</td>
+					<td style="text-align: left"><a id="print-77a3111d2cd913075d5bed1f074e10b4-al_release_bundle-name"></a>name</td>
 					<td style="text-align: left">A unique name for this target.</td>
 					<td style="text-align: left"><a href="https://bazel.build/concepts/labels#target-names">Name</a></td>
 					<td style="text-align: left">required</td>
 					<td style="text-align: left"></td>
 			</tr>
 			<tr>
-					<td style="text-align: left"><a id="print-78d91e3e301be73d29284b97497b92ee-al_release_binary-srcs"></a>srcs</td>
-					<td style="text-align: left">Releases</td>
+					<td style="text-align: left"><a id="print-77a3111d2cd913075d5bed1f074e10b4-al_release_bundle-srcs"></a>srcs</td>
+					<td style="text-align: left">Payload files; basenames must be unique.</td>
 					<td style="text-align: left"><a href="https://bazel.build/concepts/labels">List of labels</a></td>
-					<td style="text-align: left">optional</td>
-					<td style="text-align: left"><code>[]</code></td>
+					<td style="text-align: left">required</td>
+					<td style="text-align: left"></td>
 			</tr>
 			<tr>
-					<td style="text-align: left"><a id="print-78d91e3e301be73d29284b97497b92ee-al_release_binary-arguments"></a>arguments</td>
-					<td style="text-align: left">Arguments</td>
-					<td style="text-align: left">List of strings</td>
-					<td style="text-align: left">optional</td>
-					<td style="text-align: left"><code>[]</code></td>
-			</tr>
-			<tr>
-					<td style="text-align: left"><a id="print-78d91e3e301be73d29284b97497b92ee-al_release_binary-cmd"></a>cmd</td>
-					<td style="text-align: left">Cmd</td>
+					<td style="text-align: left"><a id="print-77a3111d2cd913075d5bed1f074e10b4-al_release_bundle-project"></a>project</td>
+					<td style="text-align: left">Canonical project subdirectory.</td>
 					<td style="text-align: left">String</td>
-					<td style="text-align: left">optional</td>
-					<td style="text-align: left"><code>&quot;deploy&quot;</code></td>
+					<td style="text-align: left">required</td>
+					<td style="text-align: left"></td>
 			</tr>
 			<tr>
-					<td style="text-align: left"><a id="print-78d91e3e301be73d29284b97497b92ee-al_release_binary-oras"></a>oras</td>
-					<td style="text-align: left">Oras binary</td>
-					<td style="text-align: left"><a href="https://bazel.build/concepts/labels">Label</a></td>
-					<td style="text-align: left">optional</td>
-					<td style="text-align: left"><code>&quot;@com_alwaldend_src//third_party/land_oras_oras:oras&quot;</code></td>
-			</tr>
-			<tr>
-					<td style="text-align: left"><a id="print-78d91e3e301be73d29284b97497b92ee-al_release_binary-release_tool"></a>release_tool</td>
-					<td style="text-align: left">Release tool</td>
+					<td style="text-align: left"><a id="print-77a3111d2cd913075d5bed1f074e10b4-al_release_bundle-release_tool"></a>release_tool</td>
+					<td style="text-align: left">Manifest generator and bundle writer.</td>
 					<td style="text-align: left"><a href="https://bazel.build/concepts/labels">Label</a></td>
 					<td style="text-align: left">optional</td>
 					<td style="text-align: left"><code>&quot;@com_alwaldend_src//tools/release/main/go&quot;</code></td>
@@ -534,14 +696,15 @@ al_release_binary(<a href="#print-78d91e3e301be73d29284b97497b92ee-al_release_bi
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-68c6d7c0cebac97c53399f3922456b1b">1.3 - al_release_deployment</h1>
+	<h1 id="pg-68c6d7c0cebac97c53399f3922456b1b">1.4 - al_release_deployment</h1>
     
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment"></a></p>
 <h2>al_release_deployment<a class="td-heading-self-link" href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment" aria-label="Heading self-link"></a></h2><pre>
 load("@com_alwaldend_src//tools/release/main/bzl:al_release_deployment.bzl", "al_release_deployment")
 
-al_release_deployment(<a href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-name">name</a>, <a href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-oci_repository">oci_repository</a>)
+al_release_deployment(<a href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-name">name</a>, <a href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-oci_repository">oci_repository</a>, <a href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_environment">ssh_environment</a>, <a href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_host">ssh_host</a>, <a href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_project">ssh_project</a>, <a href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_public_url">ssh_public_url</a>,
+                      <a href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_publish_user">ssh_publish_user</a>, <a href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_root">ssh_root</a>, <a href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_site_archive">ssh_site_archive</a>, <a href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_user">ssh_user</a>)
 </pre>
 <p>Deployment info</p>
 <p><strong>ATTRIBUTES</strong></p>
@@ -570,6 +733,62 @@ al_release_deployment(<a href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_releas
 					<td style="text-align: left">optional</td>
 					<td style="text-align: left"><code>&quot;&quot;</code></td>
 			</tr>
+			<tr>
+					<td style="text-align: left"><a id="print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_environment"></a>ssh_environment</td>
+					<td style="text-align: left">Explicit environment selector</td>
+					<td style="text-align: left">String</td>
+					<td style="text-align: left">optional</td>
+					<td style="text-align: left"><code>&quot;&quot;</code></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><a id="print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_host"></a>ssh_host</td>
+					<td style="text-align: left">SSH hostname or SSH configuration alias</td>
+					<td style="text-align: left">String</td>
+					<td style="text-align: left">optional</td>
+					<td style="text-align: left"><code>&quot;&quot;</code></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><a id="print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_project"></a>ssh_project</td>
+					<td style="text-align: left">Public project name; empty removes projects/ from the manifest project</td>
+					<td style="text-align: left">String</td>
+					<td style="text-align: left">optional</td>
+					<td style="text-align: left"><code>&quot;&quot;</code></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><a id="print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_public_url"></a>ssh_public_url</td>
+					<td style="text-align: left">Public download origin for generated artifact links</td>
+					<td style="text-align: left">String</td>
+					<td style="text-align: left">optional</td>
+					<td style="text-align: left"><code>&quot;&quot;</code></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><a id="print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_publish_user"></a>ssh_publish_user</td>
+					<td style="text-align: left">Content account selected through sudo -n -u</td>
+					<td style="text-align: left">String</td>
+					<td style="text-align: left">optional</td>
+					<td style="text-align: left"><code>&quot;&quot;</code></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><a id="print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_root"></a>ssh_root</td>
+					<td style="text-align: left">Provisioned content root</td>
+					<td style="text-align: left">String</td>
+					<td style="text-align: left">optional</td>
+					<td style="text-align: left"><code>&quot;/srv/download&quot;</code></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><a id="print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_site_archive"></a>ssh_site_archive</td>
+					<td style="text-align: left">Optional website archive filename</td>
+					<td style="text-align: left">String</td>
+					<td style="text-align: left">optional</td>
+					<td style="text-align: left"><code>&quot;&quot;</code></td>
+			</tr>
+			<tr>
+					<td style="text-align: left"><a id="print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment-ssh_user"></a>ssh_user</td>
+					<td style="text-align: left">Administrator login; empty uses SSH configuration</td>
+					<td style="text-align: left">String</td>
+					<td style="text-align: left">optional</td>
+					<td style="text-align: left"><code>&quot;&quot;</code></td>
+			</tr>
 	</tbody>
 </table>
 
@@ -587,7 +806,7 @@ al_release_deployment(<a href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_releas
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-51fcde7fea35f6885e23c36f97c12e17">1.4 - al_release_deployment_info</h1>
+	<h1 id="pg-51fcde7fea35f6885e23c36f97c12e17">1.5 - al_release_deployment_info</h1>
     
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="AlReleaseDeploymentInfo"></a></p>
@@ -631,7 +850,7 @@ AlReleaseDeploymentInfo(<a href="#print-741434255b76a3f7a9280a564e7b8202-AlRelea
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-957b8b2fb088eaf2ddf5ae9e8fa3374c">1.5 - al_release_deps</h1>
+	<h1 id="pg-957b8b2fb088eaf2ddf5ae9e8fa3374c">1.6 - al_release_deps</h1>
     
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-6583e9dbc6730d0959524193f1bbe1c9-al_release_deps"></a></p>
@@ -688,7 +907,7 @@ al_release_deps(<a href="#print-6583e9dbc6730d0959524193f1bbe1c9-al_release_deps
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-db802b1d7e4918f37d0833684a6399cd">1.6 - al_release_files</h1>
+	<h1 id="pg-db802b1d7e4918f37d0833684a6399cd">1.7 - al_release_files</h1>
     
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-cb782a254e48fc6b0bc27f96856c7b11-al_release_files"></a></p>
@@ -768,7 +987,7 @@ al_release_files(<a href="#print-cb782a254e48fc6b0bc27f96856c7b11-al_release_fil
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-037d82a9d2f66cf7b294c018b4ec16be">1.7 - al_release_files_info</h1>
+	<h1 id="pg-037d82a9d2f66cf7b294c018b4ec16be">1.8 - al_release_files_info</h1>
     
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="AlReleaseFilesInfo"></a></p>
@@ -812,7 +1031,7 @@ AlReleaseFilesInfo(<a href="#print-a1addd46d9c251fe2a064258f99735d9-AlReleaseFil
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-1a3ba228d9b81016eb58f87e07a1015f">1.8 - al_release_info</h1>
+	<h1 id="pg-1a3ba228d9b81016eb58f87e07a1015f">1.9 - al_release_info</h1>
     
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="AlReleaseInfo"></a></p>
@@ -868,7 +1087,36 @@ AlReleaseInfo(<a href="#print-cda70ce2d54610ca433bf5524a7e4fde-AlReleaseInfo-rel
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f654f2b8636388720f346b3780320753">2 - Proto</h1>
+	<h1 id="pg-08ca49244b20509a15654ed8275926d4">2 - Go</h1>
+    <div class="lead">Golang code for the release tool</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f654f2b8636388720f346b3780320753">3 - Proto</h1>
     <div class="lead">Protobuf contracts</div>
 	
 </div>
@@ -893,7 +1141,7 @@ AlReleaseInfo(<a href="#print-cda70ce2d54610ca433bf5524a7e4fde-AlReleaseInfo-rel
 
 <div class="td-content" style="">
     
-	<h1 id="pg-9caedc9dadce8921346c6dcb0e744173">2.1 - contracts</h1>
+	<h1 id="pg-9caedc9dadce8921346c6dcb0e744173">3.1 - contracts</h1>
     <div class="lead">Proto docs for contracts.proto</div>
 	<h2 id="print-a628bd9e0f4d9e1d725ba99ef3e410d3-java">Java<a class="td-heading-self-link" href="#print-a628bd9e0f4d9e1d725ba99ef3e410d3-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_java//java:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;java_library&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
@@ -975,6 +1223,18 @@ AlReleaseInfo(<a href="#print-cda70ce2d54610ca433bf5524a7e4fde-AlReleaseInfo-rel
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">ReleaseDeployment</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="n">ReleaseDeploymentOci</span> <span class="n">oci</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ReleaseDeploymentSsh</span> <span class="n">ssh</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">ReleaseDeploymentSsh</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">environment</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">host</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">user</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">root</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">project</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">site_archive</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">publish_user</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">string</span> <span class="n">public_url</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kd">message</span> <span class="nc">Release</span> <span class="p">{</span>

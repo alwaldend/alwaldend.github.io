@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Vault">
 	<meta itemprop="description" content="Setup for vault.dc1.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-25T08:46:55+03:00">
+	<meta itemprop="dateModified" content="2026-10-02T00:23:20+03:00">
 	<meta itemprop="wordCount" content="271">
 	<meta itemprop="keywords" content="Ansible,Terraform">
 	<meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.1a788f745b482059bcdba9e2f7639055.json"
+    data-offline-search-index-json-src="/offline-search-index.2f72bc8877a5150d7f3035a0da9b1703.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -242,7 +242,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.1.1: <a href="#pg-77540bb31cf313b3f152ea0168a02a91">Infra vault</a></li>
+<li>2.1.1: <a href="#pg-3167958df2125a400fedd87c10ead900">Download identity</a></li>
 
 
     
@@ -257,7 +257,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.1.1.1: <a href="#pg-24d61639a1d6cb6c91dca8cfe2331506">Infrastructure Vault</a></li>
+<li>2.1.1.1: <a href="#pg-5f0e0f2fceb8b6c27cb5d66b6c363bbf">download-identity Specification</a></li>
 
 
     
@@ -269,7 +269,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.1.2: <a href="#pg-d2a6992becb69e937df8e91d4dfaf9a6">Owned dns</a></li>
+<li>2.1.2: <a href="#pg-77540bb31cf313b3f152ea0168a02a91">Infra vault</a></li>
 
 
     
@@ -284,7 +284,34 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.1.2.1: <a href="#pg-142afefc4fc14debbbdc788046fca63a">owned-dns Specification</a></li>
+<li>2.1.2.1: <a href="#pg-24d61639a1d6cb6c91dca8cfe2331506">Infrastructure Vault</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2.1.3: <a href="#pg-d2a6992becb69e937df8e91d4dfaf9a6">Owned dns</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1.3.1: <a href="#pg-142afefc4fc14debbbdc788046fca63a">owned-dns Specification</a></li>
 
 
     
@@ -509,7 +536,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-77540bb31cf313b3f152ea0168a02a91">2.1.1 - Infra vault</h1>
+	<h1 id="pg-3167958df2125a400fedd87c10ead900">2.1.1 - Download identity</h1>
     
 	
 </div>
@@ -534,7 +561,95 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-24d61639a1d6cb6c91dca8cfe2331506">2.1.1.1 - Infrastructure Vault</h1>
+	<h1 id="pg-5f0e0f2fceb8b6c27cb5d66b6c363bbf">2.1.1.1 - download-identity Specification</h1>
+    
+	<span id="print-079c75616bed12e70836a2fe63800d76-download-identity-specification"></span><h2 id="print-079c75616bed12e70836a2fe63800d76-purpose">Purpose<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-purpose" aria-label="Heading self-link"></a></h2><p>Provide a dedicated Vault identity for download infrastructure while keeping
+state, credential references, and provider permissions scoped to its needs.</p>
+<h2 id="print-079c75616bed12e70836a2fe63800d76-requirements">Requirements<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-079c75616bed12e70836a2fe63800d76-requirement-dedicated-component-authentication">Requirement: Dedicated component authentication<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-requirement-dedicated-component-authentication" aria-label="Heading self-link"></a></h3><p>Vault configuration SHALL declare <code>src_infra_download</code> using the existing
+AppRole backend and reusable identity modules. Its state permissions SHALL
+cover the component&rsquo;s own environment and DNS state keys, not another
+component&rsquo;s state namespace.</p>
+<h4 id="print-079c75616bed12e70836a2fe63800d76-scenario-inspect-component-state-access">Scenario: Inspect component state access<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-scenario-inspect-component-state-access" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the download identity&rsquo;s effective state policy is evaluated</li>
+<li><strong>THEN</strong> it grants access to download-owned state and locks</li>
+<li><strong>AND</strong> it does not grant access to unrelated component state</li>
+</ul>
+<h3 id="print-079c75616bed12e70836a2fe63800d76-requirement-required-provider-and-ssh-assignments">Requirement: Required provider and SSH assignments<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-requirement-required-provider-and-ssh-assignments" aria-label="Heading self-link"></a></h3><p>The identity SHALL expose the membership and identity outputs needed for
+Yandex folder provisioning and XCP-ng resource-set assignment. It SHALL
+receive the required component SSH permissions and DNS provider-secret reads
+for global and local records without administrative provider credentials.</p>
+<h4 id="print-079c75616bed12e70836a2fe63800d76-scenario-prepare-both-environment-assignments">Scenario: Prepare both environment assignments<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-scenario-prepare-both-environment-assignments" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> provider owners consume the declared download identity</li>
+<li><strong>THEN</strong> they can assign its Yandex folder and XCP-ng resource set</li>
+<li><strong>AND</strong> no unrelated component&rsquo;s identity is reused for deployment</li>
+</ul>
+<h3 id="print-079c75616bed12e70836a2fe63800d76-requirement-secret-references-and-certificate-automation">Requirement: Secret references and certificate automation<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-requirement-secret-references-and-certificate-automation" aria-label="Heading self-link"></a></h3><p>Checked-in declarations SHALL contain secret references only. Download
+certificate automation SHALL receive role-scoped EAB access for internal Vault
+HTTP-01 certificates. The role SHALL permit only <code>alwaldend.com</code>,
+<code>download.alwaldend.com</code>, and <code>www.alwaldend.com</code>, without subdomain or client
+certificate permissions. Public Let&rsquo;s Encrypt HTTP-01 SHALL require no DNS
+challenge credential. Adding this
+identity SHALL NOT broaden unrelated identities&rsquo; policies.</p>
+<h4 id="print-079c75616bed12e70836a2fe63800d76-scenario-review-the-source-change">Scenario: Review the source change<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-scenario-review-the-source-change" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the role and its policy declarations are inspected</li>
+<li><strong>THEN</strong> they name Vault paths and permissions without embedding credential values</li>
+<li><strong>AND</strong> unrelated identity permissions remain unchanged</li>
+</ul>
+<h3 id="print-079c75616bed12e70836a2fe63800d76-requirement-independent-identity-state">Requirement: Independent identity state<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-requirement-independent-identity-state" aria-label="Heading self-link"></a></h3><p>The download identity SHALL be deployed from its own Terraform root and
+backend under <code>infra/vault/approles/src_infra_download</code>. Shared identity IDs
+SHALL be resolved by name through data sources rather than parent-module
+inputs or another root&rsquo;s state. Shared group membership lists SHALL retain
+one owner in the core Vault stage.</p>
+<h4 id="print-079c75616bed12e70836a2fe63800d76-scenario-bootstrap-without-the-download-identity">Scenario: Bootstrap without the download identity<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-scenario-bootstrap-without-the-download-identity" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> shared Vault mounts and the administrative/operator identities already exist</li>
+<li><strong>THEN</strong> the standalone root can create the download identity using administrative authentication</li>
+<li><strong>AND</strong> a subsequent core Vault apply resolves the new identity/group by name and adds their memberships</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-77540bb31cf313b3f152ea0168a02a91">2.1.2 - Infra vault</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-24d61639a1d6cb6c91dca8cfe2331506">2.1.2.1 - Infrastructure Vault</h1>
     
 	<span id="print-1b50ce3ae542cee99e93840e275bbd4a-infrastructure-vault"></span><h2 id="print-1b50ce3ae542cee99e93840e275bbd4a-purpose">Purpose<a class="td-heading-self-link" href="#print-1b50ce3ae542cee99e93840e275bbd4a-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Vault host configuration, authentication and certificate services,
 and packaged recovery entry points. This baseline concerns checked-in desired
@@ -640,7 +755,7 @@ provider secret or duplicate credential values.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-d2a6992becb69e937df8e91d4dfaf9a6">2.1.2 - Owned dns</h1>
+	<h1 id="pg-d2a6992becb69e937df8e91d4dfaf9a6">2.1.3 - Owned dns</h1>
     
 	
 </div>
@@ -665,7 +780,7 @@ provider secret or duplicate credential values.</p>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-142afefc4fc14debbbdc788046fca63a">2.1.2.1 - owned-dns Specification</h1>
+	<h1 id="pg-142afefc4fc14debbbdc788046fca63a">2.1.3.1 - owned-dns Specification</h1>
     
 	<span id="print-8cf28bdb6edf50e14fd6509d0a2cca24-owned-dns-specification"></span><h2 id="print-8cf28bdb6edf50e14fd6509d0a2cca24-purpose">Purpose<a class="td-heading-self-link" href="#print-8cf28bdb6edf50e14fd6509d0a2cca24-purpose" aria-label="Heading self-link"></a></h2><p>Define Vault service DNS management through the owner&rsquo;s <code>tf_setup</code> root,
 including canonical declarations, scoped credentials, and offline source checks

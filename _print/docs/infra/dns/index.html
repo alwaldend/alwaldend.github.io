@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="Dns">
 	<meta itemprop="description" content="Project-owned DNS declarations for alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-25T08:46:55+03:00">
-	<meta itemprop="wordCount" content="610">
+	<meta itemprop="dateModified" content="2026-10-02T00:23:20+03:00">
+	<meta itemprop="wordCount" content="652">
 	<meta itemprop="keywords" content="Dns,Terraform">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Dns">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.1a788f745b482059bcdba9e2f7639055.json"
+    data-offline-search-index-json-src="/offline-search-index.2f72bc8877a5150d7f3035a0da9b1703.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -263,10 +263,15 @@ from its designated <code>tf_setup</code> or <code>tf</code> root. This componen
 <a href="dnsconfig.json">dnsconfig.json</a> owns shared apex and mail records.</p>
 <h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-declaration-pages">Declaration pages<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-declaration-pages" aria-label="Heading self-link"></a></h2><p><a href="/docs/infra/dns/cloudflare_dns/">Cloudflare DNS</a> and <a href="/docs/infra/dns/mikrotik_dns/">Mikrotik DNS</a> list the
 records this repository declares for each destination view, with the owning
-declaration for every record. They are generated from <code>dnsconfig.json</code>:</p>
+declaration for every record. They are manually refreshed snapshots of
+<code>dnsconfig.json</code> and may lag behind the declarations. Regenerate them explicitly
+when a documentation refresh is wanted, for example after parallel DNS changes
+have merged:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //infra/dns/cmd/dump -- --write
-</span></span></code></pre></div><p><code>//infra/dns:config_test</code> fails when a checked-in page is out of date, so the
-pages cannot drift from the declarations they project.</p>
+</span></span></code></pre></div><p>Ordinary validation checks declarations and ownership without requiring or
+rewriting these snapshots. A DNS change does not require a documentation
+refresh in the same PR. To explicitly check snapshot freshness, run
+<code>bazel_agent bazel run //infra/dns/cmd/dump -- --check</code>.</p>
 <h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-inspect-and-lint-declarations">Inspect and lint declarations<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-inspect-and-lint-declarations" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //infra/dns:lint
 </span></span></code></pre></div><p>The linter discovers <code>dnsconfig.json</code> files in the current workspace at runtime
 and prints their DNS declarations as a table. It includes nested project
@@ -319,9 +324,9 @@ inventories may establish missing declarations for a separately reviewed
 additions-only plan that preserves all existing records.
 Rollback requires stopping the affected Terraform writers and following the
 runbook&rsquo;s recorded prior revision and state-reconciliation procedure.</p>
-<p>Deployment snapshots are not maintained here. The generated declaration pages
-above project declared state, and the declarations themselves remain the only
-inventory.</p>
+<p>Deployment snapshots are not maintained here. The declaration pages above
+reflect their last manual refresh; each owner&rsquo;s declarations remain the
+authoritative inventory.</p>
 
 </div>
 </div>
@@ -1531,17 +1536,24 @@ source.</p>
 <li><strong>THEN</strong> its table reports the discovered declarations without an export step</li>
 </ul>
 <h3 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-publish-declaration-pages-per-destination-view">Requirement: Publish declaration pages per destination view<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-requirement-publish-declaration-pages-per-destination-view" aria-label="Heading self-link"></a></h3><p>The implementation SHALL render one documentation page per destination view
-from the declared records, with the owning declaration for every record, and
-SHALL fail its offline check when a checked-in page differs from the
-declarations it projects.</p>
+from the declared records, with the owning declaration for every record.
+Regeneration SHALL require an explicit manual command. Ordinary validation
+SHALL check declarations and ownership without requiring checked-in pages to
+match the declarations or rewriting those pages. Documentation SHALL identify
+the declarations as authoritative and explain that snapshots may lag.</p>
 <h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-regenerate-a-declaration-page">Scenario: Regenerate a declaration page<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-regenerate-a-declaration-page" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> an owner changes a declaration and the generation command runs</li>
-<li><strong>THEN</strong> the affected view&rsquo;s page lists the declared records with their owner</li>
-<li><strong>AND</strong> the check passes against the regenerated page</li>
+<li><strong>WHEN</strong> an operator explicitly runs the documentation generation command</li>
+<li><strong>THEN</strong> each destination page lists the current declarations with their owner</li>
+<li><strong>AND</strong> an explicit freshness check succeeds against the regenerated pages</li>
 </ul>
 <h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-declaration-page-is-stale">Scenario: A declaration page is stale<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-a-declaration-page-is-stale" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> a checked-in page no longer matches the declarations</li>
-<li><strong>THEN</strong> the offline check fails rather than serving a stale inventory</li>
+<li><strong>WHEN</strong> a declaration changes while its checked-in page remains unchanged</li>
+<li><strong>THEN</strong> ordinary declaration validation does not fail because of that stale page</li>
+<li><strong>AND</strong> the page is not rewritten unless regeneration is explicitly invoked</li>
+</ul>
+<h4 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-check-freshness-on-demand">Scenario: Check freshness on demand<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-scenario-check-freshness-on-demand" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an operator explicitly checks a stale page</li>
+<li><strong>THEN</strong> the command reports that regeneration is needed</li>
 </ul>
 
 </div>

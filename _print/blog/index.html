@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Blog">
 	<meta itemprop="description" content="Blog">
-	<meta itemprop="dateModified" content="2026-09-25T08:46:55+03:00">
+	<meta itemprop="dateModified" content="2026-10-02T00:23:20+03:00">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Blog">
 	<meta name="twitter:description" content="Blog">
@@ -144,7 +144,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.1a788f745b482059bcdba9e2f7639055.json"
+    data-offline-search-index-json-src="/offline-search-index.2f72bc8877a5150d7f3035a0da9b1703.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -191,6 +191,16 @@ This is the multi-page printable view of this section.
   
   
 
+  
+    
+    
+	
+
+    <li><a href="#pg-281bbfe62c2ff8743b518ed1f5c6586c">This X Article was generated from Markdown</a></li>
+
+
+
+    
   
     
     
@@ -250,6 +260,120 @@ This is the multi-page printable view of this section.
   
 
 <div class="td-content" style="">
+    <h1 id="pg-281bbfe62c2ff8743b518ed1f5c6586c">This X Article was generated from Markdown</h1>
+	<div class="lead">Building a Markdown-to-X Article uploader, followed by a conversion showcase.</div>
+	<div class="td-byline mb-4">
+		
+        
+		<time datetime="2026-09-30" class="text-body-secondary">Wednesday, September 30, 2026</time>
+        
+	</div>
+	<p>I&rsquo;ve had the displeasure of using X&rsquo;s Article editor and it has left me unsatisfied - it&rsquo;s utter dogshit. Naturally, I&rsquo;ve decided to avoid it altogether. There probably exists a ready-made solution, but I&rsquo;ve decided to just write it myself. After all, how hard can it be?</p>
+<p>Not that hard, to be honest. X exposes an API to upload articles in <a href="https://draftjs.org/">DraftJS</a> format, so that leaves two tasks:</p>
+<ul>
+<li>Construct DraftJS</li>
+<li>Upload it</li>
+</ul>
+<h2 id="construct-draftjs">Construct DraftJS<a class="td-heading-self-link" href="#construct-draftjs" aria-label="Heading self-link"></a></h2><p>Since I use Hugo to build my blog posts, I wanted to just render DraftJS using it - that did not work. Hugo does not expose the Markdown AST to templates and without it you are left with hooks, which are too limited, and raw-dogging RawContent in templates which is insane. After that, I moved on to the boring option of just parsing Markdown. I chose <a href="https://github.com/yuin/goldmark/">Goldmark</a> since it&rsquo;s the parser Hugo uses, then wrote a tool that walks through the Markdown AST and emits DraftJS.</p>
+<h2 id="upload-it">Upload it<a class="td-heading-self-link" href="#upload-it" aria-label="Heading self-link"></a></h2><p>The upload seemed like the most straightforward part to me before I started. Just generate a token, put it in Vault, and hit the API, easy. None of it was easy. Figuring out which token I need to generate to upload articles and how to do it through the dashboard took some effort. Putting a token in Vault was harder than I expected because either I had to use OAuth 2.0 with a short-lived token and a long-lived refresh token, or I had to use OAuth 1.0a with 4 whole secret values. I chose the second option because the first one requires me to update credentials on refresh which increases complexity. Uploading was painful because X has a rate limit of 10 (!) uploads per day which I hit immediately.</p>
+<h2 id="in-conclusion">In conclusion<a class="td-heading-self-link" href="#in-conclusion" aria-label="Heading self-link"></a></h2><p>I don&rsquo;t have to touch the editor anymore, which is a win in my book. The blog post ends here. Everything else is just a conversion showcase.</p>
+<p><img src="/blog/this-x-article-was-generated-from-markdown/pipeline.webp" alt="The uploader pipeline" loading="lazy"></p>
+<h2 id="text-and-inline-styles">Text and inline styles<a class="td-heading-self-link" href="#text-and-inline-styles" aria-label="Heading self-link"></a></h2><p>A paragraph is a plain text block. X exposes three heading styles, so the converter maps fourth-level and deeper Markdown headings onto <code>header-three</code>. Inline styling is carried as ranges over the block text: <strong>bold</strong>, <em>italic</em>, and <del>strikethrough</del> all survive the conversion, and a span may combine them, as in <strong>bold with <em>nested italic</em> inside</strong>.</p>
+<h3 id="heading-levels">Heading levels<a class="td-heading-self-link" href="#heading-levels" aria-label="Heading self-link"></a></h3><p>A third-level heading becomes <code>header-two</code>; a fourth-level heading and deeper become <code>header-three</code>.</p>
+<h4 id="a-clamped-fourth-level-heading">A clamped fourth-level heading<a class="td-heading-self-link" href="#a-clamped-fourth-level-heading" aria-label="Heading self-link"></a></h4><h2 id="lists">Lists<a class="td-heading-self-link" href="#lists" aria-label="Heading self-link"></a></h2><p>Unordered lists and ordered lists map onto their own block types:</p>
+<ul>
+<li>Draft creation resolves each referenced image.</li>
+<li>It uploads the bytes through the media endpoint.</li>
+<li>It attaches the returned <code>media_id</code> to the entity its locator names.</li>
+</ul>
+<ol>
+<li>Convert the post offline.</li>
+<li>Create the draft with the injected credential.</li>
+<li>Review the draft before it becomes public.</li>
+</ol>
+<p>A nested item is emitted as its own list item, because the endpoint&rsquo;s schema has no block depth:</p>
+<ul>
+<li>Parent item.
+<ul>
+<li>Nested item.</li>
+</ul>
+</li>
+<li>Another parent item.</li>
+</ul>
+<h2 id="quotes">Quotes<a class="td-heading-self-link" href="#quotes" aria-label="Heading self-link"></a></h2><blockquote>
+<p>X exposes a blockquote type, so quoted prose keeps its quote. A heading inside a quote stays quoted text and reports the lost heading level, because there is no quoted-heading form.</p>
+</blockquote>
+<h2 id="code">Code<a class="td-heading-self-link" href="#code" aria-label="Heading self-link"></a></h2><p>A fenced code block is preserved as a <code>markdown</code> entity, so the source travels intact:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="nx">Credentials</span><span class="p">)</span><span class="w"> </span><span class="nf">Sign</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span><span class="w"> </span><span class="nx">rawURL</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="w"> </span><span class="nx">url</span><span class="p">.</span><span class="nx">Values</span><span class="p">,</span><span class="w"> </span><span class="nx">now</span><span class="w"> </span><span class="nx">time</span><span class="p">.</span><span class="nx">Time</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// HMAC-SHA1 over the normalized parameter string, per RFC 5849.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>An inline-code span keeps its text but loses its monospace styling, and the conversion reports that loss.</p>
+<h2 id="tables">Tables<a class="td-heading-self-link" href="#tables" aria-label="Heading self-link"></a></h2><p>A GFM table has no native block, so it becomes a <code>markdown</code> entity that preserves the source:</p>
+<table>
+	<thead>
+			<tr>
+					<th>Element</th>
+					<th>Entity type</th>
+					<th>Mutability</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Link</td>
+					<td><code>link</code></td>
+					<td><code>mutable</code></td>
+			</tr>
+			<tr>
+					<td>Image</td>
+					<td><code>image</code></td>
+					<td><code>immutable</code></td>
+			</tr>
+			<tr>
+					<td>Divider</td>
+					<td><code>divider</code></td>
+					<td><code>immutable</code></td>
+			</tr>
+			<tr>
+					<td>Code and tables</td>
+					<td><code>markdown</code></td>
+					<td><code>immutable</code></td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="links-and-autolinks">Links and autolinks<a class="td-heading-self-link" href="#links-and-autolinks" aria-label="Heading self-link"></a></h2><p>A link carries its destination in a <code>link</code> entity: <a href="https://github.com/alwaldend/src/blob/master/tools/mermaid/skills/mermaid-diagrams/SKILL.md">the repository skill for Mermaid diagrams</a>. An autolink such as <a href="https://example.com">https://example.com</a> becomes a link to the same destination.</p>
+<h2 id="divider">Divider<a class="td-heading-self-link" href="#divider" aria-label="Heading self-link"></a></h2><hr>
+<h2 id="footnotes">Footnotes<a class="td-heading-self-link" href="#footnotes" aria-label="Heading self-link"></a></h2><p>A footnote reference<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> becomes a trailing section, so its text is not lost.</p>
+<blockquote>
+<p><strong>Note on images and captions.</strong> An image becomes an <code>atomic</code> block backed by an <code>image</code> entity carrying its alt text as a caption, and the media is resolved at draft time.</p>
+</blockquote>
+<h2 id="emphasis-edge-cases">Emphasis edge cases<a class="td-heading-self-link" href="#emphasis-edge-cases" aria-label="Heading self-link"></a></h2><p>An underscore inside a word like snake_case stays literal, a backslash escape such as *not italic* stays literal, and the HTML character reference <code>&amp;amp;</code> in AT&amp;T is resolved to an ampersand.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>DraftJS measures inline and entity ranges in UTF-16 code units of the block&rsquo;s final text, which is why the converter counts them that way.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</div>
+
+
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+
+  
+
+<div class="td-content" style="page-break-before: always">
     <h1 id="pg-06972c4c7c69b67b7924cd82a210f0ce">Diagrams in the AC (After Clanker) era</h1>
 	<div class="lead">Replacing Drawio diagrams with Mermaid diagrams</div>
 	<div class="td-byline mb-4">

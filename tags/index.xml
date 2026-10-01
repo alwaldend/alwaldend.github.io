@@ -10,9 +10,30 @@
 		
 		
 		
-			<lastBuildDate>Fri, 25 Sep 2026 08:46:55 +0300</lastBuildDate>
+			<lastBuildDate>Fri, 02 Oct 2026 00:23:20 +0300</lastBuildDate>
 		
 			<atom:link href="https://alwaldend.com/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Markdown</title>
+				<link>https://alwaldend.com/tags/markdown/</link>
+				<pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/markdown/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Repo</title>
+				<link>https://alwaldend.com/tags/repo/</link>
+				<pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/repo/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>X</title>
+				<link>https://alwaldend.com/tags/x/</link>
+				<pubDate>Wed, 30 Sep 2026 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/x/</guid>
+				<description></description>
+			</item>
 			<item>
 				<title>Drawio</title>
 				<link>https://alwaldend.com/tags/drawio/</link>
@@ -25,13 +46,6 @@
 				<link>https://alwaldend.com/tags/mermaid/</link>
 				<pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/tags/mermaid/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Repo</title>
-				<link>https://alwaldend.com/tags/repo/</link>
-				<pubDate>Fri, 18 Sep 2026 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/tags/repo/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -123,6 +137,13 @@
 				<link>https://alwaldend.com/tags/arch/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/tags/arch/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Article</title>
+				<link>https://alwaldend.com/tags/article/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/article/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -431,6 +452,13 @@
 				<link>https://alwaldend.com/tags/hugo/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/tags/hugo/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Images</title>
+				<link>https://alwaldend.com/tags/images/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/images/</guid>
 				<description></description>
 			</item>
 			<item>

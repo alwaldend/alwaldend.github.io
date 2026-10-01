@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Download identity on Alwaldend</title>
+		<link>https://alwaldend.com/docs/infra/vault/openspec/specs/download-identity/</link>
+		<description>Recent content in Download identity on Alwaldend</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<atom:link href="https://alwaldend.com/docs/infra/vault/openspec/specs/download-identity/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>download-identity Specification</title>
+				<link>https://alwaldend.com/docs/infra/vault/openspec/specs/download-identity/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/infra/vault/openspec/specs/download-identity/spec/</guid>
+				<description>&lt;span id=&#34;download-identity-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Provide a dedicated Vault identity for download infrastructure while keeping&#xA;state, credential references, and provider permissions scoped to its needs.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-dedicated-component-authentication&#34;&gt;Requirement: Dedicated component authentication&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-dedicated-component-authentication&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Vault configuration SHALL declare &lt;code&gt;src_infra_download&lt;/code&gt; using the existing&#xA;AppRole backend and reusable identity modules. Its state permissions SHALL&#xA;cover the component&amp;rsquo;s own environment and DNS state keys, not another&#xA;component&amp;rsquo;s state namespace.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-inspect-component-state-access&#34;&gt;Scenario: Inspect component state access&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-inspect-component-state-access&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; the download identity&amp;rsquo;s effective state policy is evaluated&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; it grants access to download-owned state and locks&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;AND&lt;/strong&gt; it does not grant access to unrelated component state&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;requirement-required-provider-and-ssh-assignments&#34;&gt;Requirement: Required provider and SSH assignments&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-required-provider-and-ssh-assignments&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The identity SHALL expose the membership and identity outputs needed for&#xA;Yandex folder provisioning and XCP-ng resource-set assignment. It SHALL&#xA;receive the required component SSH permissions and DNS provider-secret reads&#xA;for global and local records without administrative provider credentials.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

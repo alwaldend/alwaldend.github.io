@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>X article publication on Alwaldend</title>
+		<link>https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/x-article-publication/</link>
+		<description>Recent content in X article publication on Alwaldend</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<atom:link href="https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/x-article-publication/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>x-article-publication Specification</title>
+				<link>https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/x-article-publication/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/x-article-publication/spec/</guid>
+				<description>&lt;span id=&#34;x-article-publication-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Create an X Article draft from a converted Markdown post, resolving referenced&#xA;images through the media upload endpoint. The uploader creates drafts only; it&#xA;never publishes an article.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-authenticated-requests-to-x-articles&#34;&gt;Requirement: Authenticated requests to X Articles&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-authenticated-requests-to-x-articles&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The publisher SHALL authenticate to the X API with credentials supplied at run&#xA;time through the repository&amp;rsquo;s secret-injection flow. Credential values MUST NOT&#xA;be recorded in source, committed configuration, logs, or command history.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

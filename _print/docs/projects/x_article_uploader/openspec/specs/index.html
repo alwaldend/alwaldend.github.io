@@ -1,0 +1,1260 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js" data-theme-init>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#000000">
+
+<style>
+  html { background: Canvas; color: CanvasText; }
+  @media (prefers-color-scheme: dark) {
+    html { background: #0b0d12; color: #e6e6e6; }
+  }
+  html[data-theme-init] * { transition: none !important; }
+</style>
+
+<script>
+  (function() {
+    const themeKey = 'td-color-theme';
+    const storedTheme = localStorage.getItem(themeKey);
+    let theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    if (theme === 'auto') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  })();
+</script>
+<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/index.xml">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" sizes="any" href="/icons/favicon.846429df84fbe4763a8f707e5373b0ab1ec9987218da2237106ab713ed7ff972.svg">
+
+<title>Specifications | Alwaldend</title>
+<meta name="description" content="">
+<meta property="og:url" content="https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/">
+	<meta property="og:site_name" content="Alwaldend">
+	<meta property="og:title" content="Specifications">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="Specifications">
+	<meta itemprop="dateModified" content="2026-10-02T00:23:20+03:00">
+	<meta itemprop="keywords" content="Project">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Specifications">
+<link rel="preload" href="/scss/main.min.d06534881c16bca07bda98c19394cc9746749390f55deea07cc17adbee58bda0.css" as="style" integrity="sha256-0GU0iBwWvKB72pjBk5TMl0Z0k5D1Xe6gfMF62&#43;5YvaA=" crossorigin="anonymous">
+<link href="/scss/main.min.d06534881c16bca07bda98c19394cc9746749390f55deea07cc17adbee58bda0.css" rel="stylesheet" integrity="sha256-0GU0iBwWvKB72pjBk5TMl0Z0k5D1Xe6gfMF62&#43;5YvaA=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll">
+<div class="td-navbar-container container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Alwaldend</span></a>
+  <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
+    <div class="scroll-indicator scroll-left"></div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/"><span>Projects</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Docs</span></a>
+      </li>
+      <li class="nav-item td-navbar__light-dark-menu">
+        <div class="td-light-dark-menu dropdown"><svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check2" viewBox="0 0 16 16">
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+  <symbol id="circle-half" viewBox="0 0 16 16">
+    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+  </symbol>
+  <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+  </symbol>
+  <symbol id="sun-fill" viewBox="0 0 16 16">
+    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+  </symbol>
+</svg>
+<button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        title="Toggle theme (Auto)"
+        aria-label="Toggle theme (Auto)">
+  <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+  <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+</button>
+<ul class="dropdown-menu" aria-labelledby="bd-theme">
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#sun-fill"></use></svg>
+      Light
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#moon-stars-fill"></use></svg>
+      Dark
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+      <svg class="bi me-2 opacity-50"><use href="#circle-half"></use></svg>
+      Auto
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+</ul>
+</div>
+
+      </li>
+      </ul>
+    <div class="scroll-indicator scroll-right"></div>
+  </div>
+  <div class="td-navbar__search d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon" aria-hidden="true"></div>
+  <input
+    type="search"
+    name="q"
+    class="td-search__input form-control"
+    placeholder='Search this site…'
+    aria-label='Search this site…'
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.2f72bc8877a5150d7f3035a0da9b1703.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/projects/x_article_uploader/openspec/specs/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Specifications</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-157cf4e2951d12533b9d92dd368baa77">Markdown to draftjs</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1.1: <a href="#pg-83d1e4e331f7c6d5a0bfe662cee8c1aa">markdown-to-draftjs Specification</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-e0b1a79fe47c88fa58ffb55fb6ff444f">X article publication</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1: <a href="#pg-86082217a1ceac33112b1ea1c72e0478">x-article-publication Specification</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-f86347a021ad581ec930ca5cce28922a">X article uploader build</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>3.1: <a href="#pg-f85a89e635fbdb4065bb3ddd26ed2f25">x-article-uploader-build Specification</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-157cf4e2951d12533b9d92dd368baa77">1 - Markdown to draftjs</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-83d1e4e331f7c6d5a0bfe662cee8c1aa">1.1 - markdown-to-draftjs Specification</h1>
+    
+	<span id="print-78b53da53cf62bb8cc5edd45209ebcc7-markdown-to-draftjs-specification"></span><h2 id="print-78b53da53cf62bb8cc5edd45209ebcc7-purpose">Purpose<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-purpose" aria-label="Heading self-link"></a></h2><p>Compile a Markdown post into the DraftJS <code>content_state</code> document that the X
+Articles API accepts, so the Markdown that renders the blog also produces the
+article body without hand-editing.</p>
+<h2 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirements">Requirements<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-source-post-input-model">Requirement: Source post input model<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-source-post-input-model" aria-label="Heading self-link"></a></h3><p>The converter SHALL treat a blog source post as YAML front matter plus a
+Markdown body, and MUST NOT emit front matter as article text. It SHALL expose
+the parsed metadata separately from the <code>content_state</code> document, and SHALL
+report the parsed <code>title</code> as document metadata because draft creation requires
+a title that <code>content_state</code> does not carry. A source whose front matter has no
+non-empty <code>title</code> SHALL fail conversion with a diagnostic naming the source,
+rather than producing a document that cannot be uploaded.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-post-with-front-matter">Scenario: Convert a post with front matter<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-post-with-front-matter" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the converter is given a post whose front matter contains a title</li>
+<li><strong>THEN</strong> the emitted <code>content_state</code> contains no front matter text</li>
+<li><strong>AND</strong> the parsed title is reported as document metadata alongside it</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-post-without-a-title">Scenario: Convert a post without a title<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-post-without-a-title" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the source front matter has no non-empty title</li>
+<li><strong>THEN</strong> conversion fails with a diagnostic naming the source</li>
+<li><strong>AND</strong> it does not emit a document that lacks a usable title</li>
+</ul>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-deterministic-offline-conversion">Requirement: Deterministic offline conversion<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-deterministic-offline-conversion" aria-label="Heading self-link"></a></h3><p>The converter SHALL transform a Markdown source file into a X-compatible
+DraftJS <code>content_state</code> document containing a <code>blocks</code> array and an <code>entities</code>
+array of <code>{key, value}</code> entries. Conversion MUST be deterministic and MUST NOT perform network access.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-post-offline">Scenario: Convert a post offline<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-post-offline" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the converter is given a Markdown file</li>
+<li><strong>THEN</strong> it emits a <code>content_state</code> document with <code>blocks</code> and <code>entities</code></li>
+<li><strong>AND</strong> it performs no network request during conversion</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-identical-input-yields-identical-output">Scenario: Identical input yields identical output<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-identical-input-yields-identical-output" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the same Markdown input and configuration are converted twice</li>
+<li><strong>THEN</strong> both outputs are byte-identical</li>
+</ul>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-articles-wire-shape">Requirement: Articles wire shape<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-articles-wire-shape" aria-label="Heading self-link"></a></h3><p>The emitted document SHALL use the exact shape the Articles draft endpoint
+accepts, not the canonical DraftJS spelling. Each block SHALL name its ranges
+<code>inline_style_ranges</code> and <code>entity_ranges</code>, and MUST NOT carry a <code>depth</code> field,
+because the endpoint&rsquo;s schema sets <code>additionalProperties: false</code> and rejects
+both the camelCase range names and any <code>depth</code>. Each entry of <code>entities</code> SHALL
+be <code>{&quot;key&quot;: &quot;&lt;index&gt;&quot;, &quot;value&quot;: {&quot;type&quot;, &quot;mutability&quot;, &quot;data&quot;}}</code>, matching the
+endpoint&rsquo;s schema rather than DraftJS&rsquo;s inline <code>entityMap</code>.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-emit-the-articles-field-names">Scenario: Emit the Articles field names<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-emit-the-articles-field-names" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a document with inline styles, links, and a list is converted</li>
+<li><strong>THEN</strong> every block names its ranges <code>inline_style_ranges</code> and <code>entity_ranges</code>
+and carries no <code>depth</code></li>
+<li><strong>AND</strong> each entity is a <code>{key, value}</code> entry whose <code>value</code> carries <code>type</code>,
+<code>mutability</code>, and <code>data</code></li>
+<li><strong>AND</strong> no block or entity field falls outside the schema&rsquo;s allowed names</li>
+</ul>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-heading-level-mapping">Requirement: Heading level mapping<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-heading-level-mapping" aria-label="Heading self-link"></a></h3><p>Markdown headings SHALL map onto the block types X exposes, and no heading MAY
+produce a type outside that set. Because X exposes only three heading levels,
+depth SHALL be clamped: <code>#</code> and <code>##</code> map to <code>header-one</code>, <code>###</code> maps to
+<code>header-two</code>, and <code>####</code> and deeper map to <code>header-three</code>.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-map-a-second-level-heading">Scenario: Map a second-level heading<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-map-a-second-level-heading" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post contains a <code>##</code> heading</li>
+<li><strong>THEN</strong> it becomes a <code>header-one</code> block</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-map-a-third-level-heading">Scenario: Map a third-level heading<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-map-a-third-level-heading" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post contains a <code>###</code> heading</li>
+<li><strong>THEN</strong> it becomes a <code>header-two</code> block</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-clamp-a-heading-deeper-than-x-supports">Scenario: Clamp a heading deeper than X supports<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-clamp-a-heading-deeper-than-x-supports" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post contains a <code>####</code>, <code>#####</code>, or <code>######</code> heading</li>
+<li><strong>THEN</strong> it becomes a <code>header-three</code> block</li>
+<li><strong>AND</strong> no block uses a heading type outside <code>header-one</code>, <code>header-two</code>, or <code>header-three</code></li>
+</ul>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-block-level-markdown-mapping">Requirement: Block-level Markdown mapping<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-block-level-markdown-mapping" aria-label="Heading self-link"></a></h3><p>The converter SHALL map supported block constructs to the block type X expects:
+paragraphs to <code>unstyled</code>, unordered list items to <code>unordered-list-item</code>,
+ordered list items to <code>ordered-list-item</code>, and block quotes to <code>blockquote</code>.
+Nested list items SHALL be emitted as list items of their own kind rather than
+being merged into the parent item.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-paragraphs-and-lists">Scenario: Convert paragraphs and lists<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-paragraphs-and-lists" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post contains paragraphs and both list kinds</li>
+<li><strong>THEN</strong> paragraphs become <code>unstyled</code> blocks and each item becomes an
+<code>unordered-list-item</code> or <code>ordered-list-item</code> block</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-nested-list">Scenario: Convert a nested list<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-nested-list" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a list item contains a nested list</li>
+<li><strong>THEN</strong> the nested items are emitted as list-item blocks</li>
+<li><strong>AND</strong> no item&rsquo;s text contains the nested list&rsquo;s raw Markdown</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-list-item-with-several-paragraphs">Scenario: Convert a list item with several paragraphs<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-list-item-with-several-paragraphs" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a list item contains more than one paragraph, as a loose list does,
+whether or not a block construct such as a nested list or a code block lies
+between them</li>
+<li><strong>THEN</strong> the item becomes a single list-item block whose text carries all of
+the item&rsquo;s paragraphs</li>
+<li><strong>AND</strong> the item&rsquo;s block constructs follow that block in source order</li>
+<li><strong>AND</strong> it does not become one block per paragraph, which DraftJS would read
+as separate items and which would renumber an ordered list</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-block-construct-nested-in-a-list-item">Scenario: Convert a block construct nested in a list item<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-block-construct-nested-in-a-list-item" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a list item contains a block construct such as a fenced code block,
+an indented code block, a table, or a thematic break</li>
+<li><strong>THEN</strong> the construct is emitted through the same block mapping it uses at
+the top level, with its source preserved</li>
+<li><strong>AND</strong> its source is not silently dropped by walking only inline children</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-block-quote">Scenario: Convert a block quote<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-block-quote" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post contains a block quote</li>
+<li><strong>THEN</strong> it becomes a <code>blockquote</code> block containing the quoted text</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-heading-inside-a-block-quote">Scenario: Convert a heading inside a block quote<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-heading-inside-a-block-quote" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a block quote contains a heading, as in <code>&gt; # Warning</code>, whether
+directly or through a nested list as in <code>&gt; - # Warning</code></li>
+<li><strong>THEN</strong> the heading text is emitted as a <code>blockquote</code> block, not an ordinary
+heading outside the quote and not a list-item block that drops the quote</li>
+<li><strong>AND</strong> the lost heading level is reported, because X exposes no quoted-heading
+block type</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-preserve-a-line-break">Scenario: Preserve a line break<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-preserve-a-line-break" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a paragraph contains a soft line break or a hard line break written
+with two trailing spaces or a trailing backslash</li>
+<li><strong>THEN</strong> the block&rsquo;s text contains a newline at that break</li>
+<li><strong>AND</strong> the two lines are not joined into one word</li>
+</ul>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-inline-styles-and-link-entities">Requirement: Inline styles and link entities<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-inline-styles-and-link-entities" aria-label="Heading self-link"></a></h3><p>Inline emphasis SHALL be expressed as <code>inline_style_ranges</code> on the enclosing
+block using <code>bold</code>, <code>italic</code>, or <code>strikethrough</code>, with offsets computed against
+the block&rsquo;s final text. Links SHALL become <code>link</code> entities referenced by
+<code>entity_ranges</code> on the enclosing block. Ranges MUST be correct when a styled or
+linked span is adjacent to other text in the same block.</p>
+<p>Offsets SHALL be counted in the code units the DraftJS format uses — UTF-16 code
+units of the block&rsquo;s final text — rather than bytes, runes, or grapheme
+clusters. A block containing a supplementary character before a styled or
+linked span MUST still select exactly that span, because a byte or rune offset
+would select the wrong characters once the document is interpreted as a
+JavaScript string.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-emphasis">Scenario: Convert emphasis<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-emphasis" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a paragraph contains bold, italic, or strikethrough text</li>
+<li><strong>THEN</strong> the enclosing block carries <code>inline_style_ranges</code> for that span</li>
+<li><strong>AND</strong> each range&rsquo;s offset and length select exactly the styled text</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-link">Scenario: Convert a link<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-link" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a paragraph contains a Markdown link</li>
+<li><strong>THEN</strong> a <code>link</code> entity carrying the destination URL is added to <code>entities</code></li>
+<li><strong>AND</strong> the enclosing block references it with an <code>entity_range</code> selecting the link text</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-link-carrying-a-title">Scenario: Convert a link carrying a title<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-link-carrying-a-title" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a Markdown link carries an optional title, as in
+<code>[docs](https://example.test &quot;Reference&quot;)</code></li>
+<li><strong>THEN</strong> the entity cannot carry the title, so its loss is reported as a
+continuing diagnostic naming the title and positioned at the link</li>
+<li><strong>AND</strong> the link&rsquo;s text and destination are still preserved</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-an-image-carrying-a-title">Scenario: Convert an image carrying a title<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-an-image-carrying-a-title" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a Markdown image carries an optional title</li>
+<li><strong>THEN</strong> its loss is reported as a continuing diagnostic naming the title and
+positioned at the image</li>
+<li><strong>AND</strong> the image is still emitted as an <code>atomic</code> block</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-titled-construct-has-no-text-of-its-own">Scenario: A titled construct has no text of its own<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-titled-construct-has-no-text-of-its-own" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a titled link or image has an empty label or alt text, so the
+construct has no text node to locate it</li>
+<li><strong>THEN</strong> the lost-title diagnostic is positioned at the construct&rsquo;s own
+opening delimiter rather than at the start of the enclosing block</li>
+<li><strong>AND</strong> the reported source position still names the construct that produced
+the loss</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-an-email-autolink">Scenario: Convert an email autolink<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-an-email-autolink" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a paragraph contains an email autolink such as <code>&lt;user@example.com&gt;</code></li>
+<li><strong>THEN</strong> the <code>link</code> entity records it as <code>mailto:user@example.com</code></li>
+<li><strong>AND</strong> the recorded URL is an email address rather than a relative link</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-destination-carries-markdown-escapes-or-character-references">Scenario: A destination carries Markdown escapes or character references<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-destination-carries-markdown-escapes-or-character-references" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a link or image destination escapes a punctuation character or uses a
+character reference, as in <code>[x](https://example.test/a\(1\)?x=1&amp;amp;y=2)</code></li>
+<li><strong>THEN</strong> the recorded destination resolves those encodings to the URL the
+author wrote</li>
+<li><strong>AND</strong> the recorded link or image target does not contain the literal
+backslashes or unresolved entity</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-prose-carries-markdown-escapes-or-character-references">Scenario: Prose carries Markdown escapes or character references<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-prose-carries-markdown-escapes-or-character-references" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> ordinary prose escapes a punctuation character or uses a character
+reference, as in <code>\*literal\*</code> or <code>AT&amp;amp;T</code></li>
+<li><strong>THEN</strong> the emitted block text resolves those encodings to the characters the
+author wrote rather than keeping the backslashes or the raw entity</li>
+<li><strong>AND</strong> a raw span such as a code span keeps its literal source, because its
+encoding is its content</li>
+<li><strong>AND</strong> an image caption, which is flattened from its inline content, follows
+the same rule: resolution applies to each non-raw descendant while a raw span
+inside the caption keeps its literal source</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-keep-offsets-correct-for-adjacent-spans">Scenario: Keep offsets correct for adjacent spans<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-keep-offsets-correct-for-adjacent-spans" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a block contains multiple styled or linked spans next to plain text</li>
+<li><strong>THEN</strong> every range&rsquo;s offset is measured against the block&rsquo;s final plain text</li>
+<li><strong>AND</strong> no range extends beyond the block text</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-keep-offsets-correct-after-a-supplementary-character">Scenario: Keep offsets correct after a supplementary character<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-keep-offsets-correct-after-a-supplementary-character" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a block contains an emoji or other supplementary character before a styled or linked span</li>
+<li><strong>THEN</strong> each range&rsquo;s offset is measured in UTF-16 code units of the block&rsquo;s
+final text</li>
+<li><strong>AND</strong> the range selects exactly the styled or linked text rather than
+drifting by the character&rsquo;s extra code unit</li>
+</ul>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-code-blocks-and-tables-preserve-source-markdown">Requirement: Code blocks and tables preserve source Markdown<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-code-blocks-and-tables-preserve-source-markdown" aria-label="Heading self-link"></a></h3><p>Code fences and tables SHALL be emitted as <code>atomic</code> blocks backed by a
+<code>markdown</code> entity whose payload preserves the construct&rsquo;s original Markdown
+source. A table MUST NOT be flattened into paragraph text, because X exposes no
+table block or entity.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-fenced-code-block">Scenario: Convert a fenced code block<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-fenced-code-block" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post contains a fenced code block</li>
+<li><strong>THEN</strong> it becomes an <code>atomic</code> block with a <code>markdown</code> entity</li>
+<li><strong>AND</strong> the entity payload preserves the fenced source, including its language</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-table">Scenario: Convert a table<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-table" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post contains a Markdown table</li>
+<li><strong>THEN</strong> it becomes an <code>atomic</code> block with a <code>markdown</code> entity</li>
+<li><strong>AND</strong> the entity payload preserves the table as Markdown with its rows and
+cell contents intact</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-an-indented-code-block">Scenario: Convert an indented code block<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-an-indented-code-block" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post contains an indented code block immediately followed by a
+non-indented paragraph</li>
+<li><strong>THEN</strong> the <code>markdown</code> entity payload contains only the code block&rsquo;s own lines</li>
+<li><strong>AND</strong> the following paragraph is emitted once, as its own block, rather than
+being swallowed into the entity and repeated</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-report-the-markdown-payload-budget">Scenario: Report the markdown payload budget<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-report-the-markdown-payload-budget" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the total <code>markdown</code> entity payload for an article would exceed the
+API&rsquo;s per-article limit</li>
+<li><strong>THEN</strong> conversion fails with a diagnostic naming the article and the
+measured size rather than emitting a document the API will reject</li>
+</ul>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-inline-code-and-thematic-breaks">Requirement: Inline code and thematic breaks<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-inline-code-and-thematic-breaks" aria-label="Heading self-link"></a></h3><p>DraftJS exposes only <code>bold</code>, <code>italic</code>, and <code>strikethrough</code> as inline styles, so
+a Markdown inline-code span has no code style to map onto. Its literal text SHALL
+survive conversion unchanged, and the loss of the monospace styling SHALL be
+reported as a conversion diagnostic so the author sees it rather than having it
+silently dropped. A Markdown thematic break SHALL become an <code>atomic</code> block
+backed by a <code>divider</code> entity, because X exposes <code>divider</code> for exactly that
+purpose, rather than being dropped as an unrecognized paragraph.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-an-inline-code-span">Scenario: Convert an inline-code span<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-an-inline-code-span" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post contains a Markdown inline-code span</li>
+<li><strong>THEN</strong> the block&rsquo;s final text contains the span&rsquo;s literal text</li>
+<li><strong>AND</strong> conversion reports the lost code styling as a diagnostic</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-gfm-task-list-item">Scenario: Convert a GFM task-list item<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-gfm-task-list-item" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post contains a task-list item</li>
+<li><strong>THEN</strong> the item&rsquo;s text keeps an indicator of its checkbox state</li>
+<li><strong>AND</strong> the checked state is not silently dropped</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-thematic-break">Scenario: Convert a thematic break<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-thematic-break" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post contains a thematic break</li>
+<li><strong>THEN</strong> it becomes an <code>atomic</code> block with a <code>divider</code> entity</li>
+<li><strong>AND</strong> it does not become paragraph text containing the break&rsquo;s characters</li>
+</ul>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-footnotes-become-a-trailing-section">Requirement: Footnotes become a trailing section<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-footnotes-become-a-trailing-section" aria-label="Heading self-link"></a></h3><p>DraftJS has no footnote construct, so footnote definitions SHALL be preserved in
+a trailing <code>Footnotes</code> section rather than dropped. Each in-text footnote
+reference SHALL become plain bracketed text, and each definition SHALL become an
+<code>ordered-list-item</code> beneath a <code>Footnotes</code> heading.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-post-with-footnotes">Scenario: Convert a post with footnotes<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-post-with-footnotes" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post contains a footnote reference and its definition</li>
+<li><strong>THEN</strong> the reference appears in the body as plain bracketed text</li>
+<li><strong>AND</strong> a <code>Footnotes</code> heading is appended with each definition as an
+ordered list item</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-preserve-a-structured-footnote-definition">Scenario: Preserve a structured footnote definition<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-preserve-a-structured-footnote-definition" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a footnote definition contains multiple paragraphs or inline
+formatting such as a link</li>
+<li><strong>THEN</strong> each definition paragraph becomes its own ordered list item rather
+than being joined without a separator</li>
+<li><strong>AND</strong> inline entities such as links are preserved by the normal inline
+mapper rather than flattened to plain text</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-preserve-a-construct-nested-in-a-footnote-definition">Scenario: Preserve a construct nested in a footnote definition<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-preserve-a-construct-nested-in-a-footnote-definition" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a footnote definition contains a nested list, block quote, fenced or
+indented code block, table, or thematic break</li>
+<li><strong>THEN</strong> the construct is emitted through the block mapper with its content
+preserved</li>
+<li><strong>AND</strong> it is not silently dropped</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-post-without-footnotes">Scenario: Convert a post without footnotes<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-post-without-footnotes" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post contains no footnotes</li>
+<li><strong>THEN</strong> no <code>Footnotes</code> heading is added</li>
+</ul>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-images-reference-uploaded-media">Requirement: Images reference uploaded media<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-images-reference-uploaded-media" aria-label="Heading self-link"></a></h3><p>The <code>image</code> entity SHALL carry its media as <code>media_items</code>, whose entries require
+a <code>media_category</code> and a <code>media_id</code>; <code>data.url</code> is documented for <code>link</code>
+entities and MUST NOT be treated as an image source. Each image SHALL become an
+<code>atomic</code> block plus an <code>image</code> entity, and unresolved images SHALL remain
+explicitly unresolved so publication can resolve or reject them rather than
+silently emitting a broken article. Because the media endpoints accept only a
+fixed set of image media types that excludes <code>image/svg+xml</code>, the converter
+SHALL report an image whose media type the upload endpoints cannot accept, with
+its source position, rather than emitting an entity that publication can never
+resolve. The declared extension SHALL be accepted as the media type only when
+the file&rsquo;s bytes carry that format&rsquo;s own signature, so a file renamed to an
+accepted raster extension — even one accepted format renamed to another — is
+reported rather than sent to the upload endpoint.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-an-inline-image">Scenario: Convert an inline image<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-an-inline-image" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post contains an image with alt text</li>
+<li><strong>THEN</strong> it becomes an <code>atomic</code> block with an <code>image</code> entity</li>
+<li><strong>AND</strong> the entity preserves the alt text as its caption, resolving Markdown
+escapes and character references the way prose is resolved while a raw span
+inside the alt text keeps its literal source</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-publication-has-not-yet-resolved-an-image">Scenario: Publication has not yet resolved an image<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-publication-has-not-yet-resolved-an-image" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a converted document references an image whose media has not been uploaded</li>
+<li><strong>THEN</strong> the unresolved image is distinguishable from a resolved one</li>
+<li><strong>AND</strong> publication refuses to send an unresolved image as though it were resolved</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-an-image-cannot-be-uploaded">Scenario: An image cannot be uploaded<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-an-image-cannot-be-uploaded" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post references an image whose media type the media upload endpoints do not accept</li>
+<li><strong>THEN</strong> the converter reports the image with its source position</li>
+<li><strong>AND</strong> it does not emit an entity that publication could never resolve</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-an-image-reference-resolves-outside-the-post-directory">Scenario: An image reference resolves outside the post directory<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-an-image-reference-resolves-outside-the-post-directory" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post&rsquo;s image reference is a syntactically safe relative path whose
+canonical target lies outside the post&rsquo;s directory, such as a symlink to a
+file elsewhere</li>
+<li><strong>THEN</strong> the converter reports the image with its source position rather than
+reading bytes outside the post boundary</li>
+<li><strong>AND</strong> it does not record a locator that publication would later reject, so a
+converted artifact remains publishable</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-image-bytes-do-not-match-the-declared-extension">Scenario: Image bytes do not match the declared extension<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-image-bytes-do-not-match-the-declared-extension" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post references an image whose bytes are not the format its extension declares</li>
+<li><strong>THEN</strong> the converter reports the image with its source position instead of treating it as the declared type</li>
+<li><strong>AND</strong> it does not emit an entity the upload endpoint would reject</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-an-accepted-format-is-renamed-to-another-accepted-extension">Scenario: An accepted format is renamed to another accepted extension<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-an-accepted-format-is-renamed-to-another-accepted-extension" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> bytes of one accepted raster format carry the extension of a different accepted raster format</li>
+<li><strong>THEN</strong> the converter reports the mismatch rather than accepting the sniffed type</li>
+<li><strong>AND</strong> it does not fall back to another accepted media type</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-an-image-reference-requires-markdown-escaping">Scenario: An image reference requires Markdown escaping<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-an-image-reference-requires-markdown-escaping" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a local image reference names a file whose name needs Markdown
+escaping, as in <code>![plot](plot\(final\).png)</code></li>
+<li><strong>THEN</strong> the reference is resolved before filesystem lookup, so the file it
+names is read rather than reported unreadable</li>
+<li><strong>AND</strong> the recorded locator names the resolved path</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-symlinks-target-has-a-different-extension-than-the-reference">Scenario: A symlink&rsquo;s target has a different extension than the reference<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-symlinks-target-has-a-different-extension-than-the-reference" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an image reference such as <code>image.png</code> is an in-directory symlink to a
+file with a different raster extension, such as <code>actual.webp</code></li>
+<li><strong>THEN</strong> the declared-extension check classifies the image by the reference the
+author wrote, not by the canonical target&rsquo;s name</li>
+<li><strong>AND</strong> bytes that do not match the reference&rsquo;s declared format are reported
+rather than accepted through the target&rsquo;s extension</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-an-inline-image-splits-a-styled-span">Scenario: An inline image splits a styled span<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-an-inline-image-splits-a-styled-span" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an inline image interrupts a styled or linked span</li>
+<li><strong>THEN</strong> the text before the image keeps its style or entity range</li>
+<li><strong>AND</strong> the text after the image keeps its style or entity range</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-link-wraps-only-an-image">Scenario: A link wraps only an image<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-link-wraps-only-an-image" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a Markdown image is the entire content of a link, as in
+<code>[![alt](image.png)](target)</code></li>
+<li><strong>THEN</strong> the image is still emitted as an <code>atomic</code> block with its <code>image</code>
+entity</li>
+<li><strong>AND</strong> the lost destination is reported as a continuing diagnostic naming the
+link target, because the link has no text span to carry it</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-link-wraps-an-image-inside-an-inline-wrapper">Scenario: A link wraps an image inside an inline wrapper<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-link-wraps-an-image-inside-an-inline-wrapper" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the link&rsquo;s only content is an image nested inside a style wrapper,
+as in <code>[**![alt](image.png)**](target)</code></li>
+<li><strong>THEN</strong> the enclosing link is found by ancestry rather than by immediate
+parentage</li>
+<li><strong>AND</strong> the lost destination is still reported, because the link has no text
+outside the image</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-link-carries-text-beside-an-image">Scenario: A link carries text beside an image<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-link-carries-text-beside-an-image" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a link contains non-whitespace text of its own in addition to an
+image, as in <code>[label ![alt](image.png)](target)</code></li>
+<li><strong>THEN</strong> the destination survives as a <code>link</code> entity over that text</li>
+<li><strong>AND</strong> the image, which still cannot carry the link, is reported as a
+continuing diagnostic naming the destination, so the partial loss is not
+hidden merely because sibling text kept the link</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-post-follows-the-raster-only-policy">Scenario: A post follows the raster-only policy<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-post-follows-the-raster-only-policy" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post&rsquo;s images all use a media type the media upload endpoints accept</li>
+<li><strong>THEN</strong> conversion completes with an <code>image</code> entity for each image</li>
+<li><strong>AND</strong> no unacceptable-image diagnostic is reported for that post</li>
+</ul>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-artifact-carries-image-locators">Requirement: Artifact carries image locators<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-artifact-carries-image-locators" aria-label="Heading self-link"></a></h3><p>Because the API&rsquo;s entity <code>data</code> object rejects additional properties, an image&rsquo;s
+source cannot travel inside the entity. The emitted draft artifact SHALL
+therefore carry, as metadata beside <code>content_state</code>, an entry for every
+unresolved image. Each entry SHALL name the image&rsquo;s source path relative to the
+post&rsquo;s directory, SHALL record the post package the path is relative to, and
+SHALL record a digest of the image bytes as they were at conversion time, so the
+artifact identifies both the image and the directory it resolves against.
+Publication SHALL be able to obtain the image bytes from the artifact alone,
+without re-parsing Markdown, and SHALL reject a locator that escapes the post&rsquo;s
+directory or whose current bytes do not match the recorded digest. Conversion
+SHALL apply the same containment before it reads an image, so it neither
+inspects bytes outside the post boundary nor records a locator that publication
+would refuse. Both SHALL enforce containment by resolving the name through
+descriptor-anchored directory handles that reject a symlink escaping the root,
+rather than by checking a pathname and then re-opening it, so the object whose
+containment is checked is the object read.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-an-image-into-the-artifact">Scenario: Convert an image into the artifact<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-an-image-into-the-artifact" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post containing a raster image is converted</li>
+<li><strong>THEN</strong> the artifact carries a locator entry for that image beside the document</li>
+<li><strong>AND</strong> the entry names the source path relative to the post&rsquo;s directory, the
+post package the path resolves against, and a digest of the image bytes</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-associate-a-locator-with-its-image-entity">Scenario: Associate a locator with its image entity<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-associate-a-locator-with-its-image-entity" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an artifact carries two or more image locators</li>
+<li><strong>THEN</strong> each locator entry records the entity it resolves, by the entity&rsquo;s
+key, so the mapping does not depend on ordering or on repeated captions</li>
+<li><strong>AND</strong> publication attaches each returned <code>media_id</code> to the entity its locator
+names rather than by position</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-source-given-by-an-absolute-path">Scenario: Convert a source given by an absolute path<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-source-given-by-an-absolute-path" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the conversion command is given an absolute <code>--source</code> and no
+<code>--post-package</code></li>
+<li><strong>THEN</strong> the recorded locator&rsquo;s package is relative to the workspace named by
+<code>--workspace</code>, rather than the absolute source directory</li>
+<li><strong>AND</strong> the artifact remains publishable, because publication refuses an
+absolute package rather than resolving it</li>
+<li><strong>AND</strong> the workspace root is the caller-supplied <code>--workspace</code> value and is
+never re-discovered by walking the filesystem, so no repository marker found
+through a link can be mistaken for it</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-post-directory-is-reached-through-a-symlink">Scenario: A post directory is reached through a symlink<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-post-directory-is-reached-through-a-symlink" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the derived package would name a post directory whose canonical
+target, after resolving symlinks, lies outside the workspace root</li>
+<li><strong>THEN</strong> the conversion is refused with a directive to pass <code>--post-package</code>
+explicitly, rather than recording a package the descriptor-anchored read
+would resolve past and reject</li>
+<li><strong>AND</strong> an in-workspace symlink still records the relative package of the
+canonical directory it resolves to, so the recorded package matches the
+object publication reads</li>
+<li><strong>AND</strong> a link that points directly at another checkout&rsquo;s root, a link into
+another tree beneath its root, and a post directory reached through an
+intermediate symlink-component are all refused rather than recorded relative
+to the external tree or collapsed to <code>.</code></li>
+<li><strong>AND</strong> containment is established by opening the directory through a
+descriptor-anchored handle on the workspace, so the no-symlink validation and
+the directory accepted for the package are the same traversal and cannot be
+separated by a writer swapping the directory for a link</li>
+<li><strong>AND</strong> image reads for the post go through that same handle rather than
+re-opening the source pathname, so a symlink retargeted after validation
+cannot make conversion read another tree&rsquo;s bytes while the artifact still
+records the validated package</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-post-package-is-supplied-explicitly">Scenario: A post package is supplied explicitly<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-post-package-is-supplied-explicitly" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the conversion command is given <code>--post-package</code> rather than having
+one derived</li>
+<li><strong>THEN</strong> the package is accepted only when the directory it opens to is the
+post directory, compared by file identity rather than by pathname, because
+publication resolves the locator paths against the package and a package
+naming another directory would make publication read a different object than
+conversion did</li>
+<li><strong>AND</strong> the post&rsquo;s images are read through the descriptor-anchored handle the
+identity was checked on, so a package retargeted between the check and the
+read cannot supply another tree&rsquo;s bytes while the locator still names the
+supplied package</li>
+<li><strong>AND</strong> an absolute package, a package that escapes the workspace, or a
+package naming a different directory than the post is refused</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-resolve-an-image-from-the-artifact">Scenario: Resolve an image from the artifact<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-resolve-an-image-from-the-artifact" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> publication reads an unresolved image from the artifact</li>
+<li><strong>THEN</strong> it obtains the image bytes from the recorded locator without
+re-parsing the source Markdown</li>
+<li><strong>AND</strong> it resolves the relative path against the recorded post package even
+when the artifact was moved elsewhere</li>
+<li><strong>AND</strong> it refuses a locator that escapes the post&rsquo;s directory or names bytes
+whose digest does not match the recorded one</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-symlink-changes-after-containment-validation">Scenario: A symlink changes after containment validation<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-symlink-changes-after-containment-validation" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a locator&rsquo;s path or its target is swapped for a symlink that leaves the
+post directory after containment was established</li>
+<li><strong>THEN</strong> the read is refused rather than following the swapped symlink</li>
+<li><strong>AND</strong> a swapped symlink cannot redirect the read to a different file, because
+the containment check and the read operate on the same descriptor rather than
+on a re-opened pathname</li>
+</ul>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-conversion-diagnostics">Requirement: Conversion diagnostics<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-conversion-diagnostics" aria-label="Heading self-link"></a></h3><p>The converter SHALL report a construct it cannot represent with the source
+location that produced it. It SHALL distinguish two outcomes and never emit a
+document that silently omits content it could not represent: a construct whose
+content is preserved but whose formatting is lost is reported and conversion
+continues, while a construct whose content would be lost fails conversion. The
+image whose media type the upload endpoints reject and the source without a
+title are failing outcomes; an inline-code span&rsquo;s lost styling is a continuing
+one.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-encounter-an-unsupported-construct">Scenario: Encounter an unsupported construct<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-encounter-an-unsupported-construct" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the converter cannot represent a construct and its content would be lost</li>
+<li><strong>THEN</strong> it reports the construct with its source position</li>
+<li><strong>AND</strong> conversion fails rather than emitting a document that discards the content</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-report-continuing-losses-when-conversion-also-fails">Scenario: Report continuing losses when conversion also fails<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-report-continuing-losses-when-conversion-also-fails" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a source contains both a continuing loss and a failing construct, such
+as an inline-code span and an unacceptable image</li>
+<li><strong>THEN</strong> the continuing diagnostic is reported alongside the failing one
+rather than being discarded with the returned error</li>
+<li><strong>AND</strong> the author sees every detected loss in one run</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-encounter-a-construct-whose-formatting-is-lost">Scenario: Encounter a construct whose formatting is lost<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-encounter-a-construct-whose-formatting-is-lost" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the converter preserves a construct&rsquo;s content but cannot reproduce its formatting</li>
+<li><strong>THEN</strong> it reports the lost formatting with its source position</li>
+<li><strong>AND</strong> conversion still completes with the content present</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-report-a-position-after-a-multi-byte-character">Scenario: Report a position after a multi-byte character<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-report-a-position-after-a-multi-byte-character" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a diagnostic&rsquo;s construct follows a multi-byte character on the same
+line</li>
+<li><strong>THEN</strong> the reported column counts source characters rather than bytes, so it
+names the position an editor shows</li>
+<li><strong>AND</strong> the byte offset is still recorded for slicing the source</li>
+</ul>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-banner-image-metadata">Requirement: Banner image metadata<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-banner-image-metadata" aria-label="Heading self-link"></a></h3><p>The converter SHALL resolve the first entry of the optional front matter
+<code>images</code> array as the article banner. It SHALL record a separate banner locator
+with the post-relative path, post package, content digest, and detected media
+type, using the same image validation as body images. It MUST NOT insert a body
+block or remove an existing body image because the image is selected as a banner.
+Malformed metadata or an unusable selected image SHALL fail conversion.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-select-a-banner-independently-of-body-images">Scenario: Select a banner independently of body images<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-select-a-banner-independently-of-body-images" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post selects a local image in the first <code>images</code> entry</li>
+<li><strong>THEN</strong> conversion records its banner locator separately from body locators</li>
+<li><strong>AND</strong> later <code>images</code> entries do not select additional banners</li>
+<li><strong>AND</strong> body text and images retain their original order</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-without-a-selected-banner">Scenario: Convert without a selected banner<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-without-a-selected-banner" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> <code>images</code> is absent or empty</li>
+<li><strong>THEN</strong> the artifact has no banner locator and preserves existing conversion behavior</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-refuse-an-invalid-selected-banner">Scenario: Refuse an invalid selected banner<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-refuse-an-invalid-selected-banner" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> <code>images</code> is not an array of strings, or its selected image is missing,
+unsupported, remote, or outside the post package</li>
+<li><strong>THEN</strong> conversion fails with a diagnostic before any network operation</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e0b1a79fe47c88fa58ffb55fb6ff444f">2 - X article publication</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-86082217a1ceac33112b1ea1c72e0478">2.1 - x-article-publication Specification</h1>
+    
+	<span id="print-b3e612cbf6a99d214c5c9b738057c7fb-x-article-publication-specification"></span><h2 id="print-b3e612cbf6a99d214c5c9b738057c7fb-purpose">Purpose<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-purpose" aria-label="Heading self-link"></a></h2><p>Create an X Article draft from a converted Markdown post, resolving referenced
+images through the media upload endpoint. The uploader creates drafts only; it
+never publishes an article.</p>
+<h2 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirements">Requirements<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-authenticated-requests-to-x-articles">Requirement: Authenticated requests to X Articles<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-authenticated-requests-to-x-articles" aria-label="Heading self-link"></a></h3><p>The publisher SHALL authenticate to the X API with credentials supplied at run
+time through the repository&rsquo;s secret-injection flow. Credential values MUST NOT
+be recorded in source, committed configuration, logs, or command history.</p>
+<p>Authentication SHALL use OAuth 1.0a user context, because the existing media and
+Articles endpoints accept it and its user-context token does not expire on a
+fixed schedule the way an OAuth 2.0 user token does, so draft creation does not
+depend on a rotating refresh token. OAuth 1.0a needs four credential fields —
+the API key, the API secret, the access token, and the access token secret —
+and the publisher SHALL sign each request with HMAC-SHA1 per RFC 5849 using the
+repository&rsquo;s standard library rather than adding a signing dependency. The
+publisher SHALL fail when any of the four fields is absent, rather than sending
+a partially signed request.</p>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-create-a-draft-with-injected-credentials">Scenario: Create a draft with injected credentials<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-create-a-draft-with-injected-credentials" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the publisher runs with credentials supplied through the injection flow</li>
+<li><strong>THEN</strong> it signs its requests to the X API with OAuth 1.0a user context</li>
+<li><strong>AND</strong> it does not print the credential values</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-credentials-are-unavailable">Scenario: Credentials are unavailable<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-credentials-are-unavailable" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the publisher runs without any one of the four required credential fields</li>
+<li><strong>THEN</strong> it fails with a diagnostic naming the missing credential reference</li>
+<li><strong>AND</strong> it does not retry with a partial or empty credential</li>
+</ul>
+<h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-draft-only-uploads">Requirement: Draft-only uploads<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-draft-only-uploads" aria-label="Heading self-link"></a></h3><p>The uploader SHALL create X Article drafts and MUST NOT publish an article. It
+SHALL NOT call the Articles publish endpoint or expose a way to request
+publication, so no invocation of this tool can make a post publicly visible.
+Draft creation SHALL send the title that conversion parsed from the source front
+matter, and MUST NOT invent, default, or omit it, because the draft endpoint
+requires a title that <code>content_state</code> does not carry.</p>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-create-a-draft">Scenario: Create a draft<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-create-a-draft" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> draft creation is requested for a converted document</li>
+<li><strong>THEN</strong> the publisher reads the draft article identifier from the v2 response envelope&rsquo;s <code>data.id</code></li>
+<li><strong>AND</strong> no post becomes publicly visible</li>
+<li><strong>AND</strong> the request carries the title parsed from the source front matter</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-draft-response-omits-the-identifier">Scenario: A draft response omits the identifier<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-draft-response-omits-the-identifier" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the draft endpoint returns a 2xx response whose <code>data.id</code> is missing or empty</li>
+<li><strong>THEN</strong> the publisher fails rather than reporting a successful draft with no identifier to review</li>
+<li><strong>AND</strong> it does not treat the zero-value response as a created draft</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-draft-creation-is-requested-without-a-parsed-title">Scenario: Draft creation is requested without a parsed title<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-draft-creation-is-requested-without-a-parsed-title" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> draft creation is requested for a document with no parsed title</li>
+<li><strong>THEN</strong> the publisher fails with a diagnostic</li>
+<li><strong>AND</strong> it does not send a placeholder or empty title</li>
+</ul>
+<h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-image-media-upload">Requirement: Image media upload<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-image-media-upload" aria-label="Heading self-link"></a></h3><p>The publisher SHALL upload each referenced image through the X media upload
+endpoint and reference the returned <code>media_id</code> in an <code>image</code> entity, because
+that entity carries no document URL. Uploading MUST happen before the draft
+that references the media is created.</p>
+<p>The publisher SHALL obtain the image bytes from the locator the draft artifact
+records beside the document, not by re-parsing the source Markdown, because the
+API&rsquo;s entity <code>data</code> object rejects additional properties and so cannot carry a
+path. It SHALL resolve the recorded relative path against the post package the
+locator records, so the artifact stays resolvable after it is moved. It SHALL
+reject a locator that escapes the post&rsquo;s directory or whose bytes do not match
+the digest the locator records, rather than uploading a different image. It
+SHALL enforce that containment by resolving the name through a
+descriptor-anchored directory handle that rejects a symlink escaping the root,
+rather than by checking a pathname and then re-opening it, so the object whose
+containment is checked is the object read.</p>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-upload-an-image-and-resolve-its-media-identifier">Scenario: Upload an image and resolve its media identifier<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-upload-an-image-and-resolve-its-media-identifier" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a converted document references an unuploaded image</li>
+<li><strong>THEN</strong> the publisher reads the image bytes from the artifact&rsquo;s locator and
+obtains a <code>media_id</code></li>
+<li><strong>AND</strong> the created draft references that <code>media_id</code> in its <code>image</code> entity</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-already-uploaded-image">Scenario: Reuse an already uploaded image<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-already-uploaded-image" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the same image content has already been uploaded by this tool</li>
+<li><strong>THEN</strong> the publisher reuses the recorded <code>media_id</code> rather than uploading the
+same bytes again</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-upload-in-a-later-run">Scenario: Reuse an upload in a later run<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-upload-in-a-later-run" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> draft creation runs again in a new process for an image this tool already uploaded</li>
+<li><strong>THEN</strong> it reads the digest-to-<code>media_id</code> mapping from its own cache and
+reuses the identifier</li>
+<li><strong>AND</strong> it stays correct when the cache is absent or the recorded digest no
+longer matches the artifact&rsquo;s, by uploading again rather than reusing a stale
+identifier</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-decode-the-media-upload-response">Scenario: Decode the media upload response<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-decode-the-media-upload-response" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the media upload endpoint returns the v2 response envelope</li>
+<li><strong>THEN</strong> the publisher reads the media identifier from the envelope&rsquo;s <code>data.id</code></li>
+<li><strong>AND</strong> the created draft references that identifier rather than an empty one</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-media-upload-response-omits-the-identifier">Scenario: A media upload response omits the identifier<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-media-upload-response-omits-the-identifier" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the media upload endpoint returns a 2xx response whose <code>data.id</code> is missing or empty</li>
+<li><strong>THEN</strong> the publisher fails rather than resolving the image to an empty identifier</li>
+<li><strong>AND</strong> it does not send an entity that references a missing media identifier</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-expire-a-cached-upload">Scenario: Expire a cached upload<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-expire-a-cached-upload" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the recorded lifetime of a cached media identifier has passed</li>
+<li><strong>THEN</strong> the cached entry is treated as a miss and the image is uploaded again</li>
+<li><strong>AND</strong> an entry whose lifetime has not passed is still reused</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-cannot-be-uploaded">Scenario: An image cannot be uploaded<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-cannot-be-uploaded" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an image upload fails</li>
+<li><strong>THEN</strong> the publisher fails and reports the failing image</li>
+<li><strong>AND</strong> it does not create a draft that references a missing or placeholder media identifier</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-artifact-names-an-unusable-image-locator">Scenario: An artifact names an unusable image locator<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-artifact-names-an-unusable-image-locator" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an artifact&rsquo;s locator escapes the recorded post package or names bytes whose digest does not match the recorded one</li>
+<li><strong>THEN</strong> the publisher fails with a diagnostic naming the locator</li>
+<li><strong>AND</strong> it uploads no replacement image in its place</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-unresolved-image-entity-has-no-locator">Scenario: An unresolved image entity has no locator<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-unresolved-image-entity-has-no-locator" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an artifact retains an <code>image</code> entity without <code>media_items</code> but records no locator that resolves it</li>
+<li><strong>THEN</strong> the publisher fails before uploading any image or creating a draft, naming the unresolved entity</li>
+<li><strong>AND</strong> it does not send an image entity without a media item</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-locator-does-not-name-a-distinct-image-entity">Scenario: A locator does not name a distinct image entity<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-locator-does-not-name-a-distinct-image-entity" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an artifact&rsquo;s locator names an entity that is missing, is not an image, or is already named by another locator</li>
+<li><strong>THEN</strong> the publisher fails before uploading any image rather than discovering the mismatch after paying for uploads</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-two-entities-share-one-numeric-key">Scenario: Two entities share one numeric key<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-two-entities-share-one-numeric-key" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an artifact contains more than one entity with the same numeric key</li>
+<li><strong>THEN</strong> the publisher fails before uploading any image, because one locator could resolve only the first and leave the other without <code>media_items</code></li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-entity-carries-a-malformed-media_items-entry">Scenario: An image entity carries a malformed media_items entry<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-entity-carries-a-malformed-media_items-entry" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an image entity&rsquo;s <code>media_items</code> is present but its entry has an empty or absent <code>media_id</code>, or a missing or incorrect <code>media_category</code></li>
+<li><strong>THEN</strong> the entity is treated as unresolved, so the publisher requires a locator rather than sending the invalid entry to X</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-entity-carries-a-usable-entry-beside-a-malformed-one">Scenario: An image entity carries a usable entry beside a malformed one<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-entity-carries-a-usable-entry-beside-a-malformed-one" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an image entity&rsquo;s <code>media_items</code> holds a usable entry next to an empty, non-object, or incorrectly categorized one</li>
+<li><strong>THEN</strong> the entity is treated as unresolved, because every supplied entry must be usable</li>
+<li><strong>AND</strong> the publisher does not send the malformed array merely because one entry looked valid</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-entity-carries-no-usable-key">Scenario: An image entity carries no usable key<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-entity-carries-no-usable-key" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an artifact contains an image entity whose <code>key</code> is missing, non-numeric, fractional, or negative</li>
+<li><strong>THEN</strong> the publisher fails before uploading any image, because the entity is invisible to locator coverage</li>
+<li><strong>AND</strong> it does not send an unresolved image to X</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-the-cache-cannot-be-written">Scenario: The cache cannot be written<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-the-cache-cannot-be-written" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the cache cannot be recorded, such as a cache path in a read-only directory or over an existing directory</li>
+<li><strong>THEN</strong> draft creation continues and the draft is created from the uploads that already succeeded</li>
+<li><strong>AND</strong> the failure costs a later re-upload rather than aborting draft creation</li>
+</ul>
+<h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-reporting-and-failure-handling">Requirement: Reporting and failure handling<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-reporting-and-failure-handling" aria-label="Heading self-link"></a></h3><p>The publisher SHALL report the identifier it obtained and SHALL fail loudly
+rather than report success when a request was rejected. Failures MUST identify
+which operation failed and MUST NOT be retried automatically when the response
+indicates an authentication or request error.</p>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-report-the-created-identifier">Scenario: Report the created identifier<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-report-the-created-identifier" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a draft is created</li>
+<li><strong>THEN</strong> the publisher reports the draft&rsquo;s article identifier</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-the-api-rejects-a-request">Scenario: The API rejects a request<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-the-api-rejects-a-request" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an API request is rejected</li>
+<li><strong>THEN</strong> the publisher reports the failing operation and the API&rsquo;s error</li>
+<li><strong>AND</strong> it does not report the operation as successful</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-validation-runs-without-network-access">Scenario: Validation runs without network access<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-validation-runs-without-network-access" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the project&rsquo;s checks validate conversion</li>
+<li><strong>THEN</strong> they run without contacting the X API</li>
+<li><strong>AND</strong> no test requires live credentials</li>
+</ul>
+<h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-article-banner-media">Requirement: Article banner media<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-article-banner-media" aria-label="Heading self-link"></a></h3><p>Draft creation SHALL upload a selected banner through the media API and send
+its identifier in the optional <code>cover_media</code> object with
+<code>media_category: tweet_image</code>. The publisher SHALL share its digest-based media
+cache between banner and body images, reusing an unexpired identifier for the
+same bytes. It SHALL validate all banner and body image locators, bytes,
+digests, and media types before any upload or draft request.</p>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-one-upload-for-banner-and-body">Scenario: Reuse one upload for banner and body<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-one-upload-for-banner-and-body" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the banner and a body image contain the same bytes</li>
+<li><strong>THEN</strong> at most one media upload resolves both references</li>
+<li><strong>AND</strong> the draft request carries that ID in <code>cover_media</code> and the body entity</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-upload-distinct-banner-and-body-images">Scenario: Upload distinct banner and body images<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-upload-distinct-banner-and-body-images" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the selected banner has different bytes from every body image</li>
+<li><strong>THEN</strong> it receives its own media upload or cached identifier</li>
+<li><strong>AND</strong> all media resolves before the draft request is sent</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-create-a-draft-without-a-banner">Scenario: Create a draft without a banner<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-create-a-draft-without-a-banner" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the artifact has no banner locator</li>
+<li><strong>THEN</strong> the request omits <code>cover_media</code></li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-invalid-image-prevents-every-request">Scenario: Invalid image prevents every request<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-invalid-image-prevents-every-request" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> any banner or body locator is malformed, escapes its package, names
+missing bytes, or has a mismatched digest or media type</li>
+<li><strong>THEN</strong> draft creation fails before any media or draft HTTP request</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f86347a021ad581ec930ca5cce28922a">3 - X article uploader build</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-f85a89e635fbdb4065bb3ddd26ed2f25">3.1 - x-article-uploader-build Specification</h1>
+    
+	<span id="print-a61236686e591a9c2cb93425b651772c-x-article-uploader-build-specification"></span><h2 id="print-a61236686e591a9c2cb93425b651772c-purpose">Purpose<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-purpose" aria-label="Heading self-link"></a></h2><p>Build the X Article uploader from pinned, hermetic inputs so conversion and its
+tests run reproducibly in the repository&rsquo;s Bazel workflow without network access
+or credentials.</p>
+<h2 id="print-a61236686e591a9c2cb93425b651772c-requirements">Requirements<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-a61236686e591a9c2cb93425b651772c-requirement-bazel-targets-for-the-uploader">Requirement: Bazel targets for the uploader<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-requirement-bazel-targets-for-the-uploader" aria-label="Heading self-link"></a></h3><p>The project SHALL expose Bazel targets for its converter library, its
+conversion command, and its draft-creation command, with tests declared beside
+the sources they cover. Targets MUST follow the repository&rsquo;s role-based source
+layout using <code>internal/</code> for implementation and <code>cmd/</code> for entry points.</p>
+<h4 id="print-a61236686e591a9c2cb93425b651772c-scenario-build-the-converter-and-draft-command">Scenario: Build the converter and draft command<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-scenario-build-the-converter-and-draft-command" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the project&rsquo;s conversion and draft-creation targets are built</li>
+<li><strong>THEN</strong> both binaries build from the project&rsquo;s declared sources</li>
+</ul>
+<h4 id="print-a61236686e591a9c2cb93425b651772c-scenario-test-the-converter">Scenario: Test the converter<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-scenario-test-the-converter" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the project&rsquo;s library tests run</li>
+<li><strong>THEN</strong> they execute against the converter&rsquo;s declared source inputs</li>
+<li><strong>AND</strong> they require neither credentials nor network access</li>
+</ul>
+<h3 id="print-a61236686e591a9c2cb93425b651772c-requirement-pinned-hermetic-dependencies">Requirement: Pinned hermetic dependencies<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-requirement-pinned-hermetic-dependencies" aria-label="Heading self-link"></a></h3><p>External build inputs, including the Markdown parser, SHALL be declared with
+immutable versions and integrity information in the owning dependency
+declarations, and SHALL be updated through the owning generator rather than
+hand-edited.</p>
+<h4 id="print-a61236686e591a9c2cb93425b651772c-scenario-add-a-markdown-parser-dependency">Scenario: Add a Markdown parser dependency<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-scenario-add-a-markdown-parser-dependency" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the project depends on an external Markdown parser</li>
+<li><strong>THEN</strong> its version and integrity are pinned in the owning dependency declaration</li>
+<li><strong>AND</strong> the applicable lock and package-check targets validate the declaration</li>
+</ul>
+<h4 id="print-a61236686e591a9c2cb93425b651772c-scenario-build-without-network-access">Scenario: Build without network access<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-scenario-build-without-network-access" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the project is built and tested in the repository&rsquo;s agent configuration</li>
+<li><strong>THEN</strong> no build or test step fetches an undeclared input</li>
+</ul>
+<h3 id="print-a61236686e591a9c2cb93425b651772c-requirement-behavioral-tests-over-real-posts">Requirement: Behavioral tests over real posts<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-requirement-behavioral-tests-over-real-posts" aria-label="Heading self-link"></a></h3><p>Tests SHALL exercise conversion against every blog post in the site content
+tree and SHALL assert the mapped block types, inline ranges, and entity payloads
+for the constructs those posts contain, rather than relying on a single smoke
+check. The covered set MUST be derived from the content tree, so a post added
+later is covered without editing the test list. Each post SHALL carry an
+expected outcome: a post whose images all use a media type the upload endpoints
+accept MUST satisfy the mapping contract and MAY carry the continuing
+diagnostics its constructs produce, while a post that references an unacceptable
+image MUST fail with the named diagnostic at the reported source position. Where
+a construct is not present in any current post, a focused case SHALL cover it.</p>
+<p>Behavior coverage SHALL be authored before the implementation it exercises: the
+expected outcome for a construct, or the enumerated ways a conversion can fail,
+is written first, and the implementation follows. Test cases MUST assert
+observable conversion behavior and MUST NOT restate the implementation&rsquo;s own
+constants or assert only that output changed.</p>
+<h4 id="print-a61236686e591a9c2cb93425b651772c-scenario-convert-every-existing-blog-post">Scenario: Convert every existing blog post<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-scenario-convert-every-existing-blog-post" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the converter&rsquo;s tests run against the blog posts in the site content tree</li>
+<li><strong>THEN</strong> conversion is exercised for every post in the tree, discovered from the tree itself</li>
+<li><strong>AND</strong> each post produces the outcome its entry records: the mapping
+contract where every image is acceptable, including any continuing diagnostic
+its constructs produce, or the named failing diagnostic where an image is not
+acceptable</li>
+</ul>
+<h4 id="print-a61236686e591a9c2cb93425b651772c-scenario-cover-a-construct-absent-from-any-current-post">Scenario: Cover a construct absent from any current post<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-scenario-cover-a-construct-absent-from-any-current-post" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a mapped construct does not appear in any current post</li>
+<li><strong>THEN</strong> a focused case covers that construct</li>
+<li><strong>AND</strong> the case asserts the resulting block type and range offsets</li>
+</ul>
+<h4 id="print-a61236686e591a9c2cb93425b651772c-scenario-author-behavior-coverage-before-implementation">Scenario: Author behavior coverage before implementation<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-scenario-author-behavior-coverage-before-implementation" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a conversion behavior is implemented</li>
+<li><strong>THEN</strong> the case that establishes its expected outcome already exists</li>
+</ul>
+<h3 id="print-a61236686e591a9c2cb93425b651772c-requirement-raster-diagram-renders-for-posts-intended-for-a-draft">Requirement: Raster diagram renders for posts intended for a draft<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-requirement-raster-diagram-renders-for-posts-intended-for-a-draft" aria-label="Heading self-link"></a></h3><p>A post intended for a draft SHALL reference only images whose media type the
+upload endpoints accept. A Mermaid diagram in such a post SHALL be referenced as
+a raster render of its <code>.mmd</code> source, and this change SHALL verify that render
+with an end-to-end check. The check SHALL prove the properties this project
+depends on: the produced image is in an accepted media type, it was rendered
+from the diagram source through the repository&rsquo;s maintained Mermaid render
+contract rather than a host browser, a host font, a CDN fetch, or a second
+appearance, and the post that references it converts without an
+unacceptable-image diagnostic.</p>
+<!-- The rule itself (a `mermaid_webp` target under tools/mermaid) and the
+     authoring policy are owned by their own workspaces:
+     tools/mermaid/openspec/changes/add-raster-diagram-renders and
+     projects/alwaldend.com/openspec/changes/add-raster-blog-images. This change
+     consumes them and verifies the properties above. -->
+<h4 id="print-a61236686e591a9c2cb93425b651772c-scenario-convert-a-post-that-references-a-rendered-diagram">Scenario: Convert a post that references a rendered diagram<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-scenario-convert-a-post-that-references-a-rendered-diagram" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post intended for a draft references a diagram&rsquo;s raster render</li>
+<li><strong>THEN</strong> the conversion check reads that rendered image from the post&rsquo;s package</li>
+<li><strong>AND</strong> the image is in a media type the upload endpoints accept</li>
+<li><strong>AND</strong> the post&rsquo;s recorded outcome is the mapping contract, with no
+unacceptable-image diagnostic</li>
+</ul>
+<h4 id="print-a61236686e591a9c2cb93425b651772c-scenario-render-a-diagram-hermetically-as-a-raster-image">Scenario: Render a diagram hermetically as a raster image<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-scenario-render-a-diagram-hermetically-as-a-raster-image" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the raster render referenced by that post is produced</li>
+<li><strong>THEN</strong> it is rendered from the diagram source through the pinned Mermaid
+inputs and the maintained appearance, not a host browser, a host font, a CDN
+fetch, or a second appearance</li>
+</ul>
+<h3 id="print-a61236686e591a9c2cb93425b651772c-requirement-project-registration">Requirement: Project registration<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-requirement-project-registration" aria-label="Heading self-link"></a></h3><p>The new project SHALL be registered everywhere the repository catalogs direct
+projects, so the project builds, tests, and validates like its siblings.</p>
+<h4 id="print-a61236686e591a9c2cb93425b651772c-scenario-register-the-project">Scenario: Register the project<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-scenario-register-the-project" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the project is added under <code>projects/</code></li>
+<li><strong>THEN</strong> it appears in the project catalog, the OpenSpec validation workspace
+sources, and its own OpenSpec workspace</li>
+</ul>
+<h4 id="print-a61236686e591a9c2cb93425b651772c-scenario-validate-the-repository">Scenario: Validate the repository<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-scenario-validate-the-repository" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the repository&rsquo;s OpenSpec validation runs</li>
+<li><strong>THEN</strong> the new owner workspace is included and its artifacts validate strictly</li>
+</ul>
+<h3 id="print-a61236686e591a9c2cb93425b651772c-requirement-project-documentation">Requirement: Project documentation<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-requirement-project-documentation" aria-label="Heading self-link"></a></h3><p>The project SHALL document its purpose, its two operations, its inputs and
+outputs, how to run conversion and publication, and the credential and
+disclosure boundary it depends on.</p>
+<h4 id="print-a61236686e591a9c2cb93425b651772c-scenario-read-the-project-documentation">Scenario: Read the project documentation<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-scenario-read-the-project-documentation" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a reader opens the project README</li>
+<li><strong>THEN</strong> it explains conversion and publication, their inputs and outputs, and
+how credentials are supplied</li>
+<li><strong>AND</strong> it states that conversion is offline and publication is the only
+authenticated, network-performing operation</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        Built with <a href="https://gohugo.io/">Hugo 0.165.0</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

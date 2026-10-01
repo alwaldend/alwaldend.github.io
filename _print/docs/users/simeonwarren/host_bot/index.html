@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="Host Bot">
 	<meta itemprop="description" content="host-bot.simeonwarren.users.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-09-25T08:46:55+03:00">
-	<meta itemprop="wordCount" content="1093">
+	<meta itemprop="dateModified" content="2026-10-02T00:23:20+03:00">
+	<meta itemprop="wordCount" content="1141">
 	<meta itemprop="keywords" content="Ansible,T3code,Traefik">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Host Bot">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.1a788f745b482059bcdba9e2f7639055.json"
+    data-offline-search-index-json-src="/offline-search-index.2f72bc8877a5150d7f3035a0da9b1703.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -352,11 +352,16 @@ run delivery operations without first loading their own Bazel graph.</p>
 group. Its striped <code>bazel_cache</code> logical volume is mounted persistently at
 <code>/var/cache/bazel</code>. Every Bazel workspace uses its <code>disk_cache</code> directory and
 the managed user bazelrc points its output-user root at the same filesystem.
-Automatic garbage collection caps the action disk cache at 700 GiB, leaving
-room within the 1-TiB filesystem for output bases and install state; the
-volume group retains about 900 GiB for later growth or another logical volume.
-Because the volume is striped, either SSD failing invalidates the disposable
-cache.</p>
+The managed user bazelrc also sets <code>repo_contents_cache</code> to
+<code>/var/cache/bazel/repo_contents_cache</code>, which shares materialized external
+repositories across output bases. A fresh worktree therefore reuses the
+already-extracted pinned LLVM distribution instead of repeating a
+multi-gigabyte extraction for every output base. The repository cache still
+avoids the network archive download. Automatic garbage collection caps the
+action disk cache at 700 GiB, leaving room within the 1-TiB filesystem for
+output bases, repository contents, and install state; the volume group retains
+about 900 GiB for later growth or another logical volume. Because the volume is
+striped, either SSD failing invalidates the disposable cache.</p>
 <p>The managed user bazelrc limits each Bazel invocation to eight concurrent jobs
 and budgets half of the host CPUs for local actions. These scheduling limits
 apply to builds and tests; they do not impose a combined CPU cap across

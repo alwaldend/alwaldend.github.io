@@ -1,0 +1,441 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js" data-theme-init>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#000000">
+
+<style>
+  html { background: Canvas; color: CanvasText; }
+  @media (prefers-color-scheme: dark) {
+    html { background: #0b0d12; color: #e6e6e6; }
+  }
+  html[data-theme-init] * { transition: none !important; }
+</style>
+
+<script>
+  (function() {
+    const themeKey = 'td-color-theme';
+    const storedTheme = localStorage.getItem(themeKey);
+    let theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    if (theme === 'auto') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  })();
+</script>
+<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/x-article-publication/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/x-article-publication/index.xml">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" sizes="any" href="/icons/favicon.846429df84fbe4763a8f707e5373b0ab1ec9987218da2237106ab713ed7ff972.svg">
+
+<title>X article publication | Alwaldend</title>
+<meta name="description" content="">
+<meta property="og:url" content="https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/x-article-publication/">
+	<meta property="og:site_name" content="Alwaldend">
+	<meta property="og:title" content="X article publication">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="X article publication">
+	<meta itemprop="dateModified" content="2026-10-02T00:23:20+03:00">
+	<meta itemprop="keywords" content="Project">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="X article publication">
+<link rel="preload" href="/scss/main.min.d06534881c16bca07bda98c19394cc9746749390f55deea07cc17adbee58bda0.css" as="style" integrity="sha256-0GU0iBwWvKB72pjBk5TMl0Z0k5D1Xe6gfMF62&#43;5YvaA=" crossorigin="anonymous">
+<link href="/scss/main.min.d06534881c16bca07bda98c19394cc9746749390f55deea07cc17adbee58bda0.css" rel="stylesheet" integrity="sha256-0GU0iBwWvKB72pjBk5TMl0Z0k5D1Xe6gfMF62&#43;5YvaA=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll">
+<div class="td-navbar-container container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Alwaldend</span></a>
+  <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
+    <div class="scroll-indicator scroll-left"></div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/"><span>Projects</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Docs</span></a>
+      </li>
+      <li class="nav-item td-navbar__light-dark-menu">
+        <div class="td-light-dark-menu dropdown"><svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check2" viewBox="0 0 16 16">
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+  <symbol id="circle-half" viewBox="0 0 16 16">
+    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+  </symbol>
+  <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+  </symbol>
+  <symbol id="sun-fill" viewBox="0 0 16 16">
+    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+  </symbol>
+</svg>
+<button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        title="Toggle theme (Auto)"
+        aria-label="Toggle theme (Auto)">
+  <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+  <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+</button>
+<ul class="dropdown-menu" aria-labelledby="bd-theme">
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#sun-fill"></use></svg>
+      Light
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#moon-stars-fill"></use></svg>
+      Dark
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+      <svg class="bi me-2 opacity-50"><use href="#circle-half"></use></svg>
+      Auto
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+</ul>
+</div>
+
+      </li>
+      </ul>
+    <div class="scroll-indicator scroll-right"></div>
+  </div>
+  <div class="td-navbar__search d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon" aria-hidden="true"></div>
+  <input
+    type="search"
+    name="q"
+    class="td-search__input form-control"
+    placeholder='Search this site…'
+    aria-label='Search this site…'
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.2f72bc8877a5150d7f3035a0da9b1703.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/projects/x_article_uploader/openspec/specs/x-article-publication/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">X article publication</h1>
+
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-86082217a1ceac33112b1ea1c72e0478">x-article-publication Specification</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-86082217a1ceac33112b1ea1c72e0478">1 - x-article-publication Specification</h1>
+    
+	<span id="print-b3e612cbf6a99d214c5c9b738057c7fb-x-article-publication-specification"></span><h2 id="print-b3e612cbf6a99d214c5c9b738057c7fb-purpose">Purpose<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-purpose" aria-label="Heading self-link"></a></h2><p>Create an X Article draft from a converted Markdown post, resolving referenced
+images through the media upload endpoint. The uploader creates drafts only; it
+never publishes an article.</p>
+<h2 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirements">Requirements<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-authenticated-requests-to-x-articles">Requirement: Authenticated requests to X Articles<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-authenticated-requests-to-x-articles" aria-label="Heading self-link"></a></h3><p>The publisher SHALL authenticate to the X API with credentials supplied at run
+time through the repository&rsquo;s secret-injection flow. Credential values MUST NOT
+be recorded in source, committed configuration, logs, or command history.</p>
+<p>Authentication SHALL use OAuth 1.0a user context, because the existing media and
+Articles endpoints accept it and its user-context token does not expire on a
+fixed schedule the way an OAuth 2.0 user token does, so draft creation does not
+depend on a rotating refresh token. OAuth 1.0a needs four credential fields —
+the API key, the API secret, the access token, and the access token secret —
+and the publisher SHALL sign each request with HMAC-SHA1 per RFC 5849 using the
+repository&rsquo;s standard library rather than adding a signing dependency. The
+publisher SHALL fail when any of the four fields is absent, rather than sending
+a partially signed request.</p>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-create-a-draft-with-injected-credentials">Scenario: Create a draft with injected credentials<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-create-a-draft-with-injected-credentials" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the publisher runs with credentials supplied through the injection flow</li>
+<li><strong>THEN</strong> it signs its requests to the X API with OAuth 1.0a user context</li>
+<li><strong>AND</strong> it does not print the credential values</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-credentials-are-unavailable">Scenario: Credentials are unavailable<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-credentials-are-unavailable" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the publisher runs without any one of the four required credential fields</li>
+<li><strong>THEN</strong> it fails with a diagnostic naming the missing credential reference</li>
+<li><strong>AND</strong> it does not retry with a partial or empty credential</li>
+</ul>
+<h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-draft-only-uploads">Requirement: Draft-only uploads<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-draft-only-uploads" aria-label="Heading self-link"></a></h3><p>The uploader SHALL create X Article drafts and MUST NOT publish an article. It
+SHALL NOT call the Articles publish endpoint or expose a way to request
+publication, so no invocation of this tool can make a post publicly visible.
+Draft creation SHALL send the title that conversion parsed from the source front
+matter, and MUST NOT invent, default, or omit it, because the draft endpoint
+requires a title that <code>content_state</code> does not carry.</p>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-create-a-draft">Scenario: Create a draft<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-create-a-draft" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> draft creation is requested for a converted document</li>
+<li><strong>THEN</strong> the publisher reads the draft article identifier from the v2 response envelope&rsquo;s <code>data.id</code></li>
+<li><strong>AND</strong> no post becomes publicly visible</li>
+<li><strong>AND</strong> the request carries the title parsed from the source front matter</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-draft-response-omits-the-identifier">Scenario: A draft response omits the identifier<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-draft-response-omits-the-identifier" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the draft endpoint returns a 2xx response whose <code>data.id</code> is missing or empty</li>
+<li><strong>THEN</strong> the publisher fails rather than reporting a successful draft with no identifier to review</li>
+<li><strong>AND</strong> it does not treat the zero-value response as a created draft</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-draft-creation-is-requested-without-a-parsed-title">Scenario: Draft creation is requested without a parsed title<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-draft-creation-is-requested-without-a-parsed-title" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> draft creation is requested for a document with no parsed title</li>
+<li><strong>THEN</strong> the publisher fails with a diagnostic</li>
+<li><strong>AND</strong> it does not send a placeholder or empty title</li>
+</ul>
+<h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-image-media-upload">Requirement: Image media upload<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-image-media-upload" aria-label="Heading self-link"></a></h3><p>The publisher SHALL upload each referenced image through the X media upload
+endpoint and reference the returned <code>media_id</code> in an <code>image</code> entity, because
+that entity carries no document URL. Uploading MUST happen before the draft
+that references the media is created.</p>
+<p>The publisher SHALL obtain the image bytes from the locator the draft artifact
+records beside the document, not by re-parsing the source Markdown, because the
+API&rsquo;s entity <code>data</code> object rejects additional properties and so cannot carry a
+path. It SHALL resolve the recorded relative path against the post package the
+locator records, so the artifact stays resolvable after it is moved. It SHALL
+reject a locator that escapes the post&rsquo;s directory or whose bytes do not match
+the digest the locator records, rather than uploading a different image. It
+SHALL enforce that containment by resolving the name through a
+descriptor-anchored directory handle that rejects a symlink escaping the root,
+rather than by checking a pathname and then re-opening it, so the object whose
+containment is checked is the object read.</p>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-upload-an-image-and-resolve-its-media-identifier">Scenario: Upload an image and resolve its media identifier<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-upload-an-image-and-resolve-its-media-identifier" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a converted document references an unuploaded image</li>
+<li><strong>THEN</strong> the publisher reads the image bytes from the artifact&rsquo;s locator and
+obtains a <code>media_id</code></li>
+<li><strong>AND</strong> the created draft references that <code>media_id</code> in its <code>image</code> entity</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-already-uploaded-image">Scenario: Reuse an already uploaded image<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-already-uploaded-image" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the same image content has already been uploaded by this tool</li>
+<li><strong>THEN</strong> the publisher reuses the recorded <code>media_id</code> rather than uploading the
+same bytes again</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-upload-in-a-later-run">Scenario: Reuse an upload in a later run<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-upload-in-a-later-run" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> draft creation runs again in a new process for an image this tool already uploaded</li>
+<li><strong>THEN</strong> it reads the digest-to-<code>media_id</code> mapping from its own cache and
+reuses the identifier</li>
+<li><strong>AND</strong> it stays correct when the cache is absent or the recorded digest no
+longer matches the artifact&rsquo;s, by uploading again rather than reusing a stale
+identifier</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-decode-the-media-upload-response">Scenario: Decode the media upload response<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-decode-the-media-upload-response" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the media upload endpoint returns the v2 response envelope</li>
+<li><strong>THEN</strong> the publisher reads the media identifier from the envelope&rsquo;s <code>data.id</code></li>
+<li><strong>AND</strong> the created draft references that identifier rather than an empty one</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-media-upload-response-omits-the-identifier">Scenario: A media upload response omits the identifier<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-media-upload-response-omits-the-identifier" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the media upload endpoint returns a 2xx response whose <code>data.id</code> is missing or empty</li>
+<li><strong>THEN</strong> the publisher fails rather than resolving the image to an empty identifier</li>
+<li><strong>AND</strong> it does not send an entity that references a missing media identifier</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-expire-a-cached-upload">Scenario: Expire a cached upload<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-expire-a-cached-upload" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the recorded lifetime of a cached media identifier has passed</li>
+<li><strong>THEN</strong> the cached entry is treated as a miss and the image is uploaded again</li>
+<li><strong>AND</strong> an entry whose lifetime has not passed is still reused</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-cannot-be-uploaded">Scenario: An image cannot be uploaded<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-cannot-be-uploaded" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an image upload fails</li>
+<li><strong>THEN</strong> the publisher fails and reports the failing image</li>
+<li><strong>AND</strong> it does not create a draft that references a missing or placeholder media identifier</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-artifact-names-an-unusable-image-locator">Scenario: An artifact names an unusable image locator<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-artifact-names-an-unusable-image-locator" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an artifact&rsquo;s locator escapes the recorded post package or names bytes whose digest does not match the recorded one</li>
+<li><strong>THEN</strong> the publisher fails with a diagnostic naming the locator</li>
+<li><strong>AND</strong> it uploads no replacement image in its place</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-unresolved-image-entity-has-no-locator">Scenario: An unresolved image entity has no locator<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-unresolved-image-entity-has-no-locator" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an artifact retains an <code>image</code> entity without <code>media_items</code> but records no locator that resolves it</li>
+<li><strong>THEN</strong> the publisher fails before uploading any image or creating a draft, naming the unresolved entity</li>
+<li><strong>AND</strong> it does not send an image entity without a media item</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-locator-does-not-name-a-distinct-image-entity">Scenario: A locator does not name a distinct image entity<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-locator-does-not-name-a-distinct-image-entity" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an artifact&rsquo;s locator names an entity that is missing, is not an image, or is already named by another locator</li>
+<li><strong>THEN</strong> the publisher fails before uploading any image rather than discovering the mismatch after paying for uploads</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-two-entities-share-one-numeric-key">Scenario: Two entities share one numeric key<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-two-entities-share-one-numeric-key" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an artifact contains more than one entity with the same numeric key</li>
+<li><strong>THEN</strong> the publisher fails before uploading any image, because one locator could resolve only the first and leave the other without <code>media_items</code></li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-entity-carries-a-malformed-media_items-entry">Scenario: An image entity carries a malformed media_items entry<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-entity-carries-a-malformed-media_items-entry" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an image entity&rsquo;s <code>media_items</code> is present but its entry has an empty or absent <code>media_id</code>, or a missing or incorrect <code>media_category</code></li>
+<li><strong>THEN</strong> the entity is treated as unresolved, so the publisher requires a locator rather than sending the invalid entry to X</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-entity-carries-a-usable-entry-beside-a-malformed-one">Scenario: An image entity carries a usable entry beside a malformed one<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-entity-carries-a-usable-entry-beside-a-malformed-one" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an image entity&rsquo;s <code>media_items</code> holds a usable entry next to an empty, non-object, or incorrectly categorized one</li>
+<li><strong>THEN</strong> the entity is treated as unresolved, because every supplied entry must be usable</li>
+<li><strong>AND</strong> the publisher does not send the malformed array merely because one entry looked valid</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-entity-carries-no-usable-key">Scenario: An image entity carries no usable key<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-entity-carries-no-usable-key" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an artifact contains an image entity whose <code>key</code> is missing, non-numeric, fractional, or negative</li>
+<li><strong>THEN</strong> the publisher fails before uploading any image, because the entity is invisible to locator coverage</li>
+<li><strong>AND</strong> it does not send an unresolved image to X</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-the-cache-cannot-be-written">Scenario: The cache cannot be written<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-the-cache-cannot-be-written" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the cache cannot be recorded, such as a cache path in a read-only directory or over an existing directory</li>
+<li><strong>THEN</strong> draft creation continues and the draft is created from the uploads that already succeeded</li>
+<li><strong>AND</strong> the failure costs a later re-upload rather than aborting draft creation</li>
+</ul>
+<h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-reporting-and-failure-handling">Requirement: Reporting and failure handling<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-reporting-and-failure-handling" aria-label="Heading self-link"></a></h3><p>The publisher SHALL report the identifier it obtained and SHALL fail loudly
+rather than report success when a request was rejected. Failures MUST identify
+which operation failed and MUST NOT be retried automatically when the response
+indicates an authentication or request error.</p>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-report-the-created-identifier">Scenario: Report the created identifier<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-report-the-created-identifier" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a draft is created</li>
+<li><strong>THEN</strong> the publisher reports the draft&rsquo;s article identifier</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-the-api-rejects-a-request">Scenario: The API rejects a request<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-the-api-rejects-a-request" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an API request is rejected</li>
+<li><strong>THEN</strong> the publisher reports the failing operation and the API&rsquo;s error</li>
+<li><strong>AND</strong> it does not report the operation as successful</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-validation-runs-without-network-access">Scenario: Validation runs without network access<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-validation-runs-without-network-access" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the project&rsquo;s checks validate conversion</li>
+<li><strong>THEN</strong> they run without contacting the X API</li>
+<li><strong>AND</strong> no test requires live credentials</li>
+</ul>
+<h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-article-banner-media">Requirement: Article banner media<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-article-banner-media" aria-label="Heading self-link"></a></h3><p>Draft creation SHALL upload a selected banner through the media API and send
+its identifier in the optional <code>cover_media</code> object with
+<code>media_category: tweet_image</code>. The publisher SHALL share its digest-based media
+cache between banner and body images, reusing an unexpired identifier for the
+same bytes. It SHALL validate all banner and body image locators, bytes,
+digests, and media types before any upload or draft request.</p>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-one-upload-for-banner-and-body">Scenario: Reuse one upload for banner and body<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-one-upload-for-banner-and-body" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the banner and a body image contain the same bytes</li>
+<li><strong>THEN</strong> at most one media upload resolves both references</li>
+<li><strong>AND</strong> the draft request carries that ID in <code>cover_media</code> and the body entity</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-upload-distinct-banner-and-body-images">Scenario: Upload distinct banner and body images<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-upload-distinct-banner-and-body-images" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the selected banner has different bytes from every body image</li>
+<li><strong>THEN</strong> it receives its own media upload or cached identifier</li>
+<li><strong>AND</strong> all media resolves before the draft request is sent</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-create-a-draft-without-a-banner">Scenario: Create a draft without a banner<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-create-a-draft-without-a-banner" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the artifact has no banner locator</li>
+<li><strong>THEN</strong> the request omits <code>cover_media</code></li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-invalid-image-prevents-every-request">Scenario: Invalid image prevents every request<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-invalid-image-prevents-every-request" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> any banner or body locator is malformed, escapes its package, names
+missing bytes, or has a mismatched digest or media type</li>
+<li><strong>THEN</strong> draft creation fails before any media or draft HTTP request</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        Built with <a href="https://gohugo.io/">Hugo 0.165.0</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

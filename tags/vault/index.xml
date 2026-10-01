@@ -93,7 +93,7 @@
 				<link>https://alwaldend.com/docs/projects/tf_modules/vault_pki_server/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/projects/tf_modules/vault_pki_server/</guid>
-				<description></description>
+				<description>&lt;p&gt;&lt;code&gt;allowed_domains&lt;/code&gt; defines permitted certificate names. &lt;code&gt;allow_subdomains&lt;/code&gt;&#xA;defaults to &lt;code&gt;true&lt;/code&gt; for existing consumers; set it to &lt;code&gt;false&lt;/code&gt; to permit only&#xA;the explicitly listed names. EAB access is granted through&#xA;&lt;code&gt;eab_new_member_group_ids&lt;/code&gt; for the role-scoped ACME directory.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Vault ssh server role</title>

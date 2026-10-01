@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Markdown to draftjs on Alwaldend</title>
+		<link>https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/markdown-to-draftjs/</link>
+		<description>Recent content in Markdown to draftjs on Alwaldend</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<atom:link href="https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/markdown-to-draftjs/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>markdown-to-draftjs Specification</title>
+				<link>https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/markdown-to-draftjs/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/x_article_uploader/openspec/specs/markdown-to-draftjs/spec/</guid>
+				<description>&lt;span id=&#34;markdown-to-draftjs-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Compile a Markdown post into the DraftJS &lt;code&gt;content_state&lt;/code&gt; document that the X&#xA;Articles API accepts, so the Markdown that renders the blog also produces the&#xA;article body without hand-editing.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-source-post-input-model&#34;&gt;Requirement: Source post input model&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-source-post-input-model&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The converter SHALL treat a blog source post as YAML front matter plus a&#xA;Markdown body, and MUST NOT emit front matter as article text. It SHALL expose&#xA;the parsed metadata separately from the &lt;code&gt;content_state&lt;/code&gt; document, and SHALL&#xA;report the parsed &lt;code&gt;title&lt;/code&gt; as document metadata because draft creation requires&#xA;a title that &lt;code&gt;content_state&lt;/code&gt; does not carry. A source whose front matter has no&#xA;non-empty &lt;code&gt;title&lt;/code&gt; SHALL fail conversion with a diagnostic naming the source,&#xA;rather than producing a document that cannot be uploaded.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

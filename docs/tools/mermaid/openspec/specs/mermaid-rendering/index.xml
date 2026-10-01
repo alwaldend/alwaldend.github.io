@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Mermaid rendering on Alwaldend</title>
+		<link>https://alwaldend.com/docs/tools/mermaid/openspec/specs/mermaid-rendering/</link>
+		<description>Recent content in Mermaid rendering on Alwaldend</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<atom:link href="https://alwaldend.com/docs/tools/mermaid/openspec/specs/mermaid-rendering/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>mermaid-rendering Specification</title>
+				<link>https://alwaldend.com/docs/tools/mermaid/openspec/specs/mermaid-rendering/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/tools/mermaid/openspec/specs/mermaid-rendering/spec/</guid>
+				<description>&lt;span id=&#34;mermaid-rendering-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Provide hermetic SVG and raster diagram outputs that share their selected&#xA;theme, font, and canvas geometry, with reproducible publication assets.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-raster-diagram-renders&#34;&gt;Requirement: Raster diagram renders&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-raster-diagram-renders&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The tool SHALL expose a rule that renders a Mermaid source to a raster image in&#xA;a media type a service upload endpoint can accept, beginning with WebP. The&#xA;raster render SHALL reuse the selected SVG render contract rather than defining a&#xA;second appearance: the same theme, the same pinned browser and fonts, and&#xA;the same post-processing policy as the SVG rule. Native rendering SHALL use&#xA;the consumer&amp;rsquo;s palette and font and encode the selected light or dark SVG without post-processing;&#xA;the default SHALL retain the historical theme and paint-order pass.&#xA;Encoding MUST go through the pinned&#xA;browser, so the rule introduces no image-conversion dependency. The render SHALL&#xA;be a projection of the SVG render — the same maintained document, encoded to a&#xA;raster — rather than a second layout. The render SHALL be hermetic — no host&#xA;browser, host font, or network fetch — and deterministic for a given source,&#xA;theme, and configuration.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

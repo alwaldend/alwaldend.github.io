@@ -10,7 +10,7 @@
 		
 		
 		
-			<lastBuildDate>Fri, 25 Sep 2026 08:46:55 +0300</lastBuildDate>
+			<lastBuildDate>Fri, 02 Oct 2026 00:23:20 +0300</lastBuildDate>
 		
 			<atom:link href="https://alwaldend.com/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
 			<item>
@@ -25,7 +25,7 @@
 				<link>https://alwaldend.com/docs/infra/dns/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/infra/dns/</guid>
-				<description>&lt;p&gt;DNS records live in each owner&amp;rsquo;s &lt;code&gt;dnsconfig.json&lt;/code&gt;. Each owner manages its records&#xA;through the reusable &lt;a href=&#34;https://alwaldend.com/docs/projects/tf_modules/dns_records/&#34;&gt;Terraform DNS module&lt;/a&gt;&#xA;from its designated &lt;code&gt;tf_setup&lt;/code&gt; or &lt;code&gt;tf&lt;/code&gt; root. This component&amp;rsquo;s&#xA;&lt;a href=&#34;dnsconfig.json&#34;&gt;dnsconfig.json&lt;/a&gt; owns shared apex and mail records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;declaration-pages&#34;&gt;Declaration pages&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#declaration-pages&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://alwaldend.com/docs/infra/dns/cloudflare_dns/&#34;&gt;Cloudflare DNS&lt;/a&gt; and &lt;a href=&#34;https://alwaldend.com/docs/infra/dns/mikrotik_dns/&#34;&gt;Mikrotik DNS&lt;/a&gt; list the&#xA;records this repository declares for each destination view, with the owning&#xA;declaration for every record. They are generated from &lt;code&gt;dnsconfig.json&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel_agent bazel run //infra/dns/cmd/dump -- --write&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;//infra/dns:config_test&lt;/code&gt; fails when a checked-in page is out of date, so the&#xA;pages cannot drift from the declarations they project.&lt;/p&gt;</description>
+				<description>&lt;p&gt;DNS records live in each owner&amp;rsquo;s &lt;code&gt;dnsconfig.json&lt;/code&gt;. Each owner manages its records&#xA;through the reusable &lt;a href=&#34;https://alwaldend.com/docs/projects/tf_modules/dns_records/&#34;&gt;Terraform DNS module&lt;/a&gt;&#xA;from its designated &lt;code&gt;tf_setup&lt;/code&gt; or &lt;code&gt;tf&lt;/code&gt; root. This component&amp;rsquo;s&#xA;&lt;a href=&#34;dnsconfig.json&#34;&gt;dnsconfig.json&lt;/a&gt; owns shared apex and mail records.&lt;/p&gt;&#xA;&lt;h2 id=&#34;declaration-pages&#34;&gt;Declaration pages&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#declaration-pages&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://alwaldend.com/docs/infra/dns/cloudflare_dns/&#34;&gt;Cloudflare DNS&lt;/a&gt; and &lt;a href=&#34;https://alwaldend.com/docs/infra/dns/mikrotik_dns/&#34;&gt;Mikrotik DNS&lt;/a&gt; list the&#xA;records this repository declares for each destination view, with the owning&#xA;declaration for every record. They are manually refreshed snapshots of&#xA;&lt;code&gt;dnsconfig.json&lt;/code&gt; and may lag behind the declarations. Regenerate them explicitly&#xA;when a documentation refresh is wanted, for example after parallel DNS changes&#xA;have merged:&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>OpenHands</title>
@@ -228,7 +228,7 @@
 				<link>https://alwaldend.com/docs/projects/tf_modules/vault_pki_server/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/projects/tf_modules/vault_pki_server/</guid>
-				<description></description>
+				<description>&lt;p&gt;&lt;code&gt;allowed_domains&lt;/code&gt; defines permitted certificate names. &lt;code&gt;allow_subdomains&lt;/code&gt;&#xA;defaults to &lt;code&gt;true&lt;/code&gt; for existing consumers; set it to &lt;code&gt;false&lt;/code&gt; to permit only&#xA;the explicitly listed names. EAB access is granted through&#xA;&lt;code&gt;eab_new_member_group_ids&lt;/code&gt; for the role-scoped ACME directory.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Vault transit key</title>
