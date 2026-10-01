@@ -43,7 +43,7 @@
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="blog">
 		<meta property="article:published_time" content="2026-09-30T00:00:00+00:00">
-		<meta property="article:modified_time" content="2026-10-02T00:23:20+03:00">
+		<meta property="article:modified_time" content="2026-10-02T00:30:58+03:00">
 		<meta property="article:tag" content="X">
 		<meta property="article:tag" content="Markdown">
 		<meta property="article:tag" content="Repo">
@@ -52,7 +52,7 @@
 	<meta itemprop="name" content="This X Article was generated from Markdown">
 	<meta itemprop="description" content="Building a Markdown-to-X Article uploader, followed by a conversion showcase.">
 	<meta itemprop="datePublished" content="2026-09-30T00:00:00+00:00">
-	<meta itemprop="dateModified" content="2026-10-02T00:23:20+03:00">
+	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
 	<meta itemprop="wordCount" content="724">
 	<meta itemprop="image" content="https://alwaldend.com/blog/this-x-article-was-generated-from-markdown/pipeline.webp">
 	<meta itemprop="keywords" content="X,Markdown,Repo">
@@ -155,7 +155,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.2f72bc8877a5150d7f3035a0da9b1703.json"
+    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -180,7 +180,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.2f72bc8877a5150d7f3035a0da9b1703.json"
+    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -478,7 +478,8 @@
 </div>
 
 </header>
-	<p>I&rsquo;ve had the displeasure of using X&rsquo;s Article editor and it has left me unsatisfied - it&rsquo;s utter dogshit. Naturally, I&rsquo;ve decided to avoid it altogether. There probably exists a ready-made solution, but I&rsquo;ve decided to just write it myself. After all, how hard can it be?</p>
+	<p><img src="/blog/this-x-article-was-generated-from-markdown/pipeline.webp" alt="The uploader pipeline" loading="lazy"></p>
+<p>I&rsquo;ve had the displeasure of using X&rsquo;s Article editor and it has left me unsatisfied - it&rsquo;s utter dogshit. Naturally, I&rsquo;ve decided to avoid it altogether. There probably exists a ready-made solution, but I&rsquo;ve decided to just write it myself. After all, how hard can it be?</p>
 <p>Not that hard, to be honest. X exposes an API to upload articles in <a href="https://draftjs.org/">DraftJS</a> format, so that leaves two tasks:</p>
 <ul>
 <li>Construct DraftJS</li>
@@ -487,7 +488,6 @@
 <h2 id="construct-draftjs">Construct DraftJS<a class="td-heading-self-link" href="#construct-draftjs" aria-label="Heading self-link"></a></h2><p>Since I use Hugo to build my blog posts, I wanted to just render DraftJS using it - that did not work. Hugo does not expose the Markdown AST to templates and without it you are left with hooks, which are too limited, and raw-dogging RawContent in templates which is insane. After that, I moved on to the boring option of just parsing Markdown. I chose <a href="https://github.com/yuin/goldmark/">Goldmark</a> since it&rsquo;s the parser Hugo uses, then wrote a tool that walks through the Markdown AST and emits DraftJS.</p>
 <h2 id="upload-it">Upload it<a class="td-heading-self-link" href="#upload-it" aria-label="Heading self-link"></a></h2><p>The upload seemed like the most straightforward part to me before I started. Just generate a token, put it in Vault, and hit the API, easy. None of it was easy. Figuring out which token I need to generate to upload articles and how to do it through the dashboard took some effort. Putting a token in Vault was harder than I expected because either I had to use OAuth 2.0 with a short-lived token and a long-lived refresh token, or I had to use OAuth 1.0a with 4 whole secret values. I chose the second option because the first one requires me to update credentials on refresh which increases complexity. Uploading was painful because X has a rate limit of 10 (!) uploads per day which I hit immediately.</p>
 <h2 id="in-conclusion">In conclusion<a class="td-heading-self-link" href="#in-conclusion" aria-label="Heading self-link"></a></h2><p>I don&rsquo;t have to touch the editor anymore, which is a win in my book. The blog post ends here. Everything else is just a conversion showcase.</p>
-<p><img src="/blog/this-x-article-was-generated-from-markdown/pipeline.webp" alt="The uploader pipeline" loading="lazy"></p>
 <h2 id="text-and-inline-styles">Text and inline styles<a class="td-heading-self-link" href="#text-and-inline-styles" aria-label="Heading self-link"></a></h2><p>A paragraph is a plain text block. X exposes three heading styles, so the converter maps fourth-level and deeper Markdown headings onto <code>header-three</code>. Inline styling is carried as ranges over the block text: <strong>bold</strong>, <em>italic</em>, and <del>strikethrough</del> all survive the conversion, and a span may combine them, as in <strong>bold with <em>nested italic</em> inside</strong>.</p>
 <h3 id="heading-levels">Heading levels<a class="td-heading-self-link" href="#heading-levels" aria-label="Heading self-link"></a></h3><p>A third-level heading becomes <code>header-two</code>; a fourth-level heading and deeper become <code>header-three</code>.</p>
 <h4 id="a-clamped-fourth-level-heading">A clamped fourth-level heading<a class="td-heading-self-link" href="#a-clamped-fourth-level-heading" aria-label="Heading self-link"></a></h4><h2 id="lists">Lists<a class="td-heading-self-link" href="#lists" aria-label="Heading self-link"></a></h2><p>Unordered lists and ordered lists map onto their own block types:</p>
