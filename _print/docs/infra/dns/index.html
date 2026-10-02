@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Dns">
 	<meta itemprop="description" content="Project-owned DNS declarations for alwaldend.com">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
 	<meta itemprop="wordCount" content="652">
 	<meta itemprop="keywords" content="Dns,Terraform">
 	<meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -346,10 +346,12 @@ authoritative inventory.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-22ddd334842ae4d7e35d0a79ed454ba4">1 - Cloudflare DNS</h1>
     <div class="lead">Records declared for the public zone served by Cloudflare</div>
+	
 	<p>Every record this repository declares for the public zone, which Cloudflare serves.</p>
 <p>This page is generated from the declarations; run <code>bazel run //infra/dns/cmd/dump -- --write</code> after changing them. The authoritative source is each owner&rsquo;s <code>dnsconfig.json</code>.</p>
 <table>
@@ -756,10 +758,12 @@ authoritative inventory.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-af9794ad8c53e916c92bc2cabd8f5748">2 - Mikrotik DNS</h1>
     <div class="lead">Records declared for the internal dc1 view served by RouterOS</div>
+	
 	<p>Every record this repository declares for the internal <code>dc1</code> view, which RouterOS serves for that network.</p>
 <p>This page is generated from the declarations; run <code>bazel run //infra/dns/cmd/dump -- --write</code> after changing them. The authoritative source is each owner&rsquo;s <code>dnsconfig.json</code>.</p>
 <table>
@@ -1390,10 +1394,12 @@ authoritative inventory.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a392853747a757fa005d3892e126e2ef">3 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -1415,10 +1421,12 @@ authoritative inventory.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-a2a8fb4565c12c951b85dedb4e2ccf6e">3.1 - Infrastructure DNS</h1>
     
+	
 	<span id="print-26cd59c7e44d32ec3ca3f4e479c54e54-infrastructure-dns"></span><h2 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose">Purpose<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose" aria-label="Heading self-link"></a></h2><p>Describe owner-local Terraform DNS declarations and runtime source-ownership
 validation for global and dc1 records. This contract describes checked-in
 source; it does not establish live adoption or authorize infrastructure writes.</p>
@@ -1572,10 +1580,12 @@ the declarations as authoritative and explain that snapshots may lag.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5182c83d4964c12536210ac055ef6ebd">4 - Shared DNS Terraform</h1>
     <div class="lead">Owner state for common apex and mail records</div>
+	
 	<p>This root consumes <a href="../dnsconfig.json">the canonical common declarations</a>
 through the reusable DNS module. It uses the <code>src_infra_dns</code> AppRole and its
 existing Vault-backed HTTP state. Both Cloudflare and RouterOS credentials

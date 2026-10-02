@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Ansible collection">
 	<meta itemprop="description" content="Ansible collection alwaldend.main with Bazel source packaging">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
 	<meta itemprop="wordCount" content="73">
 	<meta itemprop="keywords" content="Ansible_collection">
 	<meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -2299,10 +2299,12 @@ Ansible source for reuse in repository automation.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f3969676911b64893c7746cd9044bb93">1 - Playbooks</h1>
     <div class="lead">Ansible playbooks</div>
+	
 	
 </div>
 
@@ -2327,12 +2329,14 @@ Ansible source for reuse in repository automation.</p>
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-725ef58324763c28547a6bfecb1d6854">2 - Roles</h1>
     <div class="lead">Ansible roles</div>
 	
+	
 </div>
 
 
@@ -2352,12 +2356,14 @@ Ansible source for reuse in repository automation.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-30a89200860df610245a2902c212694c">2.1 - Adguard</h1>
     <div class="lead">Role to deploy adguard</div>
 	
+	
 </div>
 
 
@@ -2378,10 +2384,12 @@ Ansible source for reuse in repository automation.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-3efff43ac08f84b01a5d15e3d949dc8d">2.1.1 - Defaults</h1>
     <div class="lead">Defaults for adguard</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">adguard_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/adguard</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">adguard_work_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ adguard_dir }}&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">adguard_gpg_key_url</span><span class="p">:</span><span class="w"> </span><span class="l">https://keys.openpgp.org/vks/v1/by-fingerprint/28645AC9776EC4C00BCE2AFC0FE641E7235E2EC6</span><span class="w">
@@ -2427,10 +2435,12 @@ Ansible source for reuse in repository automation.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a3020e644ec307cbd988e41217bd1f02">2.2 - Caddy</h1>
     <div class="lead">Role to deploy caddy</div>
+	
 	
 </div>
 
@@ -2452,10 +2462,12 @@ Ansible source for reuse in repository automation.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-790b8a8ac3ffe8836c4798374a36899e">2.2.1 - Defaults</h1>
     <div class="lead">Defaults for caddy</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">caddy_enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">caddy_user</span><span class="p">:</span><span class="w"> </span><span class="l">caddy</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">caddy_config_path</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/caddy/Caddyfile</span><span class="w">
@@ -2491,10 +2503,12 @@ Ansible source for reuse in repository automation.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-dfd3ab501fa8e0c817ea6e986d3e2748">2.3 - CIFS</h1>
     <div class="lead">Setup cifs</div>
+	
 	
 </div>
 
@@ -2516,10 +2530,12 @@ Ansible source for reuse in repository automation.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-4c12f13db1cbd670c3bca9662cd2e52d">2.3.1 - Defaults</h1>
     <div class="lead">Defaults for cifs</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cifs_enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">cifs_systemd_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/systemd/system</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">cifs_mounts</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
@@ -2552,10 +2568,12 @@ Ansible source for reuse in repository automation.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-906007041565cf30f8e3b78acddd3a70">2.4 - Consul</h1>
     <div class="lead">Consul</div>
+	
 	
 </div>
 
@@ -2577,10 +2595,12 @@ Ansible source for reuse in repository automation.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-249b793a8050d10c6e57a9e9048df28a">2.4.1 - Defaults</h1>
     <div class="lead">Defaults for consul</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">consul_user</span><span class="p">:</span><span class="w"> </span><span class="l">consul</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">consul_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">4266</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">consul_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/opt/consul&#34;</span><span class="w">
@@ -2630,10 +2650,12 @@ Ansible source for reuse in repository automation.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5f4f7eb71338ef09ee1ac3d83846c441">2.5 - Consul</h1>
     <div class="lead">Setup consul</div>
+	
 	
 </div>
 
@@ -2655,10 +2677,12 @@ Ansible source for reuse in repository automation.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-b2a92dffeb12f2367cdb2a1eef398101">2.5.1 - Defaults</h1>
     <div class="lead">Defaults for consul_old</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">consul_is_server</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">consul_user_name</span><span class="p">:</span><span class="w"> </span><span class="l">consul</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">consul_user_uid</span><span class="p">:</span><span class="w">
@@ -2724,10 +2748,12 @@ Ansible source for reuse in repository automation.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-3a7f180913bc358da5d918b0bbf25bee">2.6 - Consul envoy</h1>
     <div class="lead">Setup envoy for consul</div>
+	
 	
 </div>
 
@@ -2749,10 +2775,12 @@ Ansible source for reuse in repository automation.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-081e1fecbb396235f4ad3cb6a73fda71">2.6.1 - Defaults</h1>
     <div class="lead">Defaults for consul_envoy</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">consul_envoy_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/opt/consul_envoy&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_deployments_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ consul_envoy_dir }}/deployments&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">consul_envoy_releases_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ consul_envoy_dir }}/releases&#34;</span><span class="w">
@@ -2797,10 +2825,12 @@ Ansible source for reuse in repository automation.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b468c288181bb536f4f1cfecf4f59e8a">2.7 - Dev VM</h1>
     <div class="lead">Set up repositories and packages for a development VM</div>
+	
 	<p>The default task entry point configures package repositories and development
 packages. It uses the same <code>dev_vm_packages</code> list with either the ordinary
 package manager or RPM-OSTree layering. <code>dev_vm_package_backend</code> accepts
@@ -2859,10 +2889,12 @@ the role&rsquo;s Java package and does not invoke Bazel on the destination host.
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e8c5f2773c93be64da592be9d74f3ed2">2.7.1 - Defaults</h1>
     <div class="lead">Defaults for dev_vm</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_install_packages</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">dev_vm_package_backend</span><span class="p">:</span><span class="w"> </span><span class="l">auto</span><span class="w">
@@ -2935,10 +2967,12 @@ the role&rsquo;s Java package and does not invoke Bazel on the destination host.
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-8c210c768b2817e55830cc5a27aeec9a">2.8 - DNS</h1>
     <div class="lead">Setup dns records</div>
+	
 	
 </div>
 
@@ -2960,10 +2994,12 @@ the role&rsquo;s Java package and does not invoke Bazel on the destination host.
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-138215aa6c7ef5186f29880fb48ba249">2.8.1 - Defaults</h1>
     <div class="lead">Defaults for dns</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">dns_records</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">dns_domains</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">dns_njalla_api_url</span><span class="p">:</span><span class="w"> </span><span class="l">https://njal.la/api/1/</span><span class="w">
@@ -2997,10 +3033,12 @@ the role&rsquo;s Java package and does not invoke Bazel on the destination host.
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-4d756cd75b3f4c8877626f2e348797b1">2.9 - Docker</h1>
     <div class="lead">Setup docker</div>
+	
 	
 </div>
 
@@ -3022,10 +3060,12 @@ the role&rsquo;s Java package and does not invoke Bazel on the destination host.
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-b776c1dd79eb644be9005f97ba55e9c7">2.9.1 - Defaults</h1>
     <div class="lead">Defaults for docker</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">docker_enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div>
 </div>
@@ -3056,10 +3096,12 @@ the role&rsquo;s Java package and does not invoke Bazel on the destination host.
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a27882556fcad568375992ae494db72e">2.10 - Download host</h1>
     <div class="lead">Btrfs storage, SSH publication, and native static hosting</div>
+	
 	<p><code>alwaldend.main.download_host</code> configures download hosts using the existing
 <code>host</code>, <code>nginx</code>, and <code>traefik</code> roles. It checks that the selected content device
 is a block device before configuring the host, creates Btrfs without
@@ -3132,10 +3174,12 @@ aggregation. Domain-specific serving templates stay with the deployment.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-d276113bbe3345372f1035e601e5634f">2.10.1 - Defaults</h1>
     <div class="lead">Defaults for download_host</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Persistent Btrfs content mount and its non-sudo content owner.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">download_root</span><span class="p">:</span><span class="w"> </span><span class="l">/srv/download</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">download_publisher</span><span class="p">:</span><span class="w"> </span><span class="l">download</span><span class="w">
@@ -3170,10 +3214,12 @@ aggregation. Domain-specific serving templates stay with the deployment.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5f4f536033ac30537465643e1056e375">2.11 - Facts</h1>
     <div class="lead">Setup ansible facts</div>
+	
 	
 </div>
 
@@ -3195,10 +3241,12 @@ aggregation. Domain-specific serving templates stay with the deployment.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-66799841577d4b5802fda22d743c2aea">2.11.1 - Defaults</h1>
     <div class="lead">Defaults for facts</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">facts_debug</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></div>
 </div>
@@ -3229,10 +3277,12 @@ aggregation. Domain-specific serving templates stay with the deployment.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-ede63e85de543401d818ba63462e4254">2.12 - Filesystem</h1>
     <div class="lead">Setup filesystems</div>
+	
 	
 </div>
 
@@ -3254,10 +3304,12 @@ aggregation. Domain-specific serving templates stay with the deployment.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-b6ece5aaf654f686941f4c5e9e5736fa">2.12.1 - Defaults</h1>
     <div class="lead">Defaults for filesystem</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">filesystem_setup</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span></span></span></code></pre></div>
 </div>
@@ -3288,10 +3340,12 @@ aggregation. Domain-specific serving templates stay with the deployment.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-438109bcba665e99f3b3a3d035bb7657">2.13 - Firewall</h1>
     <div class="lead">Setup firewall</div>
+	
 	
 </div>
 
@@ -3313,10 +3367,12 @@ aggregation. Domain-specific serving templates stay with the deployment.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-194557cb0b5c7c9fb55d52880c00c0af">2.13.1 - Defaults</h1>
     <div class="lead">Defaults for firewall</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">firewall_state</span><span class="p">:</span><span class="w"> </span><span class="l">enabled</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">firewall_enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">firewall_allow_port_from</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
@@ -3350,10 +3406,12 @@ aggregation. Domain-specific serving templates stay with the deployment.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-596ccc899bfabdf4b2b138d187c37828">2.14 - Forgejo</h1>
     <div class="lead">Forgejo</div>
+	
 	
 </div>
 
@@ -3375,10 +3433,12 @@ aggregation. Domain-specific serving templates stay with the deployment.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-40f888afaa6ea28285da05a2ae37147c">2.14.1 - Defaults</h1>
     <div class="lead">Defaults for forgejo</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">forgejo_user</span><span class="p">:</span><span class="w"> </span><span class="l">forgejo</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">5157</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/opt/forgejo&#34;</span><span class="w">
@@ -3422,10 +3482,12 @@ aggregation. Domain-specific serving templates stay with the deployment.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-eeb5fce79753e8ff99af7ae0b7d064d2">2.15 - Forgejo</h1>
     <div class="lead">Forgejo</div>
+	
 	
 </div>
 
@@ -3447,10 +3509,12 @@ aggregation. Domain-specific serving templates stay with the deployment.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-d2d9fd5a259c68d2e77940605cb2f9a0">2.15.1 - Defaults</h1>
     <div class="lead">Defaults for threexui</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">threexui_user</span><span class="p">:</span><span class="w"> </span><span class="l">threexui</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">threexui_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">6468</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">threexui_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/opt/threexui&#34;</span><span class="w">
@@ -3515,10 +3579,12 @@ aggregation. Domain-specific serving templates stay with the deployment.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-3ee6617a8cdfe138eabef4133b767176">2.16 - Forgejo runner</h1>
     <div class="lead">Install and register a Forgejo Actions runner</div>
+	
 	<p>Installs the repository-pinned Linux x86-64 Forgejo runner, creates its service
 account, registers it with Forgejo, and manages its systemd service. The binary
 and configuration are root-owned. The home and work directories belong to the
@@ -3566,10 +3632,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-fa5d4818ace6c148648578af161fe013">2.16.1 - Defaults</h1>
     <div class="lead">Defaults for forgejo_runner</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_user</span><span class="p">:</span><span class="w"> </span><span class="l">forgejo-runner</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">forgejo_runner_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">5721</span><span class="w">
@@ -3627,10 +3695,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-84bbcb99c5eed40e2ac36c7565564888">2.17 - Gpg</h1>
     <div class="lead">Setup GPG</div>
+	
 	
 </div>
 
@@ -3652,10 +3722,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-c450234c52cdd2ebb4a96bf26acc58de">2.17.1 - Defaults</h1>
     <div class="lead">Defaults for gpg</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">gpg_users</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span></span></span></code></pre></div>
 </div>
@@ -3686,10 +3758,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-bab8076304ad49c6d27d6f54bbf70085">2.18 - Harboer</h1>
     <div class="lead">Harbor</div>
+	
 	<h2 id="print-5e9dc31d6ded1b48b4396c9223afe3ce-links">Links<a class="td-heading-self-link" href="#print-5e9dc31d6ded1b48b4396c9223afe3ce-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://goharbor.io/">https://goharbor.io/</a></li>
 </ul>
@@ -3714,10 +3788,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-098b0bba08352e4bca2c23bdd7c0f365">2.18.1 - Defaults</h1>
     <div class="lead">Defaults for harbor</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">harbor_user</span><span class="p">:</span><span class="w"> </span><span class="l">harbor</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">harbor_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">7049</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">harbor_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/opt/harbor&#34;</span><span class="w">
@@ -3760,10 +3836,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-6af445c2efb4d8ebc5ea285e2838a7e4">2.19 - Hermes</h1>
     <div class="lead">Install and run the Hermes Agent gateway</div>
+	
 	
 </div>
 
@@ -3785,10 +3863,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-d9b98687d51ec86231af45d338184159">2.19.1 - Defaults</h1>
     <div class="lead">Defaults for hermes</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">hermes_user</span><span class="p">:</span><span class="w"> </span><span class="l">hermes</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">hermes_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">8150</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">hermes_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/opt/hermes</span><span class="w">
@@ -3834,10 +3914,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e774e85ba522a5b9e3cd2f9364f59c5a">2.20 - Hiddify manager</h1>
     <div class="lead">Setup hiddify manager</div>
+	
 	
 </div>
 
@@ -3859,10 +3941,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-31439a6dfe74cbccb756a6472fbf6ad2">2.20.1 - Defaults</h1>
     <div class="lead">Defaults for hiddify_manager</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">hiddify_manager_env</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">HIDDIFY_MANAGER_IMAGE</span><span class="p">:</span><span class="w"> </span><span class="l">ghcr.io/hiddify/hiddify-manager:main@sha256:d5edef06d2133ffa26f0fcbb67e711f4356dba44c44a41a96570c4e03845a84c</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">HIDDIFY_MANAGER_REDIS_IMAGE</span><span class="p">:</span><span class="w"> </span><span class="l">redis:7.4.1@sha256:bb142a9c18ac18a16713c1491d779697b4e107c22a97266616099d288237ef47</span><span class="w">
@@ -3901,10 +3985,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-aab5daa82477b3920ff5ee8ec7efbbd0">2.21 - Hiddify manager with host</h1>
     <div class="lead">Setup host and then hiddify manager</div>
+	
 	
 </div>
 
@@ -3926,10 +4012,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-5d897bd81c6f320bb7c327bac0e088df">2.21.1 - Defaults</h1>
     <div class="lead">Defaults for hiddify_manager_host</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 </div>
 
@@ -3958,12 +4046,14 @@ handler to reload systemd and restart the runner.</p>
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-91c65ef0b148bbccf32c7deb1a09c514">2.22 - Host</h1>
     <div class="lead">Common host setup</div>
 	
+	
 </div>
 
 
@@ -3984,10 +4074,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-9d6bd2cd0303d370abc4f1d98b1650c2">2.22.1 - Defaults</h1>
     <div class="lead">Defaults for host</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 </div>
 
@@ -4017,10 +4109,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-0ae7d79d28b7979bd77473d7161978d2">2.23 - Install CA</h1>
     <div class="lead">Install a certificate authority</div>
+	
 	
 </div>
 
@@ -4042,10 +4136,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-714cea8bd11c34ec2ba4ea189f660ca5">2.23.1 - Defaults</h1>
     <div class="lead">Defaults for install_ca</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">install_ca</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ role_path }}/files/pki_ca_root.crt&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ role_path }}/files/pki_ca_servers.crt&#34;</span><span class="w">
@@ -4078,10 +4174,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-47fdf99e151dc4c2d11aef1552036c0a">2.24 - K3s</h1>
     <div class="lead">Setup k3s</div>
+	
 	
 </div>
 
@@ -4103,10 +4201,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-edc0b3e5e84347496c4c9fae00e2aebf">2.24.1 - Defaults</h1>
     <div class="lead">Defaults for k3s</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">k3s_data_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/srv/k3s_data</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">k3s_service_name</span><span class="p">:</span><span class="w"> </span><span class="l">k3s</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">k3s_data_disk</span><span class="p">:</span><span class="w"> </span><span class="l">/dev/sdb</span><span class="w">
@@ -4153,10 +4253,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-ed02860b5498ad955756c1ae81bfa6e3">2.25 - K3s bootstrap</h1>
     <div class="lead">Bootstrap k3s cluster</div>
+	
 	
 </div>
 
@@ -4178,10 +4280,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-c5427a830d474331a32ebec771196c6f">2.25.1 - Defaults</h1>
     <div class="lead">Defaults for k3s_bootstrap</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">k3s_bootstrap_apply_path</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">k3s_bootstrap_token_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ lookup(&#39;ansible.builtin.env&#39;, &#39;USER&#39;, default=undef()) }}&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">k3s_bootstrap_token_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kube-system</span><span class="w">
@@ -4222,10 +4326,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-620e18e5f1e2bb0d02d255ed581516d3">2.26 - K3s cluster</h1>
     <div class="lead">Setup k3s cluster</div>
+	
 	
 </div>
 
@@ -4247,10 +4353,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-b8bbef7b6877eb0f828c8e76a4bcc802">2.26.1 - Defaults</h1>
     <div class="lead">Defaults for k3s_cluster</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 </div>
 
@@ -4280,10 +4388,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-3d72c448b167525b5f6765a966b3eb1d">2.27 - K3s kubeconfig</h1>
     <div class="lead">Write k3s kubeconfig to a secret</div>
+	
 	
 </div>
 
@@ -4305,10 +4415,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-01fcd0c7a9352bd763b197b4c9275e6b">2.27.1 - Defaults</h1>
     <div class="lead">Defaults for k3s_kubeconfig</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">k3s_kubeconfig_secret_path</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ undefined() }}&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">k3s_kubeconfig_secret_mount</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ undefined() }}&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">k3s_kubeconfig_path</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/rancher/k3s/k3s.yaml</span><span class="w">
@@ -4342,10 +4454,12 @@ handler to reload systemd and restart the runner.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-d757f966a205ed92aac77c1f3c14ca0f">2.28 - lvg</h1>
     <div class="lead">Setup LVM volume groups</div>
+	
 	<p><code>lvg_volume_groups</code> describes the complete desired physical-volume list for
 each volume group. Extra physical volumes are not removed unless a caller sets
 <code>remove_extra_pvs: true</code>.</p>
@@ -4374,10 +4488,12 @@ an existing disk signature.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f6ba6722e5465a9ef61d0da23727ada6">2.28.1 - Defaults</h1>
     <div class="lead">Defaults for lvg</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">lvg_volume_groups</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span></span></span></code></pre></div>
 </div>
@@ -4408,10 +4524,12 @@ an existing disk signature.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b532322fe69e751ad3d298d87b7a6b16">2.29 - lvol</h1>
     <div class="lead">Setup LVM logical volumes</div>
+	
 	<p>Each <code>lvol_volumes</code> entry can constrain allocation with <code>pvs</code>, pass creation
 arguments with <code>opts</code>, and disable shrinking with <code>shrink: false</code>.</p>
 
@@ -4435,10 +4553,12 @@ arguments with <code>opts</code>, and disable shrinking with <code>shrink: false
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-b9e1cc0a62ee53569f03431b71de8273">2.29.1 - Defaults</h1>
     <div class="lead">Defaults for lvol</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">lvol_volumes</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span></span></span></code></pre></div>
 </div>
@@ -4469,10 +4589,12 @@ arguments with <code>opts</code>, and disable shrinking with <code>shrink: false
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-4a4b7b5ef0e0187c3c5420d669484a7d">2.30 - Mount</h1>
     <div class="lead">Setup posix mounts</div>
+	
 	<p>Mount entries can set <code>opts</code>, <code>dump</code>, and <code>passno</code>; <code>state: mounted</code> keeps the
 mount active and writes its persistent <code>/etc/fstab</code> entry.</p>
 
@@ -4496,10 +4618,12 @@ mount active and writes its persistent <code>/etc/fstab</code> entry.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-c4d6ea46c48ad096d36834b2c8e0f1b9">2.30.1 - Defaults</h1>
     <div class="lead">Defaults for mount</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">mount_points</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span></span></span></code></pre></div>
 </div>
@@ -4530,10 +4654,12 @@ mount active and writes its persistent <code>/etc/fstab</code> entry.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-cca26982a613090c84b3c4551a934482">2.31 - Nginx</h1>
     <div class="lead">Native Nginx with validated consumer configuration</div>
+	
 	<p>Installs Fedora&rsquo;s <code>nginx</code> package and manages its native systemd service.
 The consumer supplies a complete <code>nginx_config_template</code>, including listeners,
 HTTP settings, MIME includes, and document roots. Replacing the main config
@@ -4568,10 +4694,12 @@ links the consumer fixture and lifecycle results.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-251a8b23a5e6ca791045411fd9e0fb8a">2.31.1 - Defaults</h1>
     <div class="lead">Defaults for nginx</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Complete configuration template owned by the consumer.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">nginx_config_template</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ undefined() }}&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">nginx_config_path</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/nginx/nginx.conf</span><span class="w">
@@ -4609,10 +4737,12 @@ links the consumer fixture and lifecycle results.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-2faf89637ce45c3c11978a03f34df8fb">2.32 - Opencode</h1>
     <div class="lead">Opencode</div>
+	
 	
 </div>
 
@@ -4634,10 +4764,12 @@ links the consumer fixture and lifecycle results.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-5a088df76aacc7d9a1626a718d95b89b">2.32.1 - Defaults</h1>
     <div class="lead">Defaults for opencode</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">opencode_user</span><span class="p">:</span><span class="w"> </span><span class="l">opencode</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">opencode_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">8149</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">opencode_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/opt/opencode&#34;</span><span class="w">
@@ -4691,10 +4823,12 @@ links the consumer fixture and lifecycle results.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-8f16ed99dffc054d82e681e91d9a5bbb">2.33 - OpenHands automation</h1>
     <div class="lead">OpenHands automation server</div>
+	
 	<p>Runs the OpenHands automation server natively from a <code>uv</code>-managed virtual
 environment. It stores schedules and event triggers, tracks run lifecycle, and
 dispatches conversations to the agent server.</p>
@@ -4736,10 +4870,12 @@ origin the browser and the dispatched agent server side both use.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-100d3badbacb25a3a7c5e33be04db89b">2.33.1 - Defaults</h1>
     <div class="lead">Defaults for openhands_automation</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">openhands_automation_user</span><span class="p">:</span><span class="w"> </span><span class="l">openhands</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">openhands_automation_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">8154</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">openhands_automation_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/opt/openhands-automation</span><span class="w">
@@ -4799,10 +4935,12 @@ origin the browser and the dispatched agent server side both use.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-fb7d7237a70fc92a8cdf5d02f64f136e">2.34 - OpenHands canvas</h1>
     <div class="lead">OpenHands Agent Canvas frontend</div>
+	
 	<p>Runs the OpenHands Agent Canvas browser client from the published npm package.
 The service listens on loopback port <code>openhands_canvas_port</code>; TLS, the public
 hostname, and routing to the agent server and automation API belong to the
@@ -4840,10 +4978,12 @@ static server and browser assets.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f2c07c1b38af02b3779f42b821b6e0df">2.34.1 - Defaults</h1>
     <div class="lead">Defaults for openhands_canvas</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">openhands_canvas_user</span><span class="p">:</span><span class="w"> </span><span class="l">openhands</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">8153</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">openhands_canvas_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/opt/openhands-canvas</span><span class="w">
@@ -4892,10 +5032,12 @@ static server and browser assets.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-2d602d34e7e5b7019c58368006db085e">2.35 - Openhands server</h1>
     <div class="lead">OpenHands agent server</div>
+	
 	<p>Runs the OpenHands agent server natively from a <code>uv</code>-managed virtual
 environment. It hosts conversations, executes tools, and streams events for
 Agent Canvas. The service binds loopback only; TLS and external reachability
@@ -4929,10 +5071,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b3f999f9111671a6ecb52fddfafa9b31">2.35.1 - Defaults</h1>
     <div class="lead">Defaults for openhands_server</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">openhands_server_user</span><span class="p">:</span><span class="w"> </span><span class="l">openhands</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">8152</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">openhands_server_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/opt/openhands-server</span><span class="w">
@@ -5000,10 +5144,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-81cd85a6a11107a59ac2700f5626df64">2.36 - OS</h1>
     <div class="lead">Common os setup</div>
+	
 	
 </div>
 
@@ -5025,10 +5171,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-d90e69704a044104228b9bd720807f68">2.36.1 - Defaults</h1>
     <div class="lead">Defaults for os</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">os_hardening_enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span></code></pre></div>
 </div>
@@ -5059,10 +5207,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-ccfef1c852adb3fdfbeaa6d6837b0f61">2.37 - Posgresql</h1>
     <div class="lead">Setup Postgresql</div>
+	
 	
 </div>
 
@@ -5084,10 +5234,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-aee59c3bc577b9587347f7b56ca553c5">2.37.1 - Defaults</h1>
     <div class="lead">Defaults for postgresql</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">postgresql_packages</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">postgresql-server</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">postgresql-contrib</span><span class="w">
@@ -5121,10 +5273,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-739f1b451351381b851c6f249f6fc808">2.38 - Pve</h1>
     <div class="lead">Proxmox Virtual Environment deploy</div>
+	
 	<h2 id="print-da7b96794fe0cf8d07f5bdce65efaa50-links">Links<a class="td-heading-self-link" href="#print-da7b96794fe0cf8d07f5bdce65efaa50-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Install guide: <a href="https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_13_Trixie">https://pve.proxmox.com/wiki/Install_Proxmox_VE_on_Debian_13_Trixie</a></li>
 </ul>
@@ -5149,10 +5303,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-8564db10a71fc5786f849671abe0e156">2.38.1 - Defaults</h1>
     <div class="lead">Defaults for pve</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">pve_repo_keyring_path</span><span class="p">:</span><span class="w"> </span><span class="l">/usr/share/keyrings/proxmox-archive-keyring.gpg</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">pve_repo_path</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/apt/sources.list.d/pve-install-repo.sources</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">pve_repo_keyring_url</span><span class="p">:</span><span class="w"> </span><span class="l">https://enterprise.proxmox.com/debian/proxmox-archive-keyring-trixie.gpg</span><span class="w">
@@ -5194,10 +5350,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-17e405829e07a73eec1091b7b246a811">2.39 - PVE cluster</h1>
     <div class="lead">Setup PVE cluster</div>
+	
 	
 </div>
 
@@ -5219,10 +5377,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-d67bf79c871dbdfcbf94618fa898fee3">2.39.1 - Defaults</h1>
     <div class="lead">Defaults for pve_cluster</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">pve_cluster_remove_repos</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">pve-enterprise.list </span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">ceph.list</span><span class="w">
@@ -5279,10 +5439,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-ca3da3c1ba5fb5da1f283e57dbb393b9">2.40 - PVE VM</h1>
     <div class="lead">Setup PVE VM</div>
+	
 	
 </div>
 
@@ -5304,10 +5466,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-1038e347d9491190d1fef56cdc6469f8">2.40.1 - Defaults</h1>
     <div class="lead">Defaults for pve_vm</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">pve_vm_agent</span><span class="p">:</span><span class="w"> 
 </span></span></span><span class="line"><span class="cl"><span class="nt">pve_vm_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ inventory_hostname }}&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">pve_vm_delegate_update_known_hosts</span><span class="p">:</span><span class="w"> </span><span class="l">localhost</span><span class="w">
@@ -5353,10 +5517,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-64980a72cc74b50f841ad4687789acdf">2.41 - PVE VM remove</h1>
     <div class="lead">Remove PVE VM</div>
+	
 	
 </div>
 
@@ -5378,10 +5544,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-703b55defb376903ababd3202b7a958f">2.41.1 - Defaults</h1>
     <div class="lead">Defaults for pve_vm_remove</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 </div>
 
@@ -5411,10 +5579,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b591ef4b5b69e8540a2eacfd64b7910b">2.42 - Raspberry pi</h1>
     <div class="lead">Setup raspberry pi</div>
+	
 	
 </div>
 
@@ -5436,10 +5606,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-0a950c5bb25da1b69e51de2927e9df59">2.42.1 - Defaults</h1>
     <div class="lead">Defaults for raspberry_pi</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">raspberry_pi_argon_enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">raspberry_pi_containers_enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">raspberry_pi_argon_eeprom_script_path</span><span class="p">:</span><span class="w"> </span><span class="l">/usr/local/bin/argon_argon_eeprom.sh</span><span class="w">
@@ -5474,10 +5646,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-30a1060fb79f9cb980286abd5f8e426c">2.43 - SSH</h1>
     <div class="lead">Setup ssh</div>
+	
 	
 </div>
 
@@ -5499,10 +5673,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-29c97f0a38749962edd84ec904e3d79d">2.43.1 - Defaults</h1>
     <div class="lead">Defaults for ssh</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">ssh_hardening_enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">ssh_vault_mount</span><span class="p">:</span><span class="w"> </span><span class="l">ssh/servers</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">ssh_vault_role</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ undefined }}&#34;</span><span class="w">
@@ -5537,10 +5713,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-0a5e3196a671524154fb7d4dd62777e7">2.44 - SSH port forwarding</h1>
     <div class="lead">Setup SSH port forwarding</div>
+	
 	
 </div>
 
@@ -5562,10 +5740,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-dbc6a0cb7660b05fe7144cf801836b1f">2.44.1 - Defaults</h1>
     <div class="lead">Defaults for ssh_port_forward</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">ssh_port_forward_local_addr</span><span class="p">:</span><span class="w"> </span><span class="m">127.0.0.1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">ssh_port_forward_script_path</span><span class="p">:</span><span class="w"> </span><span class="l">/usr/local/bin/ssh-port-forward</span><span class="w">
 </span></span></span></code></pre></div>
@@ -5597,10 +5777,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e6c943af3ee2deb48964eba01ea05920">2.45 - SSH update known hosts</h1>
     <div class="lead">Update known hosts</div>
+	
 	
 </div>
 
@@ -5622,10 +5804,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-083f8862e92b5e12065dc0ae806fb880">2.45.1 - Defaults</h1>
     <div class="lead">Defaults for ssh_update_known_hosts</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">ssh_update_known_hosts_hosts</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span></span></span></code></pre></div>
 </div>
@@ -5656,10 +5840,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-7b517b2a48241ac82a260fd1374e7e58">2.46 - T3 Code</h1>
     <div class="lead">Run the T3 Code server as a systemd service</div>
+	
 	
 </div>
 
@@ -5681,10 +5867,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-37b088e02f219bf0cb82141a8f007232">2.46.1 - Defaults</h1>
     <div class="lead">Defaults for t3code</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">t3code_user</span><span class="p">:</span><span class="w"> </span><span class="l">t3code</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">t3code_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">8151</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">t3code_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/opt/t3code</span><span class="w">
@@ -5727,10 +5915,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-8c1b9c9270f159fcca7a1514b870376f">2.47 - Traefik</h1>
     <div class="lead">Traefik</div>
+	
 	
 </div>
 
@@ -5752,10 +5942,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-64c36144da7ca469126b8b4625766582">2.47.1 - Defaults</h1>
     <div class="lead">Defaults for traefik</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">traefik_user</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">traefik_no_user</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">traefik_owner</span><span class="p">:</span><span class="w"> </span><span class="l">root</span><span class="w">
@@ -5808,10 +6000,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-4de9e089ea6df40baefc1b5b76c8ed26">2.48 - Traefik (old)</h1>
     <div class="lead">Old traefik role</div>
+	
 	
 </div>
 
@@ -5833,10 +6027,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-097cf66cf2e33f82f65b95df93467657">2.48.1 - Defaults</h1>
     <div class="lead">Defaults for traefik_old</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">traefik_user</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">traefik_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">3653</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">traefik_env</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
@@ -5893,10 +6089,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-17a4d2717c20f3b83ef3b560e84d88b2">2.49 - Update all packages</h1>
     <div class="lead">Update all system packages</div>
+	
 	
 </div>
 
@@ -5918,10 +6116,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-2847c001f3a68d2b412fe1f456ef83af">2.49.1 - Defaults</h1>
     <div class="lead">Defaults for update_all_packages</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 </div>
 
@@ -5951,10 +6151,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-223eb1fd50fcaae788edd245a26950b5">2.50 - Users</h1>
     <div class="lead">Setup system users</div>
+	
 	
 </div>
 
@@ -5976,10 +6178,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-0a03a2cb41721fbbb4cc7b575e99682b">2.50.1 - Defaults</h1>
     <div class="lead">Defaults for users</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">users_regular</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">users_remove</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">users_admins</span><span class="p">:</span><span class="w">
@@ -6017,10 +6221,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-cb528d56ecec0a9c20bb4bddddd23208">2.51 - Vault</h1>
     <div class="lead">Setup Hashicorp Vault</div>
+	
 	
 </div>
 
@@ -6042,10 +6248,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-26a8a6b79522c1530b2b2867d0dac032">2.51.1 - Defaults</h1>
     <div class="lead">Defaults for vault</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">vault_user</span><span class="p">:</span><span class="w"> </span><span class="l">vault</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">vault_time_server</span><span class="p">:</span><span class="w"> </span><span class="l">time.cloudflare.com</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">vault_user_uid</span><span class="p">:</span><span class="w"> </span><span class="m">3123</span><span class="w">
@@ -6098,10 +6306,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-143d4797f9b8079b3ab27d7445d99320">2.52 - Wireguard</h1>
     <div class="lead">Setup wireguard</div>
+	
 	
 </div>
 
@@ -6123,10 +6333,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-c56e62cca984605c452317c05cdf57f6">2.52.1 - Defaults</h1>
     <div class="lead">Defaults for wireguard</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">wireguard_dir</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/etc/wireguard&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">wireguard_local_config_paths</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span></span></span></code></pre></div>
@@ -6158,10 +6370,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c8e05c61db7c7cd176ffc9268956bd82">2.53 - Xray</h1>
     <div class="lead">Setup xray</div>
+	
 	<p>Links:</p>
 <ul>
 <li><a href="https://xtls.github.io/en/">https://xtls.github.io/en/</a></li>
@@ -6187,10 +6401,12 @@ also set <code>openhands_server_service_path</code> under <code>/etc/systemd/sys
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-9b6da274af8561381ca8cbf5f469fad3">2.53.1 - Defaults</h1>
     <div class="lead">Defaults for xray</div>
+	
 	<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">xray_enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">xray_config_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/usr/local/etc/xray</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="nt">xray_log_dir</span><span class="p">:</span><span class="w"> </span><span class="l">/var/log/xray</span><span class="w">

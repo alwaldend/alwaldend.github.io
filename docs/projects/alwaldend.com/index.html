@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="Alwaldend.com">
 	<meta itemprop="description" content="Main website and project documentation">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
-	<meta itemprop="wordCount" content="1344">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
+	<meta itemprop="wordCount" content="1423">
 	<meta itemprop="keywords" content="Hugo,Github_pages">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Alwaldend.com">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -171,7 +171,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -4267,10 +4267,12 @@ destination below the title. The panel has space below the fixed header.</p>
 </span></span></code></pre></div><p>The preview serves the local build at http://127.0.0.1:1313.
 The Mermaid browser check writes screenshots and a JSON report to its Bazel
 test outputs. It exercises the theme menu, saved and system preferences,
-mobile layout, documentation print output, and unchanged blog images.
+mobile layout, documentation print output, and blog header and body images.
 This browser test requires network access for Docsy&rsquo;s existing, SRI-pinned
 jQuery and Lunr CDN scripts; its request allowlist permits only those two
-external URLs. Rendering and loading Mermaid diagrams needs no network.</p>
+external URLs. Rendering and loading Mermaid diagrams needs no network.
+The check honors <code>HTTPS_PROXY</code> (or <code>https_proxy</code>) for those CDN requests;
+Chromium&rsquo;s loopback bypass keeps the test site local.</p>
 <h2 id="blog">Blog<a class="td-heading-self-link" href="#blog" aria-label="Heading self-link"></a></h2><p>The site publishes dated articles from <code>content/blog</code>. Each post is its own
 Bazel package with an <code>index.md</code> and a <code>BUILD.bazel</code> declaring its
 <code>docs_filegroup</code>; the section package aggregates them. The section publishes
@@ -4280,14 +4282,24 @@ per-page GitHub links point at the content sources.</p>
 <p>A post stays unpublished while its front matter declares <code>draft: true</code>. Local
 builds render drafts for review and the release build excludes them, so the
 draft state alone withholds a post from the deployed site.</p>
-<p>A post can select a bundled image for social previews with front matter
-<code>images: [pipeline.webp]</code>. Hugo&rsquo;s Open Graph and Twitter card templates resolve
-that resource and emit its absolute URL with a large image card. The post may
-reference the same image in its body; no separate featured image or head hook
-is required. Every post is encouraged to have a representative image. Reuse an
-opening image when available, and prefer a raster projection for social cards
-when the body references SVG. Posts without a suitable image can omit this
-metadata.</p>
+<p>A post selects its opening images with front matter <code>images: [pipeline.webp]</code>.
+The shared blog template displays every entry in order above the article body,
+including in the print edition. Hugo&rsquo;s Open Graph and Twitter card templates
+use the same resources for social previews. Do not repeat a header image at
+the start of the Markdown body; later illustrations stay in the body.</p>
+<p>Every post is encouraged to have a representative image. Reuse an opening
+image when available, preferring a raster projection for social cards. Posts
+without a suitable image can omit this metadata. Bundled resource parameters
+provide descriptive alternative text and an optional visible caption:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">images</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">pipeline.webp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l">pipeline.webp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">alt</span><span class="p">:</span><span class="w"> </span><span class="l">The uploader pipeline</span><span class="w">
+</span></span></span></code></pre></div><p>Set <code>params.caption</code> when an image needs a visible caption. Without <code>params.alt</code>,
+the image uses the page title as alternative text. Header images use the shared
+image renderer and scale to the available width.</p>
 <p>Agent workflow: <a href="https://github.com/alwaldend/src/blob/master/projects/alwaldend.com/skills/alwaldend-blog/SKILL.md">Add a blog post</a>.</p>
 <h2 id="projects">Projects<a class="td-heading-self-link" href="#projects" aria-label="Heading self-link"></a></h2><p>The site publishes each registered project&rsquo;s visitor-facing landing page at
 <code>/projects/&lt;name&gt;/</code>, with the section index at <code>/projects/</code>. Each project owns

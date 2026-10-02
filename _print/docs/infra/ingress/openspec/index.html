@@ -43,7 +43,7 @@
 	<meta property="og:type" content="website">
 
 	<meta itemprop="name" content="OpenSpec">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:44+03:00">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="OpenSpec">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -283,10 +283,12 @@ This is the multi-page printable view of this section.
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-5d754deeb0ff6924f43d2175297e61f1">1 - Specifications</h1>
     
+	
 	
 </div>
 
@@ -307,12 +309,14 @@ This is the multi-page printable view of this section.
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-08423cb7de190ea8428516097e5403d1">1.1 - Infra ingress</h1>
     
 	
+	
 </div>
 
 
@@ -333,10 +337,12 @@ This is the multi-page printable view of this section.
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-0c61ccddac5fa9264004a4851f4b297d">1.1.1 - Infrastructure ingress</h1>
     
+	
 	<span id="print-0ed34d059e4567c05bfaba0306f0f8f3-infrastructure-ingress"></span><h2 id="print-0ed34d059e4567c05bfaba0306f0f8f3-purpose">Purpose<a class="td-heading-self-link" href="#print-0ed34d059e4567c05bfaba0306f0f8f3-purpose" aria-label="Heading self-link"></a></h2><p>Describe Yandex Cloud ingress provisioning, the RouterOS WireGuard connection,
 and the Ansible-managed Traefik configuration. The baseline covers checked-in
 desired state, not a live routing or availability observation.</p>
@@ -405,10 +411,12 @@ configured client CA</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-1e997c44b51c9a2d92087206451e215d">1.2 - Owned dns</h1>
     
+	
 	
 </div>
 
@@ -430,10 +438,12 @@ configured client CA</li>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-f231f6727025d74ee9de7baa3a29eafa">1.2.1 - owned-dns Specification</h1>
     
+	
 	<span id="print-cffd0352d09a5ca20a3d932570d11afb-owned-dns-specification"></span><h2 id="print-cffd0352d09a5ca20a3d932570d11afb-purpose">Purpose<a class="td-heading-self-link" href="#print-cffd0352d09a5ca20a3d932570d11afb-purpose" aria-label="Heading self-link"></a></h2><p>Define retained ingress DNS ownership through the owner&rsquo;s <code>tf</code> root,
 including canonical declarations, scoped execution, and offline source checks.</p>
 <h2 id="print-cffd0352d09a5ca20a3d932570d11afb-requirements">Requirements<a class="td-heading-self-link" href="#print-cffd0352d09a5ca20a3d932570d11afb-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-cffd0352d09a5ca20a3d932570d11afb-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-cffd0352d09a5ca20a3d932570d11afb-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through

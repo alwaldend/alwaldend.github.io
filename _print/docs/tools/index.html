@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Tools">
 	<meta itemprop="description" content="Tools tree">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
 	<meta itemprop="wordCount" content="200">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -4226,10 +4226,12 @@ they must not depend on the generator, its tool, or an action-generated copy.</p
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-bff80795fab53496fbb918ce05fc3b9c">1 - Agents</h1>
     <div class="lead">Repository-wide reusable agent skills</div>
+	
 	<h1 id="print-e4b28a82d5af0fa16c8e31945498c551-repository-agent-skills">Repository agent skills<a class="td-heading-self-link" href="#print-e4b28a82d5af0fa16c8e31945498c551-repository-agent-skills" aria-label="Heading self-link"></a></h1><p>This project owns the reusable cross-repository agent skills. Maintained
 improvement work lives in this project&rsquo;s <a href="openspec/">OpenSpec workspace</a>. It
 does not centralize component facts or runtime state: each fact remains
@@ -4311,10 +4313,12 @@ beside the eval configuration.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-0c09495f17e624aa4c8afe2f97d48137">2 - Android</h1>
     <div class="lead">Android</div>
+	
 	<p><code>packages.txt</code> owns the SDK and NDK package selection used by <code>:install</code> and
 <code>:installer_tar</code>. The latter packages the installer and the pinned Linux x86-64
 command-line tools for Ansible deployment without bootstrapping Bazel on the
@@ -4345,10 +4349,12 @@ only when the installed command runs, never in a Bazel build action.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-6ebd527e9567b1e06d8616362d5e19c9">3 - Ansible</h1>
     <div class="lead">Bazel rules for ansible</div>
+	
 	<p><code>ansible_lint</code> runs <code>ansible-lint</code> from Bazel-managed Python
 dependencies. A Go test runner exposes the CLI binaries under their
 hyphenated names, configures writable Ansible paths, and invokes the
@@ -4382,10 +4388,12 @@ driver before any scenarios can run.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-d2f37e9c6a430ef99b2a990776a76591">4 - Bazel configs</h1>
     <div class="lead">Bazel config targets</div>
+	
 	<h2 id="print-1af304d3726547a0b8ea1768d31d99e5-harbor">Harbor<a class="td-heading-self-link" href="#print-1af304d3726547a0b8ea1768d31d99e5-harbor" aria-label="Heading self-link"></a></h2><p>Targets that pull from the private Harbor registry are disabled by default so
 repository-wide builds work while Harbor is unavailable. Enable them with
 <code>--config=harbor</code> when the registry is reachable.</p>
@@ -4414,10 +4422,12 @@ repository-wide builds work while Harbor is unavailable. Enable them with
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e9057a2a6ecd6734cce5c047c9242aa4">5 - Bazel session cleanup</h1>
     
+	
 	<span id="print-1d6474287550643b90bd0417c9ca8688-bazel-session-cleanup"></span><p>The repository&rsquo;s <code>.codex/config.toml</code> queues asynchronous Bazel expunge when a
 Codex session ends. Review and trust the hook with <code>/hooks</code> in Codex; project
 hooks do not run until trusted. A completed assistant turn does not trigger
@@ -4480,10 +4490,12 @@ not wait for it. See the <a href="https://learn.chatgpt.com/docs/hooks">Codex ho
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c99da9b2b9ed786e306dc5e28caaae46">6 - Bazel shell worker</h1>
     <div class="lead">Bazel worker that runs shell commands</div>
+	
 	
 </div>
 
@@ -4504,12 +4516,14 @@ not wait for it. See the <a href="https://learn.chatgpt.com/docs/hooks">Codex ho
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-45c927e39d0ae6e1a796f6064f4f7477">6.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -4530,10 +4544,12 @@ not wait for it. See the <a href="https://learn.chatgpt.com/docs/hooks">Codex ho
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-83ad709e9df1aa13c3e35408bd67f71e">6.1.1 - al_genrule</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-5a303d9e6f7fbf9e35257bb3e3831f26-al_genrule"></a></p>
 <h2>al_genrule<a class="td-heading-self-link" href="#print-5a303d9e6f7fbf9e35257bb3e3831f26-al_genrule" aria-label="Heading self-link"></a></h2><pre>
@@ -4582,10 +4598,12 @@ al_genrule(<a href="#print-5a303d9e6f7fbf9e35257bb3e3831f26-al_genrule-test">tes
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-cf015108ccc25a58dcc258fed58bfdac">6.1.2 - al_genrule_rule</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-afec6039b5c2bf36bd563c1db70a1484-al_genrule_executable"></a></p>
 <h2>al_genrule_executable<a class="td-heading-self-link" href="#print-afec6039b5c2bf36bd563c1db70a1484-al_genrule_executable" aria-label="Heading self-link"></a></h2><pre>
@@ -4860,10 +4878,12 @@ al_genrule_test(<a href="#print-afec6039b5c2bf36bd563c1db70a1484-al_genrule_test
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-11555661d13406f60a2ef2b718e96d80">7 - Bazelrc</h1>
     <div class="lead">Bazelrc files</div>
+	
 	<h2 id="print-fcd8d261d05886ef7cc7283fd902afb8-usage">Usage<a class="td-heading-self-link" href="#print-fcd8d261d05886ef7cc7283fd902afb8-usage" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //tools/bazelrc:preset.update
 </span></span></code></pre></div><p>The <code>agent</code> profile must not propagate ambient <code>TEMP</code>, <code>TMP</code>, or <code>TMPDIR</code>
 values into repository rules, actions, host actions, or tests. Those execution
@@ -4913,10 +4933,12 @@ by each registry entry. Configure this omission in <code>BUILD.bazel</code>, the
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a23b8887ba59753f2607209f05607506">8 - Black</h1>
     <div class="lead">Black</div>
+	
 	
 </div>
 
@@ -4942,10 +4964,12 @@ by each registry entry. Configure this omission in <code>BUILD.bazel</code>, the
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-cced19289b54ed77239569092da2701c">9 - Buildifier</h1>
     <div class="lead">Buildifier</div>
+	
 	<h2 id="print-f7d68c42235f6dc2f9278fdb7ae3b323-links">Links<a class="td-heading-self-link" href="#print-f7d68c42235f6dc2f9278fdb7ae3b323-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Repo: <a href="https://github.com/bazelbuild/buildtools/blob/main/buildifier/README.md">https://github.com/bazelbuild/buildtools/blob/main/buildifier/README.md</a></li>
 </ul>
@@ -4974,10 +4998,12 @@ by each registry entry. Configure this omission in <code>BUILD.bazel</code>, the
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-3690e4b86ba333cb7003d9b6bb0a77dc">10 - Bzl</h1>
     <div class="lead">Bazel rules related to Bazel itself</div>
+	
 	
 </div>
 
@@ -4998,12 +5024,14 @@ by each registry entry. Configure this omission in <code>BUILD.bazel</code>, the
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-bce95ba81722dc3070e6f93f2d4e7077">10.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -5024,10 +5052,12 @@ by each registry entry. Configure this omission in <code>BUILD.bazel</code>, the
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-13c2794fd1de76dc43f9b8289574f4ca">10.1.1 - al_alias_map</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-3b6ba2be2a2f48d10e7c7105740853d7-al_alias_map"></a></p>
 <h2>al_alias_map<a class="td-heading-self-link" href="#print-3b6ba2be2a2f48d10e7c7105740853d7-al_alias_map" aria-label="Heading self-link"></a></h2><pre>
@@ -5071,10 +5101,12 @@ al_alias_map(<a href="#print-3b6ba2be2a2f48d10e7c7105740853d7-al_alias_map-alias
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5fea4f744f42487599b8e1ad15b77c4b">10.1.2 - al_bzl_generate_repository</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-d22031134f29f98429c1e675c2faf61d-al_bzl_generate_repository"></a></p>
 <h2>al_bzl_generate_repository<a class="td-heading-self-link" href="#print-d22031134f29f98429c1e675c2faf61d-al_bzl_generate_repository" aria-label="Heading self-link"></a></h2><pre>
@@ -5131,10 +5163,12 @@ al_bzl_generate_repository(<a href="#print-d22031134f29f98429c1e675c2faf61d-al_b
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f572d50d287773cca7bd8c343ee7fa76">10.1.3 - al_bzl_library_map</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-ae3ad1a109abd5cff273abdc7d305960-al_bzl_library_map"></a></p>
 <h2>al_bzl_library_map<a class="td-heading-self-link" href="#print-ae3ad1a109abd5cff273abdc7d305960-al_bzl_library_map" aria-label="Heading self-link"></a></h2><pre>
@@ -5193,10 +5227,12 @@ al_bzl_library_map(<a href="#print-ae3ad1a109abd5cff273abdc7d305960-al_bzl_libra
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-39035fa84d0d1bf2c85239e1a5f1debf">10.1.4 - al_bzl_target_doc</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-1cdc32e2d7cf3993cc4bcea8218e014d-al_bzl_target_doc"></a></p>
 <h2>al_bzl_target_doc<a class="td-heading-self-link" href="#print-1cdc32e2d7cf3993cc4bcea8218e014d-al_bzl_target_doc" aria-label="Heading self-link"></a></h2><pre>
@@ -5245,10 +5281,12 @@ al_bzl_target_doc(<a href="#print-1cdc32e2d7cf3993cc4bcea8218e014d-al_bzl_target
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-484c98ccd744485cbcf1b55fec2e134b">10.1.5 - al_genquery_write_to_source_file</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-898ffb8a31e9c0bbd6ef4744f642ce9a-al_genquery_write_to_source_file"></a></p>
 <h2>al_genquery_write_to_source_file<a class="td-heading-self-link" href="#print-898ffb8a31e9c0bbd6ef4744f642ce9a-al_genquery_write_to_source_file" aria-label="Heading self-link"></a></h2><pre>
@@ -5335,10 +5373,12 @@ al_genquery_write_to_source_file(<a href="#print-898ffb8a31e9c0bbd6ef4744f642ce9
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-8f61757543ba2d71932eaab352c68f0d">11 - Bzlenv</h1>
     <div class="lead">Setup bazel environment</div>
+	
 	<p>Rules to create a bazel environment which functions similar to venv</p>
 <h2 id="print-ebabc1b5913c915e1a264a763698b238-features">Features<a class="td-heading-self-link" href="#print-ebabc1b5913c915e1a264a763698b238-features" aria-label="Heading self-link"></a></h2><ul>
 <li>Adds bazel-built tools to <code>${PATH}</code></li>
@@ -5371,10 +5411,12 @@ al_genquery_write_to_source_file(<a href="#print-898ffb8a31e9c0bbd6ef4744f642ce9
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-197caee29ced96f68e22983c3ac6b457">11.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
+	
 	
 </div>
 
@@ -5396,10 +5438,12 @@ al_genquery_write_to_source_file(<a href="#print-898ffb8a31e9c0bbd6ef4744f642ce9
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-027e81dc0b33d4705a0acaaa27ac833b">11.1.1 - al_bzlenv_binary</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-c80eacb29f2211379cbc89355caf94eb-al_bzlenv_binary"></a></p>
 <h2>al_bzlenv_binary<a class="td-heading-self-link" href="#print-c80eacb29f2211379cbc89355caf94eb-al_bzlenv_binary" aria-label="Heading self-link"></a></h2><pre>
@@ -5464,10 +5508,12 @@ al_bzlenv_binary(<a href="#print-c80eacb29f2211379cbc89355caf94eb-al_bzlenv_bina
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-6b59f2b2a2aa357eab21f0dbf1c2de33">12 - Cc</h1>
     <div class="lead">Cc</div>
+	
 	<p><code>//:refresh_compile_commands</code> uses the pinned Hedron extractor. Its archive is
 declared through <code>use_repo_rule</code> and fetched when the extractor&rsquo;s package is
 loaded, rather than during module resolution. LLVM toolchain registration
@@ -5501,10 +5547,12 @@ remains automatic.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-cb0d64dc2e5333c4145908cca54ee8b1">13 - Cloc</h1>
     <div class="lead">Cloc</div>
+	
 	<h2 id="print-e9844e10230913cf0c211b4d07974de3-links">Links<a class="td-heading-self-link" href="#print-e9844e10230913cf0c211b4d07974de3-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Repo: <a href="https://github.com/AlDanial/cloc">https://github.com/AlDanial/cloc</a></li>
 </ul>
@@ -5535,10 +5583,12 @@ remains automatic.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-6162246aef04c955c3c10fb2ec4c912c">14 - Cmctl</h1>
     <div class="lead">Cert Manager cmctl</div>
+	
 	<h2 id="print-25dc216419cb4d42eac673ead56189d7-links">Links<a class="td-heading-self-link" href="#print-25dc216419cb4d42eac673ead56189d7-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://cert-manager.io/docs/reference/cmctl/#installation">https://cert-manager.io/docs/reference/cmctl/#installation</a></li>
 </ul>
@@ -5567,10 +5617,12 @@ remains automatic.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-811f68243c3a8e32799330f262dfa9b1">15 - Consul</h1>
     <div class="lead">Consul</div>
+	
 	<h2 id="print-4807db26602d0a61a08b8a6f4d94617f-links">Links<a class="td-heading-self-link" href="#print-4807db26602d0a61a08b8a6f4d94617f-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Docs: <a href="https://developer.hashicorp.com/consul">https://developer.hashicorp.com/consul</a></li>
 </ul>
@@ -5597,10 +5649,12 @@ remains automatic.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-f2c4a382de53917e70f9d468ba6b4126">15.1 - Gen gossip key</h1>
     <div class="lead">Generate a gossip key and write it to a kv secret</div>
+	
 	
 </div>
 
@@ -5630,10 +5684,12 @@ remains automatic.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5904b0581c4a1da2d93e1bc46bdd7772">16 - Drawio</h1>
     <div class="lead">Bazel rules for drawio</div>
+	
 	<h2 id="print-d268bc0a02af81f3f2ce8f674c6db88c-links">Links<a class="td-heading-self-link" href="#print-d268bc0a02af81f3f2ce8f674c6db88c-links" aria-label="Heading self-link"></a></h2><ul>
 <li><a href="https://github.com/rlespinasse/docker-drawio-desktop-headless">https://github.com/rlespinasse/docker-drawio-desktop-headless</a></li>
 </ul>
@@ -5679,10 +5735,12 @@ licensed under the SIL Open Font License 1.1; their archive retains <code>LICENS
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f478abce16c713042c342a2a8f82f751">16.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
+	
 	
 </div>
 
@@ -5704,10 +5762,12 @@ licensed under the SIL Open Font License 1.1; their archive retains <code>LICENS
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-d523ff8ff3dc555839896e6f0f611a5a">16.1.1 - al_drawio_run_binary</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-64641c37d298c6885e598c2eb508bcb1-al_drawio_run_binary"></a></p>
 <h2>al_drawio_run_binary<a class="td-heading-self-link" href="#print-64641c37d298c6885e598c2eb508bcb1-al_drawio_run_binary" aria-label="Heading self-link"></a></h2><pre>
@@ -5778,10 +5838,12 @@ al_drawio_run_binary(<a href="#print-64641c37d298c6885e598c2eb508bcb1-al_drawio_
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-009207b34fe73e64a66bffedb2a8b81a">16.1.2 - al_drawio_toolchain</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-09580463d5dbbc8cc5a1b42c20a6435d-al_drawio_toolchain"></a></p>
 <h2>al_drawio_toolchain<a class="td-heading-self-link" href="#print-09580463d5dbbc8cc5a1b42c20a6435d-al_drawio_toolchain" aria-label="Heading self-link"></a></h2><pre>
@@ -5839,10 +5901,12 @@ al_drawio_toolchain(<a href="#print-09580463d5dbbc8cc5a1b42c20a6435d-al_drawio_t
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-d5da7f7d80dbbb230709a8ccc5ddfbc9">17 - F-Droid</h1>
     <div class="lead">Pinned fdroidserver environment for local F-Droid build testing</div>
+	
 	<p>Pinned <code>fdroidserver</code> environment for local F-Droid builds. The wrapper
 provisions an isolated Python virtualenv and delegates to <code>fdroid</code>. Use
 <code>tools/gradle/gradle-wrapper</code> for the Android app&rsquo;s Gradle build; this tool
@@ -5875,10 +5939,12 @@ Caches go under the workspace&rsquo;s ignored <code>out/</code> tree.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-61b54a81a8412810435acdae163a430f">18 - File installer</h1>
     <div class="lead">CLI tool to install files</div>
+	
 	
 </div>
 
@@ -5904,10 +5970,12 @@ Caches go under the workspace&rsquo;s ignored <code>out/</code> tree.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-66cd1a9b9bb33b23c26ee859c9ea7e5e">19 - fj</h1>
     <div class="lead">Forgejo CLI</div>
+	
 	<h2 id="print-8af014e43c2f2a5e29c527009b767a97-links">Links<a class="td-heading-self-link" href="#print-8af014e43c2f2a5e29c527009b767a97-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://forgejo.org/">https://forgejo.org/</a></li>
 <li>Repo: <a href="https://codeberg.org/forgejo-contrib/forgejo-cli">https://codeberg.org/forgejo-contrib/forgejo-cli</a></li>
@@ -5937,10 +6005,12 @@ Caches go under the workspace&rsquo;s ignored <code>out/</code> tree.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e6f31c2fc72dc622f76daea9594f79ed">20 - Flake8</h1>
     <div class="lead">Flake8</div>
+	
 	
 </div>
 
@@ -5966,10 +6036,12 @@ Caches go under the workspace&rsquo;s ignored <code>out/</code> tree.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-2d1664cf6f7fd9028b1353ec9ce3fd81">21 - flux</h1>
     <div class="lead">flux</div>
+	
 	<h2 id="print-b1c9ba2c3eedc61c137e31b0b5f0ce07-links">Links<a class="td-heading-self-link" href="#print-b1c9ba2c3eedc61c137e31b0b5f0ce07-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://fluxcd.io/flux/installation/">https://fluxcd.io/flux/installation/</a></li>
 <li>Releases: <a href="https://github.com/fluxcd/flux2/releases">https://github.com/fluxcd/flux2/releases</a></li>
@@ -5999,10 +6071,12 @@ Caches go under the workspace&rsquo;s ignored <code>out/</code> tree.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-3669f79be23bfb7cfe337ef60d96771a">22 - Flux operator</h1>
     <div class="lead">Flux operator</div>
+	
 	<h2 id="print-68dca143fbdec49cc408c1c553933e01-links">Links<a class="td-heading-self-link" href="#print-68dca143fbdec49cc408c1c553933e01-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://fluxoperator.dev">https://fluxoperator.dev</a></li>
 <li>Releases: <a href="https://github.com/controlplaneio-fluxcd/flux-operator/releases">https://github.com/controlplaneio-fluxcd/flux-operator/releases</a></li>
@@ -6032,10 +6106,12 @@ Caches go under the workspace&rsquo;s ignored <code>out/</code> tree.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-aabfacdee26e730beca5da2825245238">23 - Forgejo</h1>
     <div class="lead">Forgejo</div>
+	
 	<h2 id="print-aad99af60238f2c0f9b73a09b28edeb9-links">Links<a class="td-heading-self-link" href="#print-aad99af60238f2c0f9b73a09b28edeb9-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://forgejo.org/">https://forgejo.org/</a></li>
 <li>Repo: <a href="https://codeberg.org/forgejo/forgejo">https://codeberg.org/forgejo/forgejo</a></li>
@@ -6065,10 +6141,12 @@ Caches go under the workspace&rsquo;s ignored <code>out/</code> tree.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-57b20da427701d254cf0bc8290c951eb">24 - Gazelle</h1>
     <div class="lead">Repository BUILD file generation</div>
+	
 	<p><code>//tools/gazelle:gazelle</code> runs the repository&rsquo;s Gazelle language plugins.
 Repository-wide directives remain in root <code>BUILD.bazel</code>, where Gazelle discovers
 them for all packages. Root <code>//:gazelle</code> and <code>//:gazelle_bin</code> remain compatibility
@@ -6102,10 +6180,12 @@ repository root preserves Python dependency discovery in every package.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-ac299319fc2c89820afbd03888a4ef8c">25 - Git</h1>
     <div class="lead">Git rules</div>
+	
 	
 </div>
 
@@ -6126,12 +6206,14 @@ repository root preserves Python dependency discovery in every package.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-ffce9dac7f26511d3ce9162bdbcf6d71">25.1 - Bzl</h1>
     <div class="lead">Bazel rules</div>
 	
+	
 </div>
 
 
@@ -6152,10 +6234,12 @@ repository root preserves Python dependency discovery in every package.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-b59b5cb8e274de1edc023b8945e6420b">25.1.1 - al_git_binary</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-2a13d19da4d28420927a6b84235a5a97-al_git_binary"></a></p>
 <h2>al_git_binary<a class="td-heading-self-link" href="#print-2a13d19da4d28420927a6b84235a5a97-al_git_binary" aria-label="Heading self-link"></a></h2><pre>
@@ -6205,10 +6289,12 @@ al_git_binary(<a href="#print-2a13d19da4d28420927a6b84235a5a97-al_git_binary-nam
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-012b8da2a5c2e7e1d6c97403bd37a197">25.1.2 - al_git_changelog</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-701e13cb17d54c07338dffc6787e006c-al_git_changelog"></a></p>
 <h2>al_git_changelog<a class="td-heading-self-link" href="#print-701e13cb17d54c07338dffc6787e006c-al_git_changelog" aria-label="Heading self-link"></a></h2><pre>
@@ -6262,10 +6348,12 @@ al_git_changelog(<a href="#print-701e13cb17d54c07338dffc6787e006c-al_git_changel
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c00651df7c457a02d6aa6b641b25c011">25.1.3 - al_git_current_state</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 
 </div>
@@ -6280,10 +6368,12 @@ al_git_changelog(<a href="#print-701e13cb17d54c07338dffc6787e006c-al_git_changel
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c5742c4bd99c92bf803ce6be8e4b93c1">25.1.4 - al_git_extension</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-3bd3106c44e23f1239620d18131b0499-al_git_extension"></a></p>
 <h2>al_git_extension<a class="td-heading-self-link" href="#print-3bd3106c44e23f1239620d18131b0499-al_git_extension" aria-label="Heading self-link"></a></h2><pre>
@@ -6327,10 +6417,12 @@ al_git_extension.local_git(<a href="#print-3bd3106c44e23f1239620d18131b0499-al_g
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-658a36282c00ea391b9fb2bd813def77">25.1.5 - al_git_info_file</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-014498de83b59b245c9cccf066c69070-al_git_info_file"></a></p>
 <h2>al_git_info_file<a class="td-heading-self-link" href="#print-014498de83b59b245c9cccf066c69070-al_git_info_file" aria-label="Heading self-link"></a></h2><pre>
@@ -6394,10 +6486,12 @@ al_git_info_file(<a href="#print-014498de83b59b245c9cccf066c69070-al_git_info_fi
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e7f6b38c019a395d1a68f8b42f02ca9f">25.1.6 - al_git_repo</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-cad9d6ede7d171255e2c129653c7af8a-al_git_repo"></a></p>
 <h2>al_git_repo<a class="td-heading-self-link" href="#print-cad9d6ede7d171255e2c129653c7af8a-al_git_repo" aria-label="Heading self-link"></a></h2><pre>
@@ -6447,10 +6541,12 @@ al_git_repo(<a href="#print-cad9d6ede7d171255e2c129653c7af8a-al_git_repo-name">n
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-551ef41fe462a19572f4bc1a1aba20e7">25.1.7 - al_git_resolved_toolchain</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-b6407f828d43d275a973d31f0ec6e66a-al_git_resolved_toolchain"></a></p>
 <h2>al_git_resolved_toolchain<a class="td-heading-self-link" href="#print-b6407f828d43d275a973d31f0ec6e66a-al_git_resolved_toolchain" aria-label="Heading self-link"></a></h2><pre>
@@ -6493,10 +6589,12 @@ al_git_resolved_toolchain(<a href="#print-b6407f828d43d275a973d31f0ec6e66a-al_gi
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-bdb99ac0943d9da3e11b60832766339b">25.1.8 - al_git_run_binary</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-ba2e163fbc72c7d11310952f1bb8fa0f-al_git_run_binary"></a></p>
 <h2>al_git_run_binary<a class="td-heading-self-link" href="#print-ba2e163fbc72c7d11310952f1bb8fa0f-al_git_run_binary" aria-label="Heading self-link"></a></h2><pre>
@@ -6567,10 +6665,12 @@ al_git_run_binary(<a href="#print-ba2e163fbc72c7d11310952f1bb8fa0f-al_git_run_bi
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b4a4bd32910c680949c2447cc9fa0a13">25.1.9 - al_git_toolchain</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-770ac156c65668a2a344219141635660-al_git_toolchain"></a></p>
 <h2>al_git_toolchain<a class="td-heading-self-link" href="#print-770ac156c65668a2a344219141635660-al_git_toolchain" aria-label="Heading self-link"></a></h2><pre>
@@ -6645,10 +6745,12 @@ al_git_toolchain(<a href="#print-770ac156c65668a2a344219141635660-al_git_toolcha
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-fb81b7daa5ceaebe30d5a6f372c66e9c">25.2 - Proto</h1>
     <div class="lead">Protobuf contracts</div>
+	
 	
 </div>
 
@@ -6670,10 +6772,12 @@ al_git_toolchain(<a href="#print-770ac156c65668a2a344219141635660-al_git_toolcha
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-34f08c4cd5eb1bb84f1991fb92c2ff66">25.2.1 - contracts</h1>
     <div class="lead">Proto docs for contracts.proto</div>
+	
 	<h2 id="print-6e012614bdbfccbe0b8575190b4a45d5-java">Java<a class="td-heading-self-link" href="#print-6e012614bdbfccbe0b8575190b4a45d5-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_java//java:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;java_library&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">java_library</span><span class="p">(</span>
@@ -6758,10 +6862,12 @@ al_git_toolchain(<a href="#print-770ac156c65668a2a344219141635660-al_git_toolcha
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b8d50a56a3e2dd3f047d0ee3a8215617">26 - Git filter repo</h1>
     <div class="lead">Git filter repo</div>
+	
 	
 </div>
 
@@ -6787,10 +6893,12 @@ al_git_toolchain(<a href="#print-770ac156c65668a2a344219141635660-al_git_toolcha
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b2b43e486a023b51f35cacab891018ba">27 - Gitea</h1>
     <div class="lead">Gitea</div>
+	
 	<h2 id="print-822f8be7cc6d9c4452f7d26008f49380-links">Links<a class="td-heading-self-link" href="#print-822f8be7cc6d9c4452f7d26008f49380-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Docs: <a href="https://about.gitea.com/">https://about.gitea.com/</a></li>
 </ul>
@@ -6821,10 +6929,12 @@ al_git_toolchain(<a href="#print-770ac156c65668a2a344219141635660-al_git_toolcha
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e4895c46c0f4dd38e5fee1817128f0d5">28 - Go</h1>
     <div class="lead">Go rules</div>
+	
 	
 </div>
 
@@ -6845,12 +6955,14 @@ al_git_toolchain(<a href="#print-770ac156c65668a2a344219141635660-al_git_toolcha
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-c487aec13b3880874c7cc9e47486ecf9">28.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -6871,10 +6983,12 @@ al_git_toolchain(<a href="#print-770ac156c65668a2a344219141635660-al_git_toolcha
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-864b6e71d6d1e67931cdec35478d91b1">28.1.1 - al_go_repository</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-530ca725ab80232b389151475707b057-al_go_repository"></a></p>
 <h2>al_go_repository<a class="td-heading-self-link" href="#print-530ca725ab80232b389151475707b057-al_go_repository" aria-label="Heading self-link"></a></h2><pre>
@@ -6947,10 +7061,12 @@ al_go_repository.go_repository(<a href="#print-530ca725ab80232b389151475707b057-
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f1bac551ac3a8ebceaf4831029bf0c30">29 - go_mod</h1>
     <div class="lead">Keep go.mod files on one Go version</div>
+	
 	<h1 id="print-f9020bf0797f05fc2a4b4769d7f94614-go_mod">go_mod<a class="td-heading-self-link" href="#print-f9020bf0797f05fc2a4b4769d7f94614-go_mod" aria-label="Heading self-link"></a></h1><p><code>go_mod</code> keeps every tracked <code>go.mod</code> file on the Go version configured in
 <code>tools/go_mod/cmd/go_mod/BUILD.bazel</code>. It discovers files with Git, so ignored
 scratch files are excluded.</p>
@@ -6984,10 +7100,12 @@ scratch files are excluded.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e753cacdfc5b9d4372bafefdf4132e89">30 - Gradle wrapper</h1>
     
+	
 	<span id="print-2afcc1e934e5384f5b33002d6f372fe7-gradle-wrapper"></span><p><code>//tools/gradle:gradle-wrapper</code> runs the pinned Gradle distribution from
 <code>third_party/net_gradle_gradle</code> with the Java runtime selected by the existing
 <code>rules_java</code> toolchain. It does not download anything at run time.</p>
@@ -7019,10 +7137,12 @@ redirect them for a task.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-0788a18f748c13c25be31983497d1d8f">31 - Gzip</h1>
     <div class="lead">Gzip rules</div>
+	
 	
 </div>
 
@@ -7043,12 +7163,14 @@ redirect them for a task.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-67c67ccb436562a7321e5dac469221fa">31.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -7069,10 +7191,12 @@ redirect them for a task.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-9622dac16c256cfeaa90f164e43e9fb3">31.1.1 - al_gzip_extension</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-6b2865da8aafe5716e3a2098ac743b22-al_gzip_extension"></a></p>
 <h2>al_gzip_extension<a class="td-heading-self-link" href="#print-6b2865da8aafe5716e3a2098ac743b22-al_gzip_extension" aria-label="Heading self-link"></a></h2><pre>
@@ -7130,10 +7254,12 @@ al_gzip_extension.download(<a href="#print-6b2865da8aafe5716e3a2098ac743b22-al_g
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-36166630227bbfad51b27dca0b982706">31.1.2 - al_gzip_repo</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-7eaae24cb2677513299a97a67208fe08-al_gzip_repo"></a></p>
 <h2>al_gzip_repo<a class="td-heading-self-link" href="#print-7eaae24cb2677513299a97a67208fe08-al_gzip_repo" aria-label="Heading self-link"></a></h2><pre>
@@ -7205,10 +7331,12 @@ al_gzip_repo(<a href="#print-7eaae24cb2677513299a97a67208fe08-al_gzip_repo-name"
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a3e738e5699da9eb0da118c63c891a12">32 - Harbor</h1>
     <div class="lead">Harbor CLI</div>
+	
 	<h2 id="print-eee78200c143b863c8d8463fc07c7176-links">Links<a class="td-heading-self-link" href="#print-eee78200c143b863c8d8463fc07c7176-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://goharbor.io/">https://goharbor.io/</a></li>
 <li>Releases: <a href="https://github.com/goharbor/harbor-cli/releases">https://github.com/goharbor/harbor-cli/releases</a></li>
@@ -7238,10 +7366,12 @@ al_gzip_repo(<a href="#print-7eaae24cb2677513299a97a67208fe08-al_gzip_repo-name"
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-57f348d7690cf6440295eb1dc89acd0a">33 - Helm</h1>
     <div class="lead">Bazel rules for helm</div>
+	
 	<h2 id="print-ef3a312bd2ff20904993ca4e3a08e7d2-links">Links<a class="td-heading-self-link" href="#print-ef3a312bd2ff20904993ca4e3a08e7d2-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://helm.sh">https://helm.sh</a></li>
 </ul>
@@ -7266,10 +7396,12 @@ al_gzip_repo(<a href="#print-7eaae24cb2677513299a97a67208fe08-al_gzip_repo-name"
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-73a23519e4d1c8aff1438e0fddeec687">33.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
+	
 	
 </div>
 
@@ -7291,10 +7423,12 @@ al_gzip_repo(<a href="#print-7eaae24cb2677513299a97a67208fe08-al_gzip_repo-name"
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-24ff3b5ecbd71a0a3dc674df46c0b794">33.1.1 - al_helm_binary</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-b8b2cbf7c495b3bba5485e227e71507c-al_helm_binary"></a></p>
 <h2>al_helm_binary<a class="td-heading-self-link" href="#print-b8b2cbf7c495b3bba5485e227e71507c-al_helm_binary" aria-label="Heading self-link"></a></h2><pre>
@@ -7358,10 +7492,12 @@ al_helm_binary(<a href="#print-b8b2cbf7c495b3bba5485e227e71507c-al_helm_binary-n
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-9e4330bb8bc3f8c4cd64750b8f1fe51a">33.1.2 - al_helm_chart</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-8e5b631d1a425a19beee4abfa6f5bb33-al_helm_chart"></a></p>
 <h2>al_helm_chart<a class="td-heading-self-link" href="#print-8e5b631d1a425a19beee4abfa6f5bb33-al_helm_chart" aria-label="Heading self-link"></a></h2><pre>
@@ -7425,10 +7561,12 @@ al_helm_chart(<a href="#print-8e5b631d1a425a19beee4abfa6f5bb33-al_helm_chart-nam
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-cab9f7b8e20913b9767c13a2f2c4dbe1">33.1.3 - al_helm_chart_info</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="AlHelmChartInfo"></a></p>
 <h2 id="print-7cb643af4e6e37c82284dbee0b45ba5d-alhelmchartinfo">AlHelmChartInfo<a class="td-heading-self-link" href="#print-7cb643af4e6e37c82284dbee0b45ba5d-alhelmchartinfo" aria-label="Heading self-link"></a></h2><pre>
@@ -7477,10 +7615,12 @@ AlHelmChartInfo(<a href="#print-7cb643af4e6e37c82284dbee0b45ba5d-AlHelmChartInfo
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-58cf4211abb41d510bf8aa4fea92f3fd">33.1.4 - al_helm_chart_lock</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-d79f654a2011718c5170779beebd80f5-al_helm_chart_lock"></a></p>
 <h2>al_helm_chart_lock<a class="td-heading-self-link" href="#print-d79f654a2011718c5170779beebd80f5-al_helm_chart_lock" aria-label="Heading self-link"></a></h2><pre>
@@ -7529,10 +7669,12 @@ al_helm_chart_lock(<a href="#print-d79f654a2011718c5170779beebd80f5-al_helm_char
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-70d7e1e3889b2c8f87ba3a4af56e6c92">33.1.5 - al_helm_cmds</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 
 </div>
@@ -7547,10 +7689,12 @@ al_helm_chart_lock(<a href="#print-d79f654a2011718c5170779beebd80f5-al_helm_char
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-565166647d5871258dfb1f121433de21">33.1.6 - al_helm_deps</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-1d9427588251b001adb18560fb3f85f5-al_helm_deps"></a></p>
 <h2>al_helm_deps<a class="td-heading-self-link" href="#print-1d9427588251b001adb18560fb3f85f5-al_helm_deps" aria-label="Heading self-link"></a></h2><pre>
@@ -7608,10 +7752,12 @@ al_helm_deps.from_locks(<a href="#print-1d9427588251b001adb18560fb3f85f5-al_helm
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-1654b75b5b6ae456e59bc0548709c83e">33.1.7 - al_helm_deps_repo</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-3a662fdc092bdec563cc839551ba8ab3-al_helm_deps_repo"></a></p>
 <h2>al_helm_deps_repo<a class="td-heading-self-link" href="#print-3a662fdc092bdec563cc839551ba8ab3-al_helm_deps_repo" aria-label="Heading self-link"></a></h2><pre>
@@ -7675,10 +7821,12 @@ al_helm_deps_repo(<a href="#print-3a662fdc092bdec563cc839551ba8ab3-al_helm_deps_
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c93f55e2bd6f13d33959a725d35f07ce">33.1.8 - al_helm_toolchain</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-6c196d1b46837787e34cb5934ae78cb6-al_helm_toolchain"></a></p>
 <h2>al_helm_toolchain<a class="td-heading-self-link" href="#print-6c196d1b46837787e34cb5934ae78cb6-al_helm_toolchain" aria-label="Heading self-link"></a></h2><pre>
@@ -7736,10 +7884,12 @@ al_helm_toolchain(<a href="#print-6c196d1b46837787e34cb5934ae78cb6-al_helm_toolc
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-6847900adbc2473e74d47244c2cf1a6f">34 - Hermes install</h1>
     <div class="lead">Run the Hermes Agent install script</div>
+	
 	<h2 id="print-189ad484498bec30575f5409d418f13b-links">Links<a class="td-heading-self-link" href="#print-189ad484498bec30575f5409d418f13b-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://hermes-agent.nousresearch.com/">https://hermes-agent.nousresearch.com/</a></li>
 <li>Repo: <a href="https://github.com/NousResearch/hermes-agent">https://github.com/NousResearch/hermes-agent</a></li>
@@ -7771,10 +7921,12 @@ al_helm_toolchain(<a href="#print-6c196d1b46837787e34cb5934ae78cb6-al_helm_toolc
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-9f62655b876ae89d75b66c1c280e7a4d">35 - Hooks</h1>
     <div class="lead">Git hooks</div>
+	
 	<p>The hook installer resolves the repository&rsquo;s effective hooks directory through
 Git. This supports linked worktrees and repositories that configure
 <code>core.hooksPath</code>.</p>
@@ -7810,10 +7962,12 @@ installing the hook:</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-bf26d54c19aab6d32c7f41eead64db94">36 - Http server</h1>
     <div class="lead">Bazel rules for running http.server</div>
+	
 	
 </div>
 
@@ -7834,12 +7988,14 @@ installing the hook:</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-09eef2daef176b396d6966dc79010245">36.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -7860,10 +8016,12 @@ installing the hook:</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-a94948ea2261003414534b7873cc5ce6">36.1.1 - al_http_server_binary</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-bc03945ab099c53feb1b6515a9a6dff7-al_http_server_binary"></a></p>
 <h2>al_http_server_binary<a class="td-heading-self-link" href="#print-bc03945ab099c53feb1b6515a9a6dff7-al_http_server_binary" aria-label="Heading self-link"></a></h2><pre>
@@ -7928,10 +8086,12 @@ al_http_server_binary(<a href="#print-bc03945ab099c53feb1b6515a9a6dff7-al_http_s
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5e491b347f285e10720e6ab83d7f311e">37 - Install file</h1>
     <div class="lead">Bazel rules to install files</div>
+	
 	
 </div>
 
@@ -7952,12 +8112,14 @@ al_http_server_binary(<a href="#print-bc03945ab099c53feb1b6515a9a6dff7-al_http_s
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-045bd355f5141556ce91d4ebd815e3d5">37.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -7978,10 +8140,12 @@ al_http_server_binary(<a href="#print-bc03945ab099c53feb1b6515a9a6dff7-al_http_s
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-f51056649eaa9bbb2bc164447905e0a8">37.1.1 - al_install_file</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-425c805dd76426497b625fcadef2edc0-al_install_file"></a></p>
 <h2>al_install_file<a class="td-heading-self-link" href="#print-425c805dd76426497b625fcadef2edc0-al_install_file" aria-label="Heading self-link"></a></h2><pre>
@@ -8048,10 +8212,12 @@ al_install_file(<a href="#print-425c805dd76426497b625fcadef2edc0-al_install_file
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-760e5602aff7edfe25bd356d45611948">38 - Isort</h1>
     <div class="lead">Isort</div>
+	
 	
 </div>
 
@@ -8077,10 +8243,12 @@ al_install_file(<a href="#print-425c805dd76426497b625fcadef2edc0-al_install_file
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-08bb4fabea1b691b944324d6bf726b90">39 - Js</h1>
     <div class="lead">Js</div>
+	
 	<p>Repository JavaScript tooling dependencies belong to the pnpm workspace in
 <code>tools/</code>. Its <code>package.json</code> and <code>pnpm-lock.yaml</code> own their requested and resolved
 versions. <code>//tools:node_modules</code> owns the Bazel package store and links; loading
@@ -8113,10 +8281,12 @@ when updating the lockfile.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-2f19e5ef0a3db2a130a241c5a26f1161">40 - Kt</h1>
     <div class="lead">Kotlin</div>
+	
 	
 </div>
 
@@ -8142,10 +8312,12 @@ when updating the lockfile.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-cafc55dc2de894f5d7537ca33c77373c">41 - kubectl</h1>
     <div class="lead">Kubectl</div>
+	
 	<h2 id="print-d4d887a570e994141123da1ef28ef11e-links">Links<a class="td-heading-self-link" href="#print-d4d887a570e994141123da1ef28ef11e-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/">https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/</a></li>
 </ul>
@@ -8174,10 +8346,12 @@ when updating the lockfile.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-1800af65a9274775c969d8cfc607f386">42 - Lua</h1>
     <div class="lead">Lua rules</div>
+	
 	
 </div>
 
@@ -8198,12 +8372,14 @@ when updating the lockfile.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-59ba56af10c915a43de7aa8f047cf5f5">42.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -8224,10 +8400,12 @@ when updating the lockfile.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-60d3fe1e2dde2f98d85d4ab40e3151aa">42.1.1 - al_lua_library</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-5c4aee30f4a0e622063d343e275ea64b-al_lua_library"></a></p>
 <h2>al_lua_library<a class="td-heading-self-link" href="#print-5c4aee30f4a0e622063d343e275ea64b-al_lua_library" aria-label="Heading self-link"></a></h2><pre>
@@ -8304,10 +8482,12 @@ al_lua_library(<a href="#print-5c4aee30f4a0e622063d343e275ea64b-al_lua_library-n
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5b1051236ee19239e301fc3327dc5cb3">43 - Make install</h1>
     <div class="lead">Rules to create tar archives that can be installed with make</div>
+	
 	
 </div>
 
@@ -8328,12 +8508,14 @@ al_lua_library(<a href="#print-5c4aee30f4a0e622063d343e275ea64b-al_lua_library-n
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-d1bb07b14ac8a75a06f6a8794e04ff8a">43.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -8354,10 +8536,12 @@ al_lua_library(<a href="#print-5c4aee30f4a0e622063d343e275ea64b-al_lua_library-n
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-f9a09fa01c78530468beee7beb44d265">43.1.1 - al_make_install</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-599ba39ca88e5d21ed5c282f171c8095-al_make_install"></a></p>
 <h2>al_make_install<a class="td-heading-self-link" href="#print-599ba39ca88e5d21ed5c282f171c8095-al_make_install" aria-label="Heading self-link"></a></h2><pre>
@@ -8407,10 +8591,12 @@ al_make_install(<a href="#print-599ba39ca88e5d21ed5c282f171c8095-al_make_install
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f3805806ca8df344f346fec94f43be15">43.1.2 - al_make_install_binary</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-4c0f733990594d1ec1ec53611eef7804-al_make_install_binary"></a></p>
 <h2>al_make_install_binary<a class="td-heading-self-link" href="#print-4c0f733990594d1ec1ec53611eef7804-al_make_install_binary" aria-label="Heading self-link"></a></h2><pre>
@@ -8467,10 +8653,12 @@ al_make_install_binary(<a href="#print-4c0f733990594d1ec1ec53611eef7804-al_make_
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-368d554e75e416bb8032fde6847dfb78">43.1.3 - al_make_install_filegroup</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-af79f70a262ca466677378d2e968019a-al_make_install_filegroup"></a></p>
 <h2>al_make_install_filegroup<a class="td-heading-self-link" href="#print-af79f70a262ca466677378d2e968019a-al_make_install_filegroup" aria-label="Heading self-link"></a></h2><pre>
@@ -8555,10 +8743,12 @@ al_make_install_filegroup(<a href="#print-af79f70a262ca466677378d2e968019a-al_ma
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-28db04ddb41c911047dc69cc22e81bb1">43.1.4 - al_make_install_filegroup_info</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="AlMakeInstallFilegroupInfo"></a></p>
 <h2 id="print-576f91fbb1d3b2c86bca0bf95ea5c454-almakeinstallfilegroupinfo">AlMakeInstallFilegroupInfo<a class="td-heading-self-link" href="#print-576f91fbb1d3b2c86bca0bf95ea5c454-almakeinstallfilegroupinfo" aria-label="Heading self-link"></a></h2><pre>
@@ -8627,10 +8817,12 @@ AlMakeInstallFilegroupInfo(<a href="#print-576f91fbb1d3b2c86bca0bf95ea5c454-AlMa
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-13793d787f68a1ed52b312df4b93e75a">44 - Maven Install Gradle Converter</h1>
     <div class="lead">Converts rules_jvm_external maven_install.json locks to Gradle build inputs</div>
+	
 	<p>Converts <code>rules_jvm_external</code> <code>maven_install.json</code> lock files into Gradle
 version catalogs and dependency verification metadata so Bazel-built Android
 apps can maintain the parallel Gradle build required for F-Droid.</p>
@@ -8673,10 +8865,12 @@ classpath in addition to the Bazel lock. Regenerate it with:</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-3f006cac9db95193153e35fc28569ae8">45 - Md</h1>
     <div class="lead">Md rules</div>
+	
 	
 </div>
 
@@ -8697,12 +8891,14 @@ classpath in addition to the Bazel lock. Regenerate it with:</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-d55283fbbd1c2e68fec89ac64cd645a2">45.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -8723,10 +8919,12 @@ classpath in addition to the Bazel lock. Regenerate it with:</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-bb4d163f58bdc5782a892be0162c4d8a">45.1.1 - al_md_data</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-6ba762537e62bef8b97c97e107b31522-al_md_data"></a></p>
 <h2>al_md_data<a class="td-heading-self-link" href="#print-6ba762537e62bef8b97c97e107b31522-al_md_data" aria-label="Heading self-link"></a></h2><pre>
@@ -8792,10 +8990,12 @@ al_md_data(<a href="#print-6ba762537e62bef8b97c97e107b31522-al_md_data-name">nam
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-85ee39db0d7545baec3803366baee0ae">46 - Mermaid</h1>
     <div class="lead">Bazel-managed Mermaid diagram renderer</div>
+	
 	<p>This package exposes the Mermaid CLI as a repository-wide Bazel tool. Bazel
 provisions the pinned Node toolchain, JavaScript dependency graph, Mermaid CLI,
 and Chrome-for-Testing browser used by Puppeteer. Rendering runs as a Bazel
@@ -9093,10 +9293,12 @@ The <code>.mmd</code> remains the authoritative diagram source in both cases.</p
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-bc07f9be51824f20b55686b5a9793c8c">46.1 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -9117,12 +9319,14 @@ The <code>.mmd</code> remains the authoritative diagram source in both cases.</p
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-e89dcf58386a40fbab2a108fd7752158">46.1.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -9142,12 +9346,14 @@ The <code>.mmd</code> remains the authoritative diagram source in both cases.</p
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-7af15f3031cb735ae0ee157d258ccdd3">46.1.1.1 - Mermaid rendering</h1>
     
 	
+	
 </div>
 
 
@@ -9168,10 +9374,12 @@ The <code>.mmd</code> remains the authoritative diagram source in both cases.</p
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-294e7092d778a8726ef5415e75e86f79">46.1.1.1.1 - mermaid-rendering Specification</h1>
     
+	
 	<span id="print-0359f6b56161467c2effe489677e72b5-mermaid-rendering-specification"></span><h2 id="print-0359f6b56161467c2effe489677e72b5-purpose">Purpose<a class="td-heading-self-link" href="#print-0359f6b56161467c2effe489677e72b5-purpose" aria-label="Heading self-link"></a></h2><p>Provide hermetic SVG and raster diagram outputs that share their selected
 theme, font, and canvas geometry, with reproducible publication assets.</p>
 <h2 id="print-0359f6b56161467c2effe489677e72b5-requirements">Requirements<a class="td-heading-self-link" href="#print-0359f6b56161467c2effe489677e72b5-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-0359f6b56161467c2effe489677e72b5-requirement-raster-diagram-renders">Requirement: Raster diagram renders<a class="td-heading-self-link" href="#print-0359f6b56161467c2effe489677e72b5-requirement-raster-diagram-renders" aria-label="Heading self-link"></a></h3><p>The tool SHALL expose a rule that renders a Mermaid source to a raster image in
@@ -9267,10 +9475,12 @@ can be regenerated and compared against a fresh render.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a7113b213e83ba03da1eec599b1c8ee6">47 - Mypy</h1>
     <div class="lead">Mypy</div>
+	
 	
 </div>
 
@@ -9296,10 +9506,12 @@ can be regenerated and compared against a fresh render.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-27456461834c7d8b065f38cbab5404db">48 - Nc</h1>
     <div class="lead">Netcat</div>
+	
 	<h2 id="print-83dcb6857f08fb10bb0bc03532c2b499-links">Links<a class="td-heading-self-link" href="#print-83dcb6857f08fb10bb0bc03532c2b499-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://nmap.org/">https://nmap.org/</a></li>
 </ul>
@@ -9328,10 +9540,12 @@ can be regenerated and compared against a fresh render.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-ea54e8a172accac254b2483f96ea1925">49 - Nmap</h1>
     <div class="lead">Nmap</div>
+	
 	<h2 id="print-f8b392661c9fc849168108fd4d7d840b-links">Links<a class="td-heading-self-link" href="#print-f8b392661c9fc849168108fd4d7d840b-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://nmap.org/">https://nmap.org/</a></li>
 </ul>
@@ -9360,10 +9574,12 @@ can be regenerated and compared against a fresh render.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-ee9ffe0bd17cab624d57c0c542c8bbd0">50 - Nogo</h1>
     <div class="lead">Golang static analyser</div>
+	
 	<h2 id="print-ae650bc4551ddf2ddc7b9503b5d44b00-links">Links<a class="td-heading-self-link" href="#print-ae650bc4551ddf2ddc7b9503b5d44b00-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Docs: <a href="https://github.com/bazel-contrib/rules_go/blob/master/go/nogo.rst">https://github.com/bazel-contrib/rules_go/blob/master/go/nogo.rst</a></li>
 <li>Bzlmod docs: <a href="https://github.com/bazel-contrib/rules_go/blob/master/docs/go/core/bzlmod.md#configuring-nogo">https://github.com/bazel-contrib/rules_go/blob/master/docs/go/core/bzlmod.md#configuring-nogo</a></li>
@@ -9393,10 +9609,12 @@ can be regenerated and compared against a fresh render.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-d8daceb29034f8f4b7edb78e64f801c6">51 - Nping</h1>
     <div class="lead">Nping - Network packet generation tool &amp; ping utility</div>
+	
 	<h2 id="print-08f78001fd9e156b8e87f35383168c02-links">Links<a class="td-heading-self-link" href="#print-08f78001fd9e156b8e87f35383168c02-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://nmap.org/">https://nmap.org/</a></li>
 </ul>
@@ -9425,10 +9643,12 @@ can be regenerated and compared against a fresh render.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-cd4816ff1cca8c0b2117d5288131945c">52 - Oci</h1>
     <div class="lead">Oci</div>
+	
 	
 </div>
 
@@ -9454,10 +9674,12 @@ can be regenerated and compared against a fresh render.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-feffd734937e4357cb18c30154d07927">53 - Opencode</h1>
     <div class="lead">Opencode - The open source AI coding agent</div>
+	
 	<h2 id="print-0db58c4266319cd986fccb6ecb7dbde1-links">Links<a class="td-heading-self-link" href="#print-0db58c4266319cd986fccb6ecb7dbde1-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://opencode.ai/">https://opencode.ai/</a></li>
 <li>Repo: <a href="https://github.com/anomalyco/opencode">https://github.com/anomalyco/opencode</a></li>
@@ -9488,10 +9710,12 @@ can be regenerated and compared against a fresh render.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-d4f4fcd5020b9dd0795f7b5a3f07a5e6">54 - OpenSpec</h1>
     <div class="lead">Pinned OpenSpec CLI and repository specification validation</div>
+	
 	<p>This package runs the upstream <a href="https://openspec.dev/">OpenSpec</a> CLI with
 Bazel&rsquo;s pinned Node toolchain. <code>tools/package.json</code> pins
 <code>@fission-ai/openspec</code> to 1.11.0; <code>tools/pnpm-lock.yaml</code> records the package
@@ -9563,10 +9787,12 @@ upgrading.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-704a7fb352db51cf1e03fd00fefa9228">54.1 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -9588,10 +9814,12 @@ upgrading.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-0e3434494172cbd6438454b963b27ec7">54.1.1 - project-rules-openspec Specification</h1>
     
+	
 	<span id="print-d6738a511520745c46f0e237c6b31ce8-project-rules-openspec-specification"></span><h2 id="print-d6738a511520745c46f0e237c6b31ce8-purpose">Purpose<a class="td-heading-self-link" href="#print-d6738a511520745c46f0e237c6b31ce8-purpose" aria-label="Heading self-link"></a></h2><p>Define reusable Bazel validation and execution behavior for owner-local OpenSpec workspaces.</p>
 <h2 id="print-d6738a511520745c46f0e237c6b31ce8-requirements">Requirements<a class="td-heading-self-link" href="#print-d6738a511520745c46f0e237c6b31ce8-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-d6738a511520745c46f0e237c6b31ce8-openspec-validation">OpenSpec validation<a class="td-heading-self-link" href="#print-d6738a511520745c46f0e237c6b31ce8-openspec-validation" aria-label="Heading self-link"></a></h3><p>The system SHALL validate one owner-local OpenSpec workspace in a sandbox using the pinned OpenSpec CLI.</p>
 <h4 id="print-d6738a511520745c46f0e237c6b31ce8-scenario-current-validation">Scenario: current validation<a class="td-heading-self-link" href="#print-d6738a511520745c46f0e237c6b31ce8-scenario-current-validation" aria-label="Heading self-link"></a></h4><ul>
@@ -9623,10 +9851,12 @@ upgrading.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-6f949f53eb7a60d4ba45b30dd575359e">55 - Ops</h1>
     <div class="lead">Ops CLI binary</div>
+	
 	<h2 id="print-34e45513c44941dddf79070622a5afb8-links">Links<a class="td-heading-self-link" href="#print-34e45513c44941dddf79070622a5afb8-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://ops.city/">https://ops.city/</a></li>
 <li>Nanovms site: <a href="https://nanovms.com/">https://nanovms.com/</a></li>
@@ -9656,10 +9886,12 @@ upgrading.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-fad08cc4eecab2d83430ecfc38a5b0e8">56 - Patch</h1>
     <div class="lead">Patch rules</div>
+	
 	
 </div>
 
@@ -9680,12 +9912,14 @@ upgrading.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-6544b59714621348a1740fa2d1838a16">56.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -9706,10 +9940,12 @@ upgrading.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-6240a7618185c0be6dec4161b91ceea2">56.1.1 - al_apply_patches</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-e2464975d00ba7956cd9733dbc37503e-al_apply_patches"></a></p>
 <h2>al_apply_patches<a class="td-heading-self-link" href="#print-e2464975d00ba7956cd9733dbc37503e-al_apply_patches" aria-label="Heading self-link"></a></h2><pre>
@@ -9776,10 +10012,12 @@ al_apply_patches(<a href="#print-e2464975d00ba7956cd9733dbc37503e-al_apply_patch
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-119c49ccc8dea2e689cbecbf21120656">57 - Pkg</h1>
     <div class="lead">Package rules</div>
+	
 	
 </div>
 
@@ -9800,12 +10038,14 @@ al_apply_patches(<a href="#print-e2464975d00ba7956cd9733dbc37503e-al_apply_patch
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-48c24c846d20c594a60da01a68828287">57.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -9826,10 +10066,12 @@ al_apply_patches(<a href="#print-e2464975d00ba7956cd9733dbc37503e-al_apply_patch
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-9271bb38dd3f64cf657a13a583a5cb07">57.1.1 - al_genrule_src</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-4ad3e7f6e7769a13d3facb94b7d0efc0-al_genrule_src"></a></p>
 <h2>al_genrule_src<a class="td-heading-self-link" href="#print-4ad3e7f6e7769a13d3facb94b7d0efc0-al_genrule_src" aria-label="Heading self-link"></a></h2><pre>
@@ -9878,10 +10120,12 @@ al_genrule_src(<a href="#print-4ad3e7f6e7769a13d3facb94b7d0efc0-al_genrule_src-n
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5112b8ea12a85b8fb1a80cec2e8e3bdd">57.1.2 - al_pkg_basic_naming</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-322696222ffe433f97990973dd61e979-al_pkg_basic_naming"></a></p>
 <h2>al_pkg_basic_naming<a class="td-heading-self-link" href="#print-322696222ffe433f97990973dd61e979-al_pkg_basic_naming" aria-label="Heading self-link"></a></h2><pre>
@@ -9931,10 +10175,12 @@ al_pkg_basic_naming(<a href="#print-322696222ffe433f97990973dd61e979-al_pkg_basi
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-9a5866cda8e855e99ee6684605bba5e0">57.1.3 - al_pkg_extract_dir</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-84b66e721f780b74127561e8cc35e4f0-al_pkg_extract_dir"></a></p>
 <h2>al_pkg_extract_dir<a class="td-heading-self-link" href="#print-84b66e721f780b74127561e8cc35e4f0-al_pkg_extract_dir" aria-label="Heading self-link"></a></h2><pre>
@@ -9998,10 +10244,12 @@ al_pkg_extract_dir(<a href="#print-84b66e721f780b74127561e8cc35e4f0-al_pkg_extra
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5056fc05b2758efcea802276582ad369">57.1.4 - al_pkg_tar_combined</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-fdb42c4f9f5d9b03012089b19a084d3e-al_pkg_tar_combined"></a></p>
 <h2>al_pkg_tar_combined<a class="td-heading-self-link" href="#print-fdb42c4f9f5d9b03012089b19a084d3e-al_pkg_tar_combined" aria-label="Heading self-link"></a></h2><pre>
@@ -10055,10 +10303,12 @@ al_pkg_tar_combined(<a href="#print-fdb42c4f9f5d9b03012089b19a084d3e-al_pkg_tar_
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-2b3f2d581a6033a312bbd41597141502">57.1.5 - al_unpack_archives</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-14605472d51f939d53d72cffddbcfc61-al_unpack_archives"></a></p>
 <h2>al_unpack_archives<a class="td-heading-self-link" href="#print-14605472d51f939d53d72cffddbcfc61-al_unpack_archives" aria-label="Heading self-link"></a></h2><pre>
@@ -10123,10 +10373,12 @@ al_unpack_archives(<a href="#print-14605472d51f939d53d72cffddbcfc61-al_unpack_ar
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-37d3927ae5dff08f03b55aedf73901fd">58 - Pkgsite</h1>
     <div class="lead">Pkgsite</div>
+	
 	<h2 id="print-58b60c38e498939671ff668d36f31947-links">Links<a class="td-heading-self-link" href="#print-58b60c38e498939671ff668d36f31947-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Repo: <a href="https://github.com/golang/pkgsite">https://github.com/golang/pkgsite</a></li>
 </ul>
@@ -10155,10 +10407,12 @@ al_unpack_archives(<a href="#print-14605472d51f939d53d72cffddbcfc61-al_unpack_ar
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5740a0c4ff8420148d9a79a6ff85bc28">59 - Pnpm</h1>
     <div class="lead">Pnpm</div>
+	
 	
 </div>
 
@@ -10184,10 +10438,12 @@ al_unpack_archives(<a href="#print-14605472d51f939d53d72cffddbcfc61-al_unpack_ar
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-88040b9f7e46451698eabfbe84e82cd4">60 - Postcss</h1>
     <div class="lead">Postcss</div>
+	
 	<h2 id="print-90d9c57c87ba74a44be93883f975ad75-links">Links<a class="td-heading-self-link" href="#print-90d9c57c87ba74a44be93883f975ad75-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Repo: <a href="https://github.com/postcss/postcss">https://github.com/postcss/postcss</a></li>
 </ul>
@@ -10216,10 +10472,12 @@ al_unpack_archives(<a href="#print-14605472d51f939d53d72cffddbcfc61-al_unpack_ar
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-3607880cbb112533170ffa4894fdede0">61 - Prettier</h1>
     <div class="lead">Prettier</div>
+	
 	<h2 id="print-0723b87e645f1fe8cecdfd9dd2f95e0f-links">Links<a class="td-heading-self-link" href="#print-0723b87e645f1fe8cecdfd9dd2f95e0f-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Repo: <a href="https://github.com/prettier/prettier">https://github.com/prettier/prettier</a></li>
 </ul>
@@ -10248,10 +10506,12 @@ al_unpack_archives(<a href="#print-14605472d51f939d53d72cffddbcfc61-al_unpack_ar
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b9f4a60b231fe6529e29559baa77c940">62 - Print deps</h1>
     <div class="lead">Aspect to print deps</div>
+	
 	
 </div>
 
@@ -10272,12 +10532,14 @@ al_unpack_archives(<a href="#print-14605472d51f939d53d72cffddbcfc61-al_unpack_ar
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-9349949aae485cb68d47660312c581aa">62.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -10298,10 +10560,12 @@ al_unpack_archives(<a href="#print-14605472d51f939d53d72cffddbcfc61-al_unpack_ar
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-9e2c262fa7ca874762e6f6ca8ab11031">62.1.1 - al_print_deps</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-1abc699c95e5c30a224e47970e540f13-al_print_deps"></a></p>
 <h2>al_print_deps<a class="td-heading-self-link" href="#print-1abc699c95e5c30a224e47970e540f13-al_print_deps" aria-label="Heading self-link"></a></h2><pre>
@@ -10346,10 +10610,12 @@ al_print_deps()
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-ec189ba1b8edda92bf28b6dcb0cde110">63 - Proto</h1>
     <div class="lead">Protobuf rules</div>
+	
 	
 </div>
 
@@ -10370,12 +10636,14 @@ al_print_deps()
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-7a6ea77d9a6773275ef48d54e8668c87">63.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -10396,10 +10664,12 @@ al_print_deps()
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-4c76d5f978f989bca34ed6a8510e43cb">63.1.1 - al_proto_docs</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-1820f7452f58884b1205aeafc3f2b496-al_proto_docs"></a></p>
 <h2>al_proto_docs<a class="td-heading-self-link" href="#print-1820f7452f58884b1205aeafc3f2b496-al_proto_docs" aria-label="Heading self-link"></a></h2><pre>
@@ -10466,10 +10736,12 @@ al_proto_docs(<a href="#print-1820f7452f58884b1205aeafc3f2b496-al_proto_docs-nam
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-510b0f382e9ae21192df098e950c3d67">64 - Py</h1>
     <div class="lead">Python rules</div>
+	
 	<p>The repository Python dependency lock remains in root <code>requirements.txt</code>, next
 to <code>pyproject.toml</code>. Update it with <code>//tools/py:requirements.update</code> and validate
 it with <code>//tools/py:requirements.test</code>; the root labels remain compatibility
@@ -10496,10 +10768,12 @@ resolve and validate package versions and run outside the action sandbox.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-194e7a6727fe3132b1e428ded9b6814a">64.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
+	
 	
 </div>
 
@@ -10521,10 +10795,12 @@ resolve and validate package versions and run outside the action sandbox.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-c8044a5b25a6d13ba4dabeedfec882fd">64.1.1 - al_compile_pip_requirements_combined</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined"></a></p>
 <h2>al_compile_pip_requirements_combined<a class="td-heading-self-link" href="#print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined" aria-label="Heading self-link"></a></h2><pre>
@@ -10573,10 +10849,12 @@ al_compile_pip_requirements_combined(<a href="#print-6ab0e184a15c6b123ed2ccb50d4
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-faaae939879696ebed11566e40ca0ddf">64.1.2 - al_genrule_with_wheels</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-5c28932ffd7db34821bebb6fbaa7893b-al_genrule_with_wheels"></a></p>
 <h2>al_genrule_with_wheels<a class="td-heading-self-link" href="#print-5c28932ffd7db34821bebb6fbaa7893b-al_genrule_with_wheels" aria-label="Heading self-link"></a></h2><pre>
@@ -10635,10 +10913,12 @@ al_genrule_with_wheels(<a href="#print-5c28932ffd7db34821bebb6fbaa7893b-al_genru
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-4c9b1598e7a9a82eec6d71a660f87d37">64.1.3 - al_py_binary_shell</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-750b5ccdae92d1ae7e79946efe7841fe-al_py_binary_shell"></a></p>
 <h2>al_py_binary_shell<a class="td-heading-self-link" href="#print-750b5ccdae92d1ae7e79946efe7841fe-al_py_binary_shell" aria-label="Heading self-link"></a></h2><pre>
@@ -10702,10 +10982,12 @@ al_py_binary_shell(<a href="#print-750b5ccdae92d1ae7e79946efe7841fe-al_py_binary
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-ae27bc36bfc8fc1150dd8bac1763e4ab">64.1.4 - al_py_checker</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-070b5dc3422c00def45ba97767c7072f-al_py_checker"></a></p>
 <h2>al_py_checker<a class="td-heading-self-link" href="#print-070b5dc3422c00def45ba97767c7072f-al_py_checker" aria-label="Heading self-link"></a></h2><pre>
@@ -10774,10 +11056,12 @@ al_py_checker(<a href="#print-070b5dc3422c00def45ba97767c7072f-al_py_checker-nam
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-159b7ecf904518ce84e02fd72bfe36e0">64.1.5 - al_py_checkers</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-b3113408b57fc0c6100065a655a0aa1e-al_py_checkers"></a></p>
 <h2>al_py_checkers<a class="td-heading-self-link" href="#print-b3113408b57fc0c6100065a655a0aa1e-al_py_checkers" aria-label="Heading self-link"></a></h2><pre>
@@ -10854,10 +11138,12 @@ al_py_checkers(<a href="#print-b3113408b57fc0c6100065a655a0aa1e-al_py_checkers-n
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a4f5f7ffc443c0758be6739d438cf062">65 - Qt</h1>
     <div class="lead">Qt rules</div>
+	
 	<h2 id="print-a23850c036ccd4a4cef6e4c7eb90c41b-links">Links<a class="td-heading-self-link" href="#print-a23850c036ccd4a4cef6e4c7eb90c41b-links" aria-label="Heading self-link"></a></h2><ul>
 <li><a href="https://bazel.build/extending/toolchains">https://bazel.build/extending/toolchains</a></li>
 </ul>
@@ -10885,10 +11171,12 @@ al_py_checkers(<a href="#print-b3113408b57fc0c6100065a655a0aa1e-al_py_checkers-n
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-03b8b00469f5d621840d7fab884e7c8b">65.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
+	
 	
 </div>
 
@@ -10918,10 +11206,12 @@ al_py_checkers(<a href="#print-b3113408b57fc0c6100065a655a0aa1e-al_py_checkers-n
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-8e3391d2eef6e5a473f0f958fd2b6c92">66 - Readme tree</h1>
     <div class="lead">Tool to parse README.md files</div>
+	
 	<h2 id="print-c98cd9ec84793714086ce676fc60fde3-example">Example<a class="td-heading-self-link" href="#print-c98cd9ec84793714086ce676fc60fde3-example" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run tools/readme_tree -- parse -g -C <span class="s2">&#34;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">&#34;</span> .
 </span></span></code></pre></div>
 </div>
@@ -10948,10 +11238,12 @@ al_py_checkers(<a href="#print-b3113408b57fc0c6100065a655a0aa1e-al_py_checkers-n
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-332e23839cbeb4c3d5c65d430338b7e7">67 - Release</h1>
     <div class="lead">Release rules</div>
+	
 	<p>The release tool generates release manifests/pages and deploys their files.
 OCI deployment uses Soras. SSH deployment uses the operator&rsquo;s OpenSSH and
 rsync executables and requires rsync on the destination; it needs neither
@@ -11068,10 +11360,12 @@ with <code>oras = None</code>, while taking <code>--release_dir</code> at runtim
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c5e7d3e0f262a77185c653db31edd2af">67.1 - Bzl</h1>
     <div class="lead">Bazel bindings for the release tool</div>
+	
 	
 </div>
 
@@ -11093,10 +11387,12 @@ with <code>oras = None</code>, while taking <code>--release_dir</code> at runtim
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-58158a6c2e8e265f7ce8ae3881ed4996">67.1.1 - al_release</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-ad9cd7f35e114a1767fba5d543348693-al_release"></a></p>
 <h2>al_release<a class="td-heading-self-link" href="#print-ad9cd7f35e114a1767fba5d543348693-al_release" aria-label="Heading self-link"></a></h2><pre>
@@ -11196,10 +11492,12 @@ al_release(<a href="#print-ad9cd7f35e114a1767fba5d543348693-al_release-name">nam
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-473271db3f2e11874ef35f4ea934e3a3">67.1.2 - al_release_binary</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-78d91e3e301be73d29284b97497b92ee-al_release_binary"></a></p>
 <h2>al_release_binary<a class="td-heading-self-link" href="#print-78d91e3e301be73d29284b97497b92ee-al_release_binary" aria-label="Heading self-link"></a></h2><pre>
@@ -11248,10 +11546,12 @@ al_release_binary(<a href="#print-78d91e3e301be73d29284b97497b92ee-al_release_bi
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a8b48addae8e2e18fcaed6fa0b7cf84b">67.1.3 - al_release_bundle</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p>Package declared payloads and versioning metadata for the release publisher.</p>
 <p><a id="print-77a3111d2cd913075d5bed1f074e10b4-al_release_bundle"></a></p>
@@ -11316,10 +11616,12 @@ al_release_bundle(<a href="#print-77a3111d2cd913075d5bed1f074e10b4-al_release_bu
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-68c6d7c0cebac97c53399f3922456b1b">67.1.4 - al_release_deployment</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment"></a></p>
 <h2>al_release_deployment<a class="td-heading-self-link" href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_release_deployment" aria-label="Heading self-link"></a></h2><pre>
@@ -11426,10 +11728,12 @@ al_release_deployment(<a href="#print-b492fd71a14a3e05ab780d32e9c1006d-al_releas
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-51fcde7fea35f6885e23c36f97c12e17">67.1.5 - al_release_deployment_info</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="AlReleaseDeploymentInfo"></a></p>
 <h2 id="print-741434255b76a3f7a9280a564e7b8202-alreleasedeploymentinfo">AlReleaseDeploymentInfo<a class="td-heading-self-link" href="#print-741434255b76a3f7a9280a564e7b8202-alreleasedeploymentinfo" aria-label="Heading self-link"></a></h2><pre>
@@ -11470,10 +11774,12 @@ AlReleaseDeploymentInfo(<a href="#print-741434255b76a3f7a9280a564e7b8202-AlRelea
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-957b8b2fb088eaf2ddf5ae9e8fa3374c">67.1.6 - al_release_deps</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-6583e9dbc6730d0959524193f1bbe1c9-al_release_deps"></a></p>
 <h2>al_release_deps<a class="td-heading-self-link" href="#print-6583e9dbc6730d0959524193f1bbe1c9-al_release_deps" aria-label="Heading self-link"></a></h2><pre>
@@ -11527,10 +11833,12 @@ al_release_deps(<a href="#print-6583e9dbc6730d0959524193f1bbe1c9-al_release_deps
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-db802b1d7e4918f37d0833684a6399cd">67.1.7 - al_release_files</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-cb782a254e48fc6b0bc27f96856c7b11-al_release_files"></a></p>
 <h2>al_release_files<a class="td-heading-self-link" href="#print-cb782a254e48fc6b0bc27f96856c7b11-al_release_files" aria-label="Heading self-link"></a></h2><pre>
@@ -11607,10 +11915,12 @@ al_release_files(<a href="#print-cb782a254e48fc6b0bc27f96856c7b11-al_release_fil
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-037d82a9d2f66cf7b294c018b4ec16be">67.1.8 - al_release_files_info</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="AlReleaseFilesInfo"></a></p>
 <h2 id="print-a1addd46d9c251fe2a064258f99735d9-alreleasefilesinfo">AlReleaseFilesInfo<a class="td-heading-self-link" href="#print-a1addd46d9c251fe2a064258f99735d9-alreleasefilesinfo" aria-label="Heading self-link"></a></h2><pre>
@@ -11651,10 +11961,12 @@ AlReleaseFilesInfo(<a href="#print-a1addd46d9c251fe2a064258f99735d9-AlReleaseFil
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-1a3ba228d9b81016eb58f87e07a1015f">67.1.9 - al_release_info</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="AlReleaseInfo"></a></p>
 <h2 id="print-cda70ce2d54610ca433bf5524a7e4fde-alreleaseinfo">AlReleaseInfo<a class="td-heading-self-link" href="#print-cda70ce2d54610ca433bf5524a7e4fde-alreleaseinfo" aria-label="Heading self-link"></a></h2><pre>
@@ -11707,10 +12019,12 @@ AlReleaseInfo(<a href="#print-cda70ce2d54610ca433bf5524a7e4fde-AlReleaseInfo-rel
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-08ca49244b20509a15654ed8275926d4">67.2 - Go</h1>
     <div class="lead">Golang code for the release tool</div>
+	
 	
 </div>
 
@@ -11735,12 +12049,14 @@ AlReleaseInfo(<a href="#print-cda70ce2d54610ca433bf5524a7e4fde-AlReleaseInfo-rel
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f654f2b8636388720f346b3780320753">67.3 - Proto</h1>
     <div class="lead">Protobuf contracts</div>
 	
+	
 </div>
 
 
@@ -11761,10 +12077,12 @@ AlReleaseInfo(<a href="#print-cda70ce2d54610ca433bf5524a7e4fde-AlReleaseInfo-rel
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-9caedc9dadce8921346c6dcb0e744173">67.3.1 - contracts</h1>
     <div class="lead">Proto docs for contracts.proto</div>
+	
 	<h2 id="print-a628bd9e0f4d9e1d725ba99ef3e410d3-java">Java<a class="td-heading-self-link" href="#print-a628bd9e0f4d9e1d725ba99ef3e410d3-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_java//java:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;java_library&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">java_library</span><span class="p">(</span>
@@ -11886,10 +12204,12 @@ AlReleaseInfo(<a href="#print-cda70ce2d54610ca433bf5524a7e4fde-AlReleaseInfo-rel
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5eccdc3fb1082c7021c21570d13c6c07">68 - Replace section</h1>
     <div class="lead">Replace sections of files</div>
+	
 	
 </div>
 
@@ -11914,12 +12234,14 @@ AlReleaseInfo(<a href="#print-cda70ce2d54610ca433bf5524a7e4fde-AlReleaseInfo-rel
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-033199de2cbc940eda992d2a3f9b383b">69 - Repo map</h1>
     <div class="lead">Extension to download several versions of a repository depending on a platform</div>
 	
+	
 </div>
 
 
@@ -11939,12 +12261,14 @@ AlReleaseInfo(<a href="#print-cda70ce2d54610ca433bf5524a7e4fde-AlReleaseInfo-rel
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-b412ca7205e68e3339cbb687748ee84a">69.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -11965,10 +12289,12 @@ AlReleaseInfo(<a href="#print-cda70ce2d54610ca433bf5524a7e4fde-AlReleaseInfo-rel
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-584829e9d33157cf5980f98c48082ae9">69.1.1 - al_repo_map</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-8febee0e4af810aa016e3e88e5416500-al_repo_map"></a></p>
 <h2>al_repo_map<a class="td-heading-self-link" href="#print-8febee0e4af810aa016e3e88e5416500-al_repo_map" aria-label="Heading self-link"></a></h2><pre>
@@ -12063,10 +12389,12 @@ al_repo_map.download(<a href="#print-8febee0e4af810aa016e3e88e5416500-al_repo_ma
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-bbbce3022c710721119c767349b38794">70 - Repository AL configuration</h1>
     <div class="lead">Shared configuration for repository command wrappers</div>
+	
 	<p><code>//tools/al:config</code> packages the repository&rsquo;s shared AL configuration. The
 root <code>//:al</code> label remains a compatibility alias. The Lua source files stay
 at the repository root so existing CLI configuration discovery and
@@ -12100,10 +12428,12 @@ their Terraform working directory.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-de0b913a62adbf363596188f99a0c3cf">71 - Repository CI</h1>
     <div class="lead">Shared entry point for repository builds and tests</div>
+	
 	<p>Every CI workflow checks out its event revision and uses the local action:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build and test the repository</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">./tools/ci/action</span><span class="w">
@@ -12161,10 +12491,12 @@ Terraform. Its immutable commit pin selects the action implementation;
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-7b9c0f5f2eec137efc61a6eefd3cccbd">72 - Repository delivery</h1>
     <div class="lead">Guarded Git and pull-request delivery</div>
+	
 	<p><code>repo_delivery</code> implements the deterministic part of repository delivery. It
 invokes native Git and a selected forge CLI; it does not infer task ownership,
 choose validation commands, resolve conflicts, or judge review feedback.</p>
@@ -12528,10 +12860,12 @@ portable.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-522dd58d41104c27688205be2e08e086">73 - Repository quality</h1>
     <div class="lead">Whole-index formatting, linting and validation coordinator</div>
+	
 	<p>This package uses upstream <code>aspect_rules_lint</code> formatting and linting rules to
 discover Git-tracked files and inspect declared source targets with established
 tools acquired by Bazel. It does not implement a formatter or linter and does
@@ -12588,10 +12922,12 @@ acquisition remains hermetic and pinned through Bazel.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-68b8f9f526cb809bb19cd2be6abc2665">74 - Resolved toolchain</h1>
     <div class="lead">Helper rule to create a resolved toolchain</div>
+	
 	<h2 id="print-56079898363dd3f76b55e3d82f1c3438-links">Links<a class="td-heading-self-link" href="#print-56079898363dd3f76b55e3d82f1c3438-links" aria-label="Heading self-link"></a></h2><ul>
 <li><a href="https://bazel.build/extending/toolchains">https://bazel.build/extending/toolchains</a></li>
 </ul>
@@ -12616,10 +12952,12 @@ acquisition remains hermetic and pinned through Bazel.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-8f21de791d28846565a3013342235113">74.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
+	
 	
 </div>
 
@@ -12641,10 +12979,12 @@ acquisition remains hermetic and pinned through Bazel.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-c3613a63a3ab7b77d3cd56220eab26ab">74.1.1 - al_resolved_toolchain</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-abf887a7b96656838707e9337518679b-al_resolved_toolchain"></a></p>
 <h2>al_resolved_toolchain<a class="td-heading-self-link" href="#print-abf887a7b96656838707e9337518679b-al_resolved_toolchain" aria-label="Heading self-link"></a></h2><pre>
@@ -12698,10 +13038,12 @@ al_resolved_toolchain(<a href="#print-abf887a7b96656838707e9337518679b-al_resolv
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-4838d40c4e5760a903717e503a72ddb5">75 - Rfc</h1>
     <div class="lead">Rfc tools</div>
+	
 	<h2 id="print-fbdce0db70b0fd8710fdc948c6e949b1-links">Links<a class="td-heading-self-link" href="#print-fbdce0db70b0fd8710fdc948c6e949b1-links" aria-label="Heading self-link"></a></h2><ul>
 <li>RFC Editor: <a href="https://www.rfc-editor.org/">https://www.rfc-editor.org/</a></li>
 </ul>
@@ -12726,10 +13068,12 @@ al_resolved_toolchain(<a href="#print-abf887a7b96656838707e9337518679b-al_resolv
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-4ed49c99d51d2686b6b5fe7b56799c00">75.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
+	
 	
 </div>
 
@@ -12751,10 +13095,12 @@ al_resolved_toolchain(<a href="#print-abf887a7b96656838707e9337518679b-al_resolv
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-02580af22f7a9b4baed1265542f86570">75.1.1 - al_rfc_extension</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-e83620dcff74939c28fd2c3d0650f6db-al_rfc_extension"></a></p>
 <h2>al_rfc_extension<a class="td-heading-self-link" href="#print-e83620dcff74939c28fd2c3d0650f6db-al_rfc_extension" aria-label="Heading self-link"></a></h2><pre>
@@ -12812,10 +13158,12 @@ al_rfc_extension.download(<a href="#print-e83620dcff74939c28fd2c3d0650f6db-al_rf
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-7831b32e986ad57a5df6987f05a662b8">75.1.2 - al_rfc_repo</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-703b4f1bf2b3d98f2bd8577c64e15d4c-al_rfc_repo"></a></p>
 <h2>al_rfc_repo<a class="td-heading-self-link" href="#print-703b4f1bf2b3d98f2bd8577c64e15d4c-al_rfc_repo" aria-label="Heading self-link"></a></h2><pre>
@@ -12894,10 +13242,12 @@ al_rfc_repo(<a href="#print-703b4f1bf2b3d98f2bd8577c64e15d4c-al_rfc_repo-name">n
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c019e28e233ca931fa32cb204d63b64f">76 - Root Bazel module</h1>
     <div class="lead">Generate the root module&rsquo;s owning include list</div>
+	
 	<p><code>MODULE.bazel</code> is generated directly from <code>include.MODULE.bazel</code> files:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //tools/bazel_module:update
 </span></span></code></pre></div><p>Dependency declarations and pins stay in their owning include files. The small
@@ -12945,10 +13295,12 @@ does not need to load the old module after its include disappears:</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e6e19d20bd1559bdca60d41e3d826692">77 - Rules binary toolchain</h1>
     <div class="lead">Bazel toolchains for packaged executable binaries</div>
+	
 	<p><code>rules_binary_toolchain</code> creates Bazel toolchains and runnable targets for
 packaged executable binaries. Archive entries can include runtime files,
 which the generated binary targets expose through Bazel runfiles.</p>
@@ -12973,10 +13325,12 @@ which the generated binary targets expose through Bazel runfiles.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-53e026c40faedfd9afd6e06d171335c3">77.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
+	
 	<h2 id="print-9a8ff04ed013893d61b0042fa424f8ed-archive-binaries">Archive binaries<a class="td-heading-self-link" href="#print-9a8ff04ed013893d61b0042fa424f8ed-archive-binaries" aria-label="Heading self-link"></a></h2><p>Each archive <code>binaries</code> entry requires a <code>name</code> and <code>path</code>. It can also set
 <code>runtime_files</code> to a list of Bazel glob patterns relative to the unpacked
 archive. The generated <code>&lt;name&gt;_native_binary</code> exposes matching files as
@@ -13007,10 +13361,12 @@ runfiles; <code>&lt;name&gt;_filegroup</code> exposes the binary and those same 
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-7591704ad260581eb98946dbe20d0986">77.2 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -13031,12 +13387,14 @@ runfiles; <code>&lt;name&gt;_filegroup</code> exposes the binary and those same 
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-f93714964544addbd1c63fbc748ea3b7">77.2.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -13056,12 +13414,14 @@ runfiles; <code>&lt;name&gt;_filegroup</code> exposes the binary and those same 
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-cfb7e6ac2ee6df6d4e93d8355da5082d">77.2.1.1 - Project dns</h1>
     
 	
+	
 </div>
 
 
@@ -13082,10 +13442,12 @@ runfiles; <code>&lt;name&gt;_filegroup</code> exposes the binary and those same 
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-b0601f89e56b84760f7c8c81aee58a29">77.2.1.1.1 - project-dns Specification</h1>
     
+	
 	<span id="print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-project-dns-specification"></span><h2 id="print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-purpose">Purpose<a class="td-heading-self-link" href="#print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-purpose" aria-label="Heading self-link"></a></h2><p>Record the retirement of <code>rules_binary_toolchain</code> landing infrastructure while preserving
 its reusable Bazel module.</p>
 <h2 id="print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-requirements">Requirements<a class="td-heading-self-link" href="#print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-requirement-keep-landing-infrastructure-retired">Requirement: Keep landing infrastructure retired<a class="td-heading-self-link" href="#print-95bbcb2e21b0a0b8ea05a62bcca3e0d9-requirement-keep-landing-infrastructure-retired" aria-label="Heading self-link"></a></h3><p>The module SHALL follow the <a href="/docs/tools/">tools boundary</a> and SHALL
@@ -13112,10 +13474,12 @@ source exports.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-6a81eaef2174cf08a228c9e6f3f6c9bf">77.2.1.2 - Project rules binary toolchain</h1>
     
+	
 	
 </div>
 
@@ -13137,10 +13501,12 @@ source exports.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-d49603390d4613129ed4ec47e79fb4b8">77.2.1.2.1 - Rules binary toolchain</h1>
     
+	
 	<span id="print-76bd64c637126d5d93d9a61a1d930a3b-rules-binary-toolchain"></span><h2 id="print-76bd64c637126d5d93d9a61a1d930a3b-purpose">Purpose<a class="td-heading-self-link" href="#print-76bd64c637126d5d93d9a61a1d930a3b-purpose" aria-label="Heading self-link"></a></h2><p>Provide Bazel toolchains and runnable targets for packaged executable binaries,
 including their runtime files. This source baseline was observed on 2026-09-08
 at revision <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.</p>
@@ -13205,10 +13571,12 @@ append invocation arguments, and expose the declared <code>env</code> through
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-2d393119db1e6c0ac027efa3fd362edb">78 - Rules Dnscontrol</h1>
     <div class="lead">Bazel-aware DNSControl configuration packaging</div>
+	
 	<p><code>rules_dnscontrol</code> packages a DNSControl JavaScript entrypoint together with
 its record configuration files and emits a generated <code>requires.json</code> manifest
 of relative paths matching the Bazel runfiles tree. Record symlinks retain a
@@ -13240,10 +13608,12 @@ DNSControl&rsquo;s JavaScript loader does not implement CommonJS <code>module.ex
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-89c24accc031ca635370b4400566f495">79 - Rules docs</h1>
     <div class="lead">Bazel documentation packaging rules</div>
+	
 	<p><code>rules_docs</code> packages Markdown documentation under a common archive prefix.</p>
 <h2 id="print-f08b31c70534849b896472443a4df3ef-documentation-rule">Documentation rule<a class="td-heading-self-link" href="#print-f08b31c70534849b896472443a4df3ef-documentation-rule" aria-label="Heading self-link"></a></h2><p>Add the module dependency:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-starlark" data-lang="starlark"><span class="line"><span class="cl"><span class="n">bazel_dep</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;rules_docs&#34;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s2">&#34;&lt;VERSION&gt;&#34;</span><span class="p">)</span>
@@ -13311,10 +13681,12 @@ unrelated language plugins from its parent repository.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-184e460a5e09aadcf88bfcd719434a12">80 - Rules docs Gazelle</h1>
     <div class="lead">Gazelle extension for Bazel documentation packaging rules</div>
+	
 	<p><code>rules_docs_gazelle</code> adds a <code>docs_filegroup</code> to existing Bazel packages that
 contain a <code>README.md</code>. The generated rule loads its macro from <code>rules_docs</code>.</p>
 <p>Add <code>rules_docs</code> as a normal dependency and this generator as a development
@@ -13366,10 +13738,12 @@ unrelated language plugins from its parent repository.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-51b51f966ed6f808af11d7b3b4c9f929">81 - Rules Hugo</h1>
     <div class="lead">Bazel rules for Hugo sites</div>
+	
 	<p><code>rules_hugo</code> builds Hugo sites with a registered Hugo toolchain. It keeps the
 site archive in the target configuration and the Hugo binary in the execution
 configuration so site sources are not rebuilt for the execution platform.</p>
@@ -13420,10 +13794,12 @@ also wires the Hugo lock file and remote themes.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-1e18ef1ad8902f420b53f06db93ac9dc">81.1 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -13444,12 +13820,14 @@ also wires the Hugo lock file and remote themes.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-1cd3788bc0639f56aa7905bf5b95d5c7">81.1.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -13469,12 +13847,14 @@ also wires the Hugo lock file and remote themes.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-06d2ace7ee9156ffbed45c0504e33c92">81.1.1.1 - Project dns</h1>
     
 	
+	
 </div>
 
 
@@ -13495,10 +13875,12 @@ also wires the Hugo lock file and remote themes.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-b7bd1064bc684b96c4791021fa504451">81.1.1.1.1 - project-dns Specification</h1>
     
+	
 	<span id="print-f1af8d8a4b4257a26592b7a8924ae6fd-project-dns-specification"></span><h2 id="print-f1af8d8a4b4257a26592b7a8924ae6fd-purpose">Purpose<a class="td-heading-self-link" href="#print-f1af8d8a4b4257a26592b7a8924ae6fd-purpose" aria-label="Heading self-link"></a></h2><p>Record the retirement of <code>rules_hugo</code> landing infrastructure while preserving
 its reusable Bazel module.</p>
 <h2 id="print-f1af8d8a4b4257a26592b7a8924ae6fd-requirements">Requirements<a class="td-heading-self-link" href="#print-f1af8d8a4b4257a26592b7a8924ae6fd-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-f1af8d8a4b4257a26592b7a8924ae6fd-requirement-keep-landing-infrastructure-retired">Requirement: Keep landing infrastructure retired<a class="td-heading-self-link" href="#print-f1af8d8a4b4257a26592b7a8924ae6fd-requirement-keep-landing-infrastructure-retired" aria-label="Heading self-link"></a></h3><p>The module SHALL follow the <a href="/docs/tools/">tools boundary</a> and SHALL
@@ -13525,10 +13907,12 @@ source exports.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-003c2248f64358deb4a6dd065c56d369">81.1.1.2 - Project rules hugo</h1>
     
+	
 	
 </div>
 
@@ -13550,10 +13934,12 @@ source exports.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-05fc0b27ebf9730710e460e0249a515c">81.1.1.2.1 - Rules Hugo</h1>
     
+	
 	<span id="print-679dd9edf76ef239ebb5f15df39d4960-rules-hugo"></span><h2 id="print-679dd9edf76ef239ebb5f15df39d4960-purpose">Purpose<a class="td-heading-self-link" href="#print-679dd9edf76ef239ebb5f15df39d4960-purpose" aria-label="Heading self-link"></a></h2><p>Build and run Hugo sites with registered Bazel toolchains, site source archives,
 and declared PostCSS tooling. This source baseline was observed on 2026-09-08
 at revision <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>.</p>
@@ -13619,10 +14005,12 @@ worker protocol requirements.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-ad50eec0cd2356e477f7b77854542b4c">82 - Rules Promptfoo</h1>
     <div class="lead">A pinned Bazel runner for Promptfoo skill evaluations</div>
+	
 	<p><code>rules_promptfoo</code> runs repository skills through a pinned Promptfoo CLI. It
 keeps dependency resolution reproducible in Bazel while deliberately running
 model calls only at test runtime.</p>
@@ -13796,10 +14184,12 @@ honor the runner&rsquo;s serialization setting.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a491d165d0def7c01dcab615bf471f15">83 - Rules Promptfoo Gazelle</h1>
     <div class="lead">Gazelle extension for offline Promptfoo validation tests</div>
+	
 	<p><code>rules_promptfoo_gazelle</code> generates required, offline
 <code>promptfoo_validate_test</code> targets for Promptfoo configurations below an
 <code>evals/</code> directory. It never creates an <code>evals</code> subpackage and never generates
@@ -13901,10 +14291,12 @@ initializing unrelated language plugins from its parent repository.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-6bfccc3bbcf52044d9a16c101825c731">84 - Rules skill</h1>
     <div class="lead">Bazel rules and validation for Codex skills</div>
+	
 	<p><code>rules_skills</code> packages all files belonging to a Codex skill and validates its
 instructions and optional OpenAI metadata with a hermetic Bazel aspect.</p>
 <h2 id="print-2ad7f5461c1ed7ee7ed76c6b87e2c711-getting-started">Getting started<a class="td-heading-self-link" href="#print-2ad7f5461c1ed7ee7ed76c6b87e2c711-getting-started" aria-label="Heading self-link"></a></h2><p>Add the module and register the validation aspect:</p>
@@ -14024,10 +14416,12 @@ checkouts; native Windows checkouts are not supported.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-0aa66252faac8526d523de2ed8b67d0a">85 - Rules skill Gazelle</h1>
     <div class="lead">Gazelle extension for Bazel skill libraries</div>
+	
 	<p><code>rules_skill_gazelle</code> adds a <code>skill_library(name = &quot;skill&quot;)</code> to each named
 subpackage that contains a <code>SKILL.md</code>. The generated rule loads its macro from
 the apparent <code>rules_skills</code> repository, so Bzlmod repository mappings are
@@ -14098,10 +14492,12 @@ unrelated language plugins from its parent repository.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-fdd12c9c8324f7e398767c86e78f083b">86 - Rules template</h1>
     <div class="lead">Bazel rules and a Go command for rendering template files</div>
+	
 	<p><code>rules_template</code> provides Bazel rules and a Go command for rendering template
 files. A registered toolchain supplies the templating executable to build
 actions.</p>
@@ -14130,10 +14526,12 @@ actions.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-ec2ab33970b2e18aab1824a1efc53c2e">86.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
+	
 	
 </div>
 
@@ -14158,12 +14556,14 @@ actions.</p>
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-374b17693576d566cedc26f68a6a635b">86.2 - OpenSpec</h1>
     
 	
+	
 </div>
 
 
@@ -14183,12 +14583,14 @@ actions.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-4dafc71e16a0df6734852a4166f602df">86.2.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -14208,12 +14610,14 @@ actions.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-5fcd730741764a303e689fadcce28f45">86.2.1.1 - Project dns</h1>
     
 	
+	
 </div>
 
 
@@ -14234,10 +14638,12 @@ actions.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-ca401e2907366b909add6c0b25a53270">86.2.1.1.1 - project-dns Specification</h1>
     
+	
 	<span id="print-d2fc924aaf0bf18a476ece095e342c42-project-dns-specification"></span><h2 id="print-d2fc924aaf0bf18a476ece095e342c42-purpose">Purpose<a class="td-heading-self-link" href="#print-d2fc924aaf0bf18a476ece095e342c42-purpose" aria-label="Heading self-link"></a></h2><p>Record the retirement of <code>rules_template</code> landing infrastructure while preserving
 its reusable Bazel module.</p>
 <h2 id="print-d2fc924aaf0bf18a476ece095e342c42-requirements">Requirements<a class="td-heading-self-link" href="#print-d2fc924aaf0bf18a476ece095e342c42-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-d2fc924aaf0bf18a476ece095e342c42-requirement-keep-landing-infrastructure-retired">Requirement: Keep landing infrastructure retired<a class="td-heading-self-link" href="#print-d2fc924aaf0bf18a476ece095e342c42-requirement-keep-landing-infrastructure-retired" aria-label="Heading self-link"></a></h3><p>The module SHALL follow the <a href="/docs/tools/">tools boundary</a> and SHALL
@@ -14264,10 +14670,12 @@ source exports.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f0f7a77bcdb2a0d3f79214b7339b8f91">86.2.1.2 - Project rules template</h1>
     
+	
 	
 </div>
 
@@ -14289,10 +14697,12 @@ source exports.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-a3a4c0e22d0654513f6f96c83b71e721">86.2.1.2.1 - Rules template</h1>
     
+	
 	<span id="print-b72bf554184196b452266a9cd0a8d8f9-rules-template"></span><h2 id="print-b72bf554184196b452266a9cd0a8d8f9-purpose">Purpose<a class="td-heading-self-link" href="#print-b72bf554184196b452266a9cd0a8d8f9-purpose" aria-label="Heading self-link"></a></h2><p>Render Go text templates from declared data files through a command and a Bazel
 toolchain rule. This source baseline was observed on 2026-09-08 at revision
 <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>. The command operates on one template
@@ -14361,10 +14771,12 @@ forward additional rule arguments.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-8178ebe2928e43affd18d7d6182ae5d4">87 - Rules Terraform</h1>
     <div class="lead">Bazel rules and pinned provider installation for Terraform</div>
+	
 	<p>This standalone module owns reusable Terraform rules. Terraform and provider
 archives are declared Bazel inputs. Provider downloads belong to the Bzlmod
 extension; Terraform uses a filesystem mirror containing only the providers
@@ -14459,10 +14871,12 @@ fallback. Configuration modules must be declared local inputs.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-36f7244c8d3014ababfb0a72b49160fe">87.1 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -14483,12 +14897,14 @@ fallback. Configuration modules must be declared local inputs.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-68ee492d3942e0bc05a4bcb5bffa5a10">87.1.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -14508,12 +14924,14 @@ fallback. Configuration modules must be declared local inputs.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-06c626370899fee32073e449e05eb27d">87.1.1.1 - Terraform execution</h1>
     
 	
+	
 </div>
 
 
@@ -14534,10 +14952,12 @@ fallback. Configuration modules must be declared local inputs.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-1570adeeaac2d58245009049824a6b30">87.1.1.1.1 - terraform-execution Specification</h1>
     
+	
 	<span id="print-26d41e130df0207c17a102a4766b4710-terraform-execution-specification"></span><h2 id="print-26d41e130df0207c17a102a4766b4710-purpose">Purpose<a class="td-heading-self-link" href="#print-26d41e130df0207c17a102a4766b4710-purpose" aria-label="Heading self-link"></a></h2><p>Provide reusable Bazel rules that acquire pinned Terraform providers and run
 Terraform with declared configuration, executable, and provider inputs.</p>
 <h2 id="print-26d41e130df0207c17a102a4766b4710-requirements">Requirements<a class="td-heading-self-link" href="#print-26d41e130df0207c17a102a4766b4710-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-26d41e130df0207c17a102a4766b4710-requirement-verified-provider-acquisition">Requirement: Verified provider acquisition<a class="td-heading-self-link" href="#print-26d41e130df0207c17a102a4766b4710-requirement-verified-provider-acquisition" aria-label="Heading self-link"></a></h3><p>The provider module extension SHALL download immutable HTTPS archives with
@@ -14613,10 +15033,12 @@ without requiring a framework dependency in the reusable module.</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-1caf539dddb901c538cb64a7cc85a6e4">87.2 - Terraform launcher</h1>
     <div class="lead">Execute Terraform with providers declared by Bazel</div>
+	
 	<p>This implementation launcher reads the generated target sidecar and resolves
 Terraform, configuration inputs, and provider archives through Bazel runfiles.
 Consumer targets use the public Terraform rules instead of invoking this binary
@@ -14689,10 +15111,12 @@ to the system temporary directory.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-d9883fed3132865fc8c34ef3e33634e1">88 - rules_iso</h1>
     <div class="lead">ISO image download and flash rules</div>
+	
 	<p>Module extension that downloads ISO images with <code>http_file</code> and adds a
 runnable <code>iso_flash</code> target next to each image.</p>
 
@@ -14720,10 +15144,12 @@ runnable <code>iso_flash</code> target next to each image.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5528102669885fa11d54bf3165afd9c4">89 - Run tool</h1>
     <div class="lead">Run tool rules</div>
+	
 	
 </div>
 
@@ -14744,12 +15170,14 @@ runnable <code>iso_flash</code> target next to each image.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-1e22b400f7ba85c0e9c96ca755f1079b">89.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -14770,10 +15198,12 @@ runnable <code>iso_flash</code> target next to each image.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-d012651c9aaefc5fa2a88e9edd0eb0f3">89.1.1 - al_run_tool</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-7a5a9c6c8c55ba9974bd462ef01850f0-al_run_tool"></a></p>
 <h2>al_run_tool<a class="td-heading-self-link" href="#print-7a5a9c6c8c55ba9974bd462ef01850f0-al_run_tool" aria-label="Heading self-link"></a></h2><pre>
@@ -14840,10 +15270,12 @@ al_run_tool(<a href="#print-7a5a9c6c8c55ba9974bd462ef01850f0-al_run_tool-name">n
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e209642f7adcc1eb7370b7f35b710469">90 - Selene</h1>
     <div class="lead">Hermetic Selene Lua linter</div>
+	
 	<p>Selene provides correctness-oriented linting for the repository&rsquo;s
 hand-maintained Lua files. The repository standard-library description permits
 the intentional <code>al</code> configuration DSL and Neovim&rsquo;s <code>vim</code> global while keeping
@@ -14879,10 +15311,12 @@ Selene&rsquo;s ordinary Lua diagnostics enabled.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c5b0d0a835a3b2f393a6939fde3e7add">91 - Sh</h1>
     <div class="lead">Shell rules</div>
+	
 	
 </div>
 
@@ -14903,12 +15337,14 @@ Selene&rsquo;s ordinary Lua diagnostics enabled.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-0e9756af6fe11ef98226b4fedd8afd6b">91.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -14929,10 +15365,12 @@ Selene&rsquo;s ordinary Lua diagnostics enabled.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-f193c5e997399d4be8433d2d3a7cbf3d">91.1.1 - al_sh_library</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-a86b44a270f2dfb92716185b55ce7353-al_sh_library"></a></p>
 <h2>al_sh_library<a class="td-heading-self-link" href="#print-a86b44a270f2dfb92716185b55ce7353-al_sh_library" aria-label="Heading self-link"></a></h2><pre>
@@ -15013,10 +15451,12 @@ al_sh_library(<a href="#print-a86b44a270f2dfb92716185b55ce7353-al_sh_library-nam
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-18080079f87c8e0cbe1ad798429df229">91.1.2 - al_write_script</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-7ed51a59ee399af2d42c22be39ce3e3d-al_write_script"></a></p>
 <h2>al_write_script<a class="td-heading-self-link" href="#print-7ed51a59ee399af2d42c22be39ce3e3d-al_write_script" aria-label="Heading self-link"></a></h2><pre>
@@ -15102,10 +15542,12 @@ al_write_script(<a href="#print-7ed51a59ee399af2d42c22be39ce3e3d-al_write_script
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-2d7a3968bd01fe4c135cebe44b4c33ec">92 - Shfmt</h1>
     <div class="lead">Shfmt</div>
+	
 	<h2 id="print-89b8740634bb8c64fe75c0bc879ecad7-links">Links<a class="td-heading-self-link" href="#print-89b8740634bb8c64fe75c0bc879ecad7-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Repo: <a href="https://github.com/mvdan/sh">https://github.com/mvdan/sh</a></li>
 </ul>
@@ -15136,10 +15578,12 @@ al_write_script(<a href="#print-7ed51a59ee399af2d42c22be39ce3e3d-al_write_script
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-069702848f0697a5050881caa9109068">93 - Sops</h1>
     <div class="lead">Sops</div>
+	
 	<h2 id="print-a42782eaf50a76a59b099c9a5cb9e90f-links">Links<a class="td-heading-self-link" href="#print-a42782eaf50a76a59b099c9a5cb9e90f-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://getsops.io/">https://getsops.io/</a></li>
 </ul>
@@ -15168,10 +15612,12 @@ al_write_script(<a href="#print-7ed51a59ee399af2d42c22be39ce3e3d-al_write_script
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c149637fc95b76aae52a1ce907312513">94 - Stylua</h1>
     <div class="lead">Stylua wrapper</div>
+	
 	<h2 id="print-05a256636438657429f64ece05d798fb-links">Links<a class="td-heading-self-link" href="#print-05a256636438657429f64ece05d798fb-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Repo: <a href="https://github.com/JohnnyMorganz/StyLua">https://github.com/JohnnyMorganz/StyLua</a></li>
 </ul>
@@ -15202,10 +15648,12 @@ al_write_script(<a href="#print-7ed51a59ee399af2d42c22be39ce3e3d-al_write_script
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c30bbc5a4d08b7d371b19a8ce0aef250">95 - Toml</h1>
     <div class="lead">Toml rules</div>
+	
 	
 </div>
 
@@ -15226,12 +15674,14 @@ al_write_script(<a href="#print-7ed51a59ee399af2d42c22be39ce3e3d-al_write_script
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-ce4d4eaebc3e3677ce786d6381f933b4">95.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -15252,10 +15702,12 @@ al_write_script(<a href="#print-7ed51a59ee399af2d42c22be39ce3e3d-al_write_script
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-19f01f75ecac37fad1a0002cc0698ebc">95.1.1 - al_toml_data</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-e10dc4e78fa6eba944ec6d2e9c76d444-al_toml_data"></a></p>
 <h2>al_toml_data<a class="td-heading-self-link" href="#print-e10dc4e78fa6eba944ec6d2e9c76d444-al_toml_data" aria-label="Heading self-link"></a></h2><pre>
@@ -15318,10 +15770,12 @@ al_toml_data(<a href="#print-e10dc4e78fa6eba944ec6d2e9c76d444-al_toml_data-name"
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-71f31a01bcacb5b8485b325f876673e7">95.1.2 - al_toml_info</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="AlTomlInfo"></a></p>
 <h2 id="print-9f4c6978c48e96e0ae38dfaf58474684-altomlinfo">AlTomlInfo<a class="td-heading-self-link" href="#print-9f4c6978c48e96e0ae38dfaf58474684-altomlinfo" aria-label="Heading self-link"></a></h2><pre>
@@ -15362,10 +15816,12 @@ AlTomlInfo(<a href="#print-9f4c6978c48e96e0ae38dfaf58474684-AlTomlInfo-srcs">src
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-1ae85eca33f118330896a766813b5cfc">95.1.3 - al_toml_validate</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-7ff3d06d079017843e82f40b30cf4350-al_toml_validate"></a></p>
 <h2>al_toml_validate<a class="td-heading-self-link" href="#print-7ff3d06d079017843e82f40b30cf4350-al_toml_validate" aria-label="Heading self-link"></a></h2><pre>
@@ -15411,10 +15867,12 @@ al_toml_validate()
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b333b88b627d51af95961b09f9cdcef9">96 - Tomlv</h1>
     <div class="lead">Tomlv</div>
+	
 	
 </div>
 
@@ -15440,10 +15898,12 @@ al_toml_validate()
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-4d956937ea16ba6293f83e10223a6ec1">97 - Traefik</h1>
     <div class="lead">Traefik</div>
+	
 	<h2 id="print-0c790cc999bdd785125086e0f50f28f3-links">Links<a class="td-heading-self-link" href="#print-0c790cc999bdd785125086e0f50f28f3-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Repo: <a href="https://github.com/traefik/traefik">https://github.com/traefik/traefik</a></li>
 </ul>
@@ -15472,10 +15932,12 @@ al_toml_validate()
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e5be1fa71fca4a3f133c95ba87ae4c7c">98 - Transitive sources</h1>
     <div class="lead">Provider and a rule to extract transitive sources</div>
+	
 	
 </div>
 
@@ -15496,12 +15958,14 @@ al_toml_validate()
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-498997f773e65f819d3cf016b5791858">98.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -15522,10 +15986,12 @@ al_toml_validate()
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-485e1e60f5e5e1b37956c040b9606bc3">98.1.1 - al_transitive_sources</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="AlTransitiveSources"></a></p>
 <h2 id="print-ff9e415d41d085cb96378e26bc35ba27-altransitivesources">AlTransitiveSources<a class="td-heading-self-link" href="#print-ff9e415d41d085cb96378e26bc35ba27-altransitivesources" aria-label="Heading self-link"></a></h2><pre>
@@ -15605,10 +16071,12 @@ al_transitive_sources(<a href="#print-ff9e415d41d085cb96378e26bc35ba27-al_transi
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-1da68e1d42a2e48a4cd7714ab867509c">99 - Trufflehog</h1>
     <div class="lead">Trufflehog</div>
+	
 	<p>The normal <code>//tools/trufflehog:repo_test</code> scans the history reachable from the
 checked-out <code>HEAD</code> and skips unrelated local refs. Run the manual
 <code>//tools/trufflehog:repo_all_refs_test</code> target explicitly when an audit must
@@ -15643,10 +16111,12 @@ include every local Git ref, such as T3 checkpoint refs from other worktrees.</p
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-4e6600368ae0b381c955eb603f47a962">100 - Twine</h1>
     <div class="lead">Twine</div>
+	
 	
 </div>
 
@@ -15671,12 +16141,14 @@ include every local Git ref, such as T3 checkpoint refs from other worktrees.</p
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-68827028b2343cd50afe071d26911d5a">101 - Txt</h1>
     <div class="lead">Text rules</div>
 	
+	
 </div>
 
 
@@ -15696,12 +16168,14 @@ include every local Git ref, such as T3 checkpoint refs from other worktrees.</p
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-513e3dd1403f3c7fa7bf3dab7f4ecdc3">101.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
 	
+	
 </div>
 
 
@@ -15722,10 +16196,12 @@ include every local Git ref, such as T3 checkpoint refs from other worktrees.</p
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-f74db08c36dad061fc869c99278e492a">101.1.1 - al_combine_files</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-8068c7fe46bc95868de88efc07d143e7-al_combine_files"></a></p>
 <h2>al_combine_files<a class="td-heading-self-link" href="#print-8068c7fe46bc95868de88efc07d143e7-al_combine_files" aria-label="Heading self-link"></a></h2><pre>
@@ -15774,10 +16250,12 @@ al_combine_files(<a href="#print-8068c7fe46bc95868de88efc07d143e7-al_combine_fil
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-4c89ae2e7eae16c8aad6b8400ad8a53a">101.1.2 - al_txt_data</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-213f902d71cad2fc2de0874b191c943a-al_txt_data"></a></p>
 <h2>al_txt_data<a class="td-heading-self-link" href="#print-213f902d71cad2fc2de0874b191c943a-al_txt_data" aria-label="Heading self-link"></a></h2><pre>
@@ -15834,10 +16312,12 @@ al_txt_data(<a href="#print-213f902d71cad2fc2de0874b191c943a-al_txt_data-name">n
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-08b74300b49d5e5c2a8d512ffc57678b">102 - Vault</h1>
     <div class="lead">Vault</div>
+	
 	<h2 id="print-65e377f360d9e0c0b6e9d9df77d9ce1d-links">Links<a class="td-heading-self-link" href="#print-65e377f360d9e0c0b6e9d9df77d9ce1d-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Repo: <a href="https://github.com/hashicorp/vault">https://github.com/hashicorp/vault</a></li>
 </ul>
@@ -15867,10 +16347,12 @@ is the standalone CLI; the wrappers add the existing AL environment injection.</
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-aefea9d5c447985620fe443626a16330">102.1 - Backup</h1>
     <div class="lead">Run backup for Vault</div>
+	
 	
 </div>
 
@@ -15896,10 +16378,12 @@ is the standalone CLI; the wrappers add the existing AL environment injection.</
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e2ef3e755f2b9b82043c74dead7c06cd">102.2 - Forgejo login</h1>
     <div class="lead">Get a short-lived Forgejo token using OIDC</div>
+	
 	<p>Plugin data supplies the default Forgejo URL, OIDC source, Vault connection,
 and Vault authentication. One selected <code>plugin_call</code> may override nonempty
 configuration fields, for example <code>vault_auth = &quot;forgejo_registration&quot;</code>,
@@ -15942,10 +16426,12 @@ do not acquire an expiry merely because this plugin created them.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-016c3d67c6aa8c5306c267b2e2d94e0c">102.2.1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>
+	
 	<h2 id="print-b32f4a08b5e8fab0b98fb771d4f90473-java">Java<a class="td-heading-self-link" href="#print-b32f4a08b5e8fab0b98fb771d4f90473-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_java//java:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;java_library&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">java_library</span><span class="p">(</span>
@@ -15991,10 +16477,12 @@ do not acquire an expiry merely because this plugin created them.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-cae3c6406cd7f0beab92ac62e52eeb06">102.3 - Gen client cert</h1>
     <div class="lead">Generate a client certificate</div>
+	
 	
 </div>
 
@@ -16019,12 +16507,14 @@ do not acquire an expiry merely because this plugin created them.</p>
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f43e8788840dafd43d4f505944371399">102.4 - Gen root token</h1>
     <div class="lead">Generate a root token for Vault</div>
 	
+	
 </div>
 
 
@@ -16049,10 +16539,12 @@ do not acquire an expiry merely because this plugin created them.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c6b1dafc90ff70943ef5ca5593500a08">102.5 - Harbor login</h1>
     <div class="lead">Create a harbor session using OIDC</div>
+	
 	<p>The plugin destroys its Harbor session on normal shutdown and checks that the
 original session ID is rejected by the current-user API. Cleanup uses Harbor&rsquo;s
 <code>/c/oidc/logout</code> endpoint (available in newer Harbor releases) and does not follow
@@ -16083,10 +16575,12 @@ Vault tokens created by the invocation are revoked after session cleanup.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-4c7e7d1be66da6d50952f158f23c17f0">102.5.1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>
+	
 	<h2 id="print-dead1f87438882a26b409663e3b60c38-java">Java<a class="td-heading-self-link" href="#print-dead1f87438882a26b409663e3b60c38-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_java//java:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;java_library&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">java_library</span><span class="p">(</span>
@@ -16131,10 +16625,12 @@ Vault tokens created by the invocation are revoked after session cleanup.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-9b04319a9711db4eed8dc781aedb4887">102.6 - Injector</h1>
     <div class="lead">Secret injector</div>
+	
 	<p>Shutdown first drains plugin requests, then stops and waits for resource
 processes, revokes invocation-owned Vault credentials, and deletes temporary
 files and SSH key directories. Failed cleanup is reported. Registration after
@@ -16167,10 +16663,12 @@ OIDC requests honor cancellation and do not follow redirects.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b69ec13422b4f7b5373308f2b8516e28">102.6.1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>
+	
 	<h2 id="print-84caa4ff8b915b6d2a3aeac05bc89204-java">Java<a class="td-heading-self-link" href="#print-84caa4ff8b915b6d2a3aeac05bc89204-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_java//java:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;java_library&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">java_library</span><span class="p">(</span>
@@ -16291,10 +16789,12 @@ OIDC requests honor cancellation and do not follow redirects.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-12ad066a35d8e1cfe5f119141e8f9336">102.7 - Login</h1>
     <div class="lead">Login to vault using the yubikey</div>
+	
 	<h2 id="print-41438ab395f66d814b96b7d2d1760e45-usage">Usage<a class="td-heading-self-link" href="#print-41438ab395f66d814b96b7d2d1760e45-usage" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //tools/vault/login
 </span></span></code></pre></div>
 </div>
@@ -16321,10 +16821,12 @@ OIDC requests honor cancellation and do not follow redirects.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a5b1d93f0d9f1c18d0bfe7630c4cebca">102.8 - PVE login</h1>
     <div class="lead">Get a login ticket using OIDC</div>
+	
 	<p>The plugin requests an API token with a one-hour expiry and deletes that token
 on shutdown using the retained login ticket and CSRF token. The token name is
 registered for cleanup before creation, so cleanup is attempted even when a
@@ -16354,10 +16856,12 @@ revoked. Vault tokens created by the invocation are revoked after token cleanup.
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5e6863d3330b5c4ee495b8207b4a1ee8">102.8.1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>
+	
 	<h2 id="print-d61478c2d3a8fba7db43010c6390c082-java">Java<a class="td-heading-self-link" href="#print-d61478c2d3a8fba7db43010c6390c082-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_java//java:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;java_library&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">java_library</span><span class="p">(</span>
@@ -16404,10 +16908,12 @@ revoked. Vault tokens created by the invocation are revoked after token cleanup.
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-172b5a9d697d743491cef630872406dc">102.9 - Tf backend</h1>
     <div class="lead">Http terraform backend backed by Vault</div>
+	
 	<p>The plugin tracks each running backend for shutdown, including backends created
 before a later call fails. Shutdown drains HTTP requests before revoking the
 backend&rsquo;s invocation-owned Vault credentials. If the shutdown deadline expires,
@@ -16434,10 +16940,12 @@ closure is not an error. Vault requests use their incoming request context.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-32190bc37a299fdcd2fb9acc6abc6cbf">102.9.1 - api</h1>
     <div class="lead">Proto docs for api.proto</div>
+	
 	<h2 id="print-85aedcda6e51eb8c4b74bebbc6c7a0e9-java">Java<a class="td-heading-self-link" href="#print-85aedcda6e51eb8c4b74bebbc6c7a0e9-java" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bzl" data-lang="bzl"><span class="line"><span class="cl"><span class="n">load</span><span class="p">(</span><span class="s2">&#34;@rules_java//java:defs.bzl&#34;</span><span class="p">,</span> <span class="s2">&#34;java_library&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">java_library</span><span class="p">(</span>
@@ -16483,10 +16991,12 @@ closure is not an error. Vault requests use their incoming request context.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-fff2de1f32dfebfb55aabb141433ea37">102.10 - Unseal</h1>
     <div class="lead">Unseal the vault</div>
+	
 	
 </div>
 
@@ -16516,10 +17026,12 @@ closure is not an error. Vault requests use their incoming request context.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-6ed413c67664f4b6b8de93b4cda0ee94">103 - Versioning</h1>
     <div class="lead">Global repository and project versioning</div>
+	
 	<p><code>versioning</code> owns versions for this repository and its first-party projects.
 It deliberately does not manage versions of third-party dependencies.</p>
 <p>The repository uses SemVer-compatible calendar versions:</p>
@@ -16594,10 +17106,12 @@ atomic multi-ref publication is an explicit refusal, never a generic success.</p
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5e342e578275f3e47caf9681eb3760e3">104 - Vial</h1>
     <div class="lead">Bazel rules for Vial</div>
+	
 	<h2 id="print-113078a3236c090f471a4bd8df0ebfe0-links">Links<a class="td-heading-self-link" href="#print-113078a3236c090f471a4bd8df0ebfe0-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Website: <a href="https://vial.rocks">https://vial.rocks</a></li>
 </ul>
@@ -16622,10 +17136,12 @@ atomic multi-ref publication is an explicit refusal, never a generic success.</p
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-c909dbf4102a86ab3bb02fa400ee0364">104.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
+	
 	
 </div>
 
@@ -16647,10 +17163,12 @@ atomic multi-ref publication is an explicit refusal, never a generic success.</p
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-bed2f9f047c7dc7710dd1d71b1304baa">104.1.1 - al_vial_configs</h1>
     
+	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
 <p><a id="print-350d2ad028e029e0adef996b98df7daf-al_vial_configs"></a></p>
 <h2>al_vial_configs<a class="td-heading-self-link" href="#print-350d2ad028e029e0adef996b98df7daf-al_vial_configs" aria-label="Heading self-link"></a></h2><pre>
@@ -16712,10 +17230,12 @@ al_vial_configs(<a href="#print-350d2ad028e029e0adef996b98df7daf-al_vial_configs
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-0dec2e99f22c13d53df6847b49104872">105 - Word lists</h1>
     <div class="lead">Word lists</div>
+	
 	<h2 id="print-226e76a806beafe233607270f6495e4b-links">Links<a class="td-heading-self-link" href="#print-226e76a806beafe233607270f6495e4b-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Source: <a href="https://github.com/kkrypt0nn/wordlists">https://github.com/kkrypt0nn/wordlists</a></li>
 </ul>
@@ -16744,10 +17264,12 @@ al_vial_configs(<a href="#print-350d2ad028e029e0adef996b98df7daf-al_vial_configs
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-fd4adbed3d9a73b8b5565a11241344d4">106 - Workspace status</h1>
     <div class="lead">Workspace status script</div>
+	
 	<h2 id="print-2edde6e4b90f0fd20a167dd28aea53bb-links">Links<a class="td-heading-self-link" href="#print-2edde6e4b90f0fd20a167dd28aea53bb-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Docs: <a href="https://bazel.build/docs/user-manual#workspace-status">https://bazel.build/docs/user-manual#workspace-status</a></li>
 </ul>
@@ -16776,10 +17298,12 @@ al_vial_configs(<a href="#print-350d2ad028e029e0adef996b98df7daf-al_vial_configs
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b33b6997f695130ef588eb5c2ab49fdd">107 - Ykman</h1>
     <div class="lead">Ykman (Yubikey Manager)</div>
+	
 	<h2 id="print-ca4bb3ed341f02bb1f147c6aa0ffb138-links">Links<a class="td-heading-self-link" href="#print-ca4bb3ed341f02bb1f147c6aa0ffb138-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Install: <a href="https://docs.yubico.com/software/yubikey/tools/ykman/Install_ykman.html">https://docs.yubico.com/software/yubikey/tools/ykman/Install_ykman.html</a></li>
 <li>Import certificate: <a href="https://docs.yubico.com/software/yubikey/tools/authenticator/auth-guide/smartc-import-certificates.html">https://docs.yubico.com/software/yubikey/tools/authenticator/auth-guide/smartc-import-certificates.html</a></li>

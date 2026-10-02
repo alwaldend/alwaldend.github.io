@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Infra">
 	<meta itemprop="description" content="Infrastructure tree">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
 	<meta itemprop="wordCount" content="307">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -2809,10 +2809,12 @@ The <code>tf_backend</code> plugin creates state and lock KV entries on first us
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-42091939eb4a98eda34f06492da3fb8b">1 - Architecture</h1>
     <div class="lead">Rendered infrastructure architecture diagrams</div>
+	
 	<p>These diagrams render every page of the checked-in <a href="/docs/infra/arch/arch.drawio">Drawio source</a>.
 They describe the source document, not a live inventory or health check. Pages
 marked <strong>Archive</strong> retain the source&rsquo;s historical classification.
@@ -2866,10 +2868,12 @@ output with the maintained SVGs; documentation consumes those checked-in images.
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-43c07b91f2691e7f06cb7e504185d48f">1.1 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -2891,10 +2895,12 @@ output with the maintained SVGs; documentation consumes those checked-in images.
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-d5f89b3430cdc868d496c0bd5659a78f">1.1.1 - Infrastructure architecture Specification</h1>
     
+	
 	<span id="print-8541fd3f1af4663b1bab72c973e257d5-infrastructure-architecture-specification"></span><h2 id="print-8541fd3f1af4663b1bab72c973e257d5-purpose">Purpose<a class="td-heading-self-link" href="#print-8541fd3f1af4663b1bab72c973e257d5-purpose" aria-label="Heading self-link"></a></h2><p>Describe the maintained infrastructure diagrams owned by <code>infra/arch</code>.
 The baseline is checked-in source at revision
 <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>, observed on 2026-09-08.
@@ -2956,10 +2962,12 @@ availability.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-6cd41c17c7d79f9d7b0b7f3f8608c7c1">2 - Ceph</h1>
     <div class="lead">Ceph</div>
+	
 	<h2 id="print-a88093d7661d3fd788c0ba64f43ccb61-links">Links<a class="td-heading-self-link" href="#print-a88093d7661d3fd788c0ba64f43ccb61-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Proxmox docs: <a href="https://pve.proxmox.com/wiki/Deploy_Hyper-Converged_Ceph_Cluster">https://pve.proxmox.com/wiki/Deploy_Hyper-Converged_Ceph_Cluster</a></li>
 <li>Single node crushmap: <a href="https://imanudin.net/2025/05/12/proxmox-ceph-single-node-installation-for-test-lab-or-home-setup/">https://imanudin.net/2025/05/12/proxmox-ceph-single-node-installation-for-test-lab-or-home-setup/</a></li>
@@ -2993,10 +3001,12 @@ availability.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-8aa2f408b34cbece93fb29cdac584c25">2.1 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -3018,10 +3028,12 @@ availability.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-211bfac04ede230ea73e5075f38cc0d3">2.1.1 - Ceph infrastructure specification</h1>
     
+	
 	<span id="print-f6e83cb4388c897cdfafb677cb684dcc-ceph-infrastructure-specification"></span><h2 id="print-f6e83cb4388c897cdfafb677cb684dcc-purpose">Purpose<a class="td-heading-self-link" href="#print-f6e83cb4388c897cdfafb677cb684dcc-purpose" aria-label="Heading self-link"></a></h2><p>Describe the single-host Ceph CRUSH map maintained by <code>infra/ceph</code> and its
 documented operator workflow. This owner contains a map and documentation;
 its BUILD file exposes documentation, not a Ceph deployment target. The
@@ -3081,10 +3093,12 @@ live map update</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-273fb994a8065425717509153759d81f">3 - Cloud-init</h1>
     <div class="lead">Shared PVE-based infrastructure VM bootstrap configuration</div>
+	
 	<p><code>assets/cloud_init.yaml</code> is the canonical configuration moved from PVE. PVE
 and Yandex Cloud consume it directly. It owns the Ansible sudo user, SSH keys,
 local TLS root CA, and common bootstrap policy. The Ansible SSH CA is selected by its certificate-authority principal options;
@@ -3134,10 +3148,12 @@ repository-internal runtime inputs, not published artifacts.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-cfcd7873cb39ac39fb1979c7ee11a40f">4 - Dns</h1>
     <div class="lead">Project-owned DNS declarations for alwaldend.com</div>
+	
 	<p>DNS records live in each owner&rsquo;s <code>dnsconfig.json</code>. Each owner manages its records
 through the reusable <a href="/docs/projects/tf_modules/dns_records/">Terraform DNS module</a>
 from its designated <code>tf_setup</code> or <code>tf</code> root. This component&rsquo;s
@@ -3229,10 +3245,12 @@ authoritative inventory.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-22ddd334842ae4d7e35d0a79ed454ba4">4.1 - Cloudflare DNS</h1>
     <div class="lead">Records declared for the public zone served by Cloudflare</div>
+	
 	<p>Every record this repository declares for the public zone, which Cloudflare serves.</p>
 <p>This page is generated from the declarations; run <code>bazel run //infra/dns/cmd/dump -- --write</code> after changing them. The authoritative source is each owner&rsquo;s <code>dnsconfig.json</code>.</p>
 <table>
@@ -3639,10 +3657,12 @@ authoritative inventory.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-af9794ad8c53e916c92bc2cabd8f5748">4.2 - Mikrotik DNS</h1>
     <div class="lead">Records declared for the internal dc1 view served by RouterOS</div>
+	
 	<p>Every record this repository declares for the internal <code>dc1</code> view, which RouterOS serves for that network.</p>
 <p>This page is generated from the declarations; run <code>bazel run //infra/dns/cmd/dump -- --write</code> after changing them. The authoritative source is each owner&rsquo;s <code>dnsconfig.json</code>.</p>
 <table>
@@ -4273,10 +4293,12 @@ authoritative inventory.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a392853747a757fa005d3892e126e2ef">4.3 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -4298,10 +4320,12 @@ authoritative inventory.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-a2a8fb4565c12c951b85dedb4e2ccf6e">4.3.1 - Infrastructure DNS</h1>
     
+	
 	<span id="print-26cd59c7e44d32ec3ca3f4e479c54e54-infrastructure-dns"></span><h2 id="print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose">Purpose<a class="td-heading-self-link" href="#print-26cd59c7e44d32ec3ca3f4e479c54e54-purpose" aria-label="Heading self-link"></a></h2><p>Describe owner-local Terraform DNS declarations and runtime source-ownership
 validation for global and dc1 records. This contract describes checked-in
 source; it does not establish live adoption or authorize infrastructure writes.</p>
@@ -4455,10 +4479,12 @@ the declarations as authoritative and explain that snapshots may lag.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5182c83d4964c12536210ac055ef6ebd">4.4 - Shared DNS Terraform</h1>
     <div class="lead">Owner state for common apex and mail records</div>
+	
 	<p>This root consumes <a href="../dnsconfig.json">the canonical common declarations</a>
 through the reusable DNS module. It uses the <code>src_infra_dns</code> AppRole and its
 existing Vault-backed HTTP state. Both Cloudflare and RouterOS credentials
@@ -4502,10 +4528,12 @@ plan and apply follow the separately authorized adoption procedure.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-d9cba0dda1918cf1b96821b53e7474b1">5 - Download</h1>
     <div class="lead">Public static files and websites on XCP-ng and Yandex Cloud</div>
+	
 	<p><img src="/docs/infra/download/assets/architecture.svg" alt="Static hosting architecture" loading="lazy"></p>
 <p>One VM per environment runs the shared Traefik service in front of native
 Nginx. Clients connect directly on ports 80/443; Nginx listens only on
@@ -4679,10 +4707,12 @@ retains the Terraform validation and review history.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-0d440f28260f447b5de29af295c4a728">5.1 - Download DNS</h1>
     <div class="lead">Cloudflare and RouterOS aliases for static hosting</div>
+	
 	<p>Owns the component&rsquo;s <code>dnsconfig.json</code> through the shared DNS module. Public
 download requests follow the delegated Yandex host. The local host CNAME
 follows the apex owner&rsquo;s canonical local A record. The apex and <code>www</code> keep
@@ -4765,10 +4795,12 @@ to the old A/AAAA records. Never begin phase 2 based only on a planned deletion.
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-8621bfee504865114de35893ac61f6ff">5.2 - Host configuration</h1>
     <div class="lead">Shared native Traefik and Nginx deployment</div>
+	
 	<p>Build <code>:ansible_bin</code> to package the playbook and shared collection. The play
 uses <a href="/docs/projects/ansible_collection/roles/download_host/"><code>alwaldend.main.download_host</code></a>
 for storage, the publisher account, rsync, service setup, and deduplication.
@@ -4832,10 +4864,12 @@ Nginx configuration validation before installation is unchanged. See <a href="ht
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a4e4b4bab5c8d5d40e4398639a8cf375">5.3 - XCP-ng</h1>
     <div class="lead">Protected local static-hosting VM</div>
+	
 	<p>Provisions one Fedora 44 VM in <code>src_infra_download</code>, using named inventory
 from the existing XCP-ng deployment: two CPUs, 2 GiB RAM, a 20 GiB boot disk,
 and a 100 GiB content disk. The local address comes from the apex DNS owner, whose local A record is
@@ -4872,10 +4906,12 @@ workflow on XCP-ng. Do not remove that guard as a routine upgrade step.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a9e2df2b0cf2cec5c2ffe62753521e56">5.4 - Yandex Cloud</h1>
     <div class="lead">Static-hosting VM with retained local content storage</div>
+	
 	<p>Provisions one Fedora VM in its component folder: two CPUs, 2 GiB RAM, a
 20 GiB boot disk, and a separate 100 GiB content disk. The disk and reserved
 IPv4 address have destruction guards and survive replacement of the VM.
@@ -4913,10 +4949,12 @@ or allocated addresses are copied into checked-in variables.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-376547b64390a205fb888a5735b6a1f6">6 - flux</h1>
     <div class="lead">Fluxcd deployment</div>
+	
 	<h2 id="print-84316393df228d529aa8351a82d6a499-links">Links<a class="td-heading-self-link" href="#print-84316393df228d529aa8351a82d6a499-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://fluxcd.io/">https://fluxcd.io/</a></li>
 </ul>
@@ -4962,10 +5000,12 @@ or allocated addresses are copied into checked-in variables.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-de0be9c9f29bd0e4867d85c05c90675b">6.1 - Ansible</h1>
     <div class="lead">Ansible setup</div>
+	
 	
 </div>
 
@@ -4991,10 +5031,12 @@ or allocated addresses are copied into checked-in variables.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-d382b2bcb1a61644d1a6e144f7ad0f24">6.2 - cl</h1>
     <div class="lead">Cluster manifests</div>
+	
 	<h2 id="print-c5fcc52468d494f5a7ae68c1e7490717-links">Links<a class="td-heading-self-link" href="#print-c5fcc52468d494f5a7ae68c1e7490717-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Cert manager charts: <a href="https://artifacthub.io/packages/helm/cert-manager/cert-manager">https://artifacthub.io/packages/helm/cert-manager/cert-manager</a></li>
 </ul>
@@ -5023,10 +5065,12 @@ or allocated addresses are copied into checked-in variables.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-d9f7580b805b37704720c23a6eb72ae7">6.3 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -5047,12 +5091,14 @@ or allocated addresses are copied into checked-in variables.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-40db637bc8ffe5572340bccffb3d2153">6.3.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -5072,12 +5118,14 @@ or allocated addresses are copied into checked-in variables.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-c28abe2d36515a2809ef2e40d21f0e1e">6.3.1.1 - Infra flux</h1>
     
 	
+	
 </div>
 
 
@@ -5098,10 +5146,12 @@ or allocated addresses are copied into checked-in variables.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-b4f8b763632dafb9253d5de4d0a62163">6.3.1.1.1 - Flux infrastructure specification</h1>
     
+	
 	<span id="print-d1bd8ac5f87f418fdfaaab7e376fec50-flux-infrastructure-specification"></span><h2 id="print-d1bd8ac5f87f418fdfaaab7e376fec50-purpose">Purpose<a class="td-heading-self-link" href="#print-d1bd8ac5f87f418fdfaaab7e376fec50-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Flux management cluster&rsquo;s VM definition, K3s configuration,
 and Git reconciliation entry points owned by <code>infra/flux</code>. The <code>tf_setup</code>,
 <code>ansible</code>, and <code>cl</code> packages implement stages of this owner. This is a
@@ -5170,10 +5220,12 @@ asserting that they are currently available in a live cluster</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b710880ff87e8d8d1e894b0016dd2749">6.3.1.2 - Owned dns</h1>
     
+	
 	
 </div>
 
@@ -5195,10 +5247,12 @@ asserting that they are currently available in a live cluster</li>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-b6f415fdbda930a78d6f2df1f71d654f">6.3.1.2.1 - owned-dns Specification</h1>
     
+	
 	<span id="print-046a6e6ad5187e98a76cf80927cdcf33-owned-dns-specification"></span><h2 id="print-046a6e6ad5187e98a76cf80927cdcf33-purpose">Purpose<a class="td-heading-self-link" href="#print-046a6e6ad5187e98a76cf80927cdcf33-purpose" aria-label="Heading self-link"></a></h2><p>Define Flux DNS management through the owner&rsquo;s <code>tf_setup</code> root,
 including canonical declarations, scoped credentials, and offline source checks
 before adopting live records.</p>
@@ -5278,10 +5332,12 @@ DNS-targeted validation SHALL NOT establish unrelated VM or service health.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c22a494ac2efe6ac7a34589eb0ec7c9b">6.4 - Tf setup</h1>
     <div class="lead">Terraform setup</div>
+	
 	<p>This root owns the <a href="../dnsconfig.json">Flux DNS declaration</a>. DNS ownership
 defaults to enabled after <a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">verified adoption</a>;
 keep it enabled to retain the managed records.</p>
@@ -5322,10 +5378,12 @@ validation remains part of repository delivery.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-94b79080257dcdffb77daea66ae25fce">7 - forgejo</h1>
     <div class="lead">git.alwaldend.com</div>
+	
 	<h2 id="print-0ffd6cbf558ebcb119cece8c34f2b34d-links">Links<a class="td-heading-self-link" href="#print-0ffd6cbf558ebcb119cece8c34f2b34d-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Docs: <a href="https://forgejo.org/docs/latest/admin/installation/binary/">https://forgejo.org/docs/latest/admin/installation/binary/</a></li>
 <li>Config reference: <a href="https://forgejo.org/docs/latest/admin/config-cheat-sheet/">https://forgejo.org/docs/latest/admin/config-cheat-sheet/</a></li>
@@ -5386,10 +5444,12 @@ client route caches must be resolved before relying on LAN access.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-4631e4abd1138ca67304d2dacb44d29f">7.1 - Ansible</h1>
     <div class="lead">Ansible setup</div>
+	
 	
 </div>
 
@@ -5414,12 +5474,14 @@ client route caches must be resolved before relying on LAN access.</p>
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-48476f40b6cef33e5177711ffc000c4f">7.2 - OpenSpec</h1>
     
 	
+	
 </div>
 
 
@@ -5439,12 +5501,14 @@ client route caches must be resolved before relying on LAN access.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-5a545e6d4a4f5d58c3212174e00873a9">7.2.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -5464,12 +5528,14 @@ client route caches must be resolved before relying on LAN access.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-8700c7b81f92f98688344b3d0d871e88">7.2.1.1 - Infra forgejo</h1>
     
 	
+	
 </div>
 
 
@@ -5490,10 +5556,12 @@ client route caches must be resolved before relying on LAN access.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-3d897c628782fb475c1ed365d5d2cbad">7.2.1.1.1 - Forgejo infrastructure specification</h1>
     
+	
 	<span id="print-104392a0061b18c209ca81aa609d73e8-forgejo-infrastructure-specification"></span><h2 id="print-104392a0061b18c209ca81aa609d73e8-purpose">Purpose<a class="td-heading-self-link" href="#print-104392a0061b18c209ca81aa609d73e8-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Forgejo service owned by <code>infra/forgejo</code>, including Xen
 Orchestra provisioning, Ansible service configuration, and Terraform account
 and repository management. The <code>tf_setup</code>, <code>ansible</code>, and <code>tf</code> packages are
@@ -5605,10 +5673,12 @@ validation</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-22bd19ac2879d66c37ec268e24d45a88">7.2.1.2 - Owned dns</h1>
     
+	
 	
 </div>
 
@@ -5630,10 +5700,12 @@ validation</li>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-e1c572e5bbd518221d622301b3fc717f">7.2.1.2.1 - owned-dns Specification</h1>
     
+	
 	<span id="print-7bc1604caa4e256030a625215dd30531-owned-dns-specification"></span><h2 id="print-7bc1604caa4e256030a625215dd30531-purpose">Purpose<a class="td-heading-self-link" href="#print-7bc1604caa4e256030a625215dd30531-purpose" aria-label="Heading self-link"></a></h2><p>Define Forgejo DNS management through the owner&rsquo;s <code>tf_setup</code> root,
 including canonical declarations, scoped credentials, and offline source checks
 before adopting live records.</p>
@@ -5714,10 +5786,12 @@ test that does not authenticate to Vault or contact DNS providers.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f3cee4c8624cb7f2609ceabdfcf85a16">7.3 - Tf</h1>
     <div class="lead">Terraform config</div>
+	
 	<p>This package configures Forgejo organizations, repositories, and access from
 the shared <a href="/docs/infra/repos/">repository catalog</a>. The catalog owns named
 administrators, developers, repository identities, and destination names.
@@ -5796,10 +5870,12 @@ automation-writer exceptions.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-23e19713f3783652b8b451d0e26fbe6f">7.4 - Tf setup</h1>
     <div class="lead">Terraform setup</div>
+	
 	<p>This package creates a Xen Orchestra VM in the <code>src_infra_dc1_forgejo1</code>
 resource set. <code>infra/forgejo/al.lua</code> authenticates with Forgejo&rsquo;s own Vault
 AppRole and the packaged XO OIDC login plugin. The plugin supplies a temporary
@@ -5873,10 +5949,12 @@ do not establish service or VM health.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-43911138aa59e3dc37e664b8b5680436">8 - Forgejo runner</h1>
     <div class="lead">Forgejo Actions runner deployment</div>
+	
 	<h2 id="print-1be3fa60768c7ba248d4de62766e0ac5-deploy-vms">Deploy VMs<a class="td-heading-self-link" href="#print-1be3fa60768c7ba248d4de62766e0ac5-deploy-vms" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/forgejo_runner/tf_setup <span class="c1"># Create VMs</span>
 </span></span><span class="line"><span class="cl">bazel run //infra/forgejo_runner/ansible <span class="c1"># Configure VMs</span>
 </span></span></code></pre></div>
@@ -5900,10 +5978,12 @@ do not establish service or VM health.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-f066b695c0dd6eed475cb0158d9cb746">8.1 - Ansible</h1>
     <div class="lead">Forgejo runner configuration</div>
+	
 	
 </div>
 
@@ -5928,12 +6008,14 @@ do not establish service or VM health.</p>
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-daef4d86265c5d7e86da875c9be9c418">8.2 - OpenSpec</h1>
     
 	
+	
 </div>
 
 
@@ -5953,12 +6035,14 @@ do not establish service or VM health.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-d43dc6331425a7f7cd548804201a4787">8.2.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -5978,12 +6062,14 @@ do not establish service or VM health.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-c1db96d9c65d77fb35c9d77df5c2c1dd">8.2.1.1 - Infra forgejo runner</h1>
     
 	
+	
 </div>
 
 
@@ -6004,10 +6090,12 @@ do not establish service or VM health.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-9abcd9986c5b24d182b4538a6c4cba88">8.2.1.1.1 - Forgejo runner infrastructure specification</h1>
     
+	
 	<span id="print-aa9fd2e826bb291d5e08428692924afd-forgejo-runner-infrastructure-specification"></span><h2 id="print-aa9fd2e826bb291d5e08428692924afd-purpose">Purpose<a class="td-heading-self-link" href="#print-aa9fd2e826bb291d5e08428692924afd-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Forgejo Actions runner VM and deployment scaffold owned by
 <code>infra/forgejo_runner</code>. Its <code>tf_setup</code> and <code>ansible</code> packages are stages of
 this owner. The runner role is commented out in the baseline playbook;
@@ -6073,10 +6161,12 @@ the canonical Forgejo service</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-70bd61b668f9851ca915d18ad89e6db6">8.2.1.2 - Owned dns</h1>
     
+	
 	
 </div>
 
@@ -6098,10 +6188,12 @@ the canonical Forgejo service</li>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-3bb8cb3d1c905f1f6075618f1ef69610">8.2.1.2.1 - owned-dns Specification</h1>
     
+	
 	<span id="print-9fa054b557a948ef8431020aa21c7f40-owned-dns-specification"></span><h2 id="print-9fa054b557a948ef8431020aa21c7f40-purpose">Purpose<a class="td-heading-self-link" href="#print-9fa054b557a948ef8431020aa21c7f40-purpose" aria-label="Heading self-link"></a></h2><p>Define Forgejo Actions runner DNS management through the owner&rsquo;s <code>tf_setup</code> root,
 including canonical declarations, scoped execution, adoption of existing records,
 and offline source checks.</p>
@@ -6181,10 +6273,12 @@ not authenticate to Vault or contact DNS providers.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f9ffc9e12b9f5551f238d6b09bbc9cc1">8.3 - Terraform setup</h1>
     <div class="lead">Forgejo runner VM</div>
+	
 	<p>Use this package&rsquo;s <code>dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> targets for the
 <a href="/docs/infra/dns/">scoped DNS adoption workflow</a>.</p>
 <p>These targets select <code>dns=1</code> and target <code>module.dns</code> with the existing
@@ -6227,10 +6321,12 @@ service health.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b66b63aa778465190e99764905e898b0">9 - GitHub</h1>
     <div class="lead">GitHub organization, repositories, access, and Pages configuration</div>
+	
 	<p>This project manages the GitHub organization and repositories declared by the
 <a href="/docs/infra/repos/">shared repository catalog</a>, including existing forks,
 project landing sites, organization membership, and developer access.</p>
@@ -6259,10 +6355,12 @@ targets; this infrastructure package does not publish it.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-da73bfdc6f418187206d6aa50dcf4f7d">9.1 - GitHub Terraform</h1>
     <div class="lead">GitHub organization, repository, access, and Pages management</div>
+	
 	<p>This package consumes the <a href="/docs/infra/repos/">shared repository catalog</a>
 through its provider-free Terraform module. The catalog supplies the GitHub
 owner, repositories, default branches, repository settings, organization
@@ -6344,10 +6442,12 @@ recovery.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b0a1c523e83274cd0f21684c2e902b89">9.2 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -6369,10 +6469,12 @@ recovery.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-2d4c0aa31bb9f31a17be9bab67d4ba5b">9.2.1 - Infrastructure GitHub</h1>
     
+	
 	<span id="print-cf248aee02ac4b94b7e64b84272f960a-infrastructure-github"></span><h2 id="print-cf248aee02ac4b94b7e64b84272f960a-purpose">Purpose<a class="td-heading-self-link" href="#print-cf248aee02ac4b94b7e64b84272f960a-purpose" aria-label="Heading self-link"></a></h2><p>Describe Terraform ownership of the catalog-defined GitHub organization,
 repositories, member access, default-branch restrictions, and Pages settings.
 These requirements describe source guarantees; they do not assert that a plan
@@ -6482,10 +6584,12 @@ and SHALL include an HTTPS verification step.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f1b8db2fbe1bcccbfbc67a9691fdf36e">10 - GitLab</h1>
     <div class="lead">GitLab resource management</div>
+	
 	<p>This project owns GitLab groups, memberships, repository imports, and forks
 through the <a href="/docs/infra/gitlab/tf/">Terraform module</a>. Organization membership and
 repository definitions come from the shared <a href="/docs/infra/repos/">repository catalog</a>.</p>
@@ -6510,10 +6614,12 @@ repository definitions come from the shared <a href="/docs/infra/repos/">reposit
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-25f0ad89c41ba314f0b9418342c02907">10.1 - GitLab Terraform</h1>
     <div class="lead">GitLab groups, memberships, repository imports, and forks</div>
+	
 	<p>This module manages the GitLab groups, memberships, repository imports, and
 forks declared in the shared <a href="/docs/infra/repos/">repository catalog</a>.
 Its <a href="/docs/infra/repos/tf/">catalog module</a> supplies names, source URLs,
@@ -6601,10 +6707,12 @@ matching rule; see <a href="https://docs.gitlab.com/user/project/repository/bran
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-46fe80af07deb2573d864cd166de7e8a">11 - harbor</h1>
     <div class="lead">Harbor deployment</div>
+	
 	<h2 id="print-21fd05f8558afa5ada6b51bbaadf8e77-links">Links<a class="td-heading-self-link" href="#print-21fd05f8558afa5ada6b51bbaadf8e77-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://goharbor.io/">https://goharbor.io/</a></li>
 <li>Releases: <a href="https://github.com/goharbor/harbor/releases">https://github.com/goharbor/harbor/releases</a></li>
@@ -6646,10 +6754,12 @@ matching rule; see <a href="https://docs.gitlab.com/user/project/repository/bran
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-37790ae5b68c8bca2b32394697f159d4">11.1 - Ansible</h1>
     <div class="lead">Ansible setup</div>
+	
 	
 </div>
 
@@ -6674,12 +6784,14 @@ matching rule; see <a href="https://docs.gitlab.com/user/project/repository/bran
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-fe8f1dd506d136059144f407954fda31">11.2 - cl</h1>
     <div class="lead">Cluster manifests</div>
 	
+	
 </div>
 
 
@@ -6703,12 +6815,14 @@ matching rule; see <a href="https://docs.gitlab.com/user/project/repository/bran
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-d92b0b32db3cfdec049edbe31ded0a05">11.3 - OpenSpec</h1>
     
 	
+	
 </div>
 
 
@@ -6728,12 +6842,14 @@ matching rule; see <a href="https://docs.gitlab.com/user/project/repository/bran
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-6ca66f1898726253930fee065ee2ccb0">11.3.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -6753,12 +6869,14 @@ matching rule; see <a href="https://docs.gitlab.com/user/project/repository/bran
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-dcad32a9e94335da6130bcf685062929">11.3.1.1 - Infra harbor</h1>
     
 	
+	
 </div>
 
 
@@ -6779,10 +6897,12 @@ matching rule; see <a href="https://docs.gitlab.com/user/project/repository/bran
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-92852cee7adcae90ab7d19d4188b4a7b">11.3.1.1.1 - Harbor infrastructure specification</h1>
     
+	
 	<span id="print-fdea4423ba18c7ba1cb59aaf1104c5ff-harbor-infrastructure-specification"></span><h2 id="print-fdea4423ba18c7ba1cb59aaf1104c5ff-purpose">Purpose<a class="td-heading-self-link" href="#print-fdea4423ba18c7ba1cb59aaf1104c5ff-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Harbor registry infrastructure owned by <code>infra/harbor</code>, spanning
 Proxmox setup, K3s host configuration, Flux-managed chart declarations, and
 Harbor service Terraform. The <code>tf_setup</code>, <code>ansible</code>, <code>cl</code>, and <code>tf</code> packages
@@ -6864,10 +6984,12 @@ references the Docker Hub proxy registry</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-6b6af046fcf3525558780ca5fc004348">11.3.1.2 - Owned dns</h1>
     
+	
 	
 </div>
 
@@ -6889,10 +7011,12 @@ references the Docker Hub proxy registry</li>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-0f5dc2c95f5d72d6fd5a67ffe1b32d50">11.3.1.2.1 - owned-dns Specification</h1>
     
+	
 	<span id="print-dc1291cc3e3aeb08367522495ac33108-owned-dns-specification"></span><h2 id="print-dc1291cc3e3aeb08367522495ac33108-purpose">Purpose<a class="td-heading-self-link" href="#print-dc1291cc3e3aeb08367522495ac33108-purpose" aria-label="Heading self-link"></a></h2><p>Define Harbor DNS management through the owner&rsquo;s <code>tf_setup</code> root,
 including canonical declarations, scoped credentials, and offline source checks
 before adopting live records.</p>
@@ -6969,10 +7093,12 @@ DNS-targeted validation SHALL NOT establish unrelated VM or service health.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-48d0c8e49f891bda04241fb1931f3237">11.4 - Tf</h1>
     <div class="lead">Terraform config</div>
+	
 	
 </div>
 
@@ -6998,10 +7124,12 @@ DNS-targeted validation SHALL NOT establish unrelated VM or service health.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-6c096241e7882502d6144d2b151e4890">11.5 - Tf setup</h1>
     <div class="lead">Terraform setup</div>
+	
 	<p>This root owns the <a href="../dnsconfig.json">Harbor DNS declaration</a>. DNS ownership
 defaults to enabled after <a href="../openspec/changes/archive/2026-09-13-adopt-dns-records/design.md">verified adoption</a>;
 keep it enabled to retain the managed records.</p>
@@ -7042,10 +7170,12 @@ validation remains part of repository delivery.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a416a4c444034fb20d6866d9988d5acd">12 - ingress</h1>
     <div class="lead">ingress</div>
+	
 	<h2 id="print-cd9b6d20f7f2a57b1163b6b622a2a9f8-run-ansible">Run ansible<a class="td-heading-self-link" href="#print-cd9b6d20f7f2a57b1163b6b622a2a9f8-run-ansible" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/ingress/ansible
 </span></span></code></pre></div><p>Services in <code>traefik_services</code> must use a backend <code>target</code> that resolves from
 the ingress hosts without resolving back to ingress. Define a dedicated
@@ -7105,10 +7235,12 @@ service&rsquo;s DNS configuration and use that address as the target.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-155b678b86d897031198e5c4ab49f084">12.1 - Ansible</h1>
     <div class="lead">Ansible setup</div>
+	
 	
 </div>
 
@@ -7133,12 +7265,14 @@ service&rsquo;s DNS configuration and use that address as the target.</p>
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-44764e1c74f4421737138dec4d6d1bba">12.2 - OpenSpec</h1>
     
 	
+	
 </div>
 
 
@@ -7158,12 +7292,14 @@ service&rsquo;s DNS configuration and use that address as the target.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-5d754deeb0ff6924f43d2175297e61f1">12.2.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -7183,12 +7319,14 @@ service&rsquo;s DNS configuration and use that address as the target.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-08423cb7de190ea8428516097e5403d1">12.2.1.1 - Infra ingress</h1>
     
 	
+	
 </div>
 
 
@@ -7209,10 +7347,12 @@ service&rsquo;s DNS configuration and use that address as the target.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-0c61ccddac5fa9264004a4851f4b297d">12.2.1.1.1 - Infrastructure ingress</h1>
     
+	
 	<span id="print-0ed34d059e4567c05bfaba0306f0f8f3-infrastructure-ingress"></span><h2 id="print-0ed34d059e4567c05bfaba0306f0f8f3-purpose">Purpose<a class="td-heading-self-link" href="#print-0ed34d059e4567c05bfaba0306f0f8f3-purpose" aria-label="Heading self-link"></a></h2><p>Describe Yandex Cloud ingress provisioning, the RouterOS WireGuard connection,
 and the Ansible-managed Traefik configuration. The baseline covers checked-in
 desired state, not a live routing or availability observation.</p>
@@ -7281,10 +7421,12 @@ configured client CA</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-1e997c44b51c9a2d92087206451e215d">12.2.1.2 - Owned dns</h1>
     
+	
 	
 </div>
 
@@ -7306,10 +7448,12 @@ configured client CA</li>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-f231f6727025d74ee9de7baa3a29eafa">12.2.1.2.1 - owned-dns Specification</h1>
     
+	
 	<span id="print-cffd0352d09a5ca20a3d932570d11afb-owned-dns-specification"></span><h2 id="print-cffd0352d09a5ca20a3d932570d11afb-purpose">Purpose<a class="td-heading-self-link" href="#print-cffd0352d09a5ca20a3d932570d11afb-purpose" aria-label="Heading self-link"></a></h2><p>Define retained ingress DNS ownership through the owner&rsquo;s <code>tf</code> root,
 including canonical declarations, scoped execution, and offline source checks.</p>
 <h2 id="print-cffd0352d09a5ca20a3d932570d11afb-requirements">Requirements<a class="td-heading-self-link" href="#print-cffd0352d09a5ca20a3d932570d11afb-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-cffd0352d09a5ca20a3d932570d11afb-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-cffd0352d09a5ca20a3d932570d11afb-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through
@@ -7384,10 +7528,12 @@ without Vault authentication or DNS provider access.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e965813ffff72b80df3981a2f7b45885">12.3 - Tf</h1>
     <div class="lead">Terraform config</div>
+	
 	<p>Use this package&rsquo;s <code>dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> targets for the
 <a href="/docs/infra/dns/">scoped DNS adoption workflow</a>.</p>
 <p>DNS ownership is enabled by default after the verified 2026-09-13 adoption.
@@ -7425,10 +7571,12 @@ saved plan, and ordinary ingress service authentication remains separate.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5cae54bd900357d37c92a8c5f9cd8f4f">13 - Mikrotik</h1>
     <div class="lead">Mikrotik setup for dc1.alwaldend.com</div>
+	
 	<p>The <a href="/docs/infra/mikrotik/tf/">Terraform package</a> prepares owner-local DNS management.
 Router exports remain documentation inputs and are not applied by that package.</p>
 <h2 id="print-64d11e5be6a668973b7676b14465fedd-deployment">Deployment<a class="td-heading-self-link" href="#print-64d11e5be6a668973b7676b14465fedd-deployment" aria-label="Heading self-link"></a></h2><ul>
@@ -7761,10 +7909,12 @@ set enter-setup-on=delete-key
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-89bb8f0db70375d53494f67dc3b50533">13.1 - DNS Terraform</h1>
     
+	
 	<span id="print-42997b0c34769282fcd3a007f9381bb4-dns-terraform"></span><p>This root packages the owner&rsquo;s canonical <a href="../dnsconfig.json">DNS declaration</a>
 through the shared DNS module and keeps state in the owner AppRole&rsquo;s Vault HTTP
 backend. The root contains DNS resources only. <code>dns_enabled</code> defaults to <code>true</code>
@@ -7804,10 +7954,12 @@ real credentials and live access independently of the activation setting.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-05f5fcf8d7991d544927d412c67d56c8">13.2 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -7828,12 +7980,14 @@ real credentials and live access independently of the activation setting.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-225111c3fb945dbdb0d8a063ace428c1">13.2.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -7853,12 +8007,14 @@ real credentials and live access independently of the activation setting.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-e5077ee52af57ae948045c1dcba4bc1b">13.2.1.1 - Infra mikrotik</h1>
     
 	
+	
 </div>
 
 
@@ -7879,10 +8035,12 @@ real credentials and live access independently of the activation setting.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-4a7aa602631c1397a463a49d6fbaa9ba">13.2.1.1.1 - Infrastructure MikroTik</h1>
     
+	
 	<span id="print-f648ce6b9e1fa8aa6d8246c95a0619c0-infrastructure-mikrotik"></span><h2 id="print-f648ce6b9e1fa8aa6d8246c95a0619c0-purpose">Purpose<a class="td-heading-self-link" href="#print-f648ce6b9e1fa8aa6d8246c95a0619c0-purpose" aria-label="Heading self-link"></a></h2><p>Describe the checked-in RouterOS export snapshots and site DNS declarations for
 the dc1 routers. This package is a documentation and record-input owner: its
 BUILD file declares no router deployment executable. Export contents are
@@ -7947,10 +8105,12 @@ IPv4 records are available for the dc1 view</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-fe0ba22c93e6dc13850406c975c7be6d">13.2.1.2 - Owned dns</h1>
     
+	
 	
 </div>
 
@@ -7972,10 +8132,12 @@ IPv4 records are available for the dc1 view</li>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-7d4c79db8afd894dc74d9aea9a0ac2c3">13.2.1.2.1 - owned-dns Specification</h1>
     
+	
 	<span id="print-ac9efe641dd659616487e8baa99a35e5-owned-dns-specification"></span><h2 id="print-ac9efe641dd659616487e8baa99a35e5-purpose">Purpose<a class="td-heading-self-link" href="#print-ac9efe641dd659616487e8baa99a35e5-purpose" aria-label="Heading self-link"></a></h2><p>Define MikroTik router DNS management through the owner&rsquo;s <code>tf</code> root,
 including canonical declarations, scoped credentials, and offline source checks
 before adopting live records.</p>
@@ -8052,10 +8214,12 @@ does not authenticate to Vault or contact DNS providers.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-37a5c21fe7523617f971ede484289410">14 - Nas</h1>
     <div class="lead">TrueNAS deploy</div>
+	
 	<p>The <a href="/docs/infra/nas/tf/">Terraform package</a> prepares this owner&rsquo;s DNS records through
 its dedicated Vault AppRole. NAS service provisioning remains outside that root.</p>
 <h2 id="print-b6971392f0d710b1b9087957f7695c37-links">Links<a class="td-heading-self-link" href="#print-b6971392f0d710b1b9087957f7695c37-links" aria-label="Heading self-link"></a></h2><ul>
@@ -8082,10 +8246,12 @@ its dedicated Vault AppRole. NAS service provisioning remains outside that root.
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-309d518d5052ed7e516394ad79a0a0f6">14.1 - DNS Terraform</h1>
     
+	
 	<span id="print-9e3a066c26c8aa3cdfd4200b02eebcdd-dns-terraform"></span><p>This root packages the owner&rsquo;s canonical <a href="../dnsconfig.json">DNS declarations</a>
 through the shared DNS module and keeps state in the owner AppRole&rsquo;s Vault HTTP
 backend. The root contains DNS resources only. <code>dns_enabled</code> defaults to <code>true</code>
@@ -8124,10 +8290,12 @@ authentication require real credentials and live access.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-046dd492adb66ee823e3b02a233189e8">14.2 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -8148,12 +8316,14 @@ authentication require real credentials and live access.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-91faac61363db59faa048f7589dd1c7d">14.2.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -8173,12 +8343,14 @@ authentication require real credentials and live access.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-55cda8f7c1e0b4b98d408a3e38e5a7ed">14.2.1.1 - Infra nas</h1>
     
 	
+	
 </div>
 
 
@@ -8199,10 +8371,12 @@ authentication require real credentials and live access.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-2bee6d6891e348c4cbc70b69852e271d">14.2.1.1.1 - NAS infrastructure Specification</h1>
     
+	
 	<span id="print-b0100c402e3a2a9907ce7439cd30a5e3-nas-infrastructure-specification"></span><h2 id="print-b0100c402e3a2a9907ce7439cd30a5e3-purpose">Purpose<a class="td-heading-self-link" href="#print-b0100c402e3a2a9907ce7439cd30a5e3-purpose" aria-label="Heading self-link"></a></h2><p>Describe the TrueNAS-related configuration surface currently owned by
 <code>infra/nas</code>. The baseline is checked-in source at revision
 <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>, observed on 2026-09-08.
@@ -8253,10 +8427,12 @@ ingress destination for the global <code>cloud</code> alias.</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f1d297d427b004bbe4058aa2c9dcd109">14.2.1.2 - Owned dns</h1>
     
+	
 	
 </div>
 
@@ -8278,10 +8454,12 @@ ingress destination for the global <code>cloud</code> alias.</li>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-7b293d1b95ddbbf71d95484c6d7711f4">14.2.1.2.1 - owned-dns Specification</h1>
     
+	
 	<span id="print-655503ce8985269dc213be8df346d4c8-owned-dns-specification"></span><h2 id="print-655503ce8985269dc213be8df346d4c8-purpose">Purpose<a class="td-heading-self-link" href="#print-655503ce8985269dc213be8df346d4c8-purpose" aria-label="Heading self-link"></a></h2><p>Define NAS DNS management through the owner&rsquo;s <code>tf</code> root,
 including canonical declarations, scoped credentials, and offline source checks
 before adopting live records.</p>
@@ -8357,10 +8535,12 @@ does not authenticate to Vault or contact DNS providers.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-6e11c7ba1fe0e1a8eca58b4b6f1efdd9">15 - Nexus</h1>
     <div class="lead">Planned native Nexus Repository deployment on XCP-ng</div>
+	
 	<p>This component currently contains a proposal and its OpenSpec validation
 scaffolding. It contains no service implementation and establishes no deployed
 state. See the <a href="openspec/changes/add-nexus-deployment/proposal.md">deployment proposal</a>
@@ -8399,10 +8579,12 @@ Implementation and live infrastructure operations require later user requests.</
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-816d9213160ba94f43eceefc76abc9a1">16 - OpenHands</h1>
     <div class="lead">openhands.alwaldend.com</div>
+	
 	<p>OpenHands deploys as separate components because each owns a distinct
 responsibility and trust boundary:</p>
 <table>
@@ -8511,10 +8693,12 @@ use, so no separate state bucket is required.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-89791524f15a8b6f60e56e61e12d2ef9">16.1 - Ansible</h1>
     <div class="lead">OpenHands deployment</div>
+	
 	<p>Deploys the OpenHands components. The inventory has three hosts in three
 groups, and the playbook applies one component role per group:</p>
 <table>
@@ -8587,10 +8771,12 @@ from the environment the AL Vault injector populates.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-81dd6021af57efa57f1fa284d5a6b4f4">16.2 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -8612,10 +8798,12 @@ from the environment the AL Vault injector populates.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-16ac8598b912ab872f5988b6ff5a261d">16.2.1 - owned-dns Specification</h1>
     
+	
 	<span id="print-f89ca4b71cc1c0aace91c4551d444375-owned-dns-specification"></span><h2 id="print-f89ca4b71cc1c0aace91c4551d444375-purpose">Purpose<a class="td-heading-self-link" href="#print-f89ca4b71cc1c0aace91c4551d444375-purpose" aria-label="Heading self-link"></a></h2><p>Define OpenHands DNS management through the owner&rsquo;s <code>tf_setup</code> root,
 including canonical declarations, scoped credentials, and offline source checks
 before adopting live records.</p>
@@ -8701,10 +8889,12 @@ without establishing VM or service health</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-79d60ced759354cdab77ecbf73d0ef26">16.3 - Tf setup</h1>
     <div class="lead">Terraform setup</div>
+	
 	<p>This package creates Xen Orchestra VMs in the <code>src_infra_openhands</code> resource
 set for the three OpenHands components that run off host-bot: Agent Canvas,
 the agent server, and the automation server. <code>infra/openhands/al.lua</code>
@@ -8779,10 +8969,12 @@ retains that acceptance work.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-0270334bd88c51f1beff552361fddebe">17 - Pve</h1>
     <div class="lead">Proxmox cluster pve.alwaldend.com</div>
+	
 	<h2 id="print-cf1407a5a11f935a7972527e91fd6211-links">Links<a class="td-heading-self-link" href="#print-cf1407a5a11f935a7972527e91fd6211-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Docs: <a href="https://www.proxmox.com/en/products/proxmox-virtual-environment/overview">https://www.proxmox.com/en/products/proxmox-virtual-environment/overview</a></li>
 </ul>
@@ -8834,10 +9026,12 @@ retains that acceptance work.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f2ca64eb6e8b88d953d4b1367c0a0df2">17.1 - Ansible</h1>
     <div class="lead">Ansible setup</div>
+	
 	
 </div>
 
@@ -8862,12 +9056,14 @@ retains that acceptance work.</p>
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-366c1a88decdd36e387c1a371fcd7d3a">17.2 - OpenSpec</h1>
     
 	
+	
 </div>
 
 
@@ -8887,12 +9083,14 @@ retains that acceptance work.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-d7890ee0335586a20f7c9c6dd375c4b9">17.2.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -8912,12 +9110,14 @@ retains that acceptance work.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-be69b49a44017abab7218b82de5b051e">17.2.1.1 - Infra pve</h1>
     
 	
+	
 </div>
 
 
@@ -8938,10 +9138,12 @@ retains that acceptance work.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-3947b603777d539dd93f2fcdbab24f9e">17.2.1.1.1 - Proxmox infrastructure Specification</h1>
     
+	
 	<span id="print-f2ebab15af42864005c5c748c28f51e0-proxmox-infrastructure-specification"></span><h2 id="print-f2ebab15af42864005c5c748c28f51e0-purpose">Purpose<a class="td-heading-self-link" href="#print-f2ebab15af42864005c5c748c28f51e0-purpose" aria-label="Heading self-link"></a></h2><p>Specify the Proxmox cluster configuration, resource pools, and bootstrap test
 VM owned by <code>infra/pve</code>. The baseline is checked-in source at revision
 <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>, observed on 2026-09-08.
@@ -9010,10 +9212,12 @@ selects the <code>tf</code>, <code>pve_login</code>, and <code>vault_env=default
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-195be88060bc7097e3e1ea580534605d">17.2.1.2 - Owned dns</h1>
     
+	
 	
 </div>
 
@@ -9035,10 +9239,12 @@ selects the <code>tf</code>, <code>pve_login</code>, and <code>vault_env=default
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-eb926d93af8c4824bab6617b9c239447">17.2.1.2.1 - owned-dns Specification</h1>
     
+	
 	<span id="print-173f55f59f4771cd3fb1b6de65cd0f6a-owned-dns-specification"></span><h2 id="print-173f55f59f4771cd3fb1b6de65cd0f6a-purpose">Purpose<a class="td-heading-self-link" href="#print-173f55f59f4771cd3fb1b6de65cd0f6a-purpose" aria-label="Heading self-link"></a></h2><p>Define Proxmox cluster DNS management through the owner&rsquo;s <code>tf</code> root,
 including canonical declarations, scoped credentials, and offline source checks
 before adopting live records.</p>
@@ -9118,10 +9324,12 @@ without proving PVE host or API health</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-77d854308dcf639524b72459ae4fe51a">17.3 - Tf</h1>
     <div class="lead">Terraform config</div>
+	
 	<p>Use this package&rsquo;s <code>dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> targets for the
 <a href="/docs/infra/dns/">scoped DNS adoption workflow</a>.
 They select <code>dns=1</code> and target <code>module.dns</code> in this root, retaining the
@@ -9163,10 +9371,12 @@ existing Proxmox authentication.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f7f2643a5f2576515f43937484765338">18 - Repositories</h1>
     <div class="lead">Shared organization, repository, and access configuration</div>
+	
 	<p>This project owns the organization and repository catalog consumed by
 <a href="/docs/infra/github/tf/">GitHub</a>, <a href="/docs/infra/gitlab/tf/">GitLab</a>, and
 <a href="/docs/infra/forgejo/tf/">Forgejo</a>. Named organization administrators and
@@ -9230,10 +9440,12 @@ adoption evidence live in <a href="openspec/changes/archive/2026-09-13-adopt-sha
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-55eeda5c6e0ebc1f007e70cfb4128891">18.1 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -9255,10 +9467,12 @@ adoption evidence live in <a href="openspec/changes/archive/2026-09-13-adopt-sha
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-bf32c28e38c1d96ed1558a29973640b5">18.1.1 - repository-catalog Specification</h1>
     
+	
 	<span id="print-acc40b601934fff97691d69673e0c63a-repository-catalog-specification"></span><h2 id="print-acc40b601934fff97691d69673e0c63a-purpose">Purpose<a class="td-heading-self-link" href="#print-acc40b601934fff97691d69673e0c63a-purpose" aria-label="Heading self-link"></a></h2><p>Define shared organization, repository identity, naming, and named access
 configuration for the GitHub, GitLab, and Forgejo infrastructure consumers.</p>
 <h2 id="print-acc40b601934fff97691d69673e0c63a-requirements">Requirements<a class="td-heading-self-link" href="#print-acc40b601934fff97691d69673e0c63a-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-acc40b601934fff97691d69673e0c63a-requirement-authoritative-organization-and-repository-inventory">Requirement: Authoritative organization and repository inventory<a class="td-heading-self-link" href="#print-acc40b601934fff97691d69673e0c63a-requirement-authoritative-organization-and-repository-inventory" aria-label="Heading self-link"></a></h3><p>The repository catalog SHALL store shared defaults and schema version at its
@@ -9367,10 +9581,12 @@ in-place access changes</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-17bd46f184939acc851df4aa7caadba6">18.2 - Repository catalog module</h1>
     
+	
 	<p>This provider-free Terraform module reads the <a href="/docs/infra/repos/">catalog files</a>, merges
 forge defaults, and projects organization-owned repository names and settings
 for each consumer. It creates no resources and uses no credentials.</p>
@@ -9409,10 +9625,12 @@ where resources were already managed.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-95cba8b3ed22c10a5100d55825434c19">19 - Source repository</h1>
     <div class="lead">Repository evolution specifications and workflow history</div>
+	
 	<p>This project owns the <a href="/docs/infra/src/openspec/">OpenSpec workspace</a> describing
 evolution of the alwaldend/src monorepo: its shared structure, build system
 and development workflows. It also retains the index of the goal-to-OpenSpec
@@ -9444,10 +9662,12 @@ It selects this project by default:</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5af29881c75d831958c8737fda369450">19.1 - Repository evolution</h1>
     
+	
 	<span id="print-7e33ab7c282b877266711b62eeedc88f-repository-evolution"></span><p>This OpenSpec workspace describes evolution of the alwaldend/src repository
 itself: its shared structure, build system and development workflows.
 <a href="/docs/infra/src/openspec/specs/repository/spec/"><code>specs/repository/spec.md</code></a> records that contract;
@@ -9521,10 +9741,12 @@ preserves the historical record.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-797285fb2b29d526addf62f1d13cd593">19.1.1 - Goal migration to OpenSpec</h1>
     
+	
 	<span id="print-44481c6e2bf3bb456eeadd73dd49887c-goal-migration-to-openspec"></span><p>On 2026-09-08, all nine tracked maintained project goal records at source commit <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code> were migrated into native OpenSpec changes. Each change now lives in its owning project’s <code>openspec/</code> workspace. Eight completed records are imported as archived history. The Reimu Fumo change remains open with blocked execution and no accepted candidate.</p>
 <p>The <a href="migration.json">machine-readable inventory</a> maps all 222 tracked source files (834,320 bytes) to byte-identical provenance snapshots. Test fixtures and ignored task scratch are outside the maintained-record inventory.</p>
 <h2 id="print-44481c6e2bf3bb456eeadd73dd49887c-record-mapping">Record mapping<a class="td-heading-self-link" href="#print-44481c6e2bf3bb456eeadd73dd49887c-record-mapping" aria-label="Heading self-link"></a></h2><table>
@@ -9617,10 +9839,12 @@ preserves the historical record.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e3135e085da4f78ec330ee138101d625">19.1.2 - Specifications</h1>
     
+	
 	
 </div>
 
@@ -9641,12 +9865,14 @@ preserves the historical record.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-c89e4e9d0c707f8d826f4615743a81e2">19.1.2.1 - Go mod version</h1>
     
 	
+	
 </div>
 
 
@@ -9667,10 +9893,12 @@ preserves the historical record.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-cc3c87837ad1ff9bf91f41890da9af88">19.1.2.1.1 - go-mod-version Specification</h1>
     
+	
 	<span id="print-94ba0afea6b2cedcd3970d33f46ae336-go-mod-version-specification"></span><h2 id="print-94ba0afea6b2cedcd3970d33f46ae336-purpose">Purpose<a class="td-heading-self-link" href="#print-94ba0afea6b2cedcd3970d33f46ae336-purpose" aria-label="Heading self-link"></a></h2><p>Keep tracked <code>go.mod</code> files on the Go version configured for
 <a href="/docs/tools/go_mod/"><code>tools/go_mod</code></a>.</p>
 <p>Sources: <a href="/docs/tools/go_mod/">tool README</a>,
@@ -9715,10 +9943,12 @@ version</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-dd9917d740995ee077e3bb86cf310119">19.1.2.2 - Repository</h1>
     
+	
 	
 </div>
 
@@ -9740,10 +9970,12 @@ version</li>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-c8750e23cfc87061c0ef77ac0fe6060a">19.1.2.2.1 - Repository Evolution Specification</h1>
     
+	
 	<span id="print-c378dc05c1ccc435141658b0f6b0a137-repository-evolution-specification"></span><h2 id="print-c378dc05c1ccc435141658b0f6b0a137-purpose">Purpose<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-purpose" aria-label="Heading self-link"></a></h2><p>Define how the alwaldend/src monorepo evolves its shared structure, build
 system and development workflows. Component behavior is specified in each
 owner&rsquo;s local OpenSpec workspace. This baseline was inspected at source revision
@@ -9969,10 +10201,12 @@ files. Runner infrastructure acceptance probes SHALL NOT be part of normal CI.</
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-1d52fb56e439607549df402df14e43e7">20 - threexui</h1>
     <div class="lead">3x-ui</div>
+	
 	<h2 id="print-a222de584d9850c7b3584c1204012b05-links">Links<a class="td-heading-self-link" href="#print-a222de584d9850c7b3584c1204012b05-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://docs.sanaei.dev/">https://docs.sanaei.dev/</a></li>
 <li>Releases: <a href="https://github.com/MHSanaei/3x-ui/releases">https://github.com/MHSanaei/3x-ui/releases</a></li>
@@ -10000,10 +10234,12 @@ files. Runner infrastructure acceptance probes SHALL NOT be part of normal CI.</
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-0285e5414ecda3e14ec3377e1c3ca7ec">20.1 - Ansible</h1>
     <div class="lead">Ansible setup</div>
+	
 	
 </div>
 
@@ -10028,12 +10264,14 @@ files. Runner infrastructure acceptance probes SHALL NOT be part of normal CI.</
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-fe0a81d975bbd8838fc8a4baa9ccba81">20.2 - OpenSpec</h1>
     
 	
+	
 </div>
 
 
@@ -10053,12 +10291,14 @@ files. Runner infrastructure acceptance probes SHALL NOT be part of normal CI.</
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-ce33a6d1eb07fbd6e5c53dc1be5377f8">20.2.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -10078,12 +10318,14 @@ files. Runner infrastructure acceptance probes SHALL NOT be part of normal CI.</
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-f9c82f803286c6b714cbfd8cf8229b52">20.2.1.1 - Infra threexui</h1>
     
 	
+	
 </div>
 
 
@@ -10104,10 +10346,12 @@ files. Runner infrastructure acceptance probes SHALL NOT be part of normal CI.</
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-b17734a8ea31e989c276c4d2af121fe5">20.2.1.1.1 - Infrastructure 3x-ui</h1>
     
+	
 	<span id="print-c81fa215ad21b2f7a7bf828c1150a6a6-infrastructure-3x-ui"></span><h2 id="print-c81fa215ad21b2f7a7bf828c1150a6a6-purpose">Purpose<a class="td-heading-self-link" href="#print-c81fa215ad21b2f7a7bf828c1150a6a6-purpose" aria-label="Heading self-link"></a></h2><p>Describe 3x-ui provisioning, host deployment, node routing configuration, and
 the subscription URL transformer. This baseline describes checked-in source,
 not verified live node access. The advertised host-only subscription command
@@ -10182,10 +10426,12 @@ return a nonzero exit status when input reading or URL parsing fails.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-6327c323b9fabf353ec015bbe960afe7">20.2.1.2 - Owned dns</h1>
     
+	
 	
 </div>
 
@@ -10207,10 +10453,12 @@ return a nonzero exit status when input reading or URL parsing fails.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-e6aae853bbcbc2be261d633e4b35ff39">20.2.1.2.1 - owned-dns Specification</h1>
     
+	
 	<span id="print-6a942adb1557116d41e776b468fcbb2d-owned-dns-specification"></span><h2 id="print-6a942adb1557116d41e776b468fcbb2d-purpose">Purpose<a class="td-heading-self-link" href="#print-6a942adb1557116d41e776b468fcbb2d-purpose" aria-label="Heading self-link"></a></h2><p>Define retained 3x-ui DNS ownership through the owner&rsquo;s <code>tf_setup</code> root,
 including canonical declarations, scoped execution, and offline source checks.</p>
 <h2 id="print-6a942adb1557116d41e776b468fcbb2d-requirements">Requirements<a class="td-heading-self-link" href="#print-6a942adb1557116d41e776b468fcbb2d-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-6a942adb1557116d41e776b468fcbb2d-requirement-owner-local-dns-configuration">Requirement: Owner-local DNS configuration<a class="td-heading-self-link" href="#print-6a942adb1557116d41e776b468fcbb2d-requirement-owner-local-dns-configuration" aria-label="Heading self-link"></a></h3><p>The <code>tf_setup</code> root SHALL consume this owner&rsquo;s canonical <code>dnsconfig.json</code> through
@@ -10287,10 +10535,12 @@ without Vault authentication or DNS provider access.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-9f45366f1c27fe41503e491be089db11">20.3 - sub</h1>
     <div class="lead">Fetch subscriptions and fix them</div>
+	
 	
 </div>
 
@@ -10315,12 +10565,14 @@ without Vault authentication or DNS provider access.</p>
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-0c61b5306eb2ede5d5fb46f298e59667">20.4 - Tf</h1>
     <div class="lead">Terraform config</div>
 	
+	
 </div>
 
 
@@ -10345,10 +10597,12 @@ without Vault authentication or DNS provider access.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-0fb932b22c95b085c45384ac9291e3ba">20.5 - Tf setup</h1>
     <div class="lead">Terraform setup</div>
+	
 	<p>Use this package&rsquo;s <code>dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> targets for the
 <a href="/docs/infra/dns/">scoped DNS adoption workflow</a>.</p>
 <p>DNS ownership is enabled by default after the verified 2026-09-13 adoption.
@@ -10386,10 +10640,12 @@ reviewed saved plan, and ordinary service authentication remains separate.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5cd70630a434016d9c3e4a768a96f449">21 - Vault</h1>
     <div class="lead">Setup for vault.dc1.alwaldend.com</div>
+	
 	<h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-links">Links<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Intermediate CA: <a href="https://developer.hashicorp.com/vault/tutorials/pki/pki-engine-external-ca">https://developer.hashicorp.com/vault/tutorials/pki/pki-engine-external-ca</a></li>
 <li>ACME: <a href="https://developer.hashicorp.com/vault/docs/secrets/pki/acme">https://developer.hashicorp.com/vault/docs/secrets/pki/acme</a></li>
@@ -10433,7 +10689,46 @@ reviewed saved plan, and ordinary service authentication remains separate.</p>
 <h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-generate-an-eab-for-acme">Generate an EAB for ACME<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-generate-an-eab-for-acme" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/vault -- write -f pki/ica_servers/roles/ica_servers_dc1_pve1/acme/new-eab
 </span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-sign-a-client-ssh-key">Sign a client ssh key<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-sign-a-client-ssh-key" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //:vault -- write ssh/clients/sign/admins <span class="nv">ttl</span><span class="o">=</span><span class="m">30000000</span>  <span class="nv">public_key</span><span class="o">=</span>@<span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.ssh/key&#34;</span>
 </span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-revoke-all-tokens">Revoke all tokens<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-revoke-all-tokens" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/vault -- token revoke -mode<span class="o">=</span>path auth
-</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-vault-certificates">Vault certificates<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-vault-certificates" aria-label="Heading self-link"></a></h2><p>Vault certificates (<code>tls_cert_file</code>, <code>tls_key_file</code>) should be updated manually</p>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-vault-certificates">Vault certificates<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-vault-certificates" aria-label="Heading self-link"></a></h2><p>Renew the Vault server certificate through its Ansible role. The <code>vault_tls</code>
+tag issues a certificate, installs its chain and private key, and reloads Vault
+with SIGHUP. It stops on certificate errors and does not run the host setup,
+package installation, or service restart tasks.</p>
+<p>Run from the repository root. Keep SSH host verification enabled by deriving a
+temporary <code>known_hosts</code> entry from the repository-owned public SSH CA:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">vault_recovery_dir</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">/out/vault-certificate-recovery&#34;</span>
+</span></span><span class="line"><span class="cl">mkdir -p <span class="s2">&#34;</span><span class="si">${</span><span class="nv">vault_recovery_dir</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s1">&#39;@cert-authority host1.vault.alwaldend.com,host1.vault.dc1.alwaldend.com %s\n&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  <span class="s2">&#34;</span><span class="k">$(</span>cat infra/vault/tf/output/ssh_ca_servers.crt<span class="k">)</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  &gt;<span class="s2">&#34;</span><span class="si">${</span><span class="nv">vault_recovery_dir</span><span class="si">}</span><span class="s2">/ssh_known_hosts&#34;</span>
+</span></span></code></pre></div><p>For an expired server certificate, temporarily disable Vault certificate
+verification for this recovery command only. The SSH options trust that CA
+only for this invocation and retain the existing SSH certificate&rsquo;s host alias:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">env <span class="nv">VAULT_SKIP_VERIFY</span><span class="o">=</span><span class="nb">true</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  <span class="nv">ANSIBLE_SSH_COMMON_ARGS</span><span class="o">=</span><span class="s2">&#34;-o StrictHostKeyChecking=yes \
+</span></span></span><span class="line"><span class="cl"><span class="s2">-o HostKeyAlias=host1.vault.alwaldend.com \
+</span></span></span><span class="line"><span class="cl"><span class="s2">-o UserKnownHostsFile=\&#34;</span><span class="si">${</span><span class="nv">vault_recovery_dir</span><span class="si">}</span><span class="s2">/ssh_known_hosts\&#34;&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  bazel_agent bazel run //infra/vault/ansible:ansible -- <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --limit host1.vault.alwaldend.com --tags vault_tls
+</span></span></code></pre></div><p>Vault must be reachable and unsealed, and the host token must allow the
+component&rsquo;s AppRole login. If that token has expired, connect the login YubiKey
+and refresh it first:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/vault/login -- simeonwarren --insecure
+</span></span></code></pre></div><p>This login replaces the host token. Stop if it fails; a missing YubiKey cannot
+be fixed by disabling TLS verification. Neither command changes the persistent
+TLS verification configuration. Do not add the bypass to shell profiles,
+<code>al.lua</code>, or Ansible defaults, and do not use verbose or diff output for the
+certificate tasks. The temporary public <code>known_hosts</code> projection does not
+modify the host&rsquo;s SSH configuration; do not replace it with an unverified
+<code>ssh-keyscan</code> result or disable SSH host verification.</p>
+<p>After renewal, verify Vault with certificate validation enabled:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">env -u VAULT_SKIP_VERIFY bazel_agent bazel run //:vault.status
+</span></span></code></pre></div><p>For renewal before expiry, omit <code>VAULT_SKIP_VERIFY=true</code> from the Ansible
+command. The current inventory serves Vault from <code>host1</code>; review the inventory
+before changing the host limit. Its inventory name remains
+<code>host1.vault.alwaldend.com</code> to preserve the Vault node identity; <code>ansible_host</code>
+connects through the DNS-owned name <code>host1.vault.dc1.alwaldend.com</code>. Certificate
+alternate names include this connection hostname for the existing unseal
+endpoint, as well as the shared Vault service names.</p>
 <h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-read-oidc-client-info">Read OIDC client info<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-read-oidc-client-info" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/vault -- <span class="nb">read</span> identity/oidc/client/src_infra_dc1_forgejo1_provider
 </span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-read-all-entity-aliases">Read all entity aliases<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-read-all-entity-aliases" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"> bazel run //infra/vault -- list -format json identity/entity-alias/id <span class="p">|</span> jq <span class="s2">&#34;.[]&#34;</span> <span class="p">|</span> xargs <span class="s2">&#34;-I{}&#34;</span> bazel run //infra/vault -- <span class="nb">read</span> <span class="s2">&#34;identity/entity-alias/id/{}&#34;</span>
 </span></span></code></pre></div>
@@ -10457,10 +10752,12 @@ reviewed saved plan, and ordinary service authentication remains separate.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f68ccfab09e0692ff0158601a5e103f8">21.1 - Ansible</h1>
     <div class="lead">Ansible setup</div>
+	
 	
 </div>
 
@@ -10485,12 +10782,14 @@ reviewed saved plan, and ordinary service authentication remains separate.</p>
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c4bdea1117868c72c09956b3bf4ff2e4">21.2 - OpenSpec</h1>
     
 	
+	
 </div>
 
 
@@ -10510,12 +10809,14 @@ reviewed saved plan, and ordinary service authentication remains separate.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-bea9ef6384c26c2b848330454cfb8f04">21.2.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -10535,12 +10836,14 @@ reviewed saved plan, and ordinary service authentication remains separate.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-3167958df2125a400fedd87c10ead900">21.2.1.1 - Download identity</h1>
     
 	
+	
 </div>
 
 
@@ -10561,10 +10864,12 @@ reviewed saved plan, and ordinary service authentication remains separate.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-5f0e0f2fceb8b6c27cb5d66b6c363bbf">21.2.1.1.1 - download-identity Specification</h1>
     
+	
 	<span id="print-079c75616bed12e70836a2fe63800d76-download-identity-specification"></span><h2 id="print-079c75616bed12e70836a2fe63800d76-purpose">Purpose<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-purpose" aria-label="Heading self-link"></a></h2><p>Provide a dedicated Vault identity for download infrastructure while keeping
 state, credential references, and provider permissions scoped to its needs.</p>
 <h2 id="print-079c75616bed12e70836a2fe63800d76-requirements">Requirements<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-079c75616bed12e70836a2fe63800d76-requirement-dedicated-component-authentication">Requirement: Dedicated component authentication<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-requirement-dedicated-component-authentication" aria-label="Heading self-link"></a></h3><p>Vault configuration SHALL declare <code>src_infra_download</code> using the existing
@@ -10624,10 +10929,12 @@ one owner in the core Vault stage.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-77540bb31cf313b3f152ea0168a02a91">21.2.1.2 - Infra vault</h1>
     
+	
 	
 </div>
 
@@ -10649,10 +10956,12 @@ one owner in the core Vault stage.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-24d61639a1d6cb6c91dca8cfe2331506">21.2.1.2.1 - Infrastructure Vault</h1>
     
+	
 	<span id="print-1b50ce3ae542cee99e93840e275bbd4a-infrastructure-vault"></span><h2 id="print-1b50ce3ae542cee99e93840e275bbd4a-purpose">Purpose<a class="td-heading-self-link" href="#print-1b50ce3ae542cee99e93840e275bbd4a-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Vault host configuration, authentication and certificate services,
 and packaged recovery entry points. This baseline concerns checked-in desired
 state and supported wrapper structure; it does not establish live unsealed
@@ -10738,6 +11047,30 @@ provider secret or duplicate credential values.</p>
 <li><strong>THEN</strong> its DNS policy grants reads for both existing credential references</li>
 <li><strong>AND</strong> neither read policy grants mutation of the provider credential</li>
 </ul>
+<h3 id="print-1b50ce3ae542cee99e93840e275bbd4a-requirement-recover-an-expired-server-certificate-with-scoped-ansible-tasks">Requirement: Recover an expired server certificate with scoped Ansible tasks<a class="td-heading-self-link" href="#print-1b50ce3ae542cee99e93840e275bbd4a-requirement-recover-an-expired-server-certificate-with-scoped-ansible-tasks" aria-label="Heading self-link"></a></h3><p>The packaged Vault Ansible workflow SHALL expose a <code>vault_tls</code> tag that issues
+and installs the configured server certificate and private key, then reloads
+Vault. Selecting only this tag SHALL NOT update packages, the service binary,
+host configuration, or Raft peers. Certificate material SHALL be suppressed
+from task output. Explicit certificate renewal SHALL stop on issuance or
+installation failure before reloading the service.</p>
+<h4 id="print-1b50ce3ae542cee99e93840e275bbd4a-scenario-renew-one-authorized-hosts-certificate">Scenario: Renew one authorized host&rsquo;s certificate<a class="td-heading-self-link" href="#print-1b50ce3ae542cee99e93840e275bbd4a-scenario-renew-one-authorized-hosts-certificate" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the operator selects <code>vault_tls</code> and limits the play to one Vault host</li>
+<li><strong>THEN</strong> only certificate issuance, certificate and key installation, and
+service reload are selected, in addition to read-only fact gathering</li>
+<li><strong>AND</strong> a failed certificate task prevents the reload</li>
+</ul>
+<h3 id="print-1b50ce3ae542cee99e93840e275bbd4a-requirement-scope-certificate-verification-bypass-to-recovery-invocations">Requirement: Scope certificate-verification bypass to recovery invocations<a class="td-heading-self-link" href="#print-1b50ce3ae542cee99e93840e275bbd4a-requirement-scope-certificate-verification-bypass-to-recovery-invocations" aria-label="Heading self-link"></a></h3><p>The recovery procedure SHALL use an invocation-scoped verification override
+only when an expired server certificate prevents the authorized renewal. It
+SHALL retain the existing Vault authentication and injection flow, require a
+valid bootstrap login, and verify the recovered service with certificate
+validation restored. The procedure SHALL NOT persist insecure TLS defaults.</p>
+<h4 id="print-1b50ce3ae542cee99e93840e275bbd4a-scenario-certificate-expiry-prevents-authenticated-renewal">Scenario: Certificate expiry prevents authenticated renewal<a class="td-heading-self-link" href="#print-1b50ce3ae542cee99e93840e275bbd4a-scenario-certificate-expiry-prevents-authenticated-renewal" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an authorized operator performs the documented recovery</li>
+<li><strong>THEN</strong> the temporary override applies to credential injection and certificate
+issuance within that command</li>
+<li><strong>AND</strong> a failed bootstrap login prevents proceeding to renewal</li>
+<li><strong>AND</strong> success is established separately with normal TLS verification</li>
+</ul>
 
 </div>
 
@@ -10755,10 +11088,12 @@ provider secret or duplicate credential values.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-d2a6992becb69e937df8e91d4dfaf9a6">21.2.1.3 - Owned dns</h1>
     
+	
 	
 </div>
 
@@ -10780,10 +11115,12 @@ provider secret or duplicate credential values.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-142afefc4fc14debbbdc788046fca63a">21.2.1.3.1 - owned-dns Specification</h1>
     
+	
 	<span id="print-8cf28bdb6edf50e14fd6509d0a2cca24-owned-dns-specification"></span><h2 id="print-8cf28bdb6edf50e14fd6509d0a2cca24-purpose">Purpose<a class="td-heading-self-link" href="#print-8cf28bdb6edf50e14fd6509d0a2cca24-purpose" aria-label="Heading self-link"></a></h2><p>Define Vault service DNS management through the owner&rsquo;s <code>tf_setup</code> root,
 including canonical declarations, scoped credentials, and offline source checks
 before adopting live records.</p>
@@ -10862,10 +11199,12 @@ requiring a saved plan</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-76e2c966f28dd06c1b7face04e64fef5">21.3 - Tf</h1>
     <div class="lead">Terraform config</div>
+	
 	<h2 id="print-b7a2418aa7c39d2007559719295c342c-dns-identities">DNS identities<a class="td-heading-self-link" href="#print-b7a2418aa7c39d2007559719295c342c-dns-identities" aria-label="Heading self-link"></a></h2><p><a href="approles_dns.tf">Missing DNS-owner AppRoles</a> compose the existing reusable
 AppRole module with an owner-specific DNS policy in <code>approles/&lt;name&gt;/</code>.
 <a href="dns_access/main.tf">DNS access</a> grants read-only access to the existing
@@ -10902,10 +11241,12 @@ when distinguishing missing deployment from insufficient operator access.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-9f42dd3acd4ae40b5be7877c8f79052f">21.3.1 - Output</h1>
     <div class="lead">Output files</div>
+	
 	
 </div>
 
@@ -10935,10 +11276,12 @@ when distinguishing missing deployment from insufficient operator access.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-9b2a26a59bfce6aa9b63d80cfb3c3160">21.4 - Tf setup</h1>
     <div class="lead">Terraform setup</div>
+	
 	<p>This root owns Vault&rsquo;s canonical <a href="../dnsconfig.json">DNS declaration</a> and
 retains its existing <code>src_infra_dc1_vault</code> AppRole and setup state backend.
 Use <code>//infra/vault/tf_setup:dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> for the
@@ -10981,10 +11324,12 @@ establish the health of other resources in the root.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-8b49a0addabc40b0f61fd163b17b3245">22 - XCP-ng</h1>
     <div class="lead">XCP-ng infrastructure</div>
+	
 	<p>Terraform in <code>tf</code> manages a Xen Orchestra resource set for every
 entity in Vault&rsquo;s <code>approles</code> group, following <code>infra/pve/tf</code>. Resource sets
 are the XO grouping and delegation mechanism; XCP-ng host pools represent
@@ -11111,10 +11456,12 @@ Resume preserves that VM and refuses any attached disk or network interface.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e0a7efff94f69b156c140eb1dac3a021">22.1 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -11135,12 +11482,14 @@ Resume preserves that VM and refuses any attached disk or network interface.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-8301024b28e9aea11ad94dce9dee4c6f">22.1.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -11160,12 +11509,14 @@ Resume preserves that VM and refuses any attached disk or network interface.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-ac467e6075f46b4a2de593af1c355b1d">22.1.1.1 - Infra xcp ng</h1>
     
 	
+	
 </div>
 
 
@@ -11186,10 +11537,12 @@ Resume preserves that VM and refuses any attached disk or network interface.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-3d1c25cdada8f9c68821eda2e8cc3f73">22.1.1.1.1 - XCP-ng infrastructure Specification</h1>
     
+	
 	<span id="print-fc99bcdbc54d2d044f2190f11fa5f5cb-xcp-ng-infrastructure-specification"></span><h2 id="print-fc99bcdbc54d2d044f2190f11fa5f5cb-purpose">Purpose<a class="td-heading-self-link" href="#print-fc99bcdbc54d2d044f2190f11fa5f5cb-purpose" aria-label="Heading self-link"></a></h2><p>Specify Xen Orchestra resource delegation, scoped authentication, and
 certificate deployment owned by <code>infra/xcp_ng</code>. The baseline is checked-in
 source at revision <code>550d7e79b1f5fdbc2b6017b75178471d6914082f</code>, observed on
@@ -11278,10 +11631,12 @@ retry tracked independently of issuance, while preserving running VMs.</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-49fd33addbab6d3fd9bbaac9f1cf1910">22.1.1.2 - Owned dns</h1>
     
+	
 	
 </div>
 
@@ -11303,10 +11658,12 @@ retry tracked independently of issuance, while preserving running VMs.</li>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-54e4b5f8ef0b3b55342c1d194f10b60e">22.1.1.2.1 - owned-dns Specification</h1>
     
+	
 	<span id="print-8c641e6d61c1fbfc02b2ea0e6bb040c0-owned-dns-specification"></span><h2 id="print-8c641e6d61c1fbfc02b2ea0e6bb040c0-purpose">Purpose<a class="td-heading-self-link" href="#print-8c641e6d61c1fbfc02b2ea0e6bb040c0-purpose" aria-label="Heading self-link"></a></h2><p>Define XCP-ng infrastructure DNS management through the owner&rsquo;s <code>tf</code> root,
 including canonical declarations, scoped execution, and offline source checks
 through preparation, adoption, and ongoing reconciliation.</p>
@@ -11390,10 +11747,12 @@ plan, show, and apply commands</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-20a95b014b094a42ec41f4b923b24d6e">22.2 - Terraform</h1>
     <div class="lead">AppRole resource sets and Vault-backed Xen Orchestra authentication</div>
+	
 	<p>This configuration manages one Xen Orchestra resource set per Vault AppRole
 and configures the installed XO OIDC plugin through a packaged JSON-RPC helper.
 See the <a href="/docs/infra/xcp_ng/">project documentation</a> for requirements and checks.</p>
@@ -11468,10 +11827,12 @@ Keep that default enabled to retain the imported records.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-04bdc1aeae9677c6e4b1ed106c9d55f1">22.3 - Xen Orchestra certificates</h1>
     <div class="lead">Vault ACME certificate issuance and renewal for the XOA appliance</div>
+	
 	<p>This playbook installs Debian&rsquo;s Certbot package and obtains a certificate for
 <code>xoa.xcp-ng.alwaldend.com</code> and <code>host1.xoa.xcp-ng.alwaldend.com</code> from the Vault
 <code>src_infra_xcp_ng_pki_server</code> ACME role. The XCP-ng AppRole creates the
@@ -11563,10 +11924,12 @@ required.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-36e2592e6caab35c9314fa600b14e721">23 - Yandex Cloud</h1>
     <div class="lead">Yandex Cloud (yandex.cloud)</div>
+	
 	<h2 id="print-b1be8d5bcd9a2df9e42e6eb78406b380-links">Links<a class="td-heading-self-link" href="#print-b1be8d5bcd9a2df9e42e6eb78406b380-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://yandex.cloud">https://yandex.cloud</a></li>
 </ul>
@@ -11591,10 +11954,12 @@ required.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-08d7d15440d306a7d9feeba172c519f3">23.1 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -11616,10 +11981,12 @@ required.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-3a7c9121bc2291b77479fe9850ed86ff">23.1.1 - Infrastructure Yandex Cloud</h1>
     
+	
 	<span id="print-24250563809f7496ea99a975426c977b-infrastructure-yandex-cloud"></span><h2 id="print-24250563809f7496ea99a975426c977b-purpose">Purpose<a class="td-heading-self-link" href="#print-24250563809f7496ea99a975426c977b-purpose" aria-label="Heading self-link"></a></h2><p>Describe organization-level Yandex Cloud folder provisioning derived from Vault
 AppRole identities. The direct <code>infra/yandex_cloud</code> owner currently contains one
 concrete organization package, <code>org1</code>, covered here. This baseline does not
@@ -11678,10 +12045,12 @@ the package SHALL also expose the configured Terraform test map.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-99d6b8f5d9e3de62236ef3e394e0c6a4">23.2 - Org1</h1>
     <div class="lead">Organization 1</div>
+	
 	<h2 id="print-9fdc577c4eff6ef030c00a05958417b0-links">Links<a class="td-heading-self-link" href="#print-9fdc577c4eff6ef030c00a05958417b0-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://yandex.cloud">https://yandex.cloud</a></li>
 </ul>
@@ -11706,10 +12075,12 @@ the package SHALL also expose the configured Terraform test map.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-8b57f168db4c5e422e802143cb3f78df">23.2.1 - Tf</h1>
     <div class="lead">Terraform config</div>
+	
 	
 </div>
 

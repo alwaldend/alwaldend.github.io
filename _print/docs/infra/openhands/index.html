@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="OpenHands">
 	<meta itemprop="description" content="openhands.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
 	<meta itemprop="wordCount" content="490">
 	<meta itemprop="keywords" content="Openhands,Traefik,Terraform,Ansible">
 	<meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -366,10 +366,12 @@ use, so no separate state bucket is required.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-89791524f15a8b6f60e56e61e12d2ef9">1 - Ansible</h1>
     <div class="lead">OpenHands deployment</div>
+	
 	<p>Deploys the OpenHands components. The inventory has three hosts in three
 groups, and the playbook applies one component role per group:</p>
 <table>
@@ -442,10 +444,12 @@ from the environment the AL Vault injector populates.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-81dd6021af57efa57f1fa284d5a6b4f4">2 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -467,10 +471,12 @@ from the environment the AL Vault injector populates.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-16ac8598b912ab872f5988b6ff5a261d">2.1 - owned-dns Specification</h1>
     
+	
 	<span id="print-f89ca4b71cc1c0aace91c4551d444375-owned-dns-specification"></span><h2 id="print-f89ca4b71cc1c0aace91c4551d444375-purpose">Purpose<a class="td-heading-self-link" href="#print-f89ca4b71cc1c0aace91c4551d444375-purpose" aria-label="Heading self-link"></a></h2><p>Define OpenHands DNS management through the owner&rsquo;s <code>tf_setup</code> root,
 including canonical declarations, scoped credentials, and offline source checks
 before adopting live records.</p>
@@ -556,10 +562,12 @@ without establishing VM or service health</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-79d60ced759354cdab77ecbf73d0ef26">3 - Tf setup</h1>
     <div class="lead">Terraform setup</div>
+	
 	<p>This package creates Xen Orchestra VMs in the <code>src_infra_openhands</code> resource
 set for the three OpenHands components that run off host-bot: Agent Canvas,
 the agent server, and the automation server. <code>infra/openhands/al.lua</code>

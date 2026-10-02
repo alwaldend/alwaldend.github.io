@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="Vault">
 	<meta itemprop="description" content="Setup for vault.dc1.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
-	<meta itemprop="wordCount" content="271">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
+	<meta itemprop="wordCount" content="589">
 	<meta itemprop="keywords" content="Ansible,Terraform">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Vault">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -171,7 +171,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -4246,7 +4246,46 @@
 <h2 id="generate-an-eab-for-acme">Generate an EAB for ACME<a class="td-heading-self-link" href="#generate-an-eab-for-acme" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/vault -- write -f pki/ica_servers/roles/ica_servers_dc1_pve1/acme/new-eab
 </span></span></code></pre></div><h2 id="sign-a-client-ssh-key">Sign a client ssh key<a class="td-heading-self-link" href="#sign-a-client-ssh-key" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //:vault -- write ssh/clients/sign/admins <span class="nv">ttl</span><span class="o">=</span><span class="m">30000000</span>  <span class="nv">public_key</span><span class="o">=</span>@<span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.ssh/key&#34;</span>
 </span></span></code></pre></div><h2 id="revoke-all-tokens">Revoke all tokens<a class="td-heading-self-link" href="#revoke-all-tokens" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/vault -- token revoke -mode<span class="o">=</span>path auth
-</span></span></code></pre></div><h2 id="vault-certificates">Vault certificates<a class="td-heading-self-link" href="#vault-certificates" aria-label="Heading self-link"></a></h2><p>Vault certificates (<code>tls_cert_file</code>, <code>tls_key_file</code>) should be updated manually</p>
+</span></span></code></pre></div><h2 id="vault-certificates">Vault certificates<a class="td-heading-self-link" href="#vault-certificates" aria-label="Heading self-link"></a></h2><p>Renew the Vault server certificate through its Ansible role. The <code>vault_tls</code>
+tag issues a certificate, installs its chain and private key, and reloads Vault
+with SIGHUP. It stops on certificate errors and does not run the host setup,
+package installation, or service restart tasks.</p>
+<p>Run from the repository root. Keep SSH host verification enabled by deriving a
+temporary <code>known_hosts</code> entry from the repository-owned public SSH CA:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">vault_recovery_dir</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">/out/vault-certificate-recovery&#34;</span>
+</span></span><span class="line"><span class="cl">mkdir -p <span class="s2">&#34;</span><span class="si">${</span><span class="nv">vault_recovery_dir</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s1">&#39;@cert-authority host1.vault.alwaldend.com,host1.vault.dc1.alwaldend.com %s\n&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  <span class="s2">&#34;</span><span class="k">$(</span>cat infra/vault/tf/output/ssh_ca_servers.crt<span class="k">)</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  &gt;<span class="s2">&#34;</span><span class="si">${</span><span class="nv">vault_recovery_dir</span><span class="si">}</span><span class="s2">/ssh_known_hosts&#34;</span>
+</span></span></code></pre></div><p>For an expired server certificate, temporarily disable Vault certificate
+verification for this recovery command only. The SSH options trust that CA
+only for this invocation and retain the existing SSH certificate&rsquo;s host alias:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">env <span class="nv">VAULT_SKIP_VERIFY</span><span class="o">=</span><span class="nb">true</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  <span class="nv">ANSIBLE_SSH_COMMON_ARGS</span><span class="o">=</span><span class="s2">&#34;-o StrictHostKeyChecking=yes \
+</span></span></span><span class="line"><span class="cl"><span class="s2">-o HostKeyAlias=host1.vault.alwaldend.com \
+</span></span></span><span class="line"><span class="cl"><span class="s2">-o UserKnownHostsFile=\&#34;</span><span class="si">${</span><span class="nv">vault_recovery_dir</span><span class="si">}</span><span class="s2">/ssh_known_hosts\&#34;&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  bazel_agent bazel run //infra/vault/ansible:ansible -- <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --limit host1.vault.alwaldend.com --tags vault_tls
+</span></span></code></pre></div><p>Vault must be reachable and unsealed, and the host token must allow the
+component&rsquo;s AppRole login. If that token has expired, connect the login YubiKey
+and refresh it first:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/vault/login -- simeonwarren --insecure
+</span></span></code></pre></div><p>This login replaces the host token. Stop if it fails; a missing YubiKey cannot
+be fixed by disabling TLS verification. Neither command changes the persistent
+TLS verification configuration. Do not add the bypass to shell profiles,
+<code>al.lua</code>, or Ansible defaults, and do not use verbose or diff output for the
+certificate tasks. The temporary public <code>known_hosts</code> projection does not
+modify the host&rsquo;s SSH configuration; do not replace it with an unverified
+<code>ssh-keyscan</code> result or disable SSH host verification.</p>
+<p>After renewal, verify Vault with certificate validation enabled:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">env -u VAULT_SKIP_VERIFY bazel_agent bazel run //:vault.status
+</span></span></code></pre></div><p>For renewal before expiry, omit <code>VAULT_SKIP_VERIFY=true</code> from the Ansible
+command. The current inventory serves Vault from <code>host1</code>; review the inventory
+before changing the host limit. Its inventory name remains
+<code>host1.vault.alwaldend.com</code> to preserve the Vault node identity; <code>ansible_host</code>
+connects through the DNS-owned name <code>host1.vault.dc1.alwaldend.com</code>. Certificate
+alternate names include this connection hostname for the existing unseal
+endpoint, as well as the shared Vault service names.</p>
 <h2 id="read-oidc-client-info">Read OIDC client info<a class="td-heading-self-link" href="#read-oidc-client-info" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/vault -- <span class="nb">read</span> identity/oidc/client/src_infra_dc1_forgejo1_provider
 </span></span></code></pre></div><h2 id="read-all-entity-aliases">Read all entity aliases<a class="td-heading-self-link" href="#read-all-entity-aliases" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"> bazel run //infra/vault -- list -format json identity/entity-alias/id <span class="p">|</span> jq <span class="s2">&#34;.[]&#34;</span> <span class="p">|</span> xargs <span class="s2">&#34;-I{}&#34;</span> bazel run //infra/vault -- <span class="nb">read</span> <span class="s2">&#34;identity/entity-alias/id/{}&#34;</span>
 </span></span></code></pre></div>

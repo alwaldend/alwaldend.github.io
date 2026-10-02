@@ -46,13 +46,13 @@ RequirementsRequirement: Dedicated K3s registry hostSetup SHALL declare a Proxmo
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
-		<meta property="article:modified_time" content="2026-10-02T00:30:58+03:00">
+		<meta property="article:modified_time" content="2026-10-03T00:16:43+03:00">
 
 	<meta itemprop="name" content="Harbor infrastructure specification">
 	<meta itemprop="description" content="PurposeDescribe the Harbor registry infrastructure owned by infra/harbor, spanning Proxmox setup, K3s host configuration, Flux-managed chart declarations, and Harbor service Terraform. The tf_setup, ansible, cl, and tf packages are implementation stages of this owner. This is a checked-in source baseline, without an observation of live registry availability or deployment success.
 Baseline revision: 550d7e79b1f5fdbc2b6017b75178471d6914082f. Observed: 2026-09-08. Sources: owner README, BUILD, and the implementation links below.
 RequirementsRequirement: Dedicated K3s registry hostSetup SHALL declare a Proxmox VM in the src_infra_harbor pool with two cores, 4096 MiB memory, and 20 GiB boot, 20 GiB K3s data, and 40 GiB K3s storage disks. Ansible SHALL apply the shared host and K3s roles with K3s secrets encryption enabled. Its firewall variables SHALL scope API port 6443 access to the declared Flux host address.">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
 	<meta itemprop="wordCount" content="444">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
@@ -155,7 +155,7 @@ RequirementsRequirement: Dedicated K3s registry hostSetup SHALL declare a Proxmo
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -180,7 +180,7 @@ RequirementsRequirement: Dedicated K3s registry hostSetup SHALL declare a Proxmo
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >

@@ -43,7 +43,7 @@
 	<meta property="og:type" content="website">
 
 	<meta itemprop="name" content="X article publication">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:44+03:00">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="X article publication">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -218,10 +218,12 @@ This is the multi-page printable view of this section.
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-86082217a1ceac33112b1ea1c72e0478">1 - x-article-publication Specification</h1>
     
+	
 	<span id="print-b3e612cbf6a99d214c5c9b738057c7fb-x-article-publication-specification"></span><h2 id="print-b3e612cbf6a99d214c5c9b738057c7fb-purpose">Purpose<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-purpose" aria-label="Heading self-link"></a></h2><p>Create an X Article draft from a converted Markdown post, resolving referenced
 images through the media upload endpoint. The uploader creates drafts only; it
 never publishes an article.</p>
@@ -291,14 +293,14 @@ obtains a <code>media_id</code></li>
 <li><strong>AND</strong> the created draft references that <code>media_id</code> in its <code>image</code> entity</li>
 </ul>
 <h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-already-uploaded-image">Scenario: Reuse an already uploaded image<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-already-uploaded-image" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> the same image content has already been uploaded by this tool</li>
+<li><strong>WHEN</strong> the same image content has a ready upload in the current credential context and a usable lifetime</li>
 <li><strong>THEN</strong> the publisher reuses the recorded <code>media_id</code> rather than uploading the
 same bytes again</li>
 </ul>
 <h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-upload-in-a-later-run">Scenario: Reuse an upload in a later run<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-upload-in-a-later-run" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> draft creation runs again in a new process for an image this tool already uploaded</li>
-<li><strong>THEN</strong> it reads the digest-to-<code>media_id</code> mapping from its own cache and
-reuses the identifier</li>
+<li><strong>THEN</strong> it reuses the identifier only when the cache schema, endpoint, media category,
+credential context, content digest, and conservative expiry all match</li>
 <li><strong>AND</strong> it stays correct when the cache is absent or the recorded digest no
 longer matches the artifact&rsquo;s, by uploading again rather than reusing a stale
 identifier</li>
@@ -314,9 +316,9 @@ identifier</li>
 <li><strong>AND</strong> it does not send an entity that references a missing media identifier</li>
 </ul>
 <h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-expire-a-cached-upload">Scenario: Expire a cached upload<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-expire-a-cached-upload" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> the recorded lifetime of a cached media identifier has passed</li>
+<li><strong>WHEN</strong> the recorded lifetime of a cached media identifier has passed before image resolution begins</li>
 <li><strong>THEN</strong> the cached entry is treated as a miss and the image is uploaded again</li>
-<li><strong>AND</strong> an entry whose lifetime has not passed is still reused</li>
+<li><strong>AND</strong> an entry with enough lifetime for draft submission is still reused</li>
 </ul>
 <h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-cannot-be-uploaded">Scenario: An image cannot be uploaded<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-cannot-be-uploaded" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> an image upload fails</li>
@@ -362,8 +364,26 @@ identifier</li>
 </ul>
 <h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-reporting-and-failure-handling">Requirement: Reporting and failure handling<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-reporting-and-failure-handling" aria-label="Heading self-link"></a></h3><p>The publisher SHALL report the identifier it obtained and SHALL fail loudly
 rather than report success when a request was rejected. Failures MUST identify
-which operation failed and MUST NOT be retried automatically when the response
-indicates an authentication or request error.</p>
+which operation failed and MUST NOT be retried automatically.</p>
+<p>For every non-2xx API response, including HTTP 503, the error SHALL preserve and
+display the original operation, status, body, and only these response headers:
+<code>X-Rate-Limit-Limit</code>, <code>X-Rate-Limit-Remaining</code>, <code>X-Rate-Limit-Reset</code>,
+<code>X-User-Limit-24hour-Limit</code>, <code>X-User-Limit-24hour-Remaining</code>,
+<code>X-User-Limit-24hour-Reset</code>, and <code>Retry-After</code>. It SHALL preserve every value of
+those headers and SHALL NOT copy authorization, cookies, or other headers into
+the error. A rejected response whose body cannot be completely read SHALL
+retain its status and headers alongside the body-read error cause.</p>
+<p>Valid Unix reset timestamps SHALL also be displayed as human-readable UTC.
+A combined rate-limit retry not-before boundary SHALL be reported only when
+known exhausted windows have valid, future reset times at response receipt.
+A window SHALL count as exhausted only when its unambiguous remaining value
+is zero. The boundary SHALL use the latest reset among those windows, extended
+by a valid later <code>Retry-After</code> value interpreted as decimal seconds from receipt
+or an HTTP date. Missing, malformed, ambiguous, or already-elapsed reset data
+for an exhausted window SHALL prevent a combined boundary. A positive remaining
+count or <code>Retry-After</code> alone MUST NOT imply upload eligibility. The diagnostic
+SHALL distinguish a not-before boundary from guaranteed service recovery or
+request success, and SHALL preserve raw values when timing is unknown.</p>
 <h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-report-the-created-identifier">Scenario: Report the created identifier<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-report-the-created-identifier" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a draft is created</li>
 <li><strong>THEN</strong> the publisher reports the draft&rsquo;s article identifier</li>
@@ -371,7 +391,27 @@ indicates an authentication or request error.</p>
 <h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-the-api-rejects-a-request">Scenario: The API rejects a request<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-the-api-rejects-a-request" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> an API request is rejected</li>
 <li><strong>THEN</strong> the publisher reports the failing operation and the API&rsquo;s error</li>
-<li><strong>AND</strong> it does not report the operation as successful</li>
+<li><strong>AND</strong> it does not report the operation as successful or retry automatically</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-service-unavailable-with-remaining-allowance">Scenario: Service unavailable with remaining allowance<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-service-unavailable-with-remaining-allowance" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a 503 response includes remaining allowance and reset headers</li>
+<li><strong>THEN</strong> the error retains those headers and displays readable UTC resets</li>
+<li><strong>AND</strong> it does not claim that the resets guarantee service recovery</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-both-rate-windows-are-exhausted">Scenario: Both rate windows are exhausted<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-both-rate-windows-are-exhausted" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> both remaining counts are zero and both resets are valid future times</li>
+<li><strong>THEN</strong> the rate-limit boundary is no earlier than the later reset</li>
+<li><strong>AND</strong> valid later Retry-After advice extends that boundary</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-timing-evidence-is-incomplete-or-invalid">Scenario: Timing evidence is incomplete or invalid<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-timing-evidence-is-incomplete-or-invalid" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an exhausted window has a missing, malformed, ambiguous, or elapsed reset</li>
+<li><strong>THEN</strong> the diagnostic reports that a current retry time is unknown</li>
+<li><strong>AND</strong> it keeps the original header values without inventing an exact time</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-rejected-response-body-is-truncated">Scenario: A rejected response body is truncated<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-rejected-response-body-is-truncated" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a non-2xx response terminates before its declared body length</li>
+<li><strong>THEN</strong> the error retains the operation, status, partial body, and allowlisted headers</li>
+<li><strong>AND</strong> callers can still inspect the body-read error cause</li>
 </ul>
 <h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-validation-runs-without-network-access">Scenario: Validation runs without network access<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-validation-runs-without-network-access" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the project&rsquo;s checks validate conversion</li>
@@ -402,6 +442,58 @@ digests, and media types before any upload or draft request.</p>
 <li><strong>WHEN</strong> any banner or body locator is malformed, escapes its package, names
 missing bytes, or has a mismatched digest or media type</li>
 <li><strong>THEN</strong> draft creation fails before any media or draft HTTP request</li>
+</ul>
+<h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-media-readiness-before-draft-creation">Requirement: Media readiness before draft creation<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-media-readiness-before-draft-creation" aria-label="Heading self-link"></a></h3><p>The publisher SHALL inspect media processing information before using an upload
+identifier. A response without processing information or with succeeded state
+SHALL require no status request. Pending or in-progress processing SHALL use
+read-only signed status requests, respect the reported delay, and stop within a
+bounded deadline. Failed, unknown, inconsistent, or incomplete processing state,
+partial upload errors, and rejected status requests SHALL prevent draft creation.
+Neither upload nor draft POST requests SHALL be replayed by this workflow.</p>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-static-upload-is-immediately-usable">Scenario: A static upload is immediately usable<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-static-upload-is-immediately-usable" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> upload succeeds without processing information or with succeeded state</li>
+<li><strong>THEN</strong> the publisher makes no processing-status request</li>
+<li><strong>AND</strong> the media identifier can be attached to the draft</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-media-processing-remains-pending">Scenario: Media processing remains pending<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-media-processing-remains-pending" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the upload reports pending or in-progress processing</li>
+<li><strong>THEN</strong> the publisher checks status after the prescribed delay within a finite budget</li>
+<li><strong>AND</strong> it creates a draft only after observing succeeded state</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-processing-cannot-establish-usable-media">Scenario: Processing cannot establish usable media<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-processing-cannot-establish-usable-media" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> processing fails, exceeds its deadline, returns errors, or supplies inconsistent state</li>
+<li><strong>THEN</strong> the publisher reports the media failure without creating a draft</li>
+<li><strong>AND</strong> it does not retry the upload POST</li>
+</ul>
+<h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-credential-scoped-media-cache-validity">Requirement: Credential-scoped media cache validity<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-credential-scoped-media-cache-validity" aria-label="Heading self-link"></a></h3><p>Persistent media reuse SHALL be scoped to the upload endpoint, media category,
+and OAuth credential context without persisting plaintext credentials or
+requesting account identity merely to name the cache. Changing any credential
+field SHALL prevent reuse from the prior context. Unscoped legacy entries SHALL
+be treated as misses.</p>
+<p>A persisted entry SHALL have a known positive lifetime, conservatively anchored
+before upload and accounting for processing time and a submission reserve.
+Missing or zero lifetime SHALL permit reuse only within the current resolution,
+never across resolutions or processes. Negative or already unusable upload
+lifetimes SHALL fail before draft creation.</p>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-token-or-account-changes">Scenario: A token or account changes<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-token-or-account-changes" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> identical image bytes are submitted using a different credential context</li>
+<li><strong>THEN</strong> the earlier context&rsquo;s cached identifier is not reused</li>
+<li><strong>AND</strong> the cache contains no credential values</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-response-provides-no-known-lifetime">Scenario: A response provides no known lifetime<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-response-provides-no-known-lifetime" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an upload response omits its lifetime or reports zero</li>
+<li><strong>THEN</strong> identical banner and body images may share that fresh identifier within one resolution</li>
+<li><strong>AND</strong> a later resolution uploads the bytes again</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-uploading-or-processing-consumes-the-usable-lifetime">Scenario: Uploading or processing consumes the usable lifetime<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-uploading-or-processing-consumes-the-usable-lifetime" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a positive reported lifetime has insufficient time remaining for submission</li>
+<li><strong>THEN</strong> draft creation stops instead of attaching the expired or near-expiry identifier</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-earlier-image-expires-before-its-later-duplicate-is-resolved">Scenario: An earlier image expires before its later duplicate is resolved<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-earlier-image-expires-before-its-later-duplicate-is-resolved" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> uploading another image consumes the usable lifetime of an identifier already selected for a banner or body image</li>
+<li><strong>AND</strong> a later body image references those same bytes</li>
+<li><strong>THEN</strong> resolution stops without uploading the duplicate again or creating a draft</li>
+<li><strong>AND</strong> a replacement cache entry cannot mask the expired identifier already selected for the draft</li>
 </ul>
 
 </div>

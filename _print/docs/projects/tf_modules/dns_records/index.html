@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="DNS records">
 	<meta itemprop="description" content="Canonical DNS declarations for Cloudflare and RouterOS">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
 	<meta itemprop="wordCount" content="504">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -366,10 +366,12 @@ they establish declaration and resource mapping behavior, not live adoption.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-fe7016f44cae2eab765c8a856ce8e41b">1 - DNS normalization</h1>
     <div class="lead">Provider-free canonical DNS declaration transformation</div>
+	
 	<p>This child module owns the canonical transformation described by the
 <a href="/docs/projects/tf_modules/dns_records/">DNS module</a>. Its <code>document</code> and <code>zone</code> inputs produce
 <code>normalized_records</code> without a provider, backend, or managed resources.
@@ -399,10 +401,12 @@ Terraform writers and provider-free inspection consume this output.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-add666eb82370d6f0c093864e9e702c9">2 - DNS test providers</h1>
     <div class="lead">Pinned provider packages for offline Terraform tests</div>
+	
 	<p>The <a href="../BUILD.bazel">test target</a> uses the public
 <a href="/docs/tools/rules_terraform/">rules_terraform</a> wrapper with
 the same Cloudflare, RouterOS, and Proxmox provider labels as infrastructure
@@ -448,10 +452,12 @@ preservation; live DNS adoption retains its separate inventory and plan checks.<
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e50e594afa64dd31ddced0b568890202">3 - Global DNS records</h1>
     <div class="lead">Cloudflare-only entrypoint for canonical DNS declarations</div>
+	
 	<p>Global-only owners use this entrypoint with the <a href="/docs/projects/tf_modules/dns_records/">shared module API</a>
 to avoid requiring RouterOS configuration. The combined module also delegates
 its Cloudflare resources here, so both entrypoints share one implementation.

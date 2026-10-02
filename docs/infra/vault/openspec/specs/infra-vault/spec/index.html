@@ -48,15 +48,15 @@ RequirementsRequirement: Separate host provisioning from Vault configurationThe 
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
-		<meta property="article:modified_time" content="2026-10-02T00:30:58+03:00">
+		<meta property="article:modified_time" content="2026-10-03T00:16:43+03:00">
 
 	<meta itemprop="name" content="Infrastructure Vault">
 	<meta itemprop="description" content="PurposeDescribe the Vault host configuration, authentication and certificate services, and packaged recovery entry points. This baseline concerns checked-in desired state and supported wrapper structure; it does not establish live unsealed state, successful backups, quorum, or certificate freshness.
 Baseline source revision: 550d7e79b1f5fdbc2b6017b75178471d6914082f. Observation date: 2026-09-08. Sources are linked in full; no excerpts are used.
 Sources: operator documentation, operational wrappers, Ansible entry points, Vault host template, authentication backends, storage engines, server PKI, client PKI, and public CA outputs.
 RequirementsRequirement: Separate host provisioning from Vault configurationThe documented workflow SHALL separate tf_setup VM provisioning, Ansible host setup, and the tf Vault configuration stage. Ansible SHALL expose combined, VM-only, and bare-metal-only setup entry points using the shared host and Vault roles.">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
-	<meta itemprop="wordCount" content="662">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
+	<meta itemprop="wordCount" content="882">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Infrastructure Vault">
@@ -159,7 +159,7 @@ RequirementsRequirement: Separate host provisioning from Vault configurationThe 
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -184,7 +184,7 @@ RequirementsRequirement: Separate host provisioning from Vault configurationThe 
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -3984,6 +3984,8 @@ RequirementsRequirement: Separate host provisioning from Vault configurationThe 
         <li><a href="#requirement-package-recovery-and-certificate-operations-explicitly">Requirement: Package recovery and certificate operations explicitly</a></li>
         <li><a href="#requirement-give-each-dns-owner-a-component-identity">Requirement: Give each DNS owner a component identity</a></li>
         <li><a href="#requirement-restrict-provider-secret-reads-to-owned-dns-views">Requirement: Restrict provider secret reads to owned DNS views</a></li>
+        <li><a href="#requirement-recover-an-expired-server-certificate-with-scoped-ansible-tasks">Requirement: Recover an expired server certificate with scoped Ansible tasks</a></li>
+        <li><a href="#requirement-scope-certificate-verification-bypass-to-recovery-invocations">Requirement: Scope certificate-verification bypass to recovery invocations</a></li>
       </ul>
     </li>
   </ul>
@@ -4290,6 +4292,30 @@ provider secret or duplicate credential values.</p>
 <li><strong>WHEN</strong> an owner declares global and dc1 records</li>
 <li><strong>THEN</strong> its DNS policy grants reads for both existing credential references</li>
 <li><strong>AND</strong> neither read policy grants mutation of the provider credential</li>
+</ul>
+<h3 id="requirement-recover-an-expired-server-certificate-with-scoped-ansible-tasks">Requirement: Recover an expired server certificate with scoped Ansible tasks<a class="td-heading-self-link" href="#requirement-recover-an-expired-server-certificate-with-scoped-ansible-tasks" aria-label="Heading self-link"></a></h3><p>The packaged Vault Ansible workflow SHALL expose a <code>vault_tls</code> tag that issues
+and installs the configured server certificate and private key, then reloads
+Vault. Selecting only this tag SHALL NOT update packages, the service binary,
+host configuration, or Raft peers. Certificate material SHALL be suppressed
+from task output. Explicit certificate renewal SHALL stop on issuance or
+installation failure before reloading the service.</p>
+<h4 id="scenario-renew-one-authorized-hosts-certificate">Scenario: Renew one authorized host&rsquo;s certificate<a class="td-heading-self-link" href="#scenario-renew-one-authorized-hosts-certificate" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the operator selects <code>vault_tls</code> and limits the play to one Vault host</li>
+<li><strong>THEN</strong> only certificate issuance, certificate and key installation, and
+service reload are selected, in addition to read-only fact gathering</li>
+<li><strong>AND</strong> a failed certificate task prevents the reload</li>
+</ul>
+<h3 id="requirement-scope-certificate-verification-bypass-to-recovery-invocations">Requirement: Scope certificate-verification bypass to recovery invocations<a class="td-heading-self-link" href="#requirement-scope-certificate-verification-bypass-to-recovery-invocations" aria-label="Heading self-link"></a></h3><p>The recovery procedure SHALL use an invocation-scoped verification override
+only when an expired server certificate prevents the authorized renewal. It
+SHALL retain the existing Vault authentication and injection flow, require a
+valid bootstrap login, and verify the recovered service with certificate
+validation restored. The procedure SHALL NOT persist insecure TLS defaults.</p>
+<h4 id="scenario-certificate-expiry-prevents-authenticated-renewal">Scenario: Certificate expiry prevents authenticated renewal<a class="td-heading-self-link" href="#scenario-certificate-expiry-prevents-authenticated-renewal" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an authorized operator performs the documented recovery</li>
+<li><strong>THEN</strong> the temporary override applies to credential injection and certificate
+issuance within that command</li>
+<li><strong>AND</strong> a failed bootstrap login prevents proceeding to renewal</li>
+<li><strong>AND</strong> success is established separately with normal TLS verification</li>
 </ul>
 
 	

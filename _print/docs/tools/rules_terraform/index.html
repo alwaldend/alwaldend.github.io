@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Rules Terraform">
 	<meta itemprop="description" content="Bazel rules and pinned provider installation for Terraform">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
 	<meta itemprop="wordCount" content="528">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -371,10 +371,12 @@ fallback. Configuration modules must be declared local inputs.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-36f7244c8d3014ababfb0a72b49160fe">1 - OpenSpec</h1>
     
+	
 	
 </div>
 
@@ -395,12 +397,14 @@ fallback. Configuration modules must be declared local inputs.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-68ee492d3942e0bc05a4bcb5bffa5a10">1.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -420,12 +424,14 @@ fallback. Configuration modules must be declared local inputs.</p>
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-06c626370899fee32073e449e05eb27d">1.1.1 - Terraform execution</h1>
     
 	
+	
 </div>
 
 
@@ -446,10 +452,12 @@ fallback. Configuration modules must be declared local inputs.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-1570adeeaac2d58245009049824a6b30">1.1.1.1 - terraform-execution Specification</h1>
     
+	
 	<span id="print-26d41e130df0207c17a102a4766b4710-terraform-execution-specification"></span><h2 id="print-26d41e130df0207c17a102a4766b4710-purpose">Purpose<a class="td-heading-self-link" href="#print-26d41e130df0207c17a102a4766b4710-purpose" aria-label="Heading self-link"></a></h2><p>Provide reusable Bazel rules that acquire pinned Terraform providers and run
 Terraform with declared configuration, executable, and provider inputs.</p>
 <h2 id="print-26d41e130df0207c17a102a4766b4710-requirements">Requirements<a class="td-heading-self-link" href="#print-26d41e130df0207c17a102a4766b4710-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-26d41e130df0207c17a102a4766b4710-requirement-verified-provider-acquisition">Requirement: Verified provider acquisition<a class="td-heading-self-link" href="#print-26d41e130df0207c17a102a4766b4710-requirement-verified-provider-acquisition" aria-label="Heading self-link"></a></h3><p>The provider module extension SHALL download immutable HTTPS archives with
@@ -525,10 +533,12 @@ without requiring a framework dependency in the reusable module.</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-1caf539dddb901c538cb64a7cc85a6e4">2 - Terraform launcher</h1>
     <div class="lead">Execute Terraform with providers declared by Bazel</div>
+	
 	<p>This implementation launcher reads the generated target sidecar and resolves
 Terraform, configuration inputs, and provider archives through Bazel runfiles.
 Consumer targets use the public Terraform rules instead of invoking this binary

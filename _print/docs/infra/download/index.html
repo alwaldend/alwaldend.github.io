@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Download">
 	<meta itemprop="description" content="Public static files and websites on XCP-ng and Yandex Cloud">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
 	<meta itemprop="wordCount" content="1186">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -442,10 +442,12 @@ retains the Terraform validation and review history.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-0d440f28260f447b5de29af295c4a728">1 - Download DNS</h1>
     <div class="lead">Cloudflare and RouterOS aliases for static hosting</div>
+	
 	<p>Owns the component&rsquo;s <code>dnsconfig.json</code> through the shared DNS module. Public
 download requests follow the delegated Yandex host. The local host CNAME
 follows the apex owner&rsquo;s canonical local A record. The apex and <code>www</code> keep
@@ -528,10 +530,12 @@ to the old A/AAAA records. Never begin phase 2 based only on a planned deletion.
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-8621bfee504865114de35893ac61f6ff">2 - Host configuration</h1>
     <div class="lead">Shared native Traefik and Nginx deployment</div>
+	
 	<p>Build <code>:ansible_bin</code> to package the playbook and shared collection. The play
 uses <a href="/docs/projects/ansible_collection/roles/download_host/"><code>alwaldend.main.download_host</code></a>
 for storage, the publisher account, rsync, service setup, and deduplication.
@@ -595,10 +599,12 @@ Nginx configuration validation before installation is unchanged. See <a href="ht
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a4e4b4bab5c8d5d40e4398639a8cf375">3 - XCP-ng</h1>
     <div class="lead">Protected local static-hosting VM</div>
+	
 	<p>Provisions one Fedora 44 VM in <code>src_infra_download</code>, using named inventory
 from the existing XCP-ng deployment: two CPUs, 2 GiB RAM, a 20 GiB boot disk,
 and a 100 GiB content disk. The local address comes from the apex DNS owner, whose local A record is
@@ -635,10 +641,12 @@ workflow on XCP-ng. Do not remove that guard as a routine upgrade step.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a9e2df2b0cf2cec5c2ffe62753521e56">4 - Yandex Cloud</h1>
     <div class="lead">Static-hosting VM with retained local content storage</div>
+	
 	<p>Provisions one Fedora VM in its component folder: two CPUs, 2 GiB RAM, a
 20 GiB boot disk, and a separate 100 GiB content disk. The disk and reserved
 IPv4 address have destruction guards and survive replacement of the VM.

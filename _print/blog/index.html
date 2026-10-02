@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Blog">
 	<meta itemprop="description" content="Blog">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Blog">
 	<meta name="twitter:description" content="Blog">
@@ -144,7 +144,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -257,30 +257,31 @@ This is the multi-page printable view of this section.
     
 
 
-  
-
 <div class="td-content" style="">
-    <h1 id="pg-281bbfe62c2ff8743b518ed1f5c6586c">This X Article was generated from Markdown</h1>
-	<div class="lead">Building a Markdown-to-X Article uploader, followed by a conversion showcase.</div>
-	<div class="td-byline mb-4">
+    
+	<h1 id="pg-281bbfe62c2ff8743b518ed1f5c6586c">This X Article was generated from Markdown</h1>
+    <div class="lead">Building a Markdown-to-X Article uploader, followed by a conversion showcase.</div>
+	
 		
-        
-		<time datetime="2026-09-30" class="text-body-secondary">Wednesday, September 30, 2026</time>
-        
-	</div>
-	<p><img src="/blog/this-x-article-was-generated-from-markdown/pipeline.webp" alt="The uploader pipeline" loading="lazy"></p>
-<p>I&rsquo;ve had the displeasure of using X&rsquo;s Article editor and it has left me unsatisfied - it&rsquo;s utter dogshit. Naturally, I&rsquo;ve decided to avoid it altogether. There probably exists a ready-made solution, but I&rsquo;ve decided to just write it myself. After all, how hard can it be?</p>
+			<div class="td-byline mb-4">
+				
+				<time datetime="2026-09-30" class="text-body-secondary">Wednesday, September 30, 2026</time>
+			</div>
+			<div class="blog-header-images"><figure><img src="/blog/this-x-article-was-generated-from-markdown/pipeline.webp" alt="The uploader pipeline" loading="lazy" class="img-fluid"></figure></div>
+		
+	
+	<p>I&rsquo;ve had the displeasure of using X&rsquo;s Article editor and it has left me unsatisfied - it&rsquo;s utter dogshit. Naturally, I&rsquo;ve decided to avoid it altogether. There probably exists a ready-made solution, but I&rsquo;ve decided to just write it myself. After all, how hard can it be?</p>
 <p>Not that hard, to be honest. X exposes an API to upload articles in <a href="https://draftjs.org/">DraftJS</a> format, so that leaves two tasks:</p>
 <ul>
 <li>Construct DraftJS</li>
 <li>Upload it</li>
 </ul>
-<h2 id="construct-draftjs">Construct DraftJS<a class="td-heading-self-link" href="#construct-draftjs" aria-label="Heading self-link"></a></h2><p>Since I use Hugo to build my blog posts, I wanted to just render DraftJS using it - that did not work. Hugo does not expose the Markdown AST to templates and without it you are left with hooks, which are too limited, and raw-dogging RawContent in templates which is insane. After that, I moved on to the boring option of just parsing Markdown. I chose <a href="https://github.com/yuin/goldmark/">Goldmark</a> since it&rsquo;s the parser Hugo uses, then wrote a tool that walks through the Markdown AST and emits DraftJS.</p>
-<h2 id="upload-it">Upload it<a class="td-heading-self-link" href="#upload-it" aria-label="Heading self-link"></a></h2><p>The upload seemed like the most straightforward part to me before I started. Just generate a token, put it in Vault, and hit the API, easy. None of it was easy. Figuring out which token I need to generate to upload articles and how to do it through the dashboard took some effort. Putting a token in Vault was harder than I expected because either I had to use OAuth 2.0 with a short-lived token and a long-lived refresh token, or I had to use OAuth 1.0a with 4 whole secret values. I chose the second option because the first one requires me to update credentials on refresh which increases complexity. Uploading was painful because X has a rate limit of 10 (!) uploads per day which I hit immediately.</p>
-<h2 id="in-conclusion">In conclusion<a class="td-heading-self-link" href="#in-conclusion" aria-label="Heading self-link"></a></h2><p>I don&rsquo;t have to touch the editor anymore, which is a win in my book. The blog post ends here. Everything else is just a conversion showcase.</p>
-<h2 id="text-and-inline-styles">Text and inline styles<a class="td-heading-self-link" href="#text-and-inline-styles" aria-label="Heading self-link"></a></h2><p>A paragraph is a plain text block. X exposes three heading styles, so the converter maps fourth-level and deeper Markdown headings onto <code>header-three</code>. Inline styling is carried as ranges over the block text: <strong>bold</strong>, <em>italic</em>, and <del>strikethrough</del> all survive the conversion, and a span may combine them, as in <strong>bold with <em>nested italic</em> inside</strong>.</p>
-<h3 id="heading-levels">Heading levels<a class="td-heading-self-link" href="#heading-levels" aria-label="Heading self-link"></a></h3><p>A third-level heading becomes <code>header-two</code>; a fourth-level heading and deeper become <code>header-three</code>.</p>
-<h4 id="a-clamped-fourth-level-heading">A clamped fourth-level heading<a class="td-heading-self-link" href="#a-clamped-fourth-level-heading" aria-label="Heading self-link"></a></h4><h2 id="lists">Lists<a class="td-heading-self-link" href="#lists" aria-label="Heading self-link"></a></h2><p>Unordered lists and ordered lists map onto their own block types:</p>
+<h2 id="print-4928d84a427266f3e004238e27c01208-construct-draftjs">Construct DraftJS<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-construct-draftjs" aria-label="Heading self-link"></a></h2><p>Since I use Hugo to build my blog posts, I wanted to just render DraftJS using it - that did not work. Hugo does not expose the Markdown AST to templates and without it you are left with hooks, which are too limited, and raw-dogging RawContent in templates which is insane. After that, I moved on to the boring option of just parsing Markdown. I chose <a href="https://github.com/yuin/goldmark/">Goldmark</a> since it&rsquo;s the parser Hugo uses, then wrote a tool that walks through the Markdown AST and emits DraftJS.</p>
+<h2 id="print-4928d84a427266f3e004238e27c01208-upload-it">Upload it<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-upload-it" aria-label="Heading self-link"></a></h2><p>The upload seemed like the most straightforward part to me before I started. Just generate a token, put it in Vault, and hit the API, easy. None of it was easy. Figuring out which token I need to generate to upload articles and how to do it through the dashboard took some effort. Putting a token in Vault was harder than I expected because either I had to use OAuth 2.0 with a short-lived token and a long-lived refresh token, or I had to use OAuth 1.0a with 4 whole secret values. I chose the second option because the first one requires me to update credentials on refresh which increases complexity. Uploading was painful because X has a rate limit of 10 (!) uploads per day which I hit immediately.</p>
+<h2 id="print-4928d84a427266f3e004238e27c01208-in-conclusion">In conclusion<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-in-conclusion" aria-label="Heading self-link"></a></h2><p>I don&rsquo;t have to touch the editor anymore, which is a win in my book. The blog post ends here. Everything else is just a conversion showcase.</p>
+<h2 id="print-4928d84a427266f3e004238e27c01208-text-and-inline-styles">Text and inline styles<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-text-and-inline-styles" aria-label="Heading self-link"></a></h2><p>A paragraph is a plain text block. X exposes three heading styles, so the converter maps fourth-level and deeper Markdown headings onto <code>header-three</code>. Inline styling is carried as ranges over the block text: <strong>bold</strong>, <em>italic</em>, and <del>strikethrough</del> all survive the conversion, and a span may combine them, as in <strong>bold with <em>nested italic</em> inside</strong>.</p>
+<h3 id="print-4928d84a427266f3e004238e27c01208-heading-levels">Heading levels<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-heading-levels" aria-label="Heading self-link"></a></h3><p>A third-level heading becomes <code>header-two</code>; a fourth-level heading and deeper become <code>header-three</code>.</p>
+<h4 id="print-4928d84a427266f3e004238e27c01208-a-clamped-fourth-level-heading">A clamped fourth-level heading<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-a-clamped-fourth-level-heading" aria-label="Heading self-link"></a></h4><h2 id="print-4928d84a427266f3e004238e27c01208-lists">Lists<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-lists" aria-label="Heading self-link"></a></h2><p>Unordered lists and ordered lists map onto their own block types:</p>
 <ul>
 <li>Draft creation resolves each referenced image.</li>
 <li>It uploads the bytes through the media endpoint.</li>
@@ -300,15 +301,15 @@ This is the multi-page printable view of this section.
 </li>
 <li>Another parent item.</li>
 </ul>
-<h2 id="quotes">Quotes<a class="td-heading-self-link" href="#quotes" aria-label="Heading self-link"></a></h2><blockquote>
+<h2 id="print-4928d84a427266f3e004238e27c01208-quotes">Quotes<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-quotes" aria-label="Heading self-link"></a></h2><blockquote>
 <p>X exposes a blockquote type, so quoted prose keeps its quote. A heading inside a quote stays quoted text and reports the lost heading level, because there is no quoted-heading form.</p>
 </blockquote>
-<h2 id="code">Code<a class="td-heading-self-link" href="#code" aria-label="Heading self-link"></a></h2><p>A fenced code block is preserved as a <code>markdown</code> entity, so the source travels intact:</p>
+<h2 id="print-4928d84a427266f3e004238e27c01208-code">Code<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-code" aria-label="Heading self-link"></a></h2><p>A fenced code block is preserved as a <code>markdown</code> entity, so the source travels intact:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="nx">Credentials</span><span class="p">)</span><span class="w"> </span><span class="nf">Sign</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span><span class="w"> </span><span class="nx">rawURL</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="w"> </span><span class="nx">url</span><span class="p">.</span><span class="nx">Values</span><span class="p">,</span><span class="w"> </span><span class="nx">now</span><span class="w"> </span><span class="nx">time</span><span class="p">.</span><span class="nx">Time</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// HMAC-SHA1 over the normalized parameter string, per RFC 5849.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p>An inline-code span keeps its text but loses its monospace styling, and the conversion reports that loss.</p>
-<h2 id="tables">Tables<a class="td-heading-self-link" href="#tables" aria-label="Heading self-link"></a></h2><p>A GFM table has no native block, so it becomes a <code>markdown</code> entity that preserves the source:</p>
+<h2 id="print-4928d84a427266f3e004238e27c01208-tables">Tables<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-tables" aria-label="Heading self-link"></a></h2><p>A GFM table has no native block, so it becomes a <code>markdown</code> entity that preserves the source:</p>
 <table>
 	<thead>
 			<tr>
@@ -336,22 +337,22 @@ This is the multi-page printable view of this section.
 			<tr>
 					<td>Code and tables</td>
 					<td><code>markdown</code></td>
-					<td><code>immutable</code></td>
+					<td><code>mutable</code></td>
 			</tr>
 	</tbody>
 </table>
-<h2 id="links-and-autolinks">Links and autolinks<a class="td-heading-self-link" href="#links-and-autolinks" aria-label="Heading self-link"></a></h2><p>A link carries its destination in a <code>link</code> entity: <a href="https://github.com/alwaldend/src/blob/master/tools/mermaid/skills/mermaid-diagrams/SKILL.md">the repository skill for Mermaid diagrams</a>. An autolink such as <a href="https://example.com">https://example.com</a> becomes a link to the same destination.</p>
-<h2 id="divider">Divider<a class="td-heading-self-link" href="#divider" aria-label="Heading self-link"></a></h2><hr>
-<h2 id="footnotes">Footnotes<a class="td-heading-self-link" href="#footnotes" aria-label="Heading self-link"></a></h2><p>A footnote reference<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> becomes a trailing section, so its text is not lost.</p>
+<h2 id="print-4928d84a427266f3e004238e27c01208-links-and-autolinks">Links and autolinks<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-links-and-autolinks" aria-label="Heading self-link"></a></h2><p>A link carries its destination in a <code>link</code> entity: <a href="https://github.com/alwaldend/src/blob/master/tools/mermaid/skills/mermaid-diagrams/SKILL.md">the repository skill for Mermaid diagrams</a>. An autolink such as <a href="https://example.com">https://example.com</a> becomes a link to the same destination.</p>
+<h2 id="print-4928d84a427266f3e004238e27c01208-divider">Divider<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-divider" aria-label="Heading self-link"></a></h2><hr>
+<h2 id="print-4928d84a427266f3e004238e27c01208-footnotes">Footnotes<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-footnotes" aria-label="Heading self-link"></a></h2><p>A footnote reference<sup id="print-4928d84a427266f3e004238e27c01208-fnref:1"><a href="#print-4928d84a427266f3e004238e27c01208-fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> becomes a trailing section, so its text is not lost.</p>
 <blockquote>
 <p><strong>Note on images and captions.</strong> An image becomes an <code>atomic</code> block backed by an <code>image</code> entity carrying its alt text as a caption, and the media is resolved at draft time.</p>
 </blockquote>
-<h2 id="emphasis-edge-cases">Emphasis edge cases<a class="td-heading-self-link" href="#emphasis-edge-cases" aria-label="Heading self-link"></a></h2><p>An underscore inside a word like snake_case stays literal, a backslash escape such as *not italic* stays literal, and the HTML character reference <code>&amp;amp;</code> in AT&amp;T is resolved to an ampersand.</p>
+<h2 id="print-4928d84a427266f3e004238e27c01208-emphasis-edge-cases">Emphasis edge cases<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-emphasis-edge-cases" aria-label="Heading self-link"></a></h2><p>An underscore inside a word like snake_case stays literal, a backslash escape such as *not italic* stays literal, and the HTML character reference <code>&amp;amp;</code> in AT&amp;T is resolved to an ampersand.</p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1">
-<p>DraftJS measures inline and entity ranges in UTF-16 code units of the block&rsquo;s final text, which is why the converter counts them that way.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="print-4928d84a427266f3e004238e27c01208-fn:1">
+<p>DraftJS measures inline and entity ranges in UTF-16 code units of the block&rsquo;s final text, which is why the converter counts them that way.&#160;<a href="#print-4928d84a427266f3e004238e27c01208-fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </div>
@@ -360,8 +361,6 @@ This is the multi-page printable view of this section.
 
 
 
-
-
     
 	
   
@@ -370,42 +369,43 @@ This is the multi-page printable view of this section.
 	
     
 
-
-  
 
 <div class="td-content" style="page-break-before: always">
-    <h1 id="pg-06972c4c7c69b67b7924cd82a210f0ce">Diagrams in the AC (After Clanker) era</h1>
-	<div class="lead">Replacing Drawio diagrams with Mermaid diagrams</div>
-	<div class="td-byline mb-4">
+    
+	<h1 id="pg-06972c4c7c69b67b7924cd82a210f0ce">Diagrams in the AC (After Clanker) era</h1>
+    <div class="lead">Replacing Drawio diagrams with Mermaid diagrams</div>
+	
 		
-        
-		<time datetime="2026-09-18" class="text-body-secondary">Friday, September 18, 2026</time>
-        
-	</div>
-	<p><img src="/blog/diagrams-in-ac-era/drawio-to-mermaid.svg" alt="Drawio to Mermaid" loading="lazy"></p>
-<p>I have some diagrams in the repo, as one naturally does. My diagrams do not look particularly pretty, but they display information, which is the whole point.</p>
+			<div class="td-byline mb-4">
+				
+				<time datetime="2026-09-18" class="text-body-secondary">Friday, September 18, 2026</time>
+			</div>
+			<div class="blog-header-images"><figure><img src="/blog/diagrams-in-ac-era/drawio-to-mermaid.webp" alt="Drawio to Mermaid" loading="lazy" class="img-fluid"></figure></div>
+		
+	
+	<p>I have some diagrams in the repo, as one naturally does. My diagrams do not look particularly pretty, but they display information, which is the whole point.</p>
 <p>In the BC (Before Clanker) era, I made them manually using Drawio&rsquo;s desktop app. I used this approach because it requires no setup and no effort - you just fire up the app and then click things in the UI. Everything is local, and the diagrams themselves are XML, so you can version control them. It&rsquo;s the AC (After Clanker) era now, so I need to be able to have clankers modify my diagrams, and I have more options in general, so I&rsquo;ve decided to improve them.</p>
-<h2 id="new-tool">New tool<a class="td-heading-self-link" href="#new-tool" aria-label="Heading self-link"></a></h2><p>The first goal was, of course, to make them prettier - I wanted to see something pleasing to the eyes, not ugly boxes and straight arrows. Ideally, something like <a href="https://excalidraw.com/">Excalidraw</a> - hand-drawn look, rounded corners, curved edges, all the rage.</p>
+<h2 id="print-72bd4381151e7b1d6ca8fc04e68c825f-new-tool">New tool<a class="td-heading-self-link" href="#print-72bd4381151e7b1d6ca8fc04e68c825f-new-tool" aria-label="Heading self-link"></a></h2><p>The first goal was, of course, to make them prettier - I wanted to see something pleasing to the eyes, not ugly boxes and straight arrows. Ideally, something like <a href="https://excalidraw.com/">Excalidraw</a> - hand-drawn look, rounded corners, curved edges, all the rage.</p>
 <p>The second goal was to simplify their source representation. Drawio diagrams are XML, so they can be version controlled and clanker-managed, but they are too complex and not readable. I wanted a simple DSL that allowed me to just describe the diagram itself - nodes, labels, edges, etc.</p>
 <p>The third goal was theme support. While every diagram was supposed to be as simple as possible, they all should look pretty and use one style without being a part of the same project.</p>
 <p>The fourth goal was hermeticity. All these diagrams should be rendered locally and hermetically through Bazel without a CDN or any other funny business.</p>
 <p>In the end, I&rsquo;ve settled on <a href="https://github.com/mermaid-js/mermaid">Mermaid</a> because it&rsquo;s the first big Open Source project I&rsquo;ve found that fit my criteria and I did not care enough to research other options. After all, we are in the AC era - I can just rewrite things.</p>
-<h2 id="rendering">Rendering<a class="td-heading-self-link" href="#rendering" aria-label="Heading self-link"></a></h2><p>I wrote some Bazel rules that hermetically render Mermaid diagrams using <a href="https://github.com/mermaid-js/mermaid">Mermaid</a> (duh), <a href="https://developer.chrome.com/docs/automation-and-testing/chrome-for-testing">Chrome for Testing</a> for actual rendering, and <a href="https://github.com/google/fonts/blob/main/ofl/architectsdaughter/METADATA.pb">Architects Daughter</a> as a font. Those rules had to generate a custom <a href="https://www.freedesktop.org/wiki/Software/fontconfig/">Fontconfig</a> configuration file because Chrome stubbornly tried to use host fonts.</p>
-<h2 id="style">Style<a class="td-heading-self-link" href="#style" aria-label="Heading self-link"></a></h2><p>The default Mermaid style is very bad, so I&rsquo;ve made a custom theme, which was pretty easy - it&rsquo;s just a config. Theming is not powerful enough, though - Mermaid 11&rsquo;s hand-drawn renderer hardcodes square corners for flowchart containers, for example, and I had to add post-processing for SVGs to embed my custom font inside of them.</p>
+<h2 id="print-72bd4381151e7b1d6ca8fc04e68c825f-rendering">Rendering<a class="td-heading-self-link" href="#print-72bd4381151e7b1d6ca8fc04e68c825f-rendering" aria-label="Heading self-link"></a></h2><p>I wrote some Bazel rules that hermetically render Mermaid diagrams using <a href="https://github.com/mermaid-js/mermaid">Mermaid</a> (duh), <a href="https://developer.chrome.com/docs/automation-and-testing/chrome-for-testing">Chrome for Testing</a> for actual rendering, and <a href="https://github.com/google/fonts/blob/main/ofl/architectsdaughter/METADATA.pb">Architects Daughter</a> as a font. Those rules had to generate a custom <a href="https://www.freedesktop.org/wiki/Software/fontconfig/">Fontconfig</a> configuration file because Chrome stubbornly tried to use host fonts.</p>
+<h2 id="print-72bd4381151e7b1d6ca8fc04e68c825f-style">Style<a class="td-heading-self-link" href="#print-72bd4381151e7b1d6ca8fc04e68c825f-style" aria-label="Heading self-link"></a></h2><p>The default Mermaid style is very bad, so I&rsquo;ve made a custom theme, which was pretty easy - it&rsquo;s just a config. Theming is not powerful enough, though - Mermaid 11&rsquo;s hand-drawn renderer hardcodes square corners for flowchart containers, for example, and I had to add post-processing for SVGs to embed my custom font inside of them.</p>
 <p>Default theme:</p>
 <p><img src="/blog/diagrams-in-ac-era/container-example-default.svg" alt="Container example with Mermaid’s default theme" loading="lazy"></p>
 <p>Custom theme:</p>
 <p><img src="/blog/diagrams-in-ac-era/container-example.svg" alt="Container example with the repository theme" loading="lazy"></p>
-<h2 id="layout">Layout<a class="td-heading-self-link" href="#layout" aria-label="Heading self-link"></a></h2><p>While styling was pretty straightforward, there were a lot of problems with the layout.</p>
+<h2 id="print-72bd4381151e7b1d6ca8fc04e68c825f-layout">Layout<a class="td-heading-self-link" href="#print-72bd4381151e7b1d6ca8fc04e68c825f-layout" aria-label="Heading self-link"></a></h2><p>While styling was pretty straightforward, there were a lot of problems with the layout.</p>
 <p>In no particular order:</p>
 <ul>
 <li>No way to properly control width: The only real lever is the direction.</li>
 <li>The direction is not reliable: You can control the overall direction, but direction inside of groups is often ignored.</li>
 <li>Container titles: An edge can draw over a container title, and there is no way to avoid it, so I had to add postprocessing for this.</li>
 </ul>
-<h2 id="diagram-types">Diagram types<a class="td-heading-self-link" href="#diagram-types" aria-label="Heading self-link"></a></h2><p>I&rsquo;ve looked into diagram types other than flowchart, and there was nothing even remotely suitable except for an <a href="https://mermaid.js.org/syntax/architecture.html">architecture diagram</a>. A shame that it looks even worse than the default theme:</p>
+<h2 id="print-72bd4381151e7b1d6ca8fc04e68c825f-diagram-types">Diagram types<a class="td-heading-self-link" href="#print-72bd4381151e7b1d6ca8fc04e68c825f-diagram-types" aria-label="Heading self-link"></a></h2><p>I&rsquo;ve looked into diagram types other than flowchart, and there was nothing even remotely suitable except for an <a href="https://mermaid.js.org/syntax/architecture.html">architecture diagram</a>. A shame that it looks even worse than the default theme:</p>
 <p><img src="/blog/diagrams-in-ac-era/container-example-architecture.svg" alt="Architecture diagram example" loading="lazy"></p>
-<h2 id="final-look">Final look<a class="td-heading-self-link" href="#final-look" aria-label="Heading self-link"></a></h2><p>Here is the old Drawio diagram:</p>
+<h2 id="print-72bd4381151e7b1d6ca8fc04e68c825f-final-look">Final look<a class="td-heading-self-link" href="#print-72bd4381151e7b1d6ca8fc04e68c825f-final-look" aria-label="Heading self-link"></a></h2><p>Here is the old Drawio diagram:</p>
 <p><img src="/blog/diagrams-in-ac-era/old_t3code_arch_diagram.svg" alt="The old Drawio diagram" loading="lazy"></p>
 <p>It looks bad and its source is unreadable and the diagram is unmaintainable without a GUI.</p>
 <p>Here is the new Mermaid diagram:</p>
@@ -464,8 +464,6 @@ This is the multi-page printable view of this section.
 
 
 
-
-
     
 	
   
@@ -474,29 +472,31 @@ This is the multi-page printable view of this section.
 	
     
 
-
-  
 
 <div class="td-content" style="page-break-before: always">
-    <h1 id="pg-4f88bb5d6b5d83c8039ee6a5ceeca1d7">DNS management in a monorepo</h1>
-	<div class="lead">Evolution of DNS management in my monorepo</div>
-	<div class="td-byline mb-4">
+    
+	<h1 id="pg-4f88bb5d6b5d83c8039ee6a5ceeca1d7">DNS management in a monorepo</h1>
+    <div class="lead">Evolution of DNS management in my monorepo</div>
+	
 		
-        
-		<time datetime="2026-09-13" class="text-body-secondary">Sunday, September 13, 2026</time>
-        
-	</div>
+			<div class="td-byline mb-4">
+				
+				<time datetime="2026-09-13" class="text-body-secondary">Sunday, September 13, 2026</time>
+			</div>
+			
+		
+	
 	<p>Buying a domain is one of the best purchases you can make because they are very cheap and owning one offers you more independence - you can have your email not tied to a specific provider, you can have a site, etc.</p>
 <p>After I bought a domain, I needed a way to manage DNS of that domain. Since using the registrar&rsquo;s UI to do that is not the best idea, I searched for an IaC tool that can do that for me - I settled on <a href="https://dnscontrol.org/">DNSControl</a>.</p>
-<h2 id="single-file-config">Single-file config<a class="td-heading-self-link" href="#single-file-config" aria-label="Heading self-link"></a></h2><p>Initially, I just needed to set up email and GitHub Pages, so I used the most basic setup imaginable.</p>
+<h2 id="print-1e58cc2d14107a5eb1393412b938a4e4-single-file-config">Single-file config<a class="td-heading-self-link" href="#print-1e58cc2d14107a5eb1393412b938a4e4-single-file-config" aria-label="Heading self-link"></a></h2><p>Initially, I just needed to set up email and GitHub Pages, so I used the most basic setup imaginable.</p>
 <pre tabindex="0"><code>infra/dns/
 ├── dnsconfig.js # DNS config
 ├── creds.json.tpl # Credential config
 └── zones/
     └── alwaldend.com.zone # BIND file
 </code></pre><p>I just wrote records in DNSControl&rsquo;s subset of JavaScript and templated secrets from the environment using <code>envsubst</code>. It worked alright, and DNSControl rendered a BIND file so I could see the computed DNS records as text.</p>
-<h2 id="single-file-config-with-secret-injection">Single-file config with secret injection<a class="td-heading-self-link" href="#single-file-config-with-secret-injection" aria-label="Heading self-link"></a></h2><p>At some point, I migrated my secrets to HashiCorp Vault because storing secrets in environment variables is a big no-no. That didn&rsquo;t change the layout. The credential config just became a Go template that used secrets from Vault.</p>
-<h2 id="per-project-config">Per-project config<a class="td-heading-self-link" href="#per-project-config" aria-label="Heading self-link"></a></h2><p>Once I started setting up infrastructure, I hit an annoying limitation - extracting records from <code>.js</code> is extremely inconvenient, which means that you have to duplicate IPs for VMs instead of just extracting them from the config. And managing all DNS records in a single <code>.js</code> file is not very convenient either. To solve it, I split the main config into several static per-project configs and then just parsed them in the main <code>.js</code> file.</p>
+<h2 id="print-1e58cc2d14107a5eb1393412b938a4e4-single-file-config-with-secret-injection">Single-file config with secret injection<a class="td-heading-self-link" href="#print-1e58cc2d14107a5eb1393412b938a4e4-single-file-config-with-secret-injection" aria-label="Heading self-link"></a></h2><p>At some point, I migrated my secrets to HashiCorp Vault because storing secrets in environment variables is a big no-no. That didn&rsquo;t change the layout. The credential config just became a Go template that used secrets from Vault.</p>
+<h2 id="print-1e58cc2d14107a5eb1393412b938a4e4-per-project-config">Per-project config<a class="td-heading-self-link" href="#print-1e58cc2d14107a5eb1393412b938a4e4-per-project-config" aria-label="Heading self-link"></a></h2><p>Once I started setting up infrastructure, I hit an annoying limitation - extracting records from <code>.js</code> is extremely inconvenient, which means that you have to duplicate IPs for VMs instead of just extracting them from the config. And managing all DNS records in a single <code>.js</code> file is not very convenient either. To solve it, I split the main config into several static per-project configs and then just parsed them in the main <code>.js</code> file.</p>
 <p>The layout became like this:</p>
 <pre tabindex="0"><code>infra/dns/ # The main DNS project
 infra/project/ # Another infra project
@@ -517,7 +517,7 @@ infra/project/ # Another infra project
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>This was a bad config design as will become clear later.</p>
-<h2 id="split-horizon-dns">Split-horizon DNS<a class="td-heading-self-link" href="#split-horizon-dns" aria-label="Heading self-link"></a></h2><p>Later, I decided to set up <a href="https://en.wikipedia.org/wiki/Split-horizon_DNS">Split-horizon DNS</a> so I can have different records for internal and external DNS servers. Thankfully, DNSControl supports this, so there were no problems from this side, but configs had to be redone because they grouped records by domains which did not translate well to DNSControl&rsquo;s DNS providers.</p>
+<h2 id="print-1e58cc2d14107a5eb1393412b938a4e4-split-horizon-dns">Split-horizon DNS<a class="td-heading-self-link" href="#print-1e58cc2d14107a5eb1393412b938a4e4-split-horizon-dns" aria-label="Heading self-link"></a></h2><p>Later, I decided to set up <a href="https://en.wikipedia.org/wiki/Split-horizon_DNS">Split-horizon DNS</a> so I can have different records for internal and external DNS servers. Thankfully, DNSControl supports this, so there were no problems from this side, but configs had to be redone because they grouped records by domains which did not translate well to DNSControl&rsquo;s DNS providers.</p>
 <p>I simplified the config and added <code>dsp</code> fields to select which DNS provider the record belongs to.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;records&#34;</span><span class="p">:</span> <span class="p">{</span>
@@ -530,7 +530,7 @@ infra/project/ # Another infra project
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="terraform">Terraform<a class="td-heading-self-link" href="#terraform" aria-label="Heading self-link"></a></h2><p>That setup worked fine for a while, but then I stumbled upon an obvious flaw during a clanker session - there is no way to work in parallel (without mucking around with <code>IGNORE</code> and <code>NO_PURGE</code>). DNSControl controls the whole zone, so if you have different sessions applying different configs, then those changes override each other.</p>
+</span></span></code></pre></div><h2 id="print-1e58cc2d14107a5eb1393412b938a4e4-terraform">Terraform<a class="td-heading-self-link" href="#print-1e58cc2d14107a5eb1393412b938a4e4-terraform" aria-label="Heading self-link"></a></h2><p>That setup worked fine for a while, but then I stumbled upon an obvious flaw during a clanker session - there is no way to work in parallel (without mucking around with <code>IGNORE</code> and <code>NO_PURGE</code>). DNSControl controls the whole zone, so if you have different sessions applying different configs, then those changes override each other.</p>
 <p>That seems like an easy problem to fix - just split the domain into different zones, and it was easy for my local DNS (a MikroTik router) because DNSControl&rsquo;s provider has zone hints, but there is no way to split the domain on the external DNS (Cloudflare) without buying an Enterprise plan or without delegating to yet another DNS provider.</p>
 <p>I thought about my options and decided to just switch to Terraform because I already have a standard way of handling Terraform in the repo. This approach fixed the problem, because now projects own only their own DNS records, so you can work on them in parallel.</p>
 <p>To implement DNS control in Terraform, I wrote a Terraform module which parses the config and updates DNS, then used it in each project. I also added a linter that checks that projects do not overlap DNS records. The final layout looks like this:</p>
@@ -544,14 +544,12 @@ infra/dns/
 ├── dnsconfig.json # Generic DNS like email
 ├── tf/ # A Terraform directory
 └── cmd/lint/ # A linter that checks configs for collisions
-</code></pre><h2 id="future">Future<a class="td-heading-self-link" href="#future" aria-label="Heading self-link"></a></h2><p>There are no restrictions on DNS management - each project uses the same API keys and can modify the whole domain. This is not ideal, of course, but it&rsquo;s not that big of a deal because I trust all developers involved (Me and clankers) to not fuck it up. I might revisit this problem in the future, but for now this setup is good enough.</p>
+</code></pre><h2 id="print-1e58cc2d14107a5eb1393412b938a4e4-future">Future<a class="td-heading-self-link" href="#print-1e58cc2d14107a5eb1393412b938a4e4-future" aria-label="Heading self-link"></a></h2><p>There are no restrictions on DNS management - each project uses the same API keys and can modify the whole domain. This is not ideal, of course, but it&rsquo;s not that big of a deal because I trust all developers involved (Me and clankers) to not fuck it up. I might revisit this problem in the future, but for now this setup is good enough.</p>
 
 </div>
 
 
 
-
-
     
 	
   
@@ -560,25 +558,27 @@ infra/dns/
 	
     
 
-
-  
 
 <div class="td-content" style="page-break-before: always">
-    <h1 id="pg-79bf4a204ab93c4b5e17a9686fa780cc">Slop without a clear goal</h1>
-	<div class="lead">Imprecise goals without quality assurance lead to bad results, obviously.</div>
-	<div class="td-byline mb-4">
+    
+	<h1 id="pg-79bf4a204ab93c4b5e17a9686fa780cc">Slop without a clear goal</h1>
+    <div class="lead">Imprecise goals without quality assurance lead to bad results, obviously.</div>
+	
 		
-        
-		<time datetime="2026-09-12" class="text-body-secondary">Saturday, September 12, 2026</time>
-        
-	</div>
-	<p>A while back, I said to Jipity<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>: &ldquo;Jipity, how can I improve agent ergonomics in this monorepo?&rdquo;, and Jipity gave me some useful suggestions, but one of them was not like the rest. It said that context in the repo was too splintered — agents had to read many things in different directories to understand how things are done. In my infinite wisdom, I said, &ldquo;Jipity, write me a comprehensive plan implementing a unified agent system with the goal of improving ergonomics in this monorepo&rdquo;. And it wrote me a plan, I did not really read it.</p>
+			<div class="td-byline mb-4">
+				
+				<time datetime="2026-09-12" class="text-body-secondary">Saturday, September 12, 2026</time>
+			</div>
+			
+		
+	
+	<p>A while back, I said to Jipity<sup id="print-a09b316dcb017ed4819f30166528770a-fnref:1"><a href="#print-a09b316dcb017ed4819f30166528770a-fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>: &ldquo;Jipity, how can I improve agent ergonomics in this monorepo?&rdquo;, and Jipity gave me some useful suggestions, but one of them was not like the rest. It said that context in the repo was too splintered — agents had to read many things in different directories to understand how things are done. In my infinite wisdom, I said, &ldquo;Jipity, write me a comprehensive plan implementing a unified agent system with the goal of improving ergonomics in this monorepo&rdquo;. And it wrote me a plan, I did not really read it.</p>
 <p>The plan consisted of several phases which gradually added more agent ergonomics improvements. Over the course of several days I made several PRs implementing the plan. In each PR, agents added things I did not understand according to the plan I did not read. After I prompted them to explain and still did not understand, I gave up and decided to just &ldquo;trust the plan&rdquo;, and merged everything. After implementing the plan, my repo was littered with garbage manifests, I had a lot of new code, and nothing really changed.</p>
 <p>I decided that maybe I did not trust the plan enough, and did a couple more phases of &ldquo;ergonomics improvements&rdquo;, which also did nothing but increase line count and litter the repo with garbage. Overall, I got around crisp 30k lines of new code.</p>
 <p>30k of code is not much in the grand scheme of things, but I don&rsquo;t like that my pristine monorepo had 30k lines of pointless slop, so I&rsquo;ve deleted the &ldquo;agent system&rdquo;.</p>
 <p>The lesson here is that you need to have a clear idea of what you are trying to accomplish, I guess.</p>
 <hr>
-<h2 id="data">Data<a class="td-heading-self-link" href="#data" aria-label="Heading self-link"></a></h2><p>Jipity made me a table, seems about right.</p>
+<h2 id="print-a09b316dcb017ed4819f30166528770a-data">Data<a class="td-heading-self-link" href="#print-a09b316dcb017ed4819f30166528770a-data" aria-label="Heading self-link"></a></h2><p>Jipity made me a table, seems about right.</p>
 <table>
 	<thead>
 			<tr>
@@ -678,15 +678,13 @@ infra/dns/
 <div class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn:1">
-<p>GPT 5.6 Sol.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<li id="print-a09b316dcb017ed4819f30166528770a-fn:1">
+<p>GPT 5.6 Sol.&#160;<a href="#print-a09b316dcb017ed4819f30166528770a-fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </div>
 
 </div>
-
-
 
 
 

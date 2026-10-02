@@ -43,7 +43,7 @@
 	<meta property="og:type" content="website">
 
 	<meta itemprop="name" content="OpenSpec">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:44+03:00">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="OpenSpec">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -310,10 +310,12 @@ This is the multi-page printable view of this section.
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-cfce6edffaf5a396e395f4e0b1c79672">1 - Specifications</h1>
     
+	
 	
 </div>
 
@@ -334,12 +336,14 @@ This is the multi-page printable view of this section.
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-157cf4e2951d12533b9d92dd368baa77">1.1 - Markdown to draftjs</h1>
     
 	
+	
 </div>
 
 
@@ -360,10 +364,12 @@ This is the multi-page printable view of this section.
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-83d1e4e331f7c6d5a0bfe662cee8c1aa">1.1.1 - markdown-to-draftjs Specification</h1>
     
+	
 	<span id="print-78b53da53cf62bb8cc5edd45209ebcc7-markdown-to-draftjs-specification"></span><h2 id="print-78b53da53cf62bb8cc5edd45209ebcc7-purpose">Purpose<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-purpose" aria-label="Heading self-link"></a></h2><p>Compile a Markdown post into the DraftJS <code>content_state</code> document that the X
 Articles API accepts, so the Markdown that renders the blog also produces the
 article body without hand-editing.</p>
@@ -557,7 +563,7 @@ final text</li>
 drifting by the character&rsquo;s extra code unit</li>
 </ul>
 <h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-code-blocks-and-tables-preserve-source-markdown">Requirement: Code blocks and tables preserve source Markdown<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-code-blocks-and-tables-preserve-source-markdown" aria-label="Heading self-link"></a></h3><p>Code fences and tables SHALL be emitted as <code>atomic</code> blocks backed by a
-<code>markdown</code> entity whose payload preserves the construct&rsquo;s original Markdown
+<code>markdown</code> entity with <code>mutable</code> mutability whose payload preserves the construct&rsquo;s original Markdown
 source. A table MUST NOT be flattened into paragraph text, because X exposes no
 table block or entity.</p>
 <h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-fenced-code-block">Scenario: Convert a fenced code block<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-a-fenced-code-block" aria-label="Heading self-link"></a></h4><ul>
@@ -579,10 +585,11 @@ non-indented paragraph</li>
 being swallowed into the entity and repeated</li>
 </ul>
 <h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-report-the-markdown-payload-budget">Scenario: Report the markdown payload budget<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-report-the-markdown-payload-budget" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> the total <code>markdown</code> entity payload for an article would exceed the
-API&rsquo;s per-article limit</li>
-<li><strong>THEN</strong> conversion fails with a diagnostic naming the article and the
-measured size rather than emitting a document the API will reject</li>
+<li><strong>WHEN</strong> the documented conservative weighted-length estimate for Markdown
+entities exceeds the local per-article budget</li>
+<li><strong>THEN</strong> conversion fails with the measured estimate and budget</li>
+<li><strong>AND</strong> the diagnostic and documentation distinguish that estimate from X&rsquo;s
+undocumented Articles-specific backend validation</li>
 </ul>
 <h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-inline-code-and-thematic-breaks">Requirement: Inline code and thematic breaks<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-inline-code-and-thematic-breaks" aria-label="Heading self-link"></a></h3><p>DraftJS exposes only <code>bold</code>, <code>italic</code>, and <code>strikethrough</code> as inline styles, so
 a Markdown inline-code span has no code style to map onto. Its literal text SHALL
@@ -637,8 +644,8 @@ preserved</li>
 </ul>
 <h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-images-reference-uploaded-media">Requirement: Images reference uploaded media<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-images-reference-uploaded-media" aria-label="Heading self-link"></a></h3><p>The <code>image</code> entity SHALL carry its media as <code>media_items</code>, whose entries require
 a <code>media_category</code> and a <code>media_id</code>; <code>data.url</code> is documented for <code>link</code>
-entities and MUST NOT be treated as an image source. Each image SHALL become an
-<code>atomic</code> block plus an <code>image</code> entity, and unresolved images SHALL remain
+entities and MUST NOT be treated as an image source. Each explicit body image
+SHALL become an <code>atomic</code> block plus an <code>image</code> entity, and unresolved images SHALL remain
 explicitly unresolved so publication can resolve or reject them rather than
 silently emitting a broken article. Because the media endpoints accept only a
 fixed set of image media types that excludes <code>image/svg+xml</code>, the converter
@@ -649,7 +656,7 @@ the file&rsquo;s bytes carry that format&rsquo;s own signature, so a file rename
 accepted raster extension — even one accepted format renamed to another — is
 reported rather than sent to the upload endpoint.</p>
 <h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-an-inline-image">Scenario: Convert an inline image<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-an-inline-image" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> a post contains an image with alt text</li>
+<li><strong>WHEN</strong> a post contains an explicit Markdown image with alt text</li>
 <li><strong>THEN</strong> it becomes an <code>atomic</code> block with an <code>image</code> entity</li>
 <li><strong>AND</strong> the entity preserves the alt text as its caption, resolving Markdown
 escapes and character references the way prose is resolved while a raw span
@@ -730,7 +737,7 @@ hidden merely because sibling text kept the link</li>
 </ul>
 <h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-post-follows-the-raster-only-policy">Scenario: A post follows the raster-only policy<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-post-follows-the-raster-only-policy" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a post&rsquo;s images all use a media type the media upload endpoints accept</li>
-<li><strong>THEN</strong> conversion completes with an <code>image</code> entity for each image</li>
+<li><strong>THEN</strong> conversion completes with an <code>image</code> entity for each explicit body image</li>
 <li><strong>AND</strong> no unacceptable-image diagnostic is reported for that post</li>
 </ul>
 <h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-artifact-carries-image-locators">Requirement: Artifact carries image locators<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-artifact-carries-image-locators" aria-label="Heading self-link"></a></h3><p>Because the API&rsquo;s entity <code>data</code> object rejects additional properties, an image&rsquo;s
@@ -859,17 +866,56 @@ line</li>
 names the position an editor shows</li>
 <li><strong>AND</strong> the byte offset is still recorded for slicing the source</li>
 </ul>
-<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-banner-image-metadata">Requirement: Banner image metadata<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-banner-image-metadata" aria-label="Heading self-link"></a></h3><p>The converter SHALL resolve the first entry of the optional front matter
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-validate-the-supported-static-image-contract">Requirement: Validate the supported static image contract<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-validate-the-supported-static-image-contract" aria-label="Heading self-link"></a></h3><p>Conversion and draft preflight SHALL accept only static JPEG, PNG, GIF, and
+WebP images up to 5,000,000 bytes. They SHALL reject unsupported formats,
+animations, malformed images detectable by the supported decoder or container
+validator, and images exceeding the documented local decoded-size guard. The
+implementation SHALL distinguish X&rsquo;s upload limits from local resource guards
+and SHALL NOT claim full WebP decoding when only container/header validation is
+available. Every image SHALL pass preflight before any upload or draft request.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-an-unsupported-or-animated-image-is-referenced">Scenario: An unsupported or animated image is referenced<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-an-unsupported-or-animated-image-is-referenced" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a banner or retained body image uses an unsupported format or animation</li>
+<li><strong>THEN</strong> conversion reports the unusable source</li>
+<li><strong>AND</strong> a supplied artifact containing that source is also refused before network requests</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-file-exceeds-the-simple-image-upload-limit">Scenario: A file exceeds the simple-image upload limit<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-file-exceeds-the-simple-image-upload-limit" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a selected image contains more than 5,000,000 bytes</li>
+<li><strong>THEN</strong> conversion and draft preflight refuse it before upload</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-malformed-image-only-carries-a-recognized-signature">Scenario: A malformed image only carries a recognized signature<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-a-malformed-image-only-carries-a-recognized-signature" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a file&rsquo;s signature matches its extension but decoding or container validation fails</li>
+<li><strong>THEN</strong> it is refused rather than sent as a usable image</li>
+</ul>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-independent-banner-and-body-image-conversion">Requirement: Independent banner and body image conversion<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-independent-banner-and-body-image-conversion" aria-label="Heading self-link"></a></h3><p>The converter SHALL resolve the first entry of the optional front matter
 <code>images</code> array as the article banner. It SHALL record a separate banner locator
 with the post-relative path, post package, content digest, and detected media
-type, using the same image validation as body images. It MUST NOT insert a body
-block or remove an existing body image because the image is selected as a banner.
-Malformed metadata or an unusable selected image SHALL fail conversion.</p>
+type, using the same image validation as body images. Banner metadata MUST NOT
+insert or remove any body image blocks, entities, or locators. The converter
+SHALL preserve every valid explicit Markdown image in source order, including
+opening images, repeated references, and images whose bytes match the banner.
+Malformed metadata or an unusable selected image SHALL fail conversion. Banner
+selection MUST NOT bypass body image containment or media validation.</p>
 <h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-select-a-banner-independently-of-body-images">Scenario: Select a banner independently of body images<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-select-a-banner-independently-of-body-images" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a post selects a local image in the first <code>images</code> entry</li>
 <li><strong>THEN</strong> conversion records its banner locator separately from body locators</li>
 <li><strong>AND</strong> later <code>images</code> entries do not select additional banners</li>
 <li><strong>AND</strong> body text and images retain their original order</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-preserve-an-opening-image-that-matches-the-banner">Scenario: Preserve an opening image that matches the banner<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-preserve-an-opening-image-that-matches-the-banner" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post opens with explicit Markdown images whose validated bytes
+match its selected banner, in one or several paragraphs</li>
+<li><strong>THEN</strong> every occurrence produces its normal body block, entity, and locator</li>
+<li><strong>AND</strong> the separate banner locator remains present</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-keep-metadata-only-images-out-of-the-body">Scenario: Keep metadata-only images out of the body<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-keep-metadata-only-images-out-of-the-body" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post selects a banner in <code>images</code> and contains no Markdown images</li>
+<li><strong>THEN</strong> conversion records the banner locator</li>
+<li><strong>AND</strong> it creates no body image blocks, entities, or locators from metadata</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-preserve-a-secondary-front-matter-image">Scenario: Preserve a secondary front matter image<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-preserve-a-secondary-front-matter-image" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a body image also appears in a later <code>images</code> entry</li>
+<li><strong>THEN</strong> the explicit Markdown image remains in the body</li>
+<li><strong>AND</strong> that metadata entry creates no additional banner or body occurrence</li>
 </ul>
 <h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-without-a-selected-banner">Scenario: Convert without a selected banner<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-convert-without-a-selected-banner" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> <code>images</code> is absent or empty</li>
@@ -879,6 +925,12 @@ Malformed metadata or an unusable selected image SHALL fail conversion.</p>
 <li><strong>WHEN</strong> <code>images</code> is not an array of strings, or its selected image is missing,
 unsupported, remote, or outside the post package</li>
 <li><strong>THEN</strong> conversion fails with a diagnostic before any network operation</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-validate-a-body-image-that-aliases-the-banner">Scenario: Validate a body image that aliases the banner<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-validate-a-body-image-that-aliases-the-banner" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a body image aliases the banner&rsquo;s bytes through an escaping symlink
+or an unsupported media type</li>
+<li><strong>THEN</strong> normal conversion diagnostics refuse that body reference</li>
+<li><strong>AND</strong> matching bytes do not bypass validation</li>
 </ul>
 
 </div>
@@ -897,10 +949,12 @@ unsupported, remote, or outside the post package</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-e0b1a79fe47c88fa58ffb55fb6ff444f">1.2 - X article publication</h1>
     
+	
 	
 </div>
 
@@ -922,10 +976,12 @@ unsupported, remote, or outside the post package</li>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-86082217a1ceac33112b1ea1c72e0478">1.2.1 - x-article-publication Specification</h1>
     
+	
 	<span id="print-b3e612cbf6a99d214c5c9b738057c7fb-x-article-publication-specification"></span><h2 id="print-b3e612cbf6a99d214c5c9b738057c7fb-purpose">Purpose<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-purpose" aria-label="Heading self-link"></a></h2><p>Create an X Article draft from a converted Markdown post, resolving referenced
 images through the media upload endpoint. The uploader creates drafts only; it
 never publishes an article.</p>
@@ -995,14 +1051,14 @@ obtains a <code>media_id</code></li>
 <li><strong>AND</strong> the created draft references that <code>media_id</code> in its <code>image</code> entity</li>
 </ul>
 <h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-already-uploaded-image">Scenario: Reuse an already uploaded image<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-already-uploaded-image" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> the same image content has already been uploaded by this tool</li>
+<li><strong>WHEN</strong> the same image content has a ready upload in the current credential context and a usable lifetime</li>
 <li><strong>THEN</strong> the publisher reuses the recorded <code>media_id</code> rather than uploading the
 same bytes again</li>
 </ul>
 <h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-upload-in-a-later-run">Scenario: Reuse an upload in a later run<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-reuse-an-upload-in-a-later-run" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> draft creation runs again in a new process for an image this tool already uploaded</li>
-<li><strong>THEN</strong> it reads the digest-to-<code>media_id</code> mapping from its own cache and
-reuses the identifier</li>
+<li><strong>THEN</strong> it reuses the identifier only when the cache schema, endpoint, media category,
+credential context, content digest, and conservative expiry all match</li>
 <li><strong>AND</strong> it stays correct when the cache is absent or the recorded digest no
 longer matches the artifact&rsquo;s, by uploading again rather than reusing a stale
 identifier</li>
@@ -1018,9 +1074,9 @@ identifier</li>
 <li><strong>AND</strong> it does not send an entity that references a missing media identifier</li>
 </ul>
 <h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-expire-a-cached-upload">Scenario: Expire a cached upload<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-expire-a-cached-upload" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> the recorded lifetime of a cached media identifier has passed</li>
+<li><strong>WHEN</strong> the recorded lifetime of a cached media identifier has passed before image resolution begins</li>
 <li><strong>THEN</strong> the cached entry is treated as a miss and the image is uploaded again</li>
-<li><strong>AND</strong> an entry whose lifetime has not passed is still reused</li>
+<li><strong>AND</strong> an entry with enough lifetime for draft submission is still reused</li>
 </ul>
 <h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-cannot-be-uploaded">Scenario: An image cannot be uploaded<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-image-cannot-be-uploaded" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> an image upload fails</li>
@@ -1066,8 +1122,26 @@ identifier</li>
 </ul>
 <h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-reporting-and-failure-handling">Requirement: Reporting and failure handling<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-reporting-and-failure-handling" aria-label="Heading self-link"></a></h3><p>The publisher SHALL report the identifier it obtained and SHALL fail loudly
 rather than report success when a request was rejected. Failures MUST identify
-which operation failed and MUST NOT be retried automatically when the response
-indicates an authentication or request error.</p>
+which operation failed and MUST NOT be retried automatically.</p>
+<p>For every non-2xx API response, including HTTP 503, the error SHALL preserve and
+display the original operation, status, body, and only these response headers:
+<code>X-Rate-Limit-Limit</code>, <code>X-Rate-Limit-Remaining</code>, <code>X-Rate-Limit-Reset</code>,
+<code>X-User-Limit-24hour-Limit</code>, <code>X-User-Limit-24hour-Remaining</code>,
+<code>X-User-Limit-24hour-Reset</code>, and <code>Retry-After</code>. It SHALL preserve every value of
+those headers and SHALL NOT copy authorization, cookies, or other headers into
+the error. A rejected response whose body cannot be completely read SHALL
+retain its status and headers alongside the body-read error cause.</p>
+<p>Valid Unix reset timestamps SHALL also be displayed as human-readable UTC.
+A combined rate-limit retry not-before boundary SHALL be reported only when
+known exhausted windows have valid, future reset times at response receipt.
+A window SHALL count as exhausted only when its unambiguous remaining value
+is zero. The boundary SHALL use the latest reset among those windows, extended
+by a valid later <code>Retry-After</code> value interpreted as decimal seconds from receipt
+or an HTTP date. Missing, malformed, ambiguous, or already-elapsed reset data
+for an exhausted window SHALL prevent a combined boundary. A positive remaining
+count or <code>Retry-After</code> alone MUST NOT imply upload eligibility. The diagnostic
+SHALL distinguish a not-before boundary from guaranteed service recovery or
+request success, and SHALL preserve raw values when timing is unknown.</p>
 <h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-report-the-created-identifier">Scenario: Report the created identifier<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-report-the-created-identifier" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a draft is created</li>
 <li><strong>THEN</strong> the publisher reports the draft&rsquo;s article identifier</li>
@@ -1075,7 +1149,27 @@ indicates an authentication or request error.</p>
 <h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-the-api-rejects-a-request">Scenario: The API rejects a request<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-the-api-rejects-a-request" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> an API request is rejected</li>
 <li><strong>THEN</strong> the publisher reports the failing operation and the API&rsquo;s error</li>
-<li><strong>AND</strong> it does not report the operation as successful</li>
+<li><strong>AND</strong> it does not report the operation as successful or retry automatically</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-service-unavailable-with-remaining-allowance">Scenario: Service unavailable with remaining allowance<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-service-unavailable-with-remaining-allowance" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a 503 response includes remaining allowance and reset headers</li>
+<li><strong>THEN</strong> the error retains those headers and displays readable UTC resets</li>
+<li><strong>AND</strong> it does not claim that the resets guarantee service recovery</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-both-rate-windows-are-exhausted">Scenario: Both rate windows are exhausted<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-both-rate-windows-are-exhausted" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> both remaining counts are zero and both resets are valid future times</li>
+<li><strong>THEN</strong> the rate-limit boundary is no earlier than the later reset</li>
+<li><strong>AND</strong> valid later Retry-After advice extends that boundary</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-timing-evidence-is-incomplete-or-invalid">Scenario: Timing evidence is incomplete or invalid<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-timing-evidence-is-incomplete-or-invalid" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an exhausted window has a missing, malformed, ambiguous, or elapsed reset</li>
+<li><strong>THEN</strong> the diagnostic reports that a current retry time is unknown</li>
+<li><strong>AND</strong> it keeps the original header values without inventing an exact time</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-rejected-response-body-is-truncated">Scenario: A rejected response body is truncated<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-rejected-response-body-is-truncated" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a non-2xx response terminates before its declared body length</li>
+<li><strong>THEN</strong> the error retains the operation, status, partial body, and allowlisted headers</li>
+<li><strong>AND</strong> callers can still inspect the body-read error cause</li>
 </ul>
 <h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-validation-runs-without-network-access">Scenario: Validation runs without network access<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-validation-runs-without-network-access" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the project&rsquo;s checks validate conversion</li>
@@ -1107,6 +1201,58 @@ digests, and media types before any upload or draft request.</p>
 missing bytes, or has a mismatched digest or media type</li>
 <li><strong>THEN</strong> draft creation fails before any media or draft HTTP request</li>
 </ul>
+<h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-media-readiness-before-draft-creation">Requirement: Media readiness before draft creation<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-media-readiness-before-draft-creation" aria-label="Heading self-link"></a></h3><p>The publisher SHALL inspect media processing information before using an upload
+identifier. A response without processing information or with succeeded state
+SHALL require no status request. Pending or in-progress processing SHALL use
+read-only signed status requests, respect the reported delay, and stop within a
+bounded deadline. Failed, unknown, inconsistent, or incomplete processing state,
+partial upload errors, and rejected status requests SHALL prevent draft creation.
+Neither upload nor draft POST requests SHALL be replayed by this workflow.</p>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-static-upload-is-immediately-usable">Scenario: A static upload is immediately usable<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-static-upload-is-immediately-usable" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> upload succeeds without processing information or with succeeded state</li>
+<li><strong>THEN</strong> the publisher makes no processing-status request</li>
+<li><strong>AND</strong> the media identifier can be attached to the draft</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-media-processing-remains-pending">Scenario: Media processing remains pending<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-media-processing-remains-pending" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the upload reports pending or in-progress processing</li>
+<li><strong>THEN</strong> the publisher checks status after the prescribed delay within a finite budget</li>
+<li><strong>AND</strong> it creates a draft only after observing succeeded state</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-processing-cannot-establish-usable-media">Scenario: Processing cannot establish usable media<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-processing-cannot-establish-usable-media" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> processing fails, exceeds its deadline, returns errors, or supplies inconsistent state</li>
+<li><strong>THEN</strong> the publisher reports the media failure without creating a draft</li>
+<li><strong>AND</strong> it does not retry the upload POST</li>
+</ul>
+<h3 id="print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-credential-scoped-media-cache-validity">Requirement: Credential-scoped media cache validity<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-requirement-credential-scoped-media-cache-validity" aria-label="Heading self-link"></a></h3><p>Persistent media reuse SHALL be scoped to the upload endpoint, media category,
+and OAuth credential context without persisting plaintext credentials or
+requesting account identity merely to name the cache. Changing any credential
+field SHALL prevent reuse from the prior context. Unscoped legacy entries SHALL
+be treated as misses.</p>
+<p>A persisted entry SHALL have a known positive lifetime, conservatively anchored
+before upload and accounting for processing time and a submission reserve.
+Missing or zero lifetime SHALL permit reuse only within the current resolution,
+never across resolutions or processes. Negative or already unusable upload
+lifetimes SHALL fail before draft creation.</p>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-token-or-account-changes">Scenario: A token or account changes<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-token-or-account-changes" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> identical image bytes are submitted using a different credential context</li>
+<li><strong>THEN</strong> the earlier context&rsquo;s cached identifier is not reused</li>
+<li><strong>AND</strong> the cache contains no credential values</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-response-provides-no-known-lifetime">Scenario: A response provides no known lifetime<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-a-response-provides-no-known-lifetime" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an upload response omits its lifetime or reports zero</li>
+<li><strong>THEN</strong> identical banner and body images may share that fresh identifier within one resolution</li>
+<li><strong>AND</strong> a later resolution uploads the bytes again</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-uploading-or-processing-consumes-the-usable-lifetime">Scenario: Uploading or processing consumes the usable lifetime<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-uploading-or-processing-consumes-the-usable-lifetime" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a positive reported lifetime has insufficient time remaining for submission</li>
+<li><strong>THEN</strong> draft creation stops instead of attaching the expired or near-expiry identifier</li>
+</ul>
+<h4 id="print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-earlier-image-expires-before-its-later-duplicate-is-resolved">Scenario: An earlier image expires before its later duplicate is resolved<a class="td-heading-self-link" href="#print-b3e612cbf6a99d214c5c9b738057c7fb-scenario-an-earlier-image-expires-before-its-later-duplicate-is-resolved" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> uploading another image consumes the usable lifetime of an identifier already selected for a banner or body image</li>
+<li><strong>AND</strong> a later body image references those same bytes</li>
+<li><strong>THEN</strong> resolution stops without uploading the duplicate again or creating a draft</li>
+<li><strong>AND</strong> a replacement cache entry cannot mask the expired identifier already selected for the draft</li>
+</ul>
 
 </div>
 
@@ -1124,10 +1270,12 @@ missing bytes, or has a mismatched digest or media type</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f86347a021ad581ec930ca5cce28922a">1.3 - X article uploader build</h1>
     
+	
 	
 </div>
 
@@ -1149,10 +1297,12 @@ missing bytes, or has a mismatched digest or media type</li>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-f85a89e635fbdb4065bb3ddd26ed2f25">1.3.1 - x-article-uploader-build Specification</h1>
     
+	
 	<span id="print-a61236686e591a9c2cb93425b651772c-x-article-uploader-build-specification"></span><h2 id="print-a61236686e591a9c2cb93425b651772c-purpose">Purpose<a class="td-heading-self-link" href="#print-a61236686e591a9c2cb93425b651772c-purpose" aria-label="Heading self-link"></a></h2><p>Build the X Article uploader from pinned, hermetic inputs so conversion and its
 tests run reproducibly in the repository&rsquo;s Bazel workflow without network access
 or credentials.</p>

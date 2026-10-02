@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="Vault">
 	<meta itemprop="description" content="Setup for vault.dc1.alwaldend.com">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
-	<meta itemprop="wordCount" content="271">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
+	<meta itemprop="wordCount" content="589">
 	<meta itemprop="keywords" content="Ansible,Terraform">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Vault">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -433,7 +433,46 @@ This is the multi-page printable view of this section.
 <h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-generate-an-eab-for-acme">Generate an EAB for ACME<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-generate-an-eab-for-acme" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/vault -- write -f pki/ica_servers/roles/ica_servers_dc1_pve1/acme/new-eab
 </span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-sign-a-client-ssh-key">Sign a client ssh key<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-sign-a-client-ssh-key" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //:vault -- write ssh/clients/sign/admins <span class="nv">ttl</span><span class="o">=</span><span class="m">30000000</span>  <span class="nv">public_key</span><span class="o">=</span>@<span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.ssh/key&#34;</span>
 </span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-revoke-all-tokens">Revoke all tokens<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-revoke-all-tokens" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/vault -- token revoke -mode<span class="o">=</span>path auth
-</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-vault-certificates">Vault certificates<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-vault-certificates" aria-label="Heading self-link"></a></h2><p>Vault certificates (<code>tls_cert_file</code>, <code>tls_key_file</code>) should be updated manually</p>
+</span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-vault-certificates">Vault certificates<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-vault-certificates" aria-label="Heading self-link"></a></h2><p>Renew the Vault server certificate through its Ansible role. The <code>vault_tls</code>
+tag issues a certificate, installs its chain and private key, and reloads Vault
+with SIGHUP. It stops on certificate errors and does not run the host setup,
+package installation, or service restart tasks.</p>
+<p>Run from the repository root. Keep SSH host verification enabled by deriving a
+temporary <code>known_hosts</code> entry from the repository-owned public SSH CA:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">vault_recovery_dir</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span><span class="s2">/out/vault-certificate-recovery&#34;</span>
+</span></span><span class="line"><span class="cl">mkdir -p <span class="s2">&#34;</span><span class="si">${</span><span class="nv">vault_recovery_dir</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s1">&#39;@cert-authority host1.vault.alwaldend.com,host1.vault.dc1.alwaldend.com %s\n&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  <span class="s2">&#34;</span><span class="k">$(</span>cat infra/vault/tf/output/ssh_ca_servers.crt<span class="k">)</span><span class="s2">&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  &gt;<span class="s2">&#34;</span><span class="si">${</span><span class="nv">vault_recovery_dir</span><span class="si">}</span><span class="s2">/ssh_known_hosts&#34;</span>
+</span></span></code></pre></div><p>For an expired server certificate, temporarily disable Vault certificate
+verification for this recovery command only. The SSH options trust that CA
+only for this invocation and retain the existing SSH certificate&rsquo;s host alias:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">env <span class="nv">VAULT_SKIP_VERIFY</span><span class="o">=</span><span class="nb">true</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  <span class="nv">ANSIBLE_SSH_COMMON_ARGS</span><span class="o">=</span><span class="s2">&#34;-o StrictHostKeyChecking=yes \
+</span></span></span><span class="line"><span class="cl"><span class="s2">-o HostKeyAlias=host1.vault.alwaldend.com \
+</span></span></span><span class="line"><span class="cl"><span class="s2">-o UserKnownHostsFile=\&#34;</span><span class="si">${</span><span class="nv">vault_recovery_dir</span><span class="si">}</span><span class="s2">/ssh_known_hosts\&#34;&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  bazel_agent bazel run //infra/vault/ansible:ansible -- <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --limit host1.vault.alwaldend.com --tags vault_tls
+</span></span></code></pre></div><p>Vault must be reachable and unsealed, and the host token must allow the
+component&rsquo;s AppRole login. If that token has expired, connect the login YubiKey
+and refresh it first:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/vault/login -- simeonwarren --insecure
+</span></span></code></pre></div><p>This login replaces the host token. Stop if it fails; a missing YubiKey cannot
+be fixed by disabling TLS verification. Neither command changes the persistent
+TLS verification configuration. Do not add the bypass to shell profiles,
+<code>al.lua</code>, or Ansible defaults, and do not use verbose or diff output for the
+certificate tasks. The temporary public <code>known_hosts</code> projection does not
+modify the host&rsquo;s SSH configuration; do not replace it with an unverified
+<code>ssh-keyscan</code> result or disable SSH host verification.</p>
+<p>After renewal, verify Vault with certificate validation enabled:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">env -u VAULT_SKIP_VERIFY bazel_agent bazel run //:vault.status
+</span></span></code></pre></div><p>For renewal before expiry, omit <code>VAULT_SKIP_VERIFY=true</code> from the Ansible
+command. The current inventory serves Vault from <code>host1</code>; review the inventory
+before changing the host limit. Its inventory name remains
+<code>host1.vault.alwaldend.com</code> to preserve the Vault node identity; <code>ansible_host</code>
+connects through the DNS-owned name <code>host1.vault.dc1.alwaldend.com</code>. Certificate
+alternate names include this connection hostname for the existing unseal
+endpoint, as well as the shared Vault service names.</p>
 <h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-read-oidc-client-info">Read OIDC client info<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-read-oidc-client-info" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel run //infra/vault -- <span class="nb">read</span> identity/oidc/client/src_infra_dc1_forgejo1_provider
 </span></span></code></pre></div><h2 id="print-cdd2e7db4c7a4056792696e8d7ced583-read-all-entity-aliases">Read all entity aliases<a class="td-heading-self-link" href="#print-cdd2e7db4c7a4056792696e8d7ced583-read-all-entity-aliases" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"> bazel run //infra/vault -- list -format json identity/entity-alias/id <span class="p">|</span> jq <span class="s2">&#34;.[]&#34;</span> <span class="p">|</span> xargs <span class="s2">&#34;-I{}&#34;</span> bazel run //infra/vault -- <span class="nb">read</span> <span class="s2">&#34;identity/entity-alias/id/{}&#34;</span>
 </span></span></code></pre></div>
@@ -455,10 +494,12 @@ This is the multi-page printable view of this section.
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-f68ccfab09e0692ff0158601a5e103f8">1 - Ansible</h1>
     <div class="lead">Ansible setup</div>
+	
 	
 </div>
 
@@ -483,12 +524,14 @@ This is the multi-page printable view of this section.
     
 	
     
+
 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c4bdea1117868c72c09956b3bf4ff2e4">2 - OpenSpec</h1>
     
 	
+	
 </div>
 
 
@@ -508,12 +551,14 @@ This is the multi-page printable view of this section.
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-bea9ef6384c26c2b848330454cfb8f04">2.1 - Specifications</h1>
     
 	
+	
 </div>
 
 
@@ -533,12 +578,14 @@ This is the multi-page printable view of this section.
     
 	
     
+
 
 <div class="td-content" style="">
     
 	<h1 id="pg-3167958df2125a400fedd87c10ead900">2.1.1 - Download identity</h1>
     
 	
+	
 </div>
 
 
@@ -559,10 +606,12 @@ This is the multi-page printable view of this section.
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-5f0e0f2fceb8b6c27cb5d66b6c363bbf">2.1.1.1 - download-identity Specification</h1>
     
+	
 	<span id="print-079c75616bed12e70836a2fe63800d76-download-identity-specification"></span><h2 id="print-079c75616bed12e70836a2fe63800d76-purpose">Purpose<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-purpose" aria-label="Heading self-link"></a></h2><p>Provide a dedicated Vault identity for download infrastructure while keeping
 state, credential references, and provider permissions scoped to its needs.</p>
 <h2 id="print-079c75616bed12e70836a2fe63800d76-requirements">Requirements<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-079c75616bed12e70836a2fe63800d76-requirement-dedicated-component-authentication">Requirement: Dedicated component authentication<a class="td-heading-self-link" href="#print-079c75616bed12e70836a2fe63800d76-requirement-dedicated-component-authentication" aria-label="Heading self-link"></a></h3><p>Vault configuration SHALL declare <code>src_infra_download</code> using the existing
@@ -622,10 +671,12 @@ one owner in the core Vault stage.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-77540bb31cf313b3f152ea0168a02a91">2.1.2 - Infra vault</h1>
     
+	
 	
 </div>
 
@@ -647,10 +698,12 @@ one owner in the core Vault stage.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-24d61639a1d6cb6c91dca8cfe2331506">2.1.2.1 - Infrastructure Vault</h1>
     
+	
 	<span id="print-1b50ce3ae542cee99e93840e275bbd4a-infrastructure-vault"></span><h2 id="print-1b50ce3ae542cee99e93840e275bbd4a-purpose">Purpose<a class="td-heading-self-link" href="#print-1b50ce3ae542cee99e93840e275bbd4a-purpose" aria-label="Heading self-link"></a></h2><p>Describe the Vault host configuration, authentication and certificate services,
 and packaged recovery entry points. This baseline concerns checked-in desired
 state and supported wrapper structure; it does not establish live unsealed
@@ -736,6 +789,30 @@ provider secret or duplicate credential values.</p>
 <li><strong>THEN</strong> its DNS policy grants reads for both existing credential references</li>
 <li><strong>AND</strong> neither read policy grants mutation of the provider credential</li>
 </ul>
+<h3 id="print-1b50ce3ae542cee99e93840e275bbd4a-requirement-recover-an-expired-server-certificate-with-scoped-ansible-tasks">Requirement: Recover an expired server certificate with scoped Ansible tasks<a class="td-heading-self-link" href="#print-1b50ce3ae542cee99e93840e275bbd4a-requirement-recover-an-expired-server-certificate-with-scoped-ansible-tasks" aria-label="Heading self-link"></a></h3><p>The packaged Vault Ansible workflow SHALL expose a <code>vault_tls</code> tag that issues
+and installs the configured server certificate and private key, then reloads
+Vault. Selecting only this tag SHALL NOT update packages, the service binary,
+host configuration, or Raft peers. Certificate material SHALL be suppressed
+from task output. Explicit certificate renewal SHALL stop on issuance or
+installation failure before reloading the service.</p>
+<h4 id="print-1b50ce3ae542cee99e93840e275bbd4a-scenario-renew-one-authorized-hosts-certificate">Scenario: Renew one authorized host&rsquo;s certificate<a class="td-heading-self-link" href="#print-1b50ce3ae542cee99e93840e275bbd4a-scenario-renew-one-authorized-hosts-certificate" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the operator selects <code>vault_tls</code> and limits the play to one Vault host</li>
+<li><strong>THEN</strong> only certificate issuance, certificate and key installation, and
+service reload are selected, in addition to read-only fact gathering</li>
+<li><strong>AND</strong> a failed certificate task prevents the reload</li>
+</ul>
+<h3 id="print-1b50ce3ae542cee99e93840e275bbd4a-requirement-scope-certificate-verification-bypass-to-recovery-invocations">Requirement: Scope certificate-verification bypass to recovery invocations<a class="td-heading-self-link" href="#print-1b50ce3ae542cee99e93840e275bbd4a-requirement-scope-certificate-verification-bypass-to-recovery-invocations" aria-label="Heading self-link"></a></h3><p>The recovery procedure SHALL use an invocation-scoped verification override
+only when an expired server certificate prevents the authorized renewal. It
+SHALL retain the existing Vault authentication and injection flow, require a
+valid bootstrap login, and verify the recovered service with certificate
+validation restored. The procedure SHALL NOT persist insecure TLS defaults.</p>
+<h4 id="print-1b50ce3ae542cee99e93840e275bbd4a-scenario-certificate-expiry-prevents-authenticated-renewal">Scenario: Certificate expiry prevents authenticated renewal<a class="td-heading-self-link" href="#print-1b50ce3ae542cee99e93840e275bbd4a-scenario-certificate-expiry-prevents-authenticated-renewal" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an authorized operator performs the documented recovery</li>
+<li><strong>THEN</strong> the temporary override applies to credential injection and certificate
+issuance within that command</li>
+<li><strong>AND</strong> a failed bootstrap login prevents proceeding to renewal</li>
+<li><strong>AND</strong> success is established separately with normal TLS verification</li>
+</ul>
 
 </div>
 
@@ -753,10 +830,12 @@ provider secret or duplicate credential values.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-d2a6992becb69e937df8e91d4dfaf9a6">2.1.3 - Owned dns</h1>
     
+	
 	
 </div>
 
@@ -778,10 +857,12 @@ provider secret or duplicate credential values.</p>
 	
     
 
+
 <div class="td-content" style="">
     
 	<h1 id="pg-142afefc4fc14debbbdc788046fca63a">2.1.3.1 - owned-dns Specification</h1>
     
+	
 	<span id="print-8cf28bdb6edf50e14fd6509d0a2cca24-owned-dns-specification"></span><h2 id="print-8cf28bdb6edf50e14fd6509d0a2cca24-purpose">Purpose<a class="td-heading-self-link" href="#print-8cf28bdb6edf50e14fd6509d0a2cca24-purpose" aria-label="Heading self-link"></a></h2><p>Define Vault service DNS management through the owner&rsquo;s <code>tf_setup</code> root,
 including canonical declarations, scoped credentials, and offline source checks
 before adopting live records.</p>
@@ -860,10 +941,12 @@ requiring a saved plan</li>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-76e2c966f28dd06c1b7face04e64fef5">3 - Tf</h1>
     <div class="lead">Terraform config</div>
+	
 	<h2 id="print-b7a2418aa7c39d2007559719295c342c-dns-identities">DNS identities<a class="td-heading-self-link" href="#print-b7a2418aa7c39d2007559719295c342c-dns-identities" aria-label="Heading self-link"></a></h2><p><a href="approles_dns.tf">Missing DNS-owner AppRoles</a> compose the existing reusable
 AppRole module with an owner-specific DNS policy in <code>approles/&lt;name&gt;/</code>.
 <a href="dns_access/main.tf">DNS access</a> grants read-only access to the existing
@@ -900,10 +983,12 @@ when distinguishing missing deployment from insufficient operator access.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-9f42dd3acd4ae40b5be7877c8f79052f">3.1 - Output</h1>
     <div class="lead">Output files</div>
+	
 	
 </div>
 
@@ -933,10 +1018,12 @@ when distinguishing missing deployment from insufficient operator access.</p>
 	
     
 
+
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-9b2a26a59bfce6aa9b63d80cfb3c3160">4 - Tf setup</h1>
     <div class="lead">Terraform setup</div>
+	
 	<p>This root owns Vault&rsquo;s canonical <a href="../dnsconfig.json">DNS declaration</a> and
 retains its existing <code>src_infra_dc1_vault</code> AppRole and setup state backend.
 Use <code>//infra/vault/tf_setup:dns.plan</code>, <code>dns.show</code>, and <code>dns.apply</code> for the

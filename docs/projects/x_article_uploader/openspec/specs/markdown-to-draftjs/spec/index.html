@@ -44,13 +44,13 @@ RequirementsRequirement: Source post input modelThe converter SHALL treat a blog
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
-		<meta property="article:modified_time" content="2026-10-02T00:30:58+03:00">
+		<meta property="article:modified_time" content="2026-10-03T00:16:43+03:00">
 
 	<meta itemprop="name" content="markdown-to-draftjs Specification">
 	<meta itemprop="description" content="PurposeCompile a Markdown post into the DraftJS content_state document that the X Articles API accepts, so the Markdown that renders the blog also produces the article body without hand-editing.
 RequirementsRequirement: Source post input modelThe converter SHALL treat a blog source post as YAML front matter plus a Markdown body, and MUST NOT emit front matter as article text. It SHALL expose the parsed metadata separately from the content_state document, and SHALL report the parsed title as document metadata because draft creation requires a title that content_state does not carry. A source whose front matter has no non-empty title SHALL fail conversion with a diagnostic naming the source, rather than producing a document that cannot be uploaded.">
-	<meta itemprop="dateModified" content="2026-10-02T00:30:58+03:00">
-	<meta itemprop="wordCount" content="4390">
+	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
+	<meta itemprop="wordCount" content="4777">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="markdown-to-draftjs Specification">
@@ -151,7 +151,7 @@ RequirementsRequirement: Source post input modelThe converter SHALL treat a blog
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -176,7 +176,7 @@ RequirementsRequirement: Source post input modelThe converter SHALL treat a blog
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.430cbb9c2ef3b196c6ffa99361e316cf.json"
+    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -3982,7 +3982,8 @@ RequirementsRequirement: Source post input modelThe converter SHALL treat a blog
         <li><a href="#requirement-images-reference-uploaded-media">Requirement: Images reference uploaded media</a></li>
         <li><a href="#requirement-artifact-carries-image-locators">Requirement: Artifact carries image locators</a></li>
         <li><a href="#requirement-conversion-diagnostics">Requirement: Conversion diagnostics</a></li>
-        <li><a href="#requirement-banner-image-metadata">Requirement: Banner image metadata</a></li>
+        <li><a href="#requirement-validate-the-supported-static-image-contract">Requirement: Validate the supported static image contract</a></li>
+        <li><a href="#requirement-independent-banner-and-body-image-conversion">Requirement: Independent banner and body image conversion</a></li>
       </ul>
     </li>
   </ul>
@@ -4398,7 +4399,7 @@ final text</li>
 drifting by the character&rsquo;s extra code unit</li>
 </ul>
 <h3 id="requirement-code-blocks-and-tables-preserve-source-markdown">Requirement: Code blocks and tables preserve source Markdown<a class="td-heading-self-link" href="#requirement-code-blocks-and-tables-preserve-source-markdown" aria-label="Heading self-link"></a></h3><p>Code fences and tables SHALL be emitted as <code>atomic</code> blocks backed by a
-<code>markdown</code> entity whose payload preserves the construct&rsquo;s original Markdown
+<code>markdown</code> entity with <code>mutable</code> mutability whose payload preserves the construct&rsquo;s original Markdown
 source. A table MUST NOT be flattened into paragraph text, because X exposes no
 table block or entity.</p>
 <h4 id="scenario-convert-a-fenced-code-block">Scenario: Convert a fenced code block<a class="td-heading-self-link" href="#scenario-convert-a-fenced-code-block" aria-label="Heading self-link"></a></h4><ul>
@@ -4420,10 +4421,11 @@ non-indented paragraph</li>
 being swallowed into the entity and repeated</li>
 </ul>
 <h4 id="scenario-report-the-markdown-payload-budget">Scenario: Report the markdown payload budget<a class="td-heading-self-link" href="#scenario-report-the-markdown-payload-budget" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> the total <code>markdown</code> entity payload for an article would exceed the
-API&rsquo;s per-article limit</li>
-<li><strong>THEN</strong> conversion fails with a diagnostic naming the article and the
-measured size rather than emitting a document the API will reject</li>
+<li><strong>WHEN</strong> the documented conservative weighted-length estimate for Markdown
+entities exceeds the local per-article budget</li>
+<li><strong>THEN</strong> conversion fails with the measured estimate and budget</li>
+<li><strong>AND</strong> the diagnostic and documentation distinguish that estimate from X&rsquo;s
+undocumented Articles-specific backend validation</li>
 </ul>
 <h3 id="requirement-inline-code-and-thematic-breaks">Requirement: Inline code and thematic breaks<a class="td-heading-self-link" href="#requirement-inline-code-and-thematic-breaks" aria-label="Heading self-link"></a></h3><p>DraftJS exposes only <code>bold</code>, <code>italic</code>, and <code>strikethrough</code> as inline styles, so
 a Markdown inline-code span has no code style to map onto. Its literal text SHALL
@@ -4478,8 +4480,8 @@ preserved</li>
 </ul>
 <h3 id="requirement-images-reference-uploaded-media">Requirement: Images reference uploaded media<a class="td-heading-self-link" href="#requirement-images-reference-uploaded-media" aria-label="Heading self-link"></a></h3><p>The <code>image</code> entity SHALL carry its media as <code>media_items</code>, whose entries require
 a <code>media_category</code> and a <code>media_id</code>; <code>data.url</code> is documented for <code>link</code>
-entities and MUST NOT be treated as an image source. Each image SHALL become an
-<code>atomic</code> block plus an <code>image</code> entity, and unresolved images SHALL remain
+entities and MUST NOT be treated as an image source. Each explicit body image
+SHALL become an <code>atomic</code> block plus an <code>image</code> entity, and unresolved images SHALL remain
 explicitly unresolved so publication can resolve or reject them rather than
 silently emitting a broken article. Because the media endpoints accept only a
 fixed set of image media types that excludes <code>image/svg+xml</code>, the converter
@@ -4490,7 +4492,7 @@ the file&rsquo;s bytes carry that format&rsquo;s own signature, so a file rename
 accepted raster extension — even one accepted format renamed to another — is
 reported rather than sent to the upload endpoint.</p>
 <h4 id="scenario-convert-an-inline-image">Scenario: Convert an inline image<a class="td-heading-self-link" href="#scenario-convert-an-inline-image" aria-label="Heading self-link"></a></h4><ul>
-<li><strong>WHEN</strong> a post contains an image with alt text</li>
+<li><strong>WHEN</strong> a post contains an explicit Markdown image with alt text</li>
 <li><strong>THEN</strong> it becomes an <code>atomic</code> block with an <code>image</code> entity</li>
 <li><strong>AND</strong> the entity preserves the alt text as its caption, resolving Markdown
 escapes and character references the way prose is resolved while a raw span
@@ -4571,7 +4573,7 @@ hidden merely because sibling text kept the link</li>
 </ul>
 <h4 id="scenario-a-post-follows-the-raster-only-policy">Scenario: A post follows the raster-only policy<a class="td-heading-self-link" href="#scenario-a-post-follows-the-raster-only-policy" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a post&rsquo;s images all use a media type the media upload endpoints accept</li>
-<li><strong>THEN</strong> conversion completes with an <code>image</code> entity for each image</li>
+<li><strong>THEN</strong> conversion completes with an <code>image</code> entity for each explicit body image</li>
 <li><strong>AND</strong> no unacceptable-image diagnostic is reported for that post</li>
 </ul>
 <h3 id="requirement-artifact-carries-image-locators">Requirement: Artifact carries image locators<a class="td-heading-self-link" href="#requirement-artifact-carries-image-locators" aria-label="Heading self-link"></a></h3><p>Because the API&rsquo;s entity <code>data</code> object rejects additional properties, an image&rsquo;s
@@ -4700,17 +4702,56 @@ line</li>
 names the position an editor shows</li>
 <li><strong>AND</strong> the byte offset is still recorded for slicing the source</li>
 </ul>
-<h3 id="requirement-banner-image-metadata">Requirement: Banner image metadata<a class="td-heading-self-link" href="#requirement-banner-image-metadata" aria-label="Heading self-link"></a></h3><p>The converter SHALL resolve the first entry of the optional front matter
+<h3 id="requirement-validate-the-supported-static-image-contract">Requirement: Validate the supported static image contract<a class="td-heading-self-link" href="#requirement-validate-the-supported-static-image-contract" aria-label="Heading self-link"></a></h3><p>Conversion and draft preflight SHALL accept only static JPEG, PNG, GIF, and
+WebP images up to 5,000,000 bytes. They SHALL reject unsupported formats,
+animations, malformed images detectable by the supported decoder or container
+validator, and images exceeding the documented local decoded-size guard. The
+implementation SHALL distinguish X&rsquo;s upload limits from local resource guards
+and SHALL NOT claim full WebP decoding when only container/header validation is
+available. Every image SHALL pass preflight before any upload or draft request.</p>
+<h4 id="scenario-an-unsupported-or-animated-image-is-referenced">Scenario: An unsupported or animated image is referenced<a class="td-heading-self-link" href="#scenario-an-unsupported-or-animated-image-is-referenced" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a banner or retained body image uses an unsupported format or animation</li>
+<li><strong>THEN</strong> conversion reports the unusable source</li>
+<li><strong>AND</strong> a supplied artifact containing that source is also refused before network requests</li>
+</ul>
+<h4 id="scenario-a-file-exceeds-the-simple-image-upload-limit">Scenario: A file exceeds the simple-image upload limit<a class="td-heading-self-link" href="#scenario-a-file-exceeds-the-simple-image-upload-limit" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a selected image contains more than 5,000,000 bytes</li>
+<li><strong>THEN</strong> conversion and draft preflight refuse it before upload</li>
+</ul>
+<h4 id="scenario-a-malformed-image-only-carries-a-recognized-signature">Scenario: A malformed image only carries a recognized signature<a class="td-heading-self-link" href="#scenario-a-malformed-image-only-carries-a-recognized-signature" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a file&rsquo;s signature matches its extension but decoding or container validation fails</li>
+<li><strong>THEN</strong> it is refused rather than sent as a usable image</li>
+</ul>
+<h3 id="requirement-independent-banner-and-body-image-conversion">Requirement: Independent banner and body image conversion<a class="td-heading-self-link" href="#requirement-independent-banner-and-body-image-conversion" aria-label="Heading self-link"></a></h3><p>The converter SHALL resolve the first entry of the optional front matter
 <code>images</code> array as the article banner. It SHALL record a separate banner locator
 with the post-relative path, post package, content digest, and detected media
-type, using the same image validation as body images. It MUST NOT insert a body
-block or remove an existing body image because the image is selected as a banner.
-Malformed metadata or an unusable selected image SHALL fail conversion.</p>
+type, using the same image validation as body images. Banner metadata MUST NOT
+insert or remove any body image blocks, entities, or locators. The converter
+SHALL preserve every valid explicit Markdown image in source order, including
+opening images, repeated references, and images whose bytes match the banner.
+Malformed metadata or an unusable selected image SHALL fail conversion. Banner
+selection MUST NOT bypass body image containment or media validation.</p>
 <h4 id="scenario-select-a-banner-independently-of-body-images">Scenario: Select a banner independently of body images<a class="td-heading-self-link" href="#scenario-select-a-banner-independently-of-body-images" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a post selects a local image in the first <code>images</code> entry</li>
 <li><strong>THEN</strong> conversion records its banner locator separately from body locators</li>
 <li><strong>AND</strong> later <code>images</code> entries do not select additional banners</li>
 <li><strong>AND</strong> body text and images retain their original order</li>
+</ul>
+<h4 id="scenario-preserve-an-opening-image-that-matches-the-banner">Scenario: Preserve an opening image that matches the banner<a class="td-heading-self-link" href="#scenario-preserve-an-opening-image-that-matches-the-banner" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post opens with explicit Markdown images whose validated bytes
+match its selected banner, in one or several paragraphs</li>
+<li><strong>THEN</strong> every occurrence produces its normal body block, entity, and locator</li>
+<li><strong>AND</strong> the separate banner locator remains present</li>
+</ul>
+<h4 id="scenario-keep-metadata-only-images-out-of-the-body">Scenario: Keep metadata-only images out of the body<a class="td-heading-self-link" href="#scenario-keep-metadata-only-images-out-of-the-body" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a post selects a banner in <code>images</code> and contains no Markdown images</li>
+<li><strong>THEN</strong> conversion records the banner locator</li>
+<li><strong>AND</strong> it creates no body image blocks, entities, or locators from metadata</li>
+</ul>
+<h4 id="scenario-preserve-a-secondary-front-matter-image">Scenario: Preserve a secondary front matter image<a class="td-heading-self-link" href="#scenario-preserve-a-secondary-front-matter-image" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a body image also appears in a later <code>images</code> entry</li>
+<li><strong>THEN</strong> the explicit Markdown image remains in the body</li>
+<li><strong>AND</strong> that metadata entry creates no additional banner or body occurrence</li>
 </ul>
 <h4 id="scenario-convert-without-a-selected-banner">Scenario: Convert without a selected banner<a class="td-heading-self-link" href="#scenario-convert-without-a-selected-banner" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> <code>images</code> is absent or empty</li>
@@ -4720,6 +4761,12 @@ Malformed metadata or an unusable selected image SHALL fail conversion.</p>
 <li><strong>WHEN</strong> <code>images</code> is not an array of strings, or its selected image is missing,
 unsupported, remote, or outside the post package</li>
 <li><strong>THEN</strong> conversion fails with a diagnostic before any network operation</li>
+</ul>
+<h4 id="scenario-validate-a-body-image-that-aliases-the-banner">Scenario: Validate a body image that aliases the banner<a class="td-heading-self-link" href="#scenario-validate-a-body-image-that-aliases-the-banner" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> a body image aliases the banner&rsquo;s bytes through an escaping symlink
+or an unsupported media type</li>
+<li><strong>THEN</strong> normal conversion diagnostics refuse that body reference</li>
+<li><strong>AND</strong> matching bytes do not bypass validation</li>
 </ul>
 
 	
