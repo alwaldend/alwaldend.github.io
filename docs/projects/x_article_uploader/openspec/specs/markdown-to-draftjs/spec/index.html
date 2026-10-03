@@ -44,13 +44,13 @@ RequirementsRequirement: Source post input modelThe converter SHALL treat a blog
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="docs">
-		<meta property="article:modified_time" content="2026-10-03T00:16:43+03:00">
+		<meta property="article:modified_time" content="2026-10-03T17:06:06+03:00">
 
 	<meta itemprop="name" content="markdown-to-draftjs Specification">
 	<meta itemprop="description" content="PurposeCompile a Markdown post into the DraftJS content_state document that the X Articles API accepts, so the Markdown that renders the blog also produces the article body without hand-editing.
 RequirementsRequirement: Source post input modelThe converter SHALL treat a blog source post as YAML front matter plus a Markdown body, and MUST NOT emit front matter as article text. It SHALL expose the parsed metadata separately from the content_state document, and SHALL report the parsed title as document metadata because draft creation requires a title that content_state does not carry. A source whose front matter has no non-empty title SHALL fail conversion with a diagnostic naming the source, rather than producing a document that cannot be uploaded.">
-	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
-	<meta itemprop="wordCount" content="4777">
+	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
+	<meta itemprop="wordCount" content="4986">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="markdown-to-draftjs Specification">
@@ -151,7 +151,7 @@ RequirementsRequirement: Source post input modelThe converter SHALL treat a blog
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
+    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -176,7 +176,7 @@ RequirementsRequirement: Source post input modelThe converter SHALL treat a blog
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
+    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -3426,6 +3426,10 @@ RequirementsRequirement: Source post input modelThe converter SHALL treat a blog
     <input type="checkbox" id="m-docstoolsworkspace_status-check"/>
     <label for="m-docstoolsworkspace_status-check"><a href="/docs/tools/workspace_status/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docstoolsworkspace_status"><span class="">Workspace status</span></a></label>
     
+  </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docstoolsxurl-li">
+    <input type="checkbox" id="m-docstoolsxurl-check"/>
+    <label for="m-docstoolsxurl-check"><a href="/docs/tools/xurl/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docstoolsxurl"><span class="">X CLI</span></a></label>
+    
   </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docstoolsykman-li">
     <input type="checkbox" id="m-docstoolsykman-check"/>
     <label for="m-docstoolsykman-check"><a href="/docs/tools/ykman/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docstoolsykman"><span class="">Ykman</span></a></label>
@@ -3856,6 +3860,10 @@ RequirementsRequirement: Source post input modelThe converter SHALL treat a blog
     <input type="checkbox" id="m-docsthird_partycom_github_vatesfr_xen_orchestra_oidc-check"/>
     <label for="m-docsthird_partycom_github_vatesfr_xen_orchestra_oidc-check"><a href="/docs/third_party/com_github_vatesfr_xen_orchestra_oidc/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsthird_partycom_github_vatesfr_xen_orchestra_oidc"><span class="">Xen Orchestra OIDC plugin</span></a></label>
     
+  </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsthird_partycom_github_xdevplatform_xurl-li">
+    <input type="checkbox" id="m-docsthird_partycom_github_xdevplatform_xurl-check"/>
+    <label for="m-docsthird_partycom_github_xdevplatform_xurl-check"><a href="/docs/third_party/com_github_xdevplatform_xurl/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsthird_partycom_github_xdevplatform_xurl"><span class="">Xurl</span></a></label>
+    
   </li>
     </ul>
   </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsusers-li">
@@ -3982,6 +3990,7 @@ RequirementsRequirement: Source post input modelThe converter SHALL treat a blog
         <li><a href="#requirement-images-reference-uploaded-media">Requirement: Images reference uploaded media</a></li>
         <li><a href="#requirement-artifact-carries-image-locators">Requirement: Artifact carries image locators</a></li>
         <li><a href="#requirement-conversion-diagnostics">Requirement: Conversion diagnostics</a></li>
+        <li><a href="#requirement-artifact-separates-the-x-payload-from-local-metadata">Requirement: Artifact separates the X payload from local metadata</a></li>
         <li><a href="#requirement-validate-the-supported-static-image-contract">Requirement: Validate the supported static image contract</a></li>
         <li><a href="#requirement-independent-banner-and-body-image-conversion">Requirement: Independent banner and body image conversion</a></li>
       </ul>
@@ -3997,8 +4006,8 @@ RequirementsRequirement: Source post input modelThe converter SHALL treat a blog
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/infra/" data-taxonomy-term="infra"><span class="taxonomy-label">Infra</span><span class="taxonomy-count">155</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/misc/" data-taxonomy-term="misc"><span class="taxonomy-label">Misc</span><span class="taxonomy-count">22</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/project/" data-taxonomy-term="project"><span class="taxonomy-label">Project</span><span class="taxonomy-count">207</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/categories/third_party/" data-taxonomy-term="third_party"><span class="taxonomy-label">Third_party</span><span class="taxonomy-count">69</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/categories/tool/" data-taxonomy-term="tool"><span class="taxonomy-label">Tool</span><span class="taxonomy-count">263</span></a></li>
+        <li><a class="taxonomy-term" href="https://alwaldend.com/categories/third_party/" data-taxonomy-term="third_party"><span class="taxonomy-label">Third_party</span><span class="taxonomy-count">70</span></a></li>
+        <li><a class="taxonomy-term" href="https://alwaldend.com/categories/tool/" data-taxonomy-term="tool"><span class="taxonomy-label">Tool</span><span class="taxonomy-count">264</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/categories/user/" data-taxonomy-term="user"><span class="taxonomy-label">User</span><span class="taxonomy-count">13</span></a></li>
         </ul>
     </div>
@@ -4060,7 +4069,7 @@ RequirementsRequirement: Source post input modelThe converter SHALL treat a blog
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/ceph/" data-taxonomy-term="ceph"><span class="taxonomy-label">Ceph</span><span class="taxonomy-count">1</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/cert-manager/" data-taxonomy-term="cert-manager"><span class="taxonomy-label">Cert-Manager</span><span class="taxonomy-count">2</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/ci/" data-taxonomy-term="ci"><span class="taxonomy-label">Ci</span><span class="taxonomy-count">2</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/tags/cli/" data-taxonomy-term="cli"><span class="taxonomy-label">Cli</span><span class="taxonomy-count">6</span></a></li>
+        <li><a class="taxonomy-term" href="https://alwaldend.com/tags/cli/" data-taxonomy-term="cli"><span class="taxonomy-label">Cli</span><span class="taxonomy-count">7</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/cmctl/" data-taxonomy-term="cmctl"><span class="taxonomy-label">Cmctl</span><span class="taxonomy-count">2</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/consul/" data-taxonomy-term="consul"><span class="taxonomy-label">Consul</span><span class="taxonomy-count">2</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/cordis/" data-taxonomy-term="cordis"><span class="taxonomy-label">Cordis</span><span class="taxonomy-count">1</span></a></li>
@@ -4158,7 +4167,7 @@ RequirementsRequirement: Source post input modelThe converter SHALL treat a blog
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/vpn/" data-taxonomy-term="vpn"><span class="taxonomy-label">Vpn</span><span class="taxonomy-count">3</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/vuejs/" data-taxonomy-term="vuejs"><span class="taxonomy-label">Vuejs</span><span class="taxonomy-count">2</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/waydroid/" data-taxonomy-term="waydroid"><span class="taxonomy-label">Waydroid</span><span class="taxonomy-count">1</span></a></li>
-        <li><a class="taxonomy-term" href="https://alwaldend.com/tags/x/" data-taxonomy-term="x"><span class="taxonomy-label">X</span><span class="taxonomy-count">3</span></a></li>
+        <li><a class="taxonomy-term" href="https://alwaldend.com/tags/x/" data-taxonomy-term="x"><span class="taxonomy-label">X</span><span class="taxonomy-count">4</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/xcp-ng/" data-taxonomy-term="xcp-ng"><span class="taxonomy-label">Xcp-Ng</span><span class="taxonomy-count">5</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/xray/" data-taxonomy-term="xray"><span class="taxonomy-label">Xray</span><span class="taxonomy-count">3</span></a></li>
         <li><a class="taxonomy-term" href="https://alwaldend.com/tags/yandex_cloud/" data-taxonomy-term="yandex_cloud"><span class="taxonomy-label">Yandex_cloud</span><span class="taxonomy-count">2</span></a></li>
@@ -4253,10 +4262,11 @@ and carries no <code>depth</code></li>
 <code>mutability</code>, and <code>data</code></li>
 <li><strong>AND</strong> no block or entity field falls outside the schema&rsquo;s allowed names</li>
 </ul>
-<h3 id="requirement-heading-level-mapping">Requirement: Heading level mapping<a class="td-heading-self-link" href="#requirement-heading-level-mapping" aria-label="Heading self-link"></a></h3><p>Markdown headings SHALL map onto the block types X exposes, and no heading MAY
-produce a type outside that set. Because X exposes only three heading levels,
-depth SHALL be clamped: <code>#</code> and <code>##</code> map to <code>header-one</code>, <code>###</code> maps to
-<code>header-two</code>, and <code>####</code> and deeper map to <code>header-three</code>.</p>
+<h3 id="requirement-heading-level-mapping">Requirement: Heading level mapping<a class="td-heading-self-link" href="#requirement-heading-level-mapping" aria-label="Heading self-link"></a></h3><p>Markdown headings SHALL map onto the two heading block types accepted by the
+live Articles draft endpoint. Depth SHALL be clamped: <code>#</code> and <code>##</code> map to
+<code>header-one</code>, and <code>###</code> and deeper map to <code>header-two</code>. The converter MUST NOT
+emit <code>header-three</code>: although the API schema permits it, the live endpoint
+returns HTTP 503 for that type.</p>
 <h4 id="scenario-map-a-second-level-heading">Scenario: Map a second-level heading<a class="td-heading-self-link" href="#scenario-map-a-second-level-heading" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a post contains a <code>##</code> heading</li>
 <li><strong>THEN</strong> it becomes a <code>header-one</code> block</li>
@@ -4267,8 +4277,8 @@ depth SHALL be clamped: <code>#</code> and <code>##</code> map to <code>header-o
 </ul>
 <h4 id="scenario-clamp-a-heading-deeper-than-x-supports">Scenario: Clamp a heading deeper than X supports<a class="td-heading-self-link" href="#scenario-clamp-a-heading-deeper-than-x-supports" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a post contains a <code>####</code>, <code>#####</code>, or <code>######</code> heading</li>
-<li><strong>THEN</strong> it becomes a <code>header-three</code> block</li>
-<li><strong>AND</strong> no block uses a heading type outside <code>header-one</code>, <code>header-two</code>, or <code>header-three</code></li>
+<li><strong>THEN</strong> it becomes a <code>header-two</code> block</li>
+<li><strong>AND</strong> no block uses a heading type outside <code>header-one</code> or <code>header-two</code></li>
 </ul>
 <h3 id="requirement-block-level-markdown-mapping">Requirement: Block-level Markdown mapping<a class="td-heading-self-link" href="#requirement-block-level-markdown-mapping" aria-label="Heading self-link"></a></h3><p>The converter SHALL map supported block constructs to the block type X expects:
 paragraphs to <code>unstyled</code>, unordered list items to <code>unordered-list-item</code>,
@@ -4673,8 +4683,10 @@ on a re-opened pathname</li>
 <h3 id="requirement-conversion-diagnostics">Requirement: Conversion diagnostics<a class="td-heading-self-link" href="#requirement-conversion-diagnostics" aria-label="Heading self-link"></a></h3><p>The converter SHALL report a construct it cannot represent with the source
 location that produced it. It SHALL distinguish two outcomes and never emit a
 document that silently omits content it could not represent: a construct whose
-content is preserved but whose formatting is lost is reported and conversion
-continues, while a construct whose content would be lost fails conversion. The
+content is preserved but whose formatting is lost is reported as a warning.
+The conversion command SHALL fail on warnings by default and SHALL permit them
+only with <code>--warnings-as-errors=false</code>. Errors SHALL fail with either setting.
+All diagnostics SHALL be printed to stderr and SHALL NOT appear in artifact JSON. The
 image whose media type the upload endpoints reject and the source without a
 title are failing outcomes; an inline-code span&rsquo;s lost styling is a continuing
 one.</p>
@@ -4693,7 +4705,9 @@ rather than being discarded with the returned error</li>
 <h4 id="scenario-encounter-a-construct-whose-formatting-is-lost">Scenario: Encounter a construct whose formatting is lost<a class="td-heading-self-link" href="#scenario-encounter-a-construct-whose-formatting-is-lost" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the converter preserves a construct&rsquo;s content but cannot reproduce its formatting</li>
 <li><strong>THEN</strong> it reports the lost formatting with its source position</li>
-<li><strong>AND</strong> conversion still completes with the content present</li>
+<li><strong>AND</strong> command conversion fails by default without writing an artifact</li>
+<li><strong>AND</strong> <code>--warnings-as-errors=false</code> permits completion with the content present
+while still reporting the warning to stderr</li>
 </ul>
 <h4 id="scenario-report-a-position-after-a-multi-byte-character">Scenario: Report a position after a multi-byte character<a class="td-heading-self-link" href="#scenario-report-a-position-after-a-multi-byte-character" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a diagnostic&rsquo;s construct follows a multi-byte character on the same
@@ -4701,6 +4715,28 @@ line</li>
 <li><strong>THEN</strong> the reported column counts source characters rather than bytes, so it
 names the position an editor shows</li>
 <li><strong>AND</strong> the byte offset is still recorded for slicing the source</li>
+</ul>
+<h3 id="requirement-artifact-separates-the-x-payload-from-local-metadata">Requirement: Artifact separates the X payload from local metadata<a class="td-heading-self-link" href="#requirement-artifact-separates-the-x-payload-from-local-metadata" aria-label="Heading self-link"></a></h3><p>The converted artifact SHALL put title and content_state inside payload. Body
+image locators and the optional banner locator SHALL remain outside payload.
+Diagnostics SHALL NOT be serialized. Media resolution SHALL attach body media
+IDs inside payload.content_state and the banner ID inside payload.cover_media.
+Artifact reading SHALL reject the old flat format and require regeneration.</p>
+<h4 id="scenario-build-an-offline-artifact">Scenario: Build an offline artifact<a class="td-heading-self-link" href="#scenario-build-an-offline-artifact" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> conversion succeeds</li>
+<li><strong>THEN</strong> payload contains title and content_state in the X request shape</li>
+<li><strong>AND</strong> local media references remain alongside payload</li>
+<li><strong>AND</strong> there is no serialized diagnostics field</li>
+</ul>
+<h4 id="scenario-resolve-media-for-draft-submission">Scenario: Resolve media for draft submission<a class="td-heading-self-link" href="#scenario-resolve-media-for-draft-submission" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the uploader resolves an artifact&rsquo;s media</li>
+<li><strong>THEN</strong> body entities inside payload receive media_items</li>
+<li><strong>AND</strong> the banner becomes payload.cover_media</li>
+<li><strong>AND</strong> the draft request contains only X payload fields</li>
+</ul>
+<h4 id="scenario-read-a-legacy-flat-artifact">Scenario: Read a legacy flat artifact<a class="td-heading-self-link" href="#scenario-read-a-legacy-flat-artifact" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an artifact has title and content_state outside payload</li>
+<li><strong>THEN</strong> reading fails before any API request</li>
+<li><strong>AND</strong> the error instructs the caller to regenerate the artifact</li>
 </ul>
 <h3 id="requirement-validate-the-supported-static-image-contract">Requirement: Validate the supported static image contract<a class="td-heading-self-link" href="#requirement-validate-the-supported-static-image-contract" aria-label="Heading self-link"></a></h3><p>Conversion and draft preflight SHALL accept only static JPEG, PNG, GIF, and
 WebP images up to 5,000,000 bytes. They SHALL reject unsupported formats,

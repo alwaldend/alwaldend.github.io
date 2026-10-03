@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="Mermaid">
 	<meta itemprop="description" content="Bazel-managed Mermaid diagram renderer">
-	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
-	<meta itemprop="wordCount" content="2831">
+	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
+	<meta itemprop="wordCount" content="2950">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Mermaid">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
+    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -473,6 +473,13 @@ diagram still carries crisp text when a consumer re-encodes it. A raster render
 always uses the maintained appearance; it has no <code>plain</code> opt-out, because a
 plain raster could not show the contrast a comparison needs any more reliably
 than the SVG rule&rsquo;s.</p>
+<p>Set <code>aspect_ratio = [5, 2]</code> when a cover image needs fixed proportions. The
+encoder reduces the two positive integer terms and adds the selected theme&rsquo;s
+background around the scaled diagram. It uses the smallest whole-pixel canvas
+with that exact ratio that contains the original image, centers the diagram,
+and never crops or stretches it. SVG output is unaffected. Omitting the ratio
+keeps the natural raster canvas. <code>scale</code> must be a positive integer, and the
+final image must fit WebP&rsquo;s 16383-pixel limit in each dimension.</p>
 <p>Consumers that must keep the image as a checked-in asset obtain it from the
 rule&rsquo;s output rather than by hand, so the asset can be regenerated and compared
 against a fresh render. The <code>.mmd</code> source stays authoritative. Blog posts keep
@@ -492,6 +499,10 @@ their separately built SVGs, checks each selected site palette, visible label
 pixels, and the embedded sans-serif font, and verifies unchanged scaled canvas
 geometry. The test saves each reference and actual image and a JSON measurement
 report in its undeclared outputs for repeatable inspection.
+<code>test/renderer/aspect_ratio_test.mjs</code> checks horizontal and vertical padding,
+minimal exact-ratio dimensions, unchanged content scale, and theme backgrounds
+against independently rendered SVG references. It also exercises invalid size
+and ratio inputs, and saves reference rasters and measurement reports.
 <code>cmd/mmdc/mmdc_test.go</code>
 drives the interactive CLI and re-renders under a Fontconfig pointed at a
 monospace-only pool; a byte-identical result shows the CLI resolved text

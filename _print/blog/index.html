@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Blog">
 	<meta itemprop="description" content="Blog">
-	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Blog">
 	<meta name="twitter:description" content="Blog">
@@ -144,7 +144,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
+    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -273,14 +273,94 @@ This is the multi-page printable view of this section.
 	<p>I&rsquo;ve had the displeasure of using X&rsquo;s Article editor and it has left me unsatisfied - it&rsquo;s utter dogshit. Naturally, I&rsquo;ve decided to avoid it altogether. There probably exists a ready-made solution, but I&rsquo;ve decided to just write it myself. After all, how hard can it be?</p>
 <p>Not that hard, to be honest. X exposes an API to upload articles in <a href="https://draftjs.org/">DraftJS</a> format, so that leaves two tasks:</p>
 <ul>
-<li>Construct DraftJS</li>
+<li>Build DraftJS</li>
 <li>Upload it</li>
 </ul>
-<h2 id="print-4928d84a427266f3e004238e27c01208-construct-draftjs">Construct DraftJS<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-construct-draftjs" aria-label="Heading self-link"></a></h2><p>Since I use Hugo to build my blog posts, I wanted to just render DraftJS using it - that did not work. Hugo does not expose the Markdown AST to templates and without it you are left with hooks, which are too limited, and raw-dogging RawContent in templates which is insane. After that, I moved on to the boring option of just parsing Markdown. I chose <a href="https://github.com/yuin/goldmark/">Goldmark</a> since it&rsquo;s the parser Hugo uses, then wrote a tool that walks through the Markdown AST and emits DraftJS.</p>
-<h2 id="print-4928d84a427266f3e004238e27c01208-upload-it">Upload it<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-upload-it" aria-label="Heading self-link"></a></h2><p>The upload seemed like the most straightforward part to me before I started. Just generate a token, put it in Vault, and hit the API, easy. None of it was easy. Figuring out which token I need to generate to upload articles and how to do it through the dashboard took some effort. Putting a token in Vault was harder than I expected because either I had to use OAuth 2.0 with a short-lived token and a long-lived refresh token, or I had to use OAuth 1.0a with 4 whole secret values. I chose the second option because the first one requires me to update credentials on refresh which increases complexity. Uploading was painful because X has a rate limit of 10 (!) uploads per day which I hit immediately.</p>
-<h2 id="print-4928d84a427266f3e004238e27c01208-in-conclusion">In conclusion<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-in-conclusion" aria-label="Heading self-link"></a></h2><p>I don&rsquo;t have to touch the editor anymore, which is a win in my book. The blog post ends here. Everything else is just a conversion showcase.</p>
-<h2 id="print-4928d84a427266f3e004238e27c01208-text-and-inline-styles">Text and inline styles<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-text-and-inline-styles" aria-label="Heading self-link"></a></h2><p>A paragraph is a plain text block. X exposes three heading styles, so the converter maps fourth-level and deeper Markdown headings onto <code>header-three</code>. Inline styling is carried as ranges over the block text: <strong>bold</strong>, <em>italic</em>, and <del>strikethrough</del> all survive the conversion, and a span may combine them, as in <strong>bold with <em>nested italic</em> inside</strong>.</p>
-<h3 id="print-4928d84a427266f3e004238e27c01208-heading-levels">Heading levels<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-heading-levels" aria-label="Heading self-link"></a></h3><p>A third-level heading becomes <code>header-two</code>; a fourth-level heading and deeper become <code>header-three</code>.</p>
+<h2 id="print-4928d84a427266f3e004238e27c01208-build-draftjs">Build DraftJS<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-build-draftjs" aria-label="Heading self-link"></a></h2><p>Here is an example of a DraftJS payload that X expects:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;My article&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;content_state&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;blocks&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;key&#34;</span><span class="p">:</span> <span class="s2">&#34;title&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;My article&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;header-one&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;inline_style_ranges&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;entity_ranges&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;data&#34;</span><span class="p">:</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;entities&#34;</span><span class="p">:</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Seems simple enough. Since I use Hugo to build my blog posts, I wanted to just render the payload with it - that did not work.</p>
+<p>Hugo does not expose Markdown AST to templates, only raw text, so if I wanted to write a template for DraftJS, then I would have to parse raw Markdown with Go templating tools and then construct DraftJS from it which is theoretically possible, but insane and brittle.</p>
+<p>Another option that seemed promising was <a href="https://gohugo.io/render-hooks/introduction/">Render hooks</a> which override conversion from Markdown to HTML. It was not suitable because while they allow you to override some elements, it&rsquo;s still not full AST parsing.</p>
+<p>Because Hugo was unsuitable, I&rsquo;ve moved on to the boring option of just parsing Markdown in Go. I chose <a href="https://github.com/yuin/goldmark/">Goldmark</a> since it&rsquo;s the parser Hugo uses, then wrote a tool that walks through the Markdown AST and emits DraftJS.</p>
+<p>X does not allow you to inline media in the payload, so I had to add a couple of custom fields for the uploader to handle media correctly.</p>
+<p>Here is an example of an artifact that is built from Markdown:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;payload&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;Example&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;content_state&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;blocks&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;key&#34;</span><span class="p">:</span> <span class="s2">&#34;block-0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;unstyled&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34;Hello world.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;inline_style_ranges&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="nt">&#34;offset&#34;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="nt">&#34;length&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="nt">&#34;style&#34;</span><span class="p">:</span> <span class="s2">&#34;bold&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">],</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;entity_ranges&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;data&#34;</span><span class="p">:</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;key&#34;</span><span class="p">:</span> <span class="s2">&#34;block-1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;atomic&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;text&#34;</span><span class="p">:</span> <span class="s2">&#34; &#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;inline_style_ranges&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;entity_ranges&#34;</span><span class="p">:</span> <span class="p">[{</span> <span class="nt">&#34;offset&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&#34;length&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">&#34;key&#34;</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}],</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;data&#34;</span><span class="p">:</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;entities&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;key&#34;</span><span class="p">:</span> <span class="s2">&#34;0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;image&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;mutability&#34;</span><span class="p">:</span> <span class="s2">&#34;immutable&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;data&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;caption&#34;</span><span class="p">:</span> <span class="s2">&#34;Diagram&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;image_locators&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;entity_key&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;diagram.webp&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;post_package&#34;</span><span class="p">:</span> <span class="s2">&#34;out/article-payload/example&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;422ba47ab0602f2875e0cbab8c5b2479a9140f1790122f6899885e870230de89&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;media_type&#34;</span><span class="p">:</span> <span class="s2">&#34;image/webp&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;caption&#34;</span><span class="p">:</span> <span class="s2">&#34;Diagram&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;banner_locator&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;path&#34;</span><span class="p">:</span> <span class="s2">&#34;diagram.webp&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;post_package&#34;</span><span class="p">:</span> <span class="s2">&#34;out/article-payload/example&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;digest&#34;</span><span class="p">:</span> <span class="s2">&#34;422ba47ab0602f2875e0cbab8c5b2479a9140f1790122f6899885e870230de89&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;media_type&#34;</span><span class="p">:</span> <span class="s2">&#34;image/webp&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>The uploader uploads the media from locator fields and then patches the payload with media IDs.</p>
+<h2 id="print-4928d84a427266f3e004238e27c01208-upload-it">Upload it<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-upload-it" aria-label="Heading self-link"></a></h2><p>The upload seemed like the most straightforward part to me before I started - just generate a token, put it in Vault, and hit the API, easy. None of it was easy.</p>
+<p>Figuring out which token I need to generate to upload articles and how to do it through the dashboard took some effort. Either the dashboard is bad, or it was simply a skill issue, maybe both. I&rsquo;m not sure.</p>
+<p>Putting a token in Vault was harder than I expected because there are two options for Article upload: OAuth 1.0a and OAuth 2.0. OAuth 2.0 seems like an obvious choice - it&rsquo;s version 2, after all, but to utilize it I would need to use a short-lived token and then refresh it using a long-lived refresh token that is also rotated after a refresh. This seems like a very complex setup and I would need to update the secret pretty often, so I&rsquo;ve settled on OAuth 1.0a. It worked alright, although it requires 4 different secret values and some request signing magic.</p>
+<p>At this point I have my tokens, I have my DraftJS - I can just upload the media, and then the article, right? Wrong. X has a rolling limit of 10 article uploads per day which I immediately hit. After an investigation, I&rsquo;ve figured out that X&rsquo;s API kept returning me <code>503 Service Unavailable</code> errors in response to my requests and I obviously kept retrying them, but those failed requests still count toward the limit. Very baffling behavior - there were no useful error messages, nothing, I just kept getting <code>503</code> errors out of nowhere. After some more research, the reason was the payload - I had a heading with depth 3, but X does not support it. After reducing heading depth, the problem was solved and I got a full Markdown to X upload.</p>
+<h2 id="print-4928d84a427266f3e004238e27c01208-in-conclusion">In conclusion<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-in-conclusion" aria-label="Heading self-link"></a></h2><p>I don&rsquo;t have to touch the editor anymore, which is a win in my book. The blog post ends here. Everything else is just some Markdown to show conversion.</p>
+<hr>
+<h2 id="print-4928d84a427266f3e004238e27c01208-text-and-inline-styles">Text and inline styles<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-text-and-inline-styles" aria-label="Heading self-link"></a></h2><p>A paragraph is a plain text block. The converter uses the two heading styles accepted by X&rsquo;s draft endpoint, mapping third-level and deeper Markdown headings onto <code>header-two</code>. Inline styling is carried as ranges over the block text: <strong>bold</strong>, <em>italic</em>, and <del>strikethrough</del> all survive the conversion, and a span may combine them, as in <strong>bold with <em>nested italic</em> inside</strong>.</p>
+<h3 id="print-4928d84a427266f3e004238e27c01208-heading-levels">Heading levels<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-heading-levels" aria-label="Heading self-link"></a></h3><p>First- and second-level headings become <code>header-one</code>; third-level and deeper headings become <code>header-two</code>.</p>
 <h4 id="print-4928d84a427266f3e004238e27c01208-a-clamped-fourth-level-heading">A clamped fourth-level heading<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-a-clamped-fourth-level-heading" aria-label="Heading self-link"></a></h4><h2 id="print-4928d84a427266f3e004238e27c01208-lists">Lists<a class="td-heading-self-link" href="#print-4928d84a427266f3e004238e27c01208-lists" aria-label="Heading self-link"></a></h2><p>Unordered lists and ordered lists map onto their own block types:</p>
 <ul>
 <li>Draft creation resolves each referenced image.</li>

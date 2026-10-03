@@ -43,7 +43,7 @@
 	<meta property="og:type" content="website">
 
 	<meta itemprop="name" content="Markdown to draftjs">
-	<meta itemprop="dateModified" content="2026-10-03T00:16:44+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
 	<meta itemprop="keywords" content="Project">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Markdown to draftjs">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
+    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -271,10 +271,11 @@ and carries no <code>depth</code></li>
 <code>mutability</code>, and <code>data</code></li>
 <li><strong>AND</strong> no block or entity field falls outside the schema&rsquo;s allowed names</li>
 </ul>
-<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-heading-level-mapping">Requirement: Heading level mapping<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-heading-level-mapping" aria-label="Heading self-link"></a></h3><p>Markdown headings SHALL map onto the block types X exposes, and no heading MAY
-produce a type outside that set. Because X exposes only three heading levels,
-depth SHALL be clamped: <code>#</code> and <code>##</code> map to <code>header-one</code>, <code>###</code> maps to
-<code>header-two</code>, and <code>####</code> and deeper map to <code>header-three</code>.</p>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-heading-level-mapping">Requirement: Heading level mapping<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-heading-level-mapping" aria-label="Heading self-link"></a></h3><p>Markdown headings SHALL map onto the two heading block types accepted by the
+live Articles draft endpoint. Depth SHALL be clamped: <code>#</code> and <code>##</code> map to
+<code>header-one</code>, and <code>###</code> and deeper map to <code>header-two</code>. The converter MUST NOT
+emit <code>header-three</code>: although the API schema permits it, the live endpoint
+returns HTTP 503 for that type.</p>
 <h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-map-a-second-level-heading">Scenario: Map a second-level heading<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-map-a-second-level-heading" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a post contains a <code>##</code> heading</li>
 <li><strong>THEN</strong> it becomes a <code>header-one</code> block</li>
@@ -285,8 +286,8 @@ depth SHALL be clamped: <code>#</code> and <code>##</code> map to <code>header-o
 </ul>
 <h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-clamp-a-heading-deeper-than-x-supports">Scenario: Clamp a heading deeper than X supports<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-clamp-a-heading-deeper-than-x-supports" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a post contains a <code>####</code>, <code>#####</code>, or <code>######</code> heading</li>
-<li><strong>THEN</strong> it becomes a <code>header-three</code> block</li>
-<li><strong>AND</strong> no block uses a heading type outside <code>header-one</code>, <code>header-two</code>, or <code>header-three</code></li>
+<li><strong>THEN</strong> it becomes a <code>header-two</code> block</li>
+<li><strong>AND</strong> no block uses a heading type outside <code>header-one</code> or <code>header-two</code></li>
 </ul>
 <h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-block-level-markdown-mapping">Requirement: Block-level Markdown mapping<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-block-level-markdown-mapping" aria-label="Heading self-link"></a></h3><p>The converter SHALL map supported block constructs to the block type X expects:
 paragraphs to <code>unstyled</code>, unordered list items to <code>unordered-list-item</code>,
@@ -691,8 +692,10 @@ on a re-opened pathname</li>
 <h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-conversion-diagnostics">Requirement: Conversion diagnostics<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-conversion-diagnostics" aria-label="Heading self-link"></a></h3><p>The converter SHALL report a construct it cannot represent with the source
 location that produced it. It SHALL distinguish two outcomes and never emit a
 document that silently omits content it could not represent: a construct whose
-content is preserved but whose formatting is lost is reported and conversion
-continues, while a construct whose content would be lost fails conversion. The
+content is preserved but whose formatting is lost is reported as a warning.
+The conversion command SHALL fail on warnings by default and SHALL permit them
+only with <code>--warnings-as-errors=false</code>. Errors SHALL fail with either setting.
+All diagnostics SHALL be printed to stderr and SHALL NOT appear in artifact JSON. The
 image whose media type the upload endpoints reject and the source without a
 title are failing outcomes; an inline-code span&rsquo;s lost styling is a continuing
 one.</p>
@@ -711,7 +714,9 @@ rather than being discarded with the returned error</li>
 <h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-encounter-a-construct-whose-formatting-is-lost">Scenario: Encounter a construct whose formatting is lost<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-encounter-a-construct-whose-formatting-is-lost" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the converter preserves a construct&rsquo;s content but cannot reproduce its formatting</li>
 <li><strong>THEN</strong> it reports the lost formatting with its source position</li>
-<li><strong>AND</strong> conversion still completes with the content present</li>
+<li><strong>AND</strong> command conversion fails by default without writing an artifact</li>
+<li><strong>AND</strong> <code>--warnings-as-errors=false</code> permits completion with the content present
+while still reporting the warning to stderr</li>
 </ul>
 <h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-report-a-position-after-a-multi-byte-character">Scenario: Report a position after a multi-byte character<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-report-a-position-after-a-multi-byte-character" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a diagnostic&rsquo;s construct follows a multi-byte character on the same
@@ -719,6 +724,28 @@ line</li>
 <li><strong>THEN</strong> the reported column counts source characters rather than bytes, so it
 names the position an editor shows</li>
 <li><strong>AND</strong> the byte offset is still recorded for slicing the source</li>
+</ul>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-artifact-separates-the-x-payload-from-local-metadata">Requirement: Artifact separates the X payload from local metadata<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-artifact-separates-the-x-payload-from-local-metadata" aria-label="Heading self-link"></a></h3><p>The converted artifact SHALL put title and content_state inside payload. Body
+image locators and the optional banner locator SHALL remain outside payload.
+Diagnostics SHALL NOT be serialized. Media resolution SHALL attach body media
+IDs inside payload.content_state and the banner ID inside payload.cover_media.
+Artifact reading SHALL reject the old flat format and require regeneration.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-build-an-offline-artifact">Scenario: Build an offline artifact<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-build-an-offline-artifact" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> conversion succeeds</li>
+<li><strong>THEN</strong> payload contains title and content_state in the X request shape</li>
+<li><strong>AND</strong> local media references remain alongside payload</li>
+<li><strong>AND</strong> there is no serialized diagnostics field</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-resolve-media-for-draft-submission">Scenario: Resolve media for draft submission<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-resolve-media-for-draft-submission" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the uploader resolves an artifact&rsquo;s media</li>
+<li><strong>THEN</strong> body entities inside payload receive media_items</li>
+<li><strong>AND</strong> the banner becomes payload.cover_media</li>
+<li><strong>AND</strong> the draft request contains only X payload fields</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-read-a-legacy-flat-artifact">Scenario: Read a legacy flat artifact<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-read-a-legacy-flat-artifact" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an artifact has title and content_state outside payload</li>
+<li><strong>THEN</strong> reading fails before any API request</li>
+<li><strong>AND</strong> the error instructs the caller to regenerate the artifact</li>
 </ul>
 <h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-validate-the-supported-static-image-contract">Requirement: Validate the supported static image contract<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-validate-the-supported-static-image-contract" aria-label="Heading self-link"></a></h3><p>Conversion and draft preflight SHALL accept only static JPEG, PNG, GIF, and
 WebP images up to 5,000,000 bytes. They SHALL reject unsupported formats,

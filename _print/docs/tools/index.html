@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Tools">
 	<meta itemprop="description" content="Tools tree">
-	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
 	<meta itemprop="wordCount" content="200">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
+    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -4162,7 +4162,26 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>107: <a href="#pg-b33b6997f695130ef588eb5c2ab49fdd">Ykman</a></li>
+<li>107: <a href="#pg-5de869404e2a93fb7721f6c6fae74c1a">X CLI</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>108: <a href="#pg-b33b6997f695130ef588eb5c2ab49fdd">Ykman</a></li>
 
 
     
@@ -9209,6 +9228,13 @@ diagram still carries crisp text when a consumer re-encodes it. A raster render
 always uses the maintained appearance; it has no <code>plain</code> opt-out, because a
 plain raster could not show the contrast a comparison needs any more reliably
 than the SVG rule&rsquo;s.</p>
+<p>Set <code>aspect_ratio = [5, 2]</code> when a cover image needs fixed proportions. The
+encoder reduces the two positive integer terms and adds the selected theme&rsquo;s
+background around the scaled diagram. It uses the smallest whole-pixel canvas
+with that exact ratio that contains the original image, centers the diagram,
+and never crops or stretches it. SVG output is unaffected. Omitting the ratio
+keeps the natural raster canvas. <code>scale</code> must be a positive integer, and the
+final image must fit WebP&rsquo;s 16383-pixel limit in each dimension.</p>
 <p>Consumers that must keep the image as a checked-in asset obtain it from the
 rule&rsquo;s output rather than by hand, so the asset can be regenerated and compared
 against a fresh render. The <code>.mmd</code> source stays authoritative. Blog posts keep
@@ -9228,6 +9254,10 @@ their separately built SVGs, checks each selected site palette, visible label
 pixels, and the embedded sans-serif font, and verifies unchanged scaled canvas
 geometry. The test saves each reference and actual image and a JSON measurement
 report in its undeclared outputs for repeatable inspection.
+<code>test/renderer/aspect_ratio_test.mjs</code> checks horizontal and vertical padding,
+minimal exact-ratio dimensions, unchanged content scale, and theme backgrounds
+against independently rendered SVG references. It also exercises invalid size
+and ratio inputs, and saves reference rasters and measurement reports.
 <code>cmd/mmdc/mmdc_test.go</code>
 drives the interactive CLI and re-renders under a Fontconfig pointed at a
 monospace-only pool; a byte-identical result shows the CLI resolved text
@@ -17301,7 +17331,62 @@ al_vial_configs(<a href="#print-350d2ad028e029e0adef996b98df7daf-al_vial_configs
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-b33b6997f695130ef588eb5c2ab49fdd">107 - Ykman</h1>
+	<h1 id="pg-5de869404e2a93fb7721f6c6fae74c1a">107 - X CLI</h1>
+    <div class="lead">Pinned upstream xurl command-line client for the X API</div>
+	
+	<p>This target runs the unmodified upstream xurl CLI. The release archive and
+integrity pin belong to
+<a href="/docs/third_party/com_github_xdevplatform_xurl/"><code>third_party/com_github_xdevplatform_xurl</code></a>.
+The current toolchain supports Linux x86-64.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/xurl -- version
+</span></span><span class="line"><span class="cl">bazel_agent bazel run //tools/xurl -- --help
+</span></span></code></pre></div><p>xurl uses its native <code>~/.xurl/auth.yml</code> credential store. Startup can create or
+migrate this store and import <code>~/.twurlrc</code>, even for help and version commands.
+There is no upstream configuration-path override. Automated use must isolate
+these paths; do not place credentials in command arguments or enable verbose
+logging, which prints the Authorization header.</p>
+<p>Select <code>--auth oauth1</code> and <code>--app &lt;name&gt;</code> explicitly when comparing the Article
+uploader with the CLI. Otherwise xurl prefers stored OAuth 2.0 credentials.
+<code>--data</code> accepts literal JSON, not curl-style <code>@file</code> input. The CLI follows
+redirects and uses Go&rsquo;s default transport; a single invocation does not provide
+the uploader&rsquo;s stricter redirect and request-replay safeguards.</p>
+<p>This generic tool supplies neither repository credentials nor a Markdown
+converter. The <a href="/docs/projects/x_article_uploader/">Article uploader</a>
+owns those operations and its Vault injection flow. Creating a draft is a
+separate, quota-consuming operation from inspecting this CLI.</p>
+<h2 id="print-f73649f34508922ef7088ead99e7f93e-links">Links<a class="td-heading-self-link" href="#print-f73649f34508922ef7088ead99e7f93e-links" aria-label="Heading self-link"></a></h2><ul>
+<li><a href="https://github.com/xdevplatform/xurl">Upstream source</a></li>
+<li><a href="https://docs.x.com/tools/xurl">X CLI documentation</a></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b33b6997f695130ef588eb5c2ab49fdd">108 - Ykman</h1>
     <div class="lead">Ykman (Yubikey Manager)</div>
 	
 	<h2 id="print-ca4bb3ed341f02bb1f147c6aa0ffb138-links">Links<a class="td-heading-self-link" href="#print-ca4bb3ed341f02bb1f147c6aa0ffb138-links" aria-label="Heading self-link"></a></h2><ul>

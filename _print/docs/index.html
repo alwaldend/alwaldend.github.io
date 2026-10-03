@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Docs">
 	<meta itemprop="description" content="Documentation">
-	<meta itemprop="dateModified" content="2026-10-03T00:16:43+03:00">
+	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Docs">
 	<meta name="twitter:description" content="Documentation">
@@ -144,7 +144,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.78f0d21c972cea1ea9485517e1be8e04.json"
+    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -10371,7 +10371,26 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.107: <a href="#pg-b33b6997f695130ef588eb5c2ab49fdd">Ykman</a></li>
+<li>3.107: <a href="#pg-5de869404e2a93fb7721f6c6fae74c1a">X CLI</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3.108: <a href="#pg-b33b6997f695130ef588eb5c2ab49fdd">Ykman</a></li>
 
 
     
@@ -27573,6 +27592,25 @@ This is the multi-page printable view of this section.
     </ul>
     
   
+    
+    
+	
+<li>6.68: <a href="#pg-b02a3affbad60ef1dd5200aa9152a1e4">Xurl</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
 
     </ul>
     
@@ -28812,22 +28850,37 @@ D1ELWXDLvszYgYaT&#43;7bgc=
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -28844,7 +28897,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -28898,8 +28951,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -29081,7 +29134,7 @@ a fallback; service-specific logout requirements are documented with each plugin
         data-bs-target="#print-652226f353b09ab1409a7a9d983ce444-release-0a118e046f55db876bac8b68ea96694d-list-0_collapse"
         aria-expanded="false"
         aria-controls="print-652226f353b09ab1409a7a9d983ce444-release-0a118e046f55db876bac8b68ea96694d-list-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">167</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">169</span>
 </button>
     </h3>
     <div
@@ -29092,37 +29145,31 @@ a fallback; service-specific logout requirements are documented with each plugin
     >
       <div class="accordion-body"><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Publish the X Article story and harden its upload workflow</p>
-<p>Publish the reviewed development story and render blog front matter images
-before article text and in print output. Remove redundant opening Markdown
-images from the two illustrated posts. Keep the first selected image as the
-X Article banner and preserve every image explicitly written in Markdown.
-Document the shared image metadata and encourage its use for every post.</p>
-<p>Retain rate-limit headers on failed X requests and report their reset times
-and conservative retry boundaries. Keep retries manual and distinguish
-historical quota observations from the latest response. Reject HTTP redirects
-without following them so draft and media POSTs cannot be replayed by a
-redirect response, and prevent automatic replay of consumed POST bodies.</p>
-<p>Recover expired Vault certificates through a host-limited Ansible tag that
-stops before reload on certificate errors. Preserve the Vault node identity,
-use its canonical connection hostname, and include that name in the certificate.
-Document temporary Vault TLS bypass, repository SSH CA trust, and verification
-after renewal. The authorized renewal succeeded with normal TLS restored.</p>
-<p>Validate static images before network requests and wait for media processing
-with signed, bounded status checks. Scope cached media to the endpoint and
-OAuth credential context, account for upload time and expiry, and refuse
-identifiers that expire while other images upload. Emit mutable Markdown
-entities and replace byte counting with an explicitly approximate weighted
-budget, preserving the original Markdown source.</p>
-<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
-repository quality and semantic lint; packaged Ansible syntax and task selection;
-strict OpenSpec validation and live certificate/hostname verification.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
-OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
-OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
+            <p>Fix X Article uploads, payload artifacts and blog covers</p>
+<p>The full article failed with HTTP 503 because X currently rejects header-three,
+although its published schema permits it. Clamp third-level and deeper Markdown
+headings to header-two while preserving their text. A controlled full-post upload
+succeeded with only that block type changed; the converter now reproduces the
+accepted payload. Update the existing conversion checks and mapping contract.</p>
+<p>Use 5:2 image files for both existing blog headers, matching X Article cover
+display. Add optional aspect-ratio padding to the hermetic Mermaid WebP renderer,
+preserve each diagram&rsquo;s complete content and theme, and arrange the upload
+pipeline for the wider canvas. Validate intrinsic and displayed dimensions,
+content placement, backgrounds, and unchanged default raster behavior.
+Encourage optional WebP headers in images with a 5:2 canvas in the blog skill,
+and cover the guidance in its existing offline evaluation configuration.</p>
+<p>Add the official xurl v1.3.4 CLI through a checksum-pinned Linux x86-64 toolchain
+and repository wrapper for independent API diagnostics.</p>
+<p>Nest X request fields under payload and retain local media locators alongside
+it. Report diagnostics only to stderr, fail command conversion on warnings by
+default, and allow an explicit warnings-as-errors override. Reject legacy flat
+artifacts before upload and attach resolved banner IDs inside the payload.
+Validate the CLI contract with executable E2E cases and update its specification
+and upload guidance.</p>
+<p>Expand the blog explanation with example X payload and offline artifact JSON,
+clarify Hugo render-hook limitations and media resolution, and align its heading
+showcase with the upload fix. Preserve the reviewed author wording.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/wrap-article-payload</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -29139,7 +29186,7 @@ OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
+                    <pre class="my-auto">ba3691efe0008394e44f753c63222c1728e61e32</pre>
                   </span>
                 </li>
               </ul>
@@ -29193,9 +29240,101 @@ OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
-fWG92TE1fqjSdJ0K47YAk=
+AAAAQP9kpy2IjqtbAbD2DHG&#43;quSQYjLVNuiHwGZ41E5BrJtdRU1TDOBfbj6&#43;WEZj0NSJxo
+cvQZcm0IaTw64fCKPf8w8=
 -----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #122 from alwaldend/t3code/x-article-development-story</p>
+<p>Publish the X Article story and harden its upload workflow</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">f9dd3eb6a1c702aa9220ab5bf395655e037b9156</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJqwCESCRC1aQ7uu5UhlAAAW5QQAEgPlodmRv9P7X1wYepdGFnF
+f&#43;/WITHuVADfUiute0ReIPsh38EbiX6rU9z5V8Ufy&#43;/VXiheQLhdOydNMyJ4peJE
+//9tiZ8Sz&#43;6YbVZuns&#43;nZyLkjfiirbBgolISRavlbrXUVe&#43;u1TGczftNMH3fa9Tv
+XlZ2YVJWO648dURPA5gm9dxJs1tZoMZN/cPn6fEG/BTGLB5d2eC3TjXbBtc03Qga
+L8hQWBngPCTx5G33eUEbsQLcgBdYMoMXxxTLhrta/Zp9jhIjVih49dezMigDDOUQ
+kT6&#43;ociBC1vN2xagKY7EHKfSK9blC5JRZjKhi/gsqiECK9wGiF1JMr20Q7&#43;3&#43;zuC
+O4WOXuFCF4HNOGu54&#43;MHl6KUZwIRfH6KkeTC1KZmOdG5gXQKWjDJZfFQupyZnyzw
+gJP0D7GGABFnhub6tsaYetd2v9xg&#43;RG1/Fzs4SiLagS9VtRM5uirhQQcXcQ2YDem
+O9d9NyiF0EcIiEBiP62VoE/eQDa8XkwIajIa8rLOgMjhJwzNz8wo0QzUpN&#43;KTOUS
+2ouJASz0&#43;MDupZ4lniKPae7eR&#43;QYyvib2mJMQR9UkmsuTRh0aApLZ54mRL38T54o
+9NAQZvixk9TU1BuyDiMg6WmixfP08ozqz5CjTe7izpMmxLnrNvLDvra2GEKjdz0V
+&#43;vJZYJh5JrtpxrBCXC3C
+=5cwx
+-----END PGP SIGNATURE-----
+
 </pre>
                   </span>
                 </li>
@@ -42981,6 +43120,117 @@ U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
 AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
 sgYBF9c3XN38TeLEQ6hQQ=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -43150,7 +43400,7 @@ sgYBF9c3XN38TeLEQ6hQQ=
         data-bs-target="#print-0a118e046f55db876bac8b68ea96694d-release-0a118e046f55db876bac8b68ea96694d-page-0_collapse"
         aria-expanded="true"
         aria-controls="print-0a118e046f55db876bac8b68ea96694d-release-0a118e046f55db876bac8b68ea96694d-page-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">167</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">169</span>
 </button>
     </h3>
     <div
@@ -43161,37 +43411,31 @@ sgYBF9c3XN38TeLEQ6hQQ=
     >
       <div class="accordion-body"><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Publish the X Article story and harden its upload workflow</p>
-<p>Publish the reviewed development story and render blog front matter images
-before article text and in print output. Remove redundant opening Markdown
-images from the two illustrated posts. Keep the first selected image as the
-X Article banner and preserve every image explicitly written in Markdown.
-Document the shared image metadata and encourage its use for every post.</p>
-<p>Retain rate-limit headers on failed X requests and report their reset times
-and conservative retry boundaries. Keep retries manual and distinguish
-historical quota observations from the latest response. Reject HTTP redirects
-without following them so draft and media POSTs cannot be replayed by a
-redirect response, and prevent automatic replay of consumed POST bodies.</p>
-<p>Recover expired Vault certificates through a host-limited Ansible tag that
-stops before reload on certificate errors. Preserve the Vault node identity,
-use its canonical connection hostname, and include that name in the certificate.
-Document temporary Vault TLS bypass, repository SSH CA trust, and verification
-after renewal. The authorized renewal succeeded with normal TLS restored.</p>
-<p>Validate static images before network requests and wait for media processing
-with signed, bounded status checks. Scope cached media to the endpoint and
-OAuth credential context, account for upload time and expiry, and refuse
-identifiers that expire while other images upload. Emit mutable Markdown
-entities and replace byte counting with an explicitly approximate weighted
-budget, preserving the original Markdown source.</p>
-<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
-repository quality and semantic lint; packaged Ansible syntax and task selection;
-strict OpenSpec validation and live certificate/hostname verification.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
-OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
-OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
+            <p>Fix X Article uploads, payload artifacts and blog covers</p>
+<p>The full article failed with HTTP 503 because X currently rejects header-three,
+although its published schema permits it. Clamp third-level and deeper Markdown
+headings to header-two while preserving their text. A controlled full-post upload
+succeeded with only that block type changed; the converter now reproduces the
+accepted payload. Update the existing conversion checks and mapping contract.</p>
+<p>Use 5:2 image files for both existing blog headers, matching X Article cover
+display. Add optional aspect-ratio padding to the hermetic Mermaid WebP renderer,
+preserve each diagram&rsquo;s complete content and theme, and arrange the upload
+pipeline for the wider canvas. Validate intrinsic and displayed dimensions,
+content placement, backgrounds, and unchanged default raster behavior.
+Encourage optional WebP headers in images with a 5:2 canvas in the blog skill,
+and cover the guidance in its existing offline evaluation configuration.</p>
+<p>Add the official xurl v1.3.4 CLI through a checksum-pinned Linux x86-64 toolchain
+and repository wrapper for independent API diagnostics.</p>
+<p>Nest X request fields under payload and retain local media locators alongside
+it. Report diagnostics only to stderr, fail command conversion on warnings by
+default, and allow an explicit warnings-as-errors override. Reject legacy flat
+artifacts before upload and attach resolved banner IDs inside the payload.
+Validate the CLI contract with executable E2E cases and update its specification
+and upload guidance.</p>
+<p>Expand the blog explanation with example X payload and offline artifact JSON,
+clarify Hugo render-hook limitations and media resolution, and align its heading
+showcase with the upload fix. Preserve the reviewed author wording.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/wrap-article-payload</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -43208,7 +43452,7 @@ OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
+                    <pre class="my-auto">ba3691efe0008394e44f753c63222c1728e61e32</pre>
                   </span>
                 </li>
               </ul>
@@ -43262,9 +43506,101 @@ OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
-fWG92TE1fqjSdJ0K47YAk=
+AAAAQP9kpy2IjqtbAbD2DHG&#43;quSQYjLVNuiHwGZ41E5BrJtdRU1TDOBfbj6&#43;WEZj0NSJxo
+cvQZcm0IaTw64fCKPf8w8=
 -----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #122 from alwaldend/t3code/x-article-development-story</p>
+<p>Publish the X Article story and harden its upload workflow</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">f9dd3eb6a1c702aa9220ab5bf395655e037b9156</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJqwCESCRC1aQ7uu5UhlAAAW5QQAEgPlodmRv9P7X1wYepdGFnF
+f&#43;/WITHuVADfUiute0ReIPsh38EbiX6rU9z5V8Ufy&#43;/VXiheQLhdOydNMyJ4peJE
+//9tiZ8Sz&#43;6YbVZuns&#43;nZyLkjfiirbBgolISRavlbrXUVe&#43;u1TGczftNMH3fa9Tv
+XlZ2YVJWO648dURPA5gm9dxJs1tZoMZN/cPn6fEG/BTGLB5d2eC3TjXbBtc03Qga
+L8hQWBngPCTx5G33eUEbsQLcgBdYMoMXxxTLhrta/Zp9jhIjVih49dezMigDDOUQ
+kT6&#43;ociBC1vN2xagKY7EHKfSK9blC5JRZjKhi/gsqiECK9wGiF1JMr20Q7&#43;3&#43;zuC
+O4WOXuFCF4HNOGu54&#43;MHl6KUZwIRfH6KkeTC1KZmOdG5gXQKWjDJZfFQupyZnyzw
+gJP0D7GGABFnhub6tsaYetd2v9xg&#43;RG1/Fzs4SiLagS9VtRM5uirhQQcXcQ2YDem
+O9d9NyiF0EcIiEBiP62VoE/eQDa8XkwIajIa8rLOgMjhJwzNz8wo0QzUpN&#43;KTOUS
+2ouJASz0&#43;MDupZ4lniKPae7eR&#43;QYyvib2mJMQR9UkmsuTRh0aApLZ54mRL38T54o
+9NAQZvixk9TU1BuyDiMg6WmixfP08ozqz5CjTe7izpMmxLnrNvLDvra2GEKjdz0V
+&#43;vJZYJh5JrtpxrBCXC3C
+=5cwx
+-----END PGP SIGNATURE-----
+
 </pre>
                   </span>
                 </li>
@@ -57050,6 +57386,117 @@ U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
 AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
 sgYBF9c3XN38TeLEQ6hQQ=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -57542,6 +57989,13 @@ provide descriptive alternative text and an optional visible caption:</p>
 </span></span></span></code></pre></div><p>Set <code>params.caption</code> when an image needs a visible caption. Without <code>params.alt</code>,
 the image uses the page title as alternative text. Header images use the shared
 image renderer and scale to the available width.</p>
+<p>Header image files use a 5:2 canvas, matching the current
+<a href="https://abs.twimg.com/x-web/x-web/assets/article-detail-B7xvnd3U.js">X Article cover display</a>.
+This is a display ratio, not an API upload restriction. Keep the complete
+illustration inside the canvas without cropping or stretching. Mermaid header
+renders set <code>aspect_ratio = [5, 2]</code>; arrange their content for a wide canvas
+before adding the minimum padding needed to reach that ratio. Other body
+illustrations keep their natural dimensions.</p>
 <p>Agent workflow: <a href="https://github.com/alwaldend/src/blob/master/projects/alwaldend.com/skills/alwaldend-blog/SKILL.md">Add a blog post</a>.</p>
 <h2 id="print-c7bd85f7dbde24195ea786f2a5e0e45f-projects">Projects<a class="td-heading-self-link" href="#print-c7bd85f7dbde24195ea786f2a5e0e45f-projects" aria-label="Heading self-link"></a></h2><p>The site publishes each registered project&rsquo;s visitor-facing landing page at
 <code>/projects/&lt;name&gt;/</code>, with the section index at <code>/projects/</code>. Each project owns
@@ -57708,7 +58162,7 @@ the page title is the fallback.</p>
         data-bs-target="#print-0a97c32bc24a9b84410b32b0ce316aa2-release-83657c70317637f5217b9aeefa3af582-list-0_collapse"
         aria-expanded="false"
         aria-controls="print-0a97c32bc24a9b84410b32b0ce316aa2-release-83657c70317637f5217b9aeefa3af582-list-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">143</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">145</span>
 </button>
     </h3>
     <div
@@ -57719,37 +58173,31 @@ the page title is the fallback.</p>
     >
       <div class="accordion-body"><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Publish the X Article story and harden its upload workflow</p>
-<p>Publish the reviewed development story and render blog front matter images
-before article text and in print output. Remove redundant opening Markdown
-images from the two illustrated posts. Keep the first selected image as the
-X Article banner and preserve every image explicitly written in Markdown.
-Document the shared image metadata and encourage its use for every post.</p>
-<p>Retain rate-limit headers on failed X requests and report their reset times
-and conservative retry boundaries. Keep retries manual and distinguish
-historical quota observations from the latest response. Reject HTTP redirects
-without following them so draft and media POSTs cannot be replayed by a
-redirect response, and prevent automatic replay of consumed POST bodies.</p>
-<p>Recover expired Vault certificates through a host-limited Ansible tag that
-stops before reload on certificate errors. Preserve the Vault node identity,
-use its canonical connection hostname, and include that name in the certificate.
-Document temporary Vault TLS bypass, repository SSH CA trust, and verification
-after renewal. The authorized renewal succeeded with normal TLS restored.</p>
-<p>Validate static images before network requests and wait for media processing
-with signed, bounded status checks. Scope cached media to the endpoint and
-OAuth credential context, account for upload time and expiry, and refuse
-identifiers that expire while other images upload. Emit mutable Markdown
-entities and replace byte counting with an explicitly approximate weighted
-budget, preserving the original Markdown source.</p>
-<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
-repository quality and semantic lint; packaged Ansible syntax and task selection;
-strict OpenSpec validation and live certificate/hostname verification.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
-OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
-OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
+            <p>Fix X Article uploads, payload artifacts and blog covers</p>
+<p>The full article failed with HTTP 503 because X currently rejects header-three,
+although its published schema permits it. Clamp third-level and deeper Markdown
+headings to header-two while preserving their text. A controlled full-post upload
+succeeded with only that block type changed; the converter now reproduces the
+accepted payload. Update the existing conversion checks and mapping contract.</p>
+<p>Use 5:2 image files for both existing blog headers, matching X Article cover
+display. Add optional aspect-ratio padding to the hermetic Mermaid WebP renderer,
+preserve each diagram&rsquo;s complete content and theme, and arrange the upload
+pipeline for the wider canvas. Validate intrinsic and displayed dimensions,
+content placement, backgrounds, and unchanged default raster behavior.
+Encourage optional WebP headers in images with a 5:2 canvas in the blog skill,
+and cover the guidance in its existing offline evaluation configuration.</p>
+<p>Add the official xurl v1.3.4 CLI through a checksum-pinned Linux x86-64 toolchain
+and repository wrapper for independent API diagnostics.</p>
+<p>Nest X request fields under payload and retain local media locators alongside
+it. Report diagnostics only to stderr, fail command conversion on warnings by
+default, and allow an explicit warnings-as-errors override. Reject legacy flat
+artifacts before upload and attach resolved banner IDs inside the payload.
+Validate the CLI contract with executable E2E cases and update its specification
+and upload guidance.</p>
+<p>Expand the blog explanation with example X payload and offline artifact JSON,
+clarify Hugo render-hook limitations and media resolution, and align its heading
+showcase with the upload fix. Preserve the reviewed author wording.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/wrap-article-payload</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -57766,7 +58214,7 @@ OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
+                    <pre class="my-auto">ba3691efe0008394e44f753c63222c1728e61e32</pre>
                   </span>
                 </li>
               </ul>
@@ -57820,9 +58268,101 @@ OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
-fWG92TE1fqjSdJ0K47YAk=
+AAAAQP9kpy2IjqtbAbD2DHG&#43;quSQYjLVNuiHwGZ41E5BrJtdRU1TDOBfbj6&#43;WEZj0NSJxo
+cvQZcm0IaTw64fCKPf8w8=
 -----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #122 from alwaldend/t3code/x-article-development-story</p>
+<p>Publish the X Article story and harden its upload workflow</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">f9dd3eb6a1c702aa9220ab5bf395655e037b9156</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJqwCESCRC1aQ7uu5UhlAAAW5QQAEgPlodmRv9P7X1wYepdGFnF
+f&#43;/WITHuVADfUiute0ReIPsh38EbiX6rU9z5V8Ufy&#43;/VXiheQLhdOydNMyJ4peJE
+//9tiZ8Sz&#43;6YbVZuns&#43;nZyLkjfiirbBgolISRavlbrXUVe&#43;u1TGczftNMH3fa9Tv
+XlZ2YVJWO648dURPA5gm9dxJs1tZoMZN/cPn6fEG/BTGLB5d2eC3TjXbBtc03Qga
+L8hQWBngPCTx5G33eUEbsQLcgBdYMoMXxxTLhrta/Zp9jhIjVih49dezMigDDOUQ
+kT6&#43;ociBC1vN2xagKY7EHKfSK9blC5JRZjKhi/gsqiECK9wGiF1JMr20Q7&#43;3&#43;zuC
+O4WOXuFCF4HNOGu54&#43;MHl6KUZwIRfH6KkeTC1KZmOdG5gXQKWjDJZfFQupyZnyzw
+gJP0D7GGABFnhub6tsaYetd2v9xg&#43;RG1/Fzs4SiLagS9VtRM5uirhQQcXcQ2YDem
+O9d9NyiF0EcIiEBiP62VoE/eQDa8XkwIajIa8rLOgMjhJwzNz8wo0QzUpN&#43;KTOUS
+2ouJASz0&#43;MDupZ4lniKPae7eR&#43;QYyvib2mJMQR9UkmsuTRh0aApLZ54mRL38T54o
+9NAQZvixk9TU1BuyDiMg6WmixfP08ozqz5CjTe7izpMmxLnrNvLDvra2GEKjdz0V
+&#43;vJZYJh5JrtpxrBCXC3C
+=5cwx
+-----END PGP SIGNATURE-----
+
 </pre>
                   </span>
                 </li>
@@ -69535,6 +70075,117 @@ U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
 AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
 sgYBF9c3XN38TeLEQ6hQQ=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -69614,7 +70265,7 @@ sgYBF9c3XN38TeLEQ6hQQ=
         data-bs-target="#print-83657c70317637f5217b9aeefa3af582-release-83657c70317637f5217b9aeefa3af582-page-0_collapse"
         aria-expanded="true"
         aria-controls="print-83657c70317637f5217b9aeefa3af582-release-83657c70317637f5217b9aeefa3af582-page-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">143</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">145</span>
 </button>
     </h3>
     <div
@@ -69625,37 +70276,31 @@ sgYBF9c3XN38TeLEQ6hQQ=
     >
       <div class="accordion-body"><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Publish the X Article story and harden its upload workflow</p>
-<p>Publish the reviewed development story and render blog front matter images
-before article text and in print output. Remove redundant opening Markdown
-images from the two illustrated posts. Keep the first selected image as the
-X Article banner and preserve every image explicitly written in Markdown.
-Document the shared image metadata and encourage its use for every post.</p>
-<p>Retain rate-limit headers on failed X requests and report their reset times
-and conservative retry boundaries. Keep retries manual and distinguish
-historical quota observations from the latest response. Reject HTTP redirects
-without following them so draft and media POSTs cannot be replayed by a
-redirect response, and prevent automatic replay of consumed POST bodies.</p>
-<p>Recover expired Vault certificates through a host-limited Ansible tag that
-stops before reload on certificate errors. Preserve the Vault node identity,
-use its canonical connection hostname, and include that name in the certificate.
-Document temporary Vault TLS bypass, repository SSH CA trust, and verification
-after renewal. The authorized renewal succeeded with normal TLS restored.</p>
-<p>Validate static images before network requests and wait for media processing
-with signed, bounded status checks. Scope cached media to the endpoint and
-OAuth credential context, account for upload time and expiry, and refuse
-identifiers that expire while other images upload. Emit mutable Markdown
-entities and replace byte counting with an explicitly approximate weighted
-budget, preserving the original Markdown source.</p>
-<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
-repository quality and semantic lint; packaged Ansible syntax and task selection;
-strict OpenSpec validation and live certificate/hostname verification.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
-OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
-OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
+            <p>Fix X Article uploads, payload artifacts and blog covers</p>
+<p>The full article failed with HTTP 503 because X currently rejects header-three,
+although its published schema permits it. Clamp third-level and deeper Markdown
+headings to header-two while preserving their text. A controlled full-post upload
+succeeded with only that block type changed; the converter now reproduces the
+accepted payload. Update the existing conversion checks and mapping contract.</p>
+<p>Use 5:2 image files for both existing blog headers, matching X Article cover
+display. Add optional aspect-ratio padding to the hermetic Mermaid WebP renderer,
+preserve each diagram&rsquo;s complete content and theme, and arrange the upload
+pipeline for the wider canvas. Validate intrinsic and displayed dimensions,
+content placement, backgrounds, and unchanged default raster behavior.
+Encourage optional WebP headers in images with a 5:2 canvas in the blog skill,
+and cover the guidance in its existing offline evaluation configuration.</p>
+<p>Add the official xurl v1.3.4 CLI through a checksum-pinned Linux x86-64 toolchain
+and repository wrapper for independent API diagnostics.</p>
+<p>Nest X request fields under payload and retain local media locators alongside
+it. Report diagnostics only to stderr, fail command conversion on warnings by
+default, and allow an explicit warnings-as-errors override. Reject legacy flat
+artifacts before upload and attach resolved banner IDs inside the payload.
+Validate the CLI contract with executable E2E cases and update its specification
+and upload guidance.</p>
+<p>Expand the blog explanation with example X payload and offline artifact JSON,
+clarify Hugo render-hook limitations and media resolution, and align its heading
+showcase with the upload fix. Preserve the reviewed author wording.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/wrap-article-payload</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -69672,7 +70317,7 @@ OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
+                    <pre class="my-auto">ba3691efe0008394e44f753c63222c1728e61e32</pre>
                   </span>
                 </li>
               </ul>
@@ -69726,9 +70371,101 @@ OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
-fWG92TE1fqjSdJ0K47YAk=
+AAAAQP9kpy2IjqtbAbD2DHG&#43;quSQYjLVNuiHwGZ41E5BrJtdRU1TDOBfbj6&#43;WEZj0NSJxo
+cvQZcm0IaTw64fCKPf8w8=
 -----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #122 from alwaldend/t3code/x-article-development-story</p>
+<p>Publish the X Article story and harden its upload workflow</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">f9dd3eb6a1c702aa9220ab5bf395655e037b9156</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJqwCESCRC1aQ7uu5UhlAAAW5QQAEgPlodmRv9P7X1wYepdGFnF
+f&#43;/WITHuVADfUiute0ReIPsh38EbiX6rU9z5V8Ufy&#43;/VXiheQLhdOydNMyJ4peJE
+//9tiZ8Sz&#43;6YbVZuns&#43;nZyLkjfiirbBgolISRavlbrXUVe&#43;u1TGczftNMH3fa9Tv
+XlZ2YVJWO648dURPA5gm9dxJs1tZoMZN/cPn6fEG/BTGLB5d2eC3TjXbBtc03Qga
+L8hQWBngPCTx5G33eUEbsQLcgBdYMoMXxxTLhrta/Zp9jhIjVih49dezMigDDOUQ
+kT6&#43;ociBC1vN2xagKY7EHKfSK9blC5JRZjKhi/gsqiECK9wGiF1JMr20Q7&#43;3&#43;zuC
+O4WOXuFCF4HNOGu54&#43;MHl6KUZwIRfH6KkeTC1KZmOdG5gXQKWjDJZfFQupyZnyzw
+gJP0D7GGABFnhub6tsaYetd2v9xg&#43;RG1/Fzs4SiLagS9VtRM5uirhQQcXcQ2YDem
+O9d9NyiF0EcIiEBiP62VoE/eQDa8XkwIajIa8rLOgMjhJwzNz8wo0QzUpN&#43;KTOUS
+2ouJASz0&#43;MDupZ4lniKPae7eR&#43;QYyvib2mJMQR9UkmsuTRh0aApLZ54mRL38T54o
+9NAQZvixk9TU1BuyDiMg6WmixfP08ozqz5CjTe7izpMmxLnrNvLDvra2GEKjdz0V
+&#43;vJZYJh5JrtpxrBCXC3C
+=5cwx
+-----END PGP SIGNATURE-----
+
 </pre>
                   </span>
                 </li>
@@ -81441,6 +82178,117 @@ U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
 AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
 sgYBF9c3XN38TeLEQ6hQQ=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -84706,22 +85554,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -84738,7 +85601,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -84792,8 +85655,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -87966,22 +88829,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -87998,7 +88876,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -88052,8 +88930,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -95042,22 +95920,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -95074,7 +95967,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -95128,8 +96021,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -97852,22 +98745,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -97884,7 +98792,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -97938,8 +98846,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -99769,22 +100677,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -99801,7 +100724,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -99855,8 +100778,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -101490,22 +102413,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -101522,7 +102460,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -101576,8 +102514,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -105781,22 +106719,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -105813,7 +106766,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -105867,8 +106820,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -110639,22 +111592,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -110671,7 +111639,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -110725,8 +111693,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -114885,22 +115853,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -114917,7 +115900,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -114971,8 +115954,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -117788,22 +118771,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -117820,7 +118818,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -117874,8 +118872,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -119880,22 +120878,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -119912,7 +120925,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -119966,8 +120979,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -121552,22 +122565,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -121584,7 +122612,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -121638,8 +122666,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -125923,22 +126951,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -125955,7 +126998,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -126009,8 +127052,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -130291,22 +131334,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -130323,7 +131381,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -130377,8 +131435,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -133223,22 +134281,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -133255,7 +134328,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -133309,8 +134382,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -135640,22 +136713,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -135672,7 +136760,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -135726,8 +136814,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -138336,22 +139424,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -138368,7 +139471,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -138422,8 +139525,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -140937,22 +142040,37 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -140969,7 +142087,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -141023,8 +142141,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -146509,22 +147627,37 @@ AAAAQMJHNXQzr12QN/Q98NMZp&#43;fwGuDCQiX4LDRl2nYEgS5JL&#43;fDxpFWnAzdn1rVhlsCQ3
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -146541,7 +147674,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -146595,8 +147728,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -151340,22 +152473,37 @@ AAAAQMJHNXQzr12QN/Q98NMZp&#43;fwGuDCQiX4LDRl2nYEgS5JL&#43;fDxpFWnAzdn1rVhlsCQ3
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Support X Article banners and dark blog diagrams</p>
-<p>Use the first frontmatter images entry as the X Article banner while keeping
-body images inline. Validate all image sources before requests, upload media
-separately, and reuse one unexpired media ID for identical banner/body bytes.
-Verify the optional cover_media payload with local HTTP end-to-end tests.</p>
-<p>Render the demonstration diagram in the native dark site theme with modest
-margins. Show Markdown conversion, separate media upload or cache reuse,
-attachment of media IDs, and Article draft creation. Reuse bundled raster
-images in Open Graph and large Twitter cards, and backfill the other post
-with an opening diagram. Encourage images in the blog authoring skill.</p>
-<p>Add and register the project-owned x-article-upload skill with the offline
-conversion and Vault-injected draft workflow, both X limits, and the expired
-Vault bootstrap-token failure mode. Validate rendering, social metadata,
-conversion, media reuse, asset freshness, and skill configuration. No live X
-request or site deployment is performed; the demonstration post stays a draft.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-01-add-x-article-uploader</p>
+            <p>Publish the X Article story and harden its upload workflow</p>
+<p>Publish the reviewed development story and render blog front matter images
+before article text and in print output. Remove redundant opening Markdown
+images from the two illustrated posts. Keep the first selected image as the
+X Article banner and preserve every image explicitly written in Markdown.
+Document the shared image metadata and encourage its use for every post.</p>
+<p>Retain rate-limit headers on failed X requests and report their reset times
+and conservative retry boundaries. Keep retries manual and distinguish
+historical quota observations from the latest response. Reject HTTP redirects
+without following them so draft and media POSTs cannot be replayed by a
+redirect response, and prevent automatic replay of consumed POST bodies.</p>
+<p>Recover expired Vault certificates through a host-limited Ansible tag that
+stops before reload on certificate errors. Preserve the Vault node identity,
+use its canonical connection hostname, and include that name in the certificate.
+Document temporary Vault TLS bypass, repository SSH CA trust, and verification
+after renewal. The authorized renewal succeeded with normal TLS restored.</p>
+<p>Validate static images before network requests and wait for media processing
+with signed, bounded status checks. Scope cached media to the endpoint and
+OAuth credential context, account for upload time and expiry, and refuse
+identifiers that expire while other images upload. Emit mutable Markdown
+entities and replace byte counting with an explicitly approximate weighted
+budget, preserving the original Markdown source.</p>
+<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
+repository quality and semantic lint; packaged Ansible syntax and task selection;
+strict OpenSpec validation and live certificate/hostname verification.</p>
+<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
+OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
+OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
+OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -151372,7 +152520,7 @@ request or site deployment is performed; the demonstration post stays a draft.</
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">a78cb67b08dfc2377b160c4ef0448237caa246c7</pre>
+                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
                   </span>
                 </li>
               </ul>
@@ -151426,8 +152574,8 @@ request or site deployment is performed; the demonstration post stays a draft.</
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQCzI41ynp/EaPXM&#43;wB2oq3t&#43;tO4vszWz8G4LraeT4dsIO4JH9okBIrjoDxKexY6gK9
-sgYBF9c3XN38TeLEQ6hQQ=
+AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
+fWG92TE1fqjSdJ0K47YAk=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -151805,7 +152953,7 @@ credentials. The uploader creates drafts only and never publishes.</li>
 reaches X, and keeping the tool to draft creation means no invocation of it can
 make a post publicly visible.</p>
 <h2 id="print-6b082a06c42e352fea9d757a281256a0-what-conversion-does">What conversion does<a class="td-heading-self-link" href="#print-6b082a06c42e352fea9d757a281256a0-what-conversion-does" aria-label="Heading self-link"></a></h2><p>A source post is YAML front matter plus a Markdown body. The front matter is
-metadata: its <code>title</code> is returned alongside the document because the draft
+metadata: its <code>title</code> is placed in <code>payload</code> alongside <code>content_state</code> because the draft
 endpoint requires a title that <code>content_state</code> cannot carry, and it never
 appears in the article text. A source without a non-empty title fails
 conversion.</p>
@@ -151822,8 +152970,12 @@ banner and body bytes still share one media upload. Posts and older artifacts
 without a banner remain supported.</p>
 <p>Markdown maps onto the vocabulary the API exposes:</p>
 <ul>
-<li>Headings clamp: <code>#</code>/<code>##</code> to <code>header-one</code>, <code>###</code> to <code>header-two</code>, and <code>####</code>
-and deeper to <code>header-three</code>, because X exposes three heading levels.</li>
+<li>Headings clamp: <code>#</code>/<code>##</code> to <code>header-one</code>, and <code>###</code> and deeper to
+<code>header-two</code>. The API schema lists <code>header-three</code>, but the live draft
+endpoint returns HTTP 503 for it. A controlled upload of the complete
+47-block showcase succeeded after changing only its <code>header-three</code> block
+to <code>header-two</code>. This follows the same
+<a href="https://github.com/gitroomhq/postiz-app/commit/a4088abc1ad2d964cf1ff7b5d6a4c55f9774b411">workaround implemented by Postiz</a>.</li>
 <li>Paragraphs, both list kinds, nested list items, and block quotes map onto
 their matching block types.</li>
 <li>Bold, italic, and strikethrough become <code>inline_style_ranges</code>; links become
@@ -151876,10 +153028,23 @@ dotted domain fragment. Other characters are counted normally. The original
 Markdown payload is preserved unchanged. This can reject some content X would
 accept and is not a guarantee of equivalence to its backend validator. An
 over-budget diagnostic reports the estimate and the local budget.</p>
-<p>Conversion distinguishes two outcomes and never silently drops content: a
-construct whose content survives with lost formatting is reported and
-conversion continues, while one whose content would be lost fails conversion.
-Both name the source position that produced them.</p>
+<p>Conversion never silently drops content. Formatting losses produce warnings;
+content-loss errors always fail. The command prints diagnostics with source
+positions to stderr and fails on warnings by default. Pass
+<code>--warnings-as-errors=false</code> to allow warnings while retaining their stderr
+reports. Failed conversion does not write an artifact.</p>
+<p>The artifact separates the X request from local upload metadata:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;payload&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;Example&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;content_state&#34;</span><span class="p">:</span> <span class="p">{</span> <span class="nt">&#34;blocks&#34;</span><span class="p">:</span> <span class="p">[],</span> <span class="nt">&#34;entities&#34;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;image_locators&#34;</span><span class="p">:</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>This schematic omits article content. An optional <code>banner_locator</code> sits beside
+<code>payload</code>; after media resolution its ID becomes <code>payload.cover_media</code>.
+Diagnostics are not serialized. Legacy artifacts with flat <code>title</code> and
+<code>content_state</code> fields must be regenerated.</p>
 <h2 id="print-6b082a06c42e352fea9d757a281256a0-what-draft-creation-does">What draft creation does<a class="td-heading-self-link" href="#print-6b082a06c42e352fea9d757a281256a0-what-draft-creation-does" aria-label="Heading self-link"></a></h2><p>Draft creation reads the draft artifact conversion emitted. It obtains each
 body or banner image&rsquo;s bytes from the locator the artifact records — resolved
 against the recorded post package, refused when the path escapes the post directory or the
@@ -151908,7 +153073,8 @@ Recording the cache is best-effort: a cache that cannot be written costs a later
 re-upload rather than failing draft
 creation after the uploads already succeeded.</p>
 <p>The media uploads happen separately before draft creation. The selected banner&rsquo;s
-uploaded identifier becomes the draft request&rsquo;s top-level <code>cover_media</code>, with
+uploaded identifier becomes <code>payload.cover_media</code>, sent as the draft request&rsquo;s
+top-level <code>cover_media</code>, with
 <code>media_category: &quot;tweet_image&quot;</code> and <code>media_id</code>. Body image identifiers remain
 in their DraftJS entities. This follows the
 <a href="https://docs.x.com/x-api/articles/create-draft-article">X draft endpoint&rsquo;s request schema</a>.</p>
@@ -152145,10 +153311,11 @@ and carries no <code>depth</code></li>
 <code>mutability</code>, and <code>data</code></li>
 <li><strong>AND</strong> no block or entity field falls outside the schema&rsquo;s allowed names</li>
 </ul>
-<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-heading-level-mapping">Requirement: Heading level mapping<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-heading-level-mapping" aria-label="Heading self-link"></a></h3><p>Markdown headings SHALL map onto the block types X exposes, and no heading MAY
-produce a type outside that set. Because X exposes only three heading levels,
-depth SHALL be clamped: <code>#</code> and <code>##</code> map to <code>header-one</code>, <code>###</code> maps to
-<code>header-two</code>, and <code>####</code> and deeper map to <code>header-three</code>.</p>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-heading-level-mapping">Requirement: Heading level mapping<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-heading-level-mapping" aria-label="Heading self-link"></a></h3><p>Markdown headings SHALL map onto the two heading block types accepted by the
+live Articles draft endpoint. Depth SHALL be clamped: <code>#</code> and <code>##</code> map to
+<code>header-one</code>, and <code>###</code> and deeper map to <code>header-two</code>. The converter MUST NOT
+emit <code>header-three</code>: although the API schema permits it, the live endpoint
+returns HTTP 503 for that type.</p>
 <h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-map-a-second-level-heading">Scenario: Map a second-level heading<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-map-a-second-level-heading" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a post contains a <code>##</code> heading</li>
 <li><strong>THEN</strong> it becomes a <code>header-one</code> block</li>
@@ -152159,8 +153326,8 @@ depth SHALL be clamped: <code>#</code> and <code>##</code> map to <code>header-o
 </ul>
 <h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-clamp-a-heading-deeper-than-x-supports">Scenario: Clamp a heading deeper than X supports<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-clamp-a-heading-deeper-than-x-supports" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a post contains a <code>####</code>, <code>#####</code>, or <code>######</code> heading</li>
-<li><strong>THEN</strong> it becomes a <code>header-three</code> block</li>
-<li><strong>AND</strong> no block uses a heading type outside <code>header-one</code>, <code>header-two</code>, or <code>header-three</code></li>
+<li><strong>THEN</strong> it becomes a <code>header-two</code> block</li>
+<li><strong>AND</strong> no block uses a heading type outside <code>header-one</code> or <code>header-two</code></li>
 </ul>
 <h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-block-level-markdown-mapping">Requirement: Block-level Markdown mapping<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-block-level-markdown-mapping" aria-label="Heading self-link"></a></h3><p>The converter SHALL map supported block constructs to the block type X expects:
 paragraphs to <code>unstyled</code>, unordered list items to <code>unordered-list-item</code>,
@@ -152565,8 +153732,10 @@ on a re-opened pathname</li>
 <h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-conversion-diagnostics">Requirement: Conversion diagnostics<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-conversion-diagnostics" aria-label="Heading self-link"></a></h3><p>The converter SHALL report a construct it cannot represent with the source
 location that produced it. It SHALL distinguish two outcomes and never emit a
 document that silently omits content it could not represent: a construct whose
-content is preserved but whose formatting is lost is reported and conversion
-continues, while a construct whose content would be lost fails conversion. The
+content is preserved but whose formatting is lost is reported as a warning.
+The conversion command SHALL fail on warnings by default and SHALL permit them
+only with <code>--warnings-as-errors=false</code>. Errors SHALL fail with either setting.
+All diagnostics SHALL be printed to stderr and SHALL NOT appear in artifact JSON. The
 image whose media type the upload endpoints reject and the source without a
 title are failing outcomes; an inline-code span&rsquo;s lost styling is a continuing
 one.</p>
@@ -152585,7 +153754,9 @@ rather than being discarded with the returned error</li>
 <h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-encounter-a-construct-whose-formatting-is-lost">Scenario: Encounter a construct whose formatting is lost<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-encounter-a-construct-whose-formatting-is-lost" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> the converter preserves a construct&rsquo;s content but cannot reproduce its formatting</li>
 <li><strong>THEN</strong> it reports the lost formatting with its source position</li>
-<li><strong>AND</strong> conversion still completes with the content present</li>
+<li><strong>AND</strong> command conversion fails by default without writing an artifact</li>
+<li><strong>AND</strong> <code>--warnings-as-errors=false</code> permits completion with the content present
+while still reporting the warning to stderr</li>
 </ul>
 <h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-report-a-position-after-a-multi-byte-character">Scenario: Report a position after a multi-byte character<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-report-a-position-after-a-multi-byte-character" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a diagnostic&rsquo;s construct follows a multi-byte character on the same
@@ -152593,6 +153764,28 @@ line</li>
 <li><strong>THEN</strong> the reported column counts source characters rather than bytes, so it
 names the position an editor shows</li>
 <li><strong>AND</strong> the byte offset is still recorded for slicing the source</li>
+</ul>
+<h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-artifact-separates-the-x-payload-from-local-metadata">Requirement: Artifact separates the X payload from local metadata<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-artifact-separates-the-x-payload-from-local-metadata" aria-label="Heading self-link"></a></h3><p>The converted artifact SHALL put title and content_state inside payload. Body
+image locators and the optional banner locator SHALL remain outside payload.
+Diagnostics SHALL NOT be serialized. Media resolution SHALL attach body media
+IDs inside payload.content_state and the banner ID inside payload.cover_media.
+Artifact reading SHALL reject the old flat format and require regeneration.</p>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-build-an-offline-artifact">Scenario: Build an offline artifact<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-build-an-offline-artifact" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> conversion succeeds</li>
+<li><strong>THEN</strong> payload contains title and content_state in the X request shape</li>
+<li><strong>AND</strong> local media references remain alongside payload</li>
+<li><strong>AND</strong> there is no serialized diagnostics field</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-resolve-media-for-draft-submission">Scenario: Resolve media for draft submission<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-resolve-media-for-draft-submission" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the uploader resolves an artifact&rsquo;s media</li>
+<li><strong>THEN</strong> body entities inside payload receive media_items</li>
+<li><strong>AND</strong> the banner becomes payload.cover_media</li>
+<li><strong>AND</strong> the draft request contains only X payload fields</li>
+</ul>
+<h4 id="print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-read-a-legacy-flat-artifact">Scenario: Read a legacy flat artifact<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-scenario-read-a-legacy-flat-artifact" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an artifact has title and content_state outside payload</li>
+<li><strong>THEN</strong> reading fails before any API request</li>
+<li><strong>AND</strong> the error instructs the caller to regenerate the artifact</li>
 </ul>
 <h3 id="print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-validate-the-supported-static-image-contract">Requirement: Validate the supported static image contract<a class="td-heading-self-link" href="#print-78b53da53cf62bb8cc5edd45209ebcc7-requirement-validate-the-supported-static-image-contract" aria-label="Heading self-link"></a></h3><p>Conversion and draft preflight SHALL accept only static JPEG, PNG, GIF, and
 WebP images up to 5,000,000 bytes. They SHALL reject unsupported formats,
@@ -167597,6 +168790,13 @@ diagram still carries crisp text when a consumer re-encodes it. A raster render
 always uses the maintained appearance; it has no <code>plain</code> opt-out, because a
 plain raster could not show the contrast a comparison needs any more reliably
 than the SVG rule&rsquo;s.</p>
+<p>Set <code>aspect_ratio = [5, 2]</code> when a cover image needs fixed proportions. The
+encoder reduces the two positive integer terms and adds the selected theme&rsquo;s
+background around the scaled diagram. It uses the smallest whole-pixel canvas
+with that exact ratio that contains the original image, centers the diagram,
+and never crops or stretches it. SVG output is unaffected. Omitting the ratio
+keeps the natural raster canvas. <code>scale</code> must be a positive integer, and the
+final image must fit WebP&rsquo;s 16383-pixel limit in each dimension.</p>
 <p>Consumers that must keep the image as a checked-in asset obtain it from the
 rule&rsquo;s output rather than by hand, so the asset can be regenerated and compared
 against a fresh render. The <code>.mmd</code> source stays authoritative. Blog posts keep
@@ -167616,6 +168816,10 @@ their separately built SVGs, checks each selected site palette, visible label
 pixels, and the embedded sans-serif font, and verifies unchanged scaled canvas
 geometry. The test saves each reference and actual image and a JSON measurement
 report in its undeclared outputs for repeatable inspection.
+<code>test/renderer/aspect_ratio_test.mjs</code> checks horizontal and vertical padding,
+minimal exact-ratio dimensions, unchanged content scale, and theme backgrounds
+against independently rendered SVG references. It also exercises invalid size
+and ratio inputs, and saves reference rasters and measurement reports.
 <code>cmd/mmdc/mmdc_test.go</code>
 drives the interactive CLI and re-renders under a Fontconfig pointed at a
 monospace-only pool; a byte-identical result shows the CLI resolved text
@@ -175689,7 +176893,62 @@ al_vial_configs(<a href="#print-350d2ad028e029e0adef996b98df7daf-al_vial_configs
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-b33b6997f695130ef588eb5c2ab49fdd">3.107 - Ykman</h1>
+	<h1 id="pg-5de869404e2a93fb7721f6c6fae74c1a">3.107 - X CLI</h1>
+    <div class="lead">Pinned upstream xurl command-line client for the X API</div>
+	
+	<p>This target runs the unmodified upstream xurl CLI. The release archive and
+integrity pin belong to
+<a href="/docs/third_party/com_github_xdevplatform_xurl/"><code>third_party/com_github_xdevplatform_xurl</code></a>.
+The current toolchain supports Linux x86-64.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/xurl -- version
+</span></span><span class="line"><span class="cl">bazel_agent bazel run //tools/xurl -- --help
+</span></span></code></pre></div><p>xurl uses its native <code>~/.xurl/auth.yml</code> credential store. Startup can create or
+migrate this store and import <code>~/.twurlrc</code>, even for help and version commands.
+There is no upstream configuration-path override. Automated use must isolate
+these paths; do not place credentials in command arguments or enable verbose
+logging, which prints the Authorization header.</p>
+<p>Select <code>--auth oauth1</code> and <code>--app &lt;name&gt;</code> explicitly when comparing the Article
+uploader with the CLI. Otherwise xurl prefers stored OAuth 2.0 credentials.
+<code>--data</code> accepts literal JSON, not curl-style <code>@file</code> input. The CLI follows
+redirects and uses Go&rsquo;s default transport; a single invocation does not provide
+the uploader&rsquo;s stricter redirect and request-replay safeguards.</p>
+<p>This generic tool supplies neither repository credentials nor a Markdown
+converter. The <a href="/docs/projects/x_article_uploader/">Article uploader</a>
+owns those operations and its Vault injection flow. Creating a draft is a
+separate, quota-consuming operation from inspecting this CLI.</p>
+<h2 id="print-f73649f34508922ef7088ead99e7f93e-links">Links<a class="td-heading-self-link" href="#print-f73649f34508922ef7088ead99e7f93e-links" aria-label="Heading self-link"></a></h2><ul>
+<li><a href="https://github.com/xdevplatform/xurl">Upstream source</a></li>
+<li><a href="https://docs.x.com/tools/xurl">X CLI documentation</a></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b33b6997f695130ef588eb5c2ab49fdd">3.108 - Ykman</h1>
     <div class="lead">Ykman (Yubikey Manager)</div>
 	
 	<h2 id="print-ca4bb3ed341f02bb1f147c6aa0ffb138-links">Links<a class="td-heading-self-link" href="#print-ca4bb3ed341f02bb1f147c6aa0ffb138-links" aria-label="Heading self-link"></a></h2><ul>
@@ -296886,6 +298145,47 @@ integrity values from the appliance revision&rsquo;s
 Bazel fetches and verifies all inputs before deployment; Ansible extracts them
 without a package-manager resolution or lifecycle script.</p>
 <p><a href="https://github.com/vatesfr/xen-orchestra/tree/4bc614ffd1417d3e0563522aeb4a195fa494c57c/packages/xo-server-auth-oidc">Plugin source</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b02a3affbad60ef1dd5200aa9152a1e4">6.68 - Xurl</h1>
+    <div class="lead">Official X API command-line client</div>
+	
+	<p>This package pins the upstream Linux x86-64 release through
+<code>rules_binary_toolchain</code>. The <code>xurl</code> alias is available to <code>//tools/xurl</code>.
+The archive version and integrity are owned by <code>binary_toolchain.json</code>.</p>
+<p>The upstream release archive includes its MIT license and copyright notice.</p>
+<h2 id="print-5d23fded7a123ae9610581bfeb274296-links">Links<a class="td-heading-self-link" href="#print-5d23fded7a123ae9610581bfeb274296-links" aria-label="Heading self-link"></a></h2><ul>
+<li><a href="https://github.com/xdevplatform/xurl">Upstream repository</a></li>
+<li><a href="https://github.com/xdevplatform/xurl/releases/tag/v1.3.4">Release</a></li>
+<li><a href="https://github.com/xdevplatform/xurl/releases/download/v1.3.4/xurl_1.3.4_checksums.txt">Publisher checksums</a></li>
+<li><a href="https://github.com/xdevplatform/xurl/blob/v1.3.4/LICENSE">MIT license</a></li>
+</ul>
 
 </div>
 
