@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="Download DNS">
 	<meta itemprop="description" content="Cloudflare and RouterOS aliases for static hosting">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
-	<meta itemprop="wordCount" content="562">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
+	<meta itemprop="wordCount" content="626">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Download DNS">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -216,6 +216,12 @@ maintenance interval until host configuration and content publication finish;
 the public website continues using Pages during this local preparation.</p>
 <p>The local VM consumes the same apex A value from source. The host CNAME and
 local download alias follow it, so renumbering has one maintained address.
+The dc1 apex also declares the unusable AAAA address <code>::ffff</code>, following
+<a href="https://help.mikrotik.com/docs/spaces/ROS/pages/37748767/DNS">RouterOS&rsquo;s documented override</a>.
+An A record alone does not suppress upstream AAAA answers: while public DNS
+still points to Pages, IPv6 clients would reach that site instead of the local
+VM. This local override keeps clients on the configured IPv4 endpoint without
+changing public DNS or relying on a guest&rsquo;s temporary IPv6 address.
 The public apex follows <code>download.alwaldend.com</code>, which in turn follows the
 component-owned Yandex host. Renaming that host therefore requires no copied
 endpoint edit in the apex owner.</p>

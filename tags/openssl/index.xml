@@ -16,7 +16,7 @@
 				<link>https://alwaldend.com/docs/third_party/org_openssl_openssl/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/third_party/org_openssl_openssl/</guid>
-				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://www.openssl.org/&#34;&gt;https://www.openssl.org/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+				<description>&lt;p&gt;The pinned source build exposes shared and static libraries. Its &lt;code&gt;gen_dir&lt;/code&gt;&#xA;output supplies Anki&amp;rsquo;s Cargo build script with declared headers and libraries;&#xA;the existing C consumers continue using the library target.&lt;/p&gt;&#xA;&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://www.openssl.org/&#34;&gt;https://www.openssl.org/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 	</channel>
 </rss>

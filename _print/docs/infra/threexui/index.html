@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="threexui">
 	<meta itemprop="description" content="3x-ui">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
-	<meta itemprop="wordCount" content="32">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
+	<meta itemprop="wordCount" content="245">
 	<meta itemprop="keywords" content="Xray,Vpn">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="threexui">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -363,7 +363,30 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <h2 id="print-a222de584d9850c7b3584c1204012b05-links">Links<a class="td-heading-self-link" href="#print-a222de584d9850c7b3584c1204012b05-links" aria-label="Heading self-link"></a></h2><ul>
+      <h2 id="print-a222de584d9850c7b3584c1204012b05-architecture">Architecture<a class="td-heading-self-link" href="#print-a222de584d9850c7b3584c1204012b05-architecture" aria-label="Heading self-link"></a></h2><p>The <a href="/docs/infra/threexui/docs/architecture.mmd">architecture source</a> is one diagram with three separate
+sections: overview, control plane, and data plane. It describes maintained
+architecture, not live inventory or service health. Bazel renders light and dark SVGs.</p>
+<p>The overview shows Master in the Control Plane hierarchy and full node hostnames
+in provider groups, with Vault, Let&rsquo;s Encrypt, and Mullvad as external services.
+Overview links attach to the Control Plane and Data plane boundaries.
+The control-plane section expands the 3x-ui VM&rsquo;s Traefik and panel with one simple
+data-plane node. The data-plane section expands one node&rsquo;s Traefik, 3x-ui, and Xray
+with one simple control-plane endpoint; njalla1, work1, and yc1 share this implementation.</p>
+<p><a href="/docs/infra/threexui/docs/assets/architecture.svg"><span class="mermaid-diagram"><img src="/docs/infra/threexui/docs/assets/architecture.svg" alt="3x-ui architecture" loading="lazy" class="mermaid-light"><img src="/docs/infra/threexui/docs/assets/architecture.dark.svg" alt="3x-ui architecture" loading="lazy" class="mermaid-dark"></span></a></p>
+<h2 id="print-a222de584d9850c7b3584c1204012b05-nodes">Nodes<a class="td-heading-self-link" href="#print-a222de584d9850c7b3584c1204012b05-nodes" aria-label="Heading self-link"></a></h2><p>The data-plane nodes <code>njalla1</code> and <code>work1</code> are hosted by njal.la; <code>yc1</code> is hosted
+by Yandex Cloud. Terraform configures each through the shared node module;
+Ansible installs the node services.</p>
+<p><code>work1.nodes.threexui.alwaldend.com</code> is declared at IPv4 <code>45.142.142.192</code> and
+IPv6 <code>2a0a:3840:8078:142::2d8e:8ec0:1337</code> in <code>dnsconfig.json</code>.
+The node uses the <code>njalla1</code> Mullvad relay selection with <code>de-fra-wg-001</code>
+replacing the retired <code>de-dus-wg-003</code> relay.
+Before configuring it, supply its key and address in the existing Vault-backed
+<code>mullvad_keys</code> map. The <code>node_xui_tokens</code> entry is needed for later master
+registration, after the node is installed. The node token comes from the <code>xui_tokens</code>
+field of <code>alwaldend.com/vault1/approles/src_infra_threexui/nodes</code>, and its Mullvad
+key and address come from the <code>keys</code> field of
+<code>alwaldend.com/vault1/approles/src_infra_threexui/mullvad_keys</code> (mount <code>secrets</code>).</p>
+<h2 id="print-a222de584d9850c7b3584c1204012b05-links">Links<a class="td-heading-self-link" href="#print-a222de584d9850c7b3584c1204012b05-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://docs.sanaei.dev/">https://docs.sanaei.dev/</a></li>
 <li>Releases: <a href="https://github.com/MHSanaei/3x-ui/releases">https://github.com/MHSanaei/3x-ui/releases</a></li>
 </ul>
@@ -389,7 +412,7 @@ This is the multi-page printable view of this section.
     
 
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-0285e5414ecda3e14ec3377e1c3ca7ec">1 - Ansible</h1>
     <div class="lead">Ansible setup</div>

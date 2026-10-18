@@ -1,600 +1,600 @@
 {
-    "sections": [
+    "sections":  [
         {
-            "title": "Changelog",
-            "items": [
+            "title":  "Changelog",
+            "items":  [
                 {
-                    "content": "Merge pull request #95 from alwaldend/t3code/consolidate-project-landing-pages\n\nMove project landings into the main site",
-                    "attrs": [
+                    "content":  "Merge pull request #95 from alwaldend/t3code/consolidate-project-landing-pages\n\nMove project landings into the main site",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "a988d4c3561ca6d5e5c0f079f387a3ae8fd76160"
+                            "name":  "Hash",
+                            "content":  "a988d4c3561ca6d5e5c0f079f387a3ae8fd76160"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "GitHub <noreply@github.com>"
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqrwziCRC1aQ7uu5UhlAAA0qgQAKWaf/ehKSQH85SxgNGIsEVg\nIoudVQCfrdakNdIBREyR/hKCLk+zSu7OWYPfybz/9i+7/8DODPNUM7j+5V5NJlLm\nycNo741vUImLVcV71AG9DVuGwqpX3g4qvogmE+H6vgTTlYjWE6XOpBMGZtVT1nAL\nFY42FVr4aAm4+w6z5MaIrqQwaKZ85eW6fOWiKFFfHzp33D9dOIWck4P6xF16hCnw\nhC+WijvwDj6xeke+BdYo6NzLCbs6l2hk8eYbhsDr9d2QiHoVafPYfLkK7W5uYOG1\n7+aXwGKj/hqy0rVCknSbRQTS4awYzwlxBaRt+d9ZH94nn0uqYshR4aQ/V03l9RuH\nBs7MeD228mU0R2BX9Bqrb2lY9i+EAeBPTYb2d8T4JM19ntigC6voNHsw8/ktaNjy\ni+mjZJFdyyyKdveKwhn//vcZK9kMwSb79ZcUIjbH4RMbRHqR3dyGivx+dVqLJdZ9\nC33AyzmOZHgp2rYpWxEes0Jc65t2Ik5Qrsk8U3MfzAQAIYIAvmTaOJudBp3GkDYR\nNu1OPQe6QB5HWPo2i3ZdE5SbMNt3qfYybfb1TrUBHdM8hhorNxECEHJ6PHTDzxVl\n17A2rLt/Ld1QwR+w+zuKug899JWip3rZ+W4MAR661XqZVwmXkO6xZdv6IiMVQfJd\nIBNITq0Eia15xg4ncKhV\n=4aHs\n-----END PGP SIGNATURE-----\n\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqrwziCRC1aQ7uu5UhlAAA0qgQAKWaf/ehKSQH85SxgNGIsEVg\nIoudVQCfrdakNdIBREyR/hKCLk+zSu7OWYPfybz/9i+7/8DODPNUM7j+5V5NJlLm\nycNo741vUImLVcV71AG9DVuGwqpX3g4qvogmE+H6vgTTlYjWE6XOpBMGZtVT1nAL\nFY42FVr4aAm4+w6z5MaIrqQwaKZ85eW6fOWiKFFfHzp33D9dOIWck4P6xF16hCnw\nhC+WijvwDj6xeke+BdYo6NzLCbs6l2hk8eYbhsDr9d2QiHoVafPYfLkK7W5uYOG1\n7+aXwGKj/hqy0rVCknSbRQTS4awYzwlxBaRt+d9ZH94nn0uqYshR4aQ/V03l9RuH\nBs7MeD228mU0R2BX9Bqrb2lY9i+EAeBPTYb2d8T4JM19ntigC6voNHsw8/ktaNjy\ni+mjZJFdyyyKdveKwhn//vcZK9kMwSb79ZcUIjbH4RMbRHqR3dyGivx+dVqLJdZ9\nC33AyzmOZHgp2rYpWxEes0Jc65t2Ik5Qrsk8U3MfzAQAIYIAvmTaOJudBp3GkDYR\nNu1OPQe6QB5HWPo2i3ZdE5SbMNt3qfYybfb1TrUBHdM8hhorNxECEHJ6PHTDzxVl\n17A2rLt/Ld1QwR+w+zuKug899JWip3rZ+W4MAR661XqZVwmXkO6xZdv6IiMVQfJd\nIBNITq0Eia15xg4ncKhV\n=4aHs\n-----END PGP SIGNATURE-----\n\n"
                         }
                     ]
                 },
                 {
-                    "content": "Manage forge resources with hermetic Terraform rules\n\nCentralize organization, repository, and named access configuration in\ninfra/repos. Adopt existing GitHub resources, protect master defaults while\nretaining Pages publication on pages, and preserve existing repository\nidentities. Manage GitLab one-time imports, the F-Droid metadata fork, and\ndefault-branch protections through Vault-backed authentication. Forgejo\nconsumes the same catalog. Ongoing repository synchronization is deferred.\n\nRetire the eleven Bazel rule landing sites through their owning Terraform\nworkflows, removing their DNS records, Pages repositories, and landing\nconfiguration. Move all twelve existing standalone rule modules into tools/\nand retain their public interfaces and documentation on the main site.\n\nAdd tools/rules_terraform with verified provider downloads, packed mirrors\nin runfiles, and reusable Terraform execution rules. Enforce one version per\nprovider source at an extensible resolution boundary. Migrate every Terraform\nconsumer to thirteen shared provider pins in third_party/terraform. Execution\nand command maps belong to rules_terraform; consumers explicitly select generic\nAL wrappers for authentication and Vault injection. Remove tools/terraform\nand all 43 checked-in Terraform provider locks.\nValidate installed providers against the declared archives before execution.\n\nValidation covers all fourteen workspace builds, all thirteen standalone\ntest suites, Terraform consumers, offline real-provider regressions, rendered\ndocumentation, formatting, and semantic lint. The full root test run has\n295 passing tests and one skip; its only failure is the historical secret\nscan, reduced to four pre-existing synthetic fixture matches. Earlier live\nimports and the exact landing retirement scope have verified postconditions;\nthe Terraform rules migration uses only offline implementation checks.\n\nOpenSpec-Change: infra/repos/openspec/changes/archive/2026-09-13-adopt-shared-repository-catalog\nOpenSpec-Change: infra/src/openspec/changes/archive/2026-09-13-retire-bazel-rule-landings\nOpenSpec-Change: tools/rules_terraform/openspec/changes/archive/2026-09-14-add-hermetic-terraform-rules\nOpenSpec-Change: tools/rules_terraform/openspec/changes/archive/2026-09-14-correct-terraform-ownership\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
-                    "attrs": [
+                    "content":  "Manage forge resources with hermetic Terraform rules\n\nCentralize organization, repository, and named access configuration in\ninfra/repos. Adopt existing GitHub resources, protect master defaults while\nretaining Pages publication on pages, and preserve existing repository\nidentities. Manage GitLab one-time imports, the F-Droid metadata fork, and\ndefault-branch protections through Vault-backed authentication. Forgejo\nconsumes the same catalog. Ongoing repository synchronization is deferred.\n\nRetire the eleven Bazel rule landing sites through their owning Terraform\nworkflows, removing their DNS records, Pages repositories, and landing\nconfiguration. Move all twelve existing standalone rule modules into tools/\nand retain their public interfaces and documentation on the main site.\n\nAdd tools/rules_terraform with verified provider downloads, packed mirrors\nin runfiles, and reusable Terraform execution rules. Enforce one version per\nprovider source at an extensible resolution boundary. Migrate every Terraform\nconsumer to thirteen shared provider pins in third_party/terraform. Execution\nand command maps belong to rules_terraform; consumers explicitly select generic\nAL wrappers for authentication and Vault injection. Remove tools/terraform\nand all 43 checked-in Terraform provider locks.\nValidate installed providers against the declared archives before execution.\n\nValidation covers all fourteen workspace builds, all thirteen standalone\ntest suites, Terraform consumers, offline real-provider regressions, rendered\ndocumentation, formatting, and semantic lint. The full root test run has\n295 passing tests and one skip; its only failure is the historical secret\nscan, reduced to four pre-existing synthetic fixture matches. Earlier live\nimports and the exact landing retirement scope have verified postconditions;\nthe Terraform rules migration uses only offline implementation checks.\n\nOpenSpec-Change: infra/repos/openspec/changes/archive/2026-09-13-adopt-shared-repository-catalog\nOpenSpec-Change: infra/src/openspec/changes/archive/2026-09-13-retire-bazel-rule-landings\nOpenSpec-Change: tools/rules_terraform/openspec/changes/archive/2026-09-14-add-hermetic-terraform-rules\nOpenSpec-Change: tools/rules_terraform/openspec/changes/archive/2026-09-14-correct-terraform-ownership\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "6cb4d63c7b473cbff738332389c05168b9158cc4"
+                            "name":  "Hash",
+                            "content":  "6cb4d63c7b473cbff738332389c05168b9158cc4"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
                         }
                     ]
                 },
                 {
-                    "content": "Deploy project DNS through Terraform modules\n\nMove DNS ownership into each project’s Terraform state using shared modules.\nLoad dnsconfig.json files at runtime, reject conflicting domain ownership,\nand render their records as a table. Add missing project AppRoles and scoped\nDNS policies, and document grouping related Terraform resources in modules.\n\nDeploy all 45 owners sequentially: adopt 155 existing records and create 13\nmissing OpenHands records. Preserve every pre-existing provider record and\nverify no-op follow-up plans and DNS answers. Add DNS-scoped plan/show/apply\nwrappers with a saved-plan guard for roots that also manage services.\nAllow bounded aggregate path inventories large enough to deliver this migration\nwhile retaining truncation refusal in the delivery tool.\n\nValidate runtime ownership, provider imports and preservation with isolated\nfixtures, Terraform formatting, wrapper builds, repository quality checks,\nsemantic lint, and project documentation/specification builds.\n\nOpenSpec-Change: infra/dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
-                    "attrs": [
+                    "content":  "Deploy project DNS through Terraform modules\n\nMove DNS ownership into each project’s Terraform state using shared modules.\nLoad dnsconfig.json files at runtime, reject conflicting domain ownership,\nand render their records as a table. Add missing project AppRoles and scoped\nDNS policies, and document grouping related Terraform resources in modules.\n\nDeploy all 45 owners sequentially: adopt 155 existing records and create 13\nmissing OpenHands records. Preserve every pre-existing provider record and\nverify no-op follow-up plans and DNS answers. Add DNS-scoped plan/show/apply\nwrappers with a saved-plan guard for roots that also manage services.\nAllow bounded aggregate path inventories large enough to deliver this migration\nwhile retaining truncation refusal in the delivery tool.\n\nValidate runtime ownership, provider imports and preservation with isolated\nfixtures, Terraform formatting, wrapper builds, repository quality checks,\nsemantic lint, and project documentation/specification builds.\n\nOpenSpec-Change: infra/dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "cc4f205bf73b49364ba3bd441b7f485b9872e742"
+                            "name":  "Hash",
+                            "content":  "cc4f205bf73b49364ba3bd441b7f485b9872e742"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
                         }
                     ]
                 },
                 {
-                    "content": "Simplify OpenSpec workspace globs\n\nCollapse OpenSpec source globs to specs and changes, drop redundant\npackage visibility blocks already covered by REPO.bazel, and regenerate\nthe affected catalogs.\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
-                    "attrs": [
+                    "content":  "Simplify OpenSpec workspace globs\n\nCollapse OpenSpec source globs to specs and changes, drop redundant\npackage visibility blocks already covered by REPO.bazel, and regenerate\nthe affected catalogs.\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "c50fbf5a9fe9e8a99fe26a313eefd1154f841349"
+                            "name":  "Hash",
+                            "content":  "c50fbf5a9fe9e8a99fe26a313eefd1154f841349"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
                         }
                     ]
                 },
                 {
-                    "content": "Publish project sites and reproducible infrastructure diagrams\n\nBuild and deploy all 30 remaining project sites with the standard Docsy\nheader, project descriptions and a linked documentation directory. Omit the\nrepeated page title and generated language heading. Remove\nthe unused cgit and xray_manager projects and retire their site resources.\n\nAdd a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct\nGitHub Pages DNS records. Preserve repeated publication when pages is the\nremote default branch, and include Rules ISO in the main documentation.\nDocument site onboarding in a registered, validated skill. Keep AL\nintroduction short with useful links and preserve its lifecycle details in\na dedicated documentation page.\n\nRender all 15 existing infrastructure Drawio pages with pinned Drawio and\nChrome inputs, sandboxed export actions, an update target and freshness\nchecks, and include the maintained diagrams in infra/arch documentation.\nPaint an opaque white canvas to preserve readability in dark themes.\n\nValidation covers project and apex builds, rendered pages, publisher tests,\ndiagram repeatability and freshness, DNS configuration, Terraform formatting,\nsemantic lint and repository quality.\n\nGoal-Ref: build-and-deploy-every-project-landing-page-a782b800\nAttempt-ID: attempt-00941092c164\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
-                    "attrs": [
+                    "content":  "Publish project sites and reproducible infrastructure diagrams\n\nBuild and deploy all 30 remaining project sites with the standard Docsy\nheader, project descriptions and a linked documentation directory. Omit the\nrepeated page title and generated language heading. Remove\nthe unused cgit and xray_manager projects and retire their site resources.\n\nAdd a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct\nGitHub Pages DNS records. Preserve repeated publication when pages is the\nremote default branch, and include Rules ISO in the main documentation.\nDocument site onboarding in a registered, validated skill. Keep AL\nintroduction short with useful links and preserve its lifecycle details in\na dedicated documentation page.\n\nRender all 15 existing infrastructure Drawio pages with pinned Drawio and\nChrome inputs, sandboxed export actions, an update target and freshness\nchecks, and include the maintained diagrams in infra/arch documentation.\nPaint an opaque white canvas to preserve readability in dark themes.\n\nValidation covers project and apex builds, rendered pages, publisher tests,\ndiagram repeatability and freshness, DNS configuration, Terraform formatting,\nsemantic lint and repository quality.\n\nGoal-Ref: build-and-deploy-every-project-landing-page-a782b800\nAttempt-ID: attempt-00941092c164\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "491eb7e05aa1ef71ff8e01b4ad320cdc355edbee"
+                            "name":  "Hash",
+                            "content":  "491eb7e05aa1ef71ff8e01b4ad320cdc355edbee"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
                         }
                     ]
                 },
                 {
-                    "content": "Repair site navigation and simplify page layout\n\nShow one homepage panel with vertically stacked GitHub and Docs rows using\nthe name: URL format, hiding the protocol and trailing slash in the link text.\nCenter the panel and cap its width at 40rem while allowing it to shrink on mobile.\nMove it slightly lower on desktop and brighten the footer link.\nRestore the project assets mount so custom styles load.\nReduce the footer to its content height with compact padding. Size the homepage\nagainst the visible viewport so mobile browser controls do not hide its footer.\nRemove the separate Projects page and its header link, while keeping project\ndocumentation under Docs. Remove the introductory homepage copy and visible title.\n\nResolve Markdown links and images from their source locations, package\nmissing documentation and book covers, correct source links, and scope\nanchors and release controls in combined print pages. Restore the archive-root\nCNAME explicitly during deployment so replacing the site preserves the\ncustom domain.\n\nValidate generated HTML for missing internal files and fragments, duplicate\nIDs, image alternatives, and the homepage, Misc source-link, and Goal diagram\nregressions. Check the production build, repository quality, affected-target\nsemantic lint, desktop and mobile homepage rendering, and deployment output.\n\nGoal-Ref: out/site-fix/goals/fix-local-alwaldend-com-layout-and-links-a2e69a4e\nAttempt-ID: attempt-165dd5be7d71\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
-                    "attrs": [
+                    "content":  "Repair site navigation and simplify page layout\n\nShow one homepage panel with vertically stacked GitHub and Docs rows using\nthe name: URL format, hiding the protocol and trailing slash in the link text.\nCenter the panel and cap its width at 40rem while allowing it to shrink on mobile.\nMove it slightly lower on desktop and brighten the footer link.\nRestore the project assets mount so custom styles load.\nReduce the footer to its content height with compact padding. Size the homepage\nagainst the visible viewport so mobile browser controls do not hide its footer.\nRemove the separate Projects page and its header link, while keeping project\ndocumentation under Docs. Remove the introductory homepage copy and visible title.\n\nResolve Markdown links and images from their source locations, package\nmissing documentation and book covers, correct source links, and scope\nanchors and release controls in combined print pages. Restore the archive-root\nCNAME explicitly during deployment so replacing the site preserves the\ncustom domain.\n\nValidate generated HTML for missing internal files and fragments, duplicate\nIDs, image alternatives, and the homepage, Misc source-link, and Goal diagram\nregressions. Check the production build, repository quality, affected-target\nsemantic lint, desktop and mobile homepage rendering, and deployment output.\n\nGoal-Ref: out/site-fix/goals/fix-local-alwaldend-com-layout-and-links-a2e69a4e\nAttempt-ID: attempt-165dd5be7d71\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "894494f4c509300287a089f0411511e2c260a2ab"
+                            "name":  "Hash",
+                            "content":  "894494f4c509300287a089f0411511e2c260a2ab"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
                         }
                     ]
                 },
                 {
-                    "content": "Extract DNSControl setup into rules_dnscontrol\n\nExtract the DNSControl setup into `rules_dnscontrol`, generate its Bazel\ndependency bundle from project-owned record files, and update the DNS\nguidance. Move Hugo rules and the worker to role-based package paths, and\ngive each non-nested project a locally owned Hugo landing target that reuses\nthe shared README-to-landing macro.\n\nClean all landing and Pages DNS records so GitHub Pages serves each project\nsubdomain directly without Cloudflare proxying. Improve the main site with\na three-panel home layout, complete project links, documentation explore\nlinks, and current deployment guidance.\n\nAll affected root-workspace landing, DNS, and site targets pass, along with\nthe nested `rules_hugo` tests, Buildifier, and repository quality checks.\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
-                    "attrs": [
+                    "content":  "Extract DNSControl setup into rules_dnscontrol\n\nExtract the DNSControl setup into `rules_dnscontrol`, generate its Bazel\ndependency bundle from project-owned record files, and update the DNS\nguidance. Move Hugo rules and the worker to role-based package paths, and\ngive each non-nested project a locally owned Hugo landing target that reuses\nthe shared README-to-landing macro.\n\nClean all landing and Pages DNS records so GitHub Pages serves each project\nsubdomain directly without Cloudflare proxying. Improve the main site with\na three-panel home layout, complete project links, documentation explore\nlinks, and current deployment guidance.\n\nAll affected root-workspace landing, DNS, and site targets pass, along with\nthe nested `rules_hugo` tests, Buildifier, and repository quality checks.\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "df7e40ff27251e8b4f9a4e399658f353087619d4"
+                            "name":  "Hash",
+                            "content":  "df7e40ff27251e8b4f9a4e399658f353087619d4"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
                         }
                     ]
                 },
                 {
-                    "content": "Add hermetic repository-wide formatting and linting\n\nIntegrate upstream formatters for the repository's meaningful tracked source\nand configuration file types through Bazel, and add Buildifier, Ruff, and\nShellCheck lint aspects for correctness-oriented repository-wide checks.\n\nPin all new external tools through Bzlmod or the existing pnpm lock, add thin\ncache/runfiles adapters where required, expose format and check targets, and\nwire the checks into the pre-commit workflow. Format the existing tree and fix\nthe correctness defects uncovered by the new checks. Preserve generated\nsources and exact-content fixtures that are not safely rewritable, and clarify\nthat ordinary\ninfrastructure build output is safe to display.\n\nValidation:\n- all 21 repository quality and compatibility formatter tests pass\n- Buildifier test passes\n- lint aspects analyze all 4,629 ordinary root targets without findings\n- the complete 18-command root and nested full-repository audit was exercised;\n  remaining failures are documented environment or pre-existing test limits\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
-                    "attrs": [
+                    "content":  "Add hermetic repository-wide formatting and linting\n\nIntegrate upstream formatters for the repository's meaningful tracked source\nand configuration file types through Bazel, and add Buildifier, Ruff, and\nShellCheck lint aspects for correctness-oriented repository-wide checks.\n\nPin all new external tools through Bzlmod or the existing pnpm lock, add thin\ncache/runfiles adapters where required, expose format and check targets, and\nwire the checks into the pre-commit workflow. Format the existing tree and fix\nthe correctness defects uncovered by the new checks. Preserve generated\nsources and exact-content fixtures that are not safely rewritable, and clarify\nthat ordinary\ninfrastructure build output is safe to display.\n\nValidation:\n- all 21 repository quality and compatibility formatter tests pass\n- Buildifier test passes\n- lint aspects analyze all 4,629 ordinary root targets without findings\n- the complete 18-command root and nested full-repository audit was exercised;\n  remaining failures are documented environment or pre-existing test limits\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "6c74af20480baad6cfbaa9bb4c42f4a33e02c450"
+                            "name":  "Hash",
+                            "content":  "6c74af20480baad6cfbaa9bb4c42f4a33e02c450"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
                         }
                     ]
                 },
                 {
-                    "content": "Add standalone documentation rules\n\nMove docs_filegroup into a reusable rules_docs nested Bzlmod workspace and migrate every root and nested consumer to it. Add a module-aware Gazelle language that creates docs targets only for existing README packages while preserving manual mappings.\n\nWire the workspace into module resolution, documentation aggregation, and the ten-command full-repo-check. Add the bazel-nested-module skill so future nested workspaces follow the repository's rc, lockfile, docs, toolchain, Gazelle, and validation conventions.\n\nKeep reviewed Gazelle dependency canonicalization, while protecting the hand-maintained Go proto, Python resource, Android, embedded-site, and skill runner definitions that generic language plugins would otherwise break.\n\nThis commit was generated by an LLM.\n",
-                    "attrs": [
+                    "content":  "Add standalone documentation rules\n\nMove docs_filegroup into a reusable rules_docs nested Bzlmod workspace and migrate every root and nested consumer to it. Add a module-aware Gazelle language that creates docs targets only for existing README packages while preserving manual mappings.\n\nWire the workspace into module resolution, documentation aggregation, and the ten-command full-repo-check. Add the bazel-nested-module skill so future nested workspaces follow the repository's rc, lockfile, docs, toolchain, Gazelle, and validation conventions.\n\nKeep reviewed Gazelle dependency canonicalization, while protecting the hand-maintained Go proto, Python resource, Android, embedded-site, and skill runner definitions that generic language plugins would otherwise break.\n\nThis commit was generated by an LLM.\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "a0b20b74bed560720f5e9d878da53e8021859e66"
+                            "name":  "Hash",
+                            "content":  "a0b20b74bed560720f5e9d878da53e8021859e66"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
                         }
                     ]
                 },
                 {
-                    "content": "Complete docs filegroup migration\n\nPass ordinary documentation sources directly and isolate generated or renamed outputs in semantic pkg_files dependencies. Remove the obsolete renames and strip_prefix surface from docs_filegroup.\\n\\nThis commit was generated by an LLM.\n",
-                    "attrs": [
+                    "content":  "Complete docs filegroup migration\n\nPass ordinary documentation sources directly and isolate generated or renamed outputs in semantic pkg_files dependencies. Remove the obsolete renames and strip_prefix surface from docs_filegroup.\\n\\nThis commit was generated by an LLM.\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "547e1ee3ba1c3bbc6af6ce8cfade51b2faa3cee9"
+                            "name":  "Hash",
+                            "content":  "547e1ee3ba1c3bbc6af6ce8cfade51b2faa3cee9"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
                         }
                     ]
                 },
                 {
-                    "content": "Migrate documentation packaging to docs_filegroup\n\nPreserve custom prefixes, renames, strip prefixes, and standalone workspace behavior.\\n\\nThis commit was generated by an LLM.\n",
-                    "attrs": [
+                    "content":  "Migrate documentation packaging to docs_filegroup\n\nPreserve custom prefixes, renames, strip prefixes, and standalone workspace behavior.\\n\\nThis commit was generated by an LLM.\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "eb6ce0bc37ad32ccde8a4d0c8c59ed88eeea0348"
+                            "name":  "Hash",
+                            "content":  "eb6ce0bc37ad32ccde8a4d0c8c59ed88eeea0348"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com>"
                         }
                     ]
                 },
                 {
-                    "content": "Add //third_party/org_kernel_headers, rename all deps files to include\n",
-                    "attrs": [
+                    "content":  "Add //third_party/org_kernel_headers, rename all deps files to include\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "459af5c40300f1be8ec435d98e81816ef9f3a873"
+                            "name":  "Hash",
+                            "content":  "459af5c40300f1be8ec435d98e81816ef9f3a873"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <simeonwarren@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN PGP SIGNATURE-----\n\niQIzBAABCgAdFiEEFuxvv2wIGF1W5BG5192IqwwHN/IFAmo0QB0ACgkQ192IqwwH\nN/J+jQ//QMbm5DOH8RYCPK8ZKuDBCR43hyYVMHFi/vz7YMf+tdyVzciezeoGykUe\neR4Tk7MlZ7+1NAl4DdW4q9H94hyNTgpjaMlc7gJ2aiydvrc5xWbw66pY249SlSsv\nB8OyPDBYEMDHm+CTnLEAIwmQPcUOT/vwddNm+dzyqFSYBZB9eaX5ZESCgiuVVqu6\nzfXqV9FjDIjZcafeTgIdwp1qCjWMWp8kQ4tz9M0azNxDFoVATaFlpdtuqcjef/12\nXW6vEOy7cWSLV6hiWN9WY6XvWJ//xyUH2zf1jjhFxqt9z8pz0bmueXEnd6TL9WmK\nRly7SbBV9FfulpCZ7+rcrZIw4dFj3MdIzQj4nEpX8R21Si1IVS/dAJfuN9ECidSI\nN/aNljUut3wD31YWMQcjBoQpVSGFNYxhtXmNXJ33J7ptuND3AMTiouUmD+1mpJ/a\nUO1MP4zUDjW5dVkR+SHHRisEPd4IfDEn4VzFqrVpWafeIvtmQFnDGAAPh8jVbGUs\np8UM13MenGiH2Cxp0XDxPJU2yx8LSXRhK3uPRoY4L0vQkFtqITP09lzrLUzCyUt9\nb/BxrrlKOMcVhlwrs/N1pzPL99CfkTr5W5HEEhFUyNNy6uEZKKLvPls+zylMPhRf\nBKSv16iK1uPE2S3VnqohG6amKlea7FbEuzFvTA3Jz1s3U41yMNg=\n=C0wO\n-----END PGP SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niQIzBAABCgAdFiEEFuxvv2wIGF1W5BG5192IqwwHN/IFAmo0QB0ACgkQ192IqwwH\nN/J+jQ//QMbm5DOH8RYCPK8ZKuDBCR43hyYVMHFi/vz7YMf+tdyVzciezeoGykUe\neR4Tk7MlZ7+1NAl4DdW4q9H94hyNTgpjaMlc7gJ2aiydvrc5xWbw66pY249SlSsv\nB8OyPDBYEMDHm+CTnLEAIwmQPcUOT/vwddNm+dzyqFSYBZB9eaX5ZESCgiuVVqu6\nzfXqV9FjDIjZcafeTgIdwp1qCjWMWp8kQ4tz9M0azNxDFoVATaFlpdtuqcjef/12\nXW6vEOy7cWSLV6hiWN9WY6XvWJ//xyUH2zf1jjhFxqt9z8pz0bmueXEnd6TL9WmK\nRly7SbBV9FfulpCZ7+rcrZIw4dFj3MdIzQj4nEpX8R21Si1IVS/dAJfuN9ECidSI\nN/aNljUut3wD31YWMQcjBoQpVSGFNYxhtXmNXJ33J7ptuND3AMTiouUmD+1mpJ/a\nUO1MP4zUDjW5dVkR+SHHRisEPd4IfDEn4VzFqrVpWafeIvtmQFnDGAAPh8jVbGUs\np8UM13MenGiH2Cxp0XDxPJU2yx8LSXRhK3uPRoY4L0vQkFtqITP09lzrLUzCyUt9\nb/BxrrlKOMcVhlwrs/N1pzPL99CfkTr5W5HEEhFUyNNy6uEZKKLvPls+zylMPhRf\nBKSv16iK1uPE2S3VnqohG6amKlea7FbEuzFvTA3Jz1s3U41yMNg=\n=C0wO\n-----END PGP SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Remove //tools/docs, remove .github\n",
-                    "attrs": [
+                    "content":  "Remove //tools/docs, remove .github\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "b931cb830b08d4d5e58b8db106be56ab5d100ab5"
+                            "name":  "Hash",
+                            "content":  "b931cb830b08d4d5e58b8db106be56ab5d100ab5"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaa71vAAKCRD3LMCDXvUI\nesvbAQDc6avOZAjdL9ElzzOf6kXoW+p6P/8qkF0zKjKlFkrY6QD/YURq/e0rZHO1\n2K1rzIOz4gXbXDSXdsf2u/owLyIj1wA=\n=maHW\n-----END PGP SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaa71vAAKCRD3LMCDXvUI\nesvbAQDc6avOZAjdL9ElzzOf6kXoW+p6P/8qkF0zKjKlFkrY6QD/YURq/e0rZHO1\n2K1rzIOz4gXbXDSXdsf2u/owLyIj1wA=\n=maHW\n-----END PGP SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Migrate go code of ci_platform\n",
-                    "attrs": [
+                    "content":  "Migrate go code of ci_platform\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "8b657af948a3dbdfa154f7b3ac559a3df44a067b"
+                            "name":  "Hash",
+                            "content":  "8b657af948a3dbdfa154f7b3ac559a3df44a067b"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaWz/4AAKCRD3LMCDXvUI\nerFdAP9v5SzGVQf9a9UUWMDAAhzqZtEIx9o34yNxqnlLOkAdKQEA/WkTZyr+Nuu0\nZxrx5oRmnGNsCwiDb1ZqRENaIuuZUQs=\n=9Dpz\n-----END PGP SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaWz/4AAKCRD3LMCDXvUI\nerFdAP9v5SzGVQf9a9UUWMDAAhzqZtEIx9o34yNxqnlLOkAdKQEA/WkTZyr+Nuu0\nZxrx5oRmnGNsCwiDb1ZqRENaIuuZUQs=\n=9Dpz\n-----END PGP SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Fix model README\n",
-                    "attrs": [
+                    "content":  "Fix model README\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "0e8f59bd59fdd9baeedfde29defd07a906b9f73c"
+                            "name":  "Hash",
+                            "content":  "0e8f59bd59fdd9baeedfde29defd07a906b9f73c"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaWqP+AAKCRD3LMCDXvUI\nek9PAP9uPZJsZqQBTx1uZbXmZ6KeEeAY7cQyUxtsn0R8Zx6RVQEA9izqZg4t3utX\nJ//B8g8z6Lf6yXiSc1sm9pJ5+KIBpA8=\n=HnkW\n-----END PGP SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaWqP+AAKCRD3LMCDXvUI\nek9PAP9uPZJsZqQBTx1uZbXmZ6KeEeAY7cQyUxtsn0R8Zx6RVQEA9izqZg4t3utX\nJ//B8g8z6Lf6yXiSc1sm9pJ5+KIBpA8=\n=HnkW\n-----END PGP SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Migrate nexus_security_plugin to bazel\n",
-                    "attrs": [
+                    "content":  "Migrate nexus_security_plugin to bazel\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "2abed463750155e4f76dc232f8d83d14f29ac075"
+                            "name":  "Hash",
+                            "content":  "2abed463750155e4f76dc232f8d83d14f29ac075"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaWqFwAAKCRD3LMCDXvUI\netQAAP4tB4LLD3YFc3O9Cs8Lur5WWCe4mWPGC4J5pXHZbjeukwD/a8w+mFLS5PQ+\nlt9XrlXm2yU06KaPsseYHNwZMtbV4AA=\n=6br3\n-----END PGP SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaWqFwAAKCRD3LMCDXvUI\netQAAP4tB4LLD3YFc3O9Cs8Lur5WWCe4mWPGC4J5pXHZbjeukwD/a8w+mFLS5PQ+\nlt9XrlXm2yU06KaPsseYHNwZMtbV4AA=\n=6br3\n-----END PGP SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Fix java builds broken after protobuf upgrade\n",
-                    "attrs": [
+                    "content":  "Fix java builds broken after protobuf upgrade\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "8b648153ccb42280a791c61a2119b9895384dc50"
+                            "name":  "Hash",
+                            "content":  "8b648153ccb42280a791c61a2119b9895384dc50"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaWVJGAAKCRD3LMCDXvUI\nekpjAP45z34KX5dlQMGf6vul9eQnOlyyG573O30zAHEJ7QZoEgD/Vl4f3TnCcPFK\nPiGPI7llqRzraeEHGKpZNpq/odnf/gg=\n=SmEp\n-----END PGP SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaWVJGAAKCRD3LMCDXvUI\nekpjAP45z34KX5dlQMGf6vul9eQnOlyyG573O30zAHEJ7QZoEgD/Vl4f3TnCcPFK\nPiGPI7llqRzraeEHGKpZNpq/odnf/gg=\n=SmEp\n-----END PGP SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Add missing features to the Pomodoro app, update project readmes, add github pages\n",
-                    "attrs": [
+                    "content":  "Add missing features to the Pomodoro app, update project readmes, add github pages\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "2b5e29940827287f7657a5671546938c17a87638"
+                            "name":  "Hash",
+                            "content":  "2b5e29940827287f7657a5671546938c17a87638"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaT8AkgAKCRD3LMCDXvUI\nejeWAP4/jq9f61sZ3gvzJ5rQbvNZYzNp16n9/FaBrtVoEqHDvAEAvrNjbYUfuZZ8\ntpzZ1bbBJHnjL67VJL1qLM2MYvoKPgk=\n=Tbdk\n-----END PGP SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaT8AkgAKCRD3LMCDXvUI\nejeWAP4/jq9f61sZ3gvzJ5rQbvNZYzNp16n9/FaBrtVoEqHDvAEAvrNjbYUfuZZ8\ntpzZ1bbBJHnjL67VJL1qLM2MYvoKPgk=\n=Tbdk\n-----END PGP SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Move all remaining code to main\n",
-                    "attrs": [
+                    "content":  "Move all remaining code to main\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "fae6386a5959c560d94c87cf7dbc6be547e31f97"
+                            "name":  "Hash",
+                            "content":  "fae6386a5959c560d94c87cf7dbc6be547e31f97"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaTcIjwAKCRD3LMCDXvUI\nevwCAP9pfpbq/OvbzLuU/R+BZg9/+dr38QMkLAadb3HZQtH5ZAD8DM/YZ3KniZjg\nLQ+3rZ0PdNj+0kziVn+DLAKZe+REwgo=\n=3veL\n-----END PGP SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaTcIjwAKCRD3LMCDXvUI\nevwCAP9pfpbq/OvbzLuU/R+BZg9/+dr38QMkLAadb3HZQtH5ZAD8DM/YZ3KniZjg\nLQ+3rZ0PdNj+0kziVn+DLAKZe+REwgo=\n=3veL\n-----END PGP SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Add more taxonomies, remove docs tree, move alwaldend.com to projects\n",
-                    "attrs": [
+                    "content":  "Add more taxonomies, remove docs tree, move alwaldend.com to projects\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "8fcfb85385cd224081374d74377f85df4bb54e1b"
+                            "name":  "Hash",
+                            "content":  "8fcfb85385cd224081374d74377f85df4bb54e1b"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaQYZPgAKCRD3LMCDXvUI\nemnfAPwMlFn90H8CzaG/eKQ8n1xdLMa1SGwMT56VPwiPu8zFewEArSX5Y3g8dRGM\nRfApVcsDj+2rl6WbzwdNwvkpKi4AIAY=\n=cbSK\n-----END PGP SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaQYZPgAKCRD3LMCDXvUI\nemnfAPwMlFn90H8CzaG/eKQ8n1xdLMa1SGwMT56VPwiPu8zFewEArSX5Y3g8dRGM\nRfApVcsDj+2rl6WbzwdNwvkpKi4AIAY=\n=cbSK\n-----END PGP SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Remove bazel target docs, add tools/docs, tag projects properly\n",
-                    "attrs": [
+                    "content":  "Remove bazel target docs, add tools/docs, tag projects properly\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "51e5409918272c1504f76608bf5d2372fc0e1337"
+                            "name":  "Hash",
+                            "content":  "51e5409918272c1504f76608bf5d2372fc0e1337"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaP3fWgAKCRD3LMCDXvUI\neoW4AQCamul71V5EjPyFaobFm6ZKF1tCrblluL3woGIzRQI7AgEAqnnMm+qkPH0B\nKOO/pdOw+Bm4XqAWainAr5BCSzuwtwk=\n=3QpD\n-----END PGP SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaP3fWgAKCRD3LMCDXvUI\neoW4AQCamul71V5EjPyFaobFm6ZKF1tCrblluL3woGIzRQI7AgEAqnnMm+qkPH0B\nKOO/pdOw+Bm4XqAWainAr5BCSzuwtwk=\n=3QpD\n-----END PGP SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Remove changelogs, ignore irrelevant directories in docs\n",
-                    "attrs": [
+                    "content":  "Remove changelogs, ignore irrelevant directories in docs\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "3117a3914a275ad6896122256ad3a9758ed9cb97"
+                            "name":  "Hash",
+                            "content":  "3117a3914a275ad6896122256ad3a9758ed9cb97"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaP0BhQAKCRD3LMCDXvUI\nejT2AQCKF39eUx1fNnJg7gAV776W51boaMEIt50eEPHzNAHuDwEAr1Bd0EkZhr/F\nniteNnnpVbIhoVLqLaOjk51cXZy4MQc=\n=xe+P\n-----END PGP SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaP0BhQAKCRD3LMCDXvUI\nejT2AQCKF39eUx1fNnJg7gAV776W51boaMEIt50eEPHzNAHuDwEAr1Bd0EkZhr/F\nniteNnnpVbIhoVLqLaOjk51cXZy4MQc=\n=xe+P\n-----END PGP SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Move another group of rules to tools/\n",
-                    "attrs": [
+                    "content":  "Move another group of rules to tools/\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "3573cf256f25fe8a34a1b6c23172b5c6684f3ad6"
+                            "name":  "Hash",
+                            "content":  "3573cf256f25fe8a34a1b6c23172b5c6684f3ad6"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaPzOngAKCRD3LMCDXvUI\neszlAPwIB/mQNCmz8lpkQ6CMayq9/b3NS2Wu1KOqCTcUZhxSaQD+LCBpNQFzZ+yI\nc6KPNyiCSObLjFOHa2Ro5cck6ZOfDAU=\n=PKet\n-----END PGP SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaPzOngAKCRD3LMCDXvUI\neszlAPwIB/mQNCmz8lpkQ6CMayq9/b3NS2Wu1KOqCTcUZhxSaQD+LCBpNQFzZ+yI\nc6KPNyiCSObLjFOHa2Ro5cck6ZOfDAU=\n=PKet\n-----END PGP SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Move a group of rules to tools/\n",
-                    "attrs": [
+                    "content":  "Move a group of rules to tools/\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "3fa72cdba0527083f47f0213eb7a81f65a60b852"
+                            "name":  "Hash",
+                            "content":  "3fa72cdba0527083f47f0213eb7a81f65a60b852"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaPzGWQAKCRD3LMCDXvUI\neor8AP4m+Uv9rbhIamgh3PD4rZ9xFFVAc5vY7+4a112E2CeEtgEAjzy4+000ZzuD\nW7+1zzvFFkJAzf0rM3Gm9epW0OkDxwg=\n=2gCb\n-----END PGP SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaPzGWQAKCRD3LMCDXvUI\neor8AP4m+Uv9rbhIamgh3PD4rZ9xFFVAc5vY7+4a112E2CeEtgEAjzy4+000ZzuD\nW7+1zzvFFkJAzf0rM3Gm9epW0OkDxwg=\n=2gCb\n-----END PGP SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Remove kt tree\n",
-                    "attrs": [
+                    "content":  "Remove kt tree\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "86bc8ab03110fbde7f9eef5268b7279589bab830"
+                            "name":  "Hash",
+                            "content":  "86bc8ab03110fbde7f9eef5268b7279589bab830"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaPulQgAKCRD3LMCDXvUI\neh5SAP4sypio/w7YCQ2V/C9UeLRMexrRZbVV2Bl3RWHl5WTj2QEAriLLJ+YzEkhA\nTDBzKf4ym2wAReg9X+yKHNBrwGQhyQE=\n=byoe\n-----END PGP SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaPulQgAKCRD3LMCDXvUI\neh5SAP4sypio/w7YCQ2V/C9UeLRMexrRZbVV2Bl3RWHl5WTj2QEAriLLJ+YzEkhA\nTDBzKf4ym2wAReg9X+yKHNBrwGQhyQE=\n=byoe\n-----END PGP SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Initial commit\n",
-                    "attrs": [
+                    "content":  "Initial commit\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "00bcaa157103012b187a208a240dc4b6e9feaeec"
+                            "name":  "Hash",
+                            "content":  "00bcaa157103012b187a208a240dc4b6e9feaeec"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarren <simeonwarren-git-pzewq@alwaldend.com>"
                         }
                     ]
                 },
                 {
-                    "content": "Add spellcheck skill\n\nThis commit was generated by an LLM.\n",
-                    "attrs": [
+                    "content":  "Add spellcheck skill\n\nThis commit was generated by an LLM.\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "28444214f7295282ff11dcb7aa83d8ad827ab8b4"
+                            "name":  "Hash",
+                            "content":  "28444214f7295282ff11dcb7aa83d8ad827ab8b4"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx\n99QQEo1a8VTCBw5ZM6YQs=\n-----END SSH SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx\n99QQEo1a8VTCBw5ZM6YQs=\n-----END SSH SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Restore light and dark site canvases and set the shared accent\n\nThe shared Docsy canvas set the same Bootstrap dark palette and the same\nblack page background on `:root`, `[data-bs-theme=\"light\"]`, and\n`[data-bs-theme=\"dark\"]`, so the light/dark toggle changed nothing. The site\nalso rendered Bootstrap's stock blue instead of its intended accent.\n\nSplit the shared palette so light mode uses a pure white canvas with the\nlight-mode palette and dark mode uses a pure black canvas with the dark-mode\npalette, and keep the pre-stylesheet paint and footer on the active mode.\nAssign `$primary` to `#7c3aed` before Bootstrap compiles, so links, buttons,\nbadges, focus rings, and the dark-mode link tint all derive from one value\nrather than from a site-local copy.\n\nBoth files stay in the reusable shell; the apex site consumes them through\nthe existing declared exports and no longer carries the footer's own blue.\n\nOpenSpec-Change: projects/hugo_landing/openspec/changes/restore-light-dark-canvas-and-accent\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
-                    "attrs": [
+                    "content":  "Restore light and dark site canvases and set the shared accent\n\nThe shared Docsy canvas set the same Bootstrap dark palette and the same\nblack page background on `:root`, `[data-bs-theme=\"light\"]`, and\n`[data-bs-theme=\"dark\"]`, so the light/dark toggle changed nothing. The site\nalso rendered Bootstrap's stock blue instead of its intended accent.\n\nSplit the shared palette so light mode uses a pure white canvas with the\nlight-mode palette and dark mode uses a pure black canvas with the dark-mode\npalette, and keep the pre-stylesheet paint and footer on the active mode.\nAssign `$primary` to `#7c3aed` before Bootstrap compiles, so links, buttons,\nbadges, focus rings, and the dark-mode link tint all derive from one value\nrather than from a site-local copy.\n\nBoth files stay in the reusable shell; the apex site consumes them through\nthe existing declared exports and no longer carries the footer's own blue.\n\nOpenSpec-Change: projects/hugo_landing/openspec/changes/restore-light-dark-canvas-and-accent\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "022861965f3e3407c0f630dd5827b54bb87ee779"
+                            "name":  "Hash",
+                            "content":  "022861965f3e3407c0f630dd5827b54bb87ee779"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQP+VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx\n0yeucLMBAFev0fFMYQigY=\n-----END SSH SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQP+VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx\n0yeucLMBAFev0fFMYQigY=\n-----END SSH SIGNATURE-----\n"
                         }
                     ]
                 },
                 {
-                    "content": "Publish the X Article story and harden its upload workflow\n\nPublish the reviewed development story and render blog front matter images\nbefore article text and in print output. Remove redundant opening Markdown\nimages from the two illustrated posts. Keep the first selected image as the\nX Article banner and preserve every image explicitly written in Markdown.\nDocument the shared image metadata and encourage its use for every post.\n\nRetain rate-limit headers on failed X requests and report their reset times\nand conservative retry boundaries. Keep retries manual and distinguish\nhistorical quota observations from the latest response. Reject HTTP redirects\nwithout following them so draft and media POSTs cannot be replayed by a\nredirect response, and prevent automatic replay of consumed POST bodies.\n\nRecover expired Vault certificates through a host-limited Ansible tag that\nstops before reload on certificate errors. Preserve the Vault node identity,\nuse its canonical connection hostname, and include that name in the certificate.\nDocument temporary Vault TLS bypass, repository SSH CA trust, and verification\nafter renewal. The authorized renewal succeeded with normal TLS restored.\n\nValidate static images before network requests and wait for media processing\nwith signed, bounded status checks. Scope cached media to the endpoint and\nOAuth credential context, account for upload time and expiry, and refuse\nidentifiers that expire while other images upload. Emit mutable Markdown\nentities and replace byte counting with an explicitly approximate weighted\nbudget, preserving the original Markdown source.\n\nValidation: uploader conversion and HTTP E2E tests, site browser and skill checks,\nrepository quality and semantic lint; packaged Ansible syntax and task selection;\nstrict OpenSpec validation and live certificate/hostname verification.\n\nOpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images\nOpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers\nOpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate\nOpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract\nOpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images\nOpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
-                    "attrs": [
+                    "content":  "Expose Anki services through the CLI\n\nGenerate service and method commands from all 25 compiled Anki schemas,\nwith protobuf JSON/TOML input and output and no per-method wrappers.\nRoute execution and validation through one shared App operation supporting\nmanaged offline paths, borrowed connections and explicit TCP/Unix servers.\n\nUse the linked server through the same executable. Preserve caller-owned\nresources and make managed archive write-back explicit, enabled by the CLI\nand existing application workflows independently of request outcomes.\nBound incomplete input by cancellation and timeout, and preserve linked\nUnix server lifetime across client disconnections.\n\nVerify installed execution, payloads, persistence, native connection\nownership and package boundaries through end-to-end workflows.\n\nOpenSpec-Change: projects/anki_as_code/openspec/changes/add-grpc-api-cli\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
                         {
-                            "name": "Hash",
-                            "content": "e13fd0042393e40ba94ec5f14bd852150092966d"
+                            "name":  "Hash",
+                            "content":  "553fa45551d8f56d8f3f7faff5110f50e364ec09"
                         },
                         {
-                            "name": "Author",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "Committer",
-                            "content": "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
                         },
                         {
-                            "name": "PGP",
-                            "content": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQJqxjkZlQDLP7w3dm9sLjyi+QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03\nfWG92TE1fqjSdJ0K47YAk=\n-----END SSH SIGNATURE-----\n"
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQA67cuGDdLrv5uuGFe8D63nt4prFv7JWsNWlggpO9n6LhTzHwTx4SQBAukRyiU3+mo\nubm4I6djHcntygmxrY6AU=\n-----END SSH SIGNATURE-----\n"
                         }
                     ]
                 }
             ]
         },
         {
-            "title": "Artifacts",
-            "items": [
+            "title":  "Artifacts",
+            "items":  [
                 {
-                    "content": "[libjava_lib.jar](https://hub.docker.com/repository/docker/alwaldend/src/tags/projects_nexus_security_plugin_libjava_lib_jar_head/)",
-                    "attrs": [
+                    "content":  "[libjava_lib.jar](https://hub.docker.com/repository/docker/alwaldend/src/tags/projects_nexus_security_plugin_libjava_lib_jar_head/)",
+                    "attrs":  [
                         {
-                            "name": "Type",
-                            "content": "File"
+                            "name":  "Type",
+                            "content":  "File"
                         },
                         {
-                            "name": "Pull",
-                            "content": "oras pull --output \"${PWD}\" docker.io/alwaldend/src:projects_nexus_security_plugin_libjava_lib_jar_head"
+                            "name":  "Pull",
+                            "content":  "oras pull --output \"${PWD}\" docker.io/alwaldend/src:projects_nexus_security_plugin_libjava_lib_jar_head"
                         },
                         {
-                            "name": "Size",
-                            "content": "0.06 MB"
+                            "name":  "Size",
+                            "content":  "0.06 MB"
                         },
                         {
-                            "name": "SHA-256",
-                            "content": "57641419a596105f95a29554dcae6ca0212001fe62ddecb8d5968823c7ba5e54"
+                            "name":  "SHA-256",
+                            "content":  "57641419a596105f95a29554dcae6ca0212001fe62ddecb8d5968823c7ba5e54"
                         },
                         {
-                            "name": "MD5",
-                            "content": "5942591f19965bb3f1986ac9c61988fe"
+                            "name":  "MD5",
+                            "content":  "5942591f19965bb3f1986ac9c61988fe"
                         }
                     ]
                 }

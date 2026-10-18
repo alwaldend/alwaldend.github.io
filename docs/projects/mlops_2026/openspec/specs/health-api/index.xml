@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Health api on Alwaldend</title>
+		<link>https://alwaldend.com/docs/projects/mlops_2026/openspec/specs/health-api/</link>
+		<description>Recent content in Health api on Alwaldend</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<atom:link href="https://alwaldend.com/docs/projects/mlops_2026/openspec/specs/health-api/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>health-api Specification</title>
+				<link>https://alwaldend.com/docs/projects/mlops_2026/openspec/specs/health-api/spec/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/mlops_2026/openspec/specs/health-api/spec/</guid>
+				<description>&lt;span id=&#34;health-api-specification&#34;&gt;&lt;/span&gt;&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#purpose&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Provide a runnable HTTP foundation for the MLOps course with a health check,&#xA;an inspectable API description, and independent application instances.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirements&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&#34;requirement-provide-an-operational-health-endpoint&#34;&gt;Requirement: Provide an operational health endpoint&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-provide-an-operational-health-endpoint&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The service SHALL respond to GET /health with HTTP 200 and the JSON object&#xA;{&amp;ldquo;status&amp;rdquo;: &amp;ldquo;ok&amp;rdquo;}. The response SHALL indicate that the HTTP application is&#xA;running without invoking recommendation computation or external services.&lt;/p&gt;&#xA;&lt;h4 id=&#34;scenario-check-a-running-application&#34;&gt;Scenario: Check a running application&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#scenario-check-a-running-application&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;WHEN&lt;/strong&gt; a client sends GET /health to a running service&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;THEN&lt;/strong&gt; it receives HTTP 200 with application/json content and {&amp;ldquo;status&amp;rdquo;: &amp;ldquo;ok&amp;rdquo;}&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;requirement-publish-the-generated-api-description-and-documentation&#34;&gt;Requirement: Publish the generated API description and documentation&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#requirement-publish-the-generated-api-description-and-documentation&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The service SHALL provide a valid OpenAPI document at GET /openapi.json,&#xA;including the health endpoint and its successful response contract. It SHALL&#xA;provide the default documentation pages at /docs and /redoc, configured to use&#xA;that schema URL.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,3491 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js" data-theme-init>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#000000">
+
+<style>
+  html { background: Canvas; color: CanvasText; }
+  @media (prefers-color-scheme: dark) {
+    html { background: #0b0d12; color: #e6e6e6; }
+  }
+  html[data-theme-init] * { transition: none !important; }
+</style>
+
+<script>
+  (function() {
+    const themeKey = 'td-color-theme';
+    const storedTheme = localStorage.getItem(themeKey);
+    let theme = storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    if (theme === 'auto') {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  })();
+</script>
+<link rel="canonical" type="text/html" href="https://alwaldend.com/docs/projects/anki_grpc/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://alwaldend.com/docs/projects/anki_grpc/index.xml">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" sizes="any" href="/icons/favicon.846429df84fbe4763a8f707e5373b0ab1ec9987218da2237106ab713ed7ff972.svg">
+
+<title>Anki gRPC | Alwaldend</title>
+<meta name="description" content="Rust CLI exposing Anki&#39;s backend over stdio, TCP, or Unix sockets">
+<meta property="og:url" content="https://alwaldend.com/docs/projects/anki_grpc/">
+	<meta property="og:site_name" content="Alwaldend">
+	<meta property="og:title" content="Anki gRPC">
+	<meta property="og:description" content="Rust CLI exposing Anki&#39;s backend over stdio, TCP, or Unix sockets">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="website">
+
+	<meta itemprop="name" content="Anki gRPC">
+	<meta itemprop="description" content="Rust CLI exposing Anki&#39;s backend over stdio, TCP, or Unix sockets">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
+	<meta itemprop="wordCount" content="2106">
+	<meta itemprop="keywords" content="Anki,Grpc">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Anki gRPC">
+	<meta name="twitter:description" content="Rust CLI exposing Anki&#39;s backend over stdio, TCP, or Unix sockets">
+<link rel="preload" href="/scss/main.min.d06534881c16bca07bda98c19394cc9746749390f55deea07cc17adbee58bda0.css" as="style" integrity="sha256-0GU0iBwWvKB72pjBk5TMl0Z0k5D1Xe6gfMF62&#43;5YvaA=" crossorigin="anonymous">
+<link href="/scss/main.min.d06534881c16bca07bda98c19394cc9746749390f55deea07cc17adbee58bda0.css" rel="stylesheet" integrity="sha256-0GU0iBwWvKB72pjBk5TMl0Z0k5D1Xe6gfMF62&#43;5YvaA=" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar js-navbar-scroll">
+<div class="td-navbar-container container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Alwaldend</span></a>
+  <div class="td-navbar__main td-navbar-nav-scroll td-navbar-nav-scroll--indicator" id="main_navbar">
+    <div class="scroll-indicator scroll-left"></div>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/"><span>Projects</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/docs/"><span>Docs</span></a>
+      </li>
+      <li class="nav-item td-navbar__light-dark-menu">
+        <div class="td-light-dark-menu dropdown"><svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="check2" viewBox="0 0 16 16">
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+  <symbol id="circle-half" viewBox="0 0 16 16">
+    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+  </symbol>
+  <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+  </symbol>
+  <symbol id="sun-fill" viewBox="0 0 16 16">
+    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+  </symbol>
+</svg>
+<button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        title="Toggle theme (Auto)"
+        aria-label="Toggle theme (Auto)">
+  <svg class="bi my-1 theme-icon-active"><use href="#circle-half"></use></svg>
+  <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+</button>
+<ul class="dropdown-menu" aria-labelledby="bd-theme">
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#sun-fill"></use></svg>
+      Light
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+      <svg class="bi me-2 opacity-50"><use href="#moon-stars-fill"></use></svg>
+      Dark
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+  <li>
+    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+      <svg class="bi me-2 opacity-50"><use href="#circle-half"></use></svg>
+      Auto
+      <svg class="bi ms-auto d-none"><use href="#check2"></use></svg>
+    </button>
+  </li>
+</ul>
+</div>
+
+      </li>
+      </ul>
+    <div class="scroll-indicator scroll-right"></div>
+  </div>
+  <div class="td-navbar__search d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon" aria-hidden="true"></div>
+  <input
+    type="search"
+    name="q"
+    class="td-search__input form-control"
+    placeholder='Search this site…'
+    aria-label='Search this site…'
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/projects/anki_grpc/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Anki gRPC</h1>
+<div class="lead">Rust CLI exposing Anki&rsquo;s backend over stdio, TCP, or Unix sockets</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-4b42e00c442bffa3a4b45b0224736246">head</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p><span class="mermaid-diagram"><img src="/docs/projects/anki_grpc/assets/architecture.svg" alt="Anki gRPC architecture" loading="lazy" class="mermaid-light"><img src="/docs/projects/anki_grpc/assets/architecture.dark.svg" alt="Anki gRPC architecture" loading="lazy" class="mermaid-dark"></span></p>
+<p>Anki gRPC is a Rust CLI that forwards upstream protobuf commands to Anki&rsquo;s
+native backend. It initializes one backend at startup using Anki&rsquo;s default
+options. Anki owns collection semantics; the caller owns process lifetime and
+crash handling. Stdin/stdout is the default transport. TCP and Unix sockets are
+also supported. Diagnostics use stderr.</p>
+<h2 id="print-03a1513af873956c64d706a8a468c3c5-build">Build<a class="td-heading-self-link" href="#print-03a1513af873956c64d706a8a468c3c5-build" aria-label="Heading self-link"></a></h2><p>From the repository root:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel build //projects/anki_grpc:anki_grpc //projects/anki_grpc:clippy
+</span></span></code></pre></div><p>Build an optimized worker with <code>bazel_agent bazel build -c opt //projects/anki_grpc</code>.
+Optimized builds strip the final Rust executable&rsquo;s debugging information and static
+symbols; development builds retain them.</p>
+<p><a href="/docs/third_party/com_github_ankitects_anki/">The third-party Anki package</a>
+owns and builds the upstream native library, source pins, schemas, and single
+Cargo dependency lock. Its native build consumes no project implementation
+sources or build rules. <code>projects/anki_grpc</code> builds our server executable and
+depends on <code>//third_party/com_github_ankitects_anki:native</code>. Both use standard
+<code>rules_rust</code> targets. Compilation is offline and sandboxed; supported native
+builds target Linux x86_64.</p>
+<h2 id="print-03a1513af873956c64d706a8a468c3c5-usage">Usage<a class="td-heading-self-link" href="#print-03a1513af873956c64d706a8a468c3c5-usage" aria-label="Heading self-link"></a></h2><p>The built executable lists commands when invoked without arguments or with
+<code>--help</code>. The serve subcommand starts the server:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">anki_grpc --help
+</span></span><span class="line"><span class="cl">anki_grpc serve
+</span></span><span class="line"><span class="cl">anki_grpc serve --transport stdio
+</span></span><span class="line"><span class="cl">anki_grpc serve --transport tcp --listen 127.0.0.1:50051
+</span></span><span class="line"><span class="cl">anki_grpc serve --transport unix --listen ./anki.sock
+</span></span></code></pre></div><p>Stdio serves one gRPC HTTP/2 connection on the process pipes, reserving stdout
+for protocol traffic. TCP and Unix listeners accept connections until the
+process exits. They require an explicit listen address or socket path; stdio
+rejects <code>--listen</code>. Listener startup prints <code>Listening on tcp://ADDRESS</code> or
+<code>Listening on unix://PATH</code> to stderr, including the allocated port when TCP
+port zero is requested. An existing Unix socket path causes startup to fail;
+the caller owns removal of its socket after the server exits.</p>
+<p>Network transports use plaintext gRPC. All connections share one initialized
+backend and its open collection. Close a collection through Anki before
+reopening it or shutting down the process. Disconnecting a network client
+leaves the backend available to later clients.</p>
+<h2 id="print-03a1513af873956c64d706a8a468c3c5-linked-server">Linked server<a class="td-heading-self-link" href="#print-03a1513af873956c64d706a8a468c3c5-linked-server" aria-label="Heading self-link"></a></h2><p><code>pkg/ankiserver</code> exposes the same Rust entry point to Go through cgo and one C ABI
+argument-vector function. <code>ankiserver.Run(arguments)</code> takes a full argument vector,
+including the program name, executes the native CLI and reports native failures.
+The serve subcommand blocks until shutdown and owns the process&rsquo;s protocol streams. There are no per-RPC FFI
+bindings: clients continue to use ordinary gRPC and generated Anki messages.</p>
+<p>The generic <code>anki_as_code server run</code> command forwards arguments to this library.
+<code>anki_as_code server serve</code> delegates to <code>server run serve</code>, selecting the Rust
+serve subcommand. Its collection workflows
+launch that command in a child process, retaining independent termination and
+crash isolation without extracting or finding another executable. The standalone
+<code>anki_grpc</code> executable remains a thin adapter over the shared Rust library.
+Both builds currently target Linux x86_64 and require the repository&rsquo;s native
+Rust/C toolchains; linking introduces no new external dependencies.</p>
+<h2 id="print-03a1513af873956c64d706a8a468c3c5-project-layout">Project layout<a class="td-heading-self-link" href="#print-03a1513af873956c64d706a8a468c3c5-project-layout" aria-label="Heading self-link"></a></h2><ul>
+<li><code>cmd/anki_grpc/main.rs</code>: Standalone executable adapter.</li>
+<li><code>pkg/ankiserver/lib.rs</code>: Transport listeners, opaque protobuf codec, and Anki dispatch.</li>
+<li><code>pkg/ankiserver/cli.rs</code>: Shared CLI help and transport argument validation.</li>
+<li><code>pkg/ankiserver/build.rs</code>: Command lookup generated from Anki&rsquo;s own descriptors.</li>
+<li><code>pkg/ankiserver/ffi.rs</code> and <code>server.go</code>: C ABI entry point and Go wrapper.</li>
+<li><code>pkg/ankiclient/</code>: Reusable Go owner of the server process and gRPC connection.</li>
+<li><code>docs/architecture.mmd</code>: Client, server, and storage diagram source.</li>
+<li><code>test/transport/</code>: CLI and network transport E2E using official Anki messages.</li>
+<li><code>rustfmt.toml</code>: Rust 2021 formatting settings for the project.</li>
+<li><code>releases/</code>: Standard binary metadata for the repository release registry.</li>
+</ul>
+<h2 id="print-03a1513af873956c64d706a8a468c3c5-protocol-and-ownership">Protocol and ownership<a class="td-heading-self-link" href="#print-03a1513af873956c64d706a8a468c3c5-protocol-and-ownership" aria-label="Heading self-link"></a></h2><p>RPC paths use upstream service and method names, such as
+<code>/anki.collection.BackendCollectionService/OpenCollection</code> and
+<code>/anki.notes.NotesService/GetNote</code>. Anki decodes
+requests and encodes responses using its own schema bindings. Clients can call
+upstream operations immediately after connecting; initialization belongs to the
+server and requires no RPC. Operation failures include Anki&rsquo;s serialized
+<code>BackendError</code> in the binary <code>anki-error-bin</code> trailer. The transport uses stable
+Tonic 0.14.6.</p>
+<p>Dispatch runs on blocking threads because Anki owns its own runtime and
+operation synchronization. Worker panics terminate the process. A cancelled
+RPC does not promise rollback of a mutation already running in Anki.</p>
+<p>Anki implicitly forwards collection-service methods through its backend services.
+The descriptor generator exposes both original service paths for generated clients
+and backend-prefixed paths for existing callers, using Anki&rsquo;s own method indices.
+Methods declared in both services must have matching request and response schemas.
+TCP and Unix clients can use normal gRPC connections with the same generated clients.</p>
+<h2 id="print-03a1513af873956c64d706a8a468c3c5-go-client">Go client<a class="td-heading-self-link" href="#print-03a1513af873956c64d706a8a468c3c5-go-client" aria-label="Heading self-link"></a></h2><p>Import <code>git.alwaldend.com/alwaldend/src/projects/anki_grpc/pkg/ankiclient</code>.
+<code>Backend</code> exposes <code>Start(context.Context) error</code>,
+<code>Connection() (grpc.ClientConnInterface, error)</code>, and <code>Stop(context.Context) error</code>.
+<code>BackendSTD</code> implements it using the server&rsquo;s stdin/stdout. <code>ankiclient.New</code> accepts
+one <code>BackendSTDOptions</code> value with <code>Binary</code>, <code>Arguments</code>, and <code>ShutdownTimeout</code>.
+It copies the arguments without starting a process. A zero shutdown timeout uses
+five seconds; Start rejects negative timeouts. <code>Start</code>
+launches the server and creates its gRPC connection, waiting for readiness. Its
+context controls startup only: cancelling it after successful startup leaves the
+worker running. The child inherits the parent
+environment and stderr. The caller supplies the exact server executable. For compatibility
+with existing application consumers, the Bazel Go library also includes the default
+worker as transitive runtime data. Other executable paths require their own runtime
+inputs. Failed startup releases its resources and reaps the child.
+The backend owns a separate lifetime context for the command.</p>
+<p>The backend exposes <code>grpc.ClientConnInterface</code> through <code>Connection</code>. Construct
+Anki&rsquo;s generated service clients with it; each method accepts a typed request and
+returns a typed response. There are no handwritten per-operation wrappers.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">var</span><span class="w"> </span><span class="nx">worker</span><span class="w"> </span><span class="nx">ankiclient</span><span class="p">.</span><span class="nx">Backend</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">ankiclient</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">ankiclient</span><span class="p">.</span><span class="nx">BackendSTDOptions</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">Binary</span><span class="p">:</span><span class="w">          </span><span class="nx">workerPath</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">Arguments</span><span class="p">:</span><span class="w">       </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&#34;serve&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;--transport&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;stdio&#34;</span><span class="p">},</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">ShutdownTimeout</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">worker</span><span class="p">.</span><span class="nf">Start</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;start Anki: %w&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">connection</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">worker</span><span class="p">.</span><span class="nf">Connection</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;get Anki connection: %w&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">collections</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">collection</span><span class="p">.</span><span class="nf">NewBackendCollectionServiceClient</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">items</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">notes</span><span class="p">.</span><span class="nf">NewNotesServiceClient</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">collections</span><span class="p">.</span><span class="nf">OpenCollection</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">collection</span><span class="p">.</span><span class="nx">OpenCollectionRequest</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">CollectionPath</span><span class="p">:</span><span class="w">  </span><span class="s">&#34;/path/to/collection.anki2&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">MediaFolderPath</span><span class="p">:</span><span class="w"> </span><span class="s">&#34;/path/to/collection.media&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">MediaDbPath</span><span class="p">:</span><span class="w">     </span><span class="s">&#34;/path/to/collection.media.db2&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;open collection: %w&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">note</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">items</span><span class="p">.</span><span class="nf">GetNote</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">notes</span><span class="p">.</span><span class="nx">NoteId</span><span class="p">{</span><span class="nx">Nid</span><span class="p">:</span><span class="w"> </span><span class="nx">noteID</span><span class="p">})</span><span class="w">
+</span></span></span></code></pre></div><p>Generated clients use the upstream Go packages, such as
+<code>github.com/ankitects/anki/proto/anki/collection</code> and
+<code>github.com/ankitects/anki/proto/anki/notes</code>. Use <code>BackendCollectionServiceClient</code>
+for collection open/close and <code>NotesServiceClient</code>, <code>NotetypesServiceClient</code>,
+<code>DecksServiceClient</code>, or <code>CardsServiceClient</code> for collection operations.</p>
+<p>One connection interceptor rejects calls after shutdown and decodes Anki&rsquo;s error
+trailers, preserving gRPC status, context causes, and caller call options. Failed
+calls are never automatically replayed or sent to a replacement process.
+Cancellation stops waiting without guaranteeing rollback of a native mutation.</p>
+<p>Close an open collection through <code>collections.CloseCollection</code> before calling
+<code>worker.Stop(ctx)</code>. Stop signals EOF on stdin while draining stdout, waits for exit,
+and cancels the command&rsquo;s lifetime context when its shutdown context expires or
+after the configured shutdown timeout. <code>exec.CommandContext</code> handles forced
+termination; an earlier Stop context deadline takes precedence.
+It completes reaping even after cancellation, returning the context cause and
+process exit errors. It also reaps crashes;
+unexpected exits remain errors on repeated Stop calls. Stop is safe before Start
+and after startup failure. Each instance permits one Start attempt; use a new
+instance for a new process. Connection returns an error before readiness, during
+startup/shutdown, after Stop, or after worker exit. Construct service clients after
+Start succeeds. Retained clients reject calls
+once Stop begins. The backend owns the connection: shut it down through Stop.</p>
+<p>The client library supplies no server executable or implicit runtime dependency.
+Callers package their configured executable; native tests declare their own fixtures.</p>
+<h3 id="print-03a1513af873956c64d706a8a468c3c5-existing-grpc-server">Existing gRPC server<a class="td-heading-self-link" href="#print-03a1513af873956c64d706a8a468c3c5-existing-grpc-server" aria-label="Heading self-link"></a></h3><p><code>ankiclient.NewGRPC(ankiclient.BackendGRPCOptions{Address: endpoint})</code> implements the
+same Start, Connection and Stop interface for a running server. Endpoints accept
+TCP host:port, <code>tcp://host:port</code>, <code>unix:///absolute/path</code> and absolute socket paths.
+Unix URI paths may also be relative to the client&rsquo;s working directory.
+Start waits for readiness within its context. Stop closes only the client;
+it does not stop the remote server or close its collection. Retained clients
+reject calls after Stop. Native error trailers are decoded as for stdio.</p>
+<h3 id="print-03a1513af873956c64d706a8a468c3c5-collection-backend">Collection backend<a class="td-heading-self-link" href="#print-03a1513af873956c64d706a8a468c3c5-collection-backend" aria-label="Heading self-link"></a></h3><p><code>BackendCollection</code> implements the same interface for collection lifetime. It
+borrows an already-started backend and never starts or stops that backend:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">collectionBackend</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">ankiclient</span><span class="p">.</span><span class="nf">NewCollection</span><span class="p">(</span><span class="nx">ankiclient</span><span class="p">.</span><span class="nx">BackendCollectionOptions</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">Backend</span><span class="p">:</span><span class="w"> </span><span class="nx">worker</span><span class="p">,</span><span class="w"> </span><span class="c1">// already started; no collection open</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">Path</span><span class="p">:</span><span class="w">    </span><span class="s">&#34;/path/to/collection.colpkg&#34;</span><span class="p">,</span><span class="w"> </span><span class="c1">// or collection.anki2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">collectionBackend</span><span class="p">.</span><span class="nf">Start</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;prepare collection: %w&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">connection</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">collectionBackend</span><span class="p">.</span><span class="nf">Connection</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;get collection connection: %w&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nx">items</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">notes</span><span class="p">.</span><span class="nf">NewNotesServiceClient</span><span class="p">(</span><span class="nx">connection</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><p>The options object is copied. <code>Path</code> accepts <code>.anki2</code> and <code>.colpkg</code> extensions,
+case-insensitively. Databases open directly; Anki can create a missing database.
+Media uses the database stem plus <code>.media</code>, with a <code>.media.db2</code> index. Database
+writes commit in place and Stop does not roll them back.</p>
+<p>Packages restore through Anki into an owned temporary directory by default.
+Set <code>RestoreDirectory</code> to use an empty persistent destination instead; it can be
+created when missing and is retained on Stop. <code>RestoreDirectory</code> is invalid for a
+database input. Source packages remain unchanged by default. Set <code>WriteBack: true</code>
+in constructor options to publish the source package with media on Stop, regardless
+of earlier request outcomes. This does not block mutating RPCs or roll
+back direct database writes. The backend API remains Start, Connection and Stop.</p>
+<p>After work, call <code>collectionBackend.Stop(cleanupContext)</code> and then
+<code>worker.Stop(cleanupContext)</code>, preserving both errors. A clean collection Stop
+publishes writable packages or closes native database storage, then deletes only
+its owned temporary restore. Publication failures retain the restored data and
+report its path for recovery. Call Stop
+even after Start fails. Startup leaves cleanup to the caller and adds no separate
+shutdown timeout. The borrowed backend stays available for another collection.
+Retained generated Anki clients reject after Stop. Start permits one attempt;
+Stop is terminal and idempotent, including before Start and after failed preparation. Lifecycle-changing native
+calls must use the collection connection, and callers must give the wrapper
+exclusive collection ownership. Anki exposes unary RPCs; a small connection adapter
+tracks active calls and observes CloseCollection and ExportCollectionPackage
+while forwarding generated client calls over the borrowed connection. These operations close the collection
+without closing the transport. Export also consumes it on a native failure, so
+confirmed completion lets Stop avoid a second close. When writable package
+storage was consumed, Stop reopens its restored database before source publication.
+Transport failures or cancellation without a native response retain the files.</p>
+<p>Cancellation can stop waiting while native work continues. If native completion
+cannot be established, Stop reports failure and retains restore files instead
+of deleting files potentially still in use. Stop the borrowed backend first;
+after it is reaped, retained restore files can be removed using the location
+reported in the cleanup error. For programmatic cleanup, pass a caller-owned
+<code>RestoreDirectory</code> through options and remove it only after backend shutdown.
+Explicit destinations always remain caller-owned. Callers retain
+backend shutdown responsibility even when collection startup fails.</p>
+<p>Ordinary calls remain concurrent. Stop waits for registered Go calls within its
+context before closing storage. Any unconfirmed native response invalidates
+collection access and keeps cleanup uncertain, including after later calls succeed.
+Anki&rsquo;s collection mutex protects running native work; it cannot acknowledge a
+cancelled call still queued in Rust. Stop therefore retains the restore and reports
+failure in that case; stop the borrowed backend before cleaning its temporary files.</p>
+<h3 id="print-03a1513af873956c64d706a8a468c3c5-application-scopes">Application scopes<a class="td-heading-self-link" href="#print-03a1513af873956c64d706a8a468c3c5-application-scopes" aria-label="Heading self-link"></a></h3><p>Applications compose the process and collection owners. Start the worker before
+the collection, close the collection before stopping the worker, and attempt
+cleanup after failed startup, callback errors, cancellation or panic unwinding.
+Use bounded cleanup contexts independent of operation cancellation and preserve
+both operation and cleanup errors.</p>
+<p>The <a href="/docs/projects/anki_as_code/#collection-lifecycle">Anki as code collection store</a>
+owns its callback scope and source reservations. The backend library owns archive
+write-back, readiness, shutdown and restore retention. Operation errors do not
+suppress enabled write-back; callers preserve operation and cleanup errors together.</p>
+<p>Public backend names are <code>BackendSTD</code>, <code>BackendGRPC</code> and <code>BackendCollection</code>. The Go package
+is <code>ankiclient</code>; <code>anki_grpc</code> is the project and server name.</p>
+<h2 id="print-03a1513af873956c64d706a8a468c3c5-verification">Verification<a class="td-heading-self-link" href="#print-03a1513af873956c64d706a8a468c3c5-verification" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel <span class="nb">test</span> //projects/anki_grpc/test/transport:transport_test
+</span></span><span class="line"><span class="cl">bazel_agent bazel <span class="nb">test</span> //projects/anki_grpc/pkg/ankiclient:ankiclient_test
+</span></span></code></pre></div><p>The server E2E checks CLI help, invalid arguments, startup initialization,
+persistence, and reconnection over both TCP and Unix sockets. It emits closed
+SQLite collections and JSON verification reports as repeatable artifacts.</p>
+<p>The Go backend E2E uses generated clients over default stdio and checks native
+persistence, generated cards, original service routes, overlapping service methods,
+caller error trailers, concurrent calls, cancellation, startup deadlines, shutdown,
+and process failures. It also verifies constructor configuration, argument copying,
+repeated startup, stop before start, invalid arguments, startup-context isolation,
+connection errors during startup/shutdown, Stop deadlines, and OS-observed child
+reaping. Shutdown cases cover deadlines, explicit cancellation, the default
+five-second grace period, and a configured grace period. They also verify invalid
+timeout rejection and native failure details. The forwarding fixture reaps its
+inner Anki process before testing forced shutdown of the outer worker. It emits <code>collection.anki2</code>
+and JSON verification reports.</p>
+<p>The collection-backend E2E verifies prepared-backend borrowing, direct database
+persistence and media layout, native package exports/restores, temporary cleanup,
+persistent destinations, retained-client rejection, backend reuse and failed or
+cancelled lifecycle calls. It emits a native database/package and verification report.
+It also blocks a real native media download, cancels the client, and verifies
+that shutdown waits for active callers and retains unconfirmed restores until
+backend shutdown.</p>
+<p>Application scope verification belongs to the Anki as code collection-store E2E.
+It exercises real workers across callback success, failure, cancellation, panic
+and crashes, checking process reaping, source reuse and archive preservation.</p>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-4b42e00c442bffa3a4b45b0224736246">1 - head</h1>
+    <div class="lead">Release head</div>
+	
+	
+
+
+
+<div class="accordion mt-2" id="print-061c45c5f1d85830b9d3da33bcebe86a-release-061c45c5f1d85830b9d3da33bcebe86a-page-0_accordion">
+  <div class="accordion-item">
+    <h3 class="accordion-header" id="print-061c45c5f1d85830b9d3da33bcebe86a-release-061c45c5f1d85830b9d3da33bcebe86a-page-0">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#print-061c45c5f1d85830b9d3da33bcebe86a-release-061c45c5f1d85830b9d3da33bcebe86a-page-0_collapse"
+        aria-expanded="true"
+        aria-controls="print-061c45c5f1d85830b9d3da33bcebe86a-release-061c45c5f1d85830b9d3da33bcebe86a-page-0_collapse"
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">31</span>
+</button>
+    </h3>
+    <div
+      id="print-061c45c5f1d85830b9d3da33bcebe86a-release-061c45c5f1d85830b9d3da33bcebe86a-page-0_collapse"
+      class="accordion-collapse collapse show"
+      aria-labelledby="print-061c45c5f1d85830b9d3da33bcebe86a-release-061c45c5f1d85830b9d3da33bcebe86a-page-0"
+      data-bs-parent="#print-061c45c5f1d85830b9d3da33bcebe86a-release-061c45c5f1d85830b9d3da33bcebe86a-page-0_accordion"
+    >
+      <div class="accordion-body"><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #177 from alwaldend/t3code/anki-application-boundaries</p>
+<p>Enforce Anki application and package boundaries</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">142825e94b7d2f5f756f137bec968b4993611d29</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJq1MahCRC1aQ7uu5UhlAAALeEQABAknM0r6iWSFD/7YqHdCwOM
+Ngqp3d1qwtZ20T0wEztOijuCL5YJYjCPyiWJJ4hiZVL5kO7MDYb0&#43;9d0yKTL78rD
+9yf7FEB/CW3qR9XKb/mZzEbaeNCTFzp1N4IaRAO&#43;/15ls4ANTQdjvdzw4TtWxLko
+xGlGyq/J9rj&#43;AjFtFGeG/xolo373gH9fFlS8cDFlCELMVHHQodrh5GXJWfycXlPh
+6M3x5THzOpaG6W8YjxALG10C/Q6FHnUGI0l1ghgRCxuq2/Mh9o9ZH25gXkU9IxAY
+HXDrHng8mTVVUi5McxNVa&#43;JdAkaoFwomlaju/DWOYq12gOCaIVz&#43;2Y8syWp9EkhN
+QUydSRyprrMxP4STHwjHqSi46jTV69fr8eq0WMB1p/NpKo8zR4xJzTpRksTLbIuD
+f4PJMm9dhcGrqHilDlTbfPqn21XbQW5XrWo/txcbTzpzKzBm0htCJ3GGtpoS9rkC
+j&#43;74nhmjjAV7DYmhNxGuX0lAG6eERLzRbIvxY9JtPOGotj0I5Y634UTH/Nk2OTjN
+GfxQVfxeR8BoZKWX8r2UkDUaONiDG6Ma1oDe/VUS30Aw42W9dJrw&#43;R6NDCOp5zPI
+qHdxQI6ks76CaRFcr2LobJ6j9RjUURltlHrvZ4KJAaCGLu&#43;0aEMWTA96atnzSfzz
+IQ3oIHz499AgCKJScsEj
+=Lsf2
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #175 from alwaldend/t3code/anki-linked-server</p>
+<p>Link the Anki server into the CLI executable</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">a5c5e2f81174de9923bb1de469c610b4ebb31e04</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJq1LuQCRC1aQ7uu5UhlAAABkEQAHirlOGSowl&#43;bS4sllru2EUA
+zICgyn7fJ3e44lefXmmTHeHQi&#43;H/dbcTUPvERuOzoMt6x&#43;GsieXIHY0D7/MjagXa
+KYsOMG0qu3GmUmZsaqfwy28fn0eP8VR9PjrfjgqRIq02xVdPmQxnl3ghWpIrH1vV
+a6dzegOWcQpESbaktfwiLYMgEyCM8PEpX0ulvanMCGcnNxNXupXO57xkxu4A7aZ/
+xp3NZwVhD0NjLIHM&#43;5Wat177IpgtYk6DtmItaVTz6b0ahxg7VjGLAk9OA2XJQQFO
+0Vz7/vfe3Y2Z1884YXZtb&#43;S5nsNTPade68XLeIgNCt8N6eztdXUUDhjAwnDofq7S
+QW01cb4JS/zC8EXszf4Z4aSHURL42PLAtHEw6ZZsedvLL/VYqX&#43;AmM3khHq2AAhE
+Q6uq&#43;p305KRfLSUH7&#43;P9BSdth5Zw8TmoWMpta/4gOp0XwuiaOngurInuwotA5dLZ
+jy/W15YfBAkf95r0k5NRvZ9mU32QDf/5/OtKhqafQ4zJ16blxRpGG2N4SQ4j9dYh
+qmQanjwG/qIy9qyJx210EJkdbJF1gWXAz/26oUjeq9ziv9wEKrT166v5kWNOn7IT
+gaPHHb0dtZmH&#43;NRQnIY6WWdjxlMuOpi&#43;NWY0pGnzUKC1LJpvjXmkUUHqxpzyZ6aK
+XytPOLdzmAu9tqT5rLEG
+=8hNi
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #174 from alwaldend/t3code/anki-grpc-backend</p>
+<p>Add explicit Anki backend access and complete Go schemas</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">dea0aeed939f44c2fefc257b7f4ffb90c8309677</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJq1JuBCRC1aQ7uu5UhlAAAHwkQAJpOD9krb3m3KmkUb2USjXsV
+EZDvgxiPIv/reNM5RZCPiKEXHQUttTjz78CK9yuEcf6cLlF1BgUxsD&#43;zOsSJAr2R
+LXdsbY9icaALNoE1Lt96XmF4G2m9wRsJCRg5vhpAeJwjvj0nh61tvQQZzjQ0R1m1
+W2QL3L7CLLOf/17YJORr5re4LIZPr3/XhP3rFYyZMahR6&#43;imNzwzw4J1Pf1Dr3aj
+VxvxjZjJtrqawIqBqTCYBkLu1K38CiMRXXf4NeLs0DOqEYGj3RtdVDzJcXhDQnm6
+0j&#43;3HUoZkhbK/2qoEr74isZnnKp8nHktFe0zIyuw8muKCOOehXTFNaMyp5p&#43;9zz0
+EnYVpkZeTB/1&#43;oj0cgK96GaLSoYBesk&#43;Fc6GEXezbZ7kh5jeHiV3aCyUTVBMYjPa
+QPmXHLP3LzFMSvAwAoiAV5hNakZJjZvS21taXlfjeOZLNGezdYeDl5gBRyMtUENl
+gKwk6SuK3vVFTrAIgPpzZdhQBfcQtjxSPoDz7jMx5LuW/5XxJvpHkEj8&#43;ZyLDfG8
+MKtDAAzy9nurqeYeEQJ0r14u7L76XlG5AV6FOnD9gfD5VgvZBLpKgdl1jya0mY29
+FmnnZ7uYH&#43;x7RMED014vEYF37RCAQHRAFBowmaY36Y95VmO7SNsv7hwMy2aJosdH
+NkfTC8bTqCY3h3TVoDwm
+=i/J1
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #128 from alwaldend/t3code/anki-collection-as-code</p>
+<p>Reconcile Anki collections with executable native plans</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">d8385aaf24a6d2443afbb4bb69549f54772f2895</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJq0&#43;CNCRC1aQ7uu5UhlAAAQUgQAFEKIlDiBrK4u3PrpNhEBjhS
+s97S0XywQ4nZoymqoPvSkJJILM1ykXDpfq&#43;hP7bp5EOwVFNtuKuekvoFa9/Vk/1X
+l38pOKbtNYdZIs8IAxf/ybja/LxHB0WrsrpTUeZvNrYomA6DNulwTlOEKlfogm&#43;t
+yyhL3cAym8Evqs6otV01GZJgcA670yOGyVB9X9ACxPEkkIvgAKpkfm0Uqzj37Y/G
+eyGAlX96U8v2IAnMwCzbu1zBF/NAooDUhjKwpcch/r4zd8y/cy9&#43;Ge3XfjR2mH/b
+bxnRq3gxP/nibvMjBhoC99O9ypu04LvtV5iNi/&#43;xFCjZAhgJ9RlHFYE4c9asxr&#43;4
+60bNBq4tgFJjf5dR55x6/Zr67sWf8MAFetcFETpLr&#43;FZZxL0Nw3qJj3O5pu4sxpV
+jtuDd6QCV&#43;oMqqG0wwUN4cCdxlpp5LKqY6RfDv97BtGo97/Fxbaq7QFwi2mZ1zQH
+Up9dIQ8xsuom42bYUb3TfFGXtc2nNvwntHG/Pd2gY5SCCX2RLOwo6rIatIfGVvf9
+7i1xRjEmqpZkJn5WHqU4uzUT0i0coZ4wWU82rzutLrrkZKV6qkSeo5o2OFQ66L1n
+k83LHDE7wPosWbPvV/Bq8Ll6uG2neJGwjptsuL4omn42TIAWIUkS/xypiMA4vSTP
+Keor79V&#43;7Kxh/Pjez5GM
+=Z&#43;O8
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #169 from alwaldend/t3code/anki-archive-build</p>
+<p>Rebuild collection archives independently of reconciliation</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">e219846730b6fadc3c2c77859b33faf5ce651c0c</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJq090OCRC1aQ7uu5UhlAAA6igQAIgLodsfWh&#43;AbLaoLZmJcz7t
+a&#43;GZYwheONtWDZhD1Ndbu8nEmkriNgQ88L5YhR3/AVtSJV05SpAVskPP5WiST/Co
+hOpsUd7eQcf4IaPaFgUcf7FHbKTOiIQDdmwXD&#43;ngslRmcwN8NNYCUOjOKfjSm/5T
+VLT4M1kc4SXxj79OfbuX3gxHFcern/ChnZZEtL3Wo8t&#43;&#43;7v3PKtIBGbjRT7rIBaK
+uycrko1uTF0DQZrn2FAiHHD4v7Kl2a9KRmvdUgz6Yb&#43;GDE&#43;&#43;Mwwj14MpyD72HkEz
+9oEpWmKqPWyq7OBpuMp/2ZJnNfWU5d00CtaP5lx2syzic1zQuyMmPIkVd&#43;lRaHFt
+M1LTaZ6/7kUII58FLXUMeB/d4u/ZBmTisH&#43;XBNYUUjNMNV3CJwHSsw/D0qH/mO1B
+1X&#43;m7&#43;Jm1c5ZnrSTSP6tINopHrYNkD99pd8GA1nool6&#43;abI5clYV&#43;yw8E1UfV&#43;j1
+pOrcMrSyvsOgG5/h0ot8CSgxPgvexXXvmExPoL3MuE0SrI8dyIDiatsRbXnrIOWa
+kH8K4xH&#43;ZgYs4jYBFY15kIv3y5DFm0AQftbHk1tShqIDLggP6JzJ4nREdpmszaDz
+KTjTI71413F1LcGtRkd6W8iSky8MZu&#43;nU78vRIy&#43;/8qNFPKtgvnqyx51Sy&#43;dxGQ&#43;
+6EFvXWnxptoezZ4M2pA8
+=PAdR
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #168 from alwaldend/t3code/anki-planning</p>
+<p>Extract pure executable Anki collection planning</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">1bed0e46784dd64af5698e25ae9950efca4c10b2</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJq08nmCRC1aQ7uu5UhlAAA6z0QAD8/t1XBATElfL4hV61N10cP
+LedDsRsMrlkeORF8ql0ppXYb2Sa06mAoBdX/2dUh2miJ13g2gbAIaW1erEzaBBha
+9jpjAj00PqPqpGP5RLW6sZJt75&#43;8Z&#43;UCco6uKpeBo7BqkfZEKl9qzfNVr0NAjqf4
+Msa/Tq2G68oWIrJ2VVF2PBvJVhs5K38HQ8eYh9LNuXl&#43;6luflJUYr8GpcsRZt0Ej
+h8xjL1Mg3hNb0ONbjwfZ6u1N2wsrC8wfoMaQWrlrvTKfTNN4//xWo4FW9Y4UaE9/
+9r7o2HzfUC28nljsfwNQtNco9poHM5&#43;4VmNVEkngezGgK14cE4PZnEqbnSNzh39l
+IwqbwkCg48V1EOlmjtiBrvvwj32ZWCJQ0nLpfWF54PQnpvRp/E5ZRtgfeCqo1OS5
+oKEwTDnW6nYkZasQfsCOtRxAv1KOq&#43;aaYPAeMQdjRRCDE/hxz7s1epcaadOF3Qnb
+UCbUPw0PYomSsmOdUYpJiBUJwkoTzAJN6xJy1aA/3WoBEj9ZTDpcPH1YAgXh7piY
+zWuGc94s8yc7GwhiGCPjxzzmHTFQPdw3rp7DkqNAtgH8BtTnQQ8iq3kdLUkgHb&#43;K
+SiaqNrwdy1GMbvggni9J8n13RGDI&#43;WlgPAsUJEulG2mgxWUcYpWH7soWDtq/QxbG
+&#43;WAkqf1vqTWL53O/RC4W
+=j71j
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #167 from alwaldend/t3code/remove-anki-backend-managers</p>
+<p>Remove backend managers from the native collection workflow</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">e4b61aa3185dd0c6c0a49246358eb8d9890224ba</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJq040jCRC1aQ7uu5UhlAAAjogQABDXZE4IwWcIa8DEvVagTROc
+wbn&#43;jJWaxsJm&#43;HjJCH0KTC/h&#43;1BRmx1XzWT9CKqNk9m&#43;lvvmXAAtql5j2ZkFvyok
+2ii8FAuSXBzyWlvfel1PuskA37qpHOEPz8Zm1NquszrYbF9EloM1sjv4VXD3tq4g
+s&#43;fTJm2eMhlhO52173mGh5KAJZiDsZfMWMkwE43H8OXCb2q94n3lWmQNS5EdF9De
+qGRON14&#43;AvD9rN8hoaf5ENl3tUdP4hvOn/JCVKRoLRbck6Cf99NYH98KXhN/8uAK
+gct2P&#43;qY0CBx6GtrAYk3dajvbXI2lKcttJpp5xJ5A8zb0blVzxJsjqMkuevVqlAj
+ggr8BcppMn7Lw1Mg31sPOBmPqoqRn9uxEtZpKATbKo5brumaA02mHP684owEYVHD
+R8wR3a9z87m41JZCiZARadVkMmJ2rLjJRPWKTYrFxM6J19K59Dbh5HlXM6Ut3ftf
+L07iq5Q8cTiBKTtNrb6mtvUlG9gzh/u/6/hl9p/DawKv3yY3cDSB83mzPvqDJ8&#43;h
+Gl7A1RW0jWwXRcUO5T/n6YiXRNYB0IGa6KXZSjZhTEHDhbb0PtsPWYtOgP9/cg25
+EG4x7cMSnUxPtUc66DHViS4U0sofhHG29MzvJvmmdprvKUJ4BIZszg&#43;qODXNbbIA
+vFjfLSh3LnbDRTtkMscT
+=EaFZ
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #165 from alwaldend/t3code/anki-collection-store</p>
+<p>Coordinate collection reservations and archive publication</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">8565b627059978578481f3be0b732adde1dba961</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJq04JuCRC1aQ7uu5UhlAAAgD4QAFCKnFnz0cn3REu1Frhp4Rqi
+TBkDPK2Us&#43;AhaY954SBTQp7YuRGGvW4jgTFsH9qH9l8gz3UJU&#43;eHBywxF9cY3B3A
+YNoJknfIc3itrapdiFS91qBN&#43;hf2Q8WuK3&#43;YYnai3ic6PgXeM/iiPS3ak5FsaPlQ
+bO8oe2B5RBIZhbJ&#43;gzuj&#43;vzIuGO/F5FE/&#43;Ayxvi56lfiyvWiRMaySCCjjrcisMne
+&#43;XzBqcmAwR9mIVrnV9kPR6WQxvqJnXOajJDDLDH3WC9uwA9LdNbxGXszK7CameNh
+gl2AjDUnFsDxlAiVmr44tcoBkVFpcPesrA5bbCFbe4qe&#43;A/gi2HSObbKss8c1vha
+btPjCjisI9g9dpjn/5xcL&#43;tE3UVT6XcnyBBRV3K8CPf5nMYalQsALCqcpfMMVYPn
+jQ6uW/POpm6Fb1UqoXiAXS5PaJluVYMwnH9jsfD4hvNQ2QGaaMOUjef99cfrAr0i
+0yIP6OJj4LRcpQbq8BzsqTtH7ATeVCr8opfIZoGd2UK1P/cssY5fifGkypQXxMMU
+NEJN6uYAewyJ7Z0wjmRg3ob/Rqo3e/3H2E1yBjlZEk7Hb6D6h9foMBK07BcoiFZS
+/ivm4hkt6/jLddsywCKNrxC6ZwLE/R/D8jNJN1I&#43;ua&#43;dFme6A3q3yIjjqTnBkEu5
+9whNxkOYKgzRfJ9EvK9a
+=oN6k
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #166 from alwaldend/t3code/anki-backend-managers</p>
+<p>Add scoped managers for Anki backend lifetimes</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">cbf05b45b8939a043babd770c55cb05f0c90cdbc</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJq03eICRC1aQ7uu5UhlAAA344QAGhVkcIhsxnI70OzxsOjlIE9
+5VBcqtv5ck6/DK/9F1R6WMwIzFL9FJGR4nLvGF4vdWnEQ59&#43;3gwHsBg&#43;3oT5N9jF
+4RYffza5j7S7PqjY0APt/heOdUqIos8PeU0fiw7jvIMVTWMVBmaAFNPErFEFbt/r
+/c2kXjSH&#43;WlsmN5IAl5kuWew6UYCyxIv0RwmMwpJ9aGXJPH7I2DqTwTSGtJaEGgc
+2PHw3s6EqMeeFwV3o&#43;vyTWoQKB2tJqMuuAUYeEejFkNyrX4IYBSQhUGAFo2wDy7h
+LEWCgj2GUjcemrXuC&#43;8slfjE8COECd8EE/lxyGSgimSHgeQL6x9J8nAMZLV5OpZq
+9T&#43;nRmkbvA3V19S6gXUdRQmdne64WSHC2JMSWIXt28j0kpJFToYqClSqCzan1BiI
+FFNhrR2FhScT6ImOlER/rQXk4JSs9a4JGx1BhW93s&#43;9jjxQ6waWwO2y6Gx/FqREL
+&#43;jJatA6hzb2ZFxXUaHIsdXnYVPfAtKEaiE4oxtjFWKK82vYgEgGRTSgWenNTxSfC
+Yu1UY45Hkofb4u7S7YdNy5FsYXC7rzWuV6hG7EK8Fk5GPe5uAT4pTCRfNgqZlqIz
+CgQzMB3EAJwl6B1efIL7wMAfa0H4d16nk8ZRiyF4OLPJnmG/lpArUfo/abe6MF4o
+3lN8h&#43;SolmWTlwi4afho
+=GyCG
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #160 from alwaldend/t3code/anki-text-export</p>
+<p>Add prepared-connection Anki collection export</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">3dc4e55f1c04726d0614a0ab00e7c8a64e9407f2</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJq0resCRC1aQ7uu5UhlAAAjm8QAEv25iV2&#43;dyPR3qNmX7qDcTc
+8CJE/7zP7CXzwl0fepeypUIrsDHIlfR7fq8rywMzqwhAXV0mQ&#43;P2J1TnVC2n0LQG
+q0kqXqrHc/m0/gjiLsa&#43;5u95zISZYSDqzfizweNvvTVjLc4ZKOheQepMw6f&#43;VEvI
+PygDytzO43dHUQrVNjiG4&#43;3YwW13Sm4Pz6yJ8cEKJ5MZhYbiOdjON/P8yhPPSBKD
+TuYeaq2sDP&#43;T&#43;wusFsE5wapfjGuDb1Gav43QxzUkQ5Y41pM8r/r0R3c2IBK0mNcf
+Yjpj2BObz9NnCduKQfe1mwHW/E&#43;Kt/FpMEvkZtscoBPoelBy1ppYhb1iqQP/8cQR
+AkM1VmYVb/LthYVd3D1Kd4ZD7HJMsYzkcm7S4BwDF1Os9wvXVZRKLYAUlpbaqbBz
+6jW2A3TGuCCgJIEeq64r8D8HO3rXbgm9hz2Hr8wXxs280sq7fAYg8DvOkxybQxE9
+Jfm4DUVuLn96830q6Gf2KwsqaZtnCOyPwUln8ptPTDTWv49qpMbwwO8CJLsCyGoX
+AwEhk0gTA3ajFGCl2e9aL9DgeW7J354LozcBWvHKCwXphPDMcawOwyMOIeezcqJ4
+kY5mAIpXU&#43;JkgzgDLaDszPu4t8rGCcb29whC68&#43;cpD4ZHgytdoYMYqMTEln4qSG7
+4ws56wkydidkd3BreDdy
+=/h0g
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #161 from alwaldend/t3code/anki-resource-store</p>
+<p>Extract shared Anki resource clients and snapshots</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">e9b53157ae6e4c71cc396fc2c3f4641c2e77bf5a</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJq0oh2CRC1aQ7uu5UhlAAALOcQAFmKLyOpXn5uffWi0KUnS9Ru
+ql2Vyoy32kjqqFH6Zi9DdCrg6pC9JopyEvKgAElh8ruPe49KciN7CoDGP4tfnop0
+VdCN8woZk2rJ4I9XwT2M6pN3KdB6YJj1&#43;ieohsUOoRzfGCa8tpC5rlcFUcSgr/vF
+DK1qXLcyJXsc5Dz5FkAhOEnOcZ1HnoZowSU25vWtA4A6mzfV6gtRUVAeJNzQGxjZ
+Ku&#43;/hSKRFS88iHWoCAhaOXwu3febLBxlShn4iKQnKVGObb&#43;I9Ki7z44gYt&#43;opQnz
+vC7E54ZtPB7pGj1nHQRFu6hqCoHBcVj7ViyeQP/ikJLVdwkd/KQM3uRmaXetmR7S
+AfDuZIbglGVha2Swhvbts9&#43;Ippxkoq1jYeKhGzFNrFpkjZCBNbt7MEeT7UwVB3i&#43;
+fNunqSHGUt3DoBkCN/ldZVyxeCJtlhn7T/wCUJkCAPmxWnwpVkF3f7VReQA2rBp5
+YLsJhnWuYpWL15eFqA5oqL5OpVOvHkTD6Ds32qW&#43;I/6rNvXv2&#43;58lxzHomOHPBrh
+AZTRupPn0aGVhnNVUVgvHcuTT0z5lQlaoCajgYWqP2oOHLWMPkaYR4qGZ&#43;DGAC4B
+Hid4UBtLzu/75Y4KsUICAHg1f4bvMv4O1O1Nt0hm67B3Wuri3mVLmIA01rx5a0J9
+dk40SKlYuplnRQF3FkG9
+=UfLg
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #156 from alwaldend/t3code/anki-collection-export-import</p>
+<p>Add explicit Anki collection state management</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">b0547c9af0fc88882558ec24cac1a9d6aab596c4</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJq0j2CCRC1aQ7uu5UhlAAAhUsQADj9v3tuJ0f7/UPFep2KtzSb
+EPPC39SG1c3P2ILDJMDCQItd&#43;bNAUjkOD4DYTobc4TERXFPhVVS6zuJHQhmMg&#43;j9
+R5boaFvD1kVncYVakCLE3GG8RiaghYUDNPwpIs/9SAr38Ids2&#43;PJhMKNlrxXu5y1
+XAgrWwHW85pivE3HQ/qJm4b8OVtd8FzfGo3EzSQn/hjbhI7wyEP&#43;9GYuJshRPnIH
+epBeoX32o9Rs&#43;vNqXB97&#43;A0UOjbsuQR&#43;SyOdTPY/o0lpXHJbT/m0TpMejHtUnlGe
+2YpsPxUlf6qHadYvB2kqEBO3VOs&#43;yO2kknIwP3WwTxFcEChR7JgS8hcwgce51soJ
+PP8ElB5VcWlrJtonJYfmoT5pGhgT6MzgdhcUS2b1U0xKV7iVbtXLBPdT1sLotcan
+NG9FCtdmDDSJ7JNyWebwrNO7J27FwJvsOncRrj4cFUd0ZL/l&#43;B&#43;baEBlJRfPDqPU
+voqmdI5tkfTZctUBIoNDOko0&#43;IUBfQYU9aIfhCjBcgCBZWOEEdftibwvSEI8mv&#43;1
+FHZJO4yoWcR38hU2qLG3JJz5e5efNAO5WVy4807brZREDHTxNFz73KbL&#43;lVPxsqI
+O629qlvQu0ivBgW3oMOJGslfDsEgSHW6xMsrfOFbBLSXtoSsfkxoGpazrD2rZZN4
+mGxlADVcx&#43;e193tHhhmg
+=c4eq
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #157 from alwaldend/t3code/anki-collection-backend</p>
+<p>Add a collection backend for prepared Anki servers</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">cf772c28089b6466c182044f3717cb8b52abc416</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJq0TswCRC1aQ7uu5UhlAAAQE4QAExVGVGuWlWCRu0cF/8FIQUR
+u1H9JXwXeRfsAuXqa0BtMoEEDWVYTnvDEJZmaXoFRnlR7B7fCB0A0EP351IT1cYP
+Z4BzttldJ7pEKHmvs8Kcm/j497QIYvc79pMS49B/AZW4aI1TvI7Bf&#43;PEaI9kqx3s
+q7EEes7533g0JV90zaA8d8I8j2a5a2aJgtnCIRQkoSYJzsCEfE5zjdPjBxdtOSUB
+96Kea7gUnanjO/ucVQr4&#43;fazUqP/yqvzOwLz2xDAtusYHjrTLnRp9NtA4qT3uo72
+LPRAUFJcXrWU&#43;Y1WV8teCgflBFDdqib7z//zEIRIMWbRrL3bdCmGxCbxwDc2yg6Z
+cizELbVxkcX8A1VVY1PFugFNMuSFPifd4iHHyG&#43;IBVuG2eVT&#43;weIY/oDQm6/IHRO
+ZJl22zhi8dd8DO3tvOgzl3UxPLkupkkCUAcBN&#43;Z2ll4I7yw3PHAI1xtNf2G36c/w
+pzy0qpbHGPddwFeRu/Q2nKctDAcoV&#43;nLe1TK8OENurhaM1/U8/9nTHje7PWCKHT9
+xk6NZ/gNgk/O/SU5y6oJoh35UQLCDx7ryaR9VxAwacYzZZH3zN4TZZoPmZPKvqip
+eNU4oKD3j6WYfBaJI4AIo/XF5F/m2G7y5d2jlul4h68XUAyhuN9jNwYPWcqd4e9F
+6R7wzZJv/XtCF4Jv9PBG
+=8/Nt
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #146 from alwaldend/t3code/anki-cargo-go-api</p>
+<p>Add generated Anki service clients and a managed Go backend</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">d29ecbbfd089064e299918c5ed8d2c034ab79375</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJqzmxACRC1aQ7uu5UhlAAAPWYQAJaKxzcjZ54cC6IWy2yUPxO7
+pZoZJ7HKmEl/QMRRNJPwRQCbzE9uqqcNq910KoNMvH&#43;FssQvAZmRLfTYMAYLXHkm
+oXx2c0VQ/E3W1GGWz2YoUk9hSu1XNsx0Ti6ggg7MzC8WmDUA2xfW3BCCGQ1utfgf
+CsW7KY8l3f0dtDx25BgpxQNNRnRHkvevxK3eCUd44rdAc5jwS2V&#43;nn5kVIMSYtG7
+yBJrXY2NAUkrEe5Mgh7SbTh6Uvh9BI8qeL8Zdil2lm5P22cSbxfPuSBvhkDI9UyF
+WPTdc6idKl88lzx4rwIyRSxfTiw9Nji2RgP8nnIRb77RlRhDUeUYw2t0s3tPAiR1
+ZoL0sY2Ui78&#43;0NdqMegM44phADPKY8kXhp6I5Ew3lh&#43;dh9nSqUBVFAAf9zP0Ykot
+L8&#43;BX2QHixtv8OYQym&#43;js1K0yuh18kdYrjGmSRl8zNWMhiB66o4KzMa8q0OmtpY5
+jgWJe4OjAuv8K0TV0ieGGXexv&#43;T3P6T4izpPrk7JPeKVOoKlv8MdA0&#43;sZqfqzLQD
+hj2o&#43;9gPKqlq/mb7NGtX&#43;IhYTHI9uRsoXYgqlDd6WXw3IYgAyoTUMHt7zSGRWLvx
+R77K5V3poxqg61WkxlhZqVRNjvWTB3mRowAbM9ZPt4Epk7BZZSQOyAdltsan8gwo
+rcQREbyPmq1WAcy4bSuG
+=y1WE
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #147 from alwaldend/t3code/extract-anki-grpc-project</p>
+<p>Add the Anki gRPC server with configurable transports</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">51a66d3f0fd2b0744bf18ab93fcef28e07e977e9</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJqzVjFCRC1aQ7uu5UhlAAA9wYQALEeMx&#43;0tqJMGGUVSo9Wv&#43;XC
+gOydtUS1vxuJbEUL2rjt/QmuNqZdwur6CTmND80gIHeEtjPx3dH5yM2bDz4Yqjov
+/fqs4A9wN7CRn/HxqQpp8v1N7AFq&#43;dJ0aP8MFFNIhQDaJ8Broy3v0HTtAW&#43;ZBmSF
+2VpE5kq3lsaig5CdwhT&#43;03a/Lgqd4sqHpdBRe/S3g5dHvGdGv/b/d0Bglo3OBcXY
+XZEIBGCiv3vnpE2DT4xEX7mDeiJaL&#43;3t1OEfVZlojUeDXtVfmG7bfglAV8KRi7fV
+PCEjj5N0o5U2qRiWjgPYs5NLZXKwqF8hwwLiTQXZGJDQSvqCjr133NAqm/5Mez7N
+QUHSrWsDKzx6jB4vuwsdrfLi1RRKhpjV9ENjECwv4jo6dh7BHFzT66Syz9K6v81s
+E24c6EK6venT&#43;dbUctNViwOC0WBfLypKxYsYA/dY1I8CuLMo1AXZ/n0rc/QNDRJ0
+gtw3ZBi&#43;mBwZ9hWUBI1yP5FgAOALqAo3VCKCcd2MudvIBiBnCcd2q4H7CLtZ/ArN
+jVvCACwDLftHuqoJNpMbMATFRHuUC96f3uS9Kq72Jl8lQAJy5xK0QS7UCkIcy6EY
+aC&#43;a7XHg8zTVbifK2zxdXCB8hZW09h4EvwJGWK6Cj2xZiWMUKQj9gO64557c9s2W
+g3KEcsNSM6j8tNSqGufP
+=0jRj
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Migrate Python dependencies to native uv locks and update Python</p>
+<p>Use component-owned pyproject.toml and uv.lock files directly with
+rules_python and Gazelle. Remove maintained requirements files, optional
+lock comparison tests, custom wrappers and the obsolete firmware pip shim.
+Update rules_python and its Gazelle plugin to 2.4.2, and select bundled
+Python 3.14.4 without a custom runtime archive. Pin Bazel-managed uv 0.13.0.
+Preserve compatible package versions and update PySide6 for Python 3.14.
+Migrate the existing K3s role&rsquo;s Python installer and Autoscroll install hint.
+Correct Autoscroll import-root wiring and zero-argument help formatting.</p>
+<p>Validation: native lock output inspection, consumer E2E and build tests,
+Python tool CLIs, offscreen Qt SVG construction, repository quality,
+semantic lint and a disposable Ansible dependency-installation fixture
+with zero changes on its second run. No infrastructure was deployed.</p>
+<p>OpenSpec-Change: infra/src/openspec/changes/migrate-python-dependencies-to-uv</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">45ea5eefea07c487d0a5c8f19596d34706b59d78</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQCWgy3izYMvktEFxsZ2GCzh5ibrpI0qudCFzhT15Ug&#43;GyhCR8Iwi5pfXgLM&#43;ZsDX5s
+QjNZX&#43;aQsLhyQU0okYFg4=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Add the Anki gRPC server with configurable transports</p>
+<p>Build Anki 26.09.3 from its unmodified, pinned Cargo workspace and
+submodules in third_party. Use standard crate_universe dependency
+helpers and rules_rust targets; remove the provider-reflection helper
+and metadata-only wrapper manifest. Reuse the repository OpenSSL build
+for workspace-enabled native TLS and lock the approved package set.</p>
+<p>Serve official Anki protobuf commands over CLI-selected stdio, TCP, or
+Unix sockets. Initialize one backend at startup without a custom RPC.
+Include CLI help, release metadata, a registered landing page, and the
+finished project status.</p>
+<p>Verify native/server builds, TCP and Unix persistence/reconnection,
+Go stdio compatibility, Clippy, schemas, site, quality, and semantic lint.
+Inspect emitted SQLite collections and the native dependency boundary. The Go API and approach diagram remain in PR #146;
+both PRs target master, and shared files leave #146 after this merges.</p>
+<p>OpenSpec-Change: infra/src/openspec/changes/extract-anki-grpc-project</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">383b97b1708c83d9e78c93bb4373fc0c35c1a766</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQOigOFxYY6qHNPMdleEGMWMsCWV1hY4MQO2YZ4KBE6PnbpQS/3A7F&#43;9EatJlaZ6VNf
+1KTivy9RXcNAcmil/WqgA=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Document Anki configuration APIs with Mermaid diagrams</p>
+<p>Show the existing Load, Dump, and Export Go operations in a process chart and
+the configuration model in a class diagram with path references and filesystem
+locations. Add the corresponding README explanation and remove stale merge
+instructions for the already-merged configuration API.</p>
+<p>Render light/dark SVGs for the site and dark WebP previews through maintained
+Bazel targets. Preserve configuration behavior, collection placeholders, and
+the main reconciliation PR&rsquo;s architecture documentation.</p>
+<p>This documentation is extracted from #128 and targets master independently.
+The source diagrams match its published versions; unpublished preview edits
+remain local. Verify renders, config CLI E2E, site output, quality, and lint.</p>
+<p>OpenSpec-Change: projects/anki_as_code/openspec/changes/extract-configuration-documentation</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">6f051a3fad4139adca7813bf92198d128e5d91ac</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQMJmnkAL8jXExNB1WOvgPeDSVFH6OmVpnzRDimAx974p&#43;&#43;GPY4C6DXBuELei0FuELT
+yLwEuXcV1g4vj4evWdWQA=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Add a collection backend for prepared Anki servers</p>
+<p>Add BackendCollection and its options object to the reusable Go backend.
+It implements Backend while borrowing an already-started server: Start
+opens the collection, Connection lends gated generated-client access, and
+Stop closes the collection without stopping the borrowed backend. Keep the
+public methods limited to Backend; restore destinations belong in options.</p>
+<p>Open .anki2 databases directly. Restore .colpkg inputs through Anki into
+an owned temporary directory by default, or an empty persistent destination
+selected with RestoreDirectory. Observe consuming package exports and retain
+files when cancelled native work makes cleanup uncertain. Callers stop the
+collection before the process and clean retained temporary files after reaping.</p>
+<p>Serialize startup with shutdown and reject preparation after a completed Stop.
+Leave failed-start cleanup to explicit Stop instead of a hidden shutdown timeout.
+Keep the connection adapter limited to Anki unary calls, tracking completed
+export failures as consumed collections so their temporary files can be removed.
+Track every unary caller and retain sticky uncertainty after unconfirmed
+responses. Stop drains active callers within its context while ordinary
+operations remain concurrent. Native E2E covers active and cancelled media
+requests, concurrent progress access and cleanup after backend reaping.
+Native E2E verifies overlapping lifecycle calls, storage/media persistence,
+restore ownership, backend reuse, readiness, consuming exports and failures.
+The anki_as_code integration is maintained separately in PRs #128 and #156;
+its native, CLI and configuration E2E are verified against this library.</p>
+<p>OpenSpec-Change: projects/anki_grpc/openspec/changes/collection-backend</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">716e530974856cbd0b7ed9cb1b96588290075b62</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQPqF&#43;HT6kw1ReQN&#43;Kr0/CQ26cajyeMMzkFNMeu6YYp5U3BF8obosC0pngeiJdssSe3
+tmyKCYB9PcAR9eQ/v01QI=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Manage OpenSpec CLI installation on Host Bot</p>
+<p>Install the pinned npm CLI under the managed user prefix and share Node.js
+prerequisites with the existing npm tooling. Document the managed installation.</p>
+<p>OpenSpec-Change: users/simeonwarren/host_bot/openspec/changes/manage-openspec-cli</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">427d81c3c05550abb0ad4bc70a40af275ffe6c38</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQDTLaEOOT0590PbV86TVvzPWqvvZnKOFix6HfiloxfmXdPqeJzv71WmmLafIsRGmdb
+&#43;WcfdEXOcNT8EamSp4RAs=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Extract shared Anki resource clients and snapshots</p>
+<p>Centralize native resource access in internal/resource.Store. Construct Anki&rsquo;s
+generated clients once on a caller-owned prepared connection, and read fresh
+upstream deck, note-type, note and card messages plus existing preset names.
+Preserve unmanaged resources and filtered-card references; return no partial
+snapshot after errors and retain caller ownership of lifetime and returned data.</p>
+<p>Include the selected deck ID when preset reads fail while preserving the native
+error cause. Expose the generated clients for resource operations without forwarding every
+method or creating generic CRUD models. Keep state bindings, config projection,
+planning, mutation order, files and backend lifecycle outside this package.</p>
+<p>Document the API and verify native operations, ordering, fresh reads, detached
+values, cancellation and borrowed lifetime with JSON/native package artifacts.
+Consumer integration belongs to PR #128 and PR #160; both stay master-based.</p>
+<p>OpenSpec-Change: projects/anki_as_code/openspec/changes/extract-native-resource-store</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">1227d9bc991d388f2d3a4e3bdbf6b6ddd576bd41</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQMlC0iW&#43;UcrsqCI622cMuBH7hngDaqQ4sc/1gn8zxyvDeouECpqGUy02A6YjPqZEQC
+jewsB4b6YxzU&#43;rG7cQdgY=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Integrate state commands with the native collection workflow</p>
+<p>State commands now accept existing .anki2 databases and .colpkg archives through &ndash;collection. Compose the managed process and collection backends per operation, preserving direct database writes and using Anki native export for changed archives. App.WithCollection owns the scoped operation and cleanup; callers construct namespaced state stores directly from its prepared connection. Close the collection before the worker with bounded cleanup.</p>
+<p>Extract the lifecycle and state CLI integration from #128 as an independent master-based prerequisite. Collection export, plan, apply and build remain placeholders; backend, state, config, codec and resource implementations are unchanged. #128 retains the overlap until this prerequisite merges.</p>
+<p>Verify database and package state operations, batched imports, namespace isolation, no-op archives, cancellation, cleanup and preservation of native notes, reviewed cards, history, presets and media with the existing E2E coverage. Include the state flow diagram and current lifecycle documentation.</p>
+<p>OpenSpec-Change: projects/anki_as_code/openspec/changes/extract-collection-workflow</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">736b68c8e3637072e4adbdf41d3ef42ca1e754de</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQK8Fw1kdC314naRQSl1gIyz2w2vD0MViiZnTP/J4WwtlAVHWOey7gA2pMRSWTFhuo4
+xkkhIThCDISd7MoNXFwA4=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Add scoped managers for Anki backend lifetimes</p>
+<p>Callers borrow prepared native backends through Manager.WithBackend or
+ManagerCollection.WithCollection while managers own startup and ordered
+cleanup. Share their lifecycle sequence through private withBackend, with
+cancellation-independent cleanup and each manager&rsquo;s existing shutdown timeout.
+Keep constructors, backend names and the public manager API unchanged.
+Preserve callback errors and custom cancellation causes, and reap workers on
+scope exit.</p>
+<p>Keep source reservations, idle-worker caching, archive publication policy and
+Anki-as-code services outside this independent library change. Native E2E
+verifies readiness, process reaping, failure/cancellation/panic cleanup,
+combined errors, delegated cleanup order, persistence and package restoration.
+Validate repository quality, semantic lint, native consumers and documentation.</p>
+<p>OpenSpec-Change: projects/anki_grpc/openspec/changes/scoped-backend-managers</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">d4f05bb4c28cf8a6dfb92ea4cc8214f77705782a</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQHDFMK7sXWE0Ac&#43;aH&#43;CxxDZJH2bWp8Ylbh0pNezRLVtPi75wSD&#43;haxTLi786l&#43;&#43;mvb
+LaCFhENfoUBrbar1hNCQU=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Integrate collection export with an isolated CLI</p>
+<p>Expose collection export through the native workflow and existing exporter/config store while preserving source resources, state and archive bytes. Add config export for JSON-default or TOML config sets supplied through files or stdin. Keep plan, apply and build as placeholders; reconciliation remains in #128.</p>
+<p>Keep concrete App in pkg/ankiascode and Cobra commands in internal/cli behind a private flat application interface. cmd/anki_as_code composes App and cli.New and handles signals. Group native commands under col with alias collection and text-only commands under config with alias conf; pass paths, namespace keys, protobuf objects and contexts explicitly.</p>
+<p>Reuse the merged collection.Store for source reservations and archive publication. Its callbacks receive prepared grpc.ClientConnInterface; application workflows construct resource/state stores and exporters locally. Backend managers own native lifetime. Keep this PR against master; the collection-store and empty-media prerequisites are merged.</p>
+<p>Verify isolated dispatch, flags, syntax, codecs, stream/error handling and native database/package export and state workflows. Emit native collections and TOML/JSON artifacts; validate repository quality, semantic lint, CLI builds and integrated documentation.</p>
+<p>OpenSpec-Change: projects/anki_as_code/openspec/changes/integrate-collection-export-cli</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">c9e8bba47b437b6f31824805887c2b3b122f6fe4</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQKht1d4cdL2w9Ym3Hxp8x1JLXJgM/&#43;bVVURWxj/m0fMoPXj9PU/EknxSH8a2dOW5Rm
+2hEOvId4sWYkLGi3uVrwo=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Remove backend managers from the native collection workflow</p>
+<p>The collection store is the sole production manager consumer and already chooses a fresh stdin/stdout worker per source scope. Remove Manager, ManagerSTD, ManagerCollection and their constructors. Keep BackendSTD and BackendCollection with their explicit Start, Connection and Stop contracts.</p>
+<p>Have collection.Store construct both owners directly, lend the prepared connection and close the collection before reaping the worker. Keep bounded cleanup in one private application helper, preserve callback/cancellation/crash errors and panic unwinding, and retain source reservations through cleanup. Existing archive publication and native restore-retention behavior remain unchanged.</p>
+<p>Replace manager spies with real worker subprocess observations in the existing native store E2E. Verify process reaping, retained connection rejection, failed-start recovery, source reuse and callback success/error/cancellation/panic/crash paths. Retain direct backend, collection and application E2E, emit native collection artifacts, and validate quality, semantic lint, CLI and documentation builds without new dependencies.</p>
+<p>The paired library API change is recorded in projects/anki_grpc/openspec/changes/remove-backend-managers.</p>
+<p>OpenSpec-Change: projects/anki_as_code/openspec/changes/own-backend-lifecycle</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">4ee4d9e9137a6243811259f683bfad0ea7979b49</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQK4mql9nv9Fe5VSb98oMJXgfP7BfzAVDOoHOuEpfPD86KYM1YJ8HKJ7PUxl8/iJfqA
+xvj0jyvn3UG65mVG1jPQg=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Extract pure executable Anki collection planning</p>
+<p>Separate planning from native execution so callers can prepare an executable CollectionPlan from supplied configs, a native snapshot and stored state without I/O or input mutation. internal/plan exposes one pure Build function; native execution and App integration remain in #128, independently targeting master.</p>
+<p>Index captured Anki protobufs directly and resolve desired configs once into existing prepared protobufs. Share path/ID indexes across ownership checks and comparison. Produce typed operations and report entries together, with expected_state, proposed_bindings and path references for new objects instead of fabricated native IDs. Keep implementation indexes and resource moves private to planning.</p>
+<p>Retain stable native member identities or original stored names, explicit move provenance and collision-free name releases. Protect untracked resources, template deck targets and resident filtered cards, including the cloze template-zero mapping. Permit tracked deck and note-type replacement without claiming untracked names. Anki owns native validation, normalization and generated-card migrations.</p>
+<p>Native E2E captures exported TOML and snapshots before stopping its backend, then verifies deterministic detached plans, unchanged inputs/database, independent returned payloads, member drift, moves, empty namespace convergence and ownership protection. Extend the ownership fixture before refactoring; all seven baseline public reports remain unchanged. Emit executable JSON and native collection artifacts, document orchestration with Mermaid, and validate quality, semantic lint, consumers and integrated documentation.</p>
+<p>Use folded-name order to prepare parents before mixed-case descendants. Keep preset aliases in the owned protobuf state and move disjoint bindings directly using existing resource maps, without duplicated ID, occupancy or replacement maps. Cover directory moves, occupied destinations, preset payload ownership and native deck replacement.</p>
+<p>Keep desired decks in a single path index and sort emitted operations directly. Derive filtered-deck exclusions only for card assignments, reuse Resources for moved bindings and the pinned typed protobuf clone API, and use bounded member-ordinal slices. Verify declaration-order independence and resulting filtered kinds before implementation; preserve reports, ownership and executable-plan contracts.</p>
+<p>OpenSpec-Change: projects/anki_as_code/openspec/changes/extract-pure-planning</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">c7084c29b12b518f18fa00993c5f0ae2a5541b66</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQHGUJQYHq9HiBl4S08hvwDaY1fwOeEWqYF6K0NqJ9gFlA5&#43;nKyIDvHjMqQ40h7T27k
+gGBPInM7VSzhK5ggshRww=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Rebuild collection archives independently of reconciliation</p>
+<p>Add internal/rebuild.Builder with an injected apply operation. It copies a
+regular collection package into private staging beside the destination,
+rejects source aliases, and publishes only after successful native work.
+Failure and cancellation preserve the base and existing output, including
+both context cancellation and its custom cause for errors.Is.</p>
+<p>Native E2E coverage updates actual Anki state and verifies changed/no-op
+packages, failed publication, cancellation, panic cleanup and invalid paths.
+It emits collection archives and JSON state. No dependencies are added.</p>
+<p>This is the independent build prerequisite for #128; application and CLI
+integration remain there.</p>
+<p>OpenSpec-Change: projects/anki_as_code/openspec/changes/extract-archive-builder</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">fdc24da80367d206eced1593c5429d8399bd104e</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQMc8dJ3At4NFhei4lnMHnh&#43;r1GxyseoS5S1uc45YRyC7nMiAMlNzdEap1ZHMqFa7Fp
+x1GAvKeHMQgcJ85zcM&#43;gM=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Order Anki lessons and Guzhenren notes by source creation IDs</p>
+<p>Use each grammar lesson&rsquo;s earliest note creation ID for its padded prefix,
+with deck IDs only for the four empty lessons. Preserve the chronological
+sequence within lessons and number Guzhenren vocabulary files within their
+existing passage groups; retain all 133 sentences in chapter reading order.</p>
+<p>Update explicit moves while preserving every note, deck, type and exported
+state payload. Verify the native rebuild, source identities, content, media,
+due dates and review history, plus an empty post-build plan.</p>
+<p>OpenSpec-Change: users/simeonwarren/anki/openspec/changes/refresh-collection-20261017</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">7e75672ab753ff2ea0da58378ed938cf4edaa80c</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQFtGXlES&#43;tUctwBSI4Ro6kOvTfY2II7dQjMus0KjouGk3mZWMH93Fmj9zRXbzs8GVJ
+LbWh&#43;k2sE&#43;K9gACqOtoQA=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Add explicit Anki backend access and complete Go schemas</p>
+<p>Add a gRPC backend for explicit TCP/Unix endpoints and opt-in collection archive write-back. Keep WriteBack false by default, publish enabled archives independently of earlier RPC failures, and retain recoverable files when publication fails. Keep native executable configuration explicit and strip symbols from optimized workers.</p>
+<p>Expose all 25 pinned Anki Go schema packages through one third-party catalog and standard protobuf generation. Preserve upstream versions and approved dependencies. Verify native backend persistence, remote ownership, transport behavior and existing application consumers.</p>
+<p>This is the backend/schema prerequisite for <a href="https://github.com/alwaldend/src/pull/173">https://github.com/alwaldend/src/pull/173</a>. Both PRs target master; the CLI PR will be trimmed after this merges. Application command registration and its generator remain with anki_as_code. Preserve the current worker runtime build input until the CLI embedding change replaces it, so existing master application consumers remain functional.</p>
+<p>OpenSpec-Change: projects/anki_grpc/openspec/changes/add-explicit-backend-access
+OpenSpec-Change: infra/src/openspec/changes/complete-anki-go-protos</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">7a9de99a2f60162384ddf83dce541b249193bde8</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQOAu4dI&#43;kuVQwtlRyHaEEeiGMlv1rm8xvjHBgEBdPWgSqxzKgBLtiDfpDhG5jcWIQ6
+gx5TLmNFtLoc2IXvJQBg8=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Link the Anki server into the CLI executable</p>
+<p>Collection commands launch the current executable with server serve, so an installed
+anki_as_code needs no companion executable, extraction or PATH discovery.
+Keep process isolation and the existing bounded backend shutdown behavior.</p>
+<p>Share the Rust transport, command dispatch and descriptor generator between the
+standalone command and one argc/argv C ABI entry point linked through cgo using
+existing Bazel rules. Require explicit worker configuration for Go application
+collection operations, remove production discovery and the implicit standalone
+worker runtime input, and configure the product worker with its own executable.
+Name the Go host package ankiserver and its client-side lifecycle package
+ankiclient. Keep server run as a generic native CLI passthrough and make
+server serve delegate to server run serve. Rust owns serve dispatch, help,
+transport arguments and validation.</p>
+<p>Target master independently of API CLI PR #173. Verify installed native
+operations with an empty PATH and unavailable temporary storage, missing worker
+configuration, explicit library workflows, TCP/Unix interruption, and native
+collection persistence. Test fixtures declare their executable inputs.</p>
+<p>OpenSpec-Change: projects/anki_grpc/openspec/changes/expose-linked-server
+OpenSpec-Change: projects/anki_as_code/openspec/changes/run-linked-server
+OpenSpec-Change: infra/src/openspec/changes/complete-anki-go-protos</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">52633104989781cfc5cf4aae1b0bda82f2280855</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQAlgJgIzxgDiNQGIzsZvizpY5IaO8DrflS9NttdafDLbsGMmtQUtDBbCpsSGTQnFmI
+rwxWZtZYs138iJ8haJkwk=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Expose Anki services through the CLI</p>
+<p>Generate service and method commands from all 25 compiled Anki schemas,
+with protobuf JSON/TOML input and output and no per-method wrappers.
+Route execution and validation through one shared App operation supporting
+managed offline paths, borrowed connections and explicit TCP/Unix servers.</p>
+<p>Use the linked server through the same executable. Preserve caller-owned
+resources and make managed archive write-back explicit, enabled by the CLI
+and existing application workflows independently of request outcomes.
+Bound incomplete input by cancellation and timeout, and preserve linked
+Unix server lifetime across client disconnections.</p>
+<p>Verify installed execution, payloads, persistence, native connection
+ownership and package boundaries through end-to-end workflows.</p>
+<p>OpenSpec-Change: projects/anki_as_code/openspec/changes/add-grpc-api-cli</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">553fa45551d8f56d8f3f7faff5110f50e364ec09</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQA67cuGDdLrv5uuGFe8D63nt4prFv7JWsNWlggpO9n6LhTzHwTx4SQBAukRyiU3&#43;mo
+ubm4I6djHcntygmxrY6AU=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul></div>
+    </div>
+  </div>
+</div><div class="accordion mt-2" id="print-061c45c5f1d85830b9d3da33bcebe86a-release-061c45c5f1d85830b9d3da33bcebe86a-page-1_accordion">
+  <div class="accordion-item">
+    <h3 class="accordion-header" id="print-061c45c5f1d85830b9d3da33bcebe86a-release-061c45c5f1d85830b9d3da33bcebe86a-page-1">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#print-061c45c5f1d85830b9d3da33bcebe86a-release-061c45c5f1d85830b9d3da33bcebe86a-page-1_collapse"
+        aria-expanded="true"
+        aria-controls="print-061c45c5f1d85830b9d3da33bcebe86a-release-061c45c5f1d85830b9d3da33bcebe86a-page-1_collapse"
+      >Artifacts<span class="badge rounded-pill bg-secondary ms-1">1</span>
+</button>
+    </h3>
+    <div
+      id="print-061c45c5f1d85830b9d3da33bcebe86a-release-061c45c5f1d85830b9d3da33bcebe86a-page-1_collapse"
+      class="accordion-collapse collapse show"
+      aria-labelledby="print-061c45c5f1d85830b9d3da33bcebe86a-release-061c45c5f1d85830b9d3da33bcebe86a-page-1"
+      data-bs-parent="#print-061c45c5f1d85830b9d3da33bcebe86a-release-061c45c5f1d85830b9d3da33bcebe86a-page-1_accordion"
+    >
+      <div class="accordion-body"><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <a href="https://hub.docker.com/repository/docker/alwaldend/src/tags/projects_anki_grpc_anki_grpc_head/">anki_grpc</a>
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Type
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">File</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Pull
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">oras pull --output &#34;${PWD}&#34; docker.io/alwaldend/src:projects_anki_grpc_anki_grpc_head</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Size
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">89.34 MB</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                SHA-256
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">bca0ef1e7cb94ee309e2d9123c5d1b6fce9cd3fca8f40475c26500c4f596a9bc</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                MD5
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">61c5960dbd5c6e805543624cbde7c1ee</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="td-footer__left col-6 col-sm-4 order-sm-1">
+        
+      </div><div class="td-footer__right col-6 col-sm-4 order-sm-3">
+        
+      </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
+        Built with <a href="https://gohugo.io/">Hugo 0.165.0</a>
+
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script src="/js/main.min.259204f469f58eb3b665605a24e964264772df2adaded180b3669b6ce33d84c8.js" integrity="sha256-JZIE9Gn1jrO2ZWBaJOlkJkdy3yra3tGAs2abbOM9hMg=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.decf3b53d8827d840369f490775626e2a5200e150a733f78f0081c126426cbbf.js" integrity="sha256-3s87U9iCfYQDafSQd1Ym4qUgDhUKcz948AgcEmQmy78=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+<script defer src="/js/navigation.min.ebe4a5cec68dcbd2949f47dba93e62fffa384b015d593c677eb81ff490348151.js" integrity="sha256-6&#43;SlzsaNy9KUn0fbqT5i//o4SwFdWTxnfrgf9JA0gVE=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

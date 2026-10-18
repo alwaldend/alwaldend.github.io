@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="Gazelle">
 	<meta itemprop="description" content="Repository BUILD file generation">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
-	<meta itemprop="wordCount" content="53">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
+	<meta itemprop="wordCount" content="64">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Gazelle">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -201,8 +201,9 @@ them for all packages. Root <code>//:gazelle</code> and <code>//:gazelle_bin</co
 entry points.</p>
 <p><code>//tools/gazelle:gazelle_python_manifest.update</code> refreshes root
 <code>gazelle_python.yaml</code>; <code>//tools/gazelle:gazelle_python_manifest.test</code> validates
-its integrity against root <code>requirements.txt</code>. Keeping the manifest at the
-repository root preserves Python dependency discovery in every package.</p>
+its integrity against <code>tools/py/uv.lock</code>. The manifest stays at the
+repository root for default ancestor discovery. It can live elsewhere if the
+root BUILD file sets <code>gazelle:python_manifest_file_name</code> to its relative path.</p>
 
 </div>
 </div>

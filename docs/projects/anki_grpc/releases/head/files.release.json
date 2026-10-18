@@ -1,0 +1,32 @@
+{
+    "items":  [
+        {
+            "file":  {
+                "hashes":  [
+                    {
+                        "algo":  "SHA-256",
+                        "content":  "bca0ef1e7cb94ee309e2d9123c5d1b6fce9cd3fca8f40475c26500c4f596a9bc"
+                    },
+                    {
+                        "algo":  "MD5",
+                        "content":  "61c5960dbd5c6e805543624cbde7c1ee"
+                    }
+                ],
+                "name":  "anki_grpc",
+                "safeName":  "anki_grpc",
+                "size":  "93679840"
+            },
+            "deployments":  [
+                {
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
+                            "docker.io/alwaldend/src:_anki_grpc_"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "project":  {}
+}

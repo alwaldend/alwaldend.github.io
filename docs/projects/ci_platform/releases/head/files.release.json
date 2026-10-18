@@ -1,26 +1,26 @@
 {
-    "items": [
+    "items":  [
         {
-            "file": {
-                "hashes": [
+            "file":  {
+                "hashes":  [
                     {
-                        "algo": "SHA-256",
-                        "content": "ad30f99eba70f88cf1d79350837b0740d4201beb80436b52208d7522f3f622c4"
+                        "algo":  "SHA-256",
+                        "content":  "664e64fcabe099cb3fd4205fd9ecf59e138464b7f8b07860ca3027554e6c115b"
                     },
                     {
-                        "algo": "MD5",
-                        "content": "e5533d5223117cbfefdb3af620855bbf"
+                        "algo":  "MD5",
+                        "content":  "9f2753b95336b814208089054283f4d0"
                     }
                 ],
-                "name": "go",
-                "safeName": "go",
-                "size": "22482304"
+                "name":  "go",
+                "safeName":  "go",
+                "size":  "22494400"
             },
-            "deployments": [
+            "deployments":  [
                 {
-                    "oci": {
-                        "repository": "docker.io/alwaldend/src",
-                        "tags": [
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
                             "docker.io/alwaldend/src:_go_"
                         ]
                     }
@@ -28,5 +28,5 @@
             ]
         }
     ],
-    "project": {}
+    "project":  {}
 }

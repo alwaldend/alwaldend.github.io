@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="Dns">
 	<meta itemprop="description" content="Project-owned DNS declarations for alwaldend.com">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
-	<meta itemprop="wordCount" content="652">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
+	<meta itemprop="wordCount" content="677">
 	<meta itemprop="keywords" content="Dns,Terraform">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Dns">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -261,6 +261,9 @@ This is the multi-page printable view of this section.
 through the reusable <a href="/docs/projects/tf_modules/dns_records/">Terraform DNS module</a>
 from its designated <code>tf_setup</code> or <code>tf</code> root. This component&rsquo;s
 <a href="dnsconfig.json">dnsconfig.json</a> owns shared apex and mail records.</p>
+<h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-architecture">Architecture<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-architecture" aria-label="Heading self-link"></a></h2><p>This diagram describes the maintained architecture source, not live inventory or service health.
+The <a href="/docs/infra/dns/docs/architecture.mmd">Mermaid source</a> is authoritative; Bazel renders its light and dark SVGs.</p>
+<p><a href="/docs/infra/dns/docs/assets/architecture.svg"><span class="mermaid-diagram"><img src="/docs/infra/dns/docs/assets/architecture.svg" alt="DNS architecture" loading="lazy" class="mermaid-light"><img src="/docs/infra/dns/docs/assets/architecture.dark.svg" alt="DNS architecture" loading="lazy" class="mermaid-dark"></span></a></p>
 <h2 id="print-96520b58d4fcbdeb2ce1fb77f32b72c4-declaration-pages">Declaration pages<a class="td-heading-self-link" href="#print-96520b58d4fcbdeb2ce1fb77f32b72c4-declaration-pages" aria-label="Heading self-link"></a></h2><p><a href="/docs/infra/dns/cloudflare_dns/">Cloudflare DNS</a> and <a href="/docs/infra/dns/mikrotik_dns/">Mikrotik DNS</a> list the
 records this repository declares for each destination view, with the owning
 declaration for every record. They are manually refreshed snapshots of

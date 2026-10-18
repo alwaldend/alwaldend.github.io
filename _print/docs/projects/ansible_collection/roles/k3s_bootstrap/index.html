@@ -45,7 +45,8 @@
 
 	<meta itemprop="name" content="K3s bootstrap">
 	<meta itemprop="description" content="Bootstrap k3s cluster">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
+	<meta itemprop="wordCount" content="70">
 	<meta itemprop="keywords" content="Ansible_role">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="K3s bootstrap">
@@ -145,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -213,7 +214,13 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p>The role declares Python and uv as host packages, creates its Kubernetes virtual
+environment with <code>uv venv</code>, and installs the Python client with <code>uv pip install</code>.
+The environment is created only when its interpreter is missing; package installs
+report changes only when uv installs or removes distributions. These operations
+run during an explicitly authorized role deployment and require package-index
+access. Repository validation builds and renders the role without deploying it.</p>
+
 </div>
 </div>
 
@@ -233,7 +240,7 @@ This is the multi-page printable view of this section.
     
 
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c5427a830d474331a32ebec771196c6f">1 - Defaults</h1>
     <div class="lead">Defaults for k3s_bootstrap</div>

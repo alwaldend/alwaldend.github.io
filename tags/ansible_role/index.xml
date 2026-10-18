@@ -177,7 +177,7 @@
 				<link>https://alwaldend.com/docs/projects/ansible_collection/roles/k3s_bootstrap/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/projects/ansible_collection/roles/k3s_bootstrap/</guid>
-				<description></description>
+				<description>&lt;p&gt;The role declares Python and uv as host packages, creates its Kubernetes virtual&#xA;environment with &lt;code&gt;uv venv&lt;/code&gt;, and installs the Python client with &lt;code&gt;uv pip install&lt;/code&gt;.&#xA;The environment is created only when its interpreter is missing; package installs&#xA;report changes only when uv installs or removes distributions. These operations&#xA;run during an explicitly authorized role deployment and require package-index&#xA;access. Repository validation builds and renders the role without deploying it.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>K3s cluster</title>

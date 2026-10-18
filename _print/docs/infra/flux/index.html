@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="flux">
 	<meta itemprop="description" content="Fluxcd deployment">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
-	<meta itemprop="wordCount" content="100">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
+	<meta itemprop="wordCount" content="125">
 	<meta itemprop="keywords" content="Flux,Ansible,Pve,K3s">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="flux">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -344,7 +344,10 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <h2 id="print-84316393df228d529aa8351a82d6a499-links">Links<a class="td-heading-self-link" href="#print-84316393df228d529aa8351a82d6a499-links" aria-label="Heading self-link"></a></h2><ul>
+      <h2 id="print-84316393df228d529aa8351a82d6a499-architecture">Architecture<a class="td-heading-self-link" href="#print-84316393df228d529aa8351a82d6a499-architecture" aria-label="Heading self-link"></a></h2><p>This diagram describes the maintained architecture source, not live inventory or service health.
+The <a href="/docs/infra/flux/docs/architecture.mmd">Mermaid source</a> is authoritative; Bazel renders its light and dark SVGs.</p>
+<p><a href="/docs/infra/flux/docs/assets/architecture.svg"><span class="mermaid-diagram"><img src="/docs/infra/flux/docs/assets/architecture.svg" alt="Flux architecture" loading="lazy" class="mermaid-light"><img src="/docs/infra/flux/docs/assets/architecture.dark.svg" alt="Flux architecture" loading="lazy" class="mermaid-dark"></span></a></p>
+<h2 id="print-84316393df228d529aa8351a82d6a499-links">Links<a class="td-heading-self-link" href="#print-84316393df228d529aa8351a82d6a499-links" aria-label="Heading self-link"></a></h2><ul>
 <li>Site: <a href="https://fluxcd.io/">https://fluxcd.io/</a></li>
 </ul>
 <h2 id="print-84316393df228d529aa8351a82d6a499-set-up-port-forwarding">Set up port forwarding<a class="td-heading-self-link" href="#print-84316393df228d529aa8351a82d6a499-set-up-port-forwarding" aria-label="Heading self-link"></a></h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ssh -L 6443:127.0.0.1:6443 -N flux.alwaldend.com

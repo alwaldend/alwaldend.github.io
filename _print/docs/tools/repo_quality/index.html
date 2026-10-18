@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="Repository quality">
 	<meta itemprop="description" content="Whole-index formatting, linting and validation coordinator">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
-	<meta itemprop="wordCount" content="286">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
+	<meta itemprop="wordCount" content="385">
 	<meta itemprop="keywords" content="Formatter,Linter,Validation">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Repository quality">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -226,6 +226,17 @@ owning regeneration, validation or integrity workflow.</p>
 so it can inspect files that are tracked by Git but not declared in BUILD
 files. This is a local-checkout guarantee, like the root Buildifier test; tool
 acquisition remains hermetic and pinned through Bazel.</p>
+<p>The quality suite also runs pinned ast-grep against every tracked first-party
+Python file not marked <code>linguist-vendored</code> or <code>linguist-vendored=true</code>, rejecting symbol imports in
+favor of module imports and qualified member access. Formatting exclusions do
+not exempt first-party Python from this check. Explicit public re-exports
+listed in <code>__all__</code> may use direct symbol imports in <code>__init__.py</code>; wildcard
+imports remain forbidden.
+Its syntax fixtures distinguish real imports from
+comments and strings. Module from-imports are verified against source paths
+and pinned Python module specifications without executing imported packages.
+Like formatting, this complete-checkout check is local
+and uncached; downloaded external repositories are outside its coverage.</p>
 
 </div>
 </div>

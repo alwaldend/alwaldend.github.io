@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Bzl">
 	<meta itemprop="description" content="Bazel code">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Bzl">
@@ -145,7 +145,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -192,7 +192,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-c8044a5b25a6d13ba4dabeedfec882fd">al_compile_pip_requirements_combined</a></li>
+<li>1: <a href="#pg-faaae939879696ebed11566e40ca0ddf">al_genrule_with_wheels</a></li>
 
 
     
@@ -200,7 +200,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-faaae939879696ebed11566e40ca0ddf">al_genrule_with_wheels</a></li>
+<li>2: <a href="#pg-4c9b1598e7a9a82eec6d71a660f87d37">al_py_binary_shell</a></li>
 
 
     
@@ -208,7 +208,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-4c9b1598e7a9a82eec6d71a660f87d37">al_py_binary_shell</a></li>
+<li>3: <a href="#pg-ae27bc36bfc8fc1150dd8bac1763e4ab">al_py_checker</a></li>
 
 
     
@@ -216,15 +216,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-ae27bc36bfc8fc1150dd8bac1763e4ab">al_py_checker</a></li>
-
-
-    
-  
-    
-    
-	
-<li>5: <a href="#pg-159b7ecf904518ce84e02fd72bfe36e0">al_py_checkers</a></li>
+<li>4: <a href="#pg-159b7ecf904518ce84e02fd72bfe36e0">al_py_checkers</a></li>
 
 
     
@@ -256,61 +248,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-c8044a5b25a6d13ba4dabeedfec882fd">1 - al_compile_pip_requirements_combined</h1>
-    
-	
-	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
-<p><a id="print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined"></a></p>
-<h2>al_compile_pip_requirements_combined<a class="td-heading-self-link" href="#print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined" aria-label="Heading self-link"></a></h2><pre>
-load("@com_alwaldend_src//tools/py/main/bzl:al_compile_pip_requirements_combined.bzl", "al_compile_pip_requirements_combined")
-
-al_compile_pip_requirements_combined(<a href="#print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined-name">name</a>, <a href="#print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined-srcs">srcs</a>, <a href="#print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined-kwargs">**kwargs</a>)
-</pre>
-<p>Create compile_pip_requirements target for several requirement files</p>
-<p><strong>PARAMETERS</strong></p>
-<table>
-	<thead>
-			<tr>
-					<th style="text-align: left">Name</th>
-					<th style="text-align: left">Description</th>
-					<th style="text-align: left">Default Value</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td style="text-align: left"><a id="print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined-name"></a>name</td>
-					<td style="text-align: left">compile_pip_requirements name</td>
-					<td style="text-align: left">none</td>
-			</tr>
-			<tr>
-					<td style="text-align: left"><a id="print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined-srcs"></a>srcs</td>
-					<td style="text-align: left">list of labels of requirement files to combine</td>
-					<td style="text-align: left">none</td>
-			</tr>
-			<tr>
-					<td style="text-align: left"><a id="print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined-kwargs"></a>kwargs</td>
-					<td style="text-align: left">kwargs for <code>compile_pip_requirements</code></td>
-					<td style="text-align: left">none</td>
-			</tr>
-	</tbody>
-</table>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-faaae939879696ebed11566e40ca0ddf">2 - al_genrule_with_wheels</h1>
+	<h1 id="pg-faaae939879696ebed11566e40ca0ddf">1 - al_genrule_with_wheels</h1>
     
 	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
@@ -374,7 +312,7 @@ al_genrule_with_wheels(<a href="#print-5c28932ffd7db34821bebb6fbaa7893b-al_genru
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-4c9b1598e7a9a82eec6d71a660f87d37">3 - al_py_binary_shell</h1>
+	<h1 id="pg-4c9b1598e7a9a82eec6d71a660f87d37">2 - al_py_binary_shell</h1>
     
 	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
@@ -443,7 +381,7 @@ al_py_binary_shell(<a href="#print-750b5ccdae92d1ae7e79946efe7841fe-al_py_binary
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ae27bc36bfc8fc1150dd8bac1763e4ab">4 - al_py_checker</h1>
+	<h1 id="pg-ae27bc36bfc8fc1150dd8bac1763e4ab">3 - al_py_checker</h1>
     
 	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
@@ -517,7 +455,7 @@ al_py_checker(<a href="#print-070b5dc3422c00def45ba97767c7072f-al_py_checker-nam
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-159b7ecf904518ce84e02fd72bfe36e0">5 - al_py_checkers</h1>
+	<h1 id="pg-159b7ecf904518ce84e02fd72bfe36e0">4 - al_py_checkers</h1>
     
 	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->

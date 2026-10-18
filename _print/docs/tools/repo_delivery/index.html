@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="Repository delivery">
 	<meta itemprop="description" content="Guarded Git and pull-request delivery">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
-	<meta itemprop="wordCount" content="2867">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
+	<meta itemprop="wordCount" content="3104">
 	<meta itemprop="keywords" content="Git,Github">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Repository delivery">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -198,6 +198,11 @@ This is the multi-page printable view of this section.
       <p><code>repo_delivery</code> implements the deterministic part of repository delivery. It
 invokes native Git and a selected forge CLI; it does not infer task ownership,
 choose validation commands, resolve conflicts, or judge review feedback.</p>
+<p>Status and immutable changed-path inventories, and preparation receipts,
+support complete output up to 4 MiB so large source relocations can use the
+guarded workflow. Stable reads and writes enforce that
+limit; other typed local records retain their 256 KiB limit. Receipt schema,
+scope, integrity, and publication checks apply at either size.</p>
 <h2 id="print-e5d718520ef5395ddf24170568b5cb5a-provider-and-delivery-workflow">Provider and delivery workflow<a class="td-heading-self-link" href="#print-e5d718520ef5395ddf24170568b5cb5a-provider-and-delivery-workflow" aria-label="Heading self-link"></a></h2><p>Run delivery commands from this Git worktree&rsquo;s repository root, which owns the
 root <code>MODULE.bazel</code> and <code>tools/repo_delivery</code>. This also applies when changed
 files belong to a nested Bazel module: its workspace does not own the delivery
@@ -442,7 +447,26 @@ race and attempts an exact guarded rollback. Coordinate consumers that react
 immediately to branch-update webhooks.</p>
 <h2 id="print-e5d718520ef5395ddf24170568b5cb5a-review-workflow">Review workflow<a class="td-heading-self-link" href="#print-e5d718520ef5395ddf24170568b5cb5a-review-workflow" aria-label="Heading self-link"></a></h2><p>Start with a bounded structured inventory:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/repo_delivery -- review inspect
-</span></span></code></pre></div><p>Carry values from the latest inspection literally. All mutations require the
+</span></span></code></pre></div><p>For feedback on an exact candidate with recorded passing validation that is
+already published, use one command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">out/task/repo_delivery review address <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --receipt-file out/task/prepare.json <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --thread-id &lt;thread-id&gt; --body-file out/task/reply.md
+</span></span></code></pre></div><p><code>address</code> verifies the publication and validation evidence, derives current
+provider guards, posts the reasoned reply, saves its receipt, and resolves the
+thread. The default reply receipt path is derived from the preparation receipt
+and thread; <code>--reply-receipt-file</code> selects an explicit path in the same task
+directory. A durable attempt checkpoint beside that file prevents duplicate
+replies after interruption, success, or an unknown reply outcome. Retry with
+the same paths after an explicitly reported read-failure restoration to resume
+resolution using the unchanged receipt and expiry. Expired, consumed, or
+changed authority stops without reposting. Inspect the actual remote state
+before explicitly selecting a fresh receipt path for recovery. Keep checkpoints
+trusted and do not delete them to bypass this protection.</p>
+<p>Thread inventory includes each thread&rsquo;s first comment page in its enclosing
+request. Only additional comment pages need separate queries. All pages retain
+shared byte, node, request, cursor, and metadata consistency checks.</p>
+<p>The low-level commands remain available. Carry values from the latest inspection literally. All mutations require the
 pull-request node ID, expected head, and pull-request expectation digest. A
 top-level reply also requires the
 reported last-comment sentinel and top-level inventory digest:</p>
@@ -493,7 +517,7 @@ Reinspect after every mutation and use the newly reported IDs and digests for
 the next one.
 The one-use reply authority expires no more than five minutes after issuance.
 Resolution verifies the authority window and atomically consumes the receipt
-before contacting the provider. If a provider read fails before any resolution
+before contacting the provider. If a provider read fails or the review epoch advances before any resolution
 mutation is attempted, the tool can restore the original unexpired receipt
 without replacing another file or extending its authority window. Only an
 explicit restoration report permits retry with that receipt; no additional

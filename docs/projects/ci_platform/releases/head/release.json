@@ -1,26 +1,26 @@
 {
-    "items": [
+    "items":  [
         {
-            "file": {
-                "hashes": [
+            "file":  {
+                "hashes":  [
                     {
-                        "algo": "SHA-256",
-                        "content": "ad30f99eba70f88cf1d79350837b0740d4201beb80436b52208d7522f3f622c4"
+                        "algo":  "SHA-256",
+                        "content":  "664e64fcabe099cb3fd4205fd9ecf59e138464b7f8b07860ca3027554e6c115b"
                     },
                     {
-                        "algo": "MD5",
-                        "content": "e5533d5223117cbfefdb3af620855bbf"
+                        "algo":  "MD5",
+                        "content":  "9f2753b95336b814208089054283f4d0"
                     }
                 ],
-                "name": "go",
-                "safeName": "go",
-                "size": "22482304"
+                "name":  "go",
+                "safeName":  "go",
+                "size":  "22494400"
             },
-            "deployments": [
+            "deployments":  [
                 {
-                    "oci": {
-                        "repository": "docker.io/alwaldend/src",
-                        "tags": [
+                    "oci":  {
+                        "repository":  "docker.io/alwaldend/src",
+                        "tags":  [
                             "docker.io/alwaldend/src:projects_ci_platform_go_head"
                         ]
                     }
@@ -28,318 +28,318 @@
             ]
         }
     ],
-    "name": "head",
-    "project": {
-        "subdir": "projects/ci_platform",
-        "safeSubdir": "projects_ci_platform"
+    "name":  "head",
+    "project":  {
+        "subdir":  "projects/ci_platform",
+        "safeSubdir":  "projects_ci_platform"
     },
-    "git": {
-        "revision": {
-            "hash": "ba3691efe0008394e44f753c63222c1728e61e32",
-            "author": {
-                "name": "simeonwarrenbot",
-                "email": "simeonwarrenbot@alwaldend.com",
-                "when": "1790977463"
+    "git":  {
+        "revision":  {
+            "hash":  "535e322b5aa014f65589439f18bb9a5035ff4ddb",
+            "author":  {
+                "name":  "simeonwarrenbot",
+                "email":  "simeonwarrenbot@alwaldend.com",
+                "when":  "1792341360"
             },
-            "committer": {
-                "name": "simeonwarrenbot",
-                "email": "simeonwarrenbot@alwaldend.com",
-                "when": "1791036190"
+            "committer":  {
+                "name":  "simeonwarrenbot",
+                "email":  "simeonwarrenbot@alwaldend.com",
+                "when":  "1792341460"
             },
-            "pgpSignature": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQP9kpy2IjqtbAbD2DHG+quSQYjLVNuiHwGZ41E5BrJtdRU1TDOBfbj6+WEZj0NSJxo\ncvQZcm0IaTw64fCKPf8w8=\n-----END SSH SIGNATURE-----\n",
-            "message": "Fix X Article uploads, payload artifacts and blog covers\n\nThe full article failed with HTTP 503 because X currently rejects header-three,\nalthough its published schema permits it. Clamp third-level and deeper Markdown\nheadings to header-two while preserving their text. A controlled full-post upload\nsucceeded with only that block type changed; the converter now reproduces the\naccepted payload. Update the existing conversion checks and mapping contract.\n\nUse 5:2 image files for both existing blog headers, matching X Article cover\ndisplay. Add optional aspect-ratio padding to the hermetic Mermaid WebP renderer,\npreserve each diagram's complete content and theme, and arrange the upload\npipeline for the wider canvas. Validate intrinsic and displayed dimensions,\ncontent placement, backgrounds, and unchanged default raster behavior.\nEncourage optional WebP headers in images with a 5:2 canvas in the blog skill,\nand cover the guidance in its existing offline evaluation configuration.\n\nAdd the official xurl v1.3.4 CLI through a checksum-pinned Linux x86-64 toolchain\nand repository wrapper for independent API diagnostics.\n\nNest X request fields under payload and retain local media locators alongside\nit. Report diagnostics only to stderr, fail command conversion on warnings by\ndefault, and allow an explicit warnings-as-errors override. Reject legacy flat\nartifacts before upload and attach resolved banner IDs inside the payload.\nValidate the CLI contract with executable E2E cases and update its specification\nand upload guidance.\n\nExpand the blog explanation with example X payload and offline artifact JSON,\nclarify Hugo render-hook limitations and media resolution, and align its heading\nshowcase with the upload fix. Preserve the reviewed author wording.\n\nOpenSpec-Change: projects/x_article_uploader/openspec/changes/wrap-article-payload\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
+            "pgpSignature":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQMZ5CBxg8tz5/VkrGvhLfTt1X2fevzREsn2QHt2VPeFn93/ZBR5Kaw4ZiadI7ogWqf\n77+2Qn7IgdiyqsrEEsMQA=\n-----END SSH SIGNATURE-----\n",
+            "message":  "Generate a single Anki CLI reference during documentation builds\n\nRender the existing Cobra command tree with a project-local tool and package\none generated page with the docs. Include nested Anki API command help,\naliases, inherited flags, and native forwarding guidance without running\napplication workflows or checking generated Markdown into Git.\n\nOpenSpec-Change: projects/anki_as_code/openspec/changes/generate-cli-reference\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
         },
-        "commits": [
+        "commits":  [
             {
-                "hash": "a988d4c3561ca6d5e5c0f079f387a3ae8fd76160",
-                "author": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren@alwaldend.com",
-                    "when": "1789856994"
+                "hash":  "a988d4c3561ca6d5e5c0f079f387a3ae8fd76160",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren@alwaldend.com",
+                    "when":  "1789856994"
                 },
-                "committer": {
-                    "name": "GitHub",
-                    "email": "noreply@github.com",
-                    "when": "1789856994"
+                "committer":  {
+                    "name":  "GitHub",
+                    "email":  "noreply@github.com",
+                    "when":  "1789856994"
                 },
-                "pgpSignature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqrwziCRC1aQ7uu5UhlAAA0qgQAKWaf/ehKSQH85SxgNGIsEVg\nIoudVQCfrdakNdIBREyR/hKCLk+zSu7OWYPfybz/9i+7/8DODPNUM7j+5V5NJlLm\nycNo741vUImLVcV71AG9DVuGwqpX3g4qvogmE+H6vgTTlYjWE6XOpBMGZtVT1nAL\nFY42FVr4aAm4+w6z5MaIrqQwaKZ85eW6fOWiKFFfHzp33D9dOIWck4P6xF16hCnw\nhC+WijvwDj6xeke+BdYo6NzLCbs6l2hk8eYbhsDr9d2QiHoVafPYfLkK7W5uYOG1\n7+aXwGKj/hqy0rVCknSbRQTS4awYzwlxBaRt+d9ZH94nn0uqYshR4aQ/V03l9RuH\nBs7MeD228mU0R2BX9Bqrb2lY9i+EAeBPTYb2d8T4JM19ntigC6voNHsw8/ktaNjy\ni+mjZJFdyyyKdveKwhn//vcZK9kMwSb79ZcUIjbH4RMbRHqR3dyGivx+dVqLJdZ9\nC33AyzmOZHgp2rYpWxEes0Jc65t2Ik5Qrsk8U3MfzAQAIYIAvmTaOJudBp3GkDYR\nNu1OPQe6QB5HWPo2i3ZdE5SbMNt3qfYybfb1TrUBHdM8hhorNxECEHJ6PHTDzxVl\n17A2rLt/Ld1QwR+w+zuKug899JWip3rZ+W4MAR661XqZVwmXkO6xZdv6IiMVQfJd\nIBNITq0Eia15xg4ncKhV\n=4aHs\n-----END PGP SIGNATURE-----\n\n",
-                "message": "Merge pull request #95 from alwaldend/t3code/consolidate-project-landing-pages\n\nMove project landings into the main site"
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqrwziCRC1aQ7uu5UhlAAA0qgQAKWaf/ehKSQH85SxgNGIsEVg\nIoudVQCfrdakNdIBREyR/hKCLk+zSu7OWYPfybz/9i+7/8DODPNUM7j+5V5NJlLm\nycNo741vUImLVcV71AG9DVuGwqpX3g4qvogmE+H6vgTTlYjWE6XOpBMGZtVT1nAL\nFY42FVr4aAm4+w6z5MaIrqQwaKZ85eW6fOWiKFFfHzp33D9dOIWck4P6xF16hCnw\nhC+WijvwDj6xeke+BdYo6NzLCbs6l2hk8eYbhsDr9d2QiHoVafPYfLkK7W5uYOG1\n7+aXwGKj/hqy0rVCknSbRQTS4awYzwlxBaRt+d9ZH94nn0uqYshR4aQ/V03l9RuH\nBs7MeD228mU0R2BX9Bqrb2lY9i+EAeBPTYb2d8T4JM19ntigC6voNHsw8/ktaNjy\ni+mjZJFdyyyKdveKwhn//vcZK9kMwSb79ZcUIjbH4RMbRHqR3dyGivx+dVqLJdZ9\nC33AyzmOZHgp2rYpWxEes0Jc65t2Ik5Qrsk8U3MfzAQAIYIAvmTaOJudBp3GkDYR\nNu1OPQe6QB5HWPo2i3ZdE5SbMNt3qfYybfb1TrUBHdM8hhorNxECEHJ6PHTDzxVl\n17A2rLt/Ld1QwR+w+zuKug899JWip3rZ+W4MAR661XqZVwmXkO6xZdv6IiMVQfJd\nIBNITq0Eia15xg4ncKhV\n=4aHs\n-----END PGP SIGNATURE-----\n\n",
+                "message":  "Merge pull request #95 from alwaldend/t3code/consolidate-project-landing-pages\n\nMove project landings into the main site"
             },
             {
-                "hash": "6cb4d63c7b473cbff738332389c05168b9158cc4",
-                "author": {
-                    "name": "simeonwarrenbot",
-                    "email": "simeonwarrenbot@alwaldend.com",
-                    "when": "1789324459"
+                "hash":  "6cb4d63c7b473cbff738332389c05168b9158cc4",
+                "author":  {
+                    "name":  "simeonwarrenbot",
+                    "email":  "simeonwarrenbot@alwaldend.com",
+                    "when":  "1789324459"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
-                    "when": "1789386907"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
+                    "when":  "1789386907"
                 },
-                "message": "Manage forge resources with hermetic Terraform rules\n\nCentralize organization, repository, and named access configuration in\ninfra/repos. Adopt existing GitHub resources, protect master defaults while\nretaining Pages publication on pages, and preserve existing repository\nidentities. Manage GitLab one-time imports, the F-Droid metadata fork, and\ndefault-branch protections through Vault-backed authentication. Forgejo\nconsumes the same catalog. Ongoing repository synchronization is deferred.\n\nRetire the eleven Bazel rule landing sites through their owning Terraform\nworkflows, removing their DNS records, Pages repositories, and landing\nconfiguration. Move all twelve existing standalone rule modules into tools/\nand retain their public interfaces and documentation on the main site.\n\nAdd tools/rules_terraform with verified provider downloads, packed mirrors\nin runfiles, and reusable Terraform execution rules. Enforce one version per\nprovider source at an extensible resolution boundary. Migrate every Terraform\nconsumer to thirteen shared provider pins in third_party/terraform. Execution\nand command maps belong to rules_terraform; consumers explicitly select generic\nAL wrappers for authentication and Vault injection. Remove tools/terraform\nand all 43 checked-in Terraform provider locks.\nValidate installed providers against the declared archives before execution.\n\nValidation covers all fourteen workspace builds, all thirteen standalone\ntest suites, Terraform consumers, offline real-provider regressions, rendered\ndocumentation, formatting, and semantic lint. The full root test run has\n295 passing tests and one skip; its only failure is the historical secret\nscan, reduced to four pre-existing synthetic fixture matches. Earlier live\nimports and the exact landing retirement scope have verified postconditions;\nthe Terraform rules migration uses only offline implementation checks.\n\nOpenSpec-Change: infra/repos/openspec/changes/archive/2026-09-13-adopt-shared-repository-catalog\nOpenSpec-Change: infra/src/openspec/changes/archive/2026-09-13-retire-bazel-rule-landings\nOpenSpec-Change: tools/rules_terraform/openspec/changes/archive/2026-09-14-add-hermetic-terraform-rules\nOpenSpec-Change: tools/rules_terraform/openspec/changes/archive/2026-09-14-correct-terraform-ownership\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
+                "message":  "Manage forge resources with hermetic Terraform rules\n\nCentralize organization, repository, and named access configuration in\ninfra/repos. Adopt existing GitHub resources, protect master defaults while\nretaining Pages publication on pages, and preserve existing repository\nidentities. Manage GitLab one-time imports, the F-Droid metadata fork, and\ndefault-branch protections through Vault-backed authentication. Forgejo\nconsumes the same catalog. Ongoing repository synchronization is deferred.\n\nRetire the eleven Bazel rule landing sites through their owning Terraform\nworkflows, removing their DNS records, Pages repositories, and landing\nconfiguration. Move all twelve existing standalone rule modules into tools/\nand retain their public interfaces and documentation on the main site.\n\nAdd tools/rules_terraform with verified provider downloads, packed mirrors\nin runfiles, and reusable Terraform execution rules. Enforce one version per\nprovider source at an extensible resolution boundary. Migrate every Terraform\nconsumer to thirteen shared provider pins in third_party/terraform. Execution\nand command maps belong to rules_terraform; consumers explicitly select generic\nAL wrappers for authentication and Vault injection. Remove tools/terraform\nand all 43 checked-in Terraform provider locks.\nValidate installed providers against the declared archives before execution.\n\nValidation covers all fourteen workspace builds, all thirteen standalone\ntest suites, Terraform consumers, offline real-provider regressions, rendered\ndocumentation, formatting, and semantic lint. The full root test run has\n295 passing tests and one skip; its only failure is the historical secret\nscan, reduced to four pre-existing synthetic fixture matches. Earlier live\nimports and the exact landing retirement scope have verified postconditions;\nthe Terraform rules migration uses only offline implementation checks.\n\nOpenSpec-Change: infra/repos/openspec/changes/archive/2026-09-13-adopt-shared-repository-catalog\nOpenSpec-Change: infra/src/openspec/changes/archive/2026-09-13-retire-bazel-rule-landings\nOpenSpec-Change: tools/rules_terraform/openspec/changes/archive/2026-09-14-add-hermetic-terraform-rules\nOpenSpec-Change: tools/rules_terraform/openspec/changes/archive/2026-09-14-correct-terraform-ownership\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
             },
             {
-                "hash": "cc4f205bf73b49364ba3bd441b7f485b9872e742",
-                "author": {
-                    "name": "simeonwarrenbot",
-                    "email": "simeonwarrenbot@alwaldend.com",
-                    "when": "1789248975"
+                "hash":  "cc4f205bf73b49364ba3bd441b7f485b9872e742",
+                "author":  {
+                    "name":  "simeonwarrenbot",
+                    "email":  "simeonwarrenbot@alwaldend.com",
+                    "when":  "1789248975"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
-                    "when": "1789292694"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
+                    "when":  "1789292694"
                 },
-                "message": "Deploy project DNS through Terraform modules\n\nMove DNS ownership into each project’s Terraform state using shared modules.\nLoad dnsconfig.json files at runtime, reject conflicting domain ownership,\nand render their records as a table. Add missing project AppRoles and scoped\nDNS policies, and document grouping related Terraform resources in modules.\n\nDeploy all 45 owners sequentially: adopt 155 existing records and create 13\nmissing OpenHands records. Preserve every pre-existing provider record and\nverify no-op follow-up plans and DNS answers. Add DNS-scoped plan/show/apply\nwrappers with a saved-plan guard for roots that also manage services.\nAllow bounded aggregate path inventories large enough to deliver this migration\nwhile retaining truncation refusal in the delivery tool.\n\nValidate runtime ownership, provider imports and preservation with isolated\nfixtures, Terraform formatting, wrapper builds, repository quality checks,\nsemantic lint, and project documentation/specification builds.\n\nOpenSpec-Change: infra/dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
+                "message":  "Deploy project DNS through Terraform modules\n\nMove DNS ownership into each project’s Terraform state using shared modules.\nLoad dnsconfig.json files at runtime, reject conflicting domain ownership,\nand render their records as a table. Add missing project AppRoles and scoped\nDNS policies, and document grouping related Terraform resources in modules.\n\nDeploy all 45 owners sequentially: adopt 155 existing records and create 13\nmissing OpenHands records. Preserve every pre-existing provider record and\nverify no-op follow-up plans and DNS answers. Add DNS-scoped plan/show/apply\nwrappers with a saved-plan guard for roots that also manage services.\nAllow bounded aggregate path inventories large enough to deliver this migration\nwhile retaining truncation refusal in the delivery tool.\n\nValidate runtime ownership, provider imports and preservation with isolated\nfixtures, Terraform formatting, wrapper builds, repository quality checks,\nsemantic lint, and project documentation/specification builds.\n\nOpenSpec-Change: infra/dns/openspec/changes/archive/2026-09-13-migrate-project-dns-to-terraform\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
             },
             {
-                "hash": "c50fbf5a9fe9e8a99fe26a313eefd1154f841349",
-                "author": {
-                    "name": "simeonwarrenbot",
-                    "email": "simeonwarrenbot@alwaldend.com",
-                    "when": "1788825919"
+                "hash":  "c50fbf5a9fe9e8a99fe26a313eefd1154f841349",
+                "author":  {
+                    "name":  "simeonwarrenbot",
+                    "email":  "simeonwarrenbot@alwaldend.com",
+                    "when":  "1788825919"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
-                    "when": "1788943714"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
+                    "when":  "1788943714"
                 },
-                "message": "Simplify OpenSpec workspace globs\n\nCollapse OpenSpec source globs to specs and changes, drop redundant\npackage visibility blocks already covered by REPO.bazel, and regenerate\nthe affected catalogs.\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
+                "message":  "Simplify OpenSpec workspace globs\n\nCollapse OpenSpec source globs to specs and changes, drop redundant\npackage visibility blocks already covered by REPO.bazel, and regenerate\nthe affected catalogs.\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
             },
             {
-                "hash": "491eb7e05aa1ef71ff8e01b4ad320cdc355edbee",
-                "author": {
-                    "name": "simeonwarrenbot",
-                    "email": "simeonwarrenbot@alwaldend.com",
-                    "when": "1788697537"
+                "hash":  "491eb7e05aa1ef71ff8e01b4ad320cdc355edbee",
+                "author":  {
+                    "name":  "simeonwarrenbot",
+                    "email":  "simeonwarrenbot@alwaldend.com",
+                    "when":  "1788697537"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
-                    "when": "1788706451"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
+                    "when":  "1788706451"
                 },
-                "message": "Publish project sites and reproducible infrastructure diagrams\n\nBuild and deploy all 30 remaining project sites with the standard Docsy\nheader, project descriptions and a linked documentation directory. Omit the\nrepeated page title and generated language heading. Remove\nthe unused cgit and xray_manager projects and retire their site resources.\n\nAdd a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct\nGitHub Pages DNS records. Preserve repeated publication when pages is the\nremote default branch, and include Rules ISO in the main documentation.\nDocument site onboarding in a registered, validated skill. Keep AL\nintroduction short with useful links and preserve its lifecycle details in\na dedicated documentation page.\n\nRender all 15 existing infrastructure Drawio pages with pinned Drawio and\nChrome inputs, sandboxed export actions, an update target and freshness\nchecks, and include the maintained diagrams in infra/arch documentation.\nPaint an opaque white canvas to preserve readability in dark themes.\n\nValidation covers project and apex builds, rendered pages, publisher tests,\ndiagram repeatability and freshness, DNS configuration, Terraform formatting,\nsemantic lint and repository quality.\n\nGoal-Ref: build-and-deploy-every-project-landing-page-a782b800\nAttempt-ID: attempt-00941092c164\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
+                "message":  "Publish project sites and reproducible infrastructure diagrams\n\nBuild and deploy all 30 remaining project sites with the standard Docsy\nheader, project descriptions and a linked documentation directory. Omit the\nrepeated page title and generated language heading. Remove\nthe unused cgit and xray_manager projects and retire their site resources.\n\nAdd a repeatable GitHub Pages publisher, staged Terraform bootstrap and direct\nGitHub Pages DNS records. Preserve repeated publication when pages is the\nremote default branch, and include Rules ISO in the main documentation.\nDocument site onboarding in a registered, validated skill. Keep AL\nintroduction short with useful links and preserve its lifecycle details in\na dedicated documentation page.\n\nRender all 15 existing infrastructure Drawio pages with pinned Drawio and\nChrome inputs, sandboxed export actions, an update target and freshness\nchecks, and include the maintained diagrams in infra/arch documentation.\nPaint an opaque white canvas to preserve readability in dark themes.\n\nValidation covers project and apex builds, rendered pages, publisher tests,\ndiagram repeatability and freshness, DNS configuration, Terraform formatting,\nsemantic lint and repository quality.\n\nGoal-Ref: build-and-deploy-every-project-landing-page-a782b800\nAttempt-ID: attempt-00941092c164\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
             },
             {
-                "hash": "df7e40ff27251e8b4f9a4e399658f353087619d4",
-                "author": {
-                    "name": "simeonwarrenbot",
-                    "email": "simeonwarrenbot@alwaldend.com",
-                    "when": "1788439436"
+                "hash":  "df7e40ff27251e8b4f9a4e399658f353087619d4",
+                "author":  {
+                    "name":  "simeonwarrenbot",
+                    "email":  "simeonwarrenbot@alwaldend.com",
+                    "when":  "1788439436"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
-                    "when": "1788502269"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
+                    "when":  "1788502269"
                 },
-                "message": "Extract DNSControl setup into rules_dnscontrol\n\nExtract the DNSControl setup into `rules_dnscontrol`, generate its Bazel\ndependency bundle from project-owned record files, and update the DNS\nguidance. Move Hugo rules and the worker to role-based package paths, and\ngive each non-nested project a locally owned Hugo landing target that reuses\nthe shared README-to-landing macro.\n\nClean all landing and Pages DNS records so GitHub Pages serves each project\nsubdomain directly without Cloudflare proxying. Improve the main site with\na three-panel home layout, complete project links, documentation explore\nlinks, and current deployment guidance.\n\nAll affected root-workspace landing, DNS, and site targets pass, along with\nthe nested `rules_hugo` tests, Buildifier, and repository quality checks.\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
+                "message":  "Extract DNSControl setup into rules_dnscontrol\n\nExtract the DNSControl setup into `rules_dnscontrol`, generate its Bazel\ndependency bundle from project-owned record files, and update the DNS\nguidance. Move Hugo rules and the worker to role-based package paths, and\ngive each non-nested project a locally owned Hugo landing target that reuses\nthe shared README-to-landing macro.\n\nClean all landing and Pages DNS records so GitHub Pages serves each project\nsubdomain directly without Cloudflare proxying. Improve the main site with\na three-panel home layout, complete project links, documentation explore\nlinks, and current deployment guidance.\n\nAll affected root-workspace landing, DNS, and site targets pass, along with\nthe nested `rules_hugo` tests, Buildifier, and repository quality checks.\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
             },
             {
-                "hash": "6c74af20480baad6cfbaa9bb4c42f4a33e02c450",
-                "author": {
-                    "name": "simeonwarrenbot",
-                    "email": "simeonwarrenbot@alwaldend.com",
-                    "when": "1788165814"
+                "hash":  "6c74af20480baad6cfbaa9bb4c42f4a33e02c450",
+                "author":  {
+                    "name":  "simeonwarrenbot",
+                    "email":  "simeonwarrenbot@alwaldend.com",
+                    "when":  "1788165814"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
-                    "when": "1788177939"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
+                    "when":  "1788177939"
                 },
-                "message": "Add hermetic repository-wide formatting and linting\n\nIntegrate upstream formatters for the repository's meaningful tracked source\nand configuration file types through Bazel, and add Buildifier, Ruff, and\nShellCheck lint aspects for correctness-oriented repository-wide checks.\n\nPin all new external tools through Bzlmod or the existing pnpm lock, add thin\ncache/runfiles adapters where required, expose format and check targets, and\nwire the checks into the pre-commit workflow. Format the existing tree and fix\nthe correctness defects uncovered by the new checks. Preserve generated\nsources and exact-content fixtures that are not safely rewritable, and clarify\nthat ordinary\ninfrastructure build output is safe to display.\n\nValidation:\n- all 21 repository quality and compatibility formatter tests pass\n- Buildifier test passes\n- lint aspects analyze all 4,629 ordinary root targets without findings\n- the complete 18-command root and nested full-repository audit was exercised;\n  remaining failures are documented environment or pre-existing test limits\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
+                "message":  "Add hermetic repository-wide formatting and linting\n\nIntegrate upstream formatters for the repository's meaningful tracked source\nand configuration file types through Bazel, and add Buildifier, Ruff, and\nShellCheck lint aspects for correctness-oriented repository-wide checks.\n\nPin all new external tools through Bzlmod or the existing pnpm lock, add thin\ncache/runfiles adapters where required, expose format and check targets, and\nwire the checks into the pre-commit workflow. Format the existing tree and fix\nthe correctness defects uncovered by the new checks. Preserve generated\nsources and exact-content fixtures that are not safely rewritable, and clarify\nthat ordinary\ninfrastructure build output is safe to display.\n\nValidation:\n- all 21 repository quality and compatibility formatter tests pass\n- Buildifier test passes\n- lint aspects analyze all 4,629 ordinary root targets without findings\n- the complete 18-command root and nested full-repository audit was exercised;\n  remaining failures are documented environment or pre-existing test limits\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
             },
             {
-                "hash": "a0b20b74bed560720f5e9d878da53e8021859e66",
-                "author": {
-                    "name": "simeonwarrenbot",
-                    "email": "simeonwarrenbot@alwaldend.com",
-                    "when": "1787945207"
+                "hash":  "a0b20b74bed560720f5e9d878da53e8021859e66",
+                "author":  {
+                    "name":  "simeonwarrenbot",
+                    "email":  "simeonwarrenbot@alwaldend.com",
+                    "when":  "1787945207"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
-                    "when": "1787950628"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
+                    "when":  "1787950628"
                 },
-                "message": "Add standalone documentation rules\n\nMove docs_filegroup into a reusable rules_docs nested Bzlmod workspace and migrate every root and nested consumer to it. Add a module-aware Gazelle language that creates docs targets only for existing README packages while preserving manual mappings.\n\nWire the workspace into module resolution, documentation aggregation, and the ten-command full-repo-check. Add the bazel-nested-module skill so future nested workspaces follow the repository's rc, lockfile, docs, toolchain, Gazelle, and validation conventions.\n\nKeep reviewed Gazelle dependency canonicalization, while protecting the hand-maintained Go proto, Python resource, Android, embedded-site, and skill runner definitions that generic language plugins would otherwise break.\n\nThis commit was generated by an LLM.\n"
+                "message":  "Add standalone documentation rules\n\nMove docs_filegroup into a reusable rules_docs nested Bzlmod workspace and migrate every root and nested consumer to it. Add a module-aware Gazelle language that creates docs targets only for existing README packages while preserving manual mappings.\n\nWire the workspace into module resolution, documentation aggregation, and the ten-command full-repo-check. Add the bazel-nested-module skill so future nested workspaces follow the repository's rc, lockfile, docs, toolchain, Gazelle, and validation conventions.\n\nKeep reviewed Gazelle dependency canonicalization, while protecting the hand-maintained Go proto, Python resource, Android, embedded-site, and skill runner definitions that generic language plugins would otherwise break.\n\nThis commit was generated by an LLM.\n"
             },
             {
-                "hash": "eb6ce0bc37ad32ccde8a4d0c8c59ed88eeea0348",
-                "author": {
-                    "name": "simeonwarrenbot",
-                    "email": "simeonwarrenbot@alwaldend.com",
-                    "when": "1787916570"
+                "hash":  "eb6ce0bc37ad32ccde8a4d0c8c59ed88eeea0348",
+                "author":  {
+                    "name":  "simeonwarrenbot",
+                    "email":  "simeonwarrenbot@alwaldend.com",
+                    "when":  "1787916570"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
-                    "when": "1787950628"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "bf4f0e49-086a-48b0-bafd-88001a8bf12d@simplelogin.alwaldend.com",
+                    "when":  "1787950628"
                 },
-                "message": "Migrate documentation packaging to docs_filegroup\n\nPreserve custom prefixes, renames, strip prefixes, and standalone workspace behavior.\\n\\nThis commit was generated by an LLM.\n"
+                "message":  "Migrate documentation packaging to docs_filegroup\n\nPreserve custom prefixes, renames, strip prefixes, and standalone workspace behavior.\\n\\nThis commit was generated by an LLM.\n"
             },
             {
-                "hash": "2195a866a21904bf204a5edad31cd5aa4b0bc108",
-                "author": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren@alwaldend.com",
-                    "when": "1779227242"
+                "hash":  "2195a866a21904bf204a5edad31cd5aa4b0bc108",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren@alwaldend.com",
+                    "when":  "1779227242"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren@alwaldend.com",
-                    "when": "1779227242"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren@alwaldend.com",
+                    "when":  "1779227242"
                 },
-                "pgpSignature": "-----BEGIN PGP SIGNATURE-----\n\niQIzBAABCgAdFiEEFuxvv2wIGF1W5BG5192IqwwHN/IFAmoOFagACgkQ192IqwwH\nN/JvVA//Wz3QVPO5Prm6nbZxiWyL+UG3HyzDIh16kCnfPSoTSRFqV7AInryUiXr0\niZwdNh4hIJ4dPvXYmBABefXw6coKHj6H4mW9iCLHax71IOM0YTdAudlzAw3+2QTh\nq4YELHG6P9vf0kMoLKdeAt0RuJkc3j3GRQnixl+cGIPp6uFI8faM7Ogpq6gBlr/J\nKejv4U2fjwA/Uio6EzBxxPPF//lGRiRsehCZqqbDPBc7dc/QLtDCSIsnWEimtYKc\n6yM0wYvQoQKv1gEWLixiFzz7t04GyxkQNe3CmubG4jMb6kd+WFf9nk4tIx7scee1\nI2hBRSnzaq4Mk24uZh4xBevOewWiFzcwIWie7Dwr5U2yhjAX/Ub2hVK9U8CcgDJE\nXCgGSgbCAyEek4gCqrUxBjLd3dF2ZUy8+8TmB+0rqsy56mvmyY2UF+axzTDJ21Eo\nUGmJMZ9pS494BTPAX7/ClStr/FTzQ7OWW52q6OR3JfZEB/4BMPbZWiaNuFTcOaeR\nihbz2/rnKub35B2TSG4wzPte3grpxM2D+p518T+PpG+mgvEZuLW9PXyPzqfYY2H/\n13spT0KmMyggFpXYGFxSPqi5DLmr6z0KdCnVO4dh/0NlgA8AnPMUCIzjZxyfCpo8\nKtWUzp8VuaDBVrNo6oshp/PDn3O8cK4Z+oicy2HN+Ir9fnhiEKc=\n=yJrE\n-----END PGP SIGNATURE-----\n",
-                "message": "Add uncommitted ci_platform code\n"
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niQIzBAABCgAdFiEEFuxvv2wIGF1W5BG5192IqwwHN/IFAmoOFagACgkQ192IqwwH\nN/JvVA//Wz3QVPO5Prm6nbZxiWyL+UG3HyzDIh16kCnfPSoTSRFqV7AInryUiXr0\niZwdNh4hIJ4dPvXYmBABefXw6coKHj6H4mW9iCLHax71IOM0YTdAudlzAw3+2QTh\nq4YELHG6P9vf0kMoLKdeAt0RuJkc3j3GRQnixl+cGIPp6uFI8faM7Ogpq6gBlr/J\nKejv4U2fjwA/Uio6EzBxxPPF//lGRiRsehCZqqbDPBc7dc/QLtDCSIsnWEimtYKc\n6yM0wYvQoQKv1gEWLixiFzz7t04GyxkQNe3CmubG4jMb6kd+WFf9nk4tIx7scee1\nI2hBRSnzaq4Mk24uZh4xBevOewWiFzcwIWie7Dwr5U2yhjAX/Ub2hVK9U8CcgDJE\nXCgGSgbCAyEek4gCqrUxBjLd3dF2ZUy8+8TmB+0rqsy56mvmyY2UF+axzTDJ21Eo\nUGmJMZ9pS494BTPAX7/ClStr/FTzQ7OWW52q6OR3JfZEB/4BMPbZWiaNuFTcOaeR\nihbz2/rnKub35B2TSG4wzPte3grpxM2D+p518T+PpG+mgvEZuLW9PXyPzqfYY2H/\n13spT0KmMyggFpXYGFxSPqi5DLmr6z0KdCnVO4dh/0NlgA8AnPMUCIzjZxyfCpo8\nKtWUzp8VuaDBVrNo6oshp/PDn3O8cK4Z+oicy2HN+Ir9fnhiEKc=\n=yJrE\n-----END PGP SIGNATURE-----\n",
+                "message":  "Add uncommitted ci_platform code\n"
             },
             {
-                "hash": "b931cb830b08d4d5e58b8db106be56ab5d100ab5",
-                "author": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren-git-pzewq@alwaldend.com",
-                    "when": "1773073839"
+                "hash":  "b931cb830b08d4d5e58b8db106be56ab5d100ab5",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1773073839"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren-git-pzewq@alwaldend.com",
-                    "when": "1773073839"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1773073839"
                 },
-                "pgpSignature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaa71vAAKCRD3LMCDXvUI\nesvbAQDc6avOZAjdL9ElzzOf6kXoW+p6P/8qkF0zKjKlFkrY6QD/YURq/e0rZHO1\n2K1rzIOz4gXbXDSXdsf2u/owLyIj1wA=\n=maHW\n-----END PGP SIGNATURE-----\n",
-                "message": "Remove //tools/docs, remove .github\n"
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaa71vAAKCRD3LMCDXvUI\nesvbAQDc6avOZAjdL9ElzzOf6kXoW+p6P/8qkF0zKjKlFkrY6QD/YURq/e0rZHO1\n2K1rzIOz4gXbXDSXdsf2u/owLyIj1wA=\n=maHW\n-----END PGP SIGNATURE-----\n",
+                "message":  "Remove //tools/docs, remove .github\n"
             },
             {
-                "hash": "757221ada91b917bfc7d846c441c08a047069718",
-                "author": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren-git-pzewq@alwaldend.com",
-                    "when": "1769112475"
+                "hash":  "757221ada91b917bfc7d846c441c08a047069718",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1769112475"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren-git-pzewq@alwaldend.com",
-                    "when": "1769112475"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1769112475"
                 },
-                "pgpSignature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaXKDqQAKCRD3LMCDXvUI\nerL8AP0Vh6SX7g4n0FUfQcd2ewOQxcu+f9Fr2P/rBkxXm/3qSgD/XX7Wt2+pLJx+\nGM+HBBD1jmYQR8AzTyvk8iF9yi6uCwY=\n=aPC5\n-----END PGP SIGNATURE-----\n",
-                "message": "Add build_test to ci_platform, update leetcode\n"
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaXKDqQAKCRD3LMCDXvUI\nerL8AP0Vh6SX7g4n0FUfQcd2ewOQxcu+f9Fr2P/rBkxXm/3qSgD/XX7Wt2+pLJx+\nGM+HBBD1jmYQR8AzTyvk8iF9yi6uCwY=\n=aPC5\n-----END PGP SIGNATURE-----\n",
+                "message":  "Add build_test to ci_platform, update leetcode\n"
             },
             {
-                "hash": "8b657af948a3dbdfa154f7b3ac559a3df44a067b",
-                "author": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren-git-pzewq@alwaldend.com",
-                    "when": "1768751064"
+                "hash":  "8b657af948a3dbdfa154f7b3ac559a3df44a067b",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1768751064"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren-git-pzewq@alwaldend.com",
-                    "when": "1768751064"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1768751064"
                 },
-                "pgpSignature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaWz/4AAKCRD3LMCDXvUI\nerFdAP9v5SzGVQf9a9UUWMDAAhzqZtEIx9o34yNxqnlLOkAdKQEA/WkTZyr+Nuu0\nZxrx5oRmnGNsCwiDb1ZqRENaIuuZUQs=\n=9Dpz\n-----END PGP SIGNATURE-----\n",
-                "message": "Migrate go code of ci_platform\n"
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaWz/4AAKCRD3LMCDXvUI\nerFdAP9v5SzGVQf9a9UUWMDAAhzqZtEIx9o34yNxqnlLOkAdKQEA/WkTZyr+Nuu0\nZxrx5oRmnGNsCwiDb1ZqRENaIuuZUQs=\n=9Dpz\n-----END PGP SIGNATURE-----\n",
+                "message":  "Migrate go code of ci_platform\n"
             },
             {
-                "hash": "2b5e29940827287f7657a5671546938c17a87638",
-                "author": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren-git-pzewq@alwaldend.com",
-                    "when": "1765736350"
+                "hash":  "2b5e29940827287f7657a5671546938c17a87638",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1765736350"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren-git-pzewq@alwaldend.com",
-                    "when": "1765736561"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1765736561"
                 },
-                "pgpSignature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaT8AkgAKCRD3LMCDXvUI\nejeWAP4/jq9f61sZ3gvzJ5rQbvNZYzNp16n9/FaBrtVoEqHDvAEAvrNjbYUfuZZ8\ntpzZ1bbBJHnjL67VJL1qLM2MYvoKPgk=\n=Tbdk\n-----END PGP SIGNATURE-----\n",
-                "message": "Add missing features to the Pomodoro app, update project readmes, add github pages\n"
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaT8AkgAKCRD3LMCDXvUI\nejeWAP4/jq9f61sZ3gvzJ5rQbvNZYzNp16n9/FaBrtVoEqHDvAEAvrNjbYUfuZZ8\ntpzZ1bbBJHnjL67VJL1qLM2MYvoKPgk=\n=Tbdk\n-----END PGP SIGNATURE-----\n",
+                "message":  "Add missing features to the Pomodoro app, update project readmes, add github pages\n"
             },
             {
-                "hash": "fae6386a5959c560d94c87cf7dbc6be547e31f97",
-                "author": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren-git-pzewq@alwaldend.com",
-                    "when": "1765214282"
+                "hash":  "fae6386a5959c560d94c87cf7dbc6be547e31f97",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1765214282"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren-git-pzewq@alwaldend.com",
-                    "when": "1765214282"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1765214282"
                 },
-                "pgpSignature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaTcIjwAKCRD3LMCDXvUI\nevwCAP9pfpbq/OvbzLuU/R+BZg9/+dr38QMkLAadb3HZQtH5ZAD8DM/YZ3KniZjg\nLQ+3rZ0PdNj+0kziVn+DLAKZe+REwgo=\n=3veL\n-----END PGP SIGNATURE-----\n",
-                "message": "Move all remaining code to main\n"
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaTcIjwAKCRD3LMCDXvUI\nevwCAP9pfpbq/OvbzLuU/R+BZg9/+dr38QMkLAadb3HZQtH5ZAD8DM/YZ3KniZjg\nLQ+3rZ0PdNj+0kziVn+DLAKZe+REwgo=\n=3veL\n-----END PGP SIGNATURE-----\n",
+                "message":  "Move all remaining code to main\n"
             },
             {
-                "hash": "8ecf1a1533b6cd2246068db8ddbded1a8df8f8cd",
-                "author": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren-git-pzewq@alwaldend.com",
-                    "when": "1762856416"
+                "hash":  "8ecf1a1533b6cd2246068db8ddbded1a8df8f8cd",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1762856416"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren-git-pzewq@alwaldend.com",
-                    "when": "1762856416"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1762856416"
                 },
-                "pgpSignature": "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRMONwAKCRD3LMCDXvUI\nekt1AP9T+KsmIu4K8ilLoRH1ZPSoP9VvXNTsRZNJa8F7Dm6/2AEAwuLHq/DyWnpj\niiTGaAMuRXHi5FwOsQLT4JvD2/cJAw4=\n=z0q0\n-----END PGP SIGNATURE-----\n",
-                "message": "Add label_link shortcode, add todo page\n"
+                "pgpSignature":  "-----BEGIN PGP SIGNATURE-----\n\niHUEABYKAB0WIQQzN2BQvnncpX2uEp/3LMCDXvUIegUCaRMONwAKCRD3LMCDXvUI\nekt1AP9T+KsmIu4K8ilLoRH1ZPSoP9VvXNTsRZNJa8F7Dm6/2AEAwuLHq/DyWnpj\niiTGaAMuRXHi5FwOsQLT4JvD2/cJAw4=\n=z0q0\n-----END PGP SIGNATURE-----\n",
+                "message":  "Add label_link shortcode, add todo page\n"
             },
             {
-                "hash": "00bcaa157103012b187a208a240dc4b6e9feaeec",
-                "author": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren-git-pzewq@alwaldend.com",
-                    "when": "1745752215"
+                "hash":  "00bcaa157103012b187a208a240dc4b6e9feaeec",
+                "author":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1745752215"
                 },
-                "committer": {
-                    "name": "simeonwarren",
-                    "email": "simeonwarren-git-pzewq@alwaldend.com",
-                    "when": "1745752215"
+                "committer":  {
+                    "name":  "simeonwarren",
+                    "email":  "simeonwarren-git-pzewq@alwaldend.com",
+                    "when":  "1745752215"
                 },
-                "message": "Initial commit\n"
+                "message":  "Initial commit\n"
             },
             {
-                "hash": "28444214f7295282ff11dcb7aa83d8ad827ab8b4",
-                "author": {
-                    "name": "simeonwarrenbot",
-                    "email": "simeonwarrenbot@alwaldend.com",
-                    "when": "1787847446"
+                "hash":  "28444214f7295282ff11dcb7aa83d8ad827ab8b4",
+                "author":  {
+                    "name":  "simeonwarrenbot",
+                    "email":  "simeonwarrenbot@alwaldend.com",
+                    "when":  "1787847446"
                 },
-                "committer": {
-                    "name": "simeonwarrenbot",
-                    "email": "simeonwarrenbot@alwaldend.com",
-                    "when": "1787847446"
+                "committer":  {
+                    "name":  "simeonwarrenbot",
+                    "email":  "simeonwarrenbot@alwaldend.com",
+                    "when":  "1787847446"
                 },
-                "pgpSignature": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx\n99QQEo1a8VTCBw5ZM6YQs=\n-----END SSH SIGNATURE-----\n",
-                "message": "Add spellcheck skill\n\nThis commit was generated by an LLM.\n"
+                "pgpSignature":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQFleXCIfJFf2rgDHhwXqPLotFU4BO88V9IdIUoSObYTaiLW/Fo47g2NLUnF97uDMfx\n99QQEo1a8VTCBw5ZM6YQs=\n-----END SSH SIGNATURE-----\n",
+                "message":  "Add spellcheck skill\n\nThis commit was generated by an LLM.\n"
             },
             {
-                "hash": "022861965f3e3407c0f630dd5827b54bb87ee779",
-                "author": {
-                    "name": "simeonwarrenbot",
-                    "email": "simeonwarrenbot@alwaldend.com",
-                    "when": "1789807682"
+                "hash":  "022861965f3e3407c0f630dd5827b54bb87ee779",
+                "author":  {
+                    "name":  "simeonwarrenbot",
+                    "email":  "simeonwarrenbot@alwaldend.com",
+                    "when":  "1789807682"
                 },
-                "committer": {
-                    "name": "simeonwarrenbot",
-                    "email": "simeonwarrenbot@alwaldend.com",
-                    "when": "1789808444"
+                "committer":  {
+                    "name":  "simeonwarrenbot",
+                    "email":  "simeonwarrenbot@alwaldend.com",
+                    "when":  "1789808444"
                 },
-                "pgpSignature": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQP+VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx\n0yeucLMBAFev0fFMYQigY=\n-----END SSH SIGNATURE-----\n",
-                "message": "Restore light and dark site canvases and set the shared accent\n\nThe shared Docsy canvas set the same Bootstrap dark palette and the same\nblack page background on `:root`, `[data-bs-theme=\"light\"]`, and\n`[data-bs-theme=\"dark\"]`, so the light/dark toggle changed nothing. The site\nalso rendered Bootstrap's stock blue instead of its intended accent.\n\nSplit the shared palette so light mode uses a pure white canvas with the\nlight-mode palette and dark mode uses a pure black canvas with the dark-mode\npalette, and keep the pre-stylesheet paint and footer on the active mode.\nAssign `$primary` to `#7c3aed` before Bootstrap compiles, so links, buttons,\nbadges, focus rings, and the dark-mode link tint all derive from one value\nrather than from a site-local copy.\n\nBoth files stay in the reusable shell; the apex site consumes them through\nthe existing declared exports and no longer carries the footer's own blue.\n\nOpenSpec-Change: projects/hugo_landing/openspec/changes/restore-light-dark-canvas-and-accent\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
+                "pgpSignature":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQP+VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx\n0yeucLMBAFev0fFMYQigY=\n-----END SSH SIGNATURE-----\n",
+                "message":  "Restore light and dark site canvases and set the shared accent\n\nThe shared Docsy canvas set the same Bootstrap dark palette and the same\nblack page background on `:root`, `[data-bs-theme=\"light\"]`, and\n`[data-bs-theme=\"dark\"]`, so the light/dark toggle changed nothing. The site\nalso rendered Bootstrap's stock blue instead of its intended accent.\n\nSplit the shared palette so light mode uses a pure white canvas with the\nlight-mode palette and dark mode uses a pure black canvas with the dark-mode\npalette, and keep the pre-stylesheet paint and footer on the active mode.\nAssign `$primary` to `#7c3aed` before Bootstrap compiles, so links, buttons,\nbadges, focus rings, and the dark-mode link tint all derive from one value\nrather than from a site-local copy.\n\nBoth files stay in the reusable shell; the apex site consumes them through\nthe existing declared exports and no longer carries the footer's own blue.\n\nOpenSpec-Change: projects/hugo_landing/openspec/changes/restore-light-dark-canvas-and-accent\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
             },
             {
-                "hash": "e13fd0042393e40ba94ec5f14bd852150092966d",
-                "author": {
-                    "name": "simeonwarrenbot",
-                    "email": "simeonwarrenbot@alwaldend.com",
-                    "when": "1790888503"
+                "hash":  "553fa45551d8f56d8f3f7faff5110f50e364ec09",
+                "author":  {
+                    "name":  "simeonwarrenbot",
+                    "email":  "simeonwarrenbot@alwaldend.com",
+                    "when":  "1792308542"
                 },
-                "committer": {
-                    "name": "simeonwarrenbot",
-                    "email": "simeonwarrenbot@alwaldend.com",
-                    "when": "1790975694"
+                "committer":  {
+                    "name":  "simeonwarrenbot",
+                    "email":  "simeonwarrenbot@alwaldend.com",
+                    "when":  "1792340658"
                 },
-                "pgpSignature": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQJqxjkZlQDLP7w3dm9sLjyi+QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03\nfWG92TE1fqjSdJ0K47YAk=\n-----END SSH SIGNATURE-----\n",
-                "message": "Publish the X Article story and harden its upload workflow\n\nPublish the reviewed development story and render blog front matter images\nbefore article text and in print output. Remove redundant opening Markdown\nimages from the two illustrated posts. Keep the first selected image as the\nX Article banner and preserve every image explicitly written in Markdown.\nDocument the shared image metadata and encourage its use for every post.\n\nRetain rate-limit headers on failed X requests and report their reset times\nand conservative retry boundaries. Keep retries manual and distinguish\nhistorical quota observations from the latest response. Reject HTTP redirects\nwithout following them so draft and media POSTs cannot be replayed by a\nredirect response, and prevent automatic replay of consumed POST bodies.\n\nRecover expired Vault certificates through a host-limited Ansible tag that\nstops before reload on certificate errors. Preserve the Vault node identity,\nuse its canonical connection hostname, and include that name in the certificate.\nDocument temporary Vault TLS bypass, repository SSH CA trust, and verification\nafter renewal. The authorized renewal succeeded with normal TLS restored.\n\nValidate static images before network requests and wait for media processing\nwith signed, bounded status checks. Scope cached media to the endpoint and\nOAuth credential context, account for upload time and expiry, and refuse\nidentifiers that expire while other images upload. Emit mutable Markdown\nentities and replace byte counting with an explicitly approximate weighted\nbudget, preserving the original Markdown source.\n\nValidation: uploader conversion and HTTP E2E tests, site browser and skill checks,\nrepository quality and semantic lint; packaged Ansible syntax and task selection;\nstrict OpenSpec validation and live certificate/hostname verification.\n\nOpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images\nOpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers\nOpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate\nOpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract\nOpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images\nOpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
+                "pgpSignature":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQA67cuGDdLrv5uuGFe8D63nt4prFv7JWsNWlggpO9n6LhTzHwTx4SQBAukRyiU3+mo\nubm4I6djHcntygmxrY6AU=\n-----END SSH SIGNATURE-----\n",
+                "message":  "Expose Anki services through the CLI\n\nGenerate service and method commands from all 25 compiled Anki schemas,\nwith protobuf JSON/TOML input and output and no per-method wrappers.\nRoute execution and validation through one shared App operation supporting\nmanaged offline paths, borrowed connections and explicit TCP/Unix servers.\n\nUse the linked server through the same executable. Preserve caller-owned\nresources and make managed archive write-back explicit, enabled by the CLI\nand existing application workflows independently of request outcomes.\nBound incomplete input by cancellation and timeout, and preserve linked\nUnix server lifetime across client disconnections.\n\nVerify installed execution, payloads, persistence, native connection\nownership and package boundaries through end-to-end workflows.\n\nOpenSpec-Change: projects/anki_as_code/openspec/changes/add-grpc-api-cli\n\nLLM-disclaimer: This commit was generated by an LLM.\n"
             }
         ]
     }

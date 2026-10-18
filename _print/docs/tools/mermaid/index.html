@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="Mermaid">
 	<meta itemprop="description" content="Bazel-managed Mermaid diagram renderer">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
-	<meta itemprop="wordCount" content="2950">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
+	<meta itemprop="wordCount" content="2975">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Mermaid">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -468,17 +468,20 @@ set together; selecting <code>&quot;dark&quot;</code> requires native rendering.
 fixed appearance for page embeds, social cards, and service uploads.</p>
 <p>Encoding stays inside the hermetic graph and adds no image-conversion
 dependency. The raster is authored at the diagram&rsquo;s
-natural size and scaled by the rule&rsquo;s <code>scale</code> (default <code>2</code>), so a node-sized
-diagram still carries crisp text when a consumer re-encodes it. A raster render
+natural size and scaled by the rule&rsquo;s <code>scale</code> (default <code>1</code>). Set <code>scale = 2</code>
+when a consumer needs higher pixel density for text or re-encoding. A raster render
 always uses the maintained appearance; it has no <code>plain</code> opt-out, because a
 plain raster could not show the contrast a comparison needs any more reliably
 than the SVG rule&rsquo;s.</p>
-<p>Set <code>aspect_ratio = [5, 2]</code> when a cover image needs fixed proportions. The
+<p>WebP canvases default to <code>aspect_ratio = [5, 2]</code>. The
 encoder reduces the two positive integer terms and adds the selected theme&rsquo;s
 background around the scaled diagram. It uses the smallest whole-pixel canvas
 with that exact ratio that contains the original image, centers the diagram,
-and never crops or stretches it. SVG output is unaffected. Omitting the ratio
-keeps the natural raster canvas. <code>scale</code> must be a positive integer, and the
+and never crops or stretches it. SVG output is unaffected. Set <code>aspect_ratio = []</code>
+for the natural raster canvas, or select another positive integer pair. The CLI
+uses the same default; <code>--aspect-ratio natural</code> selects natural output, and two
+repeated numeric <code>--aspect-ratio</code> flags select another ratio.
+<code>scale</code> must be a positive integer, and the
 final image must fit WebP&rsquo;s 16383-pixel limit in each dimension.</p>
 <p>Consumers that must keep the image as a checked-in asset obtain it from the
 rule&rsquo;s output rather than by hand, so the asset can be regenerated and compared

@@ -43,7 +43,7 @@
 	<meta property="og:type" content="website">
 
 	<meta itemprop="name" content="Repository">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Repository">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -296,8 +296,12 @@ specifications and maintained changes in its own <code>openspec/</code> workspac
 <code>infra/src/openspec</code> SHALL describe evolution of the repository itself,
 including shared structure, build system and development workflows. The
 repository root SHALL NOT collect component specifications or change records.
-Maintained work SHALL preserve outcome, decisions, tasks and requirement
-deltas. Existing task authority MUST survive workflow transitions.</p>
+Every repository change MUST use an OpenSpec change in its owning workspace,
+including trivial edits, documentation, configuration, and dependency changes.
+A matching active change SHALL be reused when available, and artifacts SHALL
+remain proportional to scope. Read-only questions and reviews do not require
+a change record. Maintained work SHALL preserve outcome, decisions, tasks and
+requirement deltas. Existing task authority MUST survive workflow transitions.</p>
 <h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-change-a-component-contract">Scenario: Change a component contract<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-change-a-component-contract" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a change affects a project&rsquo;s supported behavior</li>
 <li><strong>THEN</strong> its specifications and change artifacts remain in that project&rsquo;s
@@ -319,6 +323,17 @@ supports completion</li>
 <li><strong>WHEN</strong> a project has its own Bazel module</li>
 <li><strong>THEN</strong> repository OpenSpec validation still checks its declared local workspace</li>
 <li><strong>AND</strong> a successful repository check does not omit that project&rsquo;s requirements</li>
+</ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-make-a-trivial-change">Scenario: Make a trivial change<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-make-a-trivial-change" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an agent makes a one-line repository correction</li>
+<li><strong>THEN</strong> it selects or creates a matching owner-local OpenSpec change before
+editing, with small artifacts and skip_specs if behavior is unchanged</li>
+<li><strong>AND</strong> the record adds no approval gate to already authorized work</li>
+</ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-conduct-a-read-only-review">Scenario: Conduct a read-only review<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-conduct-a-read-only-review" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the task only inspects a bounded change set and reports findings</li>
+<li><strong>THEN</strong> no new OpenSpec change is required for that review</li>
+<li><strong>AND</strong> the review itself does not authorize implementation or publication</li>
 </ul>
 <h3 id="print-c378dc05c1ccc435141658b0f6b0a137-requirement-legacy-goal-migration-and-deprecation">Requirement: Legacy goal migration and deprecation<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-requirement-legacy-goal-migration-and-deprecation" aria-label="Heading self-link"></a></h3><p>The migration SHALL preserve all tracked maintained goal history and its
 recorded acceptance and execution states with source-to-change mappings and

@@ -37,7 +37,7 @@
 				<link>https://alwaldend.com/docs/tools/ansible/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/tools/ansible/</guid>
-				<description>&lt;p&gt;&lt;code&gt;ansible_lint&lt;/code&gt; runs &lt;code&gt;ansible-lint&lt;/code&gt; from Bazel-managed Python&#xA;dependencies. A Go test runner exposes the CLI binaries under their&#xA;hyphenated names, configures writable Ansible paths, and invokes the&#xA;linter against workspace-relative sources.&lt;/p&gt;&#xA;&lt;p&gt;Molecule is not integrated yet. The likely path is to add Molecule to&#xA;these Python requirements and invoke it through a Bazel-native Go runner,&#xA;but practical scenarios require choosing and provisioning a Molecule&#xA;driver before any scenarios can run.&lt;/p&gt;</description>
+				<description>&lt;p&gt;&lt;code&gt;ansible_lint&lt;/code&gt; runs &lt;code&gt;ansible-lint&lt;/code&gt; from Bazel-managed Python&#xA;dependencies. A Go test runner exposes the CLI binaries under their&#xA;hyphenated names, configures writable Ansible paths, and invokes the&#xA;linter against workspace-relative sources.&lt;/p&gt;&#xA;&lt;p&gt;Python dependencies are declared in &lt;code&gt;pyproject.toml&lt;/code&gt; and locked in &lt;code&gt;uv.lock&lt;/code&gt;.&#xA;Update the lock with &lt;code&gt;//tools/ansible:uv_lock.update&lt;/code&gt; and review its&#xA;diff. Build &lt;code&gt;//tools/ansible:uv_lock&lt;/code&gt; to generate it without source writes.&#xA;These use the shared &lt;a href=&#34;https://alwaldend.com/docs/tools/py/&#34;&gt;uv locking workflow&lt;/a&gt;, whose sandboxed resolution action&#xA;requires network access to PyPI.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Bazel shell worker</title>
@@ -187,6 +187,13 @@
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Upstream: &lt;a href=&#34;https://github.com/jedisct1/minisign&#34;&gt;https://github.com/jedisct1/minisign&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
+				<title>MLOps 2026</title>
+				<link>https://alwaldend.com/docs/projects/mlops_2026/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/projects/mlops_2026/</guid>
+				<description>&lt;p&gt;&lt;span class=&#34;mermaid-diagram&#34;&gt;&lt;img src=&#34;https://alwaldend.com/docs/projects/mlops_2026/assets/architecture.svg&#34; alt=&#34;Recommender runtime and training&#34; loading=&#34;lazy&#34; class=&#34;mermaid-light&#34;&gt;&lt;img src=&#34;https://alwaldend.com/docs/projects/mlops_2026/assets/architecture.dark.svg&#34; alt=&#34;Recommender runtime and training&#34; loading=&#34;lazy&#34; class=&#34;mermaid-dark&#34;&gt;&lt;/span&gt;&lt;/p&gt;&#xA;&lt;p&gt;An MLOps course project with a factory-based FastAPI application named&#xA;&lt;code&gt;recommender&lt;/code&gt;, served by Uvicorn. App and router instances are created inside&#xA;factories. &lt;code&gt;RecommenderApplication&lt;/code&gt; owns the app and receives its service in the constructor;&#xA;&lt;code&gt;RecommendationRouter&lt;/code&gt; owns the versioned routes and service reference.&#xA;The injected &lt;code&gt;RecommendationService&lt;/code&gt; implements &lt;code&gt;__aenter__&lt;/code&gt; and &lt;code&gt;__aexit__&lt;/code&gt;&#xA;for model loading and deterministic shutdown. Its idempotent &lt;code&gt;close()&lt;/code&gt; also&#xA;runs from &lt;code&gt;__del__&lt;/code&gt; as a fallback. Application, router and service state is&#xA;private; app and router access use explicit read-only properties. Imports&#xA;do not start services or create shared application instances. Response contracts&#xA;are exported from &lt;code&gt;internal/models&lt;/code&gt;.&#xA;Implementation lives under &lt;code&gt;internal/recommender/&lt;/code&gt;, with other future apps owning&#xA;sibling packages under &lt;code&gt;internal/&lt;/code&gt; and separate &lt;code&gt;cmd/&lt;/code&gt; entry points.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>Oras</title>
 				<link>https://alwaldend.com/docs/third_party/land_oras_oras/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -226,7 +233,7 @@
 				<link>https://alwaldend.com/docs/tools/py/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/tools/py/</guid>
-				<description>&lt;p&gt;The repository Python dependency lock remains in root &lt;code&gt;requirements.txt&lt;/code&gt;, next&#xA;to &lt;code&gt;pyproject.toml&lt;/code&gt;. Update it with &lt;code&gt;//tools/py:requirements.update&lt;/code&gt; and validate&#xA;it with &lt;code&gt;//tools/py:requirements.test&lt;/code&gt;; the root labels remain compatibility&#xA;entry points. These upstream pip-tools workflows require network access to&#xA;resolve and validate package versions and run outside the action sandbox.&lt;/p&gt;</description>
+				<description>&lt;p&gt;This package owns the repository Python dependency manifest &lt;code&gt;pyproject.toml&lt;/code&gt;&#xA;and native &lt;code&gt;uv.lock&lt;/code&gt;. Update it with &lt;code&gt;//tools/py:uv_lock.update&lt;/code&gt;; root&#xA;&lt;code&gt;//:uv_lock.update&lt;/code&gt; is an alias. Bazel&amp;rsquo;s &lt;code&gt;pip.parse&lt;/code&gt; reads &lt;code&gt;uv.lock&lt;/code&gt; directly,&#xA;and Gazelle uses that same lock to validate its import manifest. There are no&#xA;requirements-file exports or separately maintained pip locks.&lt;/p&gt;&#xA;&lt;p&gt;BUILD files load &lt;code&gt;lock&lt;/code&gt; directly from &lt;code&gt;@rules_python//python/uv:lock.bzl&lt;/code&gt; with&#xA;&lt;code&gt;out = &amp;quot;uv.lock&amp;quot;&lt;/code&gt;, which selects native &lt;code&gt;uv lock&lt;/code&gt;. Build &lt;code&gt;uv_lock&lt;/code&gt; to regenerate&#xA;the lock without modifying source. Run &lt;code&gt;uv_lock.update&lt;/code&gt; to replace the checked-in&#xA;file, then review package versions, hashes and platform/Python markers. Extras&#xA;are declared in &lt;code&gt;pyproject.toml&lt;/code&gt; and retained in the native lock.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Qt</title>

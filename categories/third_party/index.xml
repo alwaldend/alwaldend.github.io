@@ -33,6 +33,13 @@
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Upstream: &lt;a href=&#34;https://developer.android.com/tools&#34;&gt;https://developer.android.com/tools&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
+				<title>Anki native backend and schemas</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_ankitects_anki/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_ankitects_anki/</guid>
+				<description>&lt;p&gt;This package imports Anki &lt;a href=&#34;https://github.com/ankitects/anki/releases/tag/26.09.3&#34;&gt;26.09.3&lt;/a&gt;,&#xA;commit &lt;code&gt;29bb700b951e3f0c0cb69b77c0180fc1fe33e6ba&lt;/code&gt;, with its pinned submodules.&#xA;The upstream source, Cargo workspace, and member manifests are unmodified.&#xA;&lt;code&gt;Cargo.lock&lt;/code&gt; fixes the approved workspace and server dependency versions and&#xA;registry checksums. Anki is licensed under GNU AGPL version 3 or later; the&#xA;acquired source retains its notices.&lt;/p&gt;&#xA;&lt;h2 id=&#34;build&#34;&gt;Build&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#build&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;From the repository root:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel_agent bazel build //third_party/com_github_ankitects_anki:native&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bazel_agent bazel build //third_party/com_github_ankitects_anki:protos&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://bazelbuild.github.io/rules_rust/crate_universe_bzlmod.html&#34;&gt;&lt;code&gt;crate_universe&lt;/code&gt;&lt;/a&gt;&#xA;reads the imported upstream workspace&amp;rsquo;s &lt;code&gt;Cargo.toml&lt;/code&gt; and this package&amp;rsquo;s lock.&#xA;Approved server dependencies join that resolution through &lt;code&gt;crate.spec&lt;/code&gt;.&#xA;The generated &lt;code&gt;all_crate_deps&lt;/code&gt;, &lt;code&gt;aliases&lt;/code&gt;, and &lt;code&gt;crate_edition&lt;/code&gt; helpers supply&#xA;external dependencies and metadata to standard &lt;code&gt;rules_rust&lt;/code&gt; targets.&#xA;&lt;code&gt;anki.BUILD.bazel&lt;/code&gt; declares the required workspace-member edges; &lt;code&gt;native.bzl&lt;/code&gt;&#xA;shares the ordinary library/build-script declarations and derives Cargo&#xA;environment variables from the unmodified manifests, including inherited&#xA;workspace fields.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>Architects Daughter</title>
 				<link>https://alwaldend.com/docs/third_party/com_github_google_fonts_architects_daughter/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -299,6 +306,13 @@
 				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://zlib.net/&#34;&gt;https://zlib.net/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Module: &lt;a href=&#34;https://registry.bazel.build/modules/zlib&#34;&gt;https://registry.bazel.build/modules/zlib&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
+				<title>OpenAI Codex review agent</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_openai_codex/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_openai_codex/</guid>
+				<description>&lt;p&gt;The &lt;a href=&#34;https://github.com/openai/codex/blob/afb436df8b70bb5bc57b86d9a3e829968988cd21/codex-rs/skills/src/assets/samples/review-agent/SKILL.md&#34;&gt;review-agent skill&lt;/a&gt;&#xA;is consumed unchanged from OpenAI Codex revision &lt;code&gt;afb436df8b70bb5bc57b86d9a3e829968988cd21&lt;/code&gt;.&#xA;&lt;code&gt;include.MODULE.bazel&lt;/code&gt; pins the source archive and its SHA-256 integrity.&#xA;Only the review-agent directory is packaged; the Codex executable is not used.&lt;/p&gt;&#xA;&lt;p&gt;The source is licensed under &lt;a href=&#34;LICENSE&#34;&gt;Apache 2.0&lt;/a&gt;. The upstream &lt;a href=&#34;NOTICE&#34;&gt;NOTICE&lt;/a&gt;&#xA;is retained. &lt;code&gt;.agents/skills/review-agent/&lt;/code&gt; is a generated projection of the&#xA;upstream skill, including its explicit-invocation metadata. Run&#xA;&lt;code&gt;//.agents:write_skills&lt;/code&gt; after changing the pin; do not edit the projection.&#xA;Repository routing in &lt;code&gt;AGENTS.md&lt;/code&gt; requires this skill for change reviews.&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>openbao</title>
 				<link>https://alwaldend.com/docs/third_party/org_openbao_openbao/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -387,7 +401,7 @@
 				<link>https://alwaldend.com/docs/third_party/org_openssl_openssl/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/third_party/org_openssl_openssl/</guid>
-				<description>&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://www.openssl.org/&#34;&gt;https://www.openssl.org/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+				<description>&lt;p&gt;The pinned source build exposes shared and static libraries. Its &lt;code&gt;gen_dir&lt;/code&gt;&#xA;output supplies Anki&amp;rsquo;s Cargo build script with declared headers and libraries;&#xA;the existing C consumers continue using the library target.&lt;/p&gt;&#xA;&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;Site: &lt;a href=&#34;https://www.openssl.org/&#34;&gt;https://www.openssl.org/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
 				<title>org_pcre_pcre2</title>
@@ -500,6 +514,20 @@
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/docs/third_party/com_github_xdevplatform_xurl/</guid>
 				<description>&lt;p&gt;This package pins the upstream Linux x86-64 release through&#xA;&lt;code&gt;rules_binary_toolchain&lt;/code&gt;. The &lt;code&gt;xurl&lt;/code&gt; alias is available to &lt;code&gt;//tools/xurl&lt;/code&gt;.&#xA;The archive version and integrity are owned by &lt;code&gt;binary_toolchain.json&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The upstream release archive includes its MIT license and copyright notice.&lt;/p&gt;&#xA;&lt;h2 id=&#34;links&#34;&gt;Links&lt;a class=&#34;td-heading-self-link&#34; href=&#34;#links&#34; aria-label=&#34;Heading self-link&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/xdevplatform/xurl&#34;&gt;Upstream repository&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/xdevplatform/xurl/releases/tag/v1.3.4&#34;&gt;Release&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/xdevplatform/xurl/releases/download/v1.3.4/xurl_1.3.4_checksums.txt&#34;&gt;Publisher checksums&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/xdevplatform/xurl/blob/v1.3.4/LICENSE&#34;&gt;MIT license&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+			</item>
+			<item>
+				<title>Yandex Practicum MLOps course</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_yandex_practicum_mlops_course/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_yandex_practicum_mlops_course/</guid>
+				<description>&lt;p&gt;Source: &lt;a href=&#34;https://github.com/Yandex-Practicum/mlops-course&#34;&gt;Yandex-Practicum/mlops-course&lt;/a&gt;.&#xA;The immutable commit archive and SRI integrity are owned by&#xA;&lt;code&gt;include.MODULE.bazel&lt;/code&gt;. Upstream had no tags when this dependency was added.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;//third_party/com_github_yandex_practicum_mlops_course:source&lt;/code&gt; exposes the&#xA;upstream README, MIT LICENSE, lesson code, and data as repository-internal&#xA;Bazel inputs. The package provides source integration; each lesson&amp;rsquo;s environment&#xA;and dependencies remain upstream-owned.&lt;/p&gt;&#xA;&lt;p&gt;License: &lt;a href=&#34;https://github.com/Yandex-Practicum/mlops-course/blob/74dc45062f43f9b4abfbca738ffa6b56db4d5daa/LICENSE&#34;&gt;MIT&lt;/a&gt;.&#xA;The archive retains the upstream license and copyright notice.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Yandex Practicum MLOps freetrack</title>
+				<link>https://alwaldend.com/docs/third_party/com_github_yandex_practicum_mlops_freetrack/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/docs/third_party/com_github_yandex_practicum_mlops_freetrack/</guid>
+				<description>&lt;p&gt;Source: &lt;a href=&#34;https://github.com/Yandex-Practicum/mlops-freetrack&#34;&gt;Yandex-Practicum/mlops-freetrack&lt;/a&gt;.&#xA;The immutable revision and source archive integrity are owned by&#xA;&lt;code&gt;include.MODULE.bazel&lt;/code&gt;. The CSVs and training Python files stay upstream-owned;&#xA;this package only provides Bazel integration. The inspected revision includes&#xA;no LICENSE file; no first-party license is asserted for these materials.&lt;/p&gt;&#xA;&lt;p&gt;The upstream training executable expects data.csv and dataset.csv in its working&#xA;directory and writes model.pkl there. Use the project model build target for a&#xA;sandboxed action with a declared output rather than running it in source.&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>

@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="Drawio">
 	<meta itemprop="description" content="Bazel rules for drawio">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
-	<meta itemprop="wordCount" content="232">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
+	<meta itemprop="wordCount" content="235">
 	<meta itemprop="keywords" content="Bzl_rules,Drawio">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Drawio">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -240,8 +240,8 @@ rendering uses a small Puppeteer bridge for its export messages. Neither action
 uses a host display server or accesses the network. JavaScript keeps this
 adapter close to Drawio&rsquo;s browser API and the existing Puppeteer dependency.</p>
 <p>Use the rule from an explicit source-update target with <code>write_source_files</code>,
-as in <code>//infra/arch:update</code>. Normal documentation consumes the maintained SVGs,
-not the rendering tool. The generated freshness tests catch stale output.</p>
+when a consumer requires checked-in SVGs. Normal documentation consumes the
+maintained SVGs, not the rendering tool. The generated freshness tests catch stale output.</p>
 <p>Exports use a light theme with an opaque white canvas, keeping labels and
 connectors readable in both light and dark documentation themes and standalone
 image viewers. The renderer adds this canvas on every export.</p>

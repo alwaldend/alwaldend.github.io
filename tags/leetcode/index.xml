@@ -13,16 +13,16 @@
 			<atom:link href="https://alwaldend.com/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Leetcode submissions</title>
-				<link>https://alwaldend.com/docs/data/leetcode_submissions/</link>
+				<link>https://alwaldend.com/docs/misc/leetcode_submissions/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/data/leetcode_submissions/</guid>
+				<guid>https://alwaldend.com/docs/misc/leetcode_submissions/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Leetcode submissions</title>
-				<link>https://alwaldend.com/docs/misc/leetcode_submissions/</link>
+				<link>https://alwaldend.com/docs/users/simeonwarren/leetcode/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/docs/misc/leetcode_submissions/</guid>
+				<guid>https://alwaldend.com/docs/users/simeonwarren/leetcode/</guid>
 				<description></description>
 			</item>
 	</channel>

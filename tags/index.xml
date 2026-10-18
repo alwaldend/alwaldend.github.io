@@ -10,7 +10,7 @@
 		
 		
 		
-			<lastBuildDate>Sat, 03 Oct 2026 17:06:06 +0300</lastBuildDate>
+			<lastBuildDate>Sun, 18 Oct 2026 19:50:28 +0300</lastBuildDate>
 		
 			<atom:link href="https://alwaldend.com/tags/index.xml" rel="self" type="application/rss+xml" />
 			<item>
@@ -112,6 +112,13 @@
 				<description></description>
 			</item>
 			<item>
+				<title>Anki</title>
+				<link>https://alwaldend.com/tags/anki/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/anki/</guid>
+				<description></description>
+			</item>
+			<item>
 				<title>Ansible</title>
 				<link>https://alwaldend.com/tags/ansible/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -130,13 +137,6 @@
 				<link>https://alwaldend.com/tags/ansible_role/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/tags/ansible_role/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Arch</title>
-				<link>https://alwaldend.com/tags/arch/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>https://alwaldend.com/tags/arch/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -410,6 +410,13 @@
 				<link>https://alwaldend.com/tags/gradle/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://alwaldend.com/tags/gradle/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Grpc</title>
+				<link>https://alwaldend.com/tags/grpc/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://alwaldend.com/tags/grpc/</guid>
 				<description></description>
 			</item>
 			<item>

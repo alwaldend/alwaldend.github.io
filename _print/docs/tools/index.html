@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Tools">
 	<meta itemprop="description" content="Tools tree">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
 	<meta itemprop="wordCount" content="200">
 	<meta itemprop="keywords" content="Tool">
 	<meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -2249,7 +2249,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>64.1.1: <a href="#pg-c8044a5b25a6d13ba4dabeedfec882fd">al_compile_pip_requirements_combined</a></li>
+<li>64.1.1: <a href="#pg-faaae939879696ebed11566e40ca0ddf">al_genrule_with_wheels</a></li>
 
 
     
@@ -2257,7 +2257,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>64.1.2: <a href="#pg-faaae939879696ebed11566e40ca0ddf">al_genrule_with_wheels</a></li>
+<li>64.1.2: <a href="#pg-4c9b1598e7a9a82eec6d71a660f87d37">al_py_binary_shell</a></li>
 
 
     
@@ -2265,7 +2265,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>64.1.3: <a href="#pg-4c9b1598e7a9a82eec6d71a660f87d37">al_py_binary_shell</a></li>
+<li>64.1.3: <a href="#pg-ae27bc36bfc8fc1150dd8bac1763e4ab">al_py_checker</a></li>
 
 
     
@@ -2273,15 +2273,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>64.1.4: <a href="#pg-ae27bc36bfc8fc1150dd8bac1763e4ab">al_py_checker</a></li>
-
-
-    
-  
-    
-    
-	
-<li>64.1.5: <a href="#pg-159b7ecf904518ce84e02fd72bfe36e0">al_py_checkers</a></li>
+<li>64.1.4: <a href="#pg-159b7ecf904518ce84e02fd72bfe36e0">al_py_checkers</a></li>
 
 
     
@@ -4378,6 +4370,11 @@ only when the installed command runs, never in a Bazel build action.</p>
 dependencies. A Go test runner exposes the CLI binaries under their
 hyphenated names, configures writable Ansible paths, and invokes the
 linter against workspace-relative sources.</p>
+<p>Python dependencies are declared in <code>pyproject.toml</code> and locked in <code>uv.lock</code>.
+Update the lock with <code>//tools/ansible:uv_lock.update</code> and review its
+diff. Build <code>//tools/ansible:uv_lock</code> to generate it without source writes.
+These use the shared <a href="/docs/tools/py/">uv locking workflow</a>, whose sandboxed resolution action
+requires network access to PyPI.</p>
 <p>Molecule is not integrated yet. The likely path is to add Molecule to
 these Python requirements and invoke it through a Bazel-native Go runner,
 but practical scenarios require choosing and provisioning a Molecule
@@ -5719,8 +5716,8 @@ rendering uses a small Puppeteer bridge for its export messages. Neither action
 uses a host display server or accesses the network. JavaScript keeps this
 adapter close to Drawio&rsquo;s browser API and the existing Puppeteer dependency.</p>
 <p>Use the rule from an explicit source-update target with <code>write_source_files</code>,
-as in <code>//infra/arch:update</code>. Normal documentation consumes the maintained SVGs,
-not the rendering tool. The generated freshness tests catch stale output.</p>
+when a consumer requires checked-in SVGs. Normal documentation consumes the
+maintained SVGs, not the rendering tool. The generated freshness tests catch stale output.</p>
 <p>Exports use a light theme with an opaque white canvas, keeping labels and
 connectors readable in both light and dark documentation themes and standalone
 image viewers. The renderer adds this canvas on every export.</p>
@@ -6172,8 +6169,9 @@ them for all packages. Root <code>//:gazelle</code> and <code>//:gazelle_bin</co
 entry points.</p>
 <p><code>//tools/gazelle:gazelle_python_manifest.update</code> refreshes root
 <code>gazelle_python.yaml</code>; <code>//tools/gazelle:gazelle_python_manifest.test</code> validates
-its integrity against root <code>requirements.txt</code>. Keeping the manifest at the
-repository root preserves Python dependency discovery in every package.</p>
+its integrity against <code>tools/py/uv.lock</code>. The manifest stays at the
+repository root for default ancestor discovery. It can live elsewhere if the
+root BUILD file sets <code>gazelle:python_manifest_file_name</code> to its relative path.</p>
 
 </div>
 
@@ -9223,17 +9221,20 @@ set together; selecting <code>&quot;dark&quot;</code> requires native rendering.
 fixed appearance for page embeds, social cards, and service uploads.</p>
 <p>Encoding stays inside the hermetic graph and adds no image-conversion
 dependency. The raster is authored at the diagram&rsquo;s
-natural size and scaled by the rule&rsquo;s <code>scale</code> (default <code>2</code>), so a node-sized
-diagram still carries crisp text when a consumer re-encodes it. A raster render
+natural size and scaled by the rule&rsquo;s <code>scale</code> (default <code>1</code>). Set <code>scale = 2</code>
+when a consumer needs higher pixel density for text or re-encoding. A raster render
 always uses the maintained appearance; it has no <code>plain</code> opt-out, because a
 plain raster could not show the contrast a comparison needs any more reliably
 than the SVG rule&rsquo;s.</p>
-<p>Set <code>aspect_ratio = [5, 2]</code> when a cover image needs fixed proportions. The
+<p>WebP canvases default to <code>aspect_ratio = [5, 2]</code>. The
 encoder reduces the two positive integer terms and adds the selected theme&rsquo;s
 background around the scaled diagram. It uses the smallest whole-pixel canvas
 with that exact ratio that contains the original image, centers the diagram,
-and never crops or stretches it. SVG output is unaffected. Omitting the ratio
-keeps the natural raster canvas. <code>scale</code> must be a positive integer, and the
+and never crops or stretches it. SVG output is unaffected. Set <code>aspect_ratio = []</code>
+for the natural raster canvas, or select another positive integer pair. The CLI
+uses the same default; <code>--aspect-ratio natural</code> selects natural output, and two
+repeated numeric <code>--aspect-ratio</code> flags select another ratio.
+<code>scale</code> must be a positive integer, and the
 final image must fit WebP&rsquo;s 16383-pixel limit in each dimension.</p>
 <p>Consumers that must keep the image as a checked-in asset obtain it from the
 rule&rsquo;s output rather than by hand, so the asset can be regenerated and compared
@@ -10772,11 +10773,32 @@ al_proto_docs(<a href="#print-1820f7452f58884b1205aeafc3f2b496-al_proto_docs-nam
 	<h1 id="pg-510b0f382e9ae21192df098e950c3d67">64 - Py</h1>
     <div class="lead">Python rules</div>
 	
-	<p>The repository Python dependency lock remains in root <code>requirements.txt</code>, next
-to <code>pyproject.toml</code>. Update it with <code>//tools/py:requirements.update</code> and validate
-it with <code>//tools/py:requirements.test</code>; the root labels remain compatibility
-entry points. These upstream pip-tools workflows require network access to
-resolve and validate package versions and run outside the action sandbox.</p>
+	<p>This package owns the repository Python dependency manifest <code>pyproject.toml</code>
+and native <code>uv.lock</code>. Update it with <code>//tools/py:uv_lock.update</code>; root
+<code>//:uv_lock.update</code> is an alias. Bazel&rsquo;s <code>pip.parse</code> reads <code>uv.lock</code> directly,
+and Gazelle uses that same lock to validate its import manifest. There are no
+requirements-file exports or separately maintained pip locks.</p>
+<p>BUILD files load <code>lock</code> directly from <code>@rules_python//python/uv:lock.bzl</code> with
+<code>out = &quot;uv.lock&quot;</code>, which selects native <code>uv lock</code>. Build <code>uv_lock</code> to regenerate
+the lock without modifying source. Run <code>uv_lock.update</code> to replace the checked-in
+file, then review package versions, hashes and platform/Python markers. Extras
+are declared in <code>pyproject.toml</code> and retained in the native lock.</p>
+<p>The same workflow owns component-local manifests and locks in <code>//tools/ansible</code>,
+<code>//tools/ykman</code>, <code>//projects/autoscroll</code> and <code>//projects/infinitime</code>. Update each
+through its own <code>uv_lock.update</code> target. Lock generation needs PyPI access, so
+only the upstream resolution action carries <code>requires-network</code>; it remains
+sandboxed. All locking targets are manual. Normal consumers use checked-in
+locks without running resolution, and there is no custom lock freshness test.</p>
+<p><code>include.MODULE.bazel</code> pins uv and Python 3.14.4, the newest stable runtime in
+rules_python 2.4.2&rsquo;s bundled version catalog. This updates Bazel-managed Python
+without changing the host interpreter or adding a custom runtime archive.</p>
+<p>The root <code>pyproject.toml</code> contains only shared tool settings. Ruff and other
+Python tools discover it from source packages, and the repository checker
+targets use <code>//tools/py:pyproject</code> to select those settings explicitly. The
+manifest in this package contains only project metadata and dependencies.</p>
+<p>The <a href="skills/repo-python/SKILL.md">repo-python skill</a> owns the repository Python
+implementation and review procedure, including mandatory type hints. Its
+discovery link is generated by <code>//.agents:write_skills</code>.</p>
 
 </div>
 
@@ -10799,7 +10821,7 @@ resolve and validate package versions and run outside the action sandbox.</p>
     
 
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-194e7a6727fe3132b1e428ded9b6814a">64.1 - Bzl</h1>
     <div class="lead">Bazel code</div>
@@ -10828,61 +10850,7 @@ resolve and validate package versions and run outside the action sandbox.</p>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-c8044a5b25a6d13ba4dabeedfec882fd">64.1.1 - al_compile_pip_requirements_combined</h1>
-    
-	
-	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
-<p><a id="print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined"></a></p>
-<h2>al_compile_pip_requirements_combined<a class="td-heading-self-link" href="#print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined" aria-label="Heading self-link"></a></h2><pre>
-load("@com_alwaldend_src//tools/py/main/bzl:al_compile_pip_requirements_combined.bzl", "al_compile_pip_requirements_combined")
-
-al_compile_pip_requirements_combined(<a href="#print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined-name">name</a>, <a href="#print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined-srcs">srcs</a>, <a href="#print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined-kwargs">**kwargs</a>)
-</pre>
-<p>Create compile_pip_requirements target for several requirement files</p>
-<p><strong>PARAMETERS</strong></p>
-<table>
-	<thead>
-			<tr>
-					<th style="text-align: left">Name</th>
-					<th style="text-align: left">Description</th>
-					<th style="text-align: left">Default Value</th>
-			</tr>
-	</thead>
-	<tbody>
-			<tr>
-					<td style="text-align: left"><a id="print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined-name"></a>name</td>
-					<td style="text-align: left">compile_pip_requirements name</td>
-					<td style="text-align: left">none</td>
-			</tr>
-			<tr>
-					<td style="text-align: left"><a id="print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined-srcs"></a>srcs</td>
-					<td style="text-align: left">list of labels of requirement files to combine</td>
-					<td style="text-align: left">none</td>
-			</tr>
-			<tr>
-					<td style="text-align: left"><a id="print-6ab0e184a15c6b123ed2ccb50d45bce7-al_compile_pip_requirements_combined-kwargs"></a>kwargs</td>
-					<td style="text-align: left">kwargs for <code>compile_pip_requirements</code></td>
-					<td style="text-align: left">none</td>
-			</tr>
-	</tbody>
-</table>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-faaae939879696ebed11566e40ca0ddf">64.1.2 - al_genrule_with_wheels</h1>
+	<h1 id="pg-faaae939879696ebed11566e40ca0ddf">64.1.1 - al_genrule_with_wheels</h1>
     
 	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
@@ -10946,7 +10914,7 @@ al_genrule_with_wheels(<a href="#print-5c28932ffd7db34821bebb6fbaa7893b-al_genru
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-4c9b1598e7a9a82eec6d71a660f87d37">64.1.3 - al_py_binary_shell</h1>
+	<h1 id="pg-4c9b1598e7a9a82eec6d71a660f87d37">64.1.2 - al_py_binary_shell</h1>
     
 	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
@@ -11015,7 +10983,7 @@ al_py_binary_shell(<a href="#print-750b5ccdae92d1ae7e79946efe7841fe-al_py_binary
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ae27bc36bfc8fc1150dd8bac1763e4ab">64.1.4 - al_py_checker</h1>
+	<h1 id="pg-ae27bc36bfc8fc1150dd8bac1763e4ab">64.1.3 - al_py_checker</h1>
     
 	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
@@ -11089,7 +11057,7 @@ al_py_checker(<a href="#print-070b5dc3422c00def45ba97767c7072f-al_py_checker-nam
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-159b7ecf904518ce84e02fd72bfe36e0">64.1.5 - al_py_checkers</h1>
+	<h1 id="pg-159b7ecf904518ce84e02fd72bfe36e0">64.1.4 - al_py_checkers</h1>
     
 	
 	<!-- Generated with Stardoc: http://skydoc.bazel.build -->
@@ -12530,6 +12498,11 @@ Terraform. Its immutable commit pin selects the action implementation;
 	<p><code>repo_delivery</code> implements the deterministic part of repository delivery. It
 invokes native Git and a selected forge CLI; it does not infer task ownership,
 choose validation commands, resolve conflicts, or judge review feedback.</p>
+<p>Status and immutable changed-path inventories, and preparation receipts,
+support complete output up to 4 MiB so large source relocations can use the
+guarded workflow. Stable reads and writes enforce that
+limit; other typed local records retain their 256 KiB limit. Receipt schema,
+scope, integrity, and publication checks apply at either size.</p>
 <h2 id="print-e5d718520ef5395ddf24170568b5cb5a-provider-and-delivery-workflow">Provider and delivery workflow<a class="td-heading-self-link" href="#print-e5d718520ef5395ddf24170568b5cb5a-provider-and-delivery-workflow" aria-label="Heading self-link"></a></h2><p>Run delivery commands from this Git worktree&rsquo;s repository root, which owns the
 root <code>MODULE.bazel</code> and <code>tools/repo_delivery</code>. This also applies when changed
 files belong to a nested Bazel module: its workspace does not own the delivery
@@ -12774,7 +12747,26 @@ race and attempts an exact guarded rollback. Coordinate consumers that react
 immediately to branch-update webhooks.</p>
 <h2 id="print-e5d718520ef5395ddf24170568b5cb5a-review-workflow">Review workflow<a class="td-heading-self-link" href="#print-e5d718520ef5395ddf24170568b5cb5a-review-workflow" aria-label="Heading self-link"></a></h2><p>Start with a bounded structured inventory:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bazel_agent bazel run //tools/repo_delivery -- review inspect
-</span></span></code></pre></div><p>Carry values from the latest inspection literally. All mutations require the
+</span></span></code></pre></div><p>For feedback on an exact candidate with recorded passing validation that is
+already published, use one command:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">out/task/repo_delivery review address <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --receipt-file out/task/prepare.json <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --thread-id &lt;thread-id&gt; --body-file out/task/reply.md
+</span></span></code></pre></div><p><code>address</code> verifies the publication and validation evidence, derives current
+provider guards, posts the reasoned reply, saves its receipt, and resolves the
+thread. The default reply receipt path is derived from the preparation receipt
+and thread; <code>--reply-receipt-file</code> selects an explicit path in the same task
+directory. A durable attempt checkpoint beside that file prevents duplicate
+replies after interruption, success, or an unknown reply outcome. Retry with
+the same paths after an explicitly reported read-failure restoration to resume
+resolution using the unchanged receipt and expiry. Expired, consumed, or
+changed authority stops without reposting. Inspect the actual remote state
+before explicitly selecting a fresh receipt path for recovery. Keep checkpoints
+trusted and do not delete them to bypass this protection.</p>
+<p>Thread inventory includes each thread&rsquo;s first comment page in its enclosing
+request. Only additional comment pages need separate queries. All pages retain
+shared byte, node, request, cursor, and metadata consistency checks.</p>
+<p>The low-level commands remain available. Carry values from the latest inspection literally. All mutations require the
 pull-request node ID, expected head, and pull-request expectation digest. A
 top-level reply also requires the
 reported last-comment sentinel and top-level inventory digest:</p>
@@ -12825,7 +12817,7 @@ Reinspect after every mutation and use the newly reported IDs and digests for
 the next one.
 The one-use reply authority expires no more than five minutes after issuance.
 Resolution verifies the authority window and atomically consumes the receipt
-before contacting the provider. If a provider read fails before any resolution
+before contacting the provider. If a provider read fails or the review epoch advances before any resolution
 mutation is attempted, the tool can restore the original unexpired receipt
 without replacing another file or extending its authority window. Only an
 explicit restoration report permits retry with that receipt; no additional
@@ -12927,6 +12919,17 @@ owning regeneration, validation or integrity workflow.</p>
 so it can inspect files that are tracked by Git but not declared in BUILD
 files. This is a local-checkout guarantee, like the root Buildifier test; tool
 acquisition remains hermetic and pinned through Bazel.</p>
+<p>The quality suite also runs pinned ast-grep against every tracked first-party
+Python file not marked <code>linguist-vendored</code> or <code>linguist-vendored=true</code>, rejecting symbol imports in
+favor of module imports and qualified member access. Formatting exclusions do
+not exempt first-party Python from this check. Explicit public re-exports
+listed in <code>__all__</code> may use direct symbol imports in <code>__init__.py</code>; wildcard
+imports remain forbidden.
+Its syntax fixtures distinguish real imports from
+comments and strings. Module from-imports are verified against source paths
+and pinned Python module specifications without executing imported packages.
+Like formatting, this complete-checkout check is local
+and uncached; downloaded external repositories are outside its coverage.</p>
 
 </div>
 
@@ -17389,7 +17392,12 @@ separate, quota-consuming operation from inspecting this CLI.</p>
 	<h1 id="pg-b33b6997f695130ef588eb5c2ab49fdd">108 - Ykman</h1>
     <div class="lead">Ykman (Yubikey Manager)</div>
 	
-	<h2 id="print-ca4bb3ed341f02bb1f147c6aa0ffb138-links">Links<a class="td-heading-self-link" href="#print-ca4bb3ed341f02bb1f147c6aa0ffb138-links" aria-label="Heading self-link"></a></h2><ul>
+	<h2 id="print-ca4bb3ed341f02bb1f147c6aa0ffb138-links">Links<a class="td-heading-self-link" href="#print-ca4bb3ed341f02bb1f147c6aa0ffb138-links" aria-label="Heading self-link"></a></h2><p>Python dependencies use the shared <a href="/docs/tools/py/">uv locking workflow</a>.
+Dependencies are declared in <code>pyproject.toml</code> and locked in <code>uv.lock</code>.
+Run <code>//tools/ykman:uv_lock.update</code> to update the native lock and review its
+diff. Build <code>//tools/ykman:uv_lock</code> to generate it without source writes.
+The sandboxed resolution action requires network access to PyPI.</p>
+<ul>
 <li>Install: <a href="https://docs.yubico.com/software/yubikey/tools/ykman/Install_ykman.html">https://docs.yubico.com/software/yubikey/tools/ykman/Install_ykman.html</a></li>
 <li>Import certificate: <a href="https://docs.yubico.com/software/yubikey/tools/authenticator/auth-guide/smartc-import-certificates.html">https://docs.yubico.com/software/yubikey/tools/authenticator/auth-guide/smartc-import-certificates.html</a></li>
 </ul>

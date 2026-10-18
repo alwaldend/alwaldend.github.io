@@ -45,7 +45,7 @@
 
 	<meta itemprop="name" content="Ansible collection">
 	<meta itemprop="description" content="Ansible collection alwaldend.main with Bazel source packaging">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
 	<meta itemprop="wordCount" content="73">
 	<meta itemprop="keywords" content="Ansible_collection">
 	<meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -4259,7 +4259,13 @@ handler to reload systemd and restart the runner.</p>
 	<h1 id="pg-ed02860b5498ad955756c1ae81bfa6e3">2.25 - K3s bootstrap</h1>
     <div class="lead">Bootstrap k3s cluster</div>
 	
-	
+	<p>The role declares Python and uv as host packages, creates its Kubernetes virtual
+environment with <code>uv venv</code>, and installs the Python client with <code>uv pip install</code>.
+The environment is created only when its interpreter is missing; package installs
+report changes only when uv installs or removes distributions. These operations
+run during an explicitly authorized role deployment and require package-index
+access. Repository validation builds and renders the role without deploying it.</p>
+
 </div>
 
 
@@ -4281,7 +4287,7 @@ handler to reload systemd and restart the runner.</p>
     
 
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c5427a830d474331a32ebec771196c6f">2.25.1 - Defaults</h1>
     <div class="lead">Defaults for k3s_bootstrap</div>

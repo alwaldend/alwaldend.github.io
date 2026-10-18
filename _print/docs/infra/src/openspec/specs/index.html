@@ -43,7 +43,7 @@
 	<meta property="og:type" content="website">
 
 	<meta itemprop="name" content="Specifications">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
 	<meta itemprop="keywords" content="Infra">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Specifications">
@@ -142,7 +142,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -216,7 +216,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-dd9917d740995ee077e3bb86cf310119">Repository</a></li>
+<li>2: <a href="#pg-8d66e0fcc3dd1819fbc0a6b9f14b83ed">Python import validation</a></li>
 
 
     
@@ -231,7 +231,34 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.1: <a href="#pg-c8750e23cfc87061c0ef77ac0fe6060a">Repository Evolution Specification</a></li>
+<li>2.1: <a href="#pg-ace8ecc63c70a588b81507b888b93e0f">python-import-validation Specification</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-dd9917d740995ee077e3bb86cf310119">Repository</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>3.1: <a href="#pg-c8750e23cfc87061c0ef77ac0fe6060a">Repository Evolution Specification</a></li>
 
 
     
@@ -344,7 +371,7 @@ version</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-dd9917d740995ee077e3bb86cf310119">2 - Repository</h1>
+	<h1 id="pg-8d66e0fcc3dd1819fbc0a6b9f14b83ed">2 - Python import validation</h1>
     
 	
 	
@@ -371,7 +398,83 @@ version</li>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-c8750e23cfc87061c0ef77ac0fe6060a">2.1 - Repository Evolution Specification</h1>
+	<h1 id="pg-ace8ecc63c70a588b81507b888b93e0f">2.1 - python-import-validation Specification</h1>
+    
+	
+	<span id="print-351a2a39b869874fd38230ae2843bb03-python-import-validation-specification"></span><h2 id="print-351a2a39b869874fd38230ae2843bb03-purpose">Purpose<a class="td-heading-self-link" href="#print-351a2a39b869874fd38230ae2843bb03-purpose" aria-label="Heading self-link"></a></h2><p>Enforce module namespace imports in tracked first-party Python source through repository quality.</p>
+<h2 id="print-351a2a39b869874fd38230ae2843bb03-requirements">Requirements<a class="td-heading-self-link" href="#print-351a2a39b869874fd38230ae2843bb03-requirements" aria-label="Heading self-link"></a></h2><h3 id="print-351a2a39b869874fd38230ae2843bb03-requirement-validate-namespaced-python-imports">Requirement: Validate namespaced Python imports<a class="td-heading-self-link" href="#print-351a2a39b869874fd38230ae2843bb03-requirement-validate-namespaced-python-imports" aria-label="Heading self-link"></a></h3><p>The repository quality suite SHALL reject individual symbol imports in tracked
+first-party Python source using the existing pinned syntax linter, except direct
+public re-exports listed in explicit <code>__all__</code> in <code>__init__.py</code>. Wildcard imports
+SHALL remain forbidden. Module imports
+and qualified member access SHALL be accepted, including importing a verified
+module with <code>from package.path import module</code>. Long module paths SHALL use this
+form. Downloaded external source SHALL
+remain outside this first-party check. The Python skill SHALL describe the
+convention and its owning validation target.</p>
+<h4 id="print-351a2a39b869874fd38230ae2843bb03-scenario-reject-a-member-import">Scenario: Reject a member import<a class="td-heading-self-link" href="#print-351a2a39b869874fd38230ae2843bb03-scenario-reject-a-member-import" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> tracked Python imports individual members outside explicit package re-exports or uses a star from-import</li>
+<li><strong>THEN</strong> repository quality fails with a namespaced-import diagnostic</li>
+</ul>
+<h4 id="print-351a2a39b869874fd38230ae2843bb03-scenario-accept-namespaced-imports-and-inert-text">Scenario: Accept namespaced imports and inert text<a class="td-heading-self-link" href="#print-351a2a39b869874fd38230ae2843bb03-scenario-accept-namespaced-imports-and-inert-text" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> source imports modules, including verified module from-imports, or includes from-import text only in comments or strings</li>
+<li><strong>THEN</strong> the import check passes</li>
+</ul>
+<h4 id="print-351a2a39b869874fd38230ae2843bb03-scenario-preserve-existing-consumers">Scenario: Preserve existing consumers<a class="td-heading-self-link" href="#print-351a2a39b869874fd38230ae2843bb03-scenario-preserve-existing-consumers" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> existing first-party imports are migrated to the enforced convention</li>
+<li><strong>THEN</strong> their module references and supported package exports remain usable</li>
+</ul>
+<h4 id="print-351a2a39b869874fd38230ae2843bb03-scenario-accept-explicit-package-re-exports">Scenario: Accept explicit package re-exports<a class="td-heading-self-link" href="#print-351a2a39b869874fd38230ae2843bb03-scenario-accept-explicit-package-re-exports" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> <code>__init__.py</code> imports direct symbols and lists their bound names in explicit <code>__all__</code></li>
+<li><strong>THEN</strong> the import check accepts those exports, including relative imports</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-dd9917d740995ee077e3bb86cf310119">3 - Repository</h1>
+    
+	
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-c8750e23cfc87061c0ef77ac0fe6060a">3.1 - Repository Evolution Specification</h1>
     
 	
 	<span id="print-c378dc05c1ccc435141658b0f6b0a137-repository-evolution-specification"></span><h2 id="print-c378dc05c1ccc435141658b0f6b0a137-purpose">Purpose<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-purpose" aria-label="Heading self-link"></a></h2><p>Define how the alwaldend/src monorepo evolves its shared structure, build
@@ -446,8 +549,12 @@ specifications and maintained changes in its own <code>openspec/</code> workspac
 <code>infra/src/openspec</code> SHALL describe evolution of the repository itself,
 including shared structure, build system and development workflows. The
 repository root SHALL NOT collect component specifications or change records.
-Maintained work SHALL preserve outcome, decisions, tasks and requirement
-deltas. Existing task authority MUST survive workflow transitions.</p>
+Every repository change MUST use an OpenSpec change in its owning workspace,
+including trivial edits, documentation, configuration, and dependency changes.
+A matching active change SHALL be reused when available, and artifacts SHALL
+remain proportional to scope. Read-only questions and reviews do not require
+a change record. Maintained work SHALL preserve outcome, decisions, tasks and
+requirement deltas. Existing task authority MUST survive workflow transitions.</p>
 <h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-change-a-component-contract">Scenario: Change a component contract<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-change-a-component-contract" aria-label="Heading self-link"></a></h4><ul>
 <li><strong>WHEN</strong> a change affects a project&rsquo;s supported behavior</li>
 <li><strong>THEN</strong> its specifications and change artifacts remain in that project&rsquo;s
@@ -469,6 +576,17 @@ supports completion</li>
 <li><strong>WHEN</strong> a project has its own Bazel module</li>
 <li><strong>THEN</strong> repository OpenSpec validation still checks its declared local workspace</li>
 <li><strong>AND</strong> a successful repository check does not omit that project&rsquo;s requirements</li>
+</ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-make-a-trivial-change">Scenario: Make a trivial change<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-make-a-trivial-change" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> an agent makes a one-line repository correction</li>
+<li><strong>THEN</strong> it selects or creates a matching owner-local OpenSpec change before
+editing, with small artifacts and skip_specs if behavior is unchanged</li>
+<li><strong>AND</strong> the record adds no approval gate to already authorized work</li>
+</ul>
+<h4 id="print-c378dc05c1ccc435141658b0f6b0a137-scenario-conduct-a-read-only-review">Scenario: Conduct a read-only review<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-scenario-conduct-a-read-only-review" aria-label="Heading self-link"></a></h4><ul>
+<li><strong>WHEN</strong> the task only inspects a bounded change set and reports findings</li>
+<li><strong>THEN</strong> no new OpenSpec change is required for that review</li>
+<li><strong>AND</strong> the review itself does not authorize implementation or publication</li>
 </ul>
 <h3 id="print-c378dc05c1ccc435141658b0f6b0a137-requirement-legacy-goal-migration-and-deprecation">Requirement: Legacy goal migration and deprecation<a class="td-heading-self-link" href="#print-c378dc05c1ccc435141658b0f6b0a137-requirement-legacy-goal-migration-and-deprecation" aria-label="Heading self-link"></a></h3><p>The migration SHALL preserve all tracked maintained goal history and its
 recorded acceptance and execution states with source-to-change mappings and

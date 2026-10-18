@@ -1,0 +1,690 @@
+{
+    "sections":  [
+        {
+            "title":  "Changelog",
+            "items":  [
+                {
+                    "content":  "Merge pull request #177 from alwaldend/t3code/anki-application-boundaries\n\nEnforce Anki application and package boundaries",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "142825e94b7d2f5f756f137bec968b4993611d29"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq1MahCRC1aQ7uu5UhlAAALeEQABAknM0r6iWSFD/7YqHdCwOM\nNgqp3d1qwtZ20T0wEztOijuCL5YJYjCPyiWJJ4hiZVL5kO7MDYb0+9d0yKTL78rD\n9yf7FEB/CW3qR9XKb/mZzEbaeNCTFzp1N4IaRAO+/15ls4ANTQdjvdzw4TtWxLko\nxGlGyq/J9rj+AjFtFGeG/xolo373gH9fFlS8cDFlCELMVHHQodrh5GXJWfycXlPh\n6M3x5THzOpaG6W8YjxALG10C/Q6FHnUGI0l1ghgRCxuq2/Mh9o9ZH25gXkU9IxAY\nHXDrHng8mTVVUi5McxNVa+JdAkaoFwomlaju/DWOYq12gOCaIVz+2Y8syWp9EkhN\nQUydSRyprrMxP4STHwjHqSi46jTV69fr8eq0WMB1p/NpKo8zR4xJzTpRksTLbIuD\nf4PJMm9dhcGrqHilDlTbfPqn21XbQW5XrWo/txcbTzpzKzBm0htCJ3GGtpoS9rkC\nj+74nhmjjAV7DYmhNxGuX0lAG6eERLzRbIvxY9JtPOGotj0I5Y634UTH/Nk2OTjN\nGfxQVfxeR8BoZKWX8r2UkDUaONiDG6Ma1oDe/VUS30Aw42W9dJrw+R6NDCOp5zPI\nqHdxQI6ks76CaRFcr2LobJ6j9RjUURltlHrvZ4KJAaCGLu+0aEMWTA96atnzSfzz\nIQ3oIHz499AgCKJScsEj\n=Lsf2\n-----END PGP SIGNATURE-----\n\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Merge pull request #175 from alwaldend/t3code/anki-linked-server\n\nLink the Anki server into the CLI executable",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "a5c5e2f81174de9923bb1de469c610b4ebb31e04"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq1LuQCRC1aQ7uu5UhlAAABkEQAHirlOGSowl+bS4sllru2EUA\nzICgyn7fJ3e44lefXmmTHeHQi+H/dbcTUPvERuOzoMt6x+GsieXIHY0D7/MjagXa\nKYsOMG0qu3GmUmZsaqfwy28fn0eP8VR9PjrfjgqRIq02xVdPmQxnl3ghWpIrH1vV\na6dzegOWcQpESbaktfwiLYMgEyCM8PEpX0ulvanMCGcnNxNXupXO57xkxu4A7aZ/\nxp3NZwVhD0NjLIHM+5Wat177IpgtYk6DtmItaVTz6b0ahxg7VjGLAk9OA2XJQQFO\n0Vz7/vfe3Y2Z1884YXZtb+S5nsNTPade68XLeIgNCt8N6eztdXUUDhjAwnDofq7S\nQW01cb4JS/zC8EXszf4Z4aSHURL42PLAtHEw6ZZsedvLL/VYqX+AmM3khHq2AAhE\nQ6uq+p305KRfLSUH7+P9BSdth5Zw8TmoWMpta/4gOp0XwuiaOngurInuwotA5dLZ\njy/W15YfBAkf95r0k5NRvZ9mU32QDf/5/OtKhqafQ4zJ16blxRpGG2N4SQ4j9dYh\nqmQanjwG/qIy9qyJx210EJkdbJF1gWXAz/26oUjeq9ziv9wEKrT166v5kWNOn7IT\ngaPHHb0dtZmH+NRQnIY6WWdjxlMuOpi+NWY0pGnzUKC1LJpvjXmkUUHqxpzyZ6aK\nXytPOLdzmAu9tqT5rLEG\n=8hNi\n-----END PGP SIGNATURE-----\n\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Merge pull request #174 from alwaldend/t3code/anki-grpc-backend\n\nAdd explicit Anki backend access and complete Go schemas",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "dea0aeed939f44c2fefc257b7f4ffb90c8309677"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq1JuBCRC1aQ7uu5UhlAAAHwkQAJpOD9krb3m3KmkUb2USjXsV\nEZDvgxiPIv/reNM5RZCPiKEXHQUttTjz78CK9yuEcf6cLlF1BgUxsD+zOsSJAr2R\nLXdsbY9icaALNoE1Lt96XmF4G2m9wRsJCRg5vhpAeJwjvj0nh61tvQQZzjQ0R1m1\nW2QL3L7CLLOf/17YJORr5re4LIZPr3/XhP3rFYyZMahR6+imNzwzw4J1Pf1Dr3aj\nVxvxjZjJtrqawIqBqTCYBkLu1K38CiMRXXf4NeLs0DOqEYGj3RtdVDzJcXhDQnm6\n0j+3HUoZkhbK/2qoEr74isZnnKp8nHktFe0zIyuw8muKCOOehXTFNaMyp5p+9zz0\nEnYVpkZeTB/1+oj0cgK96GaLSoYBesk+Fc6GEXezbZ7kh5jeHiV3aCyUTVBMYjPa\nQPmXHLP3LzFMSvAwAoiAV5hNakZJjZvS21taXlfjeOZLNGezdYeDl5gBRyMtUENl\ngKwk6SuK3vVFTrAIgPpzZdhQBfcQtjxSPoDz7jMx5LuW/5XxJvpHkEj8+ZyLDfG8\nMKtDAAzy9nurqeYeEQJ0r14u7L76XlG5AV6FOnD9gfD5VgvZBLpKgdl1jya0mY29\nFmnnZ7uYH+x7RMED014vEYF37RCAQHRAFBowmaY36Y95VmO7SNsv7hwMy2aJosdH\nNkfTC8bTqCY3h3TVoDwm\n=i/J1\n-----END PGP SIGNATURE-----\n\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Merge pull request #128 from alwaldend/t3code/anki-collection-as-code\n\nReconcile Anki collections with executable native plans",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "d8385aaf24a6d2443afbb4bb69549f54772f2895"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq0+CNCRC1aQ7uu5UhlAAAQUgQAFEKIlDiBrK4u3PrpNhEBjhS\ns97S0XywQ4nZoymqoPvSkJJILM1ykXDpfq+hP7bp5EOwVFNtuKuekvoFa9/Vk/1X\nl38pOKbtNYdZIs8IAxf/ybja/LxHB0WrsrpTUeZvNrYomA6DNulwTlOEKlfogm+t\nyyhL3cAym8Evqs6otV01GZJgcA670yOGyVB9X9ACxPEkkIvgAKpkfm0Uqzj37Y/G\neyGAlX96U8v2IAnMwCzbu1zBF/NAooDUhjKwpcch/r4zd8y/cy9+Ge3XfjR2mH/b\nbxnRq3gxP/nibvMjBhoC99O9ypu04LvtV5iNi/+xFCjZAhgJ9RlHFYE4c9asxr+4\n60bNBq4tgFJjf5dR55x6/Zr67sWf8MAFetcFETpLr+FZZxL0Nw3qJj3O5pu4sxpV\njtuDd6QCV+oMqqG0wwUN4cCdxlpp5LKqY6RfDv97BtGo97/Fxbaq7QFwi2mZ1zQH\nUp9dIQ8xsuom42bYUb3TfFGXtc2nNvwntHG/Pd2gY5SCCX2RLOwo6rIatIfGVvf9\n7i1xRjEmqpZkJn5WHqU4uzUT0i0coZ4wWU82rzutLrrkZKV6qkSeo5o2OFQ66L1n\nk83LHDE7wPosWbPvV/Bq8Ll6uG2neJGwjptsuL4omn42TIAWIUkS/xypiMA4vSTP\nKeor79V+7Kxh/Pjez5GM\n=Z+O8\n-----END PGP SIGNATURE-----\n\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Merge pull request #169 from alwaldend/t3code/anki-archive-build\n\nRebuild collection archives independently of reconciliation",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "e219846730b6fadc3c2c77859b33faf5ce651c0c"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq090OCRC1aQ7uu5UhlAAA6igQAIgLodsfWh+AbLaoLZmJcz7t\na+GZYwheONtWDZhD1Ndbu8nEmkriNgQ88L5YhR3/AVtSJV05SpAVskPP5WiST/Co\nhOpsUd7eQcf4IaPaFgUcf7FHbKTOiIQDdmwXD+ngslRmcwN8NNYCUOjOKfjSm/5T\nVLT4M1kc4SXxj79OfbuX3gxHFcern/ChnZZEtL3Wo8t++7v3PKtIBGbjRT7rIBaK\nuycrko1uTF0DQZrn2FAiHHD4v7Kl2a9KRmvdUgz6Yb+GDE++Mwwj14MpyD72HkEz\n9oEpWmKqPWyq7OBpuMp/2ZJnNfWU5d00CtaP5lx2syzic1zQuyMmPIkVd+lRaHFt\nM1LTaZ6/7kUII58FLXUMeB/d4u/ZBmTisH+XBNYUUjNMNV3CJwHSsw/D0qH/mO1B\n1X+m7+Jm1c5ZnrSTSP6tINopHrYNkD99pd8GA1nool6+abI5clYV+yw8E1UfV+j1\npOrcMrSyvsOgG5/h0ot8CSgxPgvexXXvmExPoL3MuE0SrI8dyIDiatsRbXnrIOWa\nkH8K4xH+ZgYs4jYBFY15kIv3y5DFm0AQftbHk1tShqIDLggP6JzJ4nREdpmszaDz\nKTjTI71413F1LcGtRkd6W8iSky8MZu+nU78vRIy+/8qNFPKtgvnqyx51Sy+dxGQ+\n6EFvXWnxptoezZ4M2pA8\n=PAdR\n-----END PGP SIGNATURE-----\n\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Merge pull request #168 from alwaldend/t3code/anki-planning\n\nExtract pure executable Anki collection planning",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "1bed0e46784dd64af5698e25ae9950efca4c10b2"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq08nmCRC1aQ7uu5UhlAAA6z0QAD8/t1XBATElfL4hV61N10cP\nLedDsRsMrlkeORF8ql0ppXYb2Sa06mAoBdX/2dUh2miJ13g2gbAIaW1erEzaBBha\n9jpjAj00PqPqpGP5RLW6sZJt75+8Z+UCco6uKpeBo7BqkfZEKl9qzfNVr0NAjqf4\nMsa/Tq2G68oWIrJ2VVF2PBvJVhs5K38HQ8eYh9LNuXl+6luflJUYr8GpcsRZt0Ej\nh8xjL1Mg3hNb0ONbjwfZ6u1N2wsrC8wfoMaQWrlrvTKfTNN4//xWo4FW9Y4UaE9/\n9r7o2HzfUC28nljsfwNQtNco9poHM5+4VmNVEkngezGgK14cE4PZnEqbnSNzh39l\nIwqbwkCg48V1EOlmjtiBrvvwj32ZWCJQ0nLpfWF54PQnpvRp/E5ZRtgfeCqo1OS5\noKEwTDnW6nYkZasQfsCOtRxAv1KOq+aaYPAeMQdjRRCDE/hxz7s1epcaadOF3Qnb\nUCbUPw0PYomSsmOdUYpJiBUJwkoTzAJN6xJy1aA/3WoBEj9ZTDpcPH1YAgXh7piY\nzWuGc94s8yc7GwhiGCPjxzzmHTFQPdw3rp7DkqNAtgH8BtTnQQ8iq3kdLUkgHb+K\nSiaqNrwdy1GMbvggni9J8n13RGDI+WlgPAsUJEulG2mgxWUcYpWH7soWDtq/QxbG\n+WAkqf1vqTWL53O/RC4W\n=j71j\n-----END PGP SIGNATURE-----\n\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Merge pull request #167 from alwaldend/t3code/remove-anki-backend-managers\n\nRemove backend managers from the native collection workflow",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "e4b61aa3185dd0c6c0a49246358eb8d9890224ba"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq040jCRC1aQ7uu5UhlAAAjogQABDXZE4IwWcIa8DEvVagTROc\nwbn+jJWaxsJm+HjJCH0KTC/h+1BRmx1XzWT9CKqNk9m+lvvmXAAtql5j2ZkFvyok\n2ii8FAuSXBzyWlvfel1PuskA37qpHOEPz8Zm1NquszrYbF9EloM1sjv4VXD3tq4g\ns+fTJm2eMhlhO52173mGh5KAJZiDsZfMWMkwE43H8OXCb2q94n3lWmQNS5EdF9De\nqGRON14+AvD9rN8hoaf5ENl3tUdP4hvOn/JCVKRoLRbck6Cf99NYH98KXhN/8uAK\ngct2P+qY0CBx6GtrAYk3dajvbXI2lKcttJpp5xJ5A8zb0blVzxJsjqMkuevVqlAj\nggr8BcppMn7Lw1Mg31sPOBmPqoqRn9uxEtZpKATbKo5brumaA02mHP684owEYVHD\nR8wR3a9z87m41JZCiZARadVkMmJ2rLjJRPWKTYrFxM6J19K59Dbh5HlXM6Ut3ftf\nL07iq5Q8cTiBKTtNrb6mtvUlG9gzh/u/6/hl9p/DawKv3yY3cDSB83mzPvqDJ8+h\nGl7A1RW0jWwXRcUO5T/n6YiXRNYB0IGa6KXZSjZhTEHDhbb0PtsPWYtOgP9/cg25\nEG4x7cMSnUxPtUc66DHViS4U0sofhHG29MzvJvmmdprvKUJ4BIZszg+qODXNbbIA\nvFjfLSh3LnbDRTtkMscT\n=EaFZ\n-----END PGP SIGNATURE-----\n\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Merge pull request #165 from alwaldend/t3code/anki-collection-store\n\nCoordinate collection reservations and archive publication",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "8565b627059978578481f3be0b732adde1dba961"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq04JuCRC1aQ7uu5UhlAAAgD4QAFCKnFnz0cn3REu1Frhp4Rqi\nTBkDPK2Us+AhaY954SBTQp7YuRGGvW4jgTFsH9qH9l8gz3UJU+eHBywxF9cY3B3A\nYNoJknfIc3itrapdiFS91qBN+hf2Q8WuK3+YYnai3ic6PgXeM/iiPS3ak5FsaPlQ\nbO8oe2B5RBIZhbJ+gzuj+vzIuGO/F5FE/+Ayxvi56lfiyvWiRMaySCCjjrcisMne\n+XzBqcmAwR9mIVrnV9kPR6WQxvqJnXOajJDDLDH3WC9uwA9LdNbxGXszK7CameNh\ngl2AjDUnFsDxlAiVmr44tcoBkVFpcPesrA5bbCFbe4qe+A/gi2HSObbKss8c1vha\nbtPjCjisI9g9dpjn/5xcL+tE3UVT6XcnyBBRV3K8CPf5nMYalQsALCqcpfMMVYPn\njQ6uW/POpm6Fb1UqoXiAXS5PaJluVYMwnH9jsfD4hvNQ2QGaaMOUjef99cfrAr0i\n0yIP6OJj4LRcpQbq8BzsqTtH7ATeVCr8opfIZoGd2UK1P/cssY5fifGkypQXxMMU\nNEJN6uYAewyJ7Z0wjmRg3ob/Rqo3e/3H2E1yBjlZEk7Hb6D6h9foMBK07BcoiFZS\n/ivm4hkt6/jLddsywCKNrxC6ZwLE/R/D8jNJN1I+ua+dFme6A3q3yIjjqTnBkEu5\n9whNxkOYKgzRfJ9EvK9a\n=oN6k\n-----END PGP SIGNATURE-----\n\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Merge pull request #166 from alwaldend/t3code/anki-backend-managers\n\nAdd scoped managers for Anki backend lifetimes",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "cbf05b45b8939a043babd770c55cb05f0c90cdbc"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq03eICRC1aQ7uu5UhlAAA344QAGhVkcIhsxnI70OzxsOjlIE9\n5VBcqtv5ck6/DK/9F1R6WMwIzFL9FJGR4nLvGF4vdWnEQ59+3gwHsBg+3oT5N9jF\n4RYffza5j7S7PqjY0APt/heOdUqIos8PeU0fiw7jvIMVTWMVBmaAFNPErFEFbt/r\n/c2kXjSH+WlsmN5IAl5kuWew6UYCyxIv0RwmMwpJ9aGXJPH7I2DqTwTSGtJaEGgc\n2PHw3s6EqMeeFwV3o+vyTWoQKB2tJqMuuAUYeEejFkNyrX4IYBSQhUGAFo2wDy7h\nLEWCgj2GUjcemrXuC+8slfjE8COECd8EE/lxyGSgimSHgeQL6x9J8nAMZLV5OpZq\n9T+nRmkbvA3V19S6gXUdRQmdne64WSHC2JMSWIXt28j0kpJFToYqClSqCzan1BiI\nFFNhrR2FhScT6ImOlER/rQXk4JSs9a4JGx1BhW93s+9jjxQ6waWwO2y6Gx/FqREL\n+jJatA6hzb2ZFxXUaHIsdXnYVPfAtKEaiE4oxtjFWKK82vYgEgGRTSgWenNTxSfC\nYu1UY45Hkofb4u7S7YdNy5FsYXC7rzWuV6hG7EK8Fk5GPe5uAT4pTCRfNgqZlqIz\nCgQzMB3EAJwl6B1efIL7wMAfa0H4d16nk8ZRiyF4OLPJnmG/lpArUfo/abe6MF4o\n3lN8h+SolmWTlwi4afho\n=GyCG\n-----END PGP SIGNATURE-----\n\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Merge pull request #160 from alwaldend/t3code/anki-text-export\n\nAdd prepared-connection Anki collection export",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "3dc4e55f1c04726d0614a0ab00e7c8a64e9407f2"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq0resCRC1aQ7uu5UhlAAAjm8QAEv25iV2+dyPR3qNmX7qDcTc\n8CJE/7zP7CXzwl0fepeypUIrsDHIlfR7fq8rywMzqwhAXV0mQ+P2J1TnVC2n0LQG\nq0kqXqrHc/m0/gjiLsa+5u95zISZYSDqzfizweNvvTVjLc4ZKOheQepMw6f+VEvI\nPygDytzO43dHUQrVNjiG4+3YwW13Sm4Pz6yJ8cEKJ5MZhYbiOdjON/P8yhPPSBKD\nTuYeaq2sDP+T+wusFsE5wapfjGuDb1Gav43QxzUkQ5Y41pM8r/r0R3c2IBK0mNcf\nYjpj2BObz9NnCduKQfe1mwHW/E+Kt/FpMEvkZtscoBPoelBy1ppYhb1iqQP/8cQR\nAkM1VmYVb/LthYVd3D1Kd4ZD7HJMsYzkcm7S4BwDF1Os9wvXVZRKLYAUlpbaqbBz\n6jW2A3TGuCCgJIEeq64r8D8HO3rXbgm9hz2Hr8wXxs280sq7fAYg8DvOkxybQxE9\nJfm4DUVuLn96830q6Gf2KwsqaZtnCOyPwUln8ptPTDTWv49qpMbwwO8CJLsCyGoX\nAwEhk0gTA3ajFGCl2e9aL9DgeW7J354LozcBWvHKCwXphPDMcawOwyMOIeezcqJ4\nkY5mAIpXU+JkgzgDLaDszPu4t8rGCcb29whC68+cpD4ZHgytdoYMYqMTEln4qSG7\n4ws56wkydidkd3BreDdy\n=/h0g\n-----END PGP SIGNATURE-----\n\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Merge pull request #161 from alwaldend/t3code/anki-resource-store\n\nExtract shared Anki resource clients and snapshots",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "e9b53157ae6e4c71cc396fc2c3f4641c2e77bf5a"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq0oh2CRC1aQ7uu5UhlAAALOcQAFmKLyOpXn5uffWi0KUnS9Ru\nql2Vyoy32kjqqFH6Zi9DdCrg6pC9JopyEvKgAElh8ruPe49KciN7CoDGP4tfnop0\nVdCN8woZk2rJ4I9XwT2M6pN3KdB6YJj1+ieohsUOoRzfGCa8tpC5rlcFUcSgr/vF\nDK1qXLcyJXsc5Dz5FkAhOEnOcZ1HnoZowSU25vWtA4A6mzfV6gtRUVAeJNzQGxjZ\nKu+/hSKRFS88iHWoCAhaOXwu3febLBxlShn4iKQnKVGObb+I9Ki7z44gYt+opQnz\nvC7E54ZtPB7pGj1nHQRFu6hqCoHBcVj7ViyeQP/ikJLVdwkd/KQM3uRmaXetmR7S\nAfDuZIbglGVha2Swhvbts9+Ippxkoq1jYeKhGzFNrFpkjZCBNbt7MEeT7UwVB3i+\nfNunqSHGUt3DoBkCN/ldZVyxeCJtlhn7T/wCUJkCAPmxWnwpVkF3f7VReQA2rBp5\nYLsJhnWuYpWL15eFqA5oqL5OpVOvHkTD6Ds32qW+I/6rNvXv2+58lxzHomOHPBrh\nAZTRupPn0aGVhnNVUVgvHcuTT0z5lQlaoCajgYWqP2oOHLWMPkaYR4qGZ+DGAC4B\nHid4UBtLzu/75Y4KsUICAHg1f4bvMv4O1O1Nt0hm67B3Wuri3mVLmIA01rx5a0J9\ndk40SKlYuplnRQF3FkG9\n=UfLg\n-----END PGP SIGNATURE-----\n\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Merge pull request #156 from alwaldend/t3code/anki-collection-export-import\n\nAdd explicit Anki collection state management",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "b0547c9af0fc88882558ec24cac1a9d6aab596c4"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq0j2CCRC1aQ7uu5UhlAAAhUsQADj9v3tuJ0f7/UPFep2KtzSb\nEPPC39SG1c3P2ILDJMDCQItd+bNAUjkOD4DYTobc4TERXFPhVVS6zuJHQhmMg+j9\nR5boaFvD1kVncYVakCLE3GG8RiaghYUDNPwpIs/9SAr38Ids2+PJhMKNlrxXu5y1\nXAgrWwHW85pivE3HQ/qJm4b8OVtd8FzfGo3EzSQn/hjbhI7wyEP+9GYuJshRPnIH\nepBeoX32o9Rs+vNqXB97+A0UOjbsuQR+SyOdTPY/o0lpXHJbT/m0TpMejHtUnlGe\n2YpsPxUlf6qHadYvB2kqEBO3VOs+yO2kknIwP3WwTxFcEChR7JgS8hcwgce51soJ\nPP8ElB5VcWlrJtonJYfmoT5pGhgT6MzgdhcUS2b1U0xKV7iVbtXLBPdT1sLotcan\nNG9FCtdmDDSJ7JNyWebwrNO7J27FwJvsOncRrj4cFUd0ZL/l+B+baEBlJRfPDqPU\nvoqmdI5tkfTZctUBIoNDOko0+IUBfQYU9aIfhCjBcgCBZWOEEdftibwvSEI8mv+1\nFHZJO4yoWcR38hU2qLG3JJz5e5efNAO5WVy4807brZREDHTxNFz73KbL+lVPxsqI\nO629qlvQu0ivBgW3oMOJGslfDsEgSHW6xMsrfOFbBLSXtoSsfkxoGpazrD2rZZN4\nmGxlADVcx+e193tHhhmg\n=c4eq\n-----END PGP SIGNATURE-----\n\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Merge pull request #157 from alwaldend/t3code/anki-collection-backend\n\nAdd a collection backend for prepared Anki servers",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "cf772c28089b6466c182044f3717cb8b52abc416"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq0TswCRC1aQ7uu5UhlAAAQE4QAExVGVGuWlWCRu0cF/8FIQUR\nu1H9JXwXeRfsAuXqa0BtMoEEDWVYTnvDEJZmaXoFRnlR7B7fCB0A0EP351IT1cYP\nZ4BzttldJ7pEKHmvs8Kcm/j497QIYvc79pMS49B/AZW4aI1TvI7Bf+PEaI9kqx3s\nq7EEes7533g0JV90zaA8d8I8j2a5a2aJgtnCIRQkoSYJzsCEfE5zjdPjBxdtOSUB\n96Kea7gUnanjO/ucVQr4+fazUqP/yqvzOwLz2xDAtusYHjrTLnRp9NtA4qT3uo72\nLPRAUFJcXrWU+Y1WV8teCgflBFDdqib7z//zEIRIMWbRrL3bdCmGxCbxwDc2yg6Z\ncizELbVxkcX8A1VVY1PFugFNMuSFPifd4iHHyG+IBVuG2eVT+weIY/oDQm6/IHRO\nZJl22zhi8dd8DO3tvOgzl3UxPLkupkkCUAcBN+Z2ll4I7yw3PHAI1xtNf2G36c/w\npzy0qpbHGPddwFeRu/Q2nKctDAcoV+nLe1TK8OENurhaM1/U8/9nTHje7PWCKHT9\nxk6NZ/gNgk/O/SU5y6oJoh35UQLCDx7ryaR9VxAwacYzZZH3zN4TZZoPmZPKvqip\neNU4oKD3j6WYfBaJI4AIo/XF5F/m2G7y5d2jlul4h68XUAyhuN9jNwYPWcqd4e9F\n6R7wzZJv/XtCF4Jv9PBG\n=8/Nt\n-----END PGP SIGNATURE-----\n\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Merge pull request #146 from alwaldend/t3code/anki-cargo-go-api\n\nAdd generated Anki service clients and a managed Go backend",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "d29ecbbfd089064e299918c5ed8d2c034ab79375"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqzmxACRC1aQ7uu5UhlAAAPWYQAJaKxzcjZ54cC6IWy2yUPxO7\npZoZJ7HKmEl/QMRRNJPwRQCbzE9uqqcNq910KoNMvH+FssQvAZmRLfTYMAYLXHkm\noXx2c0VQ/E3W1GGWz2YoUk9hSu1XNsx0Ti6ggg7MzC8WmDUA2xfW3BCCGQ1utfgf\nCsW7KY8l3f0dtDx25BgpxQNNRnRHkvevxK3eCUd44rdAc5jwS2V+nn5kVIMSYtG7\nyBJrXY2NAUkrEe5Mgh7SbTh6Uvh9BI8qeL8Zdil2lm5P22cSbxfPuSBvhkDI9UyF\nWPTdc6idKl88lzx4rwIyRSxfTiw9Nji2RgP8nnIRb77RlRhDUeUYw2t0s3tPAiR1\nZoL0sY2Ui78+0NdqMegM44phADPKY8kXhp6I5Ew3lh+dh9nSqUBVFAAf9zP0Ykot\nL8+BX2QHixtv8OYQym+js1K0yuh18kdYrjGmSRl8zNWMhiB66o4KzMa8q0OmtpY5\njgWJe4OjAuv8K0TV0ieGGXexv+T3P6T4izpPrk7JPeKVOoKlv8MdA0+sZqfqzLQD\nhj2o+9gPKqlq/mb7NGtX+IhYTHI9uRsoXYgqlDd6WXw3IYgAyoTUMHt7zSGRWLvx\nR77K5V3poxqg61WkxlhZqVRNjvWTB3mRowAbM9ZPt4Epk7BZZSQOyAdltsan8gwo\nrcQREbyPmq1WAcy4bSuG\n=y1WE\n-----END PGP SIGNATURE-----\n\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Merge pull request #147 from alwaldend/t3code/extract-anki-grpc-project\n\nAdd the Anki gRPC server with configurable transports",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "51a66d3f0fd2b0744bf18ab93fcef28e07e977e9"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarren <simeonwarren@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "GitHub <noreply@github.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqzVjFCRC1aQ7uu5UhlAAA9wYQALEeMx+0tqJMGGUVSo9Wv+XC\ngOydtUS1vxuJbEUL2rjt/QmuNqZdwur6CTmND80gIHeEtjPx3dH5yM2bDz4Yqjov\n/fqs4A9wN7CRn/HxqQpp8v1N7AFq+dJ0aP8MFFNIhQDaJ8Broy3v0HTtAW+ZBmSF\n2VpE5kq3lsaig5CdwhT+03a/Lgqd4sqHpdBRe/S3g5dHvGdGv/b/d0Bglo3OBcXY\nXZEIBGCiv3vnpE2DT4xEX7mDeiJaL+3t1OEfVZlojUeDXtVfmG7bfglAV8KRi7fV\nPCEjj5N0o5U2qRiWjgPYs5NLZXKwqF8hwwLiTQXZGJDQSvqCjr133NAqm/5Mez7N\nQUHSrWsDKzx6jB4vuwsdrfLi1RRKhpjV9ENjECwv4jo6dh7BHFzT66Syz9K6v81s\nE24c6EK6venT+dbUctNViwOC0WBfLypKxYsYA/dY1I8CuLMo1AXZ/n0rc/QNDRJ0\ngtw3ZBi+mBwZ9hWUBI1yP5FgAOALqAo3VCKCcd2MudvIBiBnCcd2q4H7CLtZ/ArN\njVvCACwDLftHuqoJNpMbMATFRHuUC96f3uS9Kq72Jl8lQAJy5xK0QS7UCkIcy6EY\naC+a7XHg8zTVbifK2zxdXCB8hZW09h4EvwJGWK6Cj2xZiWMUKQj9gO64557c9s2W\ng3KEcsNSM6j8tNSqGufP\n=0jRj\n-----END PGP SIGNATURE-----\n\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Migrate Python dependencies to native uv locks and update Python\n\nUse component-owned pyproject.toml and uv.lock files directly with\nrules_python and Gazelle. Remove maintained requirements files, optional\nlock comparison tests, custom wrappers and the obsolete firmware pip shim.\nUpdate rules_python and its Gazelle plugin to 2.4.2, and select bundled\nPython 3.14.4 without a custom runtime archive. Pin Bazel-managed uv 0.13.0.\nPreserve compatible package versions and update PySide6 for Python 3.14.\nMigrate the existing K3s role's Python installer and Autoscroll install hint.\nCorrect Autoscroll import-root wiring and zero-argument help formatting.\n\nValidation: native lock output inspection, consumer E2E and build tests,\nPython tool CLIs, offscreen Qt SVG construction, repository quality,\nsemantic lint and a disposable Ansible dependency-installation fixture\nwith zero changes on its second run. No infrastructure was deployed.\n\nOpenSpec-Change: infra/src/openspec/changes/migrate-python-dependencies-to-uv\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "45ea5eefea07c487d0a5c8f19596d34706b59d78"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQCWgy3izYMvktEFxsZ2GCzh5ibrpI0qudCFzhT15Ug+GyhCR8Iwi5pfXgLM+ZsDX5s\nQjNZX+aQsLhyQU0okYFg4=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add the Anki gRPC server with configurable transports\n\nBuild Anki 26.09.3 from its unmodified, pinned Cargo workspace and\nsubmodules in third_party. Use standard crate_universe dependency\nhelpers and rules_rust targets; remove the provider-reflection helper\nand metadata-only wrapper manifest. Reuse the repository OpenSSL build\nfor workspace-enabled native TLS and lock the approved package set.\n\nServe official Anki protobuf commands over CLI-selected stdio, TCP, or\nUnix sockets. Initialize one backend at startup without a custom RPC.\nInclude CLI help, release metadata, a registered landing page, and the\nfinished project status.\n\nVerify native/server builds, TCP and Unix persistence/reconnection,\nGo stdio compatibility, Clippy, schemas, site, quality, and semantic lint.\nInspect emitted SQLite collections and the native dependency boundary. The Go API and approach diagram remain in PR #146;\nboth PRs target master, and shared files leave #146 after this merges.\n\nOpenSpec-Change: infra/src/openspec/changes/extract-anki-grpc-project\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "383b97b1708c83d9e78c93bb4373fc0c35c1a766"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQOigOFxYY6qHNPMdleEGMWMsCWV1hY4MQO2YZ4KBE6PnbpQS/3A7F+9EatJlaZ6VNf\n1KTivy9RXcNAcmil/WqgA=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Document Anki configuration APIs with Mermaid diagrams\n\nShow the existing Load, Dump, and Export Go operations in a process chart and\nthe configuration model in a class diagram with path references and filesystem\nlocations. Add the corresponding README explanation and remove stale merge\ninstructions for the already-merged configuration API.\n\nRender light/dark SVGs for the site and dark WebP previews through maintained\nBazel targets. Preserve configuration behavior, collection placeholders, and\nthe main reconciliation PR's architecture documentation.\n\nThis documentation is extracted from #128 and targets master independently.\nThe source diagrams match its published versions; unpublished preview edits\nremain local. Verify renders, config CLI E2E, site output, quality, and lint.\n\nOpenSpec-Change: projects/anki_as_code/openspec/changes/extract-configuration-documentation\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "6f051a3fad4139adca7813bf92198d128e5d91ac"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQMJmnkAL8jXExNB1WOvgPeDSVFH6OmVpnzRDimAx974p++GPY4C6DXBuELei0FuELT\nyLwEuXcV1g4vj4evWdWQA=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add a collection backend for prepared Anki servers\n\nAdd BackendCollection and its options object to the reusable Go backend.\nIt implements Backend while borrowing an already-started server: Start\nopens the collection, Connection lends gated generated-client access, and\nStop closes the collection without stopping the borrowed backend. Keep the\npublic methods limited to Backend; restore destinations belong in options.\n\nOpen .anki2 databases directly. Restore .colpkg inputs through Anki into\nan owned temporary directory by default, or an empty persistent destination\nselected with RestoreDirectory. Observe consuming package exports and retain\nfiles when cancelled native work makes cleanup uncertain. Callers stop the\ncollection before the process and clean retained temporary files after reaping.\n\nSerialize startup with shutdown and reject preparation after a completed Stop.\nLeave failed-start cleanup to explicit Stop instead of a hidden shutdown timeout.\nKeep the connection adapter limited to Anki unary calls, tracking completed\nexport failures as consumed collections so their temporary files can be removed.\nTrack every unary caller and retain sticky uncertainty after unconfirmed\nresponses. Stop drains active callers within its context while ordinary\noperations remain concurrent. Native E2E covers active and cancelled media\nrequests, concurrent progress access and cleanup after backend reaping.\nNative E2E verifies overlapping lifecycle calls, storage/media persistence,\nrestore ownership, backend reuse, readiness, consuming exports and failures.\nThe anki_as_code integration is maintained separately in PRs #128 and #156;\nits native, CLI and configuration E2E are verified against this library.\n\nOpenSpec-Change: projects/anki_grpc/openspec/changes/collection-backend\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "716e530974856cbd0b7ed9cb1b96588290075b62"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQPqF+HT6kw1ReQN+Kr0/CQ26cajyeMMzkFNMeu6YYp5U3BF8obosC0pngeiJdssSe3\ntmyKCYB9PcAR9eQ/v01QI=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Manage OpenSpec CLI installation on Host Bot\n\nInstall the pinned npm CLI under the managed user prefix and share Node.js\nprerequisites with the existing npm tooling. Document the managed installation.\n\nOpenSpec-Change: users/simeonwarren/host_bot/openspec/changes/manage-openspec-cli\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "427d81c3c05550abb0ad4bc70a40af275ffe6c38"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQDTLaEOOT0590PbV86TVvzPWqvvZnKOFix6HfiloxfmXdPqeJzv71WmmLafIsRGmdb\n+WcfdEXOcNT8EamSp4RAs=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Extract shared Anki resource clients and snapshots\n\nCentralize native resource access in internal/resource.Store. Construct Anki's\ngenerated clients once on a caller-owned prepared connection, and read fresh\nupstream deck, note-type, note and card messages plus existing preset names.\nPreserve unmanaged resources and filtered-card references; return no partial\nsnapshot after errors and retain caller ownership of lifetime and returned data.\n\nInclude the selected deck ID when preset reads fail while preserving the native\nerror cause. Expose the generated clients for resource operations without forwarding every\nmethod or creating generic CRUD models. Keep state bindings, config projection,\nplanning, mutation order, files and backend lifecycle outside this package.\n\nDocument the API and verify native operations, ordering, fresh reads, detached\nvalues, cancellation and borrowed lifetime with JSON/native package artifacts.\nConsumer integration belongs to PR #128 and PR #160; both stay master-based.\n\nOpenSpec-Change: projects/anki_as_code/openspec/changes/extract-native-resource-store\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "1227d9bc991d388f2d3a4e3bdbf6b6ddd576bd41"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQMlC0iW+UcrsqCI622cMuBH7hngDaqQ4sc/1gn8zxyvDeouECpqGUy02A6YjPqZEQC\njewsB4b6YxzU+rG7cQdgY=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Integrate state commands with the native collection workflow\n\nState commands now accept existing .anki2 databases and .colpkg archives through --collection. Compose the managed process and collection backends per operation, preserving direct database writes and using Anki native export for changed archives. App.WithCollection owns the scoped operation and cleanup; callers construct namespaced state stores directly from its prepared connection. Close the collection before the worker with bounded cleanup.\n\nExtract the lifecycle and state CLI integration from #128 as an independent master-based prerequisite. Collection export, plan, apply and build remain placeholders; backend, state, config, codec and resource implementations are unchanged. #128 retains the overlap until this prerequisite merges.\n\nVerify database and package state operations, batched imports, namespace isolation, no-op archives, cancellation, cleanup and preservation of native notes, reviewed cards, history, presets and media with the existing E2E coverage. Include the state flow diagram and current lifecycle documentation.\n\nOpenSpec-Change: projects/anki_as_code/openspec/changes/extract-collection-workflow\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "736b68c8e3637072e4adbdf41d3ef42ca1e754de"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQK8Fw1kdC314naRQSl1gIyz2w2vD0MViiZnTP/J4WwtlAVHWOey7gA2pMRSWTFhuo4\nxkkhIThCDISd7MoNXFwA4=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add scoped managers for Anki backend lifetimes\n\nCallers borrow prepared native backends through Manager.WithBackend or\nManagerCollection.WithCollection while managers own startup and ordered\ncleanup. Share their lifecycle sequence through private withBackend, with\ncancellation-independent cleanup and each manager's existing shutdown timeout.\nKeep constructors, backend names and the public manager API unchanged.\nPreserve callback errors and custom cancellation causes, and reap workers on\nscope exit.\n\nKeep source reservations, idle-worker caching, archive publication policy and\nAnki-as-code services outside this independent library change. Native E2E\nverifies readiness, process reaping, failure/cancellation/panic cleanup,\ncombined errors, delegated cleanup order, persistence and package restoration.\nValidate repository quality, semantic lint, native consumers and documentation.\n\nOpenSpec-Change: projects/anki_grpc/openspec/changes/scoped-backend-managers\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "d4f05bb4c28cf8a6dfb92ea4cc8214f77705782a"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQHDFMK7sXWE0Ac+aH+CxxDZJH2bWp8Ylbh0pNezRLVtPi75wSD+haxTLi786l++mvb\nLaCFhENfoUBrbar1hNCQU=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Integrate collection export with an isolated CLI\n\nExpose collection export through the native workflow and existing exporter/config store while preserving source resources, state and archive bytes. Add config export for JSON-default or TOML config sets supplied through files or stdin. Keep plan, apply and build as placeholders; reconciliation remains in #128.\n\nKeep concrete App in pkg/ankiascode and Cobra commands in internal/cli behind a private flat application interface. cmd/anki_as_code composes App and cli.New and handles signals. Group native commands under col with alias collection and text-only commands under config with alias conf; pass paths, namespace keys, protobuf objects and contexts explicitly.\n\nReuse the merged collection.Store for source reservations and archive publication. Its callbacks receive prepared grpc.ClientConnInterface; application workflows construct resource/state stores and exporters locally. Backend managers own native lifetime. Keep this PR against master; the collection-store and empty-media prerequisites are merged.\n\nVerify isolated dispatch, flags, syntax, codecs, stream/error handling and native database/package export and state workflows. Emit native collections and TOML/JSON artifacts; validate repository quality, semantic lint, CLI builds and integrated documentation.\n\nOpenSpec-Change: projects/anki_as_code/openspec/changes/integrate-collection-export-cli\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "c9e8bba47b437b6f31824805887c2b3b122f6fe4"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQKht1d4cdL2w9Ym3Hxp8x1JLXJgM/+bVVURWxj/m0fMoPXj9PU/EknxSH8a2dOW5Rm\n2hEOvId4sWYkLGi3uVrwo=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Remove backend managers from the native collection workflow\n\nThe collection store is the sole production manager consumer and already chooses a fresh stdin/stdout worker per source scope. Remove Manager, ManagerSTD, ManagerCollection and their constructors. Keep BackendSTD and BackendCollection with their explicit Start, Connection and Stop contracts.\n\nHave collection.Store construct both owners directly, lend the prepared connection and close the collection before reaping the worker. Keep bounded cleanup in one private application helper, preserve callback/cancellation/crash errors and panic unwinding, and retain source reservations through cleanup. Existing archive publication and native restore-retention behavior remain unchanged.\n\nReplace manager spies with real worker subprocess observations in the existing native store E2E. Verify process reaping, retained connection rejection, failed-start recovery, source reuse and callback success/error/cancellation/panic/crash paths. Retain direct backend, collection and application E2E, emit native collection artifacts, and validate quality, semantic lint, CLI and documentation builds without new dependencies.\n\nThe paired library API change is recorded in projects/anki_grpc/openspec/changes/remove-backend-managers.\n\nOpenSpec-Change: projects/anki_as_code/openspec/changes/own-backend-lifecycle\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "4ee4d9e9137a6243811259f683bfad0ea7979b49"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQK4mql9nv9Fe5VSb98oMJXgfP7BfzAVDOoHOuEpfPD86KYM1YJ8HKJ7PUxl8/iJfqA\nxvj0jyvn3UG65mVG1jPQg=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Extract pure executable Anki collection planning\n\nSeparate planning from native execution so callers can prepare an executable CollectionPlan from supplied configs, a native snapshot and stored state without I/O or input mutation. internal/plan exposes one pure Build function; native execution and App integration remain in #128, independently targeting master.\n\nIndex captured Anki protobufs directly and resolve desired configs once into existing prepared protobufs. Share path/ID indexes across ownership checks and comparison. Produce typed operations and report entries together, with expected_state, proposed_bindings and path references for new objects instead of fabricated native IDs. Keep implementation indexes and resource moves private to planning.\n\nRetain stable native member identities or original stored names, explicit move provenance and collision-free name releases. Protect untracked resources, template deck targets and resident filtered cards, including the cloze template-zero mapping. Permit tracked deck and note-type replacement without claiming untracked names. Anki owns native validation, normalization and generated-card migrations.\n\nNative E2E captures exported TOML and snapshots before stopping its backend, then verifies deterministic detached plans, unchanged inputs/database, independent returned payloads, member drift, moves, empty namespace convergence and ownership protection. Extend the ownership fixture before refactoring; all seven baseline public reports remain unchanged. Emit executable JSON and native collection artifacts, document orchestration with Mermaid, and validate quality, semantic lint, consumers and integrated documentation.\n\nUse folded-name order to prepare parents before mixed-case descendants. Keep preset aliases in the owned protobuf state and move disjoint bindings directly using existing resource maps, without duplicated ID, occupancy or replacement maps. Cover directory moves, occupied destinations, preset payload ownership and native deck replacement.\n\nKeep desired decks in a single path index and sort emitted operations directly. Derive filtered-deck exclusions only for card assignments, reuse Resources for moved bindings and the pinned typed protobuf clone API, and use bounded member-ordinal slices. Verify declaration-order independence and resulting filtered kinds before implementation; preserve reports, ownership and executable-plan contracts.\n\nOpenSpec-Change: projects/anki_as_code/openspec/changes/extract-pure-planning\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "c7084c29b12b518f18fa00993c5f0ae2a5541b66"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQHGUJQYHq9HiBl4S08hvwDaY1fwOeEWqYF6K0NqJ9gFlA5+nKyIDvHjMqQ40h7T27k\ngGBPInM7VSzhK5ggshRww=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Rebuild collection archives independently of reconciliation\n\nAdd internal/rebuild.Builder with an injected apply operation. It copies a\nregular collection package into private staging beside the destination,\nrejects source aliases, and publishes only after successful native work.\nFailure and cancellation preserve the base and existing output, including\nboth context cancellation and its custom cause for errors.Is.\n\nNative E2E coverage updates actual Anki state and verifies changed/no-op\npackages, failed publication, cancellation, panic cleanup and invalid paths.\nIt emits collection archives and JSON state. No dependencies are added.\n\nThis is the independent build prerequisite for #128; application and CLI\nintegration remain there.\n\nOpenSpec-Change: projects/anki_as_code/openspec/changes/extract-archive-builder\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "fdc24da80367d206eced1593c5429d8399bd104e"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQMc8dJ3At4NFhei4lnMHnh+r1GxyseoS5S1uc45YRyC7nMiAMlNzdEap1ZHMqFa7Fp\nx1GAvKeHMQgcJ85zcM+gM=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Order Anki lessons and Guzhenren notes by source creation IDs\n\nUse each grammar lesson's earliest note creation ID for its padded prefix,\nwith deck IDs only for the four empty lessons. Preserve the chronological\nsequence within lessons and number Guzhenren vocabulary files within their\nexisting passage groups; retain all 133 sentences in chapter reading order.\n\nUpdate explicit moves while preserving every note, deck, type and exported\nstate payload. Verify the native rebuild, source identities, content, media,\ndue dates and review history, plus an empty post-build plan.\n\nOpenSpec-Change: users/simeonwarren/anki/openspec/changes/refresh-collection-20261017\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "7e75672ab753ff2ea0da58378ed938cf4edaa80c"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQFtGXlES+tUctwBSI4Ro6kOvTfY2II7dQjMus0KjouGk3mZWMH93Fmj9zRXbzs8GVJ\nLbWh+k2sE+K9gACqOtoQA=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Add explicit Anki backend access and complete Go schemas\n\nAdd a gRPC backend for explicit TCP/Unix endpoints and opt-in collection archive write-back. Keep WriteBack false by default, publish enabled archives independently of earlier RPC failures, and retain recoverable files when publication fails. Keep native executable configuration explicit and strip symbols from optimized workers.\n\nExpose all 25 pinned Anki Go schema packages through one third-party catalog and standard protobuf generation. Preserve upstream versions and approved dependencies. Verify native backend persistence, remote ownership, transport behavior and existing application consumers.\n\nThis is the backend/schema prerequisite for https://github.com/alwaldend/src/pull/173. Both PRs target master; the CLI PR will be trimmed after this merges. Application command registration and its generator remain with anki_as_code. Preserve the current worker runtime build input until the CLI embedding change replaces it, so existing master application consumers remain functional.\n\nOpenSpec-Change: projects/anki_grpc/openspec/changes/add-explicit-backend-access\nOpenSpec-Change: infra/src/openspec/changes/complete-anki-go-protos\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "7a9de99a2f60162384ddf83dce541b249193bde8"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQOAu4dI+kuVQwtlRyHaEEeiGMlv1rm8xvjHBgEBdPWgSqxzKgBLtiDfpDhG5jcWIQ6\ngx5TLmNFtLoc2IXvJQBg8=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Link the Anki server into the CLI executable\n\nCollection commands launch the current executable with server serve, so an installed\nanki_as_code needs no companion executable, extraction or PATH discovery.\nKeep process isolation and the existing bounded backend shutdown behavior.\n\nShare the Rust transport, command dispatch and descriptor generator between the\nstandalone command and one argc/argv C ABI entry point linked through cgo using\nexisting Bazel rules. Require explicit worker configuration for Go application\ncollection operations, remove production discovery and the implicit standalone\nworker runtime input, and configure the product worker with its own executable.\nName the Go host package ankiserver and its client-side lifecycle package\nankiclient. Keep server run as a generic native CLI passthrough and make\nserver serve delegate to server run serve. Rust owns serve dispatch, help,\ntransport arguments and validation.\n\nTarget master independently of API CLI PR #173. Verify installed native\noperations with an empty PATH and unavailable temporary storage, missing worker\nconfiguration, explicit library workflows, TCP/Unix interruption, and native\ncollection persistence. Test fixtures declare their executable inputs.\n\nOpenSpec-Change: projects/anki_grpc/openspec/changes/expose-linked-server\nOpenSpec-Change: projects/anki_as_code/openspec/changes/run-linked-server\nOpenSpec-Change: infra/src/openspec/changes/complete-anki-go-protos\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "52633104989781cfc5cf4aae1b0bda82f2280855"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQAlgJgIzxgDiNQGIzsZvizpY5IaO8DrflS9NttdafDLbsGMmtQUtDBbCpsSGTQnFmI\nrwxWZtZYs138iJ8haJkwk=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                },
+                {
+                    "content":  "Expose Anki services through the CLI\n\nGenerate service and method commands from all 25 compiled Anki schemas,\nwith protobuf JSON/TOML input and output and no per-method wrappers.\nRoute execution and validation through one shared App operation supporting\nmanaged offline paths, borrowed connections and explicit TCP/Unix servers.\n\nUse the linked server through the same executable. Preserve caller-owned\nresources and make managed archive write-back explicit, enabled by the CLI\nand existing application workflows independently of request outcomes.\nBound incomplete input by cancellation and timeout, and preserve linked\nUnix server lifetime across client disconnections.\n\nVerify installed execution, payloads, persistence, native connection\nownership and package boundaries through end-to-end workflows.\n\nOpenSpec-Change: projects/anki_as_code/openspec/changes/add-grpc-api-cli\n\nLLM-disclaimer: This commit was generated by an LLM.\n",
+                    "attrs":  [
+                        {
+                            "name":  "Hash",
+                            "content":  "553fa45551d8f56d8f3f7faff5110f50e364ec09"
+                        },
+                        {
+                            "name":  "Author",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "Committer",
+                            "content":  "simeonwarrenbot <simeonwarrenbot@alwaldend.com>"
+                        },
+                        {
+                            "name":  "PGP",
+                            "content":  "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn\n78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQA67cuGDdLrv5uuGFe8D63nt4prFv7JWsNWlggpO9n6LhTzHwTx4SQBAukRyiU3+mo\nubm4I6djHcntygmxrY6AU=\n-----END SSH SIGNATURE-----\n"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title":  "Artifacts",
+            "items":  [
+                {
+                    "content":  "[anki_grpc](https://hub.docker.com/repository/docker/alwaldend/src/tags/projects_anki_grpc_anki_grpc_head/)",
+                    "attrs":  [
+                        {
+                            "name":  "Type",
+                            "content":  "File"
+                        },
+                        {
+                            "name":  "Pull",
+                            "content":  "oras pull --output \"${PWD}\" docker.io/alwaldend/src:projects_anki_grpc_anki_grpc_head"
+                        },
+                        {
+                            "name":  "Size",
+                            "content":  "89.34 MB"
+                        },
+                        {
+                            "name":  "SHA-256",
+                            "content":  "bca0ef1e7cb94ee309e2d9123c5d1b6fce9cd3fca8f40475c26500c4f596a9bc"
+                        },
+                        {
+                            "name":  "MD5",
+                            "content":  "61c5960dbd5c6e805543624cbde7c1ee"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

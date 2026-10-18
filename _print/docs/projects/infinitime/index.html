@@ -45,8 +45,8 @@
 
 	<meta itemprop="name" content="Infinitime">
 	<meta itemprop="description" content="InfiniTime firmware fork with a text watchface and Pomodoro app">
-	<meta itemprop="dateModified" content="2026-10-03T17:06:06+03:00">
-	<meta itemprop="wordCount" content="166">
+	<meta itemprop="dateModified" content="2026-10-18T19:50:28+03:00">
+	<meta itemprop="wordCount" content="218">
 	<meta itemprop="keywords" content="Embedded,Fork">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Infinitime">
@@ -146,7 +146,7 @@
     aria-label='Search this site…'
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.55e1eb5dae7b97607a2838af073a0d58.json"
+    data-offline-search-index-json-src="/offline-search-index.c36056fa591b9da18b8f6aa5a792dd2d.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -237,13 +237,19 @@ repository packages the pinned firmware source and its build dependencies.</p>
 <h2 id="print-f13f849d797f44328675f93ebba1c108-usage">Usage<a class="td-heading-self-link" href="#print-f13f849d797f44328675f93ebba1c108-usage" aria-label="Heading self-link"></a></h2><p>The root workspace declares the pinned firmware with <code>use_repo_rule</code> in
 <code>include.MODULE.bazel</code>, preserving recursive Git submodules and the CMake
 toolchain patch. Firmware source is fetched when referenced, rather than
-during module resolution. Its Python/npm lockfiles and SDK archives retain
-the upstream pins; Python and Node runtimes use the root workspace toolchains.
-The project re-exports pip and npm with separate extension identities so
-unrelated Python/npm targets do not fetch firmware to read those lockfiles.
-The isolated pip extension declares the Linux x86_64 host platform used by
-the pinned ARM compiler archive.
+during module resolution. The Python tooling manifest and native <code>uv.lock</code> live
+in this project; npm and SDK archives retain their upstream pins. Python and
+Node runtimes use the root workspace toolchains.
+The standard pip extension reads the local <code>uv.lock</code> without fetching firmware.
+The project re-exports npm with a separate extension identity so unrelated npm
+targets do not fetch firmware to read its upstream lockfile.
 <code>bazel mod deps</code> deliberately evaluates all extensions and can still fetch it.</p>
+<p><code>native_uv.patch</code> removes the upstream source&rsquo;s pip-tools lock target. This
+project owns the effective Python dependencies in <code>pyproject.toml</code>; update
+them with <code>//projects/infinitime:uv_lock.update</code> using the shared
+<a href="/docs/tools/py/">uv workflow</a>. Explicit lock generation uses sandboxed
+<code>uv lock</code> and requires network access to PyPI. Firmware builds consume the
+checked-in native lock without running resolution.</p>
 <p>Validate the firmware with <code>bazel test //projects/infinitime:build_test</code>.</p>
 <ul>
 <li>Install <a href="https://gadgetbridge.org/">Gadgetbridge</a></li>
@@ -300,7 +306,7 @@ the pinned ARM compiler archive.
         data-bs-target="#print-9be7b9ff9d319390ae3ad05c12e45f59-release-24269daeeec4e19e63bc24e18f50dcfc-list-0_collapse"
         aria-expanded="false"
         aria-controls="print-9be7b9ff9d319390ae3ad05c12e45f59-release-24269daeeec4e19e63bc24e18f50dcfc-list-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">34</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">36</span>
 </button>
     </h3>
     <div
@@ -310,6 +316,98 @@ the pinned ARM compiler archive.
       data-bs-parent="#print-9be7b9ff9d319390ae3ad05c12e45f59-release-24269daeeec4e19e63bc24e18f50dcfc-list-0_accordion"
     >
       <div class="accordion-body"><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #144 from alwaldend/t3code/migrate-python-dependencies-uv</p>
+<p>Migrate Python dependencies to native uv locks and update Python</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">6f02d8079faa80810f0f51cff2d3b56090777a1a</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJqy/bpCRC1aQ7uu5UhlAAAkxIQAHwLOnLbnuMxL7x8jpDmDfGv
+ACZtFpDocObPzzt4k4ja7Zrgx6pfyJuO1sf03j2wcA7NnC/72TA1OCW7PbSDx0mi
+/MxcuuKS&#43;xhxaIcVO0yF&#43;opbjIlWfm31UltMWrLzTHQ73TdInZBgez5UI30hnIao
+xVqA98bjIzVjFoY8O8GuhCCeuOt9dCnvYPwTbuQYVENNCHV/iHCCgmEbAXLDALfY
+D3irId8ssXgwNuMA5rN39LQ5LJxHCzesoG4FyqqkF3vtmZ5hCnyTPXutqsv9pU17
+d/n3vA4MvVSLy6lTrQsHpGqC&#43;qtjFNxTqdtFci4GvuwfQv80&#43;AV1ch7elLd/7tD8
+4sHPtQUhYgVWMoj7gmyfaDurGdMh5mEm7vYHZWhooXmLEYQNichXIEPDWyalPM7I
+Jr6Vc/xxSj3lCAkcrPJZeEHrcPikBWCW&#43;3E8AftY2MG&#43;wZ9Pc9NAK/zohJ645ATX
+9Bg9h4QOPGzbDxtITt42cbrYMNllm1kHZfUkFyJQgMzxWsVojQ7WBX2sHkxY0QX3
+2f1iZM6EgNvcTzN&#43;JIorezh9PMeXzMZ7WRzbSGOYzWO6Bpgcv66cbMwGB1hWIa70
+VxFZA9&#43;7LGhGi6XQTgbyA4fwNwEWxGf6rra0KWk21llzkBsGphhoFw7OdgUQD1bj
+Umxwie0fzWs8vaj78wsP
+=fWvK
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
           <li class="list-group-item my-auto">
             <p>Merge pull request #95 from alwaldend/t3code/consolidate-project-landing-pages</p>
 <p>Move project landings into the main site</p>
@@ -2856,37 +2954,10 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Publish the X Article story and harden its upload workflow</p>
-<p>Publish the reviewed development story and render blog front matter images
-before article text and in print output. Remove redundant opening Markdown
-images from the two illustrated posts. Keep the first selected image as the
-X Article banner and preserve every image explicitly written in Markdown.
-Document the shared image metadata and encourage its use for every post.</p>
-<p>Retain rate-limit headers on failed X requests and report their reset times
-and conservative retry boundaries. Keep retries manual and distinguish
-historical quota observations from the latest response. Reject HTTP redirects
-without following them so draft and media POSTs cannot be replayed by a
-redirect response, and prevent automatic replay of consumed POST bodies.</p>
-<p>Recover expired Vault certificates through a host-limited Ansible tag that
-stops before reload on certificate errors. Preserve the Vault node identity,
-use its canonical connection hostname, and include that name in the certificate.
-Document temporary Vault TLS bypass, repository SSH CA trust, and verification
-after renewal. The authorized renewal succeeded with normal TLS restored.</p>
-<p>Validate static images before network requests and wait for media processing
-with signed, bounded status checks. Scope cached media to the endpoint and
-OAuth credential context, account for upload time and expiry, and refuse
-identifiers that expire while other images upload. Emit mutable Markdown
-entities and replace byte counting with an explicitly approximate weighted
-budget, preserving the original Markdown source.</p>
-<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
-repository quality and semantic lint; packaged Ansible syntax and task selection;
-strict OpenSpec validation and live certificate/hostname verification.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
-OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
-OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
+            <p>Add pinned Yandex Practicum MLOps course source archive</p>
+<p>Expose the upstream course source through a repository-internal Bazel alias,
+with commit pinning, SRI integrity, and MIT provenance.</p>
+<p>OpenSpec-Change: infra/src/openspec/changes/add-mlops-course-archive</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -2903,7 +2974,7 @@ OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
+                    <pre class="my-auto">8d34717786465d8b7e1828207726a206a3dba2e3</pre>
                   </span>
                 </li>
               </ul>
@@ -2957,8 +3028,101 @@ OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
-fWG92TE1fqjSdJ0K47YAk=
+AAAAQOD8dzNxvh5m8ATdR5RgJDYjZTeq00q1HrjO7u&#43;H&#43;OQPcLY18eBSxpmX4dzGxNDsI8
+4exSivEtsvglKIf29cJQs=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Expose Anki services through the CLI</p>
+<p>Generate service and method commands from all 25 compiled Anki schemas,
+with protobuf JSON/TOML input and output and no per-method wrappers.
+Route execution and validation through one shared App operation supporting
+managed offline paths, borrowed connections and explicit TCP/Unix servers.</p>
+<p>Use the linked server through the same executable. Preserve caller-owned
+resources and make managed archive write-back explicit, enabled by the CLI
+and existing application workflows independently of request outcomes.
+Bound incomplete input by cancellation and timeout, and preserve linked
+Unix server lifetime across client disconnections.</p>
+<p>Verify installed execution, payloads, persistence, native connection
+ownership and package boundaries through end-to-end workflows.</p>
+<p>OpenSpec-Change: projects/anki_as_code/openspec/changes/add-grpc-api-cli</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">553fa45551d8f56d8f3f7faff5110f50e364ec09</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQA67cuGDdLrv5uuGFe8D63nt4prFv7JWsNWlggpO9n6LhTzHwTx4SQBAukRyiU3&#43;mo
+ubm4I6djHcntygmxrY6AU=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -3055,7 +3219,7 @@ fWG92TE1fqjSdJ0K47YAk=
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">bdde8266ca5e792bc37f88732ddf5b6f295fb960577926a2aef1904c00db95d9</pre>
+                    <pre class="my-auto">6a33b67b3da4cc95ad7c5fedd5444d1ad396ff740bfe738ecf844983f8bc9af8</pre>
                   </span>
                 </li>
               </ul>
@@ -3072,7 +3236,7 @@ fWG92TE1fqjSdJ0K47YAk=
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">061cd68da913813bb4db5bd1d0d5188c</pre>
+                    <pre class="my-auto">dbbd2957a4301d06febb6a17e8003e5a</pre>
                   </span>
                 </li>
               </ul>
@@ -3145,7 +3309,7 @@ fWG92TE1fqjSdJ0K47YAk=
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">3cfa47ce93684e6d90c5cbeea963a6c1e8e6ec4eabfb82a9a5f5c9757555520e</pre>
+                    <pre class="my-auto">fcab219e74ad0e2a78000d7773ad4d8b44878c1ab892e5c9419aca20e009765d</pre>
                   </span>
                 </li>
               </ul>
@@ -3162,7 +3326,7 @@ fWG92TE1fqjSdJ0K47YAk=
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">bfcd7a8e21bb4c117b564de05a6539a2</pre>
+                    <pre class="my-auto">8bc4886dbecbcfe9840f17a5b467c96e</pre>
                   </span>
                 </li>
               </ul>
@@ -3218,7 +3382,7 @@ fWG92TE1fqjSdJ0K47YAk=
         data-bs-target="#print-24269daeeec4e19e63bc24e18f50dcfc-release-24269daeeec4e19e63bc24e18f50dcfc-page-0_collapse"
         aria-expanded="true"
         aria-controls="print-24269daeeec4e19e63bc24e18f50dcfc-release-24269daeeec4e19e63bc24e18f50dcfc-page-0_collapse"
-      >Changelog<span class="badge rounded-pill bg-secondary ms-1">34</span>
+      >Changelog<span class="badge rounded-pill bg-secondary ms-1">36</span>
 </button>
     </h3>
     <div
@@ -3228,6 +3392,98 @@ fWG92TE1fqjSdJ0K47YAk=
       data-bs-parent="#print-24269daeeec4e19e63bc24e18f50dcfc-release-24269daeeec4e19e63bc24e18f50dcfc-page-0_accordion"
     >
       <div class="accordion-body"><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Merge pull request #144 from alwaldend/t3code/migrate-python-dependencies-uv</p>
+<p>Migrate Python dependencies to native uv locks and update Python</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">6f02d8079faa80810f0f51cff2d3b56090777a1a</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarren &lt;simeonwarren@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">GitHub &lt;noreply@github.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN PGP SIGNATURE-----
+
+wsFcBAABCAAQBQJqy/bpCRC1aQ7uu5UhlAAAkxIQAHwLOnLbnuMxL7x8jpDmDfGv
+ACZtFpDocObPzzt4k4ja7Zrgx6pfyJuO1sf03j2wcA7NnC/72TA1OCW7PbSDx0mi
+/MxcuuKS&#43;xhxaIcVO0yF&#43;opbjIlWfm31UltMWrLzTHQ73TdInZBgez5UI30hnIao
+xVqA98bjIzVjFoY8O8GuhCCeuOt9dCnvYPwTbuQYVENNCHV/iHCCgmEbAXLDALfY
+D3irId8ssXgwNuMA5rN39LQ5LJxHCzesoG4FyqqkF3vtmZ5hCnyTPXutqsv9pU17
+d/n3vA4MvVSLy6lTrQsHpGqC&#43;qtjFNxTqdtFci4GvuwfQv80&#43;AV1ch7elLd/7tD8
+4sHPtQUhYgVWMoj7gmyfaDurGdMh5mEm7vYHZWhooXmLEYQNichXIEPDWyalPM7I
+Jr6Vc/xxSj3lCAkcrPJZeEHrcPikBWCW&#43;3E8AftY2MG&#43;wZ9Pc9NAK/zohJ645ATX
+9Bg9h4QOPGzbDxtITt42cbrYMNllm1kHZfUkFyJQgMzxWsVojQ7WBX2sHkxY0QX3
+2f1iZM6EgNvcTzN&#43;JIorezh9PMeXzMZ7WRzbSGOYzWO6Bpgcv66cbMwGB1hWIa70
+VxFZA9&#43;7LGhGi6XQTgbyA4fwNwEWxGf6rra0KWk21llzkBsGphhoFw7OdgUQD1bj
+Umxwie0fzWs8vaj78wsP
+=fWvK
+-----END PGP SIGNATURE-----
+
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
           <li class="list-group-item my-auto">
             <p>Merge pull request #95 from alwaldend/t3code/consolidate-project-landing-pages</p>
 <p>Move project landings into the main site</p>
@@ -5774,37 +6030,10 @@ AAAAQP&#43;VcOIIqPR8DY7q4bmucDZO9dJLiApozQqq/IQXHkw4cm9pr98jiPQVSU0J4UBBtx
             </div></li>
         </ul><ul class="list-group">
           <li class="list-group-item my-auto">
-            <p>Publish the X Article story and harden its upload workflow</p>
-<p>Publish the reviewed development story and render blog front matter images
-before article text and in print output. Remove redundant opening Markdown
-images from the two illustrated posts. Keep the first selected image as the
-X Article banner and preserve every image explicitly written in Markdown.
-Document the shared image metadata and encourage its use for every post.</p>
-<p>Retain rate-limit headers on failed X requests and report their reset times
-and conservative retry boundaries. Keep retries manual and distinguish
-historical quota observations from the latest response. Reject HTTP redirects
-without following them so draft and media POSTs cannot be replayed by a
-redirect response, and prevent automatic replay of consumed POST bodies.</p>
-<p>Recover expired Vault certificates through a host-limited Ansible tag that
-stops before reload on certificate errors. Preserve the Vault node identity,
-use its canonical connection hostname, and include that name in the certificate.
-Document temporary Vault TLS bypass, repository SSH CA trust, and verification
-after renewal. The authorized renewal succeeded with normal TLS restored.</p>
-<p>Validate static images before network requests and wait for media processing
-with signed, bounded status checks. Scope cached media to the endpoint and
-OAuth credential context, account for upload time and expiry, and refuse
-identifiers that expire while other images upload. Emit mutable Markdown
-entities and replace byte counting with an explicitly approximate weighted
-budget, preserving the original Markdown source.</p>
-<p>Validation: uploader conversion and HTTP E2E tests, site browser and skill checks,
-repository quality and semantic lint; packaged Ansible syntax and task selection;
-strict OpenSpec validation and live certificate/hostname verification.</p>
-<p>OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-omit-opening-banner-images
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-preserve-api-rate-limit-headers
-OpenSpec-Change: infra/vault/openspec/changes/archive/2026-10-02-recover-expired-server-certificate
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-02-enforce-article-upload-contract
-OpenSpec-Change: projects/alwaldend.com/openspec/changes/archive/2026-10-03-render-blog-frontmatter-images
-OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03-preserve-explicit-body-images</p>
+            <p>Add pinned Yandex Practicum MLOps course source archive</p>
+<p>Expose the upstream course source through a repository-internal Bazel alias,
+with commit pinning, SRI integrity, and MIT provenance.</p>
+<p>OpenSpec-Change: infra/src/openspec/changes/add-mlops-course-archive</p>
 <p>LLM-disclaimer: This commit was generated by an LLM.</p>
 
           </li>
@@ -5821,7 +6050,7 @@ OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">e13fd0042393e40ba94ec5f14bd852150092966d</pre>
+                    <pre class="my-auto">8d34717786465d8b7e1828207726a206a3dba2e3</pre>
                   </span>
                 </li>
               </ul>
@@ -5875,8 +6104,101 @@ OpenSpec-Change: projects/x_article_uploader/openspec/changes/archive/2026-10-03
                     <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
 U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
 78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
-AAAAQJqxjkZlQDLP7w3dm9sLjyi&#43;QQyFXBsYAuG1KtVw6nEFHTFiIHQH3XNLplDTdpMH03
-fWG92TE1fqjSdJ0K47YAk=
+AAAAQOD8dzNxvh5m8ATdR5RgJDYjZTeq00q1HrjO7u&#43;H&#43;OQPcLY18eBSxpmX4dzGxNDsI8
+4exSivEtsvglKIf29cJQs=
+-----END SSH SIGNATURE-----
+</pre>
+                  </span>
+                </li>
+              </ul>
+            </div></li>
+        </ul><ul class="list-group">
+          <li class="list-group-item my-auto">
+            <p>Expose Anki services through the CLI</p>
+<p>Generate service and method commands from all 25 compiled Anki schemas,
+with protobuf JSON/TOML input and output and no per-method wrappers.
+Route execution and validation through one shared App operation supporting
+managed offline paths, borrowed connections and explicit TCP/Unix servers.</p>
+<p>Use the linked server through the same executable. Preserve caller-owned
+resources and make managed archive write-back explicit, enabled by the CLI
+and existing application workflows independently of request outcomes.
+Bound incomplete input by cancellation and timeout, and preserve linked
+Unix server lifetime across client disconnections.</p>
+<p>Verify installed execution, payloads, persistence, native connection
+ownership and package boundaries through end-to-end workflows.</p>
+<p>OpenSpec-Change: projects/anki_as_code/openspec/changes/add-grpc-api-cli</p>
+<p>LLM-disclaimer: This commit was generated by an LLM.</p>
+
+          </li>
+          <li class="list-group-item"><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Hash
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">553fa45551d8f56d8f3f7faff5110f50e364ec09</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Author
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                Committer
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">simeonwarrenbot &lt;simeonwarrenbot@alwaldend.com&gt;</pre>
+                  </span>
+                </li>
+              </ul>
+            </div><div class="btn-group me-2">
+              <button
+                class="btn btn-outline-primary btn-sm dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                PGP
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <span class="dropdown-item-text">
+                    <pre class="my-auto">-----BEGIN SSH SIGNATURE-----
+U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg0/OoO0fyfgVXnUZTMZXlNFA3cn
+78YxSrrdPiskRJNxUAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5
+AAAAQA67cuGDdLrv5uuGFe8D63nt4prFv7JWsNWlggpO9n6LhTzHwTx4SQBAukRyiU3&#43;mo
+ubm4I6djHcntygmxrY6AU=
 -----END SSH SIGNATURE-----
 </pre>
                   </span>
@@ -5973,7 +6295,7 @@ fWG92TE1fqjSdJ0K47YAk=
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">bdde8266ca5e792bc37f88732ddf5b6f295fb960577926a2aef1904c00db95d9</pre>
+                    <pre class="my-auto">6a33b67b3da4cc95ad7c5fedd5444d1ad396ff740bfe738ecf844983f8bc9af8</pre>
                   </span>
                 </li>
               </ul>
@@ -5990,7 +6312,7 @@ fWG92TE1fqjSdJ0K47YAk=
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">061cd68da913813bb4db5bd1d0d5188c</pre>
+                    <pre class="my-auto">dbbd2957a4301d06febb6a17e8003e5a</pre>
                   </span>
                 </li>
               </ul>
@@ -6063,7 +6385,7 @@ fWG92TE1fqjSdJ0K47YAk=
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">3cfa47ce93684e6d90c5cbeea963a6c1e8e6ec4eabfb82a9a5f5c9757555520e</pre>
+                    <pre class="my-auto">fcab219e74ad0e2a78000d7773ad4d8b44878c1ab892e5c9419aca20e009765d</pre>
                   </span>
                 </li>
               </ul>
@@ -6080,7 +6402,7 @@ fWG92TE1fqjSdJ0K47YAk=
               <ul class="dropdown-menu">
                 <li>
                   <span class="dropdown-item-text">
-                    <pre class="my-auto">bfcd7a8e21bb4c117b564de05a6539a2</pre>
+                    <pre class="my-auto">8bc4886dbecbcfe9840f17a5b467c96e</pre>
                   </span>
                 </li>
               </ul>
